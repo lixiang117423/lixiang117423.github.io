@@ -1,0 +1,16 @@
+r
+本章前言
+python
+本章前言-1
+bioinf
+本章前言-2
+windows子系统wsl安装docker
+docker的安装
+docker的使用
+如何从wsl1切换到wsl2
+下载docker镜像
+docker的使用-1
+research
+本章前言-3
+other
+本章前言-4
