@@ -1,7 +1,7 @@
 ---
 title: "小蓝哥的知识荒原"
 author: "李详"
-date: "2021年10月01日"
+date: "2021年10月13日"
 description: "从博士开始，慢慢记录所学的点点滴滴，不断完善自己的知识框架。蓝莲盛开，身心自在；活在当下，正向提升！"
 documentclass: book
 biblio-style: apa
