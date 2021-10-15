@@ -175,8 +175,8 @@
 
 本章主要是关于生物信息学的相关知识。
 
-\hypertarget{windowsux5b50ux7cfbux7edfwslux5b89ux88c5docker}{%
-\section{\texorpdfstring{\texttt{Windows}子系统\texttt{WSL}安装\texttt{Docker}}{Windows子系统WSL安装Docker}}\label{windowsux5b50ux7cfbux7edfwslux5b89ux88c5docker}}
+\hypertarget{wslux5b89ux88c5ux4f7fux7528docker}{%
+\section{\texorpdfstring{\texttt{WSL}安装使用\texttt{Docker}}{WSL安装使用Docker}}\label{wslux5b89ux88c5ux4f7fux7528docker}}
 
 \hypertarget{dockerux7684ux5b89ux88c5}{%
 \subsection{\texorpdfstring{\texttt{Docker}的安装}{Docker的安装}}\label{dockerux7684ux5b89ux88c5}}
@@ -246,6 +246,31 @@ docker run -v /mnt/:/work -it omicsclass/rnaseq
 \end{verbatim}
 
 其中的\texttt{work}是不一定的，需要看镜像给的路径是啥。
+
+\hypertarget{ux5982ux4f55ux521bux5efaux81eaux5df1ux7684ux955cux50cf}{%
+\subsection{如何创建自己的镜像}\label{ux5982ux4f55ux521bux5efaux81eaux5df1ux7684ux955cux50cf}}
+
+先从\href{https://hub.docker.com/}{Docker Hub}下载\texttt{Ubuntu}的官方镜像，然后在镜像中安装需要的软件。
+PS：如何加速\texttt{pip}的下载：
+
+\begin{verbatim}
+pip install django -i https://pypi.tuna.tsinghua.edu.cn/simple
+\end{verbatim}
+
+加速的\texttt{R}包的下载安装：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{options}\NormalTok{(}\AttributeTok{repos=}\FunctionTok{structure}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\AttributeTok{CRAN=}\StringTok{"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"}\NormalTok{)))}
+\FunctionTok{options}\NormalTok{(}\AttributeTok{BioC\_mirror=}\StringTok{"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{figures/0.png}
+\caption{123}
+\end{figure}
 
 \hypertarget{research}{%
 \chapter{嗑盐过程的酸甜苦辣}\label{research}}
