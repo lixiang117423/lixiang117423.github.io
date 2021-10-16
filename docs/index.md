@@ -14,3 +14,8 @@ link-citations: true
 # 简介 {-}
 
 我，李详，昵称小蓝哥。现于云南农业大学攻读植物病理学博士学位。
+
+个人博客：[小蓝哥的知识荒原](https://www.web4xiang.com/)
+
+运营公众号：
+<img src="figures/PLANTOMIX/PLANTOMIX.jpg" width="129" style="display: block; margin: auto;" />
