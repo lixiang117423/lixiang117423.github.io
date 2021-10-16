@@ -1,3 +1,6 @@
+fig:qPCR1
+fig:qPCR2
+fig:qPCR3
 r
 本章前言
 python
@@ -16,6 +19,9 @@ conda的安装使用
 conda安装r及r包
 安装其他软件
 pip下载速度慢的解决方法
+r包pac4xiang的使用
+安装
+使用方法
 literature
 本章前言-3
 何祖华2021cell文章
