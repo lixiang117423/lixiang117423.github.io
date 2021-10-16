@@ -170,6 +170,11 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>1</b> R语言知识汇总</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="r.html"><a href="r.html#本章前言"><i class="fa fa-check"></i><b>1.1</b> 本章前言</a></li>
+<li class="chapter" data-level="1.2" data-path="r.html"><a href="r.html#r包pac4xiang的使用"><i class="fa fa-check"></i><b>1.2</b> R包pac4xiang的使用</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r.html"><a href="r.html#安装"><i class="fa fa-check"></i><b>1.2.1</b> 安装</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r.html"><a href="r.html#使用方法"><i class="fa fa-check"></i><b>1.2.2</b> 使用方法</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>2</b> Python知识汇总</a>
 <ul>
@@ -193,11 +198,6 @@ div.csl-indent {
 <li class="chapter" data-level="3.3.2" data-path="bioinf.html"><a href="bioinf.html#conda安装r及r包"><i class="fa fa-check"></i><b>3.3.2</b> <code>Conda</code>安装<code>R</code>及<code>R</code>包</a></li>
 <li class="chapter" data-level="3.3.3" data-path="bioinf.html"><a href="bioinf.html#安装其他软件"><i class="fa fa-check"></i><b>3.3.3</b> 安装其他软件</a></li>
 <li class="chapter" data-level="3.3.4" data-path="bioinf.html"><a href="bioinf.html#pip下载速度慢的解决方法"><i class="fa fa-check"></i><b>3.3.4</b> <code>pip</code>下载速度慢的解决方法：</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="bioinf.html"><a href="bioinf.html#r包pac4xiang的使用"><i class="fa fa-check"></i><b>3.4</b> R包pac4xiang的使用</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="bioinf.html"><a href="bioinf.html#安装"><i class="fa fa-check"></i><b>3.4.1</b> 安装</a></li>
-<li class="chapter" data-level="3.4.2" data-path="bioinf.html"><a href="bioinf.html#使用方法"><i class="fa fa-check"></i><b>3.4.2</b> 使用方法</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> 嗑盐文献</a>
@@ -236,7 +236,105 @@ div.csl-indent {
 <div id="本章前言" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> 本章前言</h2>
 <p>本章主要是关于R语言的相关知识，包括R语言基础知识、数据统计分析、数据可视化及机器学习等内容。</p>
+</div>
+<div id="r包pac4xiang的使用" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> R包pac4xiang的使用</h2>
+<p><code>pac4xiang</code>这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在<a href="https://github.com/lixiang117423/pac4xiang">GitHub</a>上，更多功能还在完善中，待进一步开发。</p>
+<div id="安装" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> 安装</h3>
+<p>在R中运行下面的代码安装<code>pac4xiang</code>。</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r.html#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&#39;https://github.com/lixiang117423/pac4xiang&#39;</span>)</span></code></pre></div>
+</div>
+<div id="使用方法" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> 使用方法</h3>
+<ul>
+<li><code>calStandCurve</code>
+该函数用与计算相对定量qPCR的标曲。qPCR标曲点样参照图<a href="r.html#fig:qPCR1">1.1</a>。按照我的思路和习惯，我会准备8个浓度梯度的cDNA,从高到低分别是C0到C8。C0是对应批次下多有样品cDNA的组合，然后再以一定的稀释倍数稀释得到C1，C1再以同样的倍数稀释得到C2，依此类推，直到得到C8。</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:qPCR1"></span>
+<img src="figures/pac4xiang使用说明/1.png" alt="qPCR标曲点样示意图" width="585" />
+<p class="caption">
+图1.1: qPCR标曲点样示意图
+</p>
+</div>
+<p>函数具体怎么用呢？参考下方的代码：</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r.html#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">calStandCurve</span>(</span>
+<span id="cb2-2"><a href="r.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="st">&quot;20210927下机数据/20210928lx_1.txt&quot;</span>, <span class="co"># 下机数据位置</span></span>
+<span id="cb2-3"><a href="r.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">genes =</span> <span class="fu">c</span>(<span class="st">&quot;OsPOX223&quot;</span>, <span class="st">&quot;OsAPX1&quot;</span>, <span class="st">&quot;OsAPX2&quot;</span>, <span class="st">&quot;OsPAL&quot;</span>),<span class="co"># 基因名称,与点样表顺序对应</span></span>
+<span id="cb2-4"><a href="r.html#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">rep =</span> <span class="dv">3</span>, <span class="co"># 技术重复的数量</span></span>
+<span id="cb2-5"><a href="r.html#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dilution =</span> <span class="dv">4</span>, <span class="co"># 稀释倍数</span></span>
+<span id="cb2-6"><a href="r.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="dv">2</span>, <span class="co"># 从第几行开始计算</span></span>
+<span id="cb2-7"><a href="r.html#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">end =</span> <span class="dv">6</span>, <span class="co"># 到第几行终止计算</span></span>
+<span id="cb2-8"><a href="r.html#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">drop.NA =</span> <span class="cn">TRUE</span>, <span class="co"># 是否剔除空值</span></span>
+<span id="cb2-9"><a href="r.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">fig.type =</span> <span class="st">&quot;pdf&quot;</span> <span class="co"># 保存的图片的文件格式</span></span>
+<span id="cb2-10"><a href="r.html#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>其中基因的数量和技术重复的数量乘起来必须是12；基因的顺序必须是从左到右的；输入稀释倍数后告诉程序后续的标曲建立如何取相应的对数；<code>start</code>表示从第几行开始计算，如<code>start = 2</code>表示的是从B行开始计算标曲；对应的<code>end = 6</code>表示的是到第6行，也就是F行结束，也就意味着第一行和最后两行其实是不用的。默认是保存标曲的图片的，如果不需要保存图片加上<code>save.fig = FALSE</code>即可，默认的图片格式是<code>pdf</code>格式，可以自定义。</p>
+<div class="figure" style="text-align: center"><span id="fig:qPCR2"></span>
+<img src="figures/pac4xiang使用说明/3.png" alt="函数calStandCurve返回的数据框" width="293" />
+<p class="caption">
+图1.2: 函数calStandCurve返回的数据框
+</p>
+</div>
+<p>返回的结果是个数据框（参考图<a href="r.html#fig:qPCR2">1.2</a>），包含了基因名称、标曲公式、斜率、截距、R<span class="math inline">\(^2\)</span>、P值、该标曲适用的自变量范围（最大值和最小值）及计算标曲的日期等。保存的图片默认存在当前工作目录下（运行<code>getcwd()</code>查看当前R语言工作目录）。</p>
+<ul>
+<li><code>calRTqPCR</code>
+该函数在<code>calStandCurve</code>函数返回的标曲结果的基础上可以计算不同处理下各基因的表达情况。样品的点样方法参考图<a href="r.html#fig:qPCR3">1.3</a>。</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:qPCR3"></span>
+<img src="figures/pac4xiang使用说明/2.png" alt="qPCR标曲点样示意图" width="544" />
+<p class="caption">
+图1.3: qPCR标曲点样示意图
+</p>
+</div>
+<p>计算表达量的代码如下：</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r.html#cb3-1" aria-hidden="true" tabindex="-1"></a>exp<span class="fl">.1</span> <span class="ot">&lt;-</span> <span class="fu">calRTqPCR</span>(</span>
+<span id="cb3-2"><a href="r.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="st">&quot;20210927下机数据/20210929lx_1.txt&quot;</span>,<span class="co"># 下机数据位置</span></span>
+<span id="cb3-3"><a href="r.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">StandCurve =</span> df<span class="fl">.1</span>,<span class="co">#标曲对应的数据框，上一步的输出结果</span></span>
+<span id="cb3-4"><a href="r.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">genes =</span> <span class="fu">c</span>(<span class="st">&quot;OsPOX223&quot;</span>, <span class="st">&quot;OsAPX1&quot;</span>, <span class="st">&quot;OsAPX2&quot;</span>, <span class="st">&quot;OsPAL&quot;</span>),<span class="co"># 基因名称,与点样表顺序对应</span></span>
+<span id="cb3-5"><a href="r.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">treatment =</span> <span class="fu">c</span>(<span class="st">&quot;CK&quot;</span>, <span class="st">&quot;Inter&quot;</span>, <span class="st">&quot;Infect&quot;</span>) <span class="co"># 三个不同的处理分别是什么</span></span>
+<span id="cb3-6"><a href="r.html#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>其中的<code>data</code>就的样品的下机导出数据，<code>StandCurve</code>是函数<code>calStandCurve</code>返回的数据框，<code>gene</code>需要严格控制大小写，必须和输入函数<code>calStandCurve</code>的基因名称一样，<code>treatment</code>是指定从左到右的处理分别是什么，这个是为了后续方便进行<em><code>t</code></em>检验。</p>
+<ul>
+<li><code>getAlignResults</code>
+该函数可以将软件<code>CLUSTALW</code>的输出文件变成<code>.fasta</code>格式的比对结果。
+写这个函数的原因在于每次我用MEGA进行序列比对构建进化树的时候都报错，不是字符串有问题就是长度不对，索性直接用Linux系统下的<code>CLUSTALW</code>进行序列比对，然后用MEGA构建进化树，百试不爽！</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r.html#cb4-1" aria-hidden="true" tabindex="-1"></a>my.aln <span class="ot">=</span> <span class="fu">getAlignResults</span>(<span class="at">aln =</span> <span class="st">&#39;test.aln&#39;</span>)</span></code></pre></div>
+<p>运行完成后会在当前目录下生成一个<code>YourAlignResults.fasta</code>文件，就是<code>fasta</code>格式的比对文件，然后就可以用来构建进化树了。
+- <code>mult.aov</code>
+该函数用于多分组数据进行方差分析。</p>
+<ul>
+<li><code>multGroupTtest</code>
+该函数用于进行多分组的<code>t</code>检验。
+这个函数是用于进行多组<code>t</code>检验的。比如每次跑qPCR，会有多个处理多个目的基因，这个时候就需要关注每个目的基因在不同的处理中的表达量。用法参考下方代码：</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r.html#cb5-1" aria-hidden="true" tabindex="-1"></a>t.test <span class="ot">&lt;-</span> <span class="fu">multGroupTtest</span>(</span>
+<span id="cb5-2"><a href="r.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> exp.all.final, <span class="co"># 输入矩阵</span></span>
+<span id="cb5-3"><a href="r.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">group1 =</span> <span class="st">&quot;Gene&quot;</span>, <span class="co"># 第一个分组名称</span></span>
+<span id="cb5-4"><a href="r.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">group2 =</span> <span class="st">&quot;Treatment&quot;</span>, <span class="co"># 第二个分组名称</span></span>
+<span id="cb5-5"><a href="r.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">CK =</span> <span class="st">&quot;CK&quot;</span>, <span class="co"># 指定CK是叫什么</span></span>
+<span id="cb5-6"><a href="r.html#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">value =</span> <span class="st">&quot;Expression&quot;</span>, <span class="co"># 指定用于比较的数值在哪一列</span></span>
+<span id="cb5-7"><a href="r.html#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">level =</span> <span class="fl">0.95</span> <span class="co"># 指定检验水平</span></span>
+<span id="cb5-8"><a href="r.html#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<ul>
+<li><code>plot96well</code>
+该函数用于可视化<code>Roche</code>96孔板的<code>Cq</code>值。</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot96well</span>(<span class="at">data =</span> <span class="st">&quot;20210927下机数据/20210928lx_1.txt&quot;</span>)</span></code></pre></div>
+<ul>
+<li><code>plotCisElement</code>
+该函数用与可视化基因启动子上的顺式作用元件。需要输入的参数有三个：
+<ul>
+<li><code>data</code>：<code>plantCARE</code>返回的文件；</li>
+<li><code>length</code>：启动子长度；</li>
+<li><code>Cis</code>：需要展示哪些顺式作用元件。</li>
+</ul></li>
+<li><code>plotGeneStructure</code>
+该函数用于可视化基因结构。输入文件为<code>.gtf</code>文件。
+如果同时输入对应的进化树文件，那么就会按照进化树的顺序对基因名称进行排序，可以和<code>ggtree</code>进行联用。</li>
+</ul>
 
+</div>
 </div>
 </div>
             </section>
