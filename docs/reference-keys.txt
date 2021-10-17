@@ -3,14 +3,14 @@ fig:qPCR2
 fig:qPCR3
 r
 本章前言
-r包pac4xiang的使用
+pac4xiang
 安装
 使用方法
 python
 本章前言-1
 bioinf
 本章前言-2
-wsl安装使用docker
+WSL4Docker
 docker的安装
 docker的使用
 如何从wsl1切换到wsl2
@@ -22,6 +22,7 @@ conda的安装使用
 conda安装r及r包
 安装其他软件
 pip下载速度慢的解决方法
+基因家族分析
 literature
 本章前言-3
 何祖华2021cell文章

@@ -170,7 +170,7 @@ div.csl-indent {
 <li class="chapter" data-level="1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>1</b> R语言知识汇总</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="r.html"><a href="r.html#本章前言"><i class="fa fa-check"></i><b>1.1</b> 本章前言</a></li>
-<li class="chapter" data-level="1.2" data-path="r.html"><a href="r.html#r包pac4xiang的使用"><i class="fa fa-check"></i><b>1.2</b> R包pac4xiang的使用</a>
+<li class="chapter" data-level="1.2" data-path="r.html"><a href="r.html#pac4xiang"><i class="fa fa-check"></i><b>1.2</b> R包pac4xiang的使用</a>
 <ul>
 <li class="chapter" data-level="1.2.1" data-path="r.html"><a href="r.html#安装"><i class="fa fa-check"></i><b>1.2.1</b> 安装</a></li>
 <li class="chapter" data-level="1.2.2" data-path="r.html"><a href="r.html#使用方法"><i class="fa fa-check"></i><b>1.2.2</b> 使用方法</a></li>
@@ -183,7 +183,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="bioinf.html"><a href="bioinf.html"><i class="fa fa-check"></i><b>3</b> 生物信息学</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="bioinf.html"><a href="bioinf.html#本章前言-2"><i class="fa fa-check"></i><b>3.1</b> 本章前言</a></li>
-<li class="chapter" data-level="3.2" data-path="bioinf.html"><a href="bioinf.html#wsl安装使用docker"><i class="fa fa-check"></i><b>3.2</b> <code>WSL</code>安装使用<code>Docker</code></a>
+<li class="chapter" data-level="3.2" data-path="bioinf.html"><a href="bioinf.html#WSL4Docker"><i class="fa fa-check"></i><b>3.2</b> <code>WSL</code>安装使用<code>Docker</code></a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="bioinf.html"><a href="bioinf.html#docker的安装"><i class="fa fa-check"></i><b>3.2.1</b> <code>Docker</code>的安装</a></li>
 <li class="chapter" data-level="3.2.2" data-path="bioinf.html"><a href="bioinf.html#docker的使用"><i class="fa fa-check"></i><b>3.2.2</b> <code>Docker</code>的使用</a></li>
@@ -199,6 +199,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.3.3" data-path="bioinf.html"><a href="bioinf.html#安装其他软件"><i class="fa fa-check"></i><b>3.3.3</b> 安装其他软件</a></li>
 <li class="chapter" data-level="3.3.4" data-path="bioinf.html"><a href="bioinf.html#pip下载速度慢的解决方法"><i class="fa fa-check"></i><b>3.3.4</b> <code>pip</code>下载速度慢的解决方法：</a></li>
 </ul></li>
+<li class="chapter" data-level="3.4" data-path="bioinf.html"><a href="bioinf.html#基因家族分析"><i class="fa fa-check"></i><b>3.4</b> 基因家族分析</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> 嗑盐文献</a>
 <ul>
@@ -237,7 +238,7 @@ div.csl-indent {
 <h2><span class="header-section-number">3.1</span> 本章前言</h2>
 <p>本章主要是关于生物信息学的相关知识。</p>
 </div>
-<div id="wsl安装使用docker" class="section level2" number="3.2">
+<div id="WSL4Docker" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> <code>WSL</code>安装使用<code>Docker</code></h2>
 <div id="docker的安装" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> <code>Docker</code>的安装</h3>
@@ -267,7 +268,7 @@ div.csl-indent {
 <ul>
 <li>设置版本</li>
 </ul>
-<pre class="shell"><code>wsl --set-version Ubuntu-20.04 2</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="bioinf.html#cb10-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="sc">--</span>set<span class="sc">-</span>version Ubuntu<span class="fl">-20.04</span> <span class="dv">2</span></span></code></pre></div>
 <p>其中的<code>Ubuntu-20.04</code>是通过代码<code>wsl -l -v</code>查看到的。</p>
 <p>然后再次重启<code>WSL</code>即可。</p>
 </div>
@@ -278,21 +279,21 @@ div.csl-indent {
 <div id="docker的使用-1" class="section level3" number="3.2.5">
 <h3><span class="header-section-number">3.2.5</span> <code>Docker</code>的使用</h3>
 <p>进入<code>WSL</code>后运行下方代码运行<code>Docker</code>：</p>
-<pre class="shell"><code>docker run -v /mnt/:/work -it omicsclass/rnaseq</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="bioinf.html#cb11-1" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>v <span class="sc">/</span>mnt<span class="sc">/</span><span class="er">:/</span>work <span class="sc">-</span>it omicsclass<span class="sc">/</span>rnaseq</span></code></pre></div>
 <p>其中的<code>work</code>是不一定的，需要看镜像给的路径是啥。</p>
 </div>
 <div id="如何创建自己的镜像" class="section level3" number="3.2.6">
 <h3><span class="header-section-number">3.2.6</span> 如何创建自己的镜像</h3>
 <p>先从<a href="https://hub.docker.com/">Docker Hub</a>下载<code>Ubuntu</code>的官方镜像，然后在镜像中安装需要的软件。
 PS：如何加速<code>pip</code>的下载：</p>
-<pre class="shell"><code>pip install django -i https://pypi.tuna.tsinghua.edu.cn/simple</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="bioinf.html#cb12-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
 <p>加速的<code>R</code>包的下载安装：</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="bioinf.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos=</span><span class="fu">structure</span>(<span class="fu">c</span>(<span class="at">CRAN=</span><span class="st">&quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;</span>)))</span>
 <span id="cb13-2"><a href="bioinf.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">BioC_mirror=</span><span class="st">&quot;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&quot;</span>)</span></code></pre></div>
 <p>在安装完成需要的软件后，先运行<code>exit</code>退出<code>Docker</code>，然后运行下面的代码生成新的镜像：</p>
-<pre class="shell"><code>docker commit -m &quot; add some softwares for RNA-Seq&quot; -a &quot;xiangli&quot; 21bfa810c811 lixiang117423/rnaseq:v1</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="bioinf.html#cb14-1" aria-hidden="true" tabindex="-1"></a>docker commit <span class="sc">-</span>m <span class="st">&quot; add some softwares for RNA-Seq&quot;</span> <span class="sc">-</span>a <span class="st">&quot;xiangli&quot;</span> 21bfa810c811 lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
 <p>然后登陆自己的<code>Docker</code>，登录以后把新的镜像推送到<code>Docker Hub</code>即可：</p>
-<pre class="shell"><code>docker push lixiang117423/rnaseq:v1</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="bioinf.html#cb15-1" aria-hidden="true" tabindex="-1"></a>docker push lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
 </div>
 </div>
 <div id="conda的安装使用" class="section level2" number="3.3">
@@ -303,9 +304,9 @@ PS：如何加速<code>pip</code>的下载：</p>
 </div>
 <div id="conda安装r及r包" class="section level3" number="3.3.2">
 <h3><span class="header-section-number">3.3.2</span> <code>Conda</code>安装<code>R</code>及<code>R</code>包</h3>
-<pre class="shell"><code>conda instll r-base
-conda instll r-ggplot2
-conda install -c bioconda bioconductor-deseq2</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="bioinf.html#cb16-1" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>base</span>
+<span id="cb16-2"><a href="bioinf.html#cb16-2" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>ggplot2</span>
+<span id="cb16-3"><a href="bioinf.html#cb16-3" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c bioconda bioconductor<span class="sc">-</span>deseq2</span></code></pre></div>
 </div>
 <div id="安装其他软件" class="section level3" number="3.3.3">
 <h3><span class="header-section-number">3.3.3</span> 安装其他软件</h3>
@@ -313,9 +314,91 @@ conda install -c bioconda bioconductor-deseq2</code></pre>
 </div>
 <div id="pip下载速度慢的解决方法" class="section level3" number="3.3.4">
 <h3><span class="header-section-number">3.3.4</span> <code>pip</code>下载速度慢的解决方法：</h3>
-<pre class="shell"><code>pip install django -i https://pypi.tuna.tsinghua.edu.cn/simple</code></pre>
-
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="bioinf.html#cb17-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
 </div>
+</div>
+<div id="基因家族分析" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> 基因家族分析</h2>
+<p>基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用<a href="http://pfam.xfam.org/">pfam</a>上的<code>hmm</code>文件进行基因家族的检索鉴定，也可以用<code>blast</code>的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。
+### 数据准备
+需要准备的数据主要是参考基因组数据，包括<code>fasta</code>格式的序列文件、<code>gff</code>或<code>gtf</code>格式的基因组注释文件、蛋白质序列文件（通常是每个转录本的蛋白序列）、<code>cDNA</code>序列等文件。如果有转录组数据的话进行对应的转录组分析即可。除开上述这些文件外，还需要适用的文件还有<code>.hmm</code>格式的文件。
+### 软件准备
+只需要会适用Linux系统，会安装Docker即可，然后下载<code>组学大讲堂</code>的镜像即可。<a href="https://hub.docker.com/r/omicsclass/gene-family">点击浏览</a>镜像地址。Docker的安装适用方法参考<a href="bioinf.html#WSL4Docker">3.2</a>。
+### 主要分析过程
+- mRNA_ID与基因ID的提取
+由于一个基因会对应多个转录本，因此一个基因下会对应多个mRNA的编号。在后续的分析中，每个基因只需要选择一个转录本的编号进行分析即可，因为每个基因不同的转录本的序列差异是较小的。提取的代码：</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="bioinf.html#cb18-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>mRNAid_to_geneid.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>mRNA2geneID.txt</span>
+<span id="cb18-2"><a href="bioinf.html#cb18-2" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>geneid_to_mRNAid.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>geneID2mRNAid.txt</span></code></pre></div>
+<ul>
+<li>检索结构域
+这一步主要是以<code>.hmm</code>文件为基础检索该物种蛋白序列中含有该结构域的序列。输入文件包括<code>.hmm</code>文件和蛋白文件，输出<code>hmmsearch</code>的检索结果。其中用于后续筛选的是<code>evalue</code>这个参数，部分文章以0.001为阈值。<code>of</code>那一列表示的是某个基因对应的这个结构域有几个。</li>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="bioinf.html#cb19-1" aria-hidden="true" tabindex="-1"></a>hmmsearch <span class="sc">--</span>domtblout results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>hmm.txt <span class="sc">--</span>cut_tc data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.hmm data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span></span></code></pre></div>
+<ul>
+<li>选择结构域
+由于一个基因的单个转录本可能会比对到多个结构域，因此需要对比对到的结构域进行选择。默认选择的是第一个结构域。下面代码的最后一个参数是<code>hmmsearch</code>输出文件里面的<code>E-value</code>,如果需要全部的第一个结构域，将阈值设置为1即可。</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="bioinf.html#cb20-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>domain_xulie.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>hmm.txt data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.fa <span class="fl">1.2e-28</span></span></code></pre></div>
+<ul>
+<li>多序列比对
+之所以要进行多序列比对，是因为下载的<code>.hmm</code>文件是来自很多物种的这个结构域组成的隐马尔科夫模型，进行多序列比对后将该物种检索到的结构域序列进行比对，再次构建该物种该基因家族的隐马尔科夫模型，会更加准确。</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="bioinf.html#cb21-1" aria-hidden="true" tabindex="-1"></a>echo <span class="sc">-</span>e <span class="st">&#39;1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/domain.fa</span><span class="sc">\n</span><span class="st">2</span><span class="sc">\n</span><span class="st">1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/out.aln</span><span class="sc">\n</span><span class="st">r.domain.search/out.dnd</span><span class="sc">\n</span><span class="st">X</span><span class="sc">\n\n\n</span><span class="st">X</span><span class="sc">\n</span><span class="st">&#39;</span> <span class="sc">|</span>clustalw</span></code></pre></div>
+<ul>
+<li>重构隐马尔科夫模型</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="bioinf.html#cb22-1" aria-hidden="true" tabindex="-1"></a>hmmbuild results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.hmm results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>out.aln</span></code></pre></div>
+<ul>
+<li>重新进行检索
+利用构建得到的新的隐马尔科夫模型重新进行检索结构域。</li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="bioinf.html#cb23-1" aria-hidden="true" tabindex="-1"></a>hmmsearch <span class="sc">--</span>domtblout results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt <span class="sc">--</span>cut_tc results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.hmm data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span></span></code></pre></div>
+<ul>
+<li>筛选输出结果
+对重新检索后的结果进行筛选，也是对<code>E-value</code>进行筛选。</li>
+</ul>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="bioinf.html#cb24-1" aria-hidden="true" tabindex="-1"></a>grep <span class="sc">-</span>v <span class="st">&quot;^#&quot;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt<span class="sc">|</span>awk <span class="st">&#39;$7&lt;0.001 {print}&#39;</span> <span class="sc">&gt;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt</span></code></pre></div>
+<ul>
+<li>去除重复的ID
+上一步筛选得到的是该种中哪些基因是潜在的目标基因家族成员，而一个基因对应了多个mRNA，因此，只需要在筛选后的每个基因中选择一个具有代表性的mRNA进行后续的分析即可。这个提取唯一ID的步骤需要手动完成（PS：手动完成也很快）。手动挑选完mRNA的ID放在第一列，另存为文件<code>uniqueID.txt</code>。</li>
+</ul>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bioinf.html#cb25-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>select_redundant_mRNA.pl results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>mRNA2geneID.txt results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>remove_redundant_IDlist.txt</span></code></pre></div>
+<ul>
+<li>提取蛋白序列
+在得到基因ID后需要提取蛋白序列进行后续的分析。在<a href="http://smart.embl.de/">SMART</a>或者<a href="http://pfam.xfam.org/search">Pfam</a>或<a href="https://www.ncbi.nlm.nih.gov/cdd/">NCBI CDD</a>确认这些基因是真真正正含有该结构域，没有的基因要剔除！在<code>SMART</code>中没有检索到结构域的基因在<code>gene.not.in.SMART.txt</code>中；在<code>Pfam</code>中全都是<code>WRKY</code>结构域，对应文件为<code>Pfam.results.txt</code>。</li>
+</ul>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="bioinf.html#cb26-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_fa_by_id.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span> results<span class="sc">/</span>step</span>
+<span id="cb26-2"><a href="bioinf.html#cb26-2" aria-hidden="true" tabindex="-1"></a>.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.need.confirm.fa</span></code></pre></div>
+<ul>
+<li>计算蛋白质分子量等</li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="bioinf.html#cb27-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>stat_protein_fa.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.need.confirm.fa results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.MW.txt</span></code></pre></div>
+<ul>
+<li>构建进化树
+选择利用软件<code>CLUSTALW</code>进行多序列比对，然后利用<code>MEGA</code>构建进化树。<code>CLUSTALW</code>输出结果转换成<code>.fasta</code>格式的方法参考<a href="r.html#pac4xiang">1.2</a>。</li>
+<li>Motif分析</li>
+</ul>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="bioinf.html#cb28-1" aria-hidden="true" tabindex="-1"></a>meme results<span class="sc">/</span>step.<span class="fl">3.</span>seq.and.tree<span class="sc">/</span>pep_confirmed.fa <span class="sc">-</span>protein <span class="sc">-</span>oc results<span class="sc">/</span>step.<span class="fl">4.</span>motif<span class="sc">/</span> <span class="sc">-</span>nostatus <span class="sc">-</span>time <span class="dv">18000</span> <span class="sc">-</span>maxsize <span class="dv">6000000</span> <span class="sc">-</span>mod anr <span class="sc">-</span>nmotifs <span class="dv">10</span> <span class="sc">-</span>minw <span class="dv">6</span> <span class="sc">-</span>maxw <span class="dv">100</span></span></code></pre></div>
+<ul>
+<li>基因结构分析</li>
+</ul>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="bioinf.html#cb29-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_gene_exon_from_gff.pl <span class="sc">-</span>in1 results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt <span class="sc">-</span>in2 data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> <span class="sc">-</span>out results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>gene_exon_info.gff</span></code></pre></div>
+<ul>
+<li>基因在染色体上的定位</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="bioinf.html#cb30-1" aria-hidden="true" tabindex="-1"></a>samtools faidx data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.dna<span class="sc">*</span></span>
+<span id="cb30-2"><a href="bioinf.html#cb30-2" aria-hidden="true" tabindex="-1"></a>cp data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.fai results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span></span>
+<span id="cb30-3"><a href="bioinf.html#cb30-3" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_gene_weizhi.pl <span class="sc">-</span>in1 results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt <span class="sc">-</span>in2 data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> <span class="sc">-</span>out results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>mrna_location.txt</span></code></pre></div>
+<ul>
+<li>顺式作用元件分析
+脚本默认的启动子长度是1500bp。将提取得到的启动子序列上传到<a href="https://bioinformatics.psb.ugent.be/webtools/plantcare/html/">Plane CARE</a>进行分析。</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="bioinf.html#cb31-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_promoter.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>dna.top<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>mrna_location.txt results<span class="sc">/</span>step.<span class="fl">6.</span>cis.acting.element<span class="sc">/</span>promoter.txt</span></code></pre></div>
+<ul>
+<li>基因家族成员的亚细胞定位分析
+两个网站：<a href="https://wolfpsort.hgc.jp/">WolfPsort</a>和<a href="http://cello.life.nctu.edu.tw/">Cello</a>。</li>
+</ul>
+
 </div>
 </div>
             </section>
