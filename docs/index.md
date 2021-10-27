@@ -2,11 +2,25 @@
 title: "小蓝哥的知识荒原"
 author: "李详"
 date: "2021年10月1日"
-description: "从博士开始，慢慢记录所学的点点滴滴，不断完善自己的知识框架。蓝莲盛开，身心自在；活在当下，正向提升！"
 documentclass: book
 biblio-style: apa
 bibliography: ["mybib.bib"]
-link-citations: true
+fontsize: 10pt
+monofontoptions: "Scale=0.7"
+link-citations: yes
+colorlinks: yes
+lot: yes
+lof: yes
+site: bookdown::bookdown_site
+output:
+  - bookdown::gitbook
+  - rmarkdown::md_document
+description: "小蓝哥的知识荒原。蓝莲盛开，身心自在；活在当下，正向提升！"
+github-repo: lixiang117423/lixiang117423.github.io
+graphics: yes
+nocite: '@*'
+always_allow_html: true
+cover-image: https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg
 ---
 
 
