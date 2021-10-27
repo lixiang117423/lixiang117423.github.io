@@ -1,307 +1,82 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter3 生物信息学 | 小蓝哥的知识荒原</title>
-  <meta name="description" content="Chapter3 生物信息学 | 小蓝哥的知识荒原。蓝莲盛开，身心自在；活在当下，正向提升！" />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Chapter3 生物信息学 | 小蓝哥的知识荒原" />
-  <meta property="og:type" content="book" />
-  
-  <meta property="og:image" content="/https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg" />
-  <meta property="og:description" content="Chapter3 生物信息学 | 小蓝哥的知识荒原。蓝莲盛开，身心自在；活在当下，正向提升！" />
-  <meta name="github-repo" content="lixiang117423/lixiang117423.github.io" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter3 生物信息学 | 小蓝哥的知识荒原" />
-  
-  <meta name="twitter:description" content="Chapter3 生物信息学 | 小蓝哥的知识荒原。蓝莲盛开，身心自在；活在当下，正向提升！" />
-  <meta name="twitter:image" content="/https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg" />
-
-<meta name="author" content="李详" />
-
-
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-<link rel="prev" href="python.html"/>
-<link rel="next" href="literature.html"/>
-<script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-
-
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
-
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
-
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter3 生物信息学 | 小蓝哥的知识荒原</title>
+<meta name="author" content="李详">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li><a href="./">Book for Xiang</a></li>
-
-<li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>简介</a></li>
-<li class="chapter" data-level="1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>1</b> R语言知识汇总</a>
-<ul>
-<li class="chapter" data-level="1.1" data-path="r.html"><a href="r.html#本章前言"><i class="fa fa-check"></i><b>1.1</b> 本章前言</a></li>
-<li class="chapter" data-level="1.2" data-path="r.html"><a href="r.html#pac4xiang"><i class="fa fa-check"></i><b>1.2</b> R包pac4xiang的使用</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="r.html"><a href="r.html#安装"><i class="fa fa-check"></i><b>1.2.1</b> 安装</a></li>
-<li class="chapter" data-level="1.2.2" data-path="r.html"><a href="r.html#使用方法"><i class="fa fa-check"></i><b>1.2.2</b> 使用方法</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="r.html"><a href="r.html#ggmotif"><i class="fa fa-check"></i><b>1.3</b> R包ggmotif的使用方法</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="r.html"><a href="r.html#从xml文件提取结果并绘图"><i class="fa fa-check"></i><b>1.3.1</b> 从XML文件提取结果并绘图</a></li>
-<li class="chapter" data-level="1.3.2" data-path="r.html"><a href="r.html#从txt文件提取结果并进行可视化"><i class="fa fa-check"></i><b>1.3.2</b> 从txt文件提取结果并进行可视化</a></li>
-<li class="chapter" data-level="1.3.3" data-path="r.html"><a href="r.html#与ggtree联用"><i class="fa fa-check"></i><b>1.3.3</b> 与<code>ggtree</code>联用</a></li>
-</ul></li>
-<li class="chapter" data-level="1.4" data-path="r.html"><a href="r.html#ggplot2绘图相关"><i class="fa fa-check"></i><b>1.4</b> <code>ggplot2</code>绘图相关</a>
-<ul>
-<li class="chapter" data-level="1.4.1" data-path="r.html"><a href="r.html#ggplot2绘制桑基冲击图"><i class="fa fa-check"></i><b>1.4.1</b> <code>ggplot2</code>绘制桑基(冲击图)</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="r.html"><a href="r.html#服务器搭建rshiny-server"><i class="fa fa-check"></i><b>1.5</b> 服务器搭建Rshiny-server</a></li>
-<li class="chapter" data-level="1.6" data-path="r.html"><a href="r.html#ubuntu安装devtools"><i class="fa fa-check"></i><b>1.6</b> Ubuntu安装devtools</a></li>
-<li class="chapter" data-level="1.7" data-path="r.html"><a href="r.html#r-shiny开发"><i class="fa fa-check"></i><b>1.7</b> R shiny开发</a>
-<ul>
-<li class="chapter" data-level="1.7.1" data-path="r.html"><a href="r.html#css学习网站"><i class="fa fa-check"></i><b>1.7.1</b> CSS学习网站</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>2</b> Python知识汇总</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="python.html"><a href="python.html#本章前言-1"><i class="fa fa-check"></i><b>2.1</b> 本章前言</a></li>
-<li class="chapter" data-level="2.2" data-path="python.html"><a href="python.html#fasta文件处理"><i class="fa fa-check"></i><b>2.2</b> <code>fasta</code>文件处理</a>
-<ul>
-<li class="chapter" data-level="2.2.1" data-path="python.html"><a href="python.html#处理从planttfdb下载的序列"><i class="fa fa-check"></i><b>2.2.1</b> 处理从PlantTFDB下载的序列</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="bioinf.html"><a href="bioinf.html"><i class="fa fa-check"></i><b>3</b> 生物信息学</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="bioinf.html"><a href="bioinf.html#本章前言-2"><i class="fa fa-check"></i><b>3.1</b> 本章前言</a></li>
-<li class="chapter" data-level="3.2" data-path="bioinf.html"><a href="bioinf.html#常用的生物学数据库"><i class="fa fa-check"></i><b>3.2</b> 常用的生物学数据库</a>
-<ul>
-<li class="chapter" data-level="3.2.1" data-path="bioinf.html"><a href="bioinf.html#cath-gene3d"><i class="fa fa-check"></i><b>3.2.1</b> CATH-Gene3D</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="bioinf.html"><a href="bioinf.html#WSL4Docker"><i class="fa fa-check"></i><b>3.3</b> <code>WSL</code>安装使用<code>Docker</code></a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="bioinf.html"><a href="bioinf.html#docker的安装"><i class="fa fa-check"></i><b>3.3.1</b> <code>Docker</code>的安装</a></li>
-<li class="chapter" data-level="3.3.2" data-path="bioinf.html"><a href="bioinf.html#docker的使用"><i class="fa fa-check"></i><b>3.3.2</b> <code>Docker</code>的使用</a></li>
-<li class="chapter" data-level="3.3.3" data-path="bioinf.html"><a href="bioinf.html#如何从wsl1切换到wsl2"><i class="fa fa-check"></i><b>3.3.3</b> 如何从<code>WSL1</code>切换到<code>WSL2</code></a></li>
-<li class="chapter" data-level="3.3.4" data-path="bioinf.html"><a href="bioinf.html#下载docker镜像"><i class="fa fa-check"></i><b>3.3.4</b> 下载<code>Docker</code>镜像</a></li>
-<li class="chapter" data-level="3.3.5" data-path="bioinf.html"><a href="bioinf.html#docker的使用-1"><i class="fa fa-check"></i><b>3.3.5</b> <code>Docker</code>的使用</a></li>
-<li class="chapter" data-level="3.3.6" data-path="bioinf.html"><a href="bioinf.html#如何创建自己的镜像"><i class="fa fa-check"></i><b>3.3.6</b> 如何创建自己的镜像</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="bioinf.html"><a href="bioinf.html#conda的安装使用"><i class="fa fa-check"></i><b>3.4</b> <code>Conda</code>的安装使用</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="bioinf.html"><a href="bioinf.html#下载安装"><i class="fa fa-check"></i><b>3.4.1</b> 下载安装</a></li>
-<li class="chapter" data-level="3.4.2" data-path="bioinf.html"><a href="bioinf.html#conda安装r及r包"><i class="fa fa-check"></i><b>3.4.2</b> <code>Conda</code>安装<code>R</code>及<code>R</code>包</a></li>
-<li class="chapter" data-level="3.4.3" data-path="bioinf.html"><a href="bioinf.html#安装其他软件"><i class="fa fa-check"></i><b>3.4.3</b> 安装其他软件</a></li>
-<li class="chapter" data-level="3.4.4" data-path="bioinf.html"><a href="bioinf.html#pip下载速度慢的解决方法"><i class="fa fa-check"></i><b>3.4.4</b> <code>pip</code>下载速度慢的解决方法：</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="bioinf.html"><a href="bioinf.html#git的使用"><i class="fa fa-check"></i><b>3.5</b> git的使用</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="bioinf.html"><a href="bioinf.html#git同时管理github与gitee"><i class="fa fa-check"></i><b>3.5.1</b> git同时管理GitHub与Gitee</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="bioinf.html"><a href="bioinf.html#基因家族分析"><i class="fa fa-check"></i><b>3.6</b> 基因家族分析</a>
-<ul>
-<li class="chapter" data-level="3.6.1" data-path="bioinf.html"><a href="bioinf.html#基因家族分析思路及文章撰写思路"><i class="fa fa-check"></i><b>3.6.1</b> 基因家族分析思路及文章撰写思路</a></li>
-<li class="chapter" data-level="3.6.2" data-path="bioinf.html"><a href="bioinf.html#数据准备"><i class="fa fa-check"></i><b>3.6.2</b> 数据准备</a></li>
-<li class="chapter" data-level="3.6.3" data-path="bioinf.html"><a href="bioinf.html#软件准备"><i class="fa fa-check"></i><b>3.6.3</b> 软件准备</a></li>
-<li class="chapter" data-level="3.6.4" data-path="bioinf.html"><a href="bioinf.html#分析过程"><i class="fa fa-check"></i><b>3.6.4</b> 分析过程</a></li>
-</ul></li>
-<li class="chapter" data-level="3.7" data-path="bioinf.html"><a href="bioinf.html#fasttree构建进化树"><i class="fa fa-check"></i><b>3.7</b> FastTree构建进化树</a></li>
-<li class="chapter" data-level="3.8" data-path="bioinf.html"><a href="bioinf.html#处理planttfdb下载的fasta格式序列"><i class="fa fa-check"></i><b>3.8</b> 处理PlantTFDB下载的fasta格式序列</a>
-<ul>
-<li class="chapter" data-level="3.8.1" data-path="bioinf.html"><a href="bioinf.html#将序列id和物种信息进行提取"><i class="fa fa-check"></i><b>3.8.1</b> 将序列ID和物种信息进行提取</a></li>
-<li class="chapter" data-level="3.8.2" data-path="bioinf.html"><a href="bioinf.html#将fasta格式的序列转换成data.frame格式"><i class="fa fa-check"></i><b>3.8.2</b> 将fasta格式的序列转换成data.frame格式</a></li>
-</ul></li>
-<li class="chapter" data-level="3.9" data-path="bioinf.html"><a href="bioinf.html#软件安装"><i class="fa fa-check"></i><b>3.9</b> 软件安装</a>
-<ul>
-<li class="chapter" data-level="3.9.1" data-path="bioinf.html"><a href="bioinf.html#aspera"><i class="fa fa-check"></i><b>3.9.1</b> Aspera</a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="bioinf.html"><a href="bioinf.html#ubuntu搭建生信环境"><i class="fa fa-check"></i><b>3.10</b> Ubuntu搭建生信环境</a>
-<ul>
-<li class="chapter" data-level="3.10.1" data-path="bioinf.html"><a href="bioinf.html#旧版本"><i class="fa fa-check"></i><b>3.10.1</b> 旧版本</a></li>
-<li class="chapter" data-level="3.10.2" data-path="bioinf.html"><a href="bioinf.html#新版本"><i class="fa fa-check"></i><b>3.10.2</b> 新版本</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> 嗑盐文献</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="literature.html"><a href="literature.html#本章前言-3"><i class="fa fa-check"></i><b>4.1</b> 本章前言</a></li>
-<li class="chapter" data-level="4.2" data-path="literature.html"><a href="literature.html#何祖华2021cell文章"><i class="fa fa-check"></i><b>4.2</b> 何祖华2021<em>Cell</em>文章</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="article.html"><a href="article.html"><i class="fa fa-check"></i><b>5</b> 嗑盐文章</a>
-<ul>
-<li class="chapter" data-level="5.1" data-path="article.html"><a href="article.html#本章前言-4"><i class="fa fa-check"></i><b>5.1</b> 本章前言</a></li>
-</ul></li>
-<li class="chapter" data-level="6" data-path="上课笔记.html"><a href="上课笔记.html"><i class="fa fa-check"></i><b>6</b> 上课笔记</a>
-<ul>
-<li class="chapter" data-level="6.1" data-path="上课笔记.html"><a href="上课笔记.html#本章前言-5"><i class="fa fa-check"></i><b>6.1</b> 本章前言</a></li>
-<li class="chapter" data-level="6.2" data-path="上课笔记.html"><a href="上课笔记.html#李成云现代植物病理学"><i class="fa fa-check"></i><b>6.2</b> 李成云：现代植物病理学</a>
-<ul>
-<li class="chapter" data-level="6.2.1" data-path="上课笔记.html"><a href="上课笔记.html#section"><i class="fa fa-check"></i><b>6.2.1</b> 20211022</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="other.html"><a href="other.html"><i class="fa fa-check"></i><b>7</b> Other</a>
-<ul>
-<li class="chapter" data-level="7.1" data-path="other.html"><a href="other.html#本章前言-6"><i class="fa fa-check"></i><b>7.1</b> 本章前言</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">小蓝哥的知识荒原</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">小蓝哥的知识荒原</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">简介</a></li>
+<li><a class="" href="r.html"><span class="header-section-number">1</span> R语言知识汇总</a></li>
+<li><a class="" href="python.html"><span class="header-section-number">2</span> Python知识汇总</a></li>
+<li><a class="active" href="bioinf.html"><span class="header-section-number">3</span> 生物信息学</a></li>
+<li><a class="" href="literature.html"><span class="header-section-number">4</span> 嗑盐文献</a></li>
+<li><a class="" href="article.html"><span class="header-section-number">5</span> 嗑盐文章</a></li>
+<li><a class="" href="%E4%B8%8A%E8%AF%BE%E7%AC%94%E8%AE%B0.html"><span class="header-section-number">6</span> 上课笔记</a></li>
+<li><a class="" href="other.html"><span class="header-section-number">7</span> Other</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/lixiang117423/lixiang117423.github.io">View book source <i class="fab fa-github"></i></a></p>
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="bioinf" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter3</span> 生物信息学</h1>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="bioinf" class="section level1" number="3">
+<h1>
+<span class="header-section-number">Chapter3</span> 生物信息学<a class="anchor" aria-label="anchor" href="#bioinf"><i class="fas fa-link"></i></a>
+</h1>
 <div id="本章前言-2" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> 本章前言</h2>
+<h2>
+<span class="header-section-number">3.1</span> 本章前言<a class="anchor" aria-label="anchor" href="#%E6%9C%AC%E7%AB%A0%E5%89%8D%E8%A8%80-2"><i class="fas fa-link"></i></a>
+</h2>
 <p>本章主要是关于生物信息学的相关知识。</p>
 </div>
 <div id="常用的生物学数据库" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> 常用的生物学数据库</h2>
+<h2>
+<span class="header-section-number">3.2</span> 常用的生物学数据库<a class="anchor" aria-label="anchor" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E7%89%A9%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93"><i class="fas fa-link"></i></a>
+</h2>
 <div id="cath-gene3d" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> CATH-Gene3D</h3>
+<h3>
+<span class="header-section-number">3.2.1</span> CATH-Gene3D<a class="anchor" aria-label="anchor" href="#cath-gene3d"><i class="fas fa-link"></i></a>
+</h3>
 <p>这个数据库是蛋白质数据库，主要是蛋白结构域的进化关系。</p>
 <p><a href="https://www.cathdb.info/">点击访问</a>。</p>
 </div>
 </div>
 <div id="WSL4Docker" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> <code>WSL</code>安装使用<code>Docker</code></h2>
+<h2>
+<span class="header-section-number">3.3</span> <code>WSL</code>安装使用<code>Docker</code><a class="anchor" aria-label="anchor" href="#WSL4Docker"><i class="fas fa-link"></i></a>
+</h2>
 <div id="docker的安装" class="section level3" number="3.3.1">
-<h3><span class="header-section-number">3.3.1</span> <code>Docker</code>的安装</h3>
+<h3>
+<span class="header-section-number">3.3.1</span> <code>Docker</code>的安装<a class="anchor" aria-label="anchor" href="#docker%E7%9A%84%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
+</h3>
 <p>参考的安装教程：<a href="https://yeasy.gitbook.io/docker_practice/install/ubuntu">Docker-从入门到实践</a>。关键的代码如下：</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="bioinf.html#cb18-1" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL test.docker.com <span class="sc">-</span>o get<span class="sc">-</span>docker.sh</span>
 <span id="cb18-2"><a href="bioinf.html#cb18-2" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL get.docker.com <span class="sc">-</span>o get<span class="sc">-</span>docker.sh</span>
@@ -309,7 +84,9 @@ div.csl-indent {
 <span id="cb18-4"><a href="bioinf.html#cb18-4" aria-hidden="true" tabindex="-1"></a>sudo sh get<span class="sc">-</span>docker.sh <span class="sc">--</span>mirror AzureChinaCloud</span></code></pre></div>
 </div>
 <div id="docker的使用" class="section level3" number="3.3.2">
-<h3><span class="header-section-number">3.3.2</span> <code>Docker</code>的使用</h3>
+<h3>
+<span class="header-section-number">3.3.2</span> <code>Docker</code>的使用<a class="anchor" aria-label="anchor" href="#docker%E7%9A%84%E4%BD%BF%E7%94%A8"><i class="fas fa-link"></i></a>
+</h3>
 <p><code>Docker</code>默认是需要<code>root</code>用户才能使用的，在<code>Windows上</code>我习惯于进入<code>Powershell</code>后执行下面的命令启动<code>Docker</code>：</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="bioinf.html#cb19-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="sc">--</span>shutdown <span class="co"># 先关闭wsl</span></span>
 <span id="cb19-2"><a href="bioinf.html#cb19-2" aria-hidden="true" tabindex="-1"></a>wsl <span class="co"># 启动WSL</span></span>
@@ -318,13 +95,16 @@ div.csl-indent {
 <span id="cb19-5"><a href="bioinf.html#cb19-5" aria-hidden="true" tabindex="-1"></a>su xiang <span class="co"># 切换会用户（非root权限）</span></span></code></pre></div>
 </div>
 <div id="如何从wsl1切换到wsl2" class="section level3" number="3.3.3">
-<h3><span class="header-section-number">3.3.3</span> 如何从<code>WSL1</code>切换到<code>WSL2</code></h3>
+<h3>
+<span class="header-section-number">3.3.3</span> 如何从<code>WSL1</code>切换到<code>WSL2</code><a class="anchor" aria-label="anchor" href="#%E5%A6%82%E4%BD%95%E4%BB%8Ewsl1%E5%88%87%E6%8D%A2%E5%88%B0wsl2"><i class="fas fa-link"></i></a>
+</h3>
 <p>我在<code>Windows</code>上使用<code>Docker</code>遇到的一个很奇怪的问题是，我之前的版本是<code>WSL1</code>,<code>Docker</code>无论如何都无法使用，搜索半天也没有找到解决方法，索性将<code>WSL1</code>升级成<code>WSL2</code>，没想到问题就那样解决了。参考教程：<a href="https://zhuanlan.zhihu.com/p/356397851">知乎：WSL1 升级为WSL2</a>。下面是升级的过程：</p>
 <ul>
 <li><p>下载对应的内核更新包：<a href="https://link.zhihu.com/?target=https%3A//wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">点击下载</a></p></li>
 <li><p><code>CMD</code>中管理员身份运行代码：</p></li>
 </ul>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="bioinf.html#cb20-1" aria-hidden="true" tabindex="-1"></a>dism.exe <span class="sc">/</span>online <span class="sc">/</span>enable<span class="sc">-</span>feature <span class="sc">/</span>featurename<span class="sc">:</span>VirtualMachinePlatform <span class="sc">/</span>all <span class="sc">/</span>norestart</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">dism.exe</span> <span class="op">/</span><span class="va">online</span> <span class="op">/</span><span class="va">enable</span><span class="op">-</span><span class="va">feature</span> <span class="op">/</span><span class="va">featurename</span><span class="op">:</span><span class="va">VirtualMachinePlatform</span> <span class="op">/</span><span class="va">all</span> <span class="op">/</span><span class="va">norestart</span></code></pre></div>
 <ul>
 <li>设置版本</li>
 </ul>
@@ -333,11 +113,15 @@ div.csl-indent {
 <p>然后再次重启<code>WSL</code>即可。</p>
 </div>
 <div id="下载docker镜像" class="section level3" number="3.3.4">
-<h3><span class="header-section-number">3.3.4</span> 下载<code>Docker</code>镜像</h3>
+<h3>
+<span class="header-section-number">3.3.4</span> 下载<code>Docker</code>镜像<a class="anchor" aria-label="anchor" href="#%E4%B8%8B%E8%BD%BDdocker%E9%95%9C%E5%83%8F"><i class="fas fa-link"></i></a>
+</h3>
 <p>在<a href="https://hub.docker.com/">Docker Hub</a>中检索下载需要的镜像。</p>
 </div>
 <div id="docker的使用-1" class="section level3" number="3.3.5">
-<h3><span class="header-section-number">3.3.5</span> <code>Docker</code>的使用</h3>
+<h3>
+<span class="header-section-number">3.3.5</span> <code>Docker</code>的使用<a class="anchor" aria-label="anchor" href="#docker%E7%9A%84%E4%BD%BF%E7%94%A8-1"><i class="fas fa-link"></i></a>
+</h3>
 <p>进入<code>WSL</code>后运行下方代码运行<code>Docker</code>：</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="bioinf.html#cb22-1" aria-hidden="true" tabindex="-1"></a>sudo service <span class="sc">--</span>status<span class="sc">-</span>all </span>
 <span id="cb22-2"><a href="bioinf.html#cb22-2" aria-hidden="true" tabindex="-1"></a>sudo service docker start</span>
@@ -346,44 +130,61 @@ div.csl-indent {
 <p>其中的<code>work</code>是不一定的，需要看镜像给的路径是啥。</p>
 </div>
 <div id="如何创建自己的镜像" class="section level3" number="3.3.6">
-<h3><span class="header-section-number">3.3.6</span> 如何创建自己的镜像</h3>
+<h3>
+<span class="header-section-number">3.3.6</span> 如何创建自己的镜像<a class="anchor" aria-label="anchor" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E9%95%9C%E5%83%8F"><i class="fas fa-link"></i></a>
+</h3>
 <p>先从<a href="https://hub.docker.com/">Docker Hub</a>下载<code>Ubuntu</code>的官方镜像，然后在镜像中安装需要的软件。
 PS：如何加速<code>pip</code>的下载：</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="bioinf.html#cb23-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
 <p>加速的<code>R</code>包的下载安装：</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="bioinf.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos=</span><span class="fu">structure</span>(<span class="fu">c</span>(<span class="at">CRAN=</span><span class="st">&quot;https://mirrors.tuna.tsinghua.edu.cn/CRAN/&quot;</span>)))</span>
-<span id="cb24-2"><a href="bioinf.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">BioC_mirror=</span><span class="st">&quot;https://mirrors.tuna.tsinghua.edu.cn/bioconductor&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>repos<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>CRAN<span class="op">=</span><span class="st">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>BioC_mirror<span class="op">=</span><span class="st">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="op">)</span></code></pre></div>
 <p>在安装完成需要的软件后，先运行<code>exit</code>退出<code>Docker</code>，然后运行下面的代码生成新的镜像：</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bioinf.html#cb25-1" aria-hidden="true" tabindex="-1"></a>docker commit <span class="sc">-</span>m <span class="st">&quot; add some softwares for RNA-Seq&quot;</span> <span class="sc">-</span>a <span class="st">&quot;xiangli&quot;</span> 21bfa810c811 lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="bioinf.html#cb25-1" aria-hidden="true" tabindex="-1"></a>docker commit <span class="sc">-</span>m <span class="st">" add some softwares for RNA-Seq"</span> <span class="sc">-</span>a <span class="st">"xiangli"</span> 21bfa810c811 lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
 <p>然后登陆自己的<code>Docker</code>，登录以后把新的镜像推送到<code>Docker Hub</code>即可：</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="bioinf.html#cb26-1" aria-hidden="true" tabindex="-1"></a>docker push lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
 </div>
 </div>
 <div id="conda的安装使用" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> <code>Conda</code>的安装使用</h2>
+<h2>
+<span class="header-section-number">3.4</span> <code>Conda</code>的安装使用<a class="anchor" aria-label="anchor" href="#conda%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><i class="fas fa-link"></i></a>
+</h2>
 <div id="下载安装" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> 下载安装</h3>
+<h3>
+<span class="header-section-number">3.4.1</span> 下载安装<a class="anchor" aria-label="anchor" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
+</h3>
 <p>现在<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html">官方网站</a>下载对应版本的<code>.sh</code>文件。然后一路默认安装即可。安装完成后激活用户目录下的<code>.bashrc</code>文件即可。</p>
 </div>
 <div id="conda安装r及r包" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> <code>Conda</code>安装<code>R</code>及<code>R</code>包</h3>
+<h3>
+<span class="header-section-number">3.4.2</span> <code>Conda</code>安装<code>R</code>及<code>R</code>包<a class="anchor" aria-label="anchor" href="#conda%E5%AE%89%E8%A3%85r%E5%8F%8Ar%E5%8C%85"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="bioinf.html#cb27-1" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>base</span>
 <span id="cb27-2"><a href="bioinf.html#cb27-2" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>ggplot2</span>
 <span id="cb27-3"><a href="bioinf.html#cb27-3" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c bioconda bioconductor<span class="sc">-</span>deseq2</span></code></pre></div>
 </div>
 <div id="安装其他软件" class="section level3" number="3.4.3">
-<h3><span class="header-section-number">3.4.3</span> 安装其他软件</h3>
+<h3>
+<span class="header-section-number">3.4.3</span> 安装其他软件<a class="anchor" aria-label="anchor" href="#%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6"><i class="fas fa-link"></i></a>
+</h3>
 <p>其他软件的安装直接去<a href="https://anaconda.org/gallery">Conda Gallery</a>上检索进行安装。</p>
 </div>
 <div id="pip下载速度慢的解决方法" class="section level3" number="3.4.4">
-<h3><span class="header-section-number">3.4.4</span> <code>pip</code>下载速度慢的解决方法：</h3>
+<h3>
+<span class="header-section-number">3.4.4</span> <code>pip</code>下载速度慢的解决方法：<a class="anchor" aria-label="anchor" href="#pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="bioinf.html#cb28-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
 </div>
 </div>
 <div id="git的使用" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> git的使用</h2>
+<h2>
+<span class="header-section-number">3.5</span> git的使用<a class="anchor" aria-label="anchor" href="#git%E7%9A%84%E4%BD%BF%E7%94%A8"><i class="fas fa-link"></i></a>
+</h2>
 <div id="git同时管理github与gitee" class="section level3" number="3.5.1">
-<h3><span class="header-section-number">3.5.1</span> git同时管理GitHub与Gitee</h3>
+<h3>
+<span class="header-section-number">3.5.1</span> git同时管理GitHub与Gitee<a class="anchor" aria-label="anchor" href="#git%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86github%E4%B8%8Egitee"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="bioinf.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> 查看远程仓库地址</span>
 <span id="cb29-2"><a href="bioinf.html#cb29-2" aria-hidden="true" tabindex="-1"></a>git remote <span class="sc">-</span>v</span>
 <span id="cb29-3"><a href="bioinf.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -413,11 +214,15 @@ PS：如何加速<code>pip</code>的下载：</p>
 </div>
 </div>
 <div id="基因家族分析" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> 基因家族分析</h2>
+<h2>
+<span class="header-section-number">3.6</span> 基因家族分析<a class="anchor" aria-label="anchor" href="#%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90"><i class="fas fa-link"></i></a>
+</h2>
 <p>基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用<a href="http://pfam.xfam.org/">pfam</a>上的<code>hmm</code>文件进行基因家族的检索鉴定，也可以用<code>blast</code>的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。
 植物转录因子数据库，<a href="http://planttfdb.gao-lab.org/">点击访问</a>。</p>
 <div id="基因家族分析思路及文章撰写思路" class="section level3" number="3.6.1">
-<h3><span class="header-section-number">3.6.1</span> 基因家族分析思路及文章撰写思路</h3>
+<h3>
+<span class="header-section-number">3.6.1</span> 基因家族分析思路及文章撰写思路<a class="anchor" aria-label="anchor" href="#%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF%E5%8F%8A%E6%96%87%E7%AB%A0%E6%92%B0%E5%86%99%E6%80%9D%E8%B7%AF"><i class="fas fa-link"></i></a>
+</h3>
 <p>基因家族分析是继GEO数据挖掘后，一种新的生物信息学挖掘策略。</p>
 <p>如何做基因家族研究，可以参考这个帖子：<a href="http://www.planttech.com.cn/blog/58882464a46" class="uri">http://www.planttech.com.cn/blog/58882464a46</a>。</p>
 <p>为什么我们要选择三七呢？</p>
@@ -426,15 +231,21 @@ PS：如何加速<code>pip</code>的下载：</p>
 <p>每个基因家族都有大量的综述，因为基因家族基本都是转录因子，转录因子基本都是有很好的综述的。</p>
 </div>
 <div id="数据准备" class="section level3" number="3.6.2">
-<h3><span class="header-section-number">3.6.2</span> 数据准备</h3>
+<h3>
+<span class="header-section-number">3.6.2</span> 数据准备<a class="anchor" aria-label="anchor" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><i class="fas fa-link"></i></a>
+</h3>
 <p>需要准备的数据主要是参考基因组数据，包括<code>fasta</code>格式的序列文件、<code>gff</code>或<code>gtf</code>格式的基因组注释文件、蛋白质序列文件（通常是每个转录本的蛋白序列）、<code>cDNA</code>序列等文件。如果有转录组数据的话进行对应的转录组分析即可。除开上述这些文件外，还需要适用的文件还有<code>.hmm</code>格式的文件。</p>
 </div>
 <div id="软件准备" class="section level3" number="3.6.3">
-<h3><span class="header-section-number">3.6.3</span> 软件准备</h3>
+<h3>
+<span class="header-section-number">3.6.3</span> 软件准备<a class="anchor" aria-label="anchor" href="#%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87"><i class="fas fa-link"></i></a>
+</h3>
 <p>只需要会使用Linux系统，会安装Docker即可，然后下载<code>组学大讲堂</code>的镜像即可。<a href="https://hub.docker.com/r/omicsclass/gene-family">点击浏览</a>镜像地址。Docker的安装适用方法参考<a href="bioinf.html#WSL4Docker">3.3</a>。</p>
 </div>
 <div id="分析过程" class="section level3" number="3.6.4">
-<h3><span class="header-section-number">3.6.4</span> 分析过程</h3>
+<h3>
+<span class="header-section-number">3.6.4</span> 分析过程<a class="anchor" aria-label="anchor" href="#%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
 <li>mRNA_ID与基因ID的提取
 由于一个基因会对应多个转录本，因此一个基因下会对应多个mRNA的编号。在后续的分析中，每个基因只需要选择一个转录本的编号进行分析即可，因为每个基因不同的转录本的序列差异是较小的。提取的代码：</li>
@@ -455,7 +266,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <li>多序列比对
 之所以要进行多序列比对，是因为下载的<code>.hmm</code>文件是来自很多物种的这个结构域组成的隐马尔科夫模型，进行多序列比对后将该物种检索到的结构域序列进行比对，再次构建该物种该基因家族的隐马尔科夫模型，会更加准确。</li>
 </ul>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="bioinf.html#cb33-1" aria-hidden="true" tabindex="-1"></a>echo <span class="sc">-</span>e <span class="st">&#39;1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/domain.fa</span><span class="sc">\n</span><span class="st">2</span><span class="sc">\n</span><span class="st">1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/out.aln</span><span class="sc">\n</span><span class="st">r.domain.search/out.dnd</span><span class="sc">\n</span><span class="st">X</span><span class="sc">\n\n\n</span><span class="st">X</span><span class="sc">\n</span><span class="st">&#39;</span> <span class="sc">|</span>clustalw</span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="bioinf.html#cb33-1" aria-hidden="true" tabindex="-1"></a>echo <span class="sc">-</span>e <span class="st">'1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/domain.fa</span><span class="sc">\n</span><span class="st">2</span><span class="sc">\n</span><span class="st">1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/out.aln</span><span class="sc">\n</span><span class="st">r.domain.search/out.dnd</span><span class="sc">\n</span><span class="st">X</span><span class="sc">\n\n\n</span><span class="st">X</span><span class="sc">\n</span><span class="st">'</span> <span class="sc">|</span>clustalw</span></code></pre></div>
 <ul>
 <li>重构隐马尔科夫模型</li>
 </ul>
@@ -469,7 +280,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <li>筛选输出结果
 对重新检索后的结果进行筛选，也是对<code>E-value</code>进行筛选。</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="bioinf.html#cb36-1" aria-hidden="true" tabindex="-1"></a>grep <span class="sc">-</span>v <span class="st">&quot;^#&quot;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt<span class="sc">|</span>awk <span class="st">&#39;$7&lt;0.001 {print}&#39;</span> <span class="sc">&gt;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="bioinf.html#cb36-1" aria-hidden="true" tabindex="-1"></a>grep <span class="sc">-</span>v <span class="st">"^#"</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt<span class="sc">|</span>awk <span class="st">'$7&lt;0.001 {print}'</span> <span class="sc">&gt;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt</span></code></pre></div>
 <ul>
 <li>去除重复的ID
 上一步筛选得到的是该种中哪些基因是潜在的目标基因家族成员，而一个基因对应了多个mRNA，因此，只需要在筛选后的每个基因中选择一个具有代表性的mRNA进行后续的分析即可。这个提取唯一ID的步骤需要手动完成（PS：手动完成也很快）。手动挑选完mRNA的ID放在第一列，另存为文件<code>uniqueID.txt</code>。</li>
@@ -513,149 +324,156 @@ PS：如何加速<code>pip</code>的下载：</p>
 </div>
 </div>
 <div id="fasttree构建进化树" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> FastTree构建进化树</h2>
+<h2>
+<span class="header-section-number">3.7</span> FastTree构建进化树<a class="anchor" aria-label="anchor" href="#fasttree%E6%9E%84%E5%BB%BA%E8%BF%9B%E5%8C%96%E6%A0%91"><i class="fas fa-link"></i></a>
+</h2>
 <p><a href="http://www.microbesonline.org/fasttree/">FastTree</a>是基于最大似然法构建进化树的软件，使用简单。Windows端直接下载，完后运行即可：</p>
 <pre class="shell"><code>.\FastTree.exe .\YourAlignResults.fasta</code></pre>
 <p>前面是软件名称，后面是比对好的序列文件。</p>
 </div>
 <div id="处理planttfdb下载的fasta格式序列" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> 处理PlantTFDB下载的fasta格式序列</h2>
+<h2>
+<span class="header-section-number">3.8</span> 处理PlantTFDB下载的fasta格式序列<a class="anchor" aria-label="anchor" href="#%E5%A4%84%E7%90%86planttfdb%E4%B8%8B%E8%BD%BD%E7%9A%84fasta%E6%A0%BC%E5%BC%8F%E5%BA%8F%E5%88%97"><i class="fas fa-link"></i></a>
+</h2>
 <div id="将序列id和物种信息进行提取" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> 将序列ID和物种信息进行提取</h3>
+<h3>
+<span class="header-section-number">3.8.1</span> 将序列ID和物种信息进行提取<a class="anchor" aria-label="anchor" href="#%E5%B0%86%E5%BA%8F%E5%88%97id%E5%92%8C%E7%89%A9%E7%A7%8D%E4%BF%A1%E6%81%AF%E8%BF%9B%E8%A1%8C%E6%8F%90%E5%8F%96"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="bioinf.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb45-2"><a href="bioinf.html#cb45-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">&quot;C://Users//Administrator//Desktop//&quot;</span>)</span>
+<span id="cb45-2"><a href="bioinf.html#cb45-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">"C://Users//Administrator//Desktop//"</span>)</span>
 <span id="cb45-3"><a href="bioinf.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co">#read txt method one</span></span>
-<span id="cb45-4"><a href="bioinf.html#cb45-4" aria-hidden="true" tabindex="-1"></a>wrky_seq <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;wrky_seq.fasta&#39;</span>,<span class="st">&#39;w&#39;</span>)</span>
-<span id="cb45-5"><a href="bioinf.html#cb45-5" aria-hidden="true" tabindex="-1"></a>wrky_info <span class="op">=</span> <span class="bu">open</span>(<span class="st">&#39;wrky_info.txt&#39;</span>,<span class="st">&#39;w&#39;</span>)</span>
-<span id="cb45-6"><a href="bioinf.html#cb45-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">&quot;seq.fas&quot;</span>,<span class="st">&#39;r&#39;</span>)</span>
+<span id="cb45-4"><a href="bioinf.html#cb45-4" aria-hidden="true" tabindex="-1"></a>wrky_seq <span class="op">=</span> <span class="bu">open</span>(<span class="st">'wrky_seq.fasta'</span>,<span class="st">'w'</span>)</span>
+<span id="cb45-5"><a href="bioinf.html#cb45-5" aria-hidden="true" tabindex="-1"></a>wrky_info <span class="op">=</span> <span class="bu">open</span>(<span class="st">'wrky_info.txt'</span>,<span class="st">'w'</span>)</span>
+<span id="cb45-6"><a href="bioinf.html#cb45-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">"seq.fas"</span>,<span class="st">'r'</span>)</span>
 <span id="cb45-7"><a href="bioinf.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> f:</span>
-<span id="cb45-8"><a href="bioinf.html#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">str</span>.startswith(line,<span class="st">&quot;&gt;&quot;</span>):</span>
-<span id="cb45-9"><a href="bioinf.html#cb45-9" aria-hidden="true" tabindex="-1"></a>        seq_name <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">&#39;|&#39;</span>)[<span class="dv">0</span>]</span>
-<span id="cb45-10"><a href="bioinf.html#cb45-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#seq_name = str.split(seq_name,&#39;.&#39;)[0]</span></span>
-<span id="cb45-11"><a href="bioinf.html#cb45-11" aria-hidden="true" tabindex="-1"></a>        seq_species <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">&#39;|&#39;</span>)[<span class="dv">1</span>]</span>
-<span id="cb45-12"><a href="bioinf.html#cb45-12" aria-hidden="true" tabindex="-1"></a>        seq_name2 <span class="op">=</span> <span class="bu">str</span>.replace(seq_name, <span class="st">&quot;&gt;&quot;</span>, <span class="st">&quot;&quot;</span>)</span>
+<span id="cb45-8"><a href="bioinf.html#cb45-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">str</span>.startswith(line,<span class="st">"&gt;"</span>):</span>
+<span id="cb45-9"><a href="bioinf.html#cb45-9" aria-hidden="true" tabindex="-1"></a>        seq_name <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">'|'</span>)[<span class="dv">0</span>]</span>
+<span id="cb45-10"><a href="bioinf.html#cb45-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#seq_name = str.split(seq_name,'.')[0]</span></span>
+<span id="cb45-11"><a href="bioinf.html#cb45-11" aria-hidden="true" tabindex="-1"></a>        seq_species <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">'|'</span>)[<span class="dv">1</span>]</span>
+<span id="cb45-12"><a href="bioinf.html#cb45-12" aria-hidden="true" tabindex="-1"></a>        seq_name2 <span class="op">=</span> <span class="bu">str</span>.replace(seq_name, <span class="st">"&gt;"</span>, <span class="st">""</span>)</span>
 <span id="cb45-13"><a href="bioinf.html#cb45-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(seq_name)</span></span>
-<span id="cb45-14"><a href="bioinf.html#cb45-14" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(seq_name <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
-<span id="cb45-15"><a href="bioinf.html#cb45-15" aria-hidden="true" tabindex="-1"></a>        wrky_info.write(seq_name <span class="op">+</span> <span class="st">&quot;    &quot;</span> <span class="op">+</span> seq_name2 <span class="op">+</span> <span class="st">&quot;    &quot;</span> <span class="op">+</span> seq_species <span class="op">+</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</span>
+<span id="cb45-14"><a href="bioinf.html#cb45-14" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(seq_name <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb45-15"><a href="bioinf.html#cb45-15" aria-hidden="true" tabindex="-1"></a>        wrky_info.write(seq_name <span class="op">+</span> <span class="st">"    "</span> <span class="op">+</span> seq_name2 <span class="op">+</span> <span class="st">"    "</span> <span class="op">+</span> seq_species <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
 <span id="cb45-16"><a href="bioinf.html#cb45-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb45-17"><a href="bioinf.html#cb45-17" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(line)</span>
 <span id="cb45-18"><a href="bioinf.html#cb45-18" aria-hidden="true" tabindex="-1"></a>wrky_seq.close()</span>
 <span id="cb45-19"><a href="bioinf.html#cb45-19" aria-hidden="true" tabindex="-1"></a>wrky_info.close()</span></code></pre></div>
 </div>
 <div id="将fasta格式的序列转换成data.frame格式" class="section level3" number="3.8.2">
-<h3><span class="header-section-number">3.8.2</span> 将fasta格式的序列转换成data.frame格式</h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="bioinf.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb46-2"><a href="bioinf.html#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="bioinf.html#cb46-3" aria-hidden="true" tabindex="-1"></a>df.info <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;wrky_info.txt&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb46-4"><a href="bioinf.html#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="bioinf.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df.info<span class="sc">$</span>V3) <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>() <span class="ot">-&gt;</span> species</span>
-<span id="cb46-6"><a href="bioinf.html#cb46-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-7"><a href="bioinf.html#cb46-7" aria-hidden="true" tabindex="-1"></a><span class="co"># write.csv(species, file = &#39;物种数量统计.csv&#39;, row.names = FALSE, quote = FALSE)</span></span>
-<span id="cb46-8"><a href="bioinf.html#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="bioinf.html#cb46-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 整理蛋白数据格式</span></span>
-<span id="cb46-10"><a href="bioinf.html#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-11"><a href="bioinf.html#cb46-11" aria-hidden="true" tabindex="-1"></a>df.seq <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;seq.fas&quot;</span>, <span class="at">header =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> <span class="fu">na.omit</span>()</span>
-<span id="cb46-12"><a href="bioinf.html#cb46-12" aria-hidden="true" tabindex="-1"></a>seq.num <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb46-13"><a href="bioinf.html#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-14"><a href="bioinf.html#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df.seq)) {</span>
-<span id="cb46-15"><a href="bioinf.html#cb46-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">str_sub</span>(df.seq<span class="sc">$</span>V1[i], <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">&quot;&gt;&quot;</span>) {</span>
-<span id="cb46-16"><a href="bioinf.html#cb46-16" aria-hidden="true" tabindex="-1"></a>    seq.num <span class="ot">&lt;-</span> <span class="fu">c</span>(seq.num, i)</span>
-<span id="cb46-17"><a href="bioinf.html#cb46-17" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb46-18"><a href="bioinf.html#cb46-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-19"><a href="bioinf.html#cb46-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-20"><a href="bioinf.html#cb46-20" aria-hidden="true" tabindex="-1"></a>df.temp <span class="ot">&lt;-</span> seq.num <span class="sc">%&gt;%</span> <span class="fu">as.data.frame</span>()</span>
-<span id="cb46-21"><a href="bioinf.html#cb46-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-22"><a href="bioinf.html#cb46-22" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df.temp)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;v1&quot;</span></span>
-<span id="cb46-23"><a href="bioinf.html#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-24"><a href="bioinf.html#cb46-24" aria-hidden="true" tabindex="-1"></a>df.temp <span class="ot">&lt;-</span> df.temp <span class="sc">%&gt;%</span></span>
-<span id="cb46-25"><a href="bioinf.html#cb46-25" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
-<span id="cb46-26"><a href="bioinf.html#cb46-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">start =</span> v1 <span class="sc">+</span> <span class="dv">1</span>,</span>
-<span id="cb46-27"><a href="bioinf.html#cb46-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">end =</span> v1 <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb46-28"><a href="bioinf.html#cb46-28" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb46-29"><a href="bioinf.html#cb46-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-30"><a href="bioinf.html#cb46-30" aria-hidden="true" tabindex="-1"></a>seq.info <span class="ot">&lt;-</span> df.seq[df.temp<span class="sc">$</span>v1, ] <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">seq =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb46-31"><a href="bioinf.html#cb46-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-32"><a href="bioinf.html#cb46-32" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df.temp)) {</span>
-<span id="cb46-33"><a href="bioinf.html#cb46-33" aria-hidden="true" tabindex="-1"></a>  start <span class="ot">&lt;-</span> df.temp<span class="sc">$</span>start[i]</span>
-<span id="cb46-34"><a href="bioinf.html#cb46-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-35"><a href="bioinf.html#cb46-35" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (i <span class="sc">==</span> <span class="fu">nrow</span>(df.temp)) {</span>
-<span id="cb46-36"><a href="bioinf.html#cb46-36" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">&lt;-</span> <span class="fu">nrow</span>(df.seq)</span>
-<span id="cb46-37"><a href="bioinf.html#cb46-37" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb46-38"><a href="bioinf.html#cb46-38" aria-hidden="true" tabindex="-1"></a>    end <span class="ot">&lt;-</span> df.temp<span class="sc">$</span>end[i <span class="sc">+</span> <span class="dv">1</span>]</span>
-<span id="cb46-39"><a href="bioinf.html#cb46-39" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb46-40"><a href="bioinf.html#cb46-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-41"><a href="bioinf.html#cb46-41" aria-hidden="true" tabindex="-1"></a>  seq.temp <span class="ot">&lt;-</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb46-42"><a href="bioinf.html#cb46-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-43"><a href="bioinf.html#cb46-43" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (j <span class="cf">in</span> start<span class="sc">:</span>end) {</span>
-<span id="cb46-44"><a href="bioinf.html#cb46-44" aria-hidden="true" tabindex="-1"></a>    seq.temp <span class="ot">&lt;-</span> <span class="fu">paste0</span>(seq.temp, df.seq<span class="sc">$</span>V1[j])</span>
-<span id="cb46-45"><a href="bioinf.html#cb46-45" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb46-46"><a href="bioinf.html#cb46-46" aria-hidden="true" tabindex="-1"></a>  seq.info<span class="sc">$</span>seq[i] <span class="ot">&lt;-</span> seq.temp</span>
-<span id="cb46-47"><a href="bioinf.html#cb46-47" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-48"><a href="bioinf.html#cb46-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-49"><a href="bioinf.html#cb46-49" aria-hidden="true" tabindex="-1"></a>selected.species.info <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb46-50"><a href="bioinf.html#cb46-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-51"><a href="bioinf.html#cb46-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-52"><a href="bioinf.html#cb46-52" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">117423</span>)</span>
-<span id="cb46-53"><a href="bioinf.html#cb46-53" aria-hidden="true" tabindex="-1"></a>species.random <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">unique</span>(df.info<span class="sc">$</span>V4), <span class="dv">30</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb46-54"><a href="bioinf.html#cb46-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-55"><a href="bioinf.html#cb46-55" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> species.random) {</span>
-<span id="cb46-56"><a href="bioinf.html#cb46-56" aria-hidden="true" tabindex="-1"></a>  df.info.sub <span class="ot">&lt;-</span> df.info <span class="sc">%&gt;%</span></span>
-<span id="cb46-57"><a href="bioinf.html#cb46-57" aria-hidden="true" tabindex="-1"></a>    dplyr<span class="sc">::</span><span class="fu">filter</span>(V4 <span class="sc">==</span> i)</span>
-<span id="cb46-58"><a href="bioinf.html#cb46-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-59"><a href="bioinf.html#cb46-59" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">nrow</span>(df.info.sub) <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
-<span id="cb46-60"><a href="bioinf.html#cb46-60" aria-hidden="true" tabindex="-1"></a>    selected.species.info <span class="ot">&lt;-</span> <span class="fu">rbind</span>(selected.species.info, df.info.sub)</span>
-<span id="cb46-61"><a href="bioinf.html#cb46-61" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb46-62"><a href="bioinf.html#cb46-62" aria-hidden="true" tabindex="-1"></a>    sample.num <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(df.info.sub), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb46-63"><a href="bioinf.html#cb46-63" aria-hidden="true" tabindex="-1"></a>    selected.species.info <span class="ot">&lt;-</span> <span class="fu">rbind</span>(selected.species.info, df.info.sub[sample.num, ])</span>
-<span id="cb46-64"><a href="bioinf.html#cb46-64" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb46-65"><a href="bioinf.html#cb46-65" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-66"><a href="bioinf.html#cb46-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-67"><a href="bioinf.html#cb46-67" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(selected.species.info, <span class="at">file =</span> <span class="st">&quot;随机选择的30个物种信息.txt&quot;</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">col.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb46-68"><a href="bioinf.html#cb46-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-69"><a href="bioinf.html#cb46-69" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="cn">FALSE</span>) {</span>
-<span id="cb46-70"><a href="bioinf.html#cb46-70" aria-hidden="true" tabindex="-1"></a>  species <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
-<span id="cb46-71"><a href="bioinf.html#cb46-71" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Arabidopsis_thaliana&quot;</span>,</span>
-<span id="cb46-72"><a href="bioinf.html#cb46-72" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&#39; Nicotiana_tabacum&#39;,</span></span>
-<span id="cb46-73"><a href="bioinf.html#cb46-73" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&#39; Oryza_sativa_subsp._indica&#39;,</span></span>
-<span id="cb46-74"><a href="bioinf.html#cb46-74" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Oryza_sativa_subsp._japonica&quot;</span>,</span>
-<span id="cb46-75"><a href="bioinf.html#cb46-75" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;Zea_mays&quot;</span></span>
-<span id="cb46-76"><a href="bioinf.html#cb46-76" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&#39; Glycine_max&#39;,</span></span>
-<span id="cb46-77"><a href="bioinf.html#cb46-77" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&#39; Solanum_tuberosum&#39;,</span></span>
-<span id="cb46-78"><a href="bioinf.html#cb46-78" aria-hidden="true" tabindex="-1"></a>    <span class="co">#&#39; Triticum_aestivum&#39;</span></span>
-<span id="cb46-79"><a href="bioinf.html#cb46-79" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb46-80"><a href="bioinf.html#cb46-80" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-81"><a href="bioinf.html#cb46-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-82"><a href="bioinf.html#cb46-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-83"><a href="bioinf.html#cb46-83" aria-hidden="true" tabindex="-1"></a>df.all <span class="ot">&lt;-</span> <span class="fu">merge</span>(seq.info, selected.species.info, <span class="at">by =</span> <span class="st">&quot;V1&quot;</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb46-84"><a href="bioinf.html#cb46-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-85"><a href="bioinf.html#cb46-85" aria-hidden="true" tabindex="-1"></a><span class="co"># filter</span></span>
-<span id="cb46-86"><a href="bioinf.html#cb46-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-87"><a href="bioinf.html#cb46-87" aria-hidden="true" tabindex="-1"></a><span class="co"># df.selected = seq.info %&gt;% dplyr::filter(V1 %in% selected.species.info$V1)</span></span>
-<span id="cb46-88"><a href="bioinf.html#cb46-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-89"><a href="bioinf.html#cb46-89" aria-hidden="true" tabindex="-1"></a>df.selected <span class="ot">&lt;-</span> df.all</span>
-<span id="cb46-90"><a href="bioinf.html#cb46-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-91"><a href="bioinf.html#cb46-91" aria-hidden="true" tabindex="-1"></a>seq.selected <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb46-92"><a href="bioinf.html#cb46-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-93"><a href="bioinf.html#cb46-93" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(df.selected)) {</span>
-<span id="cb46-94"><a href="bioinf.html#cb46-94" aria-hidden="true" tabindex="-1"></a>  seq.selected <span class="ot">&lt;-</span> seq.selected <span class="sc">%&gt;%</span></span>
-<span id="cb46-95"><a href="bioinf.html#cb46-95" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(<span class="fu">data.frame</span>(<span class="at">temp =</span> df.selected<span class="sc">$</span>V2[i])) <span class="sc">%&gt;%</span></span>
-<span id="cb46-96"><a href="bioinf.html#cb46-96" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rbind</span>(<span class="fu">data.frame</span>(<span class="at">temp =</span> df.selected<span class="sc">$</span>seq[i]))</span>
-<span id="cb46-97"><a href="bioinf.html#cb46-97" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb46-98"><a href="bioinf.html#cb46-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-99"><a href="bioinf.html#cb46-99" aria-hidden="true" tabindex="-1"></a><span class="fu">fwrite</span>(seq.selected, <span class="at">file =</span> <span class="st">&quot;选中的序列.fas&quot;</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">col.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<h3>
+<span class="header-section-number">3.8.2</span> 将fasta格式的序列转换成data.frame格式<a class="anchor" aria-label="anchor" href="#%E5%B0%86fasta%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%BA%8F%E5%88%97%E8%BD%AC%E6%8D%A2%E6%88%90data.frame%E6%A0%BC%E5%BC%8F"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span>list <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span>
+
+<span class="va">df.info</span> <span class="op">&lt;-</span> <span class="fu">fread</span><span class="op">(</span><span class="st">"wrky_info.txt"</span>, header <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">df.info</span><span class="op">$</span><span class="va">V3</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-&gt;</span> <span class="va">species</span>
+
+<span class="co"># write.csv(species, file = '物种数量统计.csv', row.names = FALSE, quote = FALSE)</span>NA<span class="co"># 整理蛋白数据格式</span>NA<span class="va">df.seq</span> <span class="op">&lt;-</span> <span class="fu">fread</span><span class="op">(</span><span class="st">"seq.fas"</span>, header <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">seq.num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.seq</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="kw">if</span> <span class="op">(</span><span class="fu">str_sub</span><span class="op">(</span><span class="va">df.seq</span><span class="op">$</span><span class="va">V1</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">==</span> <span class="st">"&gt;"</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">seq.num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">seq.num</span>, <span class="va">i</span><span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="va">df.temp</span> <span class="op">&lt;-</span> <span class="va">seq.num</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">df.temp</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"v1"</span>
+
+<span class="va">df.temp</span> <span class="op">&lt;-</span> <span class="va">df.temp</span> <span class="op">%&gt;%</span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>
+    start <span class="op">=</span> <span class="va">v1</span> <span class="op">+</span> <span class="fl">1</span>,
+    end <span class="op">=</span> <span class="va">v1</span> <span class="op">-</span> <span class="fl">1</span>
+  <span class="op">)</span>
+
+<span class="va">seq.info</span> <span class="op">&lt;-</span> <span class="va">df.seq</span><span class="op">[</span><span class="va">df.temp</span><span class="op">$</span><span class="va">v1</span>, <span class="op">]</span> <span class="op">%&gt;%</span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>seq <span class="op">=</span> <span class="st">""</span><span class="op">)</span>
+
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.temp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">start</span> <span class="op">&lt;-</span> <span class="va">df.temp</span><span class="op">$</span><span class="va">start</span><span class="op">[</span><span class="va">i</span><span class="op">]</span>
+
+  <span class="kw">if</span> <span class="op">(</span><span class="va">i</span> <span class="op">==</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.temp</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">end</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.seq</span><span class="op">)</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="va">end</span> <span class="op">&lt;-</span> <span class="va">df.temp</span><span class="op">$</span><span class="va">end</span><span class="op">[</span><span class="va">i</span> <span class="op">+</span> <span class="fl">1</span><span class="op">]</span>
+  <span class="op">}</span>
+
+  <span class="va">seq.temp</span> <span class="op">&lt;-</span> <span class="st">""</span>
+
+  <span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="va">start</span><span class="op">:</span><span class="va">end</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">seq.temp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="va">seq.temp</span>, <span class="va">df.seq</span><span class="op">$</span><span class="va">V1</span><span class="op">[</span><span class="va">j</span><span class="op">]</span><span class="op">)</span>
+  <span class="op">}</span>
+  <span class="va">seq.info</span><span class="op">$</span><span class="va">seq</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">seq.temp</span>
+<span class="op">}</span>
+
+<span class="va">selected.species.info</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
+
+
+<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">117423</span><span class="op">)</span>
+<span class="va">species.random</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">df.info</span><span class="op">$</span><span class="va">V4</span><span class="op">)</span>, <span class="fl">30</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="va">species.random</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">df.info.sub</span> <span class="op">&lt;-</span> <span class="va">df.info</span> <span class="op">%&gt;%</span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">V4</span> <span class="op">==</span> <span class="va">i</span><span class="op">)</span>
+
+  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.info.sub</span><span class="op">)</span> <span class="op">&lt;</span> <span class="fl">10</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">selected.species.info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">selected.species.info</span>, <span class="va">df.info.sub</span><span class="op">)</span>
+  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span>
+    <span class="va">sample.num</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.info.sub</span><span class="op">)</span>, <span class="fl">10</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+    <span class="va">selected.species.info</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">selected.species.info</span>, <span class="va">df.info.sub</span><span class="op">[</span><span class="va">sample.num</span>, <span class="op">]</span><span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="fu">fwrite</span><span class="op">(</span><span class="va">selected.species.info</span>, file <span class="op">=</span> <span class="st">"随机选择的30个物种信息.txt"</span>FALSE, r<span class="op">=</span>w<span class="cn">FALSE</span>s = FALSE, c<span class="op">=</span>l<span class="cn">FALSE</span>NA<span class="op">=</span>NA<span class="cn">FALSE</span>NA<span class="op">)</span>NA<span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">species</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>
+    <span class="st">"Arabidopsis_thaliana"</span>,
+    <span class="co">#' Nicotiana_tabacum',</span>
+    <span class="co">#' Oryza_sativa_subsp._indica',</span>
+    <span class="st">"Oryza_sativa_subsp._japonica"</span>,
+    <span class="st">"Zea_mays"</span>
+    <span class="co">#' Glycine_max',</span>
+    <span class="co">#' Solanum_tuberosum',</span>
+    <span class="co">#' Triticum_aestivum'</span>
+  <span class="op">)</span>
+<span class="op">}</span>
+
+
+<span class="va">df.all</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/merge.html">merge</a></span><span class="op">(</span><span class="va">seq.info</span>, <span class="va">selected.species.info</span>, by <span class="op">=</span> <span class="st">"V1"</span>, all.y <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="co"># filter</span>
+
+<span class="co"># df.selected = seq.info %&gt;% dplyr::filter(V1 %in% selected.species.info$V1)</span>
+
+<span class="va">df.selected</span> <span class="op">&lt;-</span> <span class="va">df.all</span>
+
+<span class="va">seq.selected</span> <span class="op">&lt;-</span> <span class="cn">NULL</span>
+
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">df.selected</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">seq.selected</span> <span class="op">&lt;-</span> <span class="va">seq.selected</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>temp <span class="op">=</span> <span class="va">df.selected</span><span class="op">$</span><span class="va">V2</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span>
+    <span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>temp <span class="op">=</span> <span class="va">df.selected</span><span class="op">$</span><span class="va">seq</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">fwrite</span><span class="op">(</span><span class="va">seq.selected</span>, file <span class="op">=</span> <span class="st">"选中的序列.fas"</span>.names = FAL<span class="op">=</span>E<span class="cn">FALSE</span>te = FAL<span class="op">=</span>E<span class="cn">FALSE</span>.names = FAL<span class="op">=</span>E<span class="cn">FALSE</span>NA<span class="op">)</span>NA</code></pre></div>
 </div>
 </div>
 <div id="软件安装" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> 软件安装</h2>
+<h2>
+<span class="header-section-number">3.9</span> 软件安装<a class="anchor" aria-label="anchor" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
+</h2>
 <div id="aspera" class="section level3" number="3.9.1">
-<h3><span class="header-section-number">3.9.1</span> Aspera</h3>
+<h3>
+<span class="header-section-number">3.9.1</span> Aspera<a class="anchor" aria-label="anchor" href="#aspera"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="bioinf.html#cb47-1" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>ak<span class="sc">-</span>delivery04<span class="sc">-</span>mul.dhe.ibm.com<span class="sc">/</span>sar<span class="sc">/</span>CMA<span class="sc">/</span>OSA<span class="sc">/</span>09cne<span class="sc">/</span><span class="dv">0</span><span class="sc">/</span>ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>tar.gz</span>
 <span id="cb47-2"><a href="bioinf.html#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-3"><a href="bioinf.html#cb47-3" aria-hidden="true" tabindex="-1"></a>tar <span class="sc">-</span>zxvf ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>tar.gz</span>
 <span id="cb47-4"><a href="bioinf.html#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-5"><a href="bioinf.html#cb47-5" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>sh</span>
 <span id="cb47-6"><a href="bioinf.html#cb47-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-7"><a href="bioinf.html#cb47-7" aria-hidden="true" tabindex="-1"></a>echo <span class="st">&quot;&quot;&quot;export PATH=</span><span class="sc">\&quot;</span><span class="st">/home/xiang/.aspera/connect/bin:\$PATH</span><span class="sc">\&quot;</span><span class="st"> &quot;&quot;&quot;</span> <span class="sc">&gt;</span><span class="er">&gt;</span> <span class="er">~/</span>.bashrc</span>
+<span id="cb47-7"><a href="bioinf.html#cb47-7" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"""export PATH=</span><span class="sc">\"</span><span class="st">/home/xiang/.aspera/connect/bin:\$PATH</span><span class="sc">\"</span><span class="st"> """</span> <span class="sc">&gt;</span><span class="er">&gt;</span> <span class="er">~/</span>.bashrc</span>
 <span id="cb47-8"><a href="bioinf.html#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb47-9"><a href="bioinf.html#cb47-9" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
 <span id="cb47-10"><a href="bioinf.html#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -667,10 +485,14 @@ PS：如何加速<code>pip</code>的下载：</p>
 </div>
 </div>
 <div id="ubuntu搭建生信环境" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> Ubuntu搭建生信环境</h2>
+<h2>
+<span class="header-section-number">3.10</span> Ubuntu搭建生信环境<a class="anchor" aria-label="anchor" href="#ubuntu%E6%90%AD%E5%BB%BA%E7%94%9F%E4%BF%A1%E7%8E%AF%E5%A2%83"><i class="fas fa-link"></i></a>
+</h2>
 <p>下面的代码来自王通老师。</p>
 <div id="旧版本" class="section level3" number="3.10.1">
-<h3><span class="header-section-number">3.10.1</span> 旧版本</h3>
+<h3>
+<span class="header-section-number">3.10.1</span> 旧版本<a class="anchor" aria-label="anchor" href="#%E6%97%A7%E7%89%88%E6%9C%AC"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="bioinf.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">#下载ubuntu 20.04镜像</span></span>
 <span id="cb48-2"><a href="bioinf.html#cb48-2" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>ftp.sjtu.edu.cn<span class="sc">/</span>ubuntu<span class="sc">-</span>cd<span class="sc">/</span><span class="dv">20</span>.<span class="fl">04.1</span><span class="sc">/</span>ubuntu<span class="dv">-20</span>.<span class="fl">04.1</span><span class="sc">-</span>desktop<span class="sc">-</span>amd64.iso</span>
 <span id="cb48-3"><a href="bioinf.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -691,7 +513,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <span id="cb48-18"><a href="bioinf.html#cb48-18" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">/</span>ifs1</span>
 <span id="cb48-19"><a href="bioinf.html#cb48-19" aria-hidden="true" tabindex="-1"></a>mount <span class="sc">/</span>dev<span class="sc">/</span>sdb <span class="sc">/</span>ifs1</span>
 <span id="cb48-20"><a href="bioinf.html#cb48-20" aria-hidden="true" tabindex="-1"></a><span class="co">#修改fstab</span></span>
-<span id="cb48-21"><a href="bioinf.html#cb48-21" aria-hidden="true" tabindex="-1"></a>echo <span class="st">&quot;/dev/sdb /ifs1                       xfs     defaults,uquota        0 0&quot;</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
+<span id="cb48-21"><a href="bioinf.html#cb48-21" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"/dev/sdb /ifs1                       xfs     defaults,uquota        0 0"</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
 <span id="cb48-22"><a href="bioinf.html#cb48-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-23"><a href="bioinf.html#cb48-23" aria-hidden="true" tabindex="-1"></a><span class="co">#创建root账户</span></span>
 <span id="cb48-24"><a href="bioinf.html#cb48-24" aria-hidden="true" tabindex="-1"></a>sudo passwd root</span>
@@ -704,7 +526,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <span id="cb48-31"><a href="bioinf.html#cb48-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-32"><a href="bioinf.html#cb48-32" aria-hidden="true" tabindex="-1"></a><span class="co">#修改源</span></span>
 <span id="cb48-33"><a href="bioinf.html#cb48-33" aria-hidden="true" tabindex="-1"></a>cp <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.bak</span>
-<span id="cb48-34"><a href="bioinf.html#cb48-34" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">&#39;s#cn.archive.ubuntu.com#mirrors.aliyun.com#g&#39;</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
+<span id="cb48-34"><a href="bioinf.html#cb48-34" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">'s#cn.archive.ubuntu.com#mirrors.aliyun.com#g'</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
 <span id="cb48-35"><a href="bioinf.html#cb48-35" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> sudo apt<span class="sc">-</span>get upgrade</span>
 <span id="cb48-36"><a href="bioinf.html#cb48-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-37"><a href="bioinf.html#cb48-37" aria-hidden="true" tabindex="-1"></a><span class="co">#ssh登录</span></span>
@@ -786,7 +608,9 @@ PS：如何加速<code>pip</code>的下载：</p>
 <span id="cb48-113"><a href="bioinf.html#cb48-113" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels conda<span class="sc">-</span>forge</span></code></pre></div>
 </div>
 <div id="新版本" class="section level3" number="3.10.2">
-<h3><span class="header-section-number">3.10.2</span> 新版本</h3>
+<h3>
+<span class="header-section-number">3.10.2</span> 新版本<a class="anchor" aria-label="anchor" href="#%E6%96%B0%E7%89%88%E6%9C%AC"><i class="fas fa-link"></i></a>
+</h3>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="bioinf.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
 <span id="cb49-2"><a href="bioinf.html#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     获得Linux环境          #</span></span>
 <span id="cb49-3"><a href="bioinf.html#cb49-3" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
@@ -810,7 +634,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <span id="cb49-21"><a href="bioinf.html#cb49-21" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">/</span>ifs1</span>
 <span id="cb49-22"><a href="bioinf.html#cb49-22" aria-hidden="true" tabindex="-1"></a>mount <span class="sc">/</span>dev<span class="sc">/</span>sdb <span class="sc">/</span>ifs1</span>
 <span id="cb49-23"><a href="bioinf.html#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="co">#修改fstab</span></span>
-<span id="cb49-24"><a href="bioinf.html#cb49-24" aria-hidden="true" tabindex="-1"></a>echo <span class="st">&quot;/dev/sdb /ifs1                       xfs     defaults,uquota        0 0&quot;</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
+<span id="cb49-24"><a href="bioinf.html#cb49-24" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"/dev/sdb /ifs1                       xfs     defaults,uquota        0 0"</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
 <span id="cb49-25"><a href="bioinf.html#cb49-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-26"><a href="bioinf.html#cb49-26" aria-hidden="true" tabindex="-1"></a><span class="co">#如果不安装系统，购买腾讯云服务器一年74元，2核心4G版本即可</span></span>
 <span id="cb49-27"><a href="bioinf.html#cb49-27" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>curl.qcloud.com<span class="sc">/</span>gm6m0QoY</span>
@@ -829,7 +653,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <span id="cb49-40"><a href="bioinf.html#cb49-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-41"><a href="bioinf.html#cb49-41" aria-hidden="true" tabindex="-1"></a><span class="co">#修改源</span></span>
 <span id="cb49-42"><a href="bioinf.html#cb49-42" aria-hidden="true" tabindex="-1"></a>cp <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.bak</span>
-<span id="cb49-43"><a href="bioinf.html#cb49-43" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">&#39;s#cn.archive.ubuntu.com#mirrors.aliyun.com#g&#39;</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
+<span id="cb49-43"><a href="bioinf.html#cb49-43" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">'s#cn.archive.ubuntu.com#mirrors.aliyun.com#g'</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
 <span id="cb49-44"><a href="bioinf.html#cb49-44" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> sudo apt<span class="sc">-</span>get upgrade</span>
 <span id="cb49-45"><a href="bioinf.html#cb49-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-46"><a href="bioinf.html#cb49-46" aria-hidden="true" tabindex="-1"></a><span class="co">#ssh登录</span></span>
@@ -987,65 +811,88 @@ PS：如何加速<code>pip</code>的下载：</p>
 </div>
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="prev"><a href="python.html"><span class="header-section-number">2</span> Python知识汇总</a></div>
+<div class="next"><a href="literature.html"><span class="header-section-number">4</span> 嗑盐文献</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#bioinf"><span class="header-section-number">3</span> 生物信息学</a></li>
+<li><a class="nav-link" href="#%E6%9C%AC%E7%AB%A0%E5%89%8D%E8%A8%80-2"><span class="header-section-number">3.1</span> 本章前言</a></li>
+<li>
+<a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E7%89%A9%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="header-section-number">3.2</span> 常用的生物学数据库</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#cath-gene3d"><span class="header-section-number">3.2.1</span> CATH-Gene3D</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#WSL4Docker"><span class="header-section-number">3.3</span> WSL安装使用Docker</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#docker%E7%9A%84%E5%AE%89%E8%A3%85"><span class="header-section-number">3.3.1</span> Docker的安装</a></li>
+<li><a class="nav-link" href="#docker%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="header-section-number">3.3.2</span> Docker的使用</a></li>
+<li><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BB%8Ewsl1%E5%88%87%E6%8D%A2%E5%88%B0wsl2"><span class="header-section-number">3.3.3</span> 如何从WSL1切换到WSL2</a></li>
+<li><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDdocker%E9%95%9C%E5%83%8F"><span class="header-section-number">3.3.4</span> 下载Docker镜像</a></li>
+<li><a class="nav-link" href="#docker%E7%9A%84%E4%BD%BF%E7%94%A8-1"><span class="header-section-number">3.3.5</span> Docker的使用</a></li>
+<li><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E9%95%9C%E5%83%8F"><span class="header-section-number">3.3.6</span> 如何创建自己的镜像</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#conda%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8"><span class="header-section-number">3.4</span> Conda的安装使用</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="header-section-number">3.4.1</span> 下载安装</a></li>
+<li><a class="nav-link" href="#conda%E5%AE%89%E8%A3%85r%E5%8F%8Ar%E5%8C%85"><span class="header-section-number">3.4.2</span> Conda安装R及R包</a></li>
+<li><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%85%B6%E4%BB%96%E8%BD%AF%E4%BB%B6"><span class="header-section-number">3.4.3</span> 安装其他软件</a></li>
+<li><a class="nav-link" href="#pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="header-section-number">3.4.4</span> pip下载速度慢的解决方法：</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#git%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="header-section-number">3.5</span> git的使用</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#git%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86github%E4%B8%8Egitee"><span class="header-section-number">3.5.1</span> git同时管理GitHub与Gitee</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90"><span class="header-section-number">3.6</span> 基因家族分析</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF%E5%8F%8A%E6%96%87%E7%AB%A0%E6%92%B0%E5%86%99%E6%80%9D%E8%B7%AF"><span class="header-section-number">3.6.1</span> 基因家族分析思路及文章撰写思路</a></li>
+<li><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%87%86%E5%A4%87"><span class="header-section-number">3.6.2</span> 数据准备</a></li>
+<li><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%87%86%E5%A4%87"><span class="header-section-number">3.6.3</span> 软件准备</a></li>
+<li><a class="nav-link" href="#%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="header-section-number">3.6.4</span> 分析过程</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#fasttree%E6%9E%84%E5%BB%BA%E8%BF%9B%E5%8C%96%E6%A0%91"><span class="header-section-number">3.7</span> FastTree构建进化树</a></li>
+<li>
+<a class="nav-link" href="#%E5%A4%84%E7%90%86planttfdb%E4%B8%8B%E8%BD%BD%E7%9A%84fasta%E6%A0%BC%E5%BC%8F%E5%BA%8F%E5%88%97"><span class="header-section-number">3.8</span> 处理PlantTFDB下载的fasta格式序列</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E5%B0%86%E5%BA%8F%E5%88%97id%E5%92%8C%E7%89%A9%E7%A7%8D%E4%BF%A1%E6%81%AF%E8%BF%9B%E8%A1%8C%E6%8F%90%E5%8F%96"><span class="header-section-number">3.8.1</span> 将序列ID和物种信息进行提取</a></li>
+<li><a class="nav-link" href="#%E5%B0%86fasta%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%BA%8F%E5%88%97%E8%BD%AC%E6%8D%A2%E6%88%90data.frame%E6%A0%BC%E5%BC%8F"><span class="header-section-number">3.8.2</span> 将fasta格式的序列转换成data.frame格式</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="header-section-number">3.9</span> 软件安装</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#aspera"><span class="header-section-number">3.9.1</span> Aspera</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#ubuntu%E6%90%AD%E5%BB%BA%E7%94%9F%E4%BF%A1%E7%8E%AF%E5%A2%83"><span class="header-section-number">3.10</span> Ubuntu搭建生信环境</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E6%97%A7%E7%89%88%E6%9C%AC"><span class="header-section-number">3.10.1</span> 旧版本</a></li>
+<li><a class="nav-link" href="#%E6%96%B0%E7%89%88%E6%9C%AC"><span class="header-section-number">3.10.2</span> 新版本</a></li>
+</ul>
+</li>
+</ul>
 
-          </div>
-        </div>
-      </div>
-<a href="python.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="literature.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/lixiang117423/lixiang117423.github.io/blob/master/003-%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/lixiang117423/lixiang117423.github.io/edit/master/003-%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>小蓝哥的知识荒原</strong>" was written by 李详. It was last built on 2021年10月1日.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": true,
-"facebook": false,
-"twitter": false,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": {}
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://www.web4xiang.com/003-生物信息学.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": {},
-"toc": {
-"collapse": "section"
-}
-});
-});
-</script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
@@ -1059,5 +906,4 @@ gitbook.start({
   })();
 </script>
 </body>
-
 </html>

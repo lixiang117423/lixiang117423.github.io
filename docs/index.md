@@ -2,19 +2,21 @@
 title: "小蓝哥的知识荒原"
 author: "李详"
 date: "2021年10月1日"
+knit: "bookdown::render_book"
 documentclass: book
-biblio-style: apa
-bibliography: ["mybib.bib"]
+biblio-style: apalike
+bibliography: [mybib.bib]
 fontsize: 10pt
-monofontoptions: "Scale=0.7"
+#monofontoptions: "Scale=0.7"
 link-citations: yes
 colorlinks: yes
 lot: yes
 lof: yes
 site: bookdown::bookdown_site
-output:
+output: 
   - bookdown::gitbook
   - rmarkdown::md_document
+  - bookdown::bs4_book
 description: "小蓝哥的知识荒原。蓝莲盛开，身心自在；活在当下，正向提升！"
 github-repo: lixiang117423/lixiang117423.github.io
 graphics: yes
