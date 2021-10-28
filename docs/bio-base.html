@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>简介 | 小蓝哥的知识荒原</title>
+<title>Chapter9 基础知识 | 小蓝哥的知识荒原</title>
 <meta name="author" content="李详">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html">简介</a></li>
+<li><a class="" href="index.html">简介</a></li>
 <li class="book-part">Part I: R</li>
 <li><a class="" href="r-base.html"><span class="header-section-number">1</span> 语言基础</a></li>
 <li><a class="" href="r-stat.html"><span class="header-section-number">2</span> 统计分析</a></li>
@@ -43,7 +43,7 @@
 <li><a class="" href="python-spider.html"><span class="header-section-number">7</span> Python爬虫</a></li>
 <li><a class="" href="ai.html"><span class="header-section-number">8</span> 人工智能</a></li>
 <li class="book-part">Part Ⅲ: 生物信息学</li>
-<li><a class="" href="bio-base.html"><span class="header-section-number">9</span> 基础知识</a></li>
+<li><a class="active" href="bio-base.html"><span class="header-section-number">9</span> 基础知识</a></li>
 <li><a class="" href="bio-env.html"><span class="header-section-number">10</span> 环境搭建</a></li>
 <li><a class="" href="genomics.html"><span class="header-section-number">11</span> 基因组学</a></li>
 <li><a class="" href="rnaseq.html"><span class="header-section-number">12</span> RNA-Seq</a></li>
@@ -69,29 +69,58 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="简介" class="section level1 unnumbered">
-<h1>简介<a class="anchor" aria-label="anchor" href="#%E7%AE%80%E4%BB%8B"><i class="fas fa-link"></i></a>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="bio-base" class="section level1" number="9">
+<h1>
+<span class="header-section-number">Chapter9</span> 基础知识<a class="anchor" aria-label="anchor" href="#bio-base"><i class="fas fa-link"></i></a>
 </h1>
-<p>我，李详，昵称小蓝哥。现于云南农业大学攻读植物病理学博士学位。</p>
-<p>个人博客：<a href="https://www.web4xiang.com/">小蓝哥的知识荒原</a></p>
-<p>运营公众号：</p>
-<div class="inline-figure"><img src="figures/PLANTOMIX/PLANTOMIX.jpg" width="129" style="display: block; margin: auto;"></div>
+<div id="学习资源推荐" class="section level2" number="9.1">
+<h2>
+<span class="header-section-number">9.1</span> 学习资源推荐<a class="anchor" aria-label="anchor" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><a href="https://github.com/ossu/bioinformatics">自学生信RoadMap</a></li>
+</ul>
+</div>
+<div id="常用的生物学数据库" class="section level2" number="9.2">
+<h2>
+<span class="header-section-number">9.2</span> 常用的生物学数据库<a class="anchor" aria-label="anchor" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E7%89%A9%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93"><i class="fas fa-link"></i></a>
+</h2>
+<div id="cath-gene3d" class="section level3" number="9.2.1">
+<h3>
+<span class="header-section-number">9.2.1</span> CATH-Gene3D<a class="anchor" aria-label="anchor" href="#cath-gene3d"><i class="fas fa-link"></i></a>
+</h3>
+<p>这个数据库是蛋白质数据库，主要是蛋白结构域的进化关系。</p>
+<p><a href="https://www.cathdb.info/">点击访问</a>。</p>
+</div>
+</div>
+<div id="fasttree构建进化树" class="section level2" number="9.3">
+<h2>
+<span class="header-section-number">9.3</span> FastTree构建进化树<a class="anchor" aria-label="anchor" href="#fasttree%E6%9E%84%E5%BB%BA%E8%BF%9B%E5%8C%96%E6%A0%91"><i class="fas fa-link"></i></a>
+</h2>
+<p><a href="http://www.microbesonline.org/fasttree/">FastTree</a>是基于最大似然法构建进化树的软件，使用简单。Windows端直接下载，完后运行即可：</p>
+<pre class="shell"><code>.\FastTree.exe .\YourAlignResults.fasta</code></pre>
+<p>前面是软件名称，后面是比对好的序列文件。</p>
 
 </div>
-
-
-
+</div>
   <div class="chapter-nav">
-<div class="empty"></div>
-<div class="next"><a href="r-base.html"><span class="header-section-number">1</span> 语言基础</a></div>
+<div class="prev"><a href="ai.html"><span class="header-section-number">8</span> 人工智能</a></div>
+<div class="next"><a href="bio-env.html"><span class="header-section-number">10</span> 环境搭建</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#%E7%AE%80%E4%BB%8B">简介</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#bio-base"><span class="header-section-number">9</span> 基础知识</a></li>
+<li><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E6%8E%A8%E8%8D%90"><span class="header-section-number">9.1</span> 学习资源推荐</a></li>
+<li>
+<a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E7%94%9F%E7%89%A9%E5%AD%A6%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="header-section-number">9.2</span> 常用的生物学数据库</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#cath-gene3d"><span class="header-section-number">9.2.1</span> CATH-Gene3D</a></li></ul>
+</li>
+<li><a class="nav-link" href="#fasttree%E6%9E%84%E5%BB%BA%E8%BF%9B%E5%8C%96%E6%A0%91"><span class="header-section-number">9.3</span> FastTree构建进化树</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/lixiang117423/lixiang117423.github.io/blob/master/index.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/lixiang117423/lixiang117423.github.io/edit/master/index.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/lixiang117423/lixiang117423.github.io/blob/master/9.bioinf-base.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/lixiang117423/lixiang117423.github.io/edit/master/9.bioinf-base.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
