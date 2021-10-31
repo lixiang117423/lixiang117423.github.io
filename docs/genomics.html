@@ -4,12 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter11 基因组学 | 小蓝哥的知识荒原</title>
+<title>第 11 章 基因组学 | 小蓝哥的知识荒原</title>
 <meta name="author" content="李详">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="11.1 基因家族分析 基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。 植物转录因子数据库，点击访问。  11.1.1 基因家族分析思路及文章撰写思路...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="第 11 章 基因组学 | 小蓝哥的知识荒原">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
+<meta property="og:description" content="11.1 基因家族分析 基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。 植物转录因子数据库，点击访问。  11.1.1 基因家族分析思路及文章撰写思路...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第 11 章 基因组学 | 小蓝哥的知识荒原">
+<meta name="twitter:description" content="11.1 基因家族分析 基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。 植物转录因子数据库，点击访问。  11.1.1 基因家族分析思路及文章撰写思路...">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="css/style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -62,16 +72,17 @@
 <li><a class="" href="class.html"><span class="header-section-number">22</span> 上课笔记</a></li>
 <li class="book-part">Part Ⅶ: 其他</li>
 <li><a class="" href="other.html"><span class="header-section-number">23</span> 其他笔记</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/lixiang117423/lixiang117423.github.io">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/lixiang117423/book4xiang">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="genomics" class="section level1" number="11">
 <h1>
-<span class="header-section-number">Chapter11</span> 基因组学<a class="anchor" aria-label="anchor" href="#genomics"><i class="fas fa-link"></i></a>
+<span class="header-section-number">第 11 章</span> 基因组学<a class="anchor" aria-label="anchor" href="#genomics"><i class="fas fa-link"></i></a>
 </h1>
 <div id="基因家族分析" class="section level2" number="11.1">
 <h2>
@@ -110,73 +121,73 @@
 <li>mRNA_ID与基因ID的提取
 由于一个基因会对应多个转录本，因此一个基因下会对应多个mRNA的编号。在后续的分析中，每个基因只需要选择一个转录本的编号进行分析即可，因为每个基因不同的转录本的序列差异是较小的。提取的代码：</li>
 </ul>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="genomics.html#cb34-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>mRNAid_to_geneid.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>mRNA2geneID.txt</span>
-<span id="cb34-2"><a href="genomics.html#cb34-2" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>geneid_to_mRNAid.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>geneID2mRNAid.txt</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="genomics.html#cb124-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>mRNAid_to_geneid.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>mRNA2geneID.txt</span>
+<span id="cb124-2"><a href="genomics.html#cb124-2" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>geneid_to_mRNAid.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>geneID2mRNAid.txt</span></code></pre></div>
 <ul>
 <li>检索结构域
 这一步主要是以<code>.hmm</code>文件为基础检索该物种蛋白序列中含有该结构域的序列。输入文件包括<code>.hmm</code>文件和蛋白文件，输出<code>hmmsearch</code>的检索结果。其中用于后续筛选的是<code>evalue</code>这个参数，部分文章以0.001为阈值。<code>of</code>那一列表示的是某个基因对应的这个结构域有几个。</li>
 </ul>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="genomics.html#cb35-1" aria-hidden="true" tabindex="-1"></a>hmmsearch <span class="sc">--</span>domtblout results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>hmm.txt <span class="sc">--</span>cut_tc data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.hmm data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="genomics.html#cb125-1" aria-hidden="true" tabindex="-1"></a>hmmsearch <span class="sc">--</span>domtblout results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>hmm.txt <span class="sc">--</span>cut_tc data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.hmm data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span></span></code></pre></div>
 <ul>
 <li>选择结构域
 由于一个基因的单个转录本可能会比对到多个结构域，因此需要对比对到的结构域进行选择。默认选择的是第一个结构域。下面代码的最后一个参数是<code>hmmsearch</code>输出文件里面的<code>E-value</code>,如果需要全部的第一个结构域，将阈值设置为1即可。</li>
 </ul>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="genomics.html#cb36-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>domain_xulie.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>hmm.txt data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.fa <span class="fl">1.2e-28</span></span></code></pre></div>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="genomics.html#cb126-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>domain_xulie.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>hmm.txt data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.fa <span class="fl">1.2e-28</span></span></code></pre></div>
 <ul>
 <li>多序列比对
 之所以要进行多序列比对，是因为下载的<code>.hmm</code>文件是来自很多物种的这个结构域组成的隐马尔科夫模型，进行多序列比对后将该物种检索到的结构域序列进行比对，再次构建该物种该基因家族的隐马尔科夫模型，会更加准确。</li>
 </ul>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="genomics.html#cb37-1" aria-hidden="true" tabindex="-1"></a>echo <span class="sc">-</span>e <span class="st">'1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/domain.fa</span><span class="sc">\n</span><span class="st">2</span><span class="sc">\n</span><span class="st">1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/out.aln</span><span class="sc">\n</span><span class="st">r.domain.search/out.dnd</span><span class="sc">\n</span><span class="st">X</span><span class="sc">\n\n\n</span><span class="st">X</span><span class="sc">\n</span><span class="st">'</span> <span class="sc">|</span>clustalw</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="genomics.html#cb127-1" aria-hidden="true" tabindex="-1"></a>echo <span class="sc">-</span>e <span class="st">'1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/domain.fa</span><span class="sc">\n</span><span class="st">2</span><span class="sc">\n</span><span class="st">1</span><span class="sc">\n</span><span class="st">results/step.2.domain.search/out.aln</span><span class="sc">\n</span><span class="st">r.domain.search/out.dnd</span><span class="sc">\n</span><span class="st">X</span><span class="sc">\n\n\n</span><span class="st">X</span><span class="sc">\n</span><span class="st">'</span> <span class="sc">|</span>clustalw</span></code></pre></div>
 <ul>
 <li>重构隐马尔科夫模型</li>
 </ul>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="genomics.html#cb38-1" aria-hidden="true" tabindex="-1"></a>hmmbuild results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.hmm results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>out.aln</span></code></pre></div>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="genomics.html#cb128-1" aria-hidden="true" tabindex="-1"></a>hmmbuild results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.hmm results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>out.aln</span></code></pre></div>
 <ul>
 <li>重新进行检索
 利用构建得到的新的隐马尔科夫模型重新进行检索结构域。</li>
 </ul>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="genomics.html#cb39-1" aria-hidden="true" tabindex="-1"></a>hmmsearch <span class="sc">--</span>domtblout results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt <span class="sc">--</span>cut_tc results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.hmm data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="genomics.html#cb129-1" aria-hidden="true" tabindex="-1"></a>hmmsearch <span class="sc">--</span>domtblout results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt <span class="sc">--</span>cut_tc results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.hmm data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span></span></code></pre></div>
 <ul>
 <li>筛选输出结果
 对重新检索后的结果进行筛选，也是对<code>E-value</code>进行筛选。</li>
 </ul>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="genomics.html#cb40-1" aria-hidden="true" tabindex="-1"></a>grep <span class="sc">-</span>v <span class="st">"^#"</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt<span class="sc">|</span>awk <span class="st">'$7&lt;0.001 {print}'</span> <span class="sc">&gt;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="genomics.html#cb130-1" aria-hidden="true" tabindex="-1"></a>grep <span class="sc">-</span>v <span class="st">"^#"</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>new.out.txt<span class="sc">|</span>awk <span class="st">'$7&lt;0.001 {print}'</span> <span class="sc">&gt;</span> results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt</span></code></pre></div>
 <ul>
 <li>去除重复的ID
 上一步筛选得到的是该种中哪些基因是潜在的目标基因家族成员，而一个基因对应了多个mRNA，因此，只需要在筛选后的每个基因中选择一个具有代表性的mRNA进行后续的分析即可。这个提取唯一ID的步骤需要手动完成（PS：手动完成也很快）。手动挑选完mRNA的ID放在第一列，另存为文件<code>uniqueID.txt</code>。</li>
 </ul>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="genomics.html#cb41-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>select_redundant_mRNA.pl results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>mRNA2geneID.txt results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>remove_redundant_IDlist.txt</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="genomics.html#cb131-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>select_redundant_mRNA.pl results<span class="sc">/</span>step.<span class="fl">1.</span>get.mRNA.and.gene.ID<span class="sc">/</span>mRNA2geneID.txt results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>domain.new.out.selected.txt results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>remove_redundant_IDlist.txt</span></code></pre></div>
 <ul>
 <li>提取蛋白序列
 在得到基因ID后需要提取蛋白序列进行后续的分析。在<a href="http://smart.embl.de/">SMART</a>或者<a href="http://pfam.xfam.org/search">Pfam</a>或<a href="https://www.ncbi.nlm.nih.gov/cdd/">NCBI CDD</a>确认这些基因是真真正正含有该结构域，没有的基因要剔除！在<code>SMART</code>中没有检索到结构域的基因在<code>gene.not.in.SMART.txt</code>中；在<code>Pfam</code>中全都是<code>WRKY</code>结构域，对应文件为<code>Pfam.results.txt</code>。</li>
 </ul>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="genomics.html#cb42-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_fa_by_id.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span> results<span class="sc">/</span>step</span>
-<span id="cb42-2"><a href="genomics.html#cb42-2" aria-hidden="true" tabindex="-1"></a>.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.need.confirm.fa</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="genomics.html#cb132-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_fa_by_id.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.pep<span class="sc">*</span> results<span class="sc">/</span>step</span>
+<span id="cb132-2"><a href="genomics.html#cb132-2" aria-hidden="true" tabindex="-1"></a>.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.need.confirm.fa</span></code></pre></div>
 <ul>
 <li>计算蛋白质分子量等</li>
 </ul>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="genomics.html#cb43-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>stat_protein_fa.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.need.confirm.fa results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.MW.txt</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="genomics.html#cb133-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>stat_protein_fa.pl results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.need.confirm.fa results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>pep.MW.txt</span></code></pre></div>
 <ul>
 <li>构建进化树
 选择利用软件<code>CLUSTALW</code>进行多序列比对，然后利用<code>MEGA</code>构建进化树。<code>CLUSTALW</code>输出结果转换成<code>.fasta</code>格式的方法参考<a href="r-deve.html#pac4xiang">4.1</a>。</li>
 <li>Motif分析</li>
 </ul>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="genomics.html#cb44-1" aria-hidden="true" tabindex="-1"></a>meme results<span class="sc">/</span>step.<span class="fl">3.</span>seq.and.tree<span class="sc">/</span>pep_confirmed.fa <span class="sc">-</span>protein <span class="sc">-</span>oc results<span class="sc">/</span>step.<span class="fl">4.</span>motif<span class="sc">/</span> <span class="sc">-</span>nostatus <span class="sc">-</span>time <span class="dv">18000</span> <span class="sc">-</span>maxsize <span class="dv">6000000</span> <span class="sc">-</span>mod anr <span class="sc">-</span>nmotifs <span class="dv">10</span> <span class="sc">-</span>minw <span class="dv">6</span> <span class="sc">-</span>maxw <span class="dv">100</span></span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="genomics.html#cb134-1" aria-hidden="true" tabindex="-1"></a>meme results<span class="sc">/</span>step.<span class="fl">3.</span>seq.and.tree<span class="sc">/</span>pep_confirmed.fa <span class="sc">-</span>protein <span class="sc">-</span>oc results<span class="sc">/</span>step.<span class="fl">4.</span>motif<span class="sc">/</span> <span class="sc">-</span>nostatus <span class="sc">-</span>time <span class="dv">18000</span> <span class="sc">-</span>maxsize <span class="dv">6000000</span> <span class="sc">-</span>mod anr <span class="sc">-</span>nmotifs <span class="dv">10</span> <span class="sc">-</span>minw <span class="dv">6</span> <span class="sc">-</span>maxw <span class="dv">100</span></span></code></pre></div>
 <ul>
 <li>基因结构分析</li>
 </ul>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="genomics.html#cb45-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_gene_exon_from_gff.pl <span class="sc">-</span>in1 results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt <span class="sc">-</span>in2 data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> <span class="sc">-</span>out results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>gene_exon_info.gff</span></code></pre></div>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="genomics.html#cb135-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_gene_exon_from_gff.pl <span class="sc">-</span>in1 results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt <span class="sc">-</span>in2 data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> <span class="sc">-</span>out results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>gene_exon_info.gff</span></code></pre></div>
 <ul>
 <li>基因在染色体上的定位</li>
 </ul>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="genomics.html#cb46-1" aria-hidden="true" tabindex="-1"></a>samtools faidx data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.dna<span class="sc">*</span></span>
-<span id="cb46-2"><a href="genomics.html#cb46-2" aria-hidden="true" tabindex="-1"></a>cp data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.fai results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span></span>
-<span id="cb46-3"><a href="genomics.html#cb46-3" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_gene_weizhi.pl <span class="sc">-</span>in1 results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt <span class="sc">-</span>in2 data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> <span class="sc">-</span>out results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>mrna_location.txt</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="genomics.html#cb136-1" aria-hidden="true" tabindex="-1"></a>samtools faidx data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.dna<span class="sc">*</span></span>
+<span id="cb136-2"><a href="genomics.html#cb136-2" aria-hidden="true" tabindex="-1"></a>cp data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.fai results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span></span>
+<span id="cb136-3"><a href="genomics.html#cb136-3" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_gene_weizhi.pl <span class="sc">-</span>in1 results<span class="sc">/</span>step.<span class="fl">2.</span>domain.search<span class="sc">/</span>uniqueID.txt <span class="sc">-</span>in2 data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>.gff<span class="sc">*</span> <span class="sc">-</span>out results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>mrna_location.txt</span></code></pre></div>
 <ul>
 <li>顺式作用元件分析
 脚本默认的启动子长度是1500bp。将提取得到的启动子序列上传到<a href="https://bioinformatics.psb.ugent.be/webtools/plantcare/html/">Plane CARE</a>进行分析。</li>
 </ul>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="genomics.html#cb47-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_promoter.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>dna.top<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>mrna_location.txt results<span class="sc">/</span>step.<span class="fl">6.</span>cis.acting.element<span class="sc">/</span>promoter.txt</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="genomics.html#cb137-1" aria-hidden="true" tabindex="-1"></a>perl code<span class="sc">/</span>script<span class="sc">/</span>get_promoter.pl data<span class="sc">/</span>unzip_data<span class="sc">/</span><span class="er">*</span>dna.top<span class="sc">*</span> results<span class="sc">/</span>step.<span class="fl">5.</span>gene.structure<span class="sc">/</span>mrna_location.txt results<span class="sc">/</span>step.<span class="fl">6.</span>cis.acting.element<span class="sc">/</span>promoter.txt</span></code></pre></div>
 <ul>
 <li>基因家族成员的亚细胞定位分析
 两个网站：<a href="https://wolfpsort.hgc.jp/">WolfPsort</a>和<a href="http://cello.life.nctu.edu.tw/">Cello</a>。</li>
@@ -203,8 +214,8 @@
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/lixiang117423/lixiang117423.github.io/blob/master/11.bioinf-genomics.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/lixiang117423/lixiang117423.github.io/edit/master/11.bioinf-genomics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/lixiang117423/book4xiang/blob/master/11.bioinf-genomics.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/lixiang117423/book4xiang/edit/master/11.bioinf-genomics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -236,6 +247,22 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

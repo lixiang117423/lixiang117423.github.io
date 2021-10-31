@@ -7,7 +7,7 @@ documentclass: book
 biblio-style: apalike
 bibliography: [mybib.bib]
 fontsize: 10pt
-#monofontoptions: "Scale=0.7"
+monofontoptions: "Scale=0.7"
 link-citations: yes
 colorlinks: yes
 lot: yes
@@ -18,7 +18,7 @@ output:
   - rmarkdown::md_document
   - bookdown::bs4_book
 description: "小蓝哥的知识荒原。蓝莲盛开，身心自在；活在当下，正向提升！"
-github-repo: lixiang117423/lixiang117423.github.io
+github-repo: lixiang117423/book4xiang
 graphics: yes
 nocite: '@*'
 always_allow_html: true

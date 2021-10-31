@@ -165,3 +165,7 @@ td.img {
   text-align: center;
   top: 14px;
 }
+
+body {
+  text-align: justify;
+}

@@ -4,12 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter1 语言基础 | 小蓝哥的知识荒原</title>
+<title>第 1 章 语言基础 | 小蓝哥的知识荒原</title>
 <meta name="author" content="李详">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content='1.1 R的安装 各系统下R的安装，点击访问。  1.2 包的安装更新 更新所有R包 #安装包 install.packages("rvcheck") #加载包 library(rvcheck) #检查R是否有更新 rvcheck::check_r() # 更新所有R包 rvcheck::update_all(check_R = FALSE,which =...'>
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="第 1 章 语言基础 | 小蓝哥的知识荒原">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
+<meta property="og:description" content='1.1 R的安装 各系统下R的安装，点击访问。  1.2 包的安装更新 更新所有R包 #安装包 install.packages("rvcheck") #加载包 library(rvcheck) #检查R是否有更新 rvcheck::check_r() # 更新所有R包 rvcheck::update_all(check_R = FALSE,which =...'>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第 1 章 语言基础 | 小蓝哥的知识荒原">
+<meta name="twitter:description" content='1.1 R的安装 各系统下R的安装，点击访问。  1.2 包的安装更新 更新所有R包 #安装包 install.packages("rvcheck") #加载包 library(rvcheck) #检查R是否有更新 rvcheck::check_r() # 更新所有R包 rvcheck::update_all(check_R = FALSE,which =...'>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="css/style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -62,30 +72,59 @@
 <li><a class="" href="class.html"><span class="header-section-number">22</span> 上课笔记</a></li>
 <li class="book-part">Part Ⅶ: 其他</li>
 <li><a class="" href="other.html"><span class="header-section-number">23</span> 其他笔记</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/lixiang117423/lixiang117423.github.io">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/lixiang117423/book4xiang">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-base" class="section level1" number="1">
 <h1>
-<span class="header-section-number">Chapter1</span> 语言基础<a class="anchor" aria-label="anchor" href="#r-base"><i class="fas fa-link"></i></a>
+<span class="header-section-number">第 1 章</span> 语言基础<a class="anchor" aria-label="anchor" href="#r-base"><i class="fas fa-link"></i></a>
 </h1>
+<div id="r的安装" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> R的安装<a class="anchor" aria-label="anchor" href="#r%E7%9A%84%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>各系统下R的安装，<a href="https://cloud.r-project.org/bin/">点击访问</a>。</li>
+</ul>
+</div>
+<div id="包的安装更新" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> 包的安装更新<a class="anchor" aria-label="anchor" href="#%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>更新所有R包</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-base.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#安装包</span></span>
+<span id="cb1-2"><a href="r-base.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rvcheck"</span>)</span>
+<span id="cb1-3"><a href="r-base.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#加载包</span></span>
+<span id="cb1-4"><a href="r-base.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvcheck)</span>
+<span id="cb1-5"><a href="r-base.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#检查R是否有更新</span></span>
+<span id="cb1-6"><a href="r-base.html#cb1-6" aria-hidden="true" tabindex="-1"></a>rvcheck<span class="sc">::</span><span class="fu">check_r</span>()</span>
+<span id="cb1-7"><a href="r-base.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 更新所有R包</span></span>
+<span id="cb1-8"><a href="r-base.html#cb1-8" aria-hidden="true" tabindex="-1"></a>rvcheck<span class="sc">::</span><span class="fu">update_all</span>(<span class="at">check_R =</span> <span class="cn">FALSE</span>,<span class="at">which =</span> <span class="fu">c</span>(<span class="st">"CRAN"</span>,<span class="st">"BioC"</span>,<span class="st">"github"</span>)</span></code></pre></div>
 
+</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="index.html">简介</a></div>
 <div class="next"><a href="r-stat.html"><span class="header-section-number">2</span> 统计分析</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#r-base"><span class="header-section-number">1</span> 语言基础</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r-base"><span class="header-section-number">1</span> 语言基础</a></li>
+<li><a class="nav-link" href="#r%E7%9A%84%E5%AE%89%E8%A3%85"><span class="header-section-number">1.1</span> R的安装</a></li>
+<li><a class="nav-link" href="#%E5%8C%85%E7%9A%84%E5%AE%89%E8%A3%85%E6%9B%B4%E6%96%B0"><span class="header-section-number">1.2</span> 包的安装更新</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/lixiang117423/lixiang117423.github.io/blob/master/1.R-base.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/lixiang117423/lixiang117423.github.io/edit/master/1.R-base.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/lixiang117423/book4xiang/blob/master/1.R-base.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/lixiang117423/book4xiang/edit/master/1.R-base.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -117,6 +156,22 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>

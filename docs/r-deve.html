@@ -4,12 +4,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter4 R语言开发 | 小蓝哥的知识荒原</title>
+<title>第 4 章 R语言开发 | 小蓝哥的知识荒原</title>
 <meta name="author" content="李详">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.2"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.9/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="4.1 R包pac4xiang的使用 pac4xiang这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在GitHub上，更多功能还在完善中，待进一步开发。  4.1.1 安装 在R中运行下面的代码安装pac4xiang。 devtools::install_github('https://github.com/lixiang117423/pac4xiang')  4.1.2...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="第 4 章 R语言开发 | 小蓝哥的知识荒原">
+<meta property="og:type" content="book">
+<meta property="og:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
+<meta property="og:description" content="4.1 R包pac4xiang的使用 pac4xiang这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在GitHub上，更多功能还在完善中，待进一步开发。  4.1.1 安装 在R中运行下面的代码安装pac4xiang。 devtools::install_github('https://github.com/lixiang117423/pac4xiang')  4.1.2...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第 4 章 R语言开发 | 小蓝哥的知识荒原">
+<meta name="twitter:description" content="4.1 R包pac4xiang的使用 pac4xiang这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在GitHub上，更多功能还在完善中，待进一步开发。  4.1.1 安装 在R中运行下面的代码安装pac4xiang。 devtools::install_github('https://github.com/lixiang117423/pac4xiang')  4.1.2...">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.2.5.1/tabs.js"></script><script src="libs/bs3compat-0.2.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script><!-- CSS -->
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="css/style.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -62,16 +72,17 @@
 <li><a class="" href="class.html"><span class="header-section-number">22</span> 上课笔记</a></li>
 <li class="book-part">Part Ⅶ: 其他</li>
 <li><a class="" href="other.html"><span class="header-section-number">23</span> 其他笔记</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/lixiang117423/lixiang117423.github.io">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/lixiang117423/book4xiang">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="r-deve" class="section level1" number="4">
 <h1>
-<span class="header-section-number">Chapter4</span> R语言开发<a class="anchor" aria-label="anchor" href="#r-deve"><i class="fas fa-link"></i></a>
+<span class="header-section-number">第 4 章</span> R语言开发<a class="anchor" aria-label="anchor" href="#r-deve"><i class="fas fa-link"></i></a>
 </h1>
 <div id="pac4xiang" class="section level2" number="4.1">
 <h2>
@@ -83,7 +94,7 @@
 <span class="header-section-number">4.1.1</span> 安装<a class="anchor" aria-label="anchor" href="#%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
 </h3>
 <p>在R中运行下面的代码安装<code>pac4xiang</code>。</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'https://github.com/lixiang117423/pac4xiang'</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="使用方法" class="section level3" number="4.1.2">
@@ -96,13 +107,13 @@
 </h4>
 <p>该函数用与计算相对定量qPCR的标曲。qPCR标曲点样参照图<a href="r-deve.html#fig:qPCR1">4.1</a>。按照我的思路和习惯，我会准备8个浓度梯度的cDNA,从高到低分别是C0到C8。C0是对应批次下多有样品cDNA的组合，然后再以一定的稀释倍数稀释得到C1，C1再以同样的倍数稀释得到C2，依此类推，直到得到C8。</p>
 <div class="figure" style="text-align: center">
-<span id="fig:qPCR1"></span>
+<span style="display:block;" id="fig:qPCR1"></span>
 <img src="figures/pac4xiang%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/1.png" alt="qPCR标曲点样示意图" width="585"><p class="caption">
 图4.1: qPCR标曲点样示意图
 </p>
 </div>
 <p>函数具体怎么用呢？参考下方的代码：</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df.1</span> <span class="op">&lt;-</span> <span class="fu">calStandCurve</span><span class="op">(</span>
   data <span class="op">=</span> <span class="st">"20210927下机数据/20210928lx_1.txt"</span>NA<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OsPOX223"</span>, <span class="st">"OsAPX1"</span>, <span class="st">"OsAPX2"</span>, <span class="st">"OsPAL"</span><span class="op">)</span>,
   rep <span class="op">=</span> <span class="fl">3</span>,
@@ -114,7 +125,7 @@
 <span class="op">)</span></code></pre></div>
 <p>其中基因的数量和技术重复的数量乘起来必须是12；基因的顺序必须是从左到右的；输入稀释倍数后告诉程序后续的标曲建立如何取相应的对数；<code>start</code>表示从第几行开始计算，如<code>start = 2</code>表示的是从B行开始计算标曲；对应的<code>end = 6</code>表示的是到第6行，也就是F行结束，也就意味着第一行和最后两行其实是不用的。默认是保存标曲的图片的，如果不需要保存图片加上<code>save.fig = FALSE</code>即可，默认的图片格式是<code>pdf</code>格式，可以自定义。</p>
 <div class="figure" style="text-align: center">
-<span id="fig:qPCR2"></span>
+<span style="display:block;" id="fig:qPCR2"></span>
 <img src="figures/pac4xiang%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/3.png" alt="函数calStandCurve返回的数据框" width="293"><p class="caption">
 图4.2: 函数calStandCurve返回的数据框
 </p>
@@ -127,13 +138,13 @@
 </h4>
 <p>该函数在<code>calStandCurve</code>函数返回的标曲结果的基础上可以计算不同处理下各基因的表达情况。样品的点样方法参考图<a href="r-deve.html#fig:qPCR3">4.3</a>。</p>
 <div class="figure" style="text-align: center">
-<span id="fig:qPCR3"></span>
+<span style="display:block;" id="fig:qPCR3"></span>
 <img src="figures/pac4xiang%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/2.png" alt="qPCR标曲点样示意图" width="544"><p class="caption">
 图4.3: qPCR标曲点样示意图
 </p>
 </div>
 <p>计算表达量的代码如下：</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">exp.1</span> <span class="op">&lt;-</span> <span class="fu">calRTqPCR</span><span class="op">(</span>
   data <span class="op">=</span> <span class="st">"20210927下机数据/20210929lx_1.txt"</span>NA<span class="op">=</span> <span class="va">df.1</span>,
   genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OsPOX223"</span>, <span class="st">"OsAPX1"</span>, <span class="st">"OsAPX2"</span>, <span class="st">"OsPAL"</span><span class="op">)</span>,
@@ -147,7 +158,7 @@
 </h4>
 <p>该函数可以将软件<code>CLUSTALW</code>的输出文件变成<code>.fasta</code>格式的比对结果。
 写这个函数的原因在于每次我用MEGA进行序列比对构建进化树的时候都报错，不是字符串有问题就是长度不对，索性直接用Linux系统下的<code>CLUSTALW</code>进行序列比对，然后用MEGA构建进化树，百试不爽！</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my.aln</span> <span class="op">=</span> <span class="fu">getAlignResults</span><span class="op">(</span>aln <span class="op">=</span> <span class="st">'test.aln'</span><span class="op">)</span></code></pre></div>
 <p>运行完成后会在当前目录下生成一个<code>YourAlignResults.fasta</code>文件，就是<code>fasta</code>格式的比对文件，然后就可以用来构建进化树了。</p>
 <ul>
@@ -157,7 +168,7 @@
 该函数用于进行多分组的<code>t</code>检验。
 这个函数是用于进行多组<code>t</code>检验的。比如每次跑qPCR，会有多个处理多个目的基因，这个时候就需要关注每个目的基因在不同的处理中的表达量。用法参考下方代码：</p></li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t.test</span> <span class="op">&lt;-</span> <span class="fu">multGroupTtest</span><span class="op">(</span>
   data <span class="op">=</span> <span class="va">exp.all.final</span>,
   group1 <span class="op">=</span> <span class="st">"Gene"</span>,
@@ -172,7 +183,7 @@
 <span class="header-section-number">4.1.2.4</span> <code>plot96well</code><a class="anchor" aria-label="anchor" href="#plot96well"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数用于可视化<code>Roche</code>96孔板的<code>Cq</code>值。</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">plot96well</span><span class="op">(</span>data <span class="op">=</span> <span class="st">"20210927下机数据/20210928lx_1.txt"</span>NA<span class="op">)</span>NA</code></pre></div>
 </div>
 <div id="plotciselement" class="section level4" number="4.1.2.5">
@@ -223,7 +234,7 @@
 </h2>
 <p>激发我开发这个R包的原因是在许做基因家族分析中的<code>motif</code>分析的时候总是找不到趁手的工具去可视化相关的结果，要么是在线网站，要么是别人开发的工具，网页版工具怕哪天就跑路了，别人的工具想要个性化比较困难。那，就自己写一个吧。</p>
 <p>R包下载安装：</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggmotif"</span><span class="op">)</span>
 
 <span class="co"># 或者</span>NA<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"lixiang117423/ggmotif"</span><span class="op">)</span></code></pre></div>
@@ -233,7 +244,7 @@
 <span class="header-section-number">4.2.1</span> 从XML文件提取结果并绘图<a class="anchor" aria-label="anchor" href="#%E4%BB%8Exml%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E7%BB%98%E5%9B%BE"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>motif</code>在序列上的位置结果存放在<code>XML</code>格式的文件中，运行下面的代码便可以将结果转换成数据框格式并进行可视化。</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"meme.xml"</span>, package<span class="op">=</span><span class="st">"ggmotif"</span><span class="op">)</span>
 <span class="va">motif_extract</span> <span class="op">&lt;-</span> <span class="fu">getMotifFromXML</span><span class="op">(</span>XMLfile <span class="op">=</span> <span class="va">filepath</span><span class="op">)</span>
 <span class="va">motif_plot</span> <span class="op">&lt;-</span> <span class="fu">motif_location</span><span class="op">(</span>data <span class="op">=</span> <span class="va">motif_extract</span><span class="op">)</span>
@@ -244,7 +255,7 @@
 <span class="header-section-number">4.2.2</span> 从txt文件提取结果并进行可视化<a class="anchor" aria-label="anchor" href="#%E4%BB%8Etxt%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96"><i class="fas fa-link"></i></a>
 </h3>
 <p>每个<code>motif</code>的序列是存放在<code>txt</code>文件中的，运行下方的代码便能结果转换成数据框格式并进行绘图。</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"meme.txt"</span>, package <span class="op">=</span> <span class="st">"ggmotif"</span><span class="op">)</span>
@@ -254,14 +265,14 @@
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">motif.num</span> <span class="op">==</span> <span class="st">'Motif.1'</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">input.seq.motif</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">ggseqlogo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggseqlogo/man/ggseqlogo.html">ggseqlogo</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">theme_classic</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="与ggtree联用" class="section level3" number="4.2.3">
 <h3>
 <span class="header-section-number">4.2.3</span> 与<code>ggtree</code>联用<a class="anchor" aria-label="anchor" href="#%E4%B8%8Eggtree%E8%81%94%E7%94%A8"><i class="fas fa-link"></i></a>
 </h3>
 <p>有时候会对序列构建进化树展示进化关系，<code>ggmotif</code>中的函数能够以输入的进化树文件为基础，把输出的<code>motif</code>在序列上的位置与进化树上的位置进行匹配，便能够与<code>ggtree</code>联用在一个图上展示进化树和<code>motif</code>在序列上的位置。</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"meme.xml"</span>, package<span class="op">=</span><span class="st">"ggmotif"</span><span class="op">)</span>
 <span class="va">treepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"tree.nwk"</span>, package<span class="op">=</span><span class="st">"ggmotif"</span><span class="op">)</span>
 <span class="va">motif_extract</span> <span class="op">&lt;-</span> <span class="fu">getMotifFromXML</span><span class="op">(</span>XMLfile <span class="op">=</span> <span class="va">filepath</span><span class="op">)</span>
@@ -290,55 +301,62 @@
 <h3>
 <span class="header-section-number">4.3.2</span> 服务器搭建Rshiny-server<a class="anchor" aria-label="anchor" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BArshiny-server"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-deve.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#root 权限进入</span></span>
-<span id="cb12-2"><a href="r-deve.html#cb12-2" aria-hidden="true" tabindex="-1"></a>sudo su</span>
-<span id="cb12-3"><a href="r-deve.html#cb12-3" aria-hidden="true" tabindex="-1"></a>useradd shiny <span class="co"># 添加shiny用户</span></span>
-<span id="cb12-4"><a href="r-deve.html#cb12-4" aria-hidden="true" tabindex="-1"></a>passwd shiny <span class="co"># 修改shiny用户的密码</span></span>
-<span id="cb12-5"><a href="r-deve.html#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="r-deve.html#cb12-6" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">+</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 修改权限</span></span>
-<span id="cb12-7"><a href="r-deve.html#cb12-7" aria-hidden="true" tabindex="-1"></a>sudo vim <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 编辑</span></span>
-<span id="cb12-8"><a href="r-deve.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># root ALL=(ALL) ALL 该行，在下面添加 shiny ALL=(ALL:ALL) ALL</span></span>
-<span id="cb12-9"><a href="r-deve.html#cb12-9" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">-</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 收回权限</span></span>
-<span id="cb12-10"><a href="r-deve.html#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="r-deve.html#cb12-11" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span> shiny <span class="co"># 切换到shiny用户</span></span>
-<span id="cb12-12"><a href="r-deve.html#cb12-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-13"><a href="r-deve.html#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装R</span></span>
-<span id="cb12-14"><a href="r-deve.html#cb12-14" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update</span>
-<span id="cb12-15"><a href="r-deve.html#cb12-15" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install r<span class="sc">-</span>base</span>
-<span id="cb12-16"><a href="r-deve.html#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="r-deve.html#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny包</span></span>
-<span id="cb12-18"><a href="r-deve.html#cb12-18" aria-hidden="true" tabindex="-1"></a>sudo su <span class="sc">-</span>c <span class="st">"R -e </span><span class="sc">\"</span><span class="st">install.packages('shiny',repos='https://cran.rstudio.com/')</span><span class="sc">\"</span><span class="st">"</span></span>
-<span id="cb12-19"><a href="r-deve.html#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-20"><a href="r-deve.html#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny server</span></span>
-<span id="cb12-21"><a href="r-deve.html#cb12-21" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install gdebi<span class="sc">-</span>core</span>
-<span id="cb12-22"><a href="r-deve.html#cb12-22" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>download3.rstudio.org<span class="sc">/</span>ubuntu<span class="fl">-14.04</span><span class="sc">/</span>x86_64<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span>
-<span id="cb12-23"><a href="r-deve.html#cb12-23" aria-hidden="true" tabindex="-1"></a>sudo gdebi shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="r-deve.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#root 权限进入</span></span>
+<span id="cb101-2"><a href="r-deve.html#cb101-2" aria-hidden="true" tabindex="-1"></a>sudo su</span>
+<span id="cb101-3"><a href="r-deve.html#cb101-3" aria-hidden="true" tabindex="-1"></a>useradd shiny <span class="co"># 添加shiny用户</span></span>
+<span id="cb101-4"><a href="r-deve.html#cb101-4" aria-hidden="true" tabindex="-1"></a>passwd shiny <span class="co"># 修改shiny用户的密码</span></span>
+<span id="cb101-5"><a href="r-deve.html#cb101-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-6"><a href="r-deve.html#cb101-6" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">+</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 修改权限</span></span>
+<span id="cb101-7"><a href="r-deve.html#cb101-7" aria-hidden="true" tabindex="-1"></a>sudo vim <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 编辑</span></span>
+<span id="cb101-8"><a href="r-deve.html#cb101-8" aria-hidden="true" tabindex="-1"></a><span class="co"># root ALL=(ALL) ALL 该行，在下面添加 shiny ALL=(ALL:ALL) ALL</span></span>
+<span id="cb101-9"><a href="r-deve.html#cb101-9" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">-</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 收回权限</span></span>
+<span id="cb101-10"><a href="r-deve.html#cb101-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-11"><a href="r-deve.html#cb101-11" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span> shiny <span class="co"># 切换到shiny用户</span></span>
+<span id="cb101-12"><a href="r-deve.html#cb101-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-13"><a href="r-deve.html#cb101-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装R</span></span>
+<span id="cb101-14"><a href="r-deve.html#cb101-14" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update</span>
+<span id="cb101-15"><a href="r-deve.html#cb101-15" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install r<span class="sc">-</span>base</span>
+<span id="cb101-16"><a href="r-deve.html#cb101-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-17"><a href="r-deve.html#cb101-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny包</span></span>
+<span id="cb101-18"><a href="r-deve.html#cb101-18" aria-hidden="true" tabindex="-1"></a>sudo su <span class="sc">-</span>c <span class="st">"R -e </span><span class="sc">\"</span><span class="st">install.packages('shiny',repos='https://cran.rstudio.com/')</span><span class="sc">\"</span><span class="st">"</span></span>
+<span id="cb101-19"><a href="r-deve.html#cb101-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-20"><a href="r-deve.html#cb101-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny server</span></span>
+<span id="cb101-21"><a href="r-deve.html#cb101-21" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install gdebi<span class="sc">-</span>core</span>
+<span id="cb101-22"><a href="r-deve.html#cb101-22" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>download3.rstudio.org<span class="sc">/</span>ubuntu<span class="fl">-14.04</span><span class="sc">/</span>x86_64<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb101-23"><a href="r-deve.html#cb101-23" aria-hidden="true" tabindex="-1"></a>sudo gdebi shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span></code></pre></div>
 <p>安装shiny-server的时候参考官方最新的指导页面，<a href="https://www.rstudio.com/products/shiny/download-server/ubuntu/">点击访问</a>。</p>
 <p>日志所在目录为：<code>/var/log/shiny-server</code>。需要修改配置文件，保证记录运行日志，否则可能找不到报错提示。</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-deve.html#cb13-1" aria-hidden="true" tabindex="-1"></a>vi <span class="sc">/</span>etc<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span>shiny<span class="sc">-</span>server.conf</span>
-<span id="cb13-2"><a href="r-deve.html#cb13-2" aria-hidden="true" tabindex="-1"></a>preserve_logs true; <span class="co"># 在最上面添加这行</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="r-deve.html#cb102-1" aria-hidden="true" tabindex="-1"></a>vi <span class="sc">/</span>etc<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span>shiny<span class="sc">-</span>server.conf</span>
+<span id="cb102-2"><a href="r-deve.html#cb102-2" aria-hidden="true" tabindex="-1"></a>preserve_logs true; <span class="co"># 在最上面添加这行</span></span></code></pre></div>
 <p>软件所在目录为：<code>/srv/shiny-server</code></p>
 <p>安装完成后在浏览器输入<code>IP:3838</code>就能访问到示例界面了。默认的端口是<code>3838</code>端口，需要其他端口的需要自行调整。</p>
 <p>基本管理：</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-deve.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 重启</span></span>
-<span id="cb14-2"><a href="r-deve.html#cb14-2" aria-hidden="true" tabindex="-1"></a>sudo systemctl restart shiny<span class="sc">-</span>server</span>
-<span id="cb14-3"><a href="r-deve.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">##查看状态 </span></span>
-<span id="cb14-4"><a href="r-deve.html#cb14-4" aria-hidden="true" tabindex="-1"></a>sudo systemctl status shiny<span class="sc">-</span>server </span>
-<span id="cb14-5"><a href="r-deve.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">##开启 </span></span>
-<span id="cb14-6"><a href="r-deve.html#cb14-6" aria-hidden="true" tabindex="-1"></a>sudo systemctl start shiny<span class="sc">-</span>server </span>
-<span id="cb14-7"><a href="r-deve.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">##停止 </span></span>
-<span id="cb14-8"><a href="r-deve.html#cb14-8" aria-hidden="true" tabindex="-1"></a>sudo systemctl stop shiny<span class="sc">-</span>server </span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="r-deve.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 重启</span></span>
+<span id="cb103-2"><a href="r-deve.html#cb103-2" aria-hidden="true" tabindex="-1"></a>sudo systemctl restart shiny<span class="sc">-</span>server</span>
+<span id="cb103-3"><a href="r-deve.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="do">##查看状态 </span></span>
+<span id="cb103-4"><a href="r-deve.html#cb103-4" aria-hidden="true" tabindex="-1"></a>sudo systemctl status shiny<span class="sc">-</span>server </span>
+<span id="cb103-5"><a href="r-deve.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="do">##开启 </span></span>
+<span id="cb103-6"><a href="r-deve.html#cb103-6" aria-hidden="true" tabindex="-1"></a>sudo systemctl start shiny<span class="sc">-</span>server </span>
+<span id="cb103-7"><a href="r-deve.html#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="do">##停止 </span></span>
+<span id="cb103-8"><a href="r-deve.html#cb103-8" aria-hidden="true" tabindex="-1"></a>sudo systemctl stop shiny<span class="sc">-</span>server </span></code></pre></div>
 </div>
 <div id="ubuntu安装devtools" class="section level3" number="4.3.3">
 <h3>
 <span class="header-section-number">4.3.3</span> Ubuntu安装devtools<a class="anchor" aria-label="anchor" href="#ubuntu%E5%AE%89%E8%A3%85devtools"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-deve.html#cb15-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install <span class="sc">-</span>y libxml2<span class="sc">-</span>dev libcurl4<span class="sc">-</span>openssl<span class="sc">-</span>dev libssl<span class="sc">-</span>devv</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="r-deve.html#cb104-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install <span class="sc">-</span>y libxml2<span class="sc">-</span>dev libcurl4<span class="sc">-</span>openssl<span class="sc">-</span>dev libssl<span class="sc">-</span>devv</span></code></pre></div>
 <p>最重要的是上面这一步，剩下的差啥装啥就OK。</p>
 <p>安装<code>proj</code>这个包：</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-deve.html#cb16-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install libproj<span class="sc">-</span>dev</span>
-<span id="cb16-2"><a href="r-deve.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="r-deve.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RcppEigen"</span>, <span class="at">INSTALL_opts =</span> <span class="st">'--no-lock'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="r-deve.html#cb105-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install libproj<span class="sc">-</span>dev</span>
+<span id="cb105-2"><a href="r-deve.html#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="r-deve.html#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RcppEigen"</span>, <span class="at">INSTALL_opts =</span> <span class="st">'--no-lock'</span>)</span></code></pre></div>
+</div>
+<div id="上传文件大小限制" class="section level3" number="4.3.4">
+<h3>
+<span class="header-section-number">4.3.4</span> 上传文件大小限制<a class="anchor" aria-label="anchor" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>shiny.maxRequestSize<span class="op">=</span><span class="fl">1000</span><span class="op">*</span><span class="fl">1024</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
 
 </div>
 </div>
@@ -371,14 +389,15 @@
 <li><a class="nav-link" href="#css%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99"><span class="header-section-number">4.3.1</span> CSS学习网站</a></li>
 <li><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BArshiny-server"><span class="header-section-number">4.3.2</span> 服务器搭建Rshiny-server</a></li>
 <li><a class="nav-link" href="#ubuntu%E5%AE%89%E8%A3%85devtools"><span class="header-section-number">4.3.3</span> Ubuntu安装devtools</a></li>
+<li><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="header-section-number">4.3.4</span> 上传文件大小限制</a></li>
 </ul>
 </li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/lixiang117423/lixiang117423.github.io/blob/master/4.R-deve.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/lixiang117423/lixiang117423.github.io/edit/master/4.R-deve.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/lixiang117423/book4xiang/blob/master/4.R-deve.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/lixiang117423/book4xiang/edit/master/4.R-deve.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -410,6 +429,22 @@
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
 </body>
 </html>
