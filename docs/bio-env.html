@@ -93,21 +93,21 @@
 <span class="header-section-number">10.1.1</span> <code>Docker</code>的安装<a class="anchor" aria-label="anchor" href="#docker%E7%9A%84%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
 </h3>
 <p>参考的安装教程：<a href="https://yeasy.gitbook.io/docker_practice/install/ubuntu">Docker-从入门到实践</a>。关键的代码如下：</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="bio-env.html#cb109-1" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL test.docker.com <span class="sc">-</span>o get<span class="sc">-</span>docker.sh</span>
-<span id="cb109-2"><a href="bio-env.html#cb109-2" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL get.docker.com <span class="sc">-</span>o get<span class="sc">-</span>docker.sh</span>
-<span id="cb109-3"><a href="bio-env.html#cb109-3" aria-hidden="true" tabindex="-1"></a>sudo sh get<span class="sc">-</span>docker.sh <span class="sc">--</span>mirror Aliyun</span>
-<span id="cb109-4"><a href="bio-env.html#cb109-4" aria-hidden="true" tabindex="-1"></a>sudo sh get<span class="sc">-</span>docker.sh <span class="sc">--</span>mirror AzureChinaCloud</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="bio-env.html#cb129-1" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL test.docker.com <span class="sc">-</span>o get<span class="sc">-</span>docker.sh</span>
+<span id="cb129-2"><a href="bio-env.html#cb129-2" aria-hidden="true" tabindex="-1"></a>curl <span class="sc">-</span>fsSL get.docker.com <span class="sc">-</span>o get<span class="sc">-</span>docker.sh</span>
+<span id="cb129-3"><a href="bio-env.html#cb129-3" aria-hidden="true" tabindex="-1"></a>sudo sh get<span class="sc">-</span>docker.sh <span class="sc">--</span>mirror Aliyun</span>
+<span id="cb129-4"><a href="bio-env.html#cb129-4" aria-hidden="true" tabindex="-1"></a>sudo sh get<span class="sc">-</span>docker.sh <span class="sc">--</span>mirror AzureChinaCloud</span></code></pre></div>
 </div>
 <div id="docker的使用" class="section level3" number="10.1.2">
 <h3>
 <span class="header-section-number">10.1.2</span> <code>Docker</code>的使用<a class="anchor" aria-label="anchor" href="#docker%E7%9A%84%E4%BD%BF%E7%94%A8"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>Docker</code>默认是需要<code>root</code>用户才能使用的，在<code>Windows上</code>我习惯于进入<code>Powershell</code>后执行下面的命令启动<code>Docker</code>：</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="bio-env.html#cb110-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="sc">--</span>shutdown <span class="co"># 先关闭wsl</span></span>
-<span id="cb110-2"><a href="bio-env.html#cb110-2" aria-hidden="true" tabindex="-1"></a>wsl <span class="co"># 启动WSL</span></span>
-<span id="cb110-3"><a href="bio-env.html#cb110-3" aria-hidden="true" tabindex="-1"></a>sudo su <span class="co"># 进入root</span></span>
-<span id="cb110-4"><a href="bio-env.html#cb110-4" aria-hidden="true" tabindex="-1"></a>sudo service docker start <span class="co"># 启动Docker</span></span>
-<span id="cb110-5"><a href="bio-env.html#cb110-5" aria-hidden="true" tabindex="-1"></a>su xiang <span class="co"># 切换会用户（非root权限）</span></span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="bio-env.html#cb130-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="sc">--</span>shutdown <span class="co"># 先关闭wsl</span></span>
+<span id="cb130-2"><a href="bio-env.html#cb130-2" aria-hidden="true" tabindex="-1"></a>wsl <span class="co"># 启动WSL</span></span>
+<span id="cb130-3"><a href="bio-env.html#cb130-3" aria-hidden="true" tabindex="-1"></a>sudo su <span class="co"># 进入root</span></span>
+<span id="cb130-4"><a href="bio-env.html#cb130-4" aria-hidden="true" tabindex="-1"></a>sudo service docker start <span class="co"># 启动Docker</span></span>
+<span id="cb130-5"><a href="bio-env.html#cb130-5" aria-hidden="true" tabindex="-1"></a>su xiang <span class="co"># 切换会用户（非root权限）</span></span></code></pre></div>
 </div>
 <div id="如何从wsl1切换到wsl2" class="section level3" number="10.1.3">
 <h3>
@@ -118,12 +118,12 @@
 <li><p>下载对应的内核更新包：<a href="https://link.zhihu.com/?target=https%3A//wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi">点击下载</a></p></li>
 <li><p><code>CMD</code>中管理员身份运行代码：</p></li>
 </ul>
-<div class="sourceCode" id="cb111"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb131"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">dism.exe</span> <span class="op">/</span><span class="va">online</span> <span class="op">/</span><span class="va">enable</span><span class="op">-</span><span class="va">feature</span> <span class="op">/</span><span class="va">featurename</span><span class="op">:</span><span class="va">VirtualMachinePlatform</span> <span class="op">/</span><span class="va">all</span> <span class="op">/</span><span class="va">norestart</span></code></pre></div>
 <ul>
 <li>设置版本</li>
 </ul>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="bio-env.html#cb112-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="sc">--</span>set<span class="sc">-</span>version Ubuntu<span class="fl">-20.04</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="bio-env.html#cb132-1" aria-hidden="true" tabindex="-1"></a>wsl <span class="sc">--</span>set<span class="sc">-</span>version Ubuntu<span class="fl">-20.04</span> <span class="dv">2</span></span></code></pre></div>
 <p>其中的<code>Ubuntu-20.04</code>是通过代码<code>wsl -l -v</code>查看到的。</p>
 <p>然后再次重启<code>WSL</code>即可。</p>
 </div>
@@ -138,10 +138,10 @@
 <span class="header-section-number">10.1.5</span> <code>Docker</code>的使用<a class="anchor" aria-label="anchor" href="#docker%E7%9A%84%E4%BD%BF%E7%94%A8-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>进入<code>WSL</code>后运行下方代码运行<code>Docker</code>：</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="bio-env.html#cb113-1" aria-hidden="true" tabindex="-1"></a>sudo service <span class="sc">--</span>status<span class="sc">-</span>all </span>
-<span id="cb113-2"><a href="bio-env.html#cb113-2" aria-hidden="true" tabindex="-1"></a>sudo service docker start</span>
-<span id="cb113-3"><a href="bio-env.html#cb113-3" aria-hidden="true" tabindex="-1"></a>sudo service docker start</span>
-<span id="cb113-4"><a href="bio-env.html#cb113-4" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>v <span class="sc">/</span>mnt<span class="sc">/</span><span class="er">:/</span>work <span class="sc">-</span>it omicsclass<span class="sc">/</span>rnaseq</span></code></pre></div>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="bio-env.html#cb133-1" aria-hidden="true" tabindex="-1"></a>sudo service <span class="sc">--</span>status<span class="sc">-</span>all </span>
+<span id="cb133-2"><a href="bio-env.html#cb133-2" aria-hidden="true" tabindex="-1"></a>sudo service docker start</span>
+<span id="cb133-3"><a href="bio-env.html#cb133-3" aria-hidden="true" tabindex="-1"></a>sudo service docker start</span>
+<span id="cb133-4"><a href="bio-env.html#cb133-4" aria-hidden="true" tabindex="-1"></a>docker run <span class="sc">-</span>v <span class="sc">/</span>mnt<span class="sc">/</span><span class="er">:/</span>work <span class="sc">-</span>it omicsclass<span class="sc">/</span>rnaseq</span></code></pre></div>
 <p>其中的<code>work</code>是不一定的，需要看镜像给的路径是啥。</p>
 </div>
 <div id="如何创建自己的镜像" class="section level3" number="10.1.6">
@@ -150,15 +150,15 @@
 </h3>
 <p>先从<a href="https://hub.docker.com/">Docker Hub</a>下载<code>Ubuntu</code>的官方镜像，然后在镜像中安装需要的软件。
 PS：如何加速<code>pip</code>的下载：</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="bio-env.html#cb114-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="bio-env.html#cb134-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
 <p>加速的<code>R</code>包的下载安装：</p>
-<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb135"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>repos<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>CRAN<span class="op">=</span><span class="st">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>BioC_mirror<span class="op">=</span><span class="st">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="op">)</span></code></pre></div>
 <p>在安装完成需要的软件后，先运行<code>exit</code>退出<code>Docker</code>，然后运行下面的代码生成新的镜像：</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="bio-env.html#cb116-1" aria-hidden="true" tabindex="-1"></a>docker commit <span class="sc">-</span>m <span class="st">" add some softwares for RNA-Seq"</span> <span class="sc">-</span>a <span class="st">"xiangli"</span> 21bfa810c811 lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="bio-env.html#cb136-1" aria-hidden="true" tabindex="-1"></a>docker commit <span class="sc">-</span>m <span class="st">" add some softwares for RNA-Seq"</span> <span class="sc">-</span>a <span class="st">"xiangli"</span> 21bfa810c811 lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
 <p>然后登陆自己的<code>Docker</code>，登录以后把新的镜像推送到<code>Docker Hub</code>即可：</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="bio-env.html#cb117-1" aria-hidden="true" tabindex="-1"></a>docker push lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="bio-env.html#cb137-1" aria-hidden="true" tabindex="-1"></a>docker push lixiang117423<span class="sc">/</span>rnaseq<span class="sc">:</span>v1</span></code></pre></div>
 </div>
 </div>
 <div id="conda的安装使用" class="section level2" number="10.2">
@@ -175,9 +175,12 @@ PS：如何加速<code>pip</code>的下载：</p>
 <h3>
 <span class="header-section-number">10.2.2</span> <code>Conda</code>安装<code>R</code>及<code>R</code>包<a class="anchor" aria-label="anchor" href="#conda%E5%AE%89%E8%A3%85r%E5%8F%8Ar%E5%8C%85"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="bio-env.html#cb118-1" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>base</span>
-<span id="cb118-2"><a href="bio-env.html#cb118-2" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>ggplot2</span>
-<span id="cb118-3"><a href="bio-env.html#cb118-3" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c bioconda bioconductor<span class="sc">-</span>deseq2</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="bio-env.html#cb138-1" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>base</span>
+<span id="cb138-2"><a href="bio-env.html#cb138-2" aria-hidden="true" tabindex="-1"></a>conda instll r<span class="sc">-</span>ggplot2</span>
+<span id="cb138-3"><a href="bio-env.html#cb138-3" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c bioconda bioconductor<span class="sc">-</span>deseq2</span>
+<span id="cb138-4"><a href="bio-env.html#cb138-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb138-5"><a href="bio-env.html#cb138-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 默认conda不自动启动</span></span>
+<span id="cb138-6"><a href="bio-env.html#cb138-6" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>set auto_activate_base false</span></code></pre></div>
 </div>
 <div id="安装其他软件" class="section level3" number="10.2.3">
 <h3>
@@ -189,7 +192,7 @@ PS：如何加速<code>pip</code>的下载：</p>
 <h3>
 <span class="header-section-number">10.2.4</span> <code>pip</code>下载速度慢的解决方法：<a class="anchor" aria-label="anchor" href="#pip%E4%B8%8B%E8%BD%BD%E9%80%9F%E5%BA%A6%E6%85%A2%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="bio-env.html#cb119-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="bio-env.html#cb139-1" aria-hidden="true" tabindex="-1"></a>pip install django <span class="sc">-</span>i https<span class="sc">:</span><span class="er">//</span>pypi.tuna.tsinghua.edu.cn<span class="sc">/</span>simple</span></code></pre></div>
 </div>
 </div>
 <div id="git的使用" class="section level2" number="10.3">
@@ -200,32 +203,32 @@ PS：如何加速<code>pip</code>的下载：</p>
 <h3>
 <span class="header-section-number">10.3.1</span> git同时管理GitHub与Gitee<a class="anchor" aria-label="anchor" href="#git%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86github%E4%B8%8Egitee"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="bio-env.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> 查看远程仓库地址</span>
-<span id="cb120-2"><a href="bio-env.html#cb120-2" aria-hidden="true" tabindex="-1"></a>git remote <span class="sc">-</span>v</span>
-<span id="cb120-3"><a href="bio-env.html#cb120-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-4"><a href="bio-env.html#cb120-4" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> 重命名远程仓库</span>
-<span id="cb120-5"><a href="bio-env.html#cb120-5" aria-hidden="true" tabindex="-1"></a>git remote rename origin github</span>
-<span id="cb120-6"><a href="bio-env.html#cb120-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-7"><a href="bio-env.html#cb120-7" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> 添加新的远程仓库</span>
-<span id="cb120-8"><a href="bio-env.html#cb120-8" aria-hidden="true" tabindex="-1"></a>git remote add gitee https<span class="sc">:</span><span class="er">//</span>gitee.com<span class="sc">/</span>gozhuyinglong<span class="sc">/</span>blog<span class="sc">-</span>demos.git</span>
-<span id="cb120-9"><a href="bio-env.html#cb120-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-10"><a href="bio-env.html#cb120-10" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> 多个远程仓库推拉</span>
-<span id="cb120-11"><a href="bio-env.html#cb120-11" aria-hidden="true" tabindex="-1"></a>git push github main</span>
-<span id="cb120-12"><a href="bio-env.html#cb120-12" aria-hidden="true" tabindex="-1"></a>git pull github main</span>
-<span id="cb120-13"><a href="bio-env.html#cb120-13" aria-hidden="true" tabindex="-1"></a>git push gitee main</span>
-<span id="cb120-14"><a href="bio-env.html#cb120-14" aria-hidden="true" tabindex="-1"></a>git pull gitee main</span>
-<span id="cb120-15"><a href="bio-env.html#cb120-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-16"><a href="bio-env.html#cb120-16" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> 将本地分支与远程分支进行关联</span>
-<span id="cb120-17"><a href="bio-env.html#cb120-17" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">--</span>set<span class="sc">-</span>upstream gitee main</span>
-<span id="cb120-18"><a href="bio-env.html#cb120-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-19"><a href="bio-env.html#cb120-19" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> 直接推送不指定分支</span>
-<span id="cb120-20"><a href="bio-env.html#cb120-20" aria-hidden="true" tabindex="-1"></a>git push github</span>
-<span id="cb120-21"><a href="bio-env.html#cb120-21" aria-hidden="true" tabindex="-1"></a>git pull github</span>
-<span id="cb120-22"><a href="bio-env.html#cb120-22" aria-hidden="true" tabindex="-1"></a>git push gitee</span>
-<span id="cb120-23"><a href="bio-env.html#cb120-23" aria-hidden="true" tabindex="-1"></a>git pull gitee</span>
-<span id="cb120-24"><a href="bio-env.html#cb120-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-25"><a href="bio-env.html#cb120-25" aria-hidden="true" tabindex="-1"></a><span class="fl">7.</span> 移除远程仓库</span>
-<span id="cb120-26"><a href="bio-env.html#cb120-26" aria-hidden="true" tabindex="-1"></a>git remote remove gitee</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="bio-env.html#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> 查看远程仓库地址</span>
+<span id="cb140-2"><a href="bio-env.html#cb140-2" aria-hidden="true" tabindex="-1"></a>git remote <span class="sc">-</span>v</span>
+<span id="cb140-3"><a href="bio-env.html#cb140-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-4"><a href="bio-env.html#cb140-4" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> 重命名远程仓库</span>
+<span id="cb140-5"><a href="bio-env.html#cb140-5" aria-hidden="true" tabindex="-1"></a>git remote rename origin github</span>
+<span id="cb140-6"><a href="bio-env.html#cb140-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-7"><a href="bio-env.html#cb140-7" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> 添加新的远程仓库</span>
+<span id="cb140-8"><a href="bio-env.html#cb140-8" aria-hidden="true" tabindex="-1"></a>git remote add gitee https<span class="sc">:</span><span class="er">//</span>gitee.com<span class="sc">/</span>gozhuyinglong<span class="sc">/</span>blog<span class="sc">-</span>demos.git</span>
+<span id="cb140-9"><a href="bio-env.html#cb140-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-10"><a href="bio-env.html#cb140-10" aria-hidden="true" tabindex="-1"></a><span class="fl">4.</span> 多个远程仓库推拉</span>
+<span id="cb140-11"><a href="bio-env.html#cb140-11" aria-hidden="true" tabindex="-1"></a>git push github main</span>
+<span id="cb140-12"><a href="bio-env.html#cb140-12" aria-hidden="true" tabindex="-1"></a>git pull github main</span>
+<span id="cb140-13"><a href="bio-env.html#cb140-13" aria-hidden="true" tabindex="-1"></a>git push gitee main</span>
+<span id="cb140-14"><a href="bio-env.html#cb140-14" aria-hidden="true" tabindex="-1"></a>git pull gitee main</span>
+<span id="cb140-15"><a href="bio-env.html#cb140-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-16"><a href="bio-env.html#cb140-16" aria-hidden="true" tabindex="-1"></a><span class="fl">5.</span> 将本地分支与远程分支进行关联</span>
+<span id="cb140-17"><a href="bio-env.html#cb140-17" aria-hidden="true" tabindex="-1"></a>git push <span class="sc">--</span>set<span class="sc">-</span>upstream gitee main</span>
+<span id="cb140-18"><a href="bio-env.html#cb140-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-19"><a href="bio-env.html#cb140-19" aria-hidden="true" tabindex="-1"></a><span class="fl">6.</span> 直接推送不指定分支</span>
+<span id="cb140-20"><a href="bio-env.html#cb140-20" aria-hidden="true" tabindex="-1"></a>git push github</span>
+<span id="cb140-21"><a href="bio-env.html#cb140-21" aria-hidden="true" tabindex="-1"></a>git pull github</span>
+<span id="cb140-22"><a href="bio-env.html#cb140-22" aria-hidden="true" tabindex="-1"></a>git push gitee</span>
+<span id="cb140-23"><a href="bio-env.html#cb140-23" aria-hidden="true" tabindex="-1"></a>git pull gitee</span>
+<span id="cb140-24"><a href="bio-env.html#cb140-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-25"><a href="bio-env.html#cb140-25" aria-hidden="true" tabindex="-1"></a><span class="fl">7.</span> 移除远程仓库</span>
+<span id="cb140-26"><a href="bio-env.html#cb140-26" aria-hidden="true" tabindex="-1"></a>git remote remove gitee</span></code></pre></div>
 </div>
 </div>
 <div id="软件安装" class="section level2" number="10.4">
@@ -236,21 +239,47 @@ PS：如何加速<code>pip</code>的下载：</p>
 <h3>
 <span class="header-section-number">10.4.1</span> Aspera<a class="anchor" aria-label="anchor" href="#aspera"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="bio-env.html#cb121-1" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>ak<span class="sc">-</span>delivery04<span class="sc">-</span>mul.dhe.ibm.com<span class="sc">/</span>sar<span class="sc">/</span>CMA<span class="sc">/</span>OSA<span class="sc">/</span>09cne<span class="sc">/</span><span class="dv">0</span><span class="sc">/</span>ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>tar.gz</span>
-<span id="cb121-2"><a href="bio-env.html#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-3"><a href="bio-env.html#cb121-3" aria-hidden="true" tabindex="-1"></a>tar <span class="sc">-</span>zxvf ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>tar.gz</span>
-<span id="cb121-4"><a href="bio-env.html#cb121-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-5"><a href="bio-env.html#cb121-5" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>sh</span>
-<span id="cb121-6"><a href="bio-env.html#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-7"><a href="bio-env.html#cb121-7" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"""export PATH=</span><span class="sc">\"</span><span class="st">/home/xiang/.aspera/connect/bin:\$PATH</span><span class="sc">\"</span><span class="st"> """</span> <span class="sc">&gt;</span><span class="er">&gt;</span> <span class="er">~/</span>.bashrc</span>
-<span id="cb121-8"><a href="bio-env.html#cb121-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-9"><a href="bio-env.html#cb121-9" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
-<span id="cb121-10"><a href="bio-env.html#cb121-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-11"><a href="bio-env.html#cb121-11" aria-hidden="true" tabindex="-1"></a>ascp <span class="sc">-</span>h</span>
-<span id="cb121-12"><a href="bio-env.html#cb121-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-13"><a href="bio-env.html#cb121-13" aria-hidden="true" tabindex="-1"></a>ascp<span class="sc">-</span>i <span class="sc">/</span>mnt<span class="sc">/</span>c<span class="sc">/</span>Users<span class="sc">/</span>Administrator<span class="sc">/</span>Desktop<span class="sc">/</span>aspera.openssh <span class="sc">-</span>QT <span class="sc">-</span>l100m <span class="sc">-</span>k1 d <span class="sc">/</span>mnt<span class="sc">/</span>h<span class="sc">/</span>BaiduNetdiskDownload<span class="sc">/</span><span class="er">*</span>.gz subasp<span class="sc">@</span>upload.ncbi.nlm.nih.gov<span class="sc">:</span>uploads<span class="sc">/</span>luolifenllf_126.com_tCdfcqJq<span class="sc">/</span>20210816upload</span>
-<span id="cb121-14"><a href="bio-env.html#cb121-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-15"><a href="bio-env.html#cb121-15" aria-hidden="true" tabindex="-1"></a>ascp <span class="sc">-</span>i aspera.openssh <span class="sc">-</span>QT <span class="sc">-</span>l1000m <span class="sc">-</span>k1 <span class="sc">-</span>d A2.R2.fastq.gz subasp<span class="sc">@</span>upload.ncbi.nlm.nih.gov<span class="sc">:</span>uploads<span class="sc">/</span>luolifenllf_126.com_tCdfcqJq<span class="sc">/</span>20210816upload</span></code></pre></div>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="bio-env.html#cb141-1" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>ak<span class="sc">-</span>delivery04<span class="sc">-</span>mul.dhe.ibm.com<span class="sc">/</span>sar<span class="sc">/</span>CMA<span class="sc">/</span>OSA<span class="sc">/</span>09cne<span class="sc">/</span><span class="dv">0</span><span class="sc">/</span>ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>tar.gz</span>
+<span id="cb141-2"><a href="bio-env.html#cb141-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-3"><a href="bio-env.html#cb141-3" aria-hidden="true" tabindex="-1"></a>tar <span class="sc">-</span>zxvf ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>tar.gz</span>
+<span id="cb141-4"><a href="bio-env.html#cb141-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-5"><a href="bio-env.html#cb141-5" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>ibm<span class="sc">-</span>aspera<span class="sc">-</span>connect<span class="dv">-3</span>.<span class="dv">11</span>.<span class="fl">0.5</span><span class="sc">-</span>linux<span class="sc">-</span>g2<span class="fl">.12-64.</span>sh</span>
+<span id="cb141-6"><a href="bio-env.html#cb141-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-7"><a href="bio-env.html#cb141-7" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"""export PATH=</span><span class="sc">\"</span><span class="st">/home/xiang/.aspera/connect/bin:\$PATH</span><span class="sc">\"</span><span class="st"> """</span> <span class="sc">&gt;</span><span class="er">&gt;</span> <span class="er">~/</span>.bashrc</span>
+<span id="cb141-8"><a href="bio-env.html#cb141-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-9"><a href="bio-env.html#cb141-9" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
+<span id="cb141-10"><a href="bio-env.html#cb141-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-11"><a href="bio-env.html#cb141-11" aria-hidden="true" tabindex="-1"></a>ascp <span class="sc">-</span>h</span>
+<span id="cb141-12"><a href="bio-env.html#cb141-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-13"><a href="bio-env.html#cb141-13" aria-hidden="true" tabindex="-1"></a>ascp<span class="sc">-</span>i <span class="sc">/</span>mnt<span class="sc">/</span>c<span class="sc">/</span>Users<span class="sc">/</span>Administrator<span class="sc">/</span>Desktop<span class="sc">/</span>aspera.openssh <span class="sc">-</span>QT <span class="sc">-</span>l100m <span class="sc">-</span>k1 d <span class="sc">/</span>mnt<span class="sc">/</span>h<span class="sc">/</span>BaiduNetdiskDownload<span class="sc">/</span><span class="er">*</span>.gz subasp<span class="sc">@</span>upload.ncbi.nlm.nih.gov<span class="sc">:</span>uploads<span class="sc">/</span>luolifenllf_126.com_tCdfcqJq<span class="sc">/</span>20210816upload</span>
+<span id="cb141-14"><a href="bio-env.html#cb141-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb141-15"><a href="bio-env.html#cb141-15" aria-hidden="true" tabindex="-1"></a>ascp <span class="sc">-</span>i aspera.openssh <span class="sc">-</span>QT <span class="sc">-</span>l1000m <span class="sc">-</span>k1 <span class="sc">-</span>d A2.R2.fastq.gz subasp<span class="sc">@</span>upload.ncbi.nlm.nih.gov<span class="sc">:</span>uploads<span class="sc">/</span>luolifenllf_126.com_tCdfcqJq<span class="sc">/</span>20210816upload</span></code></pre></div>
+</div>
+<div id="安装motif搜索软件meme" class="section level3" number="10.4.2">
+<h3>
+<span class="header-section-number">10.4.2</span> 安装Motif搜索软件MEME<a class="anchor" aria-label="anchor" href="#%E5%AE%89%E8%A3%85motif%E6%90%9C%E7%B4%A2%E8%BD%AF%E4%BB%B6meme"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="bio-env.html#cb142-1" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>meme<span class="sc">-</span>suite.org<span class="sc">/</span>meme<span class="sc">/</span>meme<span class="sc">-</span>software<span class="sc">/</span><span class="dv">5</span>.<span class="fl">4.1</span><span class="sc">/</span>meme<span class="dv">-5</span>.<span class="dv">4</span>.<span class="fl">1.</span>tar.gz</span>
+<span id="cb142-2"><a href="bio-env.html#cb142-2" aria-hidden="true" tabindex="-1"></a>tar zxf meme<span class="dv">-5</span>.<span class="dv">4</span>.<span class="fl">1.</span>tar.gz</span>
+<span id="cb142-3"><a href="bio-env.html#cb142-3" aria-hidden="true" tabindex="-1"></a>cd meme<span class="dv">-5</span>.<span class="fl">4.1</span></span>
+<span id="cb142-4"><a href="bio-env.html#cb142-4" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>configure <span class="sc">--</span>prefix<span class="ot">=</span><span class="er">$</span>HOME<span class="sc">/</span>meme <span class="sc">--</span>enable<span class="sc">-</span>build<span class="sc">-</span>libxml2 <span class="sc">--</span>enable<span class="sc">-</span>build<span class="sc">-</span>libxslt</span>
+<span id="cb142-5"><a href="bio-env.html#cb142-5" aria-hidden="true" tabindex="-1"></a>make</span>
+<span id="cb142-6"><a href="bio-env.html#cb142-6" aria-hidden="true" tabindex="-1"></a>make test</span>
+<span id="cb142-7"><a href="bio-env.html#cb142-7" aria-hidden="true" tabindex="-1"></a>make install</span>
+<span id="cb142-8"><a href="bio-env.html#cb142-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 编辑/etc/profile</span></span>
+<span id="cb142-9"><a href="bio-env.html#cb142-9" aria-hidden="true" tabindex="-1"></a>export PATH<span class="ot">=</span><span class="st">"$PATH:/root/meme/bin"</span></span>
+<span id="cb142-10"><a href="bio-env.html#cb142-10" aria-hidden="true" tabindex="-1"></a><span class="co">#export PATH=$HOME/meme/bin:$HOME/meme/libexec/meme-5.4.1:$PATH</span></span></code></pre></div>
+</div>
+<div id="安装结构域搜索软件hmmer" class="section level3" number="10.4.3">
+<h3>
+<span class="header-section-number">10.4.3</span> 安装结构域搜索软件HMMER<a class="anchor" aria-label="anchor" href="#%E5%AE%89%E8%A3%85%E7%BB%93%E6%9E%84%E5%9F%9F%E6%90%9C%E7%B4%A2%E8%BD%AF%E4%BB%B6hmmer"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="bio-env.html#cb143-1" aria-hidden="true" tabindex="-1"></a>  % brew install hmmer               <span class="co"># OS/X, HomeBrew</span></span>
+<span id="cb143-2"><a href="bio-env.html#cb143-2" aria-hidden="true" tabindex="-1"></a>  % port install hmmer               <span class="co"># OS/X, MacPorts</span></span>
+<span id="cb143-3"><a href="bio-env.html#cb143-3" aria-hidden="true" tabindex="-1"></a>  % apt install hmmer                <span class="co"># Linux (Ubuntu, Debian...)</span></span>
+<span id="cb143-4"><a href="bio-env.html#cb143-4" aria-hidden="true" tabindex="-1"></a>  % dnf install hmmer                <span class="co"># Linux (Fedora)</span></span>
+<span id="cb143-5"><a href="bio-env.html#cb143-5" aria-hidden="true" tabindex="-1"></a>  % yum install hmmer                <span class="co"># Linux (older Fedora)</span></span>
+<span id="cb143-6"><a href="bio-env.html#cb143-6" aria-hidden="true" tabindex="-1"></a>  % conda install <span class="sc">-</span>c bioconda hmmer  <span class="co"># Anaconda</span></span></code></pre></div>
 </div>
 </div>
 <div id="ubuntu搭建生信环境" class="section level2" number="10.5">
@@ -262,320 +291,337 @@ PS：如何加速<code>pip</code>的下载：</p>
 <h3>
 <span class="header-section-number">10.5.1</span> 旧版本<a class="anchor" aria-label="anchor" href="#%E6%97%A7%E7%89%88%E6%9C%AC"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="bio-env.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="co">#下载ubuntu 20.04镜像</span></span>
-<span id="cb122-2"><a href="bio-env.html#cb122-2" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>ftp.sjtu.edu.cn<span class="sc">/</span>ubuntu<span class="sc">-</span>cd<span class="sc">/</span><span class="dv">20</span>.<span class="fl">04.1</span><span class="sc">/</span>ubuntu<span class="dv">-20</span>.<span class="fl">04.1</span><span class="sc">-</span>desktop<span class="sc">-</span>amd64.iso</span>
-<span id="cb122-3"><a href="bio-env.html#cb122-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-4"><a href="bio-env.html#cb122-4" aria-hidden="true" tabindex="-1"></a><span class="co">#制作USB启动盘</span></span>
-<span id="cb122-5"><a href="bio-env.html#cb122-5" aria-hidden="true" tabindex="-1"></a><span class="co">#下载使用rufus https://rufus.ie/</span></span>
-<span id="cb122-6"><a href="bio-env.html#cb122-6" aria-hidden="true" tabindex="-1"></a><span class="co">#或者ultraISO https://cn.ultraiso.net/</span></span>
-<span id="cb122-7"><a href="bio-env.html#cb122-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-8"><a href="bio-env.html#cb122-8" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
-<span id="cb122-9"><a href="bio-env.html#cb122-9" aria-hidden="true" tabindex="-1"></a><span class="co">#假设未挂载磁盘为/dev/sdb</span></span>
-<span id="cb122-10"><a href="bio-env.html#cb122-10" aria-hidden="true" tabindex="-1"></a>fdisk <span class="sc">-</span>l</span>
-<span id="cb122-11"><a href="bio-env.html#cb122-11" aria-hidden="true" tabindex="-1"></a>parted <span class="sc">/</span>dev<span class="sc">/</span>sdb</span>
-<span id="cb122-12"><a href="bio-env.html#cb122-12" aria-hidden="true" tabindex="-1"></a><span class="co">#交互界面 </span></span>
-<span id="cb122-13"><a href="bio-env.html#cb122-13" aria-hidden="true" tabindex="-1"></a>mklabel gpt</span>
-<span id="cb122-14"><a href="bio-env.html#cb122-14" aria-hidden="true" tabindex="-1"></a>quit</span>
-<span id="cb122-15"><a href="bio-env.html#cb122-15" aria-hidden="true" tabindex="-1"></a><span class="co">#格式化磁盘</span></span>
-<span id="cb122-16"><a href="bio-env.html#cb122-16" aria-hidden="true" tabindex="-1"></a>mkfs.xfs <span class="sc">-</span>f <span class="sc">/</span>dev<span class="sc">/</span>sdb </span>
-<span id="cb122-17"><a href="bio-env.html#cb122-17" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
-<span id="cb122-18"><a href="bio-env.html#cb122-18" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">/</span>ifs1</span>
-<span id="cb122-19"><a href="bio-env.html#cb122-19" aria-hidden="true" tabindex="-1"></a>mount <span class="sc">/</span>dev<span class="sc">/</span>sdb <span class="sc">/</span>ifs1</span>
-<span id="cb122-20"><a href="bio-env.html#cb122-20" aria-hidden="true" tabindex="-1"></a><span class="co">#修改fstab</span></span>
-<span id="cb122-21"><a href="bio-env.html#cb122-21" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"/dev/sdb /ifs1                       xfs     defaults,uquota        0 0"</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
-<span id="cb122-22"><a href="bio-env.html#cb122-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-23"><a href="bio-env.html#cb122-23" aria-hidden="true" tabindex="-1"></a><span class="co">#创建root账户</span></span>
-<span id="cb122-24"><a href="bio-env.html#cb122-24" aria-hidden="true" tabindex="-1"></a>sudo passwd root</span>
-<span id="cb122-25"><a href="bio-env.html#cb122-25" aria-hidden="true" tabindex="-1"></a>输入当前用户密码：</span>
-<span id="cb122-26"><a href="bio-env.html#cb122-26" aria-hidden="true" tabindex="-1"></a>输入root密码：</span>
-<span id="cb122-27"><a href="bio-env.html#cb122-27" aria-hidden="true" tabindex="-1"></a>再次输入root密码：</span>
-<span id="cb122-28"><a href="bio-env.html#cb122-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-29"><a href="bio-env.html#cb122-29" aria-hidden="true" tabindex="-1"></a><span class="co">#以下操作使用root账户完成</span></span>
-<span id="cb122-30"><a href="bio-env.html#cb122-30" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span></span>
-<span id="cb122-31"><a href="bio-env.html#cb122-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-32"><a href="bio-env.html#cb122-32" aria-hidden="true" tabindex="-1"></a><span class="co">#修改源</span></span>
-<span id="cb122-33"><a href="bio-env.html#cb122-33" aria-hidden="true" tabindex="-1"></a>cp <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.bak</span>
-<span id="cb122-34"><a href="bio-env.html#cb122-34" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">'s#cn.archive.ubuntu.com#mirrors.aliyun.com#g'</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
-<span id="cb122-35"><a href="bio-env.html#cb122-35" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> sudo apt<span class="sc">-</span>get upgrade</span>
-<span id="cb122-36"><a href="bio-env.html#cb122-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-37"><a href="bio-env.html#cb122-37" aria-hidden="true" tabindex="-1"></a><span class="co">#ssh登录</span></span>
-<span id="cb122-38"><a href="bio-env.html#cb122-38" aria-hidden="true" tabindex="-1"></a>apt install openssh<span class="sc">-</span>server</span>
-<span id="cb122-39"><a href="bio-env.html#cb122-39" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">-</span>e <span class="sc">|</span>  grep ssh   <span class="co">#检查ssh server是否启动</span></span>
-<span id="cb122-40"><a href="bio-env.html#cb122-40" aria-hidden="true" tabindex="-1"></a>sudo <span class="sc">/</span>etc<span class="sc">/</span>init.d<span class="sc">/</span>ssh start  <span class="co">#启动</span></span>
-<span id="cb122-41"><a href="bio-env.html#cb122-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-42"><a href="bio-env.html#cb122-42" aria-hidden="true" tabindex="-1"></a><span class="co">#安装java</span></span>
-<span id="cb122-43"><a href="bio-env.html#cb122-43" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install openjdk<span class="dv">-8</span><span class="sc">-</span>jdk</span>
-<span id="cb122-44"><a href="bio-env.html#cb122-44" aria-hidden="true" tabindex="-1"></a>sudo add<span class="sc">-</span>apt<span class="sc">-</span>repository ppa<span class="sc">:</span>webupd8team<span class="sc">/</span>java</span>
-<span id="cb122-45"><a href="bio-env.html#cb122-45" aria-hidden="true" tabindex="-1"></a>apt update</span>
-<span id="cb122-46"><a href="bio-env.html#cb122-46" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y oracle<span class="sc">-</span>java8<span class="sc">-</span>installer</span>
-<span id="cb122-47"><a href="bio-env.html#cb122-47" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y zlib1g zlib1g.dev</span>
-<span id="cb122-48"><a href="bio-env.html#cb122-48" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y libboost<span class="sc">-</span>dev</span>
-<span id="cb122-49"><a href="bio-env.html#cb122-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-50"><a href="bio-env.html#cb122-50" aria-hidden="true" tabindex="-1"></a><span class="co">#安装R以及Rstudio</span></span>
-<span id="cb122-51"><a href="bio-env.html#cb122-51" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y r<span class="sc">-</span>base</span>
-<span id="cb122-52"><a href="bio-env.html#cb122-52" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>download1.rstudio.org<span class="sc">/</span>desktop<span class="sc">/</span>bionic<span class="sc">/</span>amd64<span class="sc">/</span>rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
-<span id="cb122-53"><a href="bio-env.html#cb122-53" aria-hidden="true" tabindex="-1"></a>dpkg <span class="sc">-</span>i rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
-<span id="cb122-54"><a href="bio-env.html#cb122-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-55"><a href="bio-env.html#cb122-55" aria-hidden="true" tabindex="-1"></a><span class="co">#安装一些小工具</span></span>
-<span id="cb122-56"><a href="bio-env.html#cb122-56" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y git vim tree creen htop cmake lftp lrzsz</span>
-<span id="cb122-57"><a href="bio-env.html#cb122-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-58"><a href="bio-env.html#cb122-58" aria-hidden="true" tabindex="-1"></a><span class="co">#apt安装生物软件</span></span>
-<span id="cb122-59"><a href="bio-env.html#cb122-59" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bwa</span>
-<span id="cb122-60"><a href="bio-env.html#cb122-60" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y samtools </span>
-<span id="cb122-61"><a href="bio-env.html#cb122-61" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bcftools</span>
-<span id="cb122-62"><a href="bio-env.html#cb122-62" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y blast2</span>
-<span id="cb122-63"><a href="bio-env.html#cb122-63" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedtools</span>
-<span id="cb122-64"><a href="bio-env.html#cb122-64" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y seqtk</span>
-<span id="cb122-65"><a href="bio-env.html#cb122-65" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y minimap2</span>
-<span id="cb122-66"><a href="bio-env.html#cb122-66" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bowtie2</span>
-<span id="cb122-67"><a href="bio-env.html#cb122-67" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y phylip</span>
-<span id="cb122-68"><a href="bio-env.html#cb122-68" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y clustalx</span>
-<span id="cb122-69"><a href="bio-env.html#cb122-69" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y canu</span>
-<span id="cb122-70"><a href="bio-env.html#cb122-70" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y kraken2</span>
-<span id="cb122-71"><a href="bio-env.html#cb122-71" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y hisat2</span>
-<span id="cb122-72"><a href="bio-env.html#cb122-72" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y stringtie</span>
-<span id="cb122-73"><a href="bio-env.html#cb122-73" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y jellyfish</span>
-<span id="cb122-74"><a href="bio-env.html#cb122-74" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y circos</span>
-<span id="cb122-75"><a href="bio-env.html#cb122-75" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanopolish</span>
-<span id="cb122-76"><a href="bio-env.html#cb122-76" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanook</span>
-<span id="cb122-77"><a href="bio-env.html#cb122-77" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y centrifuge</span>
-<span id="cb122-78"><a href="bio-env.html#cb122-78" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y rna<span class="sc">-</span>star</span>
-<span id="cb122-79"><a href="bio-env.html#cb122-79" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y freebayes</span>
-<span id="cb122-80"><a href="bio-env.html#cb122-80" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y cnvkit</span>
-<span id="cb122-81"><a href="bio-env.html#cb122-81" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y spades</span>
-<span id="cb122-82"><a href="bio-env.html#cb122-82" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mothur</span>
-<span id="cb122-83"><a href="bio-env.html#cb122-83" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y muscle</span>
-<span id="cb122-84"><a href="bio-env.html#cb122-84" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mafft</span>
-<span id="cb122-85"><a href="bio-env.html#cb122-85" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y iqtree</span>
-<span id="cb122-86"><a href="bio-env.html#cb122-86" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y sniffles</span>
-<span id="cb122-87"><a href="bio-env.html#cb122-87" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y last<span class="sc">-</span>align</span>
-<span id="cb122-88"><a href="bio-env.html#cb122-88" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y augustus</span>
-<span id="cb122-89"><a href="bio-env.html#cb122-89" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bamtools </span>
-<span id="cb122-90"><a href="bio-env.html#cb122-90" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedops</span>
-<span id="cb122-91"><a href="bio-env.html#cb122-91" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y delly</span>
-<span id="cb122-92"><a href="bio-env.html#cb122-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-93"><a href="bio-env.html#cb122-93" aria-hidden="true" tabindex="-1"></a><span class="co">#安装浏览器</span></span>
-<span id="cb122-94"><a href="bio-env.html#cb122-94" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install <span class="sc">-</span>y chromium<span class="sc">-</span>browser</span>
-<span id="cb122-95"><a href="bio-env.html#cb122-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-96"><a href="bio-env.html#cb122-96" aria-hidden="true" tabindex="-1"></a><span class="co">#安装微信</span></span>
-<span id="cb122-97"><a href="bio-env.html#cb122-97" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>www.ubuntukylin.com<span class="sc">/</span>public<span class="sc">/</span>pdf<span class="sc">/</span>wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
-<span id="cb122-98"><a href="bio-env.html#cb122-98" aria-hidden="true" tabindex="-1"></a><span class="co">#Debian 系的操作系统可以执行这样的命令：</span></span>
-<span id="cb122-99"><a href="bio-env.html#cb122-99" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">--</span>add<span class="sc">-</span>architecture i386</span>
-<span id="cb122-100"><a href="bio-env.html#cb122-100" aria-hidden="true" tabindex="-1"></a>sudo apt update</span>
-<span id="cb122-101"><a href="bio-env.html#cb122-101" aria-hidden="true" tabindex="-1"></a><span class="co">#安装 wine 应用所需的依赖，也就是 wine：</span></span>
-<span id="cb122-102"><a href="bio-env.html#cb122-102" aria-hidden="true" tabindex="-1"></a>sudo apt install wine<span class="sc">-</span>stable</span>
-<span id="cb122-103"><a href="bio-env.html#cb122-103" aria-hidden="true" tabindex="-1"></a><span class="co">#使用 dpkg 安装 wine 应用：</span></span>
-<span id="cb122-104"><a href="bio-env.html#cb122-104" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">-</span>i wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
-<span id="cb122-105"><a href="bio-env.html#cb122-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-106"><a href="bio-env.html#cb122-106" aria-hidden="true" tabindex="-1"></a><span class="co">#安装bioconda</span></span>
-<span id="cb122-107"><a href="bio-env.html#cb122-107" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>repo.continuum.io<span class="sc">/</span>miniconda<span class="sc">/</span>Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
-<span id="cb122-108"><a href="bio-env.html#cb122-108" aria-hidden="true" tabindex="-1"></a>sh Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
-<span id="cb122-109"><a href="bio-env.html#cb122-109" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
-<span id="cb122-110"><a href="bio-env.html#cb122-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-111"><a href="bio-env.html#cb122-111" aria-hidden="true" tabindex="-1"></a><span class="co">#添加软件源</span></span>
-<span id="cb122-112"><a href="bio-env.html#cb122-112" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels bioconda </span>
-<span id="cb122-113"><a href="bio-env.html#cb122-113" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels conda<span class="sc">-</span>forge</span></code></pre></div>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="bio-env.html#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="co">#下载ubuntu 20.04镜像</span></span>
+<span id="cb144-2"><a href="bio-env.html#cb144-2" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>ftp.sjtu.edu.cn<span class="sc">/</span>ubuntu<span class="sc">-</span>cd<span class="sc">/</span><span class="dv">20</span>.<span class="fl">04.1</span><span class="sc">/</span>ubuntu<span class="dv">-20</span>.<span class="fl">04.1</span><span class="sc">-</span>desktop<span class="sc">-</span>amd64.iso</span>
+<span id="cb144-3"><a href="bio-env.html#cb144-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-4"><a href="bio-env.html#cb144-4" aria-hidden="true" tabindex="-1"></a><span class="co">#制作USB启动盘</span></span>
+<span id="cb144-5"><a href="bio-env.html#cb144-5" aria-hidden="true" tabindex="-1"></a><span class="co">#下载使用rufus https://rufus.ie/</span></span>
+<span id="cb144-6"><a href="bio-env.html#cb144-6" aria-hidden="true" tabindex="-1"></a><span class="co">#或者ultraISO https://cn.ultraiso.net/</span></span>
+<span id="cb144-7"><a href="bio-env.html#cb144-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-8"><a href="bio-env.html#cb144-8" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
+<span id="cb144-9"><a href="bio-env.html#cb144-9" aria-hidden="true" tabindex="-1"></a><span class="co">#假设未挂载磁盘为/dev/sdb</span></span>
+<span id="cb144-10"><a href="bio-env.html#cb144-10" aria-hidden="true" tabindex="-1"></a>fdisk <span class="sc">-</span>l</span>
+<span id="cb144-11"><a href="bio-env.html#cb144-11" aria-hidden="true" tabindex="-1"></a>parted <span class="sc">/</span>dev<span class="sc">/</span>sdb</span>
+<span id="cb144-12"><a href="bio-env.html#cb144-12" aria-hidden="true" tabindex="-1"></a><span class="co">#交互界面 </span></span>
+<span id="cb144-13"><a href="bio-env.html#cb144-13" aria-hidden="true" tabindex="-1"></a>mklabel gpt</span>
+<span id="cb144-14"><a href="bio-env.html#cb144-14" aria-hidden="true" tabindex="-1"></a>quit</span>
+<span id="cb144-15"><a href="bio-env.html#cb144-15" aria-hidden="true" tabindex="-1"></a><span class="co">#格式化磁盘</span></span>
+<span id="cb144-16"><a href="bio-env.html#cb144-16" aria-hidden="true" tabindex="-1"></a>mkfs.xfs <span class="sc">-</span>f <span class="sc">/</span>dev<span class="sc">/</span>sdb </span>
+<span id="cb144-17"><a href="bio-env.html#cb144-17" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
+<span id="cb144-18"><a href="bio-env.html#cb144-18" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">/</span>ifs1</span>
+<span id="cb144-19"><a href="bio-env.html#cb144-19" aria-hidden="true" tabindex="-1"></a>mount <span class="sc">/</span>dev<span class="sc">/</span>sdb <span class="sc">/</span>ifs1</span>
+<span id="cb144-20"><a href="bio-env.html#cb144-20" aria-hidden="true" tabindex="-1"></a><span class="co">#修改fstab</span></span>
+<span id="cb144-21"><a href="bio-env.html#cb144-21" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"/dev/sdb /ifs1                       xfs     defaults,uquota        0 0"</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
+<span id="cb144-22"><a href="bio-env.html#cb144-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-23"><a href="bio-env.html#cb144-23" aria-hidden="true" tabindex="-1"></a><span class="co">#创建root账户</span></span>
+<span id="cb144-24"><a href="bio-env.html#cb144-24" aria-hidden="true" tabindex="-1"></a>sudo passwd root</span>
+<span id="cb144-25"><a href="bio-env.html#cb144-25" aria-hidden="true" tabindex="-1"></a>输入当前用户密码：</span>
+<span id="cb144-26"><a href="bio-env.html#cb144-26" aria-hidden="true" tabindex="-1"></a>输入root密码：</span>
+<span id="cb144-27"><a href="bio-env.html#cb144-27" aria-hidden="true" tabindex="-1"></a>再次输入root密码：</span>
+<span id="cb144-28"><a href="bio-env.html#cb144-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-29"><a href="bio-env.html#cb144-29" aria-hidden="true" tabindex="-1"></a><span class="co">#以下操作使用root账户完成</span></span>
+<span id="cb144-30"><a href="bio-env.html#cb144-30" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span></span>
+<span id="cb144-31"><a href="bio-env.html#cb144-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-32"><a href="bio-env.html#cb144-32" aria-hidden="true" tabindex="-1"></a><span class="co">#修改源</span></span>
+<span id="cb144-33"><a href="bio-env.html#cb144-33" aria-hidden="true" tabindex="-1"></a>cp <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.bak</span>
+<span id="cb144-34"><a href="bio-env.html#cb144-34" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">'s#cn.archive.ubuntu.com#mirrors.aliyun.com#g'</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
+<span id="cb144-35"><a href="bio-env.html#cb144-35" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> sudo apt<span class="sc">-</span>get upgrade</span>
+<span id="cb144-36"><a href="bio-env.html#cb144-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-37"><a href="bio-env.html#cb144-37" aria-hidden="true" tabindex="-1"></a><span class="co">#ssh登录</span></span>
+<span id="cb144-38"><a href="bio-env.html#cb144-38" aria-hidden="true" tabindex="-1"></a>apt install openssh<span class="sc">-</span>server</span>
+<span id="cb144-39"><a href="bio-env.html#cb144-39" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">-</span>e <span class="sc">|</span>  grep ssh   <span class="co">#检查ssh server是否启动</span></span>
+<span id="cb144-40"><a href="bio-env.html#cb144-40" aria-hidden="true" tabindex="-1"></a>sudo <span class="sc">/</span>etc<span class="sc">/</span>init.d<span class="sc">/</span>ssh start  <span class="co">#启动</span></span>
+<span id="cb144-41"><a href="bio-env.html#cb144-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-42"><a href="bio-env.html#cb144-42" aria-hidden="true" tabindex="-1"></a><span class="co">#安装java</span></span>
+<span id="cb144-43"><a href="bio-env.html#cb144-43" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install openjdk<span class="dv">-8</span><span class="sc">-</span>jdk</span>
+<span id="cb144-44"><a href="bio-env.html#cb144-44" aria-hidden="true" tabindex="-1"></a>sudo add<span class="sc">-</span>apt<span class="sc">-</span>repository ppa<span class="sc">:</span>webupd8team<span class="sc">/</span>java</span>
+<span id="cb144-45"><a href="bio-env.html#cb144-45" aria-hidden="true" tabindex="-1"></a>apt update</span>
+<span id="cb144-46"><a href="bio-env.html#cb144-46" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y oracle<span class="sc">-</span>java8<span class="sc">-</span>installer</span>
+<span id="cb144-47"><a href="bio-env.html#cb144-47" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y zlib1g zlib1g.dev</span>
+<span id="cb144-48"><a href="bio-env.html#cb144-48" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y libboost<span class="sc">-</span>dev</span>
+<span id="cb144-49"><a href="bio-env.html#cb144-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-50"><a href="bio-env.html#cb144-50" aria-hidden="true" tabindex="-1"></a><span class="co">#安装R以及Rstudio</span></span>
+<span id="cb144-51"><a href="bio-env.html#cb144-51" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y r<span class="sc">-</span>base</span>
+<span id="cb144-52"><a href="bio-env.html#cb144-52" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>download1.rstudio.org<span class="sc">/</span>desktop<span class="sc">/</span>bionic<span class="sc">/</span>amd64<span class="sc">/</span>rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb144-53"><a href="bio-env.html#cb144-53" aria-hidden="true" tabindex="-1"></a>dpkg <span class="sc">-</span>i rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb144-54"><a href="bio-env.html#cb144-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-55"><a href="bio-env.html#cb144-55" aria-hidden="true" tabindex="-1"></a><span class="co">#安装一些小工具</span></span>
+<span id="cb144-56"><a href="bio-env.html#cb144-56" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y git vim tree creen htop cmake lftp lrzsz</span>
+<span id="cb144-57"><a href="bio-env.html#cb144-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-58"><a href="bio-env.html#cb144-58" aria-hidden="true" tabindex="-1"></a><span class="co">#apt安装生物软件</span></span>
+<span id="cb144-59"><a href="bio-env.html#cb144-59" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bwa</span>
+<span id="cb144-60"><a href="bio-env.html#cb144-60" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y samtools </span>
+<span id="cb144-61"><a href="bio-env.html#cb144-61" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bcftools</span>
+<span id="cb144-62"><a href="bio-env.html#cb144-62" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y blast2</span>
+<span id="cb144-63"><a href="bio-env.html#cb144-63" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedtools</span>
+<span id="cb144-64"><a href="bio-env.html#cb144-64" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y seqtk</span>
+<span id="cb144-65"><a href="bio-env.html#cb144-65" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y minimap2</span>
+<span id="cb144-66"><a href="bio-env.html#cb144-66" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bowtie2</span>
+<span id="cb144-67"><a href="bio-env.html#cb144-67" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y phylip</span>
+<span id="cb144-68"><a href="bio-env.html#cb144-68" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y clustalx</span>
+<span id="cb144-69"><a href="bio-env.html#cb144-69" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y canu</span>
+<span id="cb144-70"><a href="bio-env.html#cb144-70" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y kraken2</span>
+<span id="cb144-71"><a href="bio-env.html#cb144-71" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y hisat2</span>
+<span id="cb144-72"><a href="bio-env.html#cb144-72" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y stringtie</span>
+<span id="cb144-73"><a href="bio-env.html#cb144-73" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y jellyfish</span>
+<span id="cb144-74"><a href="bio-env.html#cb144-74" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y circos</span>
+<span id="cb144-75"><a href="bio-env.html#cb144-75" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanopolish</span>
+<span id="cb144-76"><a href="bio-env.html#cb144-76" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanook</span>
+<span id="cb144-77"><a href="bio-env.html#cb144-77" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y centrifuge</span>
+<span id="cb144-78"><a href="bio-env.html#cb144-78" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y rna<span class="sc">-</span>star</span>
+<span id="cb144-79"><a href="bio-env.html#cb144-79" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y freebayes</span>
+<span id="cb144-80"><a href="bio-env.html#cb144-80" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y cnvkit</span>
+<span id="cb144-81"><a href="bio-env.html#cb144-81" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y spades</span>
+<span id="cb144-82"><a href="bio-env.html#cb144-82" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mothur</span>
+<span id="cb144-83"><a href="bio-env.html#cb144-83" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y muscle</span>
+<span id="cb144-84"><a href="bio-env.html#cb144-84" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mafft</span>
+<span id="cb144-85"><a href="bio-env.html#cb144-85" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y iqtree</span>
+<span id="cb144-86"><a href="bio-env.html#cb144-86" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y sniffles</span>
+<span id="cb144-87"><a href="bio-env.html#cb144-87" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y last<span class="sc">-</span>align</span>
+<span id="cb144-88"><a href="bio-env.html#cb144-88" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y augustus</span>
+<span id="cb144-89"><a href="bio-env.html#cb144-89" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bamtools </span>
+<span id="cb144-90"><a href="bio-env.html#cb144-90" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedops</span>
+<span id="cb144-91"><a href="bio-env.html#cb144-91" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y delly</span>
+<span id="cb144-92"><a href="bio-env.html#cb144-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-93"><a href="bio-env.html#cb144-93" aria-hidden="true" tabindex="-1"></a><span class="co">#安装浏览器</span></span>
+<span id="cb144-94"><a href="bio-env.html#cb144-94" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install <span class="sc">-</span>y chromium<span class="sc">-</span>browser</span>
+<span id="cb144-95"><a href="bio-env.html#cb144-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-96"><a href="bio-env.html#cb144-96" aria-hidden="true" tabindex="-1"></a><span class="co">#安装微信</span></span>
+<span id="cb144-97"><a href="bio-env.html#cb144-97" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>www.ubuntukylin.com<span class="sc">/</span>public<span class="sc">/</span>pdf<span class="sc">/</span>wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
+<span id="cb144-98"><a href="bio-env.html#cb144-98" aria-hidden="true" tabindex="-1"></a><span class="co">#Debian 系的操作系统可以执行这样的命令：</span></span>
+<span id="cb144-99"><a href="bio-env.html#cb144-99" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">--</span>add<span class="sc">-</span>architecture i386</span>
+<span id="cb144-100"><a href="bio-env.html#cb144-100" aria-hidden="true" tabindex="-1"></a>sudo apt update</span>
+<span id="cb144-101"><a href="bio-env.html#cb144-101" aria-hidden="true" tabindex="-1"></a><span class="co">#安装 wine 应用所需的依赖，也就是 wine：</span></span>
+<span id="cb144-102"><a href="bio-env.html#cb144-102" aria-hidden="true" tabindex="-1"></a>sudo apt install wine<span class="sc">-</span>stable</span>
+<span id="cb144-103"><a href="bio-env.html#cb144-103" aria-hidden="true" tabindex="-1"></a><span class="co">#使用 dpkg 安装 wine 应用：</span></span>
+<span id="cb144-104"><a href="bio-env.html#cb144-104" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">-</span>i wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
+<span id="cb144-105"><a href="bio-env.html#cb144-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-106"><a href="bio-env.html#cb144-106" aria-hidden="true" tabindex="-1"></a><span class="co">#安装bioconda</span></span>
+<span id="cb144-107"><a href="bio-env.html#cb144-107" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>repo.continuum.io<span class="sc">/</span>miniconda<span class="sc">/</span>Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
+<span id="cb144-108"><a href="bio-env.html#cb144-108" aria-hidden="true" tabindex="-1"></a>sh Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
+<span id="cb144-109"><a href="bio-env.html#cb144-109" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
+<span id="cb144-110"><a href="bio-env.html#cb144-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-111"><a href="bio-env.html#cb144-111" aria-hidden="true" tabindex="-1"></a><span class="co">#添加软件源</span></span>
+<span id="cb144-112"><a href="bio-env.html#cb144-112" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels bioconda </span>
+<span id="cb144-113"><a href="bio-env.html#cb144-113" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels conda<span class="sc">-</span>forge</span></code></pre></div>
 </div>
 <div id="新版本" class="section level3" number="10.5.2">
 <h3>
 <span class="header-section-number">10.5.2</span> 新版本<a class="anchor" aria-label="anchor" href="#%E6%96%B0%E7%89%88%E6%9C%AC"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="bio-env.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-2"><a href="bio-env.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     获得Linux环境          #</span></span>
-<span id="cb123-3"><a href="bio-env.html#cb123-3" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-4"><a href="bio-env.html#cb123-4" aria-hidden="true" tabindex="-1"></a><span class="co">#下载ubuntu 20.04镜像</span></span>
-<span id="cb123-5"><a href="bio-env.html#cb123-5" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>ftp.sjtu.edu.cn<span class="sc">/</span>ubuntu<span class="sc">-</span>cd<span class="sc">/</span><span class="dv">20</span>.<span class="fl">04.1</span><span class="sc">/</span>ubuntu<span class="dv">-20</span>.<span class="fl">04.1</span><span class="sc">-</span>desktop<span class="sc">-</span>amd64.iso</span>
-<span id="cb123-6"><a href="bio-env.html#cb123-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-7"><a href="bio-env.html#cb123-7" aria-hidden="true" tabindex="-1"></a><span class="co">#制作USB启动盘</span></span>
-<span id="cb123-8"><a href="bio-env.html#cb123-8" aria-hidden="true" tabindex="-1"></a><span class="co">#下载使用rufus https://rufus.ie/</span></span>
-<span id="cb123-9"><a href="bio-env.html#cb123-9" aria-hidden="true" tabindex="-1"></a><span class="co">#或者ultraISO https://cn.ultraiso.net/</span></span>
-<span id="cb123-10"><a href="bio-env.html#cb123-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-11"><a href="bio-env.html#cb123-11" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
-<span id="cb123-12"><a href="bio-env.html#cb123-12" aria-hidden="true" tabindex="-1"></a><span class="co">#假设未挂载磁盘为/dev/sdb</span></span>
-<span id="cb123-13"><a href="bio-env.html#cb123-13" aria-hidden="true" tabindex="-1"></a>fdisk <span class="sc">-</span>l</span>
-<span id="cb123-14"><a href="bio-env.html#cb123-14" aria-hidden="true" tabindex="-1"></a>parted <span class="sc">/</span>dev<span class="sc">/</span>sdb</span>
-<span id="cb123-15"><a href="bio-env.html#cb123-15" aria-hidden="true" tabindex="-1"></a><span class="co">#交互界面 </span></span>
-<span id="cb123-16"><a href="bio-env.html#cb123-16" aria-hidden="true" tabindex="-1"></a>mklabel gpt</span>
-<span id="cb123-17"><a href="bio-env.html#cb123-17" aria-hidden="true" tabindex="-1"></a>quit</span>
-<span id="cb123-18"><a href="bio-env.html#cb123-18" aria-hidden="true" tabindex="-1"></a><span class="co">#格式化磁盘</span></span>
-<span id="cb123-19"><a href="bio-env.html#cb123-19" aria-hidden="true" tabindex="-1"></a>mkfs.xfs <span class="sc">-</span>f <span class="sc">/</span>dev<span class="sc">/</span>sdb </span>
-<span id="cb123-20"><a href="bio-env.html#cb123-20" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
-<span id="cb123-21"><a href="bio-env.html#cb123-21" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">/</span>ifs1</span>
-<span id="cb123-22"><a href="bio-env.html#cb123-22" aria-hidden="true" tabindex="-1"></a>mount <span class="sc">/</span>dev<span class="sc">/</span>sdb <span class="sc">/</span>ifs1</span>
-<span id="cb123-23"><a href="bio-env.html#cb123-23" aria-hidden="true" tabindex="-1"></a><span class="co">#修改fstab</span></span>
-<span id="cb123-24"><a href="bio-env.html#cb123-24" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"/dev/sdb /ifs1                       xfs     defaults,uquota        0 0"</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
-<span id="cb123-25"><a href="bio-env.html#cb123-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-26"><a href="bio-env.html#cb123-26" aria-hidden="true" tabindex="-1"></a><span class="co">#如果不安装系统，购买腾讯云服务器一年74元，2核心4G版本即可</span></span>
-<span id="cb123-27"><a href="bio-env.html#cb123-27" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>curl.qcloud.com<span class="sc">/</span>gm6m0QoY</span>
-<span id="cb123-28"><a href="bio-env.html#cb123-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-29"><a href="bio-env.html#cb123-29" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-30"><a href="bio-env.html#cb123-30" aria-hidden="true" tabindex="-1"></a><span class="co">#         基本配置           #</span></span>
-<span id="cb123-31"><a href="bio-env.html#cb123-31" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-32"><a href="bio-env.html#cb123-32" aria-hidden="true" tabindex="-1"></a><span class="co">#创建root账户</span></span>
-<span id="cb123-33"><a href="bio-env.html#cb123-33" aria-hidden="true" tabindex="-1"></a>sudo passwd root</span>
-<span id="cb123-34"><a href="bio-env.html#cb123-34" aria-hidden="true" tabindex="-1"></a>输入当前用户密码：</span>
-<span id="cb123-35"><a href="bio-env.html#cb123-35" aria-hidden="true" tabindex="-1"></a>输入root密码：</span>
-<span id="cb123-36"><a href="bio-env.html#cb123-36" aria-hidden="true" tabindex="-1"></a>再次输入root密码：</span>
-<span id="cb123-37"><a href="bio-env.html#cb123-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-38"><a href="bio-env.html#cb123-38" aria-hidden="true" tabindex="-1"></a><span class="co">#以下操作使用root账户完成</span></span>
-<span id="cb123-39"><a href="bio-env.html#cb123-39" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span></span>
-<span id="cb123-40"><a href="bio-env.html#cb123-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-41"><a href="bio-env.html#cb123-41" aria-hidden="true" tabindex="-1"></a><span class="co">#修改源</span></span>
-<span id="cb123-42"><a href="bio-env.html#cb123-42" aria-hidden="true" tabindex="-1"></a>cp <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.bak</span>
-<span id="cb123-43"><a href="bio-env.html#cb123-43" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">'s#cn.archive.ubuntu.com#mirrors.aliyun.com#g'</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
-<span id="cb123-44"><a href="bio-env.html#cb123-44" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> sudo apt<span class="sc">-</span>get upgrade</span>
-<span id="cb123-45"><a href="bio-env.html#cb123-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-46"><a href="bio-env.html#cb123-46" aria-hidden="true" tabindex="-1"></a><span class="co">#ssh登录</span></span>
-<span id="cb123-47"><a href="bio-env.html#cb123-47" aria-hidden="true" tabindex="-1"></a>apt install openssh<span class="sc">-</span>server</span>
-<span id="cb123-48"><a href="bio-env.html#cb123-48" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">-</span>e <span class="sc">|</span>  grep ssh   <span class="co">#检查ssh server是否启动</span></span>
-<span id="cb123-49"><a href="bio-env.html#cb123-49" aria-hidden="true" tabindex="-1"></a>sudo <span class="sc">/</span>etc<span class="sc">/</span>init.d<span class="sc">/</span>ssh start  <span class="co">#启动</span></span>
-<span id="cb123-50"><a href="bio-env.html#cb123-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-51"><a href="bio-env.html#cb123-51" aria-hidden="true" tabindex="-1"></a><span class="co">#安装java</span></span>
-<span id="cb123-52"><a href="bio-env.html#cb123-52" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install openjdk<span class="dv">-8</span><span class="sc">-</span>jdk</span>
-<span id="cb123-53"><a href="bio-env.html#cb123-53" aria-hidden="true" tabindex="-1"></a>sudo add<span class="sc">-</span>apt<span class="sc">-</span>repository ppa<span class="sc">:</span>webupd8team<span class="sc">/</span>java</span>
-<span id="cb123-54"><a href="bio-env.html#cb123-54" aria-hidden="true" tabindex="-1"></a>apt update</span>
-<span id="cb123-55"><a href="bio-env.html#cb123-55" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y oracle<span class="sc">-</span>java8<span class="sc">-</span>installer</span>
-<span id="cb123-56"><a href="bio-env.html#cb123-56" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y zlib1g zlib1g.dev</span>
-<span id="cb123-57"><a href="bio-env.html#cb123-57" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y libboost<span class="sc">-</span>dev</span>
-<span id="cb123-58"><a href="bio-env.html#cb123-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-59"><a href="bio-env.html#cb123-59" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-60"><a href="bio-env.html#cb123-60" aria-hidden="true" tabindex="-1"></a><span class="co">#        安装R以及Rstudio    #</span></span>
-<span id="cb123-61"><a href="bio-env.html#cb123-61" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-62"><a href="bio-env.html#cb123-62" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y r<span class="sc">-</span>base</span>
-<span id="cb123-63"><a href="bio-env.html#cb123-63" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>download1.rstudio.org<span class="sc">/</span>desktop<span class="sc">/</span>bionic<span class="sc">/</span>amd64<span class="sc">/</span>rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
-<span id="cb123-64"><a href="bio-env.html#cb123-64" aria-hidden="true" tabindex="-1"></a>dpkg <span class="sc">-</span>i rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
-<span id="cb123-65"><a href="bio-env.html#cb123-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-66"><a href="bio-env.html#cb123-66" aria-hidden="true" tabindex="-1"></a><span class="co">#安装一些小工具</span></span>
-<span id="cb123-67"><a href="bio-env.html#cb123-67" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y git vim tree creen htop cmake lftp lrzsz</span>
-<span id="cb123-68"><a href="bio-env.html#cb123-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-69"><a href="bio-env.html#cb123-69" aria-hidden="true" tabindex="-1"></a><span class="co">#apt安装生物软件</span></span>
-<span id="cb123-70"><a href="bio-env.html#cb123-70" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bwa</span>
-<span id="cb123-71"><a href="bio-env.html#cb123-71" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y samtools </span>
-<span id="cb123-72"><a href="bio-env.html#cb123-72" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bcftools</span>
-<span id="cb123-73"><a href="bio-env.html#cb123-73" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y blast2</span>
-<span id="cb123-74"><a href="bio-env.html#cb123-74" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedtools</span>
-<span id="cb123-75"><a href="bio-env.html#cb123-75" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y seqtk</span>
-<span id="cb123-76"><a href="bio-env.html#cb123-76" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y minimap2</span>
-<span id="cb123-77"><a href="bio-env.html#cb123-77" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bowtie2</span>
-<span id="cb123-78"><a href="bio-env.html#cb123-78" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y phylip</span>
-<span id="cb123-79"><a href="bio-env.html#cb123-79" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y clustalx</span>
-<span id="cb123-80"><a href="bio-env.html#cb123-80" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y canu</span>
-<span id="cb123-81"><a href="bio-env.html#cb123-81" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y kraken2</span>
-<span id="cb123-82"><a href="bio-env.html#cb123-82" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y hisat2</span>
-<span id="cb123-83"><a href="bio-env.html#cb123-83" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y stringtie</span>
-<span id="cb123-84"><a href="bio-env.html#cb123-84" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y jellyfish</span>
-<span id="cb123-85"><a href="bio-env.html#cb123-85" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y circos</span>
-<span id="cb123-86"><a href="bio-env.html#cb123-86" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanopolish</span>
-<span id="cb123-87"><a href="bio-env.html#cb123-87" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanook</span>
-<span id="cb123-88"><a href="bio-env.html#cb123-88" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y centrifuge</span>
-<span id="cb123-89"><a href="bio-env.html#cb123-89" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y rna<span class="sc">-</span>star</span>
-<span id="cb123-90"><a href="bio-env.html#cb123-90" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y freebayes</span>
-<span id="cb123-91"><a href="bio-env.html#cb123-91" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y cnvkit</span>
-<span id="cb123-92"><a href="bio-env.html#cb123-92" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y spades</span>
-<span id="cb123-93"><a href="bio-env.html#cb123-93" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mothur</span>
-<span id="cb123-94"><a href="bio-env.html#cb123-94" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y muscle</span>
-<span id="cb123-95"><a href="bio-env.html#cb123-95" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mafft</span>
-<span id="cb123-96"><a href="bio-env.html#cb123-96" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y iqtree</span>
-<span id="cb123-97"><a href="bio-env.html#cb123-97" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y sniffles</span>
-<span id="cb123-98"><a href="bio-env.html#cb123-98" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y last<span class="sc">-</span>align</span>
-<span id="cb123-99"><a href="bio-env.html#cb123-99" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y augustus</span>
-<span id="cb123-100"><a href="bio-env.html#cb123-100" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bamtools </span>
-<span id="cb123-101"><a href="bio-env.html#cb123-101" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedops</span>
-<span id="cb123-102"><a href="bio-env.html#cb123-102" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y delly</span>
-<span id="cb123-103"><a href="bio-env.html#cb123-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-104"><a href="bio-env.html#cb123-104" aria-hidden="true" tabindex="-1"></a><span class="co">#安装浏览器</span></span>
-<span id="cb123-105"><a href="bio-env.html#cb123-105" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install <span class="sc">-</span>y chromium<span class="sc">-</span>browser</span>
-<span id="cb123-106"><a href="bio-env.html#cb123-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-107"><a href="bio-env.html#cb123-107" aria-hidden="true" tabindex="-1"></a><span class="co">#安装微信</span></span>
-<span id="cb123-108"><a href="bio-env.html#cb123-108" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>www.ubuntukylin.com<span class="sc">/</span>public<span class="sc">/</span>pdf<span class="sc">/</span>wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
-<span id="cb123-109"><a href="bio-env.html#cb123-109" aria-hidden="true" tabindex="-1"></a><span class="co">#Debian 系的操作系统可以执行这样的命令：</span></span>
-<span id="cb123-110"><a href="bio-env.html#cb123-110" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">--</span>add<span class="sc">-</span>architecture i386</span>
-<span id="cb123-111"><a href="bio-env.html#cb123-111" aria-hidden="true" tabindex="-1"></a>sudo apt update</span>
-<span id="cb123-112"><a href="bio-env.html#cb123-112" aria-hidden="true" tabindex="-1"></a><span class="co">#安装 wine 应用所需的依赖，也就是 wine：</span></span>
-<span id="cb123-113"><a href="bio-env.html#cb123-113" aria-hidden="true" tabindex="-1"></a>sudo apt install wine<span class="sc">-</span>stable</span>
-<span id="cb123-114"><a href="bio-env.html#cb123-114" aria-hidden="true" tabindex="-1"></a><span class="co">#使用 dpkg 安装 wine 应用：</span></span>
-<span id="cb123-115"><a href="bio-env.html#cb123-115" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">-</span>i wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
-<span id="cb123-116"><a href="bio-env.html#cb123-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-117"><a href="bio-env.html#cb123-117" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-118"><a href="bio-env.html#cb123-118" aria-hidden="true" tabindex="-1"></a><span class="co">#       安装bioconda         #</span></span>
-<span id="cb123-119"><a href="bio-env.html#cb123-119" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-120"><a href="bio-env.html#cb123-120" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>repo.continuum.io<span class="sc">/</span>miniconda<span class="sc">/</span>Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
-<span id="cb123-121"><a href="bio-env.html#cb123-121" aria-hidden="true" tabindex="-1"></a>sh Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
-<span id="cb123-122"><a href="bio-env.html#cb123-122" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
-<span id="cb123-123"><a href="bio-env.html#cb123-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-124"><a href="bio-env.html#cb123-124" aria-hidden="true" tabindex="-1"></a><span class="co">#添加软件源</span></span>
-<span id="cb123-125"><a href="bio-env.html#cb123-125" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels bioconda </span>
-<span id="cb123-126"><a href="bio-env.html#cb123-126" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels conda<span class="sc">-</span>forge</span>
-<span id="cb123-127"><a href="bio-env.html#cb123-127" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-128"><a href="bio-env.html#cb123-128" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-129"><a href="bio-env.html#cb123-129" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用bioconda安装常用软件   #</span></span>
-<span id="cb123-130"><a href="bio-env.html#cb123-130" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-131"><a href="bio-env.html#cb123-131" aria-hidden="true" tabindex="-1"></a><span class="co">#安装mamba</span></span>
-<span id="cb123-132"><a href="bio-env.html#cb123-132" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c conda<span class="sc">-</span>forge <span class="sc">-</span>y mamba</span>
-<span id="cb123-133"><a href="bio-env.html#cb123-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-134"><a href="bio-env.html#cb123-134" aria-hidden="true" tabindex="-1"></a><span class="co">#利用mamba安装软件</span></span>
-<span id="cb123-135"><a href="bio-env.html#cb123-135" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bwa </span>
-<span id="cb123-136"><a href="bio-env.html#cb123-136" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y samtools</span>
-<span id="cb123-137"><a href="bio-env.html#cb123-137" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bcftools</span>
-<span id="cb123-138"><a href="bio-env.html#cb123-138" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y blast </span>
-<span id="cb123-139"><a href="bio-env.html#cb123-139" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y blat </span>
-<span id="cb123-140"><a href="bio-env.html#cb123-140" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y mummer </span>
-<span id="cb123-141"><a href="bio-env.html#cb123-141" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y mafft </span>
-<span id="cb123-142"><a href="bio-env.html#cb123-142" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y muscle </span>
-<span id="cb123-143"><a href="bio-env.html#cb123-143" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y lastz</span>
-<span id="cb123-144"><a href="bio-env.html#cb123-144" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y sra<span class="sc">-</span>tools</span>
-<span id="cb123-145"><a href="bio-env.html#cb123-145" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y seqkit</span>
-<span id="cb123-146"><a href="bio-env.html#cb123-146" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y seqtk</span>
-<span id="cb123-147"><a href="bio-env.html#cb123-147" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bedtools</span>
-<span id="cb123-148"><a href="bio-env.html#cb123-148" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bedops</span>
-<span id="cb123-149"><a href="bio-env.html#cb123-149" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y gfatools</span>
-<span id="cb123-150"><a href="bio-env.html#cb123-150" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y circos</span>
-<span id="cb123-151"><a href="bio-env.html#cb123-151" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y entrez<span class="sc">-</span>direct</span>
-<span id="cb123-152"><a href="bio-env.html#cb123-152" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y emboss</span>
-<span id="cb123-153"><a href="bio-env.html#cb123-153" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-154"><a href="bio-env.html#cb123-154" aria-hidden="true" tabindex="-1"></a><span class="co">#安装数据质控软件</span></span>
-<span id="cb123-155"><a href="bio-env.html#cb123-155" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y fastqc multiqc </span>
-<span id="cb123-156"><a href="bio-env.html#cb123-156" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y trimmomatic</span>
-<span id="cb123-157"><a href="bio-env.html#cb123-157" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y fastp</span>
-<span id="cb123-158"><a href="bio-env.html#cb123-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-159"><a href="bio-env.html#cb123-159" aria-hidden="true" tabindex="-1"></a><span class="co">#安装基因组拼接相关工具</span></span>
-<span id="cb123-160"><a href="bio-env.html#cb123-160" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y velvet</span>
-<span id="cb123-161"><a href="bio-env.html#cb123-161" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y flye</span>
-<span id="cb123-162"><a href="bio-env.html#cb123-162" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y miniasm</span>
-<span id="cb123-163"><a href="bio-env.html#cb123-163" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y canu</span>
-<span id="cb123-164"><a href="bio-env.html#cb123-164" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y megahit</span>
-<span id="cb123-165"><a href="bio-env.html#cb123-165" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y spades</span>
-<span id="cb123-166"><a href="bio-env.html#cb123-166" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y quast</span>
-<span id="cb123-167"><a href="bio-env.html#cb123-167" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y racon</span>
-<span id="cb123-168"><a href="bio-env.html#cb123-168" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y miniasm</span>
-<span id="cb123-169"><a href="bio-env.html#cb123-169" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y nanopolish</span>
-<span id="cb123-170"><a href="bio-env.html#cb123-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-171"><a href="bio-env.html#cb123-171" aria-hidden="true" tabindex="-1"></a><span class="co">#安装基因功能分析软件</span></span>
-<span id="cb123-172"><a href="bio-env.html#cb123-172" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y prodigal</span>
-<span id="cb123-173"><a href="bio-env.html#cb123-173" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y glimmer</span>
-<span id="cb123-174"><a href="bio-env.html#cb123-174" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y augustus</span>
-<span id="cb123-175"><a href="bio-env.html#cb123-175" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y trf</span>
-<span id="cb123-176"><a href="bio-env.html#cb123-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-177"><a href="bio-env.html#cb123-177" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-178"><a href="bio-env.html#cb123-178" aria-hidden="true" tabindex="-1"></a><span class="co">#      使用虚拟环境             #</span></span>
-<span id="cb123-179"><a href="bio-env.html#cb123-179" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
-<span id="cb123-180"><a href="bio-env.html#cb123-180" aria-hidden="true" tabindex="-1"></a><span class="co">#1 创建python 2.7环境</span></span>
-<span id="cb123-181"><a href="bio-env.html#cb123-181" aria-hidden="true" tabindex="-1"></a>conda create <span class="sc">-</span>n py27 <span class="sc">-</span>y python<span class="ot">=</span><span class="fl">2.7</span></span>
-<span id="cb123-182"><a href="bio-env.html#cb123-182" aria-hidden="true" tabindex="-1"></a><span class="co">#查看现有虚拟环境</span></span>
-<span id="cb123-183"><a href="bio-env.html#cb123-183" aria-hidden="true" tabindex="-1"></a>conda env list</span>
-<span id="cb123-184"><a href="bio-env.html#cb123-184" aria-hidden="true" tabindex="-1"></a><span class="co">#激活python2.7环境</span></span>
-<span id="cb123-185"><a href="bio-env.html#cb123-185" aria-hidden="true" tabindex="-1"></a>conda activate py27</span>
-<span id="cb123-186"><a href="bio-env.html#cb123-186" aria-hidden="true" tabindex="-1"></a><span class="co">#查看python版本</span></span>
-<span id="cb123-187"><a href="bio-env.html#cb123-187" aria-hidden="true" tabindex="-1"></a>python <span class="sc">-</span>V</span>
-<span id="cb123-188"><a href="bio-env.html#cb123-188" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-189"><a href="bio-env.html#cb123-189" aria-hidden="true" tabindex="-1"></a><span class="co">#2 安装nanoplot</span></span>
-<span id="cb123-190"><a href="bio-env.html#cb123-190" aria-hidden="true" tabindex="-1"></a>conda create <span class="sc">-</span>n nanoplot <span class="sc">-</span>y nanoplot</span>
-<span id="cb123-191"><a href="bio-env.html#cb123-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb123-192"><a href="bio-env.html#cb123-192" aria-hidden="true" tabindex="-1"></a><span class="co">#3 bioconda管理R及R包</span></span>
-<span id="cb123-193"><a href="bio-env.html#cb123-193" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y r<span class="sc">-</span>base<span class="ot">=</span><span class="dv">4</span>.<span class="fl">1.1</span></span>
-<span id="cb123-194"><a href="bio-env.html#cb123-194" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bioconductor<span class="sc">-</span>deseq2</span>
-<span id="cb123-195"><a href="bio-env.html#cb123-195" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bioconductor<span class="sc">-</span>rnaseqgene</span>
-<span id="cb123-196"><a href="bio-env.html#cb123-196" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bioconductor<span class="sc">-</span>clusterProfiler</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="bio-env.html#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-2"><a href="bio-env.html#cb145-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     获得Linux环境          #</span></span>
+<span id="cb145-3"><a href="bio-env.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-4"><a href="bio-env.html#cb145-4" aria-hidden="true" tabindex="-1"></a><span class="co">#下载ubuntu 20.04镜像</span></span>
+<span id="cb145-5"><a href="bio-env.html#cb145-5" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>ftp.sjtu.edu.cn<span class="sc">/</span>ubuntu<span class="sc">-</span>cd<span class="sc">/</span><span class="dv">20</span>.<span class="fl">04.1</span><span class="sc">/</span>ubuntu<span class="dv">-20</span>.<span class="fl">04.1</span><span class="sc">-</span>desktop<span class="sc">-</span>amd64.iso</span>
+<span id="cb145-6"><a href="bio-env.html#cb145-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-7"><a href="bio-env.html#cb145-7" aria-hidden="true" tabindex="-1"></a><span class="co">#制作USB启动盘</span></span>
+<span id="cb145-8"><a href="bio-env.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="co">#下载使用rufus https://rufus.ie/</span></span>
+<span id="cb145-9"><a href="bio-env.html#cb145-9" aria-hidden="true" tabindex="-1"></a><span class="co">#或者ultraISO https://cn.ultraiso.net/</span></span>
+<span id="cb145-10"><a href="bio-env.html#cb145-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-11"><a href="bio-env.html#cb145-11" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
+<span id="cb145-12"><a href="bio-env.html#cb145-12" aria-hidden="true" tabindex="-1"></a><span class="co">#假设未挂载磁盘为/dev/sdb</span></span>
+<span id="cb145-13"><a href="bio-env.html#cb145-13" aria-hidden="true" tabindex="-1"></a>fdisk <span class="sc">-</span>l</span>
+<span id="cb145-14"><a href="bio-env.html#cb145-14" aria-hidden="true" tabindex="-1"></a>parted <span class="sc">/</span>dev<span class="sc">/</span>sdb</span>
+<span id="cb145-15"><a href="bio-env.html#cb145-15" aria-hidden="true" tabindex="-1"></a><span class="co">#交互界面 </span></span>
+<span id="cb145-16"><a href="bio-env.html#cb145-16" aria-hidden="true" tabindex="-1"></a>mklabel gpt</span>
+<span id="cb145-17"><a href="bio-env.html#cb145-17" aria-hidden="true" tabindex="-1"></a>quit</span>
+<span id="cb145-18"><a href="bio-env.html#cb145-18" aria-hidden="true" tabindex="-1"></a><span class="co">#格式化磁盘</span></span>
+<span id="cb145-19"><a href="bio-env.html#cb145-19" aria-hidden="true" tabindex="-1"></a>mkfs.xfs <span class="sc">-</span>f <span class="sc">/</span>dev<span class="sc">/</span>sdb </span>
+<span id="cb145-20"><a href="bio-env.html#cb145-20" aria-hidden="true" tabindex="-1"></a><span class="co">#挂载磁盘</span></span>
+<span id="cb145-21"><a href="bio-env.html#cb145-21" aria-hidden="true" tabindex="-1"></a>mkdir <span class="sc">/</span>ifs1</span>
+<span id="cb145-22"><a href="bio-env.html#cb145-22" aria-hidden="true" tabindex="-1"></a>mount <span class="sc">/</span>dev<span class="sc">/</span>sdb <span class="sc">/</span>ifs1</span>
+<span id="cb145-23"><a href="bio-env.html#cb145-23" aria-hidden="true" tabindex="-1"></a><span class="co">#修改fstab</span></span>
+<span id="cb145-24"><a href="bio-env.html#cb145-24" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"/dev/sdb /ifs1                       xfs     defaults,uquota        0 0"</span> <span class="sc">&gt;</span><span class="er">&gt;/</span>etc<span class="sc">/</span>fstab</span>
+<span id="cb145-25"><a href="bio-env.html#cb145-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-26"><a href="bio-env.html#cb145-26" aria-hidden="true" tabindex="-1"></a><span class="co">#如果不安装系统，购买腾讯云服务器一年74元，2核心4G版本即可</span></span>
+<span id="cb145-27"><a href="bio-env.html#cb145-27" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>curl.qcloud.com<span class="sc">/</span>gm6m0QoY</span>
+<span id="cb145-28"><a href="bio-env.html#cb145-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-29"><a href="bio-env.html#cb145-29" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-30"><a href="bio-env.html#cb145-30" aria-hidden="true" tabindex="-1"></a><span class="co">#         基本配置           #</span></span>
+<span id="cb145-31"><a href="bio-env.html#cb145-31" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-32"><a href="bio-env.html#cb145-32" aria-hidden="true" tabindex="-1"></a><span class="co">#创建root账户</span></span>
+<span id="cb145-33"><a href="bio-env.html#cb145-33" aria-hidden="true" tabindex="-1"></a>sudo passwd root</span>
+<span id="cb145-34"><a href="bio-env.html#cb145-34" aria-hidden="true" tabindex="-1"></a>输入当前用户密码：</span>
+<span id="cb145-35"><a href="bio-env.html#cb145-35" aria-hidden="true" tabindex="-1"></a>输入root密码：</span>
+<span id="cb145-36"><a href="bio-env.html#cb145-36" aria-hidden="true" tabindex="-1"></a>再次输入root密码：</span>
+<span id="cb145-37"><a href="bio-env.html#cb145-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-38"><a href="bio-env.html#cb145-38" aria-hidden="true" tabindex="-1"></a><span class="co">#以下操作使用root账户完成</span></span>
+<span id="cb145-39"><a href="bio-env.html#cb145-39" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span></span>
+<span id="cb145-40"><a href="bio-env.html#cb145-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-41"><a href="bio-env.html#cb145-41" aria-hidden="true" tabindex="-1"></a><span class="co">#修改源</span></span>
+<span id="cb145-42"><a href="bio-env.html#cb145-42" aria-hidden="true" tabindex="-1"></a>cp <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list.bak</span>
+<span id="cb145-43"><a href="bio-env.html#cb145-43" aria-hidden="true" tabindex="-1"></a>sed <span class="sc">-</span>i <span class="st">'s#cn.archive.ubuntu.com#mirrors.aliyun.com#g'</span> <span class="sc">/</span>etc<span class="sc">/</span>apt<span class="sc">/</span>sources.list</span>
+<span id="cb145-44"><a href="bio-env.html#cb145-44" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update <span class="sc">&amp;&amp;</span> sudo apt<span class="sc">-</span>get upgrade</span>
+<span id="cb145-45"><a href="bio-env.html#cb145-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-46"><a href="bio-env.html#cb145-46" aria-hidden="true" tabindex="-1"></a><span class="co">#ssh登录</span></span>
+<span id="cb145-47"><a href="bio-env.html#cb145-47" aria-hidden="true" tabindex="-1"></a>apt install openssh<span class="sc">-</span>server</span>
+<span id="cb145-48"><a href="bio-env.html#cb145-48" aria-hidden="true" tabindex="-1"></a>ps <span class="sc">-</span>e <span class="sc">|</span>  grep ssh   <span class="co">#检查ssh server是否启动</span></span>
+<span id="cb145-49"><a href="bio-env.html#cb145-49" aria-hidden="true" tabindex="-1"></a>sudo <span class="sc">/</span>etc<span class="sc">/</span>init.d<span class="sc">/</span>ssh start  <span class="co">#启动</span></span>
+<span id="cb145-50"><a href="bio-env.html#cb145-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-51"><a href="bio-env.html#cb145-51" aria-hidden="true" tabindex="-1"></a><span class="co">#安装java</span></span>
+<span id="cb145-52"><a href="bio-env.html#cb145-52" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install openjdk<span class="dv">-8</span><span class="sc">-</span>jdk</span>
+<span id="cb145-53"><a href="bio-env.html#cb145-53" aria-hidden="true" tabindex="-1"></a>sudo add<span class="sc">-</span>apt<span class="sc">-</span>repository ppa<span class="sc">:</span>webupd8team<span class="sc">/</span>java</span>
+<span id="cb145-54"><a href="bio-env.html#cb145-54" aria-hidden="true" tabindex="-1"></a>apt update</span>
+<span id="cb145-55"><a href="bio-env.html#cb145-55" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y oracle<span class="sc">-</span>java8<span class="sc">-</span>installer</span>
+<span id="cb145-56"><a href="bio-env.html#cb145-56" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y zlib1g zlib1g.dev</span>
+<span id="cb145-57"><a href="bio-env.html#cb145-57" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y libboost<span class="sc">-</span>dev</span>
+<span id="cb145-58"><a href="bio-env.html#cb145-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-59"><a href="bio-env.html#cb145-59" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-60"><a href="bio-env.html#cb145-60" aria-hidden="true" tabindex="-1"></a><span class="co">#        安装R以及Rstudio    #</span></span>
+<span id="cb145-61"><a href="bio-env.html#cb145-61" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-62"><a href="bio-env.html#cb145-62" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y r<span class="sc">-</span>base</span>
+<span id="cb145-63"><a href="bio-env.html#cb145-63" aria-hidden="true" tabindex="-1"></a>https<span class="sc">:</span><span class="er">//</span>download1.rstudio.org<span class="sc">/</span>desktop<span class="sc">/</span>bionic<span class="sc">/</span>amd64<span class="sc">/</span>rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb145-64"><a href="bio-env.html#cb145-64" aria-hidden="true" tabindex="-1"></a>dpkg <span class="sc">-</span>i rstudio<span class="dv">-1</span>.<span class="fl">3.1093</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb145-65"><a href="bio-env.html#cb145-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-66"><a href="bio-env.html#cb145-66" aria-hidden="true" tabindex="-1"></a><span class="co">#安装一些小工具</span></span>
+<span id="cb145-67"><a href="bio-env.html#cb145-67" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y git vim tree creen htop cmake lftp lrzsz</span>
+<span id="cb145-68"><a href="bio-env.html#cb145-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-69"><a href="bio-env.html#cb145-69" aria-hidden="true" tabindex="-1"></a><span class="co">#apt安装生物软件</span></span>
+<span id="cb145-70"><a href="bio-env.html#cb145-70" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bwa</span>
+<span id="cb145-71"><a href="bio-env.html#cb145-71" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y samtools </span>
+<span id="cb145-72"><a href="bio-env.html#cb145-72" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bcftools</span>
+<span id="cb145-73"><a href="bio-env.html#cb145-73" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y blast2</span>
+<span id="cb145-74"><a href="bio-env.html#cb145-74" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedtools</span>
+<span id="cb145-75"><a href="bio-env.html#cb145-75" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y seqtk</span>
+<span id="cb145-76"><a href="bio-env.html#cb145-76" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y minimap2</span>
+<span id="cb145-77"><a href="bio-env.html#cb145-77" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bowtie2</span>
+<span id="cb145-78"><a href="bio-env.html#cb145-78" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y phylip</span>
+<span id="cb145-79"><a href="bio-env.html#cb145-79" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y clustalx</span>
+<span id="cb145-80"><a href="bio-env.html#cb145-80" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y canu</span>
+<span id="cb145-81"><a href="bio-env.html#cb145-81" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y kraken2</span>
+<span id="cb145-82"><a href="bio-env.html#cb145-82" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y hisat2</span>
+<span id="cb145-83"><a href="bio-env.html#cb145-83" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y stringtie</span>
+<span id="cb145-84"><a href="bio-env.html#cb145-84" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y jellyfish</span>
+<span id="cb145-85"><a href="bio-env.html#cb145-85" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y circos</span>
+<span id="cb145-86"><a href="bio-env.html#cb145-86" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanopolish</span>
+<span id="cb145-87"><a href="bio-env.html#cb145-87" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y nanook</span>
+<span id="cb145-88"><a href="bio-env.html#cb145-88" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y centrifuge</span>
+<span id="cb145-89"><a href="bio-env.html#cb145-89" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y rna<span class="sc">-</span>star</span>
+<span id="cb145-90"><a href="bio-env.html#cb145-90" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y freebayes</span>
+<span id="cb145-91"><a href="bio-env.html#cb145-91" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y cnvkit</span>
+<span id="cb145-92"><a href="bio-env.html#cb145-92" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y spades</span>
+<span id="cb145-93"><a href="bio-env.html#cb145-93" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mothur</span>
+<span id="cb145-94"><a href="bio-env.html#cb145-94" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y muscle</span>
+<span id="cb145-95"><a href="bio-env.html#cb145-95" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y mafft</span>
+<span id="cb145-96"><a href="bio-env.html#cb145-96" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y iqtree</span>
+<span id="cb145-97"><a href="bio-env.html#cb145-97" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y sniffles</span>
+<span id="cb145-98"><a href="bio-env.html#cb145-98" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y last<span class="sc">-</span>align</span>
+<span id="cb145-99"><a href="bio-env.html#cb145-99" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y augustus</span>
+<span id="cb145-100"><a href="bio-env.html#cb145-100" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bamtools </span>
+<span id="cb145-101"><a href="bio-env.html#cb145-101" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y bedops</span>
+<span id="cb145-102"><a href="bio-env.html#cb145-102" aria-hidden="true" tabindex="-1"></a>apt install <span class="sc">-</span>y delly</span>
+<span id="cb145-103"><a href="bio-env.html#cb145-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-104"><a href="bio-env.html#cb145-104" aria-hidden="true" tabindex="-1"></a><span class="co">#安装浏览器</span></span>
+<span id="cb145-105"><a href="bio-env.html#cb145-105" aria-hidden="true" tabindex="-1"></a>apt<span class="sc">-</span>get install <span class="sc">-</span>y chromium<span class="sc">-</span>browser</span>
+<span id="cb145-106"><a href="bio-env.html#cb145-106" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-107"><a href="bio-env.html#cb145-107" aria-hidden="true" tabindex="-1"></a><span class="co">#安装微信</span></span>
+<span id="cb145-108"><a href="bio-env.html#cb145-108" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>www.ubuntukylin.com<span class="sc">/</span>public<span class="sc">/</span>pdf<span class="sc">/</span>wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
+<span id="cb145-109"><a href="bio-env.html#cb145-109" aria-hidden="true" tabindex="-1"></a><span class="co">#Debian 系的操作系统可以执行这样的命令：</span></span>
+<span id="cb145-110"><a href="bio-env.html#cb145-110" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">--</span>add<span class="sc">-</span>architecture i386</span>
+<span id="cb145-111"><a href="bio-env.html#cb145-111" aria-hidden="true" tabindex="-1"></a>sudo apt update</span>
+<span id="cb145-112"><a href="bio-env.html#cb145-112" aria-hidden="true" tabindex="-1"></a><span class="co">#安装 wine 应用所需的依赖，也就是 wine：</span></span>
+<span id="cb145-113"><a href="bio-env.html#cb145-113" aria-hidden="true" tabindex="-1"></a>sudo apt install wine<span class="sc">-</span>stable</span>
+<span id="cb145-114"><a href="bio-env.html#cb145-114" aria-hidden="true" tabindex="-1"></a><span class="co">#使用 dpkg 安装 wine 应用：</span></span>
+<span id="cb145-115"><a href="bio-env.html#cb145-115" aria-hidden="true" tabindex="-1"></a>sudo dpkg <span class="sc">-</span>i wine<span class="sc">-</span>wechat_1<span class="fl">.0</span><span class="sc">-</span>windows2.<span class="fl">8.6</span>_all.deb</span>
+<span id="cb145-116"><a href="bio-env.html#cb145-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-117"><a href="bio-env.html#cb145-117" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-118"><a href="bio-env.html#cb145-118" aria-hidden="true" tabindex="-1"></a><span class="co">#       安装bioconda         #</span></span>
+<span id="cb145-119"><a href="bio-env.html#cb145-119" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-120"><a href="bio-env.html#cb145-120" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>repo.continuum.io<span class="sc">/</span>miniconda<span class="sc">/</span>Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
+<span id="cb145-121"><a href="bio-env.html#cb145-121" aria-hidden="true" tabindex="-1"></a>sh Miniconda3<span class="sc">-</span>latest<span class="sc">-</span>Linux<span class="sc">-</span>x86_64.sh  </span>
+<span id="cb145-122"><a href="bio-env.html#cb145-122" aria-hidden="true" tabindex="-1"></a>source <span class="sc">~</span><span class="er">/</span>.bashrc</span>
+<span id="cb145-123"><a href="bio-env.html#cb145-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-124"><a href="bio-env.html#cb145-124" aria-hidden="true" tabindex="-1"></a><span class="co">#添加软件源</span></span>
+<span id="cb145-125"><a href="bio-env.html#cb145-125" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels bioconda </span>
+<span id="cb145-126"><a href="bio-env.html#cb145-126" aria-hidden="true" tabindex="-1"></a>conda config <span class="sc">--</span>add channels conda<span class="sc">-</span>forge</span>
+<span id="cb145-127"><a href="bio-env.html#cb145-127" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-128"><a href="bio-env.html#cb145-128" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-129"><a href="bio-env.html#cb145-129" aria-hidden="true" tabindex="-1"></a><span class="co"># 使用bioconda安装常用软件   #</span></span>
+<span id="cb145-130"><a href="bio-env.html#cb145-130" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-131"><a href="bio-env.html#cb145-131" aria-hidden="true" tabindex="-1"></a><span class="co">#安装mamba</span></span>
+<span id="cb145-132"><a href="bio-env.html#cb145-132" aria-hidden="true" tabindex="-1"></a>conda install <span class="sc">-</span>c conda<span class="sc">-</span>forge <span class="sc">-</span>y mamba</span>
+<span id="cb145-133"><a href="bio-env.html#cb145-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-134"><a href="bio-env.html#cb145-134" aria-hidden="true" tabindex="-1"></a><span class="co">#利用mamba安装软件</span></span>
+<span id="cb145-135"><a href="bio-env.html#cb145-135" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bwa </span>
+<span id="cb145-136"><a href="bio-env.html#cb145-136" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y samtools</span>
+<span id="cb145-137"><a href="bio-env.html#cb145-137" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bcftools</span>
+<span id="cb145-138"><a href="bio-env.html#cb145-138" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y blast </span>
+<span id="cb145-139"><a href="bio-env.html#cb145-139" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y blat </span>
+<span id="cb145-140"><a href="bio-env.html#cb145-140" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y mummer </span>
+<span id="cb145-141"><a href="bio-env.html#cb145-141" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y mafft </span>
+<span id="cb145-142"><a href="bio-env.html#cb145-142" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y muscle </span>
+<span id="cb145-143"><a href="bio-env.html#cb145-143" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y lastz</span>
+<span id="cb145-144"><a href="bio-env.html#cb145-144" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y sra<span class="sc">-</span>tools</span>
+<span id="cb145-145"><a href="bio-env.html#cb145-145" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y seqkit</span>
+<span id="cb145-146"><a href="bio-env.html#cb145-146" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y seqtk</span>
+<span id="cb145-147"><a href="bio-env.html#cb145-147" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bedtools</span>
+<span id="cb145-148"><a href="bio-env.html#cb145-148" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bedops</span>
+<span id="cb145-149"><a href="bio-env.html#cb145-149" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y gfatools</span>
+<span id="cb145-150"><a href="bio-env.html#cb145-150" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y circos</span>
+<span id="cb145-151"><a href="bio-env.html#cb145-151" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y entrez<span class="sc">-</span>direct</span>
+<span id="cb145-152"><a href="bio-env.html#cb145-152" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y emboss</span>
+<span id="cb145-153"><a href="bio-env.html#cb145-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-154"><a href="bio-env.html#cb145-154" aria-hidden="true" tabindex="-1"></a><span class="co">#安装数据质控软件</span></span>
+<span id="cb145-155"><a href="bio-env.html#cb145-155" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y fastqc multiqc </span>
+<span id="cb145-156"><a href="bio-env.html#cb145-156" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y trimmomatic</span>
+<span id="cb145-157"><a href="bio-env.html#cb145-157" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y fastp</span>
+<span id="cb145-158"><a href="bio-env.html#cb145-158" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-159"><a href="bio-env.html#cb145-159" aria-hidden="true" tabindex="-1"></a><span class="co">#安装基因组拼接相关工具</span></span>
+<span id="cb145-160"><a href="bio-env.html#cb145-160" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y velvet</span>
+<span id="cb145-161"><a href="bio-env.html#cb145-161" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y flye</span>
+<span id="cb145-162"><a href="bio-env.html#cb145-162" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y miniasm</span>
+<span id="cb145-163"><a href="bio-env.html#cb145-163" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y canu</span>
+<span id="cb145-164"><a href="bio-env.html#cb145-164" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y megahit</span>
+<span id="cb145-165"><a href="bio-env.html#cb145-165" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y spades</span>
+<span id="cb145-166"><a href="bio-env.html#cb145-166" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y quast</span>
+<span id="cb145-167"><a href="bio-env.html#cb145-167" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y racon</span>
+<span id="cb145-168"><a href="bio-env.html#cb145-168" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y miniasm</span>
+<span id="cb145-169"><a href="bio-env.html#cb145-169" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y nanopolish</span>
+<span id="cb145-170"><a href="bio-env.html#cb145-170" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-171"><a href="bio-env.html#cb145-171" aria-hidden="true" tabindex="-1"></a><span class="co">#安装基因功能分析软件</span></span>
+<span id="cb145-172"><a href="bio-env.html#cb145-172" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y prodigal</span>
+<span id="cb145-173"><a href="bio-env.html#cb145-173" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y glimmer</span>
+<span id="cb145-174"><a href="bio-env.html#cb145-174" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y augustus</span>
+<span id="cb145-175"><a href="bio-env.html#cb145-175" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y trf</span>
+<span id="cb145-176"><a href="bio-env.html#cb145-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-177"><a href="bio-env.html#cb145-177" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-178"><a href="bio-env.html#cb145-178" aria-hidden="true" tabindex="-1"></a><span class="co">#      使用虚拟环境             #</span></span>
+<span id="cb145-179"><a href="bio-env.html#cb145-179" aria-hidden="true" tabindex="-1"></a><span class="do">#############################</span></span>
+<span id="cb145-180"><a href="bio-env.html#cb145-180" aria-hidden="true" tabindex="-1"></a><span class="co">#1 创建python 2.7环境</span></span>
+<span id="cb145-181"><a href="bio-env.html#cb145-181" aria-hidden="true" tabindex="-1"></a>conda create <span class="sc">-</span>n py27 <span class="sc">-</span>y python<span class="ot">=</span><span class="fl">2.7</span></span>
+<span id="cb145-182"><a href="bio-env.html#cb145-182" aria-hidden="true" tabindex="-1"></a><span class="co">#查看现有虚拟环境</span></span>
+<span id="cb145-183"><a href="bio-env.html#cb145-183" aria-hidden="true" tabindex="-1"></a>conda env list</span>
+<span id="cb145-184"><a href="bio-env.html#cb145-184" aria-hidden="true" tabindex="-1"></a><span class="co">#激活python2.7环境</span></span>
+<span id="cb145-185"><a href="bio-env.html#cb145-185" aria-hidden="true" tabindex="-1"></a>conda activate py27</span>
+<span id="cb145-186"><a href="bio-env.html#cb145-186" aria-hidden="true" tabindex="-1"></a><span class="co">#查看python版本</span></span>
+<span id="cb145-187"><a href="bio-env.html#cb145-187" aria-hidden="true" tabindex="-1"></a>python <span class="sc">-</span>V</span>
+<span id="cb145-188"><a href="bio-env.html#cb145-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-189"><a href="bio-env.html#cb145-189" aria-hidden="true" tabindex="-1"></a><span class="co">#2 安装nanoplot</span></span>
+<span id="cb145-190"><a href="bio-env.html#cb145-190" aria-hidden="true" tabindex="-1"></a>conda create <span class="sc">-</span>n nanoplot <span class="sc">-</span>y nanoplot</span>
+<span id="cb145-191"><a href="bio-env.html#cb145-191" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb145-192"><a href="bio-env.html#cb145-192" aria-hidden="true" tabindex="-1"></a><span class="co">#3 bioconda管理R及R包</span></span>
+<span id="cb145-193"><a href="bio-env.html#cb145-193" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y r<span class="sc">-</span>base<span class="ot">=</span><span class="dv">4</span>.<span class="fl">1.1</span></span>
+<span id="cb145-194"><a href="bio-env.html#cb145-194" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bioconductor<span class="sc">-</span>deseq2</span>
+<span id="cb145-195"><a href="bio-env.html#cb145-195" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bioconductor<span class="sc">-</span>rnaseqgene</span>
+<span id="cb145-196"><a href="bio-env.html#cb145-196" aria-hidden="true" tabindex="-1"></a>mamba install <span class="sc">-</span>y bioconductor<span class="sc">-</span>clusterProfiler</span></code></pre></div>
+</div>
+<div id="shell终端配置" class="section level3" number="10.5.3">
+<h3>
+<span class="header-section-number">10.5.3</span> shell终端配置<a class="anchor" aria-label="anchor" href="#shell%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="bio-env.html#cb146-1" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>raw.githubusercontent.com<span class="sc">/</span>ohmyzsh<span class="sc">/</span>ohmyzsh<span class="sc">/</span>master<span class="sc">/</span>tools<span class="sc">/</span>install.sh </span>
+<span id="cb146-2"><a href="bio-env.html#cb146-2" aria-hidden="true" tabindex="-1"></a>sh install.sh</span>
+<span id="cb146-3"><a href="bio-env.html#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="bio-env.html#cb146-4" aria-hidden="true" tabindex="-1"></a>sudo apt install powerline fonts<span class="sc">-</span>powerline <span class="co">#安装字体</span></span>
+<span id="cb146-5"><a href="bio-env.html#cb146-5" aria-hidden="true" tabindex="-1"></a>sudo apt install zsh<span class="sc">-</span>syntax<span class="sc">-</span>highlighting <span class="co"># 安装语法并启用高亮插件</span></span>
+<span id="cb146-6"><a href="bio-env.html#cb146-6" aria-hidden="true" tabindex="-1"></a>echo <span class="st">"source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"</span> <span class="sc">&gt;</span><span class="er">&gt;</span> <span class="er">~/</span>.zshrc</span>
+<span id="cb146-7"><a href="bio-env.html#cb146-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-8"><a href="bio-env.html#cb146-8" aria-hidden="true" tabindex="-1"></a>vim <span class="sc">~</span> <span class="er">/</span>.zshrc   <span class="co"># 打开 .zshrc</span></span>
+<span id="cb146-9"><a href="bio-env.html#cb146-9" aria-hidden="true" tabindex="-1"></a>ZSH_THEME<span class="ot">=</span><span class="st">"crunch"</span>   <span class="co"># 自定义主题</span></span>
+<span id="cb146-10"><a href="bio-env.html#cb146-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-11"><a href="bio-env.html#cb146-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 更多主题可以从 https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins 获取</span></span></code></pre></div>
+<p><a href="https://ohmyposh.dev/" class="uri">https://ohmyposh.dev/</a></p>
 
 </div>
 </div>
@@ -609,12 +655,17 @@ PS：如何加速<code>pip</code>的下载：</p>
 <a class="nav-link" href="#git%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="header-section-number">10.3</span> git的使用</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#git%E5%90%8C%E6%97%B6%E7%AE%A1%E7%90%86github%E4%B8%8Egitee"><span class="header-section-number">10.3.1</span> git同时管理GitHub与Gitee</a></li></ul>
 </li>
 <li>
-<a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="header-section-number">10.4</span> 软件安装</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#aspera"><span class="header-section-number">10.4.1</span> Aspera</a></li></ul>
+<a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="header-section-number">10.4</span> 软件安装</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#aspera"><span class="header-section-number">10.4.1</span> Aspera</a></li>
+<li><a class="nav-link" href="#%E5%AE%89%E8%A3%85motif%E6%90%9C%E7%B4%A2%E8%BD%AF%E4%BB%B6meme"><span class="header-section-number">10.4.2</span> 安装Motif搜索软件MEME</a></li>
+<li><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E7%BB%93%E6%9E%84%E5%9F%9F%E6%90%9C%E7%B4%A2%E8%BD%AF%E4%BB%B6hmmer"><span class="header-section-number">10.4.3</span> 安装结构域搜索软件HMMER</a></li>
+</ul>
 </li>
 <li>
 <a class="nav-link" href="#ubuntu%E6%90%AD%E5%BB%BA%E7%94%9F%E4%BF%A1%E7%8E%AF%E5%A2%83"><span class="header-section-number">10.5</span> Ubuntu搭建生信环境</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#%E6%97%A7%E7%89%88%E6%9C%AC"><span class="header-section-number">10.5.1</span> 旧版本</a></li>
 <li><a class="nav-link" href="#%E6%96%B0%E7%89%88%E6%9C%AC"><span class="header-section-number">10.5.2</span> 新版本</a></li>
+<li><a class="nav-link" href="#shell%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="header-section-number">10.5.3</span> shell终端配置</a></li>
 </ul>
 </li>
 </ul>

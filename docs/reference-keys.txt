@@ -81,6 +81,8 @@ ggtree拓展ggtreeextra
 多维数据添加多个图层
 群体遗学传例子
 r-deve
+一些资源
+一些tips
 pac4xiang
 安装
 使用方法
@@ -104,6 +106,12 @@ css学习网站
 服务器搭建rshiny-server
 ubuntu安装devtools
 上传文件大小限制
+美化rshiny
+htmltools包的使用
+golem包开发产品级shiny
+什么是产品级的shiny-app
+如何在模块间传递数据
+golem结构
 python-base
 生物序列处理
 fasta文件处理
@@ -132,15 +140,19 @@ git的使用
 git同时管理github与gitee
 软件安装
 aspera
+安装motif搜索软件meme
+安装结构域搜索软件hmmer
 ubuntu搭建生信环境
 旧版本
 新版本
+shell终端配置
 genomics
 基因家族分析
 基因家族分析思路及文章撰写思路
 数据准备
 软件准备
 分析过程
+基因组共线性分析
 rnaseq
 meta
 pro
@@ -155,4 +167,5 @@ myarticle
 class
 李成云现代植物病理学
 section
+section-1
 other

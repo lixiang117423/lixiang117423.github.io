@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>第 4 章 R语言开发 | 小蓝哥的知识荒原</title>
 <meta name="author" content="李详">
-<meta name="description" content="4.1 R包pac4xiang的使用 pac4xiang这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在GitHub上，更多功能还在完善中，待进一步开发。  4.1.1 安装 在R中运行下面的代码安装pac4xiang。 devtools::install_github('https://github.com/lixiang117423/pac4xiang')  4.1.2...">
+<meta name="description" content="4.0.1 一些资源 Building R packages with devtools and usethis | RStudio Using RMarkdown to Create Reproducible Documents (Oct 26, 2021) Presenter: Mine Çetinkaya-Rundel  4.1 一些Tips 将数据框作为提示信息进行输出：...">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="第 4 章 R语言开发 | 小蓝哥的知识荒原">
 <meta property="og:type" content="book">
 <meta property="og:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
-<meta property="og:description" content="4.1 R包pac4xiang的使用 pac4xiang这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在GitHub上，更多功能还在完善中，待进一步开发。  4.1.1 安装 在R中运行下面的代码安装pac4xiang。 devtools::install_github('https://github.com/lixiang117423/pac4xiang')  4.1.2...">
+<meta property="og:description" content="4.0.1 一些资源 Building R packages with devtools and usethis | RStudio Using RMarkdown to Create Reproducible Documents (Oct 26, 2021) Presenter: Mine Çetinkaya-Rundel  4.1 一些Tips 将数据框作为提示信息进行输出：...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第 4 章 R语言开发 | 小蓝哥的知识荒原">
-<meta name="twitter:description" content="4.1 R包pac4xiang的使用 pac4xiang这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在GitHub上，更多功能还在完善中，待进一步开发。  4.1.1 安装 在R中运行下面的代码安装pac4xiang。 devtools::install_github('https://github.com/lixiang117423/pac4xiang')  4.1.2...">
+<meta name="twitter:description" content="4.0.1 一些资源 Building R packages with devtools and usethis | RStudio Using RMarkdown to Create Reproducible Documents (Oct 26, 2021) Presenter: Mine Çetinkaya-Rundel  4.1 一些Tips 将数据框作为提示信息进行输出：...">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/DivadNojnarg/outstanding-shiny-ui/master/images/intro/crc-press-cover.svg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -84,26 +84,57 @@
 <h1>
 <span class="header-section-number">第 4 章</span> R语言开发<a class="anchor" aria-label="anchor" href="#r-deve"><i class="fas fa-link"></i></a>
 </h1>
-<div id="pac4xiang" class="section level2" number="4.1">
+<div id="一些资源" class="section level3" number="4.0.1">
+<h3>
+<span class="header-section-number">4.0.1</span> 一些资源<a class="anchor" aria-label="anchor" href="#%E4%B8%80%E4%BA%9B%E8%B5%84%E6%BA%90"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li><a href="https://colorado.rstudio.com/rsc/pkg-building/#1">Building R packages with devtools and usethis | RStudio</a></li>
+<li><a href="https://www.youtube.com/watch?v=z2a80FnLFfE&amp;t=7s">Using RMarkdown to Create Reproducible Documents (Oct 26, 2021) Presenter: Mine Çetinkaya-Rundel</a></li>
+</ul>
+</div>
+<div id="一些tips" class="section level2" number="4.1">
 <h2>
-<span class="header-section-number">4.1</span> R包pac4xiang的使用<a class="anchor" aria-label="anchor" href="#pac4xiang"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.1</span> 一些Tips<a class="anchor" aria-label="anchor" href="#%E4%B8%80%E4%BA%9Btips"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>将数据框作为提示信息进行输出：</li>
+</ul>
+<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">design.demo</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>N <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span>,
+                        Treatment <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CK"</span>, <span class="st">"T1"</span>, <span class="st">"T2"</span><span class="op">)</span>,each  <span class="op">=</span><span class="fl">4</span><span class="op">)</span>,
+                        Gene <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"gene1"</span>, <span class="st">"gene2"</span>, <span class="st">"gene3"</span>, <span class="st">"gene4"</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+
+<span class="kw"><a href="https://rdrr.io/r/base/stop.html">stop</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Design matrix should be input! Like..."</span>,
+             <span class="fu"><a href="https://rdrr.io/r/utils/capture.output.html">capture.output</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">design.demo</span>, row.names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,
+           collapse <span class="op">=</span> <span class="st">"\n"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>Linux指定R镜像，加速下载安装：</li>
+</ul>
+<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span> <span class="op">(</span>repos<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/structure.html">structure</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span> <span class="op">(</span>CRAN<span class="op">=</span><span class="st">"https://mirrors.tuna.tsinghua.edu.cn/CRAN/"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span> <span class="op">(</span>BioC_mirror<span class="op">=</span><span class="st">"https://mirrors.tuna.tsinghua.edu.cn/bioconductor"</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="pac4xiang" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> R包pac4xiang的使用<a class="anchor" aria-label="anchor" href="#pac4xiang"><i class="fas fa-link"></i></a>
 </h2>
 <p><code>pac4xiang</code>这个R包是我自己开发的，包含了一些我自己常用的函数。包目前在<a href="https://github.com/lixiang117423/pac4xiang">GitHub</a>上，更多功能还在完善中，待进一步开发。</p>
-<div id="安装" class="section level3" number="4.1.1">
+<div id="安装" class="section level3" number="4.2.1">
 <h3>
-<span class="header-section-number">4.1.1</span> 安装<a class="anchor" aria-label="anchor" href="#%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.1</span> 安装<a class="anchor" aria-label="anchor" href="#%E5%AE%89%E8%A3%85"><i class="fas fa-link"></i></a>
 </h3>
 <p>在R中运行下面的代码安装<code>pac4xiang</code>。</p>
-<div class="sourceCode" id="cb91"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'https://github.com/lixiang117423/pac4xiang'</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="使用方法" class="section level3" number="4.1.2">
+<div id="使用方法" class="section level3" number="4.2.2">
 <h3>
-<span class="header-section-number">4.1.2</span> 使用方法<a class="anchor" aria-label="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2</span> 使用方法<a class="anchor" aria-label="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><i class="fas fa-link"></i></a>
 </h3>
-<div id="calstandcurve" class="section level4" number="4.1.2.1">
+<div id="calstandcurve" class="section level4" number="4.2.2.1">
 <h4>
-<span class="header-section-number">4.1.2.1</span> <code>calStandCurve</code><a class="anchor" aria-label="anchor" href="#calstandcurve"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.1</span> <code>calStandCurve</code><a class="anchor" aria-label="anchor" href="#calstandcurve"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数用与计算相对定量qPCR的标曲。qPCR标曲点样参照图<a href="r-deve.html#fig:qPCR1">4.1</a>。按照我的思路和习惯，我会准备8个浓度梯度的cDNA,从高到低分别是C0到C8。C0是对应批次下多有样品cDNA的组合，然后再以一定的稀释倍数稀释得到C1，C1再以同样的倍数稀释得到C2，依此类推，直到得到C8。</p>
 <div class="figure" style="text-align: center">
@@ -113,7 +144,7 @@
 </p>
 </div>
 <p>函数具体怎么用呢？参考下方的代码：</p>
-<div class="sourceCode" id="cb92"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">df.1</span> <span class="op">&lt;-</span> <span class="fu">calStandCurve</span><span class="op">(</span>
   data <span class="op">=</span> <span class="st">"20210927下机数据/20210928lx_1.txt"</span>NA<span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OsPOX223"</span>, <span class="st">"OsAPX1"</span>, <span class="st">"OsAPX2"</span>, <span class="st">"OsPAL"</span><span class="op">)</span>,
   rep <span class="op">=</span> <span class="fl">3</span>,
@@ -132,9 +163,9 @@
 </div>
 <p>返回的结果是个数据框（参考图<a href="r-deve.html#fig:qPCR2">4.2</a>），包含了基因名称、标曲公式、斜率、截距、R<span class="math inline">\(^2\)</span>、P值、该标曲适用的自变量范围（最大值和最小值）及计算标曲的日期等。保存的图片默认存在当前工作目录下（运行<code>getcwd()</code>查看当前R语言工作目录）。</p>
 </div>
-<div id="calrtqpcr" class="section level4" number="4.1.2.2">
+<div id="calrtqpcr" class="section level4" number="4.2.2.2">
 <h4>
-<span class="header-section-number">4.1.2.2</span> <code>calRTqPCR</code><a class="anchor" aria-label="anchor" href="#calrtqpcr"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.2</span> <code>calRTqPCR</code><a class="anchor" aria-label="anchor" href="#calrtqpcr"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数在<code>calStandCurve</code>函数返回的标曲结果的基础上可以计算不同处理下各基因的表达情况。样品的点样方法参考图<a href="r-deve.html#fig:qPCR3">4.3</a>。</p>
 <div class="figure" style="text-align: center">
@@ -144,7 +175,7 @@
 </p>
 </div>
 <p>计算表达量的代码如下：</p>
-<div class="sourceCode" id="cb93"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">exp.1</span> <span class="op">&lt;-</span> <span class="fu">calRTqPCR</span><span class="op">(</span>
   data <span class="op">=</span> <span class="st">"20210927下机数据/20210929lx_1.txt"</span>NA<span class="op">=</span> <span class="va">df.1</span>,
   genes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"OsPOX223"</span>, <span class="st">"OsAPX1"</span>, <span class="st">"OsAPX2"</span>, <span class="st">"OsPAL"</span><span class="op">)</span>,
@@ -152,13 +183,13 @@
 <span class="op">)</span></code></pre></div>
 <p>其中的<code>data</code>就的样品的下机导出数据，<code>StandCurve</code>是函数<code>calStandCurve</code>返回的数据框，<code>gene</code>需要严格控制大小写，必须和输入函数<code>calStandCurve</code>的基因名称一样，<code>treatment</code>是指定从左到右的处理分别是什么，这个是为了后续方便进行<em><code>t</code></em>检验。</p>
 </div>
-<div id="getalignresults" class="section level4" number="4.1.2.3">
+<div id="getalignresults" class="section level4" number="4.2.2.3">
 <h4>
-<span class="header-section-number">4.1.2.3</span> <code>getAlignResults</code><a class="anchor" aria-label="anchor" href="#getalignresults"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.3</span> <code>getAlignResults</code><a class="anchor" aria-label="anchor" href="#getalignresults"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数可以将软件<code>CLUSTALW</code>的输出文件变成<code>.fasta</code>格式的比对结果。
 写这个函数的原因在于每次我用MEGA进行序列比对构建进化树的时候都报错，不是字符串有问题就是长度不对，索性直接用Linux系统下的<code>CLUSTALW</code>进行序列比对，然后用MEGA构建进化树，百试不爽！</p>
-<div class="sourceCode" id="cb94"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">my.aln</span> <span class="op">=</span> <span class="fu">getAlignResults</span><span class="op">(</span>aln <span class="op">=</span> <span class="st">'test.aln'</span><span class="op">)</span></code></pre></div>
 <p>运行完成后会在当前目录下生成一个<code>YourAlignResults.fasta</code>文件，就是<code>fasta</code>格式的比对文件，然后就可以用来构建进化树了。</p>
 <ul>
@@ -168,7 +199,7 @@
 该函数用于进行多分组的<code>t</code>检验。
 这个函数是用于进行多组<code>t</code>检验的。比如每次跑qPCR，会有多个处理多个目的基因，这个时候就需要关注每个目的基因在不同的处理中的表达量。用法参考下方代码：</p></li>
 </ul>
-<div class="sourceCode" id="cb95"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">t.test</span> <span class="op">&lt;-</span> <span class="fu">multGroupTtest</span><span class="op">(</span>
   data <span class="op">=</span> <span class="va">exp.all.final</span>,
   group1 <span class="op">=</span> <span class="st">"Gene"</span>,
@@ -178,84 +209,84 @@
   level <span class="op">=</span> <span class="fl">0.95</span>
 <span class="op">)</span></code></pre></div>
 </div>
-<div id="plot96well" class="section level4" number="4.1.2.4">
+<div id="plot96well" class="section level4" number="4.2.2.4">
 <h4>
-<span class="header-section-number">4.1.2.4</span> <code>plot96well</code><a class="anchor" aria-label="anchor" href="#plot96well"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.4</span> <code>plot96well</code><a class="anchor" aria-label="anchor" href="#plot96well"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数用于可视化<code>Roche</code>96孔板的<code>Cq</code>值。</p>
-<div class="sourceCode" id="cb96"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">plot96well</span><span class="op">(</span>data <span class="op">=</span> <span class="st">"20210927下机数据/20210928lx_1.txt"</span>NA<span class="op">)</span>NA</code></pre></div>
 </div>
-<div id="plotciselement" class="section level4" number="4.1.2.5">
+<div id="plotciselement" class="section level4" number="4.2.2.5">
 <h4>
-<span class="header-section-number">4.1.2.5</span> <code>plotCisElement</code><a class="anchor" aria-label="anchor" href="#plotciselement"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.5</span> <code>plotCisElement</code><a class="anchor" aria-label="anchor" href="#plotciselement"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数用与可视化基因启动子上的顺式作用元件。需要输入的参数有三个：</p>
 </div>
-<div id="dataplantcare返回的文件" class="section level4" number="4.1.2.6">
+<div id="dataplantcare返回的文件" class="section level4" number="4.2.2.6">
 <h4>
-<span class="header-section-number">4.1.2.6</span> <code>data</code>：<code>plantCARE</code>返回的文件；<a class="anchor" aria-label="anchor" href="#dataplantcare%E8%BF%94%E5%9B%9E%E7%9A%84%E6%96%87%E4%BB%B6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.6</span> <code>data</code>：<code>plantCARE</code>返回的文件；<a class="anchor" aria-label="anchor" href="#dataplantcare%E8%BF%94%E5%9B%9E%E7%9A%84%E6%96%87%E4%BB%B6"><i class="fas fa-link"></i></a>
 </h4>
 </div>
-<div id="length启动子长度" class="section level4" number="4.1.2.7">
+<div id="length启动子长度" class="section level4" number="4.2.2.7">
 <h4>
-<span class="header-section-number">4.1.2.7</span> <code>length</code>：启动子长度；<a class="anchor" aria-label="anchor" href="#length%E5%90%AF%E5%8A%A8%E5%AD%90%E9%95%BF%E5%BA%A6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.7</span> <code>length</code>：启动子长度；<a class="anchor" aria-label="anchor" href="#length%E5%90%AF%E5%8A%A8%E5%AD%90%E9%95%BF%E5%BA%A6"><i class="fas fa-link"></i></a>
 </h4>
 </div>
-<div id="cis需要展示哪些顺式作用元件" class="section level4" number="4.1.2.8">
+<div id="cis需要展示哪些顺式作用元件" class="section level4" number="4.2.2.8">
 <h4>
-<span class="header-section-number">4.1.2.8</span> <code>Cis</code>：需要展示哪些顺式作用元件。<a class="anchor" aria-label="anchor" href="#cis%E9%9C%80%E8%A6%81%E5%B1%95%E7%A4%BA%E5%93%AA%E4%BA%9B%E9%A1%BA%E5%BC%8F%E4%BD%9C%E7%94%A8%E5%85%83%E4%BB%B6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.8</span> <code>Cis</code>：需要展示哪些顺式作用元件。<a class="anchor" aria-label="anchor" href="#cis%E9%9C%80%E8%A6%81%E5%B1%95%E7%A4%BA%E5%93%AA%E4%BA%9B%E9%A1%BA%E5%BC%8F%E4%BD%9C%E7%94%A8%E5%85%83%E4%BB%B6"><i class="fas fa-link"></i></a>
 </h4>
 </div>
-<div id="plotgenestructure" class="section level4" number="4.1.2.9">
+<div id="plotgenestructure" class="section level4" number="4.2.2.9">
 <h4>
-<span class="header-section-number">4.1.2.9</span> <code>plotGeneStructure</code><a class="anchor" aria-label="anchor" href="#plotgenestructure"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.9</span> <code>plotGeneStructure</code><a class="anchor" aria-label="anchor" href="#plotgenestructure"><i class="fas fa-link"></i></a>
 </h4>
 <p>该函数用于可视化基因结构。输入文件为<code>.gtf</code>文件。
 如果同时输入对应的进化树文件，那么就会按照进化树的顺序对基因名称进行排序，可以和<code>ggtree</code>进行联用。</p>
 </div>
-<div id="fasta2df" class="section level4" number="4.1.2.10">
+<div id="fasta2df" class="section level4" number="4.2.2.10">
 <h4>
-<span class="header-section-number">4.1.2.10</span> <code>fasta2df</code><a class="anchor" aria-label="anchor" href="#fasta2df"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.10</span> <code>fasta2df</code><a class="anchor" aria-label="anchor" href="#fasta2df"><i class="fas fa-link"></i></a>
 </h4>
 <p>这个函数主要是为了将<code>fasta</code>格式转换成R中常见的<code>data.frame</code>格式。使用很简单，输入<code>fasta</code>格式即可。</p>
 </div>
-<div id="df2fasta" class="section level4" number="4.1.2.11">
+<div id="df2fasta" class="section level4" number="4.2.2.11">
 <h4>
-<span class="header-section-number">4.1.2.11</span> <code>df2fasta</code><a class="anchor" aria-label="anchor" href="#df2fasta"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.2.2.11</span> <code>df2fasta</code><a class="anchor" aria-label="anchor" href="#df2fasta"><i class="fas fa-link"></i></a>
 </h4>
 <p>这个函数主要是将<code>data.frame</code>格式的序列文件转换成<code>fasta</code>格式。</p>
 </div>
 </div>
 </div>
-<div id="ggmotif" class="section level2" number="4.2">
+<div id="ggmotif" class="section level2" number="4.3">
 <h2>
-<span class="header-section-number">4.2</span> R包ggmotif的使用方法<a class="anchor" aria-label="anchor" href="#ggmotif"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3</span> R包ggmotif的使用方法<a class="anchor" aria-label="anchor" href="#ggmotif"><i class="fas fa-link"></i></a>
 </h2>
 <p>激发我开发这个R包的原因是在许做基因家族分析中的<code>motif</code>分析的时候总是找不到趁手的工具去可视化相关的结果，要么是在线网站，要么是别人开发的工具，网页版工具怕哪天就跑路了，别人的工具想要个性化比较困难。那，就自己写一个吧。</p>
 <p>R包下载安装：</p>
-<div class="sourceCode" id="cb97"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggmotif"</span><span class="op">)</span>
 
 <span class="co"># 或者</span>NA<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"lixiang117423/ggmotif"</span><span class="op">)</span></code></pre></div>
 <p><code>meme</code>输出的结果主要是<code>XML</code>格式和<code>txt</code>格式的文件，需要的结果就在这两个文件里面。</p>
-<div id="从xml文件提取结果并绘图" class="section level3" number="4.2.1">
+<div id="从xml文件提取结果并绘图" class="section level3" number="4.3.1">
 <h3>
-<span class="header-section-number">4.2.1</span> 从XML文件提取结果并绘图<a class="anchor" aria-label="anchor" href="#%E4%BB%8Exml%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E7%BB%98%E5%9B%BE"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.1</span> 从XML文件提取结果并绘图<a class="anchor" aria-label="anchor" href="#%E4%BB%8Exml%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E7%BB%98%E5%9B%BE"><i class="fas fa-link"></i></a>
 </h3>
 <p><code>motif</code>在序列上的位置结果存放在<code>XML</code>格式的文件中，运行下面的代码便可以将结果转换成数据框格式并进行可视化。</p>
-<div class="sourceCode" id="cb98"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"meme.xml"</span>, package<span class="op">=</span><span class="st">"ggmotif"</span><span class="op">)</span>
 <span class="va">motif_extract</span> <span class="op">&lt;-</span> <span class="fu">getMotifFromXML</span><span class="op">(</span>XMLfile <span class="op">=</span> <span class="va">filepath</span><span class="op">)</span>
 <span class="va">motif_plot</span> <span class="op">&lt;-</span> <span class="fu">motif_location</span><span class="op">(</span>data <span class="op">=</span> <span class="va">motif_extract</span><span class="op">)</span>
 <span class="va">motif_plot</span></code></pre></div>
 </div>
-<div id="从txt文件提取结果并进行可视化" class="section level3" number="4.2.2">
+<div id="从txt文件提取结果并进行可视化" class="section level3" number="4.3.2">
 <h3>
-<span class="header-section-number">4.2.2</span> 从txt文件提取结果并进行可视化<a class="anchor" aria-label="anchor" href="#%E4%BB%8Etxt%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.2</span> 从txt文件提取结果并进行可视化<a class="anchor" aria-label="anchor" href="#%E4%BB%8Etxt%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96"><i class="fas fa-link"></i></a>
 </h3>
 <p>每个<code>motif</code>的序列是存放在<code>txt</code>文件中的，运行下方的代码便能结果转换成数据框格式并进行绘图。</p>
-<div class="sourceCode" id="cb99"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb101"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
 
 <span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"meme.txt"</span>, package <span class="op">=</span> <span class="st">"ggmotif"</span><span class="op">)</span>
@@ -267,12 +298,12 @@
   <span class="fu">ggseqlogo</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/ggseqlogo/man/ggseqlogo.html">ggseqlogo</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="与ggtree联用" class="section level3" number="4.2.3">
+<div id="与ggtree联用" class="section level3" number="4.3.3">
 <h3>
-<span class="header-section-number">4.2.3</span> 与<code>ggtree</code>联用<a class="anchor" aria-label="anchor" href="#%E4%B8%8Eggtree%E8%81%94%E7%94%A8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.3.3</span> 与<code>ggtree</code>联用<a class="anchor" aria-label="anchor" href="#%E4%B8%8Eggtree%E8%81%94%E7%94%A8"><i class="fas fa-link"></i></a>
 </h3>
 <p>有时候会对序列构建进化树展示进化关系，<code>ggmotif</code>中的函数能够以输入的进化树文件为基础，把输出的<code>motif</code>在序列上的位置与进化树上的位置进行匹配，便能够与<code>ggtree</code>联用在一个图上展示进化树和<code>motif</code>在序列上的位置。</p>
-<div class="sourceCode" id="cb100"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb102"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">filepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"meme.xml"</span>, package<span class="op">=</span><span class="st">"ggmotif"</span><span class="op">)</span>
 <span class="va">treepath</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span><span class="st">"examples"</span>, <span class="st">"tree.nwk"</span>, package<span class="op">=</span><span class="st">"ggmotif"</span><span class="op">)</span>
 <span class="va">motif_extract</span> <span class="op">&lt;-</span> <span class="fu">getMotifFromXML</span><span class="op">(</span>XMLfile <span class="op">=</span> <span class="va">filepath</span><span class="op">)</span>
@@ -286,79 +317,358 @@
   <span class="fu">aplot</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/aplot/man/plot-insertion.html">insert_right</a></span><span class="op">(</span><span class="va">motif_plot_with_tree</span>, width <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
-<div id="r-shiny开发" class="section level2" number="4.3">
+<div id="r-shiny开发" class="section level2" number="4.4">
 <h2>
-<span class="header-section-number">4.3</span> R shiny开发<a class="anchor" aria-label="anchor" href="#r-shiny%E5%BC%80%E5%8F%91"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4</span> R shiny开发<a class="anchor" aria-label="anchor" href="#r-shiny%E5%BC%80%E5%8F%91"><i class="fas fa-link"></i></a>
 </h2>
-<div id="css学习网站" class="section level3" number="4.3.1">
+<div id="css学习网站" class="section level3" number="4.4.1">
 <h3>
-<span class="header-section-number">4.3.1</span> CSS学习网站<a class="anchor" aria-label="anchor" href="#css%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4.1</span> CSS学习网站<a class="anchor" aria-label="anchor" href="#css%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99"><i class="fas fa-link"></i></a>
 </h3>
 <p><a href="https://www.runoob.com/css/css-align.html">CSS菜鸟教程</a>。</p>
 <p><a href="https://unleash-shiny.rinterface.com/beautify-css.html">CSS在Rshiny中的使用</a>。</p>
 </div>
-<div id="服务器搭建rshiny-server" class="section level3" number="4.3.2">
+<div id="服务器搭建rshiny-server" class="section level3" number="4.4.2">
 <h3>
-<span class="header-section-number">4.3.2</span> 服务器搭建Rshiny-server<a class="anchor" aria-label="anchor" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BArshiny-server"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4.2</span> 服务器搭建Rshiny-server<a class="anchor" aria-label="anchor" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BArshiny-server"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="r-deve.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="co">#root 权限进入</span></span>
-<span id="cb101-2"><a href="r-deve.html#cb101-2" aria-hidden="true" tabindex="-1"></a>sudo su</span>
-<span id="cb101-3"><a href="r-deve.html#cb101-3" aria-hidden="true" tabindex="-1"></a>useradd shiny <span class="co"># 添加shiny用户</span></span>
-<span id="cb101-4"><a href="r-deve.html#cb101-4" aria-hidden="true" tabindex="-1"></a>passwd shiny <span class="co"># 修改shiny用户的密码</span></span>
-<span id="cb101-5"><a href="r-deve.html#cb101-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-6"><a href="r-deve.html#cb101-6" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">+</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 修改权限</span></span>
-<span id="cb101-7"><a href="r-deve.html#cb101-7" aria-hidden="true" tabindex="-1"></a>sudo vim <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 编辑</span></span>
-<span id="cb101-8"><a href="r-deve.html#cb101-8" aria-hidden="true" tabindex="-1"></a><span class="co"># root ALL=(ALL) ALL 该行，在下面添加 shiny ALL=(ALL:ALL) ALL</span></span>
-<span id="cb101-9"><a href="r-deve.html#cb101-9" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">-</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 收回权限</span></span>
-<span id="cb101-10"><a href="r-deve.html#cb101-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-11"><a href="r-deve.html#cb101-11" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span> shiny <span class="co"># 切换到shiny用户</span></span>
-<span id="cb101-12"><a href="r-deve.html#cb101-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-13"><a href="r-deve.html#cb101-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装R</span></span>
-<span id="cb101-14"><a href="r-deve.html#cb101-14" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update</span>
-<span id="cb101-15"><a href="r-deve.html#cb101-15" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install r<span class="sc">-</span>base</span>
-<span id="cb101-16"><a href="r-deve.html#cb101-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-17"><a href="r-deve.html#cb101-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny包</span></span>
-<span id="cb101-18"><a href="r-deve.html#cb101-18" aria-hidden="true" tabindex="-1"></a>sudo su <span class="sc">-</span>c <span class="st">"R -e </span><span class="sc">\"</span><span class="st">install.packages('shiny',repos='https://cran.rstudio.com/')</span><span class="sc">\"</span><span class="st">"</span></span>
-<span id="cb101-19"><a href="r-deve.html#cb101-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb101-20"><a href="r-deve.html#cb101-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny server</span></span>
-<span id="cb101-21"><a href="r-deve.html#cb101-21" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install gdebi<span class="sc">-</span>core</span>
-<span id="cb101-22"><a href="r-deve.html#cb101-22" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>download3.rstudio.org<span class="sc">/</span>ubuntu<span class="fl">-14.04</span><span class="sc">/</span>x86_64<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span>
-<span id="cb101-23"><a href="r-deve.html#cb101-23" aria-hidden="true" tabindex="-1"></a>sudo gdebi shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="r-deve.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co">#root 权限进入</span></span>
+<span id="cb103-2"><a href="r-deve.html#cb103-2" aria-hidden="true" tabindex="-1"></a>sudo su</span>
+<span id="cb103-3"><a href="r-deve.html#cb103-3" aria-hidden="true" tabindex="-1"></a>useradd shiny <span class="co"># 添加shiny用户</span></span>
+<span id="cb103-4"><a href="r-deve.html#cb103-4" aria-hidden="true" tabindex="-1"></a>passwd shiny <span class="co"># 修改shiny用户的密码</span></span>
+<span id="cb103-5"><a href="r-deve.html#cb103-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-6"><a href="r-deve.html#cb103-6" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">+</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 修改权限</span></span>
+<span id="cb103-7"><a href="r-deve.html#cb103-7" aria-hidden="true" tabindex="-1"></a>sudo vim <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 编辑</span></span>
+<span id="cb103-8"><a href="r-deve.html#cb103-8" aria-hidden="true" tabindex="-1"></a><span class="co"># root ALL=(ALL) ALL 该行，在下面添加 shiny ALL=(ALL:ALL) ALL</span></span>
+<span id="cb103-9"><a href="r-deve.html#cb103-9" aria-hidden="true" tabindex="-1"></a>chmod <span class="sc">-</span>w <span class="sc">/</span>etc<span class="sc">/</span>sudoers <span class="co"># 收回权限</span></span>
+<span id="cb103-10"><a href="r-deve.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="r-deve.html#cb103-11" aria-hidden="true" tabindex="-1"></a>su <span class="sc">-</span> shiny <span class="co"># 切换到shiny用户</span></span>
+<span id="cb103-12"><a href="r-deve.html#cb103-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-13"><a href="r-deve.html#cb103-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装R</span></span>
+<span id="cb103-14"><a href="r-deve.html#cb103-14" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get update</span>
+<span id="cb103-15"><a href="r-deve.html#cb103-15" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install r<span class="sc">-</span>base</span>
+<span id="cb103-16"><a href="r-deve.html#cb103-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-17"><a href="r-deve.html#cb103-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny包</span></span>
+<span id="cb103-18"><a href="r-deve.html#cb103-18" aria-hidden="true" tabindex="-1"></a>sudo su <span class="sc">-</span>c <span class="st">"R -e </span><span class="sc">\"</span><span class="st">install.packages('shiny',repos='https://cran.rstudio.com/')</span><span class="sc">\"</span><span class="st">"</span></span>
+<span id="cb103-19"><a href="r-deve.html#cb103-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-20"><a href="r-deve.html#cb103-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 安装shiny server</span></span>
+<span id="cb103-21"><a href="r-deve.html#cb103-21" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install gdebi<span class="sc">-</span>core</span>
+<span id="cb103-22"><a href="r-deve.html#cb103-22" aria-hidden="true" tabindex="-1"></a>wget https<span class="sc">:</span><span class="er">//</span>download3.rstudio.org<span class="sc">/</span>ubuntu<span class="fl">-14.04</span><span class="sc">/</span>x86_64<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span>
+<span id="cb103-23"><a href="r-deve.html#cb103-23" aria-hidden="true" tabindex="-1"></a>sudo gdebi shiny<span class="sc">-</span>server<span class="dv">-1</span>.<span class="dv">5</span>.<span class="fl">17.973</span><span class="sc">-</span>amd64.deb</span></code></pre></div>
 <p>安装shiny-server的时候参考官方最新的指导页面，<a href="https://www.rstudio.com/products/shiny/download-server/ubuntu/">点击访问</a>。</p>
 <p>日志所在目录为：<code>/var/log/shiny-server</code>。需要修改配置文件，保证记录运行日志，否则可能找不到报错提示。</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="r-deve.html#cb102-1" aria-hidden="true" tabindex="-1"></a>vi <span class="sc">/</span>etc<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span>shiny<span class="sc">-</span>server.conf</span>
-<span id="cb102-2"><a href="r-deve.html#cb102-2" aria-hidden="true" tabindex="-1"></a>preserve_logs true; <span class="co"># 在最上面添加这行</span></span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="r-deve.html#cb104-1" aria-hidden="true" tabindex="-1"></a>vi <span class="sc">/</span>etc<span class="sc">/</span>shiny<span class="sc">-</span>server<span class="sc">/</span>shiny<span class="sc">-</span>server.conf</span>
+<span id="cb104-2"><a href="r-deve.html#cb104-2" aria-hidden="true" tabindex="-1"></a>preserve_logs true; <span class="co"># 在最上面添加这行</span></span></code></pre></div>
 <p>软件所在目录为：<code>/srv/shiny-server</code></p>
 <p>安装完成后在浏览器输入<code>IP:3838</code>就能访问到示例界面了。默认的端口是<code>3838</code>端口，需要其他端口的需要自行调整。</p>
 <p>基本管理：</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="r-deve.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 重启</span></span>
-<span id="cb103-2"><a href="r-deve.html#cb103-2" aria-hidden="true" tabindex="-1"></a>sudo systemctl restart shiny<span class="sc">-</span>server</span>
-<span id="cb103-3"><a href="r-deve.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="do">##查看状态 </span></span>
-<span id="cb103-4"><a href="r-deve.html#cb103-4" aria-hidden="true" tabindex="-1"></a>sudo systemctl status shiny<span class="sc">-</span>server </span>
-<span id="cb103-5"><a href="r-deve.html#cb103-5" aria-hidden="true" tabindex="-1"></a><span class="do">##开启 </span></span>
-<span id="cb103-6"><a href="r-deve.html#cb103-6" aria-hidden="true" tabindex="-1"></a>sudo systemctl start shiny<span class="sc">-</span>server </span>
-<span id="cb103-7"><a href="r-deve.html#cb103-7" aria-hidden="true" tabindex="-1"></a><span class="do">##停止 </span></span>
-<span id="cb103-8"><a href="r-deve.html#cb103-8" aria-hidden="true" tabindex="-1"></a>sudo systemctl stop shiny<span class="sc">-</span>server </span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="r-deve.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 重启</span></span>
+<span id="cb105-2"><a href="r-deve.html#cb105-2" aria-hidden="true" tabindex="-1"></a>sudo systemctl restart shiny<span class="sc">-</span>server</span>
+<span id="cb105-3"><a href="r-deve.html#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="do">##查看状态 </span></span>
+<span id="cb105-4"><a href="r-deve.html#cb105-4" aria-hidden="true" tabindex="-1"></a>sudo systemctl status shiny<span class="sc">-</span>server </span>
+<span id="cb105-5"><a href="r-deve.html#cb105-5" aria-hidden="true" tabindex="-1"></a><span class="do">##开启 </span></span>
+<span id="cb105-6"><a href="r-deve.html#cb105-6" aria-hidden="true" tabindex="-1"></a>sudo systemctl start shiny<span class="sc">-</span>server </span>
+<span id="cb105-7"><a href="r-deve.html#cb105-7" aria-hidden="true" tabindex="-1"></a><span class="do">##停止 </span></span>
+<span id="cb105-8"><a href="r-deve.html#cb105-8" aria-hidden="true" tabindex="-1"></a>sudo systemctl stop shiny<span class="sc">-</span>server </span></code></pre></div>
 </div>
-<div id="ubuntu安装devtools" class="section level3" number="4.3.3">
+<div id="ubuntu安装devtools" class="section level3" number="4.4.3">
 <h3>
-<span class="header-section-number">4.3.3</span> Ubuntu安装devtools<a class="anchor" aria-label="anchor" href="#ubuntu%E5%AE%89%E8%A3%85devtools"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4.3</span> Ubuntu安装devtools<a class="anchor" aria-label="anchor" href="#ubuntu%E5%AE%89%E8%A3%85devtools"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="r-deve.html#cb104-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install <span class="sc">-</span>y libxml2<span class="sc">-</span>dev libcurl4<span class="sc">-</span>openssl<span class="sc">-</span>dev libssl<span class="sc">-</span>devv</span></code></pre></div>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="r-deve.html#cb106-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install <span class="sc">-</span>y libxml2<span class="sc">-</span>dev libcurl4<span class="sc">-</span>openssl<span class="sc">-</span>dev libssl<span class="sc">-</span>devv</span></code></pre></div>
 <p>最重要的是上面这一步，剩下的差啥装啥就OK。</p>
 <p>安装<code>proj</code>这个包：</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="r-deve.html#cb105-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install libproj<span class="sc">-</span>dev</span>
-<span id="cb105-2"><a href="r-deve.html#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb105-3"><a href="r-deve.html#cb105-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RcppEigen"</span>, <span class="at">INSTALL_opts =</span> <span class="st">'--no-lock'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="r-deve.html#cb107-1" aria-hidden="true" tabindex="-1"></a>sudo apt<span class="sc">-</span>get install libproj<span class="sc">-</span>dev</span>
+<span id="cb107-2"><a href="r-deve.html#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="r-deve.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RcppEigen"</span>, <span class="at">INSTALL_opts =</span> <span class="st">'--no-lock'</span>)</span></code></pre></div>
+<p>按照依赖库：</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="r-deve.html#cb108-1" aria-hidden="true" tabindex="-1"></a>wget ftp<span class="sc">:</span><span class="er">//</span>xmlsoft.org<span class="sc">/</span>libxml2<span class="sc">/</span>libxml2<span class="dv">-2</span>.<span class="dv">9</span>.<span class="fl">2.</span>tar.gz</span>
+<span id="cb108-2"><a href="r-deve.html#cb108-2" aria-hidden="true" tabindex="-1"></a>tar <span class="sc">-</span>xvf libxml2<span class="dv">-2</span>.<span class="dv">9</span>.<span class="fl">2.</span>tar.gz</span>
+<span id="cb108-3"><a href="r-deve.html#cb108-3" aria-hidden="true" tabindex="-1"></a>cd libxml2<span class="dv">-2</span>.<span class="fl">9.2</span></span>
+<span id="cb108-4"><a href="r-deve.html#cb108-4" aria-hidden="true" tabindex="-1"></a>.<span class="sc">/</span>configure <span class="sc">--</span>prefix<span class="ot">=</span><span class="er">/</span>usr <span class="sc">--</span>disable<span class="sc">-</span>static <span class="sc">--</span>with<span class="sc">-</span>history <span class="sc">&amp;&amp;</span> make</span>
+<span id="cb108-5"><a href="r-deve.html#cb108-5" aria-hidden="true" tabindex="-1"></a>sudo make install</span></code></pre></div>
 </div>
-<div id="上传文件大小限制" class="section level3" number="4.3.4">
+<div id="上传文件大小限制" class="section level3" number="4.4.4">
 <h3>
-<span class="header-section-number">4.3.4</span> 上传文件大小限制<a class="anchor" aria-label="anchor" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><i class="fas fa-link"></i></a>
+<span class="header-section-number">4.4.4</span> 上传文件大小限制<a class="anchor" aria-label="anchor" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><i class="fas fa-link"></i></a>
 </h3>
-<div class="sourceCode" id="cb106"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb109"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html">options</a></span><span class="op">(</span>shiny.maxRequestSize<span class="op">=</span><span class="fl">1000</span><span class="op">*</span><span class="fl">1024</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span></code></pre></div>
-
 </div>
+</div>
+<div id="美化rshiny" class="section level2" number="4.5">
+<h2>
+<span class="header-section-number">4.5</span> 美化RShiny<a class="anchor" aria-label="anchor" href="#%E7%BE%8E%E5%8C%96rshiny"><i class="fas fa-link"></i></a>
+</h2>
+<div id="htmltools包的使用" class="section level3" number="4.5.1">
+<h3>
+<span class="header-section-number">4.5.1</span> htmltools包的使用<a class="anchor" aria-label="anchor" href="#htmltools%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb110"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools">htmltools</a></span><span class="op">)</span>
+<span class="va">tag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span><span class="st">"Hello World"</span><span class="op">)</span>
+<span class="va">tag</span></code></pre></div>
+<p>查看HTML下的所有tags：</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="r-deve.html#cb111-1" aria-hidden="true" tabindex="-1"></a>htmltools<span class="sc">::</span>tags<span class="sc">$</span></span></code></pre></div>
+<p>在R里面使用tags的两种方法：</p>
+<div class="sourceCode" id="cb112"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># good</span>
+<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h1</a></span><span class="op">(</span><span class="st">"This is a title"</span><span class="op">)</span>
+
+<span class="co"># correct but not necessary</span>
+<span class="va">tags</span><span class="op">$</span><span class="fu">h1</span><span class="op">(</span><span class="st">"This is a title"</span><span class="op">)</span></code></pre></div>
+<p>含有大量tags时候的写法：</p>
+<div class="sourceCode" id="cb113"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Better</span>
+<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/withTags.html">withTags</a></span><span class="op">(</span>
+  <span class="fu">nav</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu">ul</span><span class="op">(</span><span class="fu">li</span><span class="op">(</span><span class="op">)</span>, <span class="fu">li</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="co"># instead of </span>
+<span class="va">tags</span><span class="op">$</span><span class="fu">nav</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">tags</span><span class="op">$</span><span class="fu">ul</span><span class="op">(</span><span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="op">)</span>, <span class="va">tags</span><span class="op">$</span><span class="fu">li</span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># good</span>
+<span class="va">tag_list_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/tagList.html">tagList</a></span><span class="op">(</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"Some text"</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span><span class="st">"Content"</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">tag_list_1</span><span class="op">)</span></code></pre></div>
+<p>如何定义新的tag：</p>
+<div class="sourceCode" id="cb114"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">customTag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">tag</a></span><span class="op">(</span>
+  <span class="st">"test"</span>, 
+  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"test"</span>, <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span><span class="op">(</span><span class="st">"Custom Tag"</span><span class="op">)</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">customTag</span><span class="op">)</span></code></pre></div>
+<p>将HTML代码转换成R代码：<a href="https://github.com/alandipert/html2r" class="uri">https://github.com/alandipert/html2r</a></p>
+<p>如何玩转R里面的tag：</p>
+<div class="sourceCode" id="cb115"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># create the tag</span>
+<span class="va">myTag</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">div</a></span><span class="op">(</span>
+  class <span class="op">=</span> <span class="st">"divclass"</span>, 
+  id <span class="op">=</span> <span class="st">"first"</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">h1</a></span><span class="op">(</span><span class="st">"My first child!"</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">span</a></span><span class="op">(</span>class <span class="op">=</span> <span class="st">"child"</span>, id <span class="op">=</span> <span class="st">"baby"</span>, <span class="st">"Crying"</span><span class="op">)</span>
+<span class="op">)</span>
+<span class="co"># access its name</span>
+<span class="co"># myTag$name</span>
+<span class="co"># access its attributes (id and class)</span>
+<span class="co"># myTag$attribs</span>
+<span class="co"># access children (returns a list of 2 elements)</span>
+<span class="co"># myTag$children</span>
+<span class="co"># access its class</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">myTag</span><span class="op">)</span></code></pre></div>
+<p>如何修改子tag的class：</p>
+<div class="sourceCode" id="cb116"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">myTag</span><span class="op">$</span><span class="va">children</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">attribs</span><span class="op">$</span><span class="va">class</span> <span class="op">&lt;-</span> <span class="st">"adult"</span>
+<span class="va">myTag</span></code></pre></div>
+<p>管理CSS的三种方式：</p>
+<ul>
+<li>
+<strong>External</strong> CSS file <code>tags$link(rel = "stylesheet", type="text/css", href="www/style.css")</code>.</li>
+<li>
+<strong>Internal</strong> CSS <code>tags$head(tags$style("p {color: red;}"))</code>.</li>
+<li>
+<strong>Inline</strong> CSS <code><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p(style = "color:red;", "Red text")</a></code>.</li>
+</ul>
+<p>CSS选择器：</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="r-deve.html#cb117-1" aria-hidden="true" tabindex="-1"></a>selector {</span>
+<span id="cb117-2"><a href="r-deve.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  property<span class="sc">:</span> value;</span>
+<span id="cb117-3"><a href="r-deve.html#cb117-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb117-4"><a href="r-deve.html#cb117-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb117-5"><a href="r-deve.html#cb117-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 如</span></span>
+<span id="cb117-6"><a href="r-deve.html#cb117-6" aria-hidden="true" tabindex="-1"></a>p {</span>
+<span id="cb117-7"><a href="r-deve.html#cb117-7" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;  </span>
+<span id="cb117-8"><a href="r-deve.html#cb117-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>多个选择器：</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="r-deve.html#cb118-1" aria-hidden="true" tabindex="-1"></a>p, div {</span>
+<span id="cb118-2"><a href="r-deve.html#cb118-2" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;  </span>
+<span id="cb118-3"><a href="r-deve.html#cb118-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb118-4"><a href="r-deve.html#cb118-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="r-deve.html#cb118-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 如</span></span>
+<span id="cb118-6"><a href="r-deve.html#cb118-6" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb118-7"><a href="r-deve.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">style</span>(</span>
+<span id="cb118-8"><a href="r-deve.html#cb118-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"p, div {</span></span>
+<span id="cb118-9"><a href="r-deve.html#cb118-9" aria-hidden="true" tabindex="-1"></a><span class="st">      color: red;</span></span>
+<span id="cb118-10"><a href="r-deve.html#cb118-10" aria-hidden="true" tabindex="-1"></a><span class="st">    }"</span></span>
+<span id="cb118-11"><a href="r-deve.html#cb118-11" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb118-12"><a href="r-deve.html#cb118-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">p</span>(<span class="st">"Hello World"</span>),</span>
+<span id="cb118-13"><a href="r-deve.html#cb118-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">div</span>(<span class="st">"A block"</span>)</span>
+<span id="cb118-14"><a href="r-deve.html#cb118-14" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>通过class和id进行选择：</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="r-deve.html#cb119-1" aria-hidden="true" tabindex="-1"></a>.first<span class="sc">-</span>p {</span>
+<span id="cb119-2"><a href="r-deve.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;  </span>
+<span id="cb119-3"><a href="r-deve.html#cb119-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb119-4"><a href="r-deve.html#cb119-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-5"><a href="r-deve.html#cb119-5" aria-hidden="true" tabindex="-1"></a><span class="co">#element {</span></span>
+<span id="cb119-6"><a href="r-deve.html#cb119-6" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;</span>
+<span id="cb119-7"><a href="r-deve.html#cb119-7" aria-hidden="true" tabindex="-1"></a><span class="er">}</span></span>
+<span id="cb119-8"><a href="r-deve.html#cb119-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb119-9"><a href="r-deve.html#cb119-9" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb119-10"><a href="r-deve.html#cb119-10" aria-hidden="true" tabindex="-1"></a>  tags<span class="sc">$</span><span class="fu">style</span>(</span>
+<span id="cb119-11"><a href="r-deve.html#cb119-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">".first-p {</span></span>
+<span id="cb119-12"><a href="r-deve.html#cb119-12" aria-hidden="true" tabindex="-1"></a><span class="st">      color: red;</span></span>
+<span id="cb119-13"><a href="r-deve.html#cb119-13" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb119-14"><a href="r-deve.html#cb119-14" aria-hidden="true" tabindex="-1"></a><span class="st">    #element {</span></span>
+<span id="cb119-15"><a href="r-deve.html#cb119-15" aria-hidden="true" tabindex="-1"></a><span class="st">      color: red;</span></span>
+<span id="cb119-16"><a href="r-deve.html#cb119-16" aria-hidden="true" tabindex="-1"></a><span class="st">    }</span></span>
+<span id="cb119-17"><a href="r-deve.html#cb119-17" aria-hidden="true" tabindex="-1"></a><span class="st">    "</span></span>
+<span id="cb119-18"><a href="r-deve.html#cb119-18" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb119-19"><a href="r-deve.html#cb119-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">p</span>(<span class="at">class =</span> <span class="st">"first-p"</span>, <span class="st">"Hello World"</span>),</span>
+<span id="cb119-20"><a href="r-deve.html#cb119-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">p</span>(<span class="st">"Another text"</span>),</span>
+<span id="cb119-21"><a href="r-deve.html#cb119-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">div</span>(<span class="at">id =</span> <span class="st">"element"</span>, <span class="st">"A block"</span>)</span>
+<span id="cb119-22"><a href="r-deve.html#cb119-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>如何改变某个字的属性呢？</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="r-deve.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>p<span class="sc">&gt;</span>Hello <span class="sc">&lt;</span>span class<span class="ot">=</span><span class="st">"custom"</span><span class="sc">&gt;</span>World<span class="sc">&lt;</span><span class="er">/</span>span<span class="sc">&gt;!</span> What<span class="st">'s up?&lt;/p&gt;</span></span>
+<span id="cb120-2"><a href="r-deve.html#cb120-2" aria-hidden="true" tabindex="-1"></a><span class="st">.custom {</span></span>
+<span id="cb120-3"><a href="r-deve.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="st">  color: red;</span></span>
+<span id="cb120-4"><a href="r-deve.html#cb120-4" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span></code></pre></div>
+<p>class一致的时候怎么选择：先选择tag</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="r-deve.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>li class<span class="ot">=</span><span class="st">"nav-item"</span><span class="sc">&gt;</span></span>
+<span id="cb121-2"><a href="r-deve.html#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="er">&lt;</span>a class<span class="ot">=</span><span class="st">"nav-link"</span> href<span class="ot">=</span><span class="st">"#"</span><span class="sc">&gt;</span>Link<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb121-3"><a href="r-deve.html#cb121-3" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;/</span>li<span class="sc">&gt;</span></span>
+<span id="cb121-4"><a href="r-deve.html#cb121-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="r-deve.html#cb121-5" aria-hidden="true" tabindex="-1"></a><span class="er">&lt;</span>a class<span class="ot">=</span><span class="st">"nav-link"</span> href<span class="ot">=</span><span class="st">"#"</span><span class="sc">&gt;</span>Link<span class="sc">&lt;</span><span class="er">/</span>a<span class="sc">&gt;</span></span>
+<span id="cb121-6"><a href="r-deve.html#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-7"><a href="r-deve.html#cb121-7" aria-hidden="true" tabindex="-1"></a>li a {</span>
+<span id="cb121-8"><a href="r-deve.html#cb121-8" aria-hidden="true" tabindex="-1"></a>  color<span class="sc">:</span> red;</span>
+<span id="cb121-9"><a href="r-deve.html#cb121-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">### RUN ### </span>
+<span class="co"># OSUICode::run_example( </span>
+<span class="co">#  "css/selector-nested/ex1", </span>
+<span class="co">#   package = "OSUICode" </span>
+<span class="co"># ) </span>
+
+<span class="co">### APP CODE ### </span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://shiny.rstudio.com/">shiny</a></span><span class="op">)</span>
+
+<span class="va">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/navbarPage.html">navbarPage</a></span><span class="op">(</span>
+  <span class="st">"App Title"</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span>
+    <span class="st">"Plot"</span>,
+    <span class="va">tags</span><span class="op">$</span><span class="fu">style</span><span class="op">(</span>
+      <span class="st">"li a {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    "</span>
+    <span class="op">)</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabsetPanel.html">tabsetPanel</a></span><span class="op">(</span>
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span><span class="st">"Plot"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span><span class="st">"Summary"</span><span class="op">)</span>,
+      <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span><span class="st">"Table"</span><span class="op">)</span>
+    <span class="op">)</span>
+  <span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span><span class="st">"Summary"</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/tabPanel.html">tabPanel</a></span><span class="op">(</span><span class="st">"Table"</span><span class="op">)</span>
+<span class="op">)</span>
+
+<span class="va">server</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">input</span>, <span class="va">output</span><span class="op">)</span> <span class="op">{</span><span class="op">}</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span><span class="op">(</span><span class="va">ui</span>, <span class="va">server</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="golem包开发产品级shiny" class="section level2" number="4.6">
+<h2>
+<span class="header-section-number">4.6</span> golem包开发产品级Shiny<a class="anchor" aria-label="anchor" href="#golem%E5%8C%85%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E7%BA%A7shiny"><i class="fas fa-link"></i></a>
+</h2>
+<p>golem的内核思想是<code>每个Rshiny应用都应该是个R包</code>。</p>
+<div id="什么是产品级的shiny-app" class="section level3" number="4.6.1">
+<h3>
+<span class="header-section-number">4.6.1</span> 什么是产品级的shiny app<a class="anchor" aria-label="anchor" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A7%E5%93%81%E7%BA%A7%E7%9A%84shiny-app"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>有metadata</li>
+</ul>
+<p>app的名字、版本、功能、报错时的联系信息等。这个部分的内容相当于R包里面的<code>DESCRIPTIONM</code>。</p>
+<ul>
+<li>没有依赖关系上的报错</li>
+</ul>
+<p>把整个shiny app中需要用到的包写成R包里面的<code>DESCRIPTIONM</code>格式，把需要用到的函数写成R包里面的<code>NAMESPACE</code>文件。这样就能避免各种各样的报错。</p>
+<ul>
+<li>整个app划分成不同的function模块</li>
+</ul>
+<p>避免将app的左右函数都写在一个文档里面，那就将这些function分开写，并像R包那样放在<code>R</code>整个文件夹内。</p>
+<ul>
+<li>有文档手册
+<ul>
+<li>
+<code>README</code>文件：放在根目录下，说明如何安装这个app以及如何使用这个app。</li>
+<li>
+<code>Vignettes</code>：一个比<code>README</code>文件更长的文档，从细节上说明如何使用这个app。</li>
+<li>函数文档：和写R包一样，app里面的每个函数都应该有对应的文档。</li>
+</ul>
+</li>
+<li>测试运行。</li>
+</ul>
+<p><strong>Nothing should go to production without being tested. Nothing.</strong></p>
+<p>把shiny app写成R包的构造方便进行测试，不如用<code>testthat</code>进行测试。</p>
+</div>
+</div>
+<div id="如何在模块间传递数据" class="section level2" number="4.7">
+<h2>
+<span class="header-section-number">4.7</span> 如何在模块间传递数据<a class="anchor" aria-label="anchor" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E6%A8%A1%E5%9D%97%E9%97%B4%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>通过reactive返回数据</li>
+<li>
+<a href="https://shiny.rstudio.com/reference/shiny/latest/reactiveValues.html">reactiveValues()</a>构造全局变量</li>
+<li>创造R6对象进行传递。</li>
+</ul>
+</div>
+<div id="golem结构" class="section level2" number="4.8">
+<h2>
+<span class="header-section-number">4.8</span> golem结构<a class="anchor" aria-label="anchor" href="#golem%E7%BB%93%E6%9E%84"><i class="fas fa-link"></i></a>
+</h2>
+<p>golem的底层概念就是每个shiny app都是个R包。</p>
+<p>创建golem对象：</p>
+<div class="sourceCode" id="cb123"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">golem</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/golem/man/create_golem.html">create_golem</a></span><span class="op">(</span><span class="st">"shiny4RefPlantNLR"</span><span class="op">)</span></code></pre></div>
+<p>查看结构：</p>
+<div class="sourceCode" id="cb124"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="http://fs.r-lib.org/reference/dir_tree.html">dir_tree</a></span><span class="op">(</span><span class="st">"shiny4RefPlantNLR"</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="r-deve.html#cb125-1" aria-hidden="true" tabindex="-1"></a>shiny4RefPlantNLR</span>
+<span id="cb125-2"><a href="r-deve.html#cb125-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+--</span> DESCRIPTION </span>
+<span id="cb125-3"><a href="r-deve.html#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+--</span> dev</span>
+<span id="cb125-4"><a href="r-deve.html#cb125-4" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> 01_start.R</span>
+<span id="cb125-5"><a href="r-deve.html#cb125-5" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> 02_dev.R</span>
+<span id="cb125-6"><a href="r-deve.html#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> 03_deploy.R</span>
+<span id="cb125-7"><a href="r-deve.html#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   \<span class="sc">--</span> run_dev.R</span>
+<span id="cb125-8"><a href="r-deve.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+--</span> inst</span>
+<span id="cb125-9"><a href="r-deve.html#cb125-9" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> app</span>
+<span id="cb125-10"><a href="r-deve.html#cb125-10" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="er">|</span>   \<span class="sc">--</span> www</span>
+<span id="cb125-11"><a href="r-deve.html#cb125-11" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="er">|</span>       \<span class="sc">--</span> favicon.ico</span>
+<span id="cb125-12"><a href="r-deve.html#cb125-12" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   \<span class="sc">--</span> golem<span class="sc">-</span>config.yml</span>
+<span id="cb125-13"><a href="r-deve.html#cb125-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+--</span> man</span>
+<span id="cb125-14"><a href="r-deve.html#cb125-14" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   \<span class="sc">--</span> run_app.Rd</span>
+<span id="cb125-15"><a href="r-deve.html#cb125-15" aria-hidden="true" tabindex="-1"></a><span class="sc">+--</span> NAMESPACE</span>
+<span id="cb125-16"><a href="r-deve.html#cb125-16" aria-hidden="true" tabindex="-1"></a><span class="sc">+--</span> R</span>
+<span id="cb125-17"><a href="r-deve.html#cb125-17" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> app_config.R</span>
+<span id="cb125-18"><a href="r-deve.html#cb125-18" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> app_server.R</span>
+<span id="cb125-19"><a href="r-deve.html#cb125-19" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   <span class="sc">+--</span> app_ui.R</span>
+<span id="cb125-20"><a href="r-deve.html#cb125-20" aria-hidden="true" tabindex="-1"></a><span class="sc">|</span>   \<span class="sc">--</span> run_app.R</span>
+<span id="cb125-21"><a href="r-deve.html#cb125-21" aria-hidden="true" tabindex="-1"></a>\<span class="sc">--</span> shiny4RefPlantNLR.Rproj</span></code></pre></div>
+<ul>
+<li>DESCRIPTION</li>
+</ul>
+<p>含有各种metadata,比如谁写的app，版本，app目的是啥，报错应该联系谁等等。这个文件是由<code>dev/01_start.R</code>这个函数自动生成的。</p>
+<ul>
+<li>NAMESPACE</li>
+</ul>
+<p>这个文件是绝对不能手动编辑的！！！包含的信息有：哪个包的哪个函数被导入，哪个功能被export。如何产生这个文件呢：</p>
+<div class="sourceCode" id="cb126"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/document.html">document</a></span><span class="op">(</span><span class="op">)</span>
+<span class="co">## OR</span>
+<span class="fu">golem</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/golem/man/document_and_reload.html">document_and_reload</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<ul>
+<li>
+<em>R</em>文件夹</li>
+</ul>
+<p>用于存放核心函数。其实只要是<code>.R</code>结尾的文件都应该放在这个文件夹里面。那为什么在<code>dev/</code>这个文件夹下面还有<code>.R</code>结尾的文件呢？虽然是<code>.R</code>结尾的文件，但是他们并不是核心函数吗，只是开发过程中需要用到的信息。</p>
+<p>特别需要注意的是这个文件夹下面不能有任何子文件夹！！！</p>
+
 </div>
 </div>
 
@@ -370,28 +680,39 @@
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#r-deve"><span class="header-section-number">4</span> R语言开发</a></li>
 <li>
-<a class="nav-link" href="#pac4xiang"><span class="header-section-number">4.1</span> R包pac4xiang的使用</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="header-section-number">4.1.1</span> 安装</a></li>
-<li><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="header-section-number">4.1.2</span> 使用方法</a></li>
+<a class="nav-link" href="#r-deve"><span class="header-section-number">4</span> R语言开发</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%B5%84%E6%BA%90"><span class="header-section-number">4.0.1</span> 一些资源</a></li></ul>
+</li>
+<li><a class="nav-link" href="#%E4%B8%80%E4%BA%9Btips"><span class="header-section-number">4.1</span> 一些Tips</a></li>
+<li>
+<a class="nav-link" href="#pac4xiang"><span class="header-section-number">4.2</span> R包pac4xiang的使用</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="header-section-number">4.2.1</span> 安装</a></li>
+<li><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="header-section-number">4.2.2</span> 使用方法</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#ggmotif"><span class="header-section-number">4.2</span> R包ggmotif的使用方法</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#%E4%BB%8Exml%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E7%BB%98%E5%9B%BE"><span class="header-section-number">4.2.1</span> 从XML文件提取结果并绘图</a></li>
-<li><a class="nav-link" href="#%E4%BB%8Etxt%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="header-section-number">4.2.2</span> 从txt文件提取结果并进行可视化</a></li>
-<li><a class="nav-link" href="#%E4%B8%8Eggtree%E8%81%94%E7%94%A8"><span class="header-section-number">4.2.3</span> 与ggtree联用</a></li>
+<a class="nav-link" href="#ggmotif"><span class="header-section-number">4.3</span> R包ggmotif的使用方法</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%E4%BB%8Exml%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E7%BB%98%E5%9B%BE"><span class="header-section-number">4.3.1</span> 从XML文件提取结果并绘图</a></li>
+<li><a class="nav-link" href="#%E4%BB%8Etxt%E6%96%87%E4%BB%B6%E6%8F%90%E5%8F%96%E7%BB%93%E6%9E%9C%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="header-section-number">4.3.2</span> 从txt文件提取结果并进行可视化</a></li>
+<li><a class="nav-link" href="#%E4%B8%8Eggtree%E8%81%94%E7%94%A8"><span class="header-section-number">4.3.3</span> 与ggtree联用</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#r-shiny%E5%BC%80%E5%8F%91"><span class="header-section-number">4.3</span> R shiny开发</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#css%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99"><span class="header-section-number">4.3.1</span> CSS学习网站</a></li>
-<li><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BArshiny-server"><span class="header-section-number">4.3.2</span> 服务器搭建Rshiny-server</a></li>
-<li><a class="nav-link" href="#ubuntu%E5%AE%89%E8%A3%85devtools"><span class="header-section-number">4.3.3</span> Ubuntu安装devtools</a></li>
-<li><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="header-section-number">4.3.4</span> 上传文件大小限制</a></li>
+<a class="nav-link" href="#r-shiny%E5%BC%80%E5%8F%91"><span class="header-section-number">4.4</span> R shiny开发</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#css%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99"><span class="header-section-number">4.4.1</span> CSS学习网站</a></li>
+<li><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BArshiny-server"><span class="header-section-number">4.4.2</span> 服务器搭建Rshiny-server</a></li>
+<li><a class="nav-link" href="#ubuntu%E5%AE%89%E8%A3%85devtools"><span class="header-section-number">4.4.3</span> Ubuntu安装devtools</a></li>
+<li><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="header-section-number">4.4.4</span> 上传文件大小限制</a></li>
 </ul>
 </li>
+<li>
+<a class="nav-link" href="#%E7%BE%8E%E5%8C%96rshiny"><span class="header-section-number">4.5</span> 美化RShiny</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#htmltools%E5%8C%85%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="header-section-number">4.5.1</span> htmltools包的使用</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#golem%E5%8C%85%E5%BC%80%E5%8F%91%E4%BA%A7%E5%93%81%E7%BA%A7shiny"><span class="header-section-number">4.6</span> golem包开发产品级Shiny</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%A7%E5%93%81%E7%BA%A7%E7%9A%84shiny-app"><span class="header-section-number">4.6.1</span> 什么是产品级的shiny app</a></li></ul>
+</li>
+<li><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E6%A8%A1%E5%9D%97%E9%97%B4%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="header-section-number">4.7</span> 如何在模块间传递数据</a></li>
+<li><a class="nav-link" href="#golem%E7%BB%93%E6%9E%84"><span class="header-section-number">4.8</span> golem结构</a></li>
 </ul>
 
       <div class="book-extra">

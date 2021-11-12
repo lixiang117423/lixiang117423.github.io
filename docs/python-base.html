@@ -96,25 +96,25 @@
 <ul>
 <li>处理从PlantTFDB下载的序列</li>
 </ul>
-<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb107-1"><a href="python-base.html#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb107-2"><a href="python-base.html#cb107-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">"C://Users//Administrator//Desktop//"</span>)</span>
-<span id="cb107-3"><a href="python-base.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="co">#read txt method one</span></span>
-<span id="cb107-4"><a href="python-base.html#cb107-4" aria-hidden="true" tabindex="-1"></a>wrky_seq <span class="op">=</span> <span class="bu">open</span>(<span class="st">'wrky_seq.fasta'</span>,<span class="st">'w'</span>)</span>
-<span id="cb107-5"><a href="python-base.html#cb107-5" aria-hidden="true" tabindex="-1"></a>wrky_info <span class="op">=</span> <span class="bu">open</span>(<span class="st">'wrky_info.txt'</span>,<span class="st">'w'</span>)</span>
-<span id="cb107-6"><a href="python-base.html#cb107-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">"seq.fas"</span>,<span class="st">'r'</span>)</span>
-<span id="cb107-7"><a href="python-base.html#cb107-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> f:</span>
-<span id="cb107-8"><a href="python-base.html#cb107-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">str</span>.startswith(line,<span class="st">"&gt;"</span>):</span>
-<span id="cb107-9"><a href="python-base.html#cb107-9" aria-hidden="true" tabindex="-1"></a>        seq_name <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">'|'</span>)[<span class="dv">0</span>]</span>
-<span id="cb107-10"><a href="python-base.html#cb107-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#seq_name = str.split(seq_name,'.')[0]</span></span>
-<span id="cb107-11"><a href="python-base.html#cb107-11" aria-hidden="true" tabindex="-1"></a>        seq_species <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">'|'</span>)[<span class="dv">1</span>]</span>
-<span id="cb107-12"><a href="python-base.html#cb107-12" aria-hidden="true" tabindex="-1"></a>        seq_name2 <span class="op">=</span> <span class="bu">str</span>.replace(seq_name, <span class="st">"&gt;"</span>, <span class="st">""</span>)</span>
-<span id="cb107-13"><a href="python-base.html#cb107-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(seq_name)</span></span>
-<span id="cb107-14"><a href="python-base.html#cb107-14" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(seq_name <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb107-15"><a href="python-base.html#cb107-15" aria-hidden="true" tabindex="-1"></a>        wrky_info.write(seq_name <span class="op">+</span> <span class="st">"    "</span> <span class="op">+</span> seq_name2 <span class="op">+</span> <span class="st">"    "</span> <span class="op">+</span> seq_species <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb107-16"><a href="python-base.html#cb107-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb107-17"><a href="python-base.html#cb107-17" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(line)</span>
-<span id="cb107-18"><a href="python-base.html#cb107-18" aria-hidden="true" tabindex="-1"></a>wrky_seq.close()</span>
-<span id="cb107-19"><a href="python-base.html#cb107-19" aria-hidden="true" tabindex="-1"></a>wrky_info.close()</span></code></pre></div>
+<div class="sourceCode" id="cb127"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb127-1"><a href="python-base.html#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb127-2"><a href="python-base.html#cb127-2" aria-hidden="true" tabindex="-1"></a>os.chdir(<span class="st">"C://Users//Administrator//Desktop//"</span>)</span>
+<span id="cb127-3"><a href="python-base.html#cb127-3" aria-hidden="true" tabindex="-1"></a><span class="co">#read txt method one</span></span>
+<span id="cb127-4"><a href="python-base.html#cb127-4" aria-hidden="true" tabindex="-1"></a>wrky_seq <span class="op">=</span> <span class="bu">open</span>(<span class="st">'wrky_seq.fasta'</span>,<span class="st">'w'</span>)</span>
+<span id="cb127-5"><a href="python-base.html#cb127-5" aria-hidden="true" tabindex="-1"></a>wrky_info <span class="op">=</span> <span class="bu">open</span>(<span class="st">'wrky_info.txt'</span>,<span class="st">'w'</span>)</span>
+<span id="cb127-6"><a href="python-base.html#cb127-6" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="bu">open</span>(<span class="st">"seq.fas"</span>,<span class="st">'r'</span>)</span>
+<span id="cb127-7"><a href="python-base.html#cb127-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> f:</span>
+<span id="cb127-8"><a href="python-base.html#cb127-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">str</span>.startswith(line,<span class="st">"&gt;"</span>):</span>
+<span id="cb127-9"><a href="python-base.html#cb127-9" aria-hidden="true" tabindex="-1"></a>        seq_name <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">'|'</span>)[<span class="dv">0</span>]</span>
+<span id="cb127-10"><a href="python-base.html#cb127-10" aria-hidden="true" tabindex="-1"></a>        <span class="co">#seq_name = str.split(seq_name,'.')[0]</span></span>
+<span id="cb127-11"><a href="python-base.html#cb127-11" aria-hidden="true" tabindex="-1"></a>        seq_species <span class="op">=</span> <span class="bu">str</span>.split(line, <span class="st">'|'</span>)[<span class="dv">1</span>]</span>
+<span id="cb127-12"><a href="python-base.html#cb127-12" aria-hidden="true" tabindex="-1"></a>        seq_name2 <span class="op">=</span> <span class="bu">str</span>.replace(seq_name, <span class="st">"&gt;"</span>, <span class="st">""</span>)</span>
+<span id="cb127-13"><a href="python-base.html#cb127-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(seq_name)</span></span>
+<span id="cb127-14"><a href="python-base.html#cb127-14" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(seq_name <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb127-15"><a href="python-base.html#cb127-15" aria-hidden="true" tabindex="-1"></a>        wrky_info.write(seq_name <span class="op">+</span> <span class="st">"    "</span> <span class="op">+</span> seq_name2 <span class="op">+</span> <span class="st">"    "</span> <span class="op">+</span> seq_species <span class="op">+</span> <span class="st">"</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb127-16"><a href="python-base.html#cb127-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb127-17"><a href="python-base.html#cb127-17" aria-hidden="true" tabindex="-1"></a>        wrky_seq.write(line)</span>
+<span id="cb127-18"><a href="python-base.html#cb127-18" aria-hidden="true" tabindex="-1"></a>wrky_seq.close()</span>
+<span id="cb127-19"><a href="python-base.html#cb127-19" aria-hidden="true" tabindex="-1"></a>wrky_info.close()</span></code></pre></div>
 
 </div>
 </div>
