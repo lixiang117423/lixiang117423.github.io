@@ -1,0 +1,827 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="安装直接用Docker安装。 官方教程：https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;ubuntu&#x2F; 数据QIIME2中的数据：  测序数据：.qza格式。因此需要先将测序下机的.fasta格式的文件转换成.qza格式的文件。同样，.qza格式文件也可以导出成其他格式。 样品信息（metadata） 可视化数据：.qzv格式。这个文件是分析过程中产生的临时文件。这中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QIIME2学习笔记">
+<meta property="og:url" content="http://example.com/article/qiimenote/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="安装直接用Docker安装。 官方教程：https:&#x2F;&#x2F;docs.docker.com&#x2F;engine&#x2F;install&#x2F;ubuntu&#x2F; 数据QIIME2中的数据：  测序数据：.qza格式。因此需要先将测序下机的.fasta格式的文件转换成.qza格式的文件。同样，.qza格式文件也可以导出成其他格式。 样品信息（metadata） 可视化数据：.qzv格式。这个文件是分析过程中产生的临时文件。这中">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608197.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608403.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608513.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201041750055.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608679.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608122.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608660.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608958.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608994.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608065.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608338.png">
+<meta property="article:published_time" content="2022-01-05T08:04:26.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.107Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta property="article:tag" content="QIIME2">
+<meta property="article:tag" content="微生物组学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608197.png">
+  
+  
+  
+  <title>QIIME2学习笔记 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="QIIME2学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-01-05 16:04" pubdate>
+          2022年1月5日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">QIIME2学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>直接用Docker安装。</p>
+<p>官方教程：<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><p>QIIME2中的数据：</p>
+<ul>
+<li>测序数据：<code>.qza</code>格式。因此需要先将测序下机的<code>.fasta</code>格式的文件转换成<code>.qza</code>格式的文件。同样，<code>.qza</code>格式文件也可以导出成其他格式。</li>
+<li>样品信息（metadata）</li>
+<li>可视化数据：<code>.qzv</code>格式。这个文件是分析过程中产生的临时文件。这中类型的数据是不能用作其他分析的输入数据的 。</li>
+</ul>
+<h2 id="QIIME工作流程"><a href="#QIIME工作流程" class="headerlink" title="QIIME工作流程"></a>QIIME工作流程</h2><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608197.png" srcset="/img/loading.gif" lazyload alt="image-20220104165930914"></p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608403.png" srcset="/img/loading.gif" lazyload alt="image-20220104170132235"></p>
+<ul>
+<li>拆分</li>
+</ul>
+<p>为什么要拆分样品呢？现代的测序仪在一个lane/run中能够对成百上千个样品进行测序，因此需要按照样品将它们分开。如何区分不同的样品呢？用barcode进行区分，也就是接头序列。q2-demux或者q2-cutadapt。如果序列中含有引物序列的时候用第二个程序。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608513.png" srcset="/img/loading.gif" lazyload alt="image-20220104172818044"></p>
+<ul>
+<li><p>去噪</p>
+<ul>
+<li>DADA2</li>
+<li>Deblur<ul>
+<li>需要用到<a target="_blank" rel="noopener" href="https://www.nature.com/articles/nmeth.2276">basic quality-score-based filtering</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>聚类</p>
+<p><code>classify-consensus-blast</code> and <code>classify-consensus-vsearch</code> are both alignment-based methods that find a consensus assignment across N top hits. </p>
+<p>如果用机器学习进行分类的话，需要自行训练参考基因集。</p>
+</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201041750055.png" srcset="/img/loading.gif" lazyload alt="../../_images/clustering.png"></p>
+<ul>
+<li><p>ASV或OTU表</p>
+<ul>
+<li>降低测序错误</li>
+<li>去除重复序列</li>
+</ul>
+</li>
+<li><p>特征表：样品x观测值。几乎参与了所有的分析步骤。</p>
+<ul>
+<li>序列分类，门纲目科属种</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608679.png" srcset="/img/loading.gif" lazyload alt="../../_images/taxonomy.png"></p>
+<ul>
+<li>$\alpha$多样性（样品内）和$\beta$多样性分析（样品间）</li>
+<li>以系统发育相似度为基础的其他多样性分析，如16sRNA基因为基础的系统发育关系分析</li>
+<li>差异丰度分析</li>
+</ul>
+</li>
+<li><p>代表性序列</p>
+</li>
+</ul>
+<h2 id="单末端数据分析案例"><a href="#单末端数据分析案例" class="headerlink" title="单末端数据分析案例"></a>单末端数据分析案例</h2><p>教程地址：<a target="_blank" rel="noopener" href="https://docs.qiime2.org/2021.11/tutorials/atacama-soils/">https://docs.qiime2.org/2021.11/tutorials/atacama-soils/</a></p>
+<ul>
+<li>数据下载</li>
+</ul>
+<p>将barcode和sequences序列放在同一个文件夹下。</p>
+<ul>
+<li>import数据</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime tools import --<span class="hljs-built_in">type</span> EMPSingleEndSequences --input-path data --output-path step1_import/data.qza<br></code></pre></td></tr></tbody></table></figure>
+<p>metadata不能和这两个序列文件放在一起，不然会报错。</p>
+<ul>
+<li>检查数据的类型等</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime tools peek step1_import/data.qza<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">UUID:        5ad2f6a5-cfff-4d1d-a9db-c22ae4763487<br>Type:        EMPSingleEndSequences<br>Data format: EMPSingleEndDirFmt<br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li>按样品拆分序列</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime demux emp-single --i-seqs step1_import/data.qza --m-barcodes-file sample-metadata.tsv --m-barcodes-column barcode-sequence --o-per-sample-sequences step2_demux/demux.qza --o-error-correction-details step2_demux/demux-details.qza<br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li>查看序列拆分情况</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime demux summarize --i-data step2_demux/demux.qza --o-visualization step2_demux/demux.qzv<br></code></pre></td></tr></tbody></table></figure>
+<p>生成的文件需要浏览器才能打开。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608122.png" srcset="/img/loading.gif" lazyload alt="image-20220104193100900" style="zoom:50%;"></p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608660.png" srcset="/img/loading.gif" lazyload alt="image-20220104195210030" style="zoom: 67%;"></p>
+<ul>
+<li><p>序列质控</p>
+<ul>
+<li><p>DADA2：两个参数</p>
+<ul>
+<li><code>--p-trunc-len n</code> 在位置n的地方截断序列</li>
+<li><code>--p-trim-left m</code> 切除最开始的m个碱基</li>
+</ul>
+<p>从上面的图可以看出的是，起始序列的质量是很OK的，在120bp位置左右，序列的质量出现明显的下降。因此就不对起始序列进行裁剪，然后在120bp位置进行裁剪。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime dada2 denoise-single \<br>--i-demultiplexed-seqs step2_demux/demux.qza \<br>--p-trim-left 0 \<br>--p-trunc-len 120 \<br>--o-representative-sequences step3_dada2/rep-seqs-dada2.qza \<br>--o-table step3_dada2/table-dada2.qza \<br>--o-denoising-stats step3_dada2/stats-dada2.qza<br><br>qiime metadata tabulate \<br>--m-input-file step3_dada2/stats-dada2.qza \<br>--o-visualization step3_dada2/stats-dada2.qzv<br></code></pre></td></tr></tbody></table></figure>
+<p>生成的<code>.qzv</code>文件直接拖入到QIIME2官网即可查看。</p>
+</li>
+<li><p>Deblur</p>
+<ul>
+<li><p>质量控制</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime quality-filter q-score --i-demux step2_demux/demux.qza --o-filtered-sequences step4_deblur/demux-filtered.qza --o-filter-stats step4_deblur/demux-filter-stats.qza<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>正式程序</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">/data<span class="hljs-comment"># qiime deblur denoise-16S \</span><br>&gt; --i-demultiplexed-seqs step4_deblur/demux-filtered.qza \<br>&gt; --p-trim-length 120 \<br>&gt; --o-representative-sequences step4_deblur/rep-seqs-deblus.qza \<br>&gt; --o-table step4_deblur/table-deblur.qza \<br>&gt; --p-sample-stats \<br>&gt; --o-stats step4_deblur/deblur-stats.qza<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>可视化结果</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime metadata tabulate \<br>--m-input-file step4_deblur/demux-filter-stats.qza \<br>--o-visualization step4_deblur/demux-filter-stats.qzv<br><br>qiime deblur  visualize-stats \<br>--i-deblur-stats step4_deblur/deblur-stats.qza \<br>--o-visualization step4_deblur/deblur-stats.qzv<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>特征表和特征序列</p>
+<ul>
+<li><p>DADA2</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime feature-table summarize \<br>--i-table step3_dada2/table-dada2.qza \<br>--o-visualization step5_feature_counts_and_seqs/table_dada2.qzv \<br>--m-sample-metadata-file sample-metadata.tsv<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608958.png" srcset="/img/loading.gif" lazyload alt="image-20220104203046481"></p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime feature-table tabulate-seqs \<br>--i-data step3_dada2/rep-seqs-dada2.qza \<br>--o-visualization step5_feature_counts_and_seqs/rep-seqs-dada2.qzv<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608994.png" srcset="/img/loading.gif" lazyload alt="image-20220104203012726"></p>
+</li>
+</ul>
+</li>
+<li><p>进化树构建</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime phylogeny align-to-tree-mafft-fasttree \<br>--i-sequences step3_dada2/rep-seqs-dada2.qza \<br>--o-alignment step6_tree/aligned-rep-seqs.qza \<br>--o-masked-alignment step6_tree/masked-aligned-rep-seqs.qza \<br>--o-tree step6_tree/unrooted-tree.qza \<br>--o-rooted-tree step6_tree/rooted-tree.qza<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>多样性</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime diversity core-metrics-phylogenetic --i-phylogeny step6_tree/rooted-tree.qza --i-table step3_dada2/table-dada2.qza --p-sampling-depth 1103 --m-metadata-file sample-metadata.tsv --output-dir step7_diversity<br></code></pre></td></tr></tbody></table></figure>
+<p>参数1103选择的原因。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Here we <span class="hljs-built_in">set</span> the --p-sampling-depth parameter to 1103. This value was chosen based on the number of sequences <span class="hljs-keyword">in</span> the L3S313 sample because it’s close to the number of sequences <span class="hljs-keyword">in</span> the next few samples that have higher sequence counts, and because it is considerably higher (relatively) than the number of sequences <span class="hljs-keyword">in</span> the samples that have fewer sequences.<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608065.png" srcset="/img/loading.gif" lazyload alt="image-20220104205104251"></p>
+</li>
+<li><p>分组计算多样性</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime diversity alpha-group-significance \<br>  --i-alpha-diversity core-metrics-results/faith_pd_vector.qza \<br>  --m-metadata-file sample-metadata.tsv \<br>  --o-visualization core-metrics-results/faith-pd-group-significance.qzv<br><br>qiime diversity alpha-group-significance \<br>  --i-alpha-diversity core-metrics-results/evenness_vector.qza \<br>  --m-metadata-file sample-metadata.tsv \<br>  --o-visualization core-metrics-results/evenness-group-significance.qzv<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime diversity beta-group-significance \<br>  --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza \<br>  --m-metadata-file sample-metadata.tsv \<br>  --m-metadata-column body-site \<br>  --o-visualization core-metrics-results/unweighted-unifrac-body-site-significance.qzv \<br>  --p-pairwise<br><br>qiime diversity beta-group-significance \<br>  --i-distance-matrix core-metrics-results/unweighted_unifrac_distance_matrix.qza \<br>  --m-metadata-file sample-metadata.tsv \<br>  --m-metadata-column subject \<br>  --o-visualization core-metrics-results/unweighted-unifrac-subject-group-significance.qzv \<br>  --p-pairwise<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>PCoA</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime emperor plot \<br>  --i-pcoa core-metrics-results/unweighted_unifrac_pcoa_results.qza \<br>  --m-metadata-file sample-metadata.tsv \<br>  --p-custom-axes days-since-experiment-start \<br>  --o-visualization core-metrics-results/unweighted-unifrac-emperor-days-since-experiment-start.qzv<br><br>qiime emperor plot \<br>  --i-pcoa core-metrics-results/bray_curtis_pcoa_results.qza \<br>  --m-metadata-file sample-metadata.tsv \<br>  --p-custom-axes days-since-experiment-start \<br>  --o-visualization core-metrics-results/bray-curtis-emperor-days-since-experiment-start.qzv<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>$\alpha$稀释曲线</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime diversity alpha-rarefaction \<br>  --i-table table.qza \<br>  --i-phylogeny rooted-tree.qza \<br>  --p-max-depth 4000 \<br>  --m-metadata-file sample-metadata.tsv \<br>  --o-visualization alpha-rarefaction.qzv<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202201051608338.png" srcset="/img/loading.gif" lazyload alt="image-20220104210144896" style="zoom: 50%;"></p>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>下载分类器</p>
+</li>
+<li><p>分类</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">qiime feature-classifier classify-sklearn --i-classifier classifier_db/gg-13-8-99-515-806-nb-classifier.qza --i-reads step3_dada2/rep-seqs-dada2.qza --o-classification step8_classify/taxonomy.qza<br><br>qiime metadata tabulate --m-input-file step8_classify/taxonomy.qza --o-visualization step8_classify/taxonomy.qzv<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+        <a href="/tags/QIIME2/" class="print-no-link">#QIIME2</a>
+      
+        <a href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/" class="print-no-link">#微生物组学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>QIIME2学习笔记</div>
+      <div>http://example.com/article/qiimenote/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年1月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/mlhdys/" title="命令行的艺术">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">命令行的艺术</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/ubuntuip/" title="Ubuntu服务器配置静态IP">
+                        <span class="hidden-mobile">Ubuntu服务器配置静态IP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
