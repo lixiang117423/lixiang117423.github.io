@@ -1,335 +1,48 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>群体遗传学与重测序分析 - 小蓝哥的知识荒原</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小蓝哥的知识荒原"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小蓝哥的知识荒原"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对"><meta property="og:type" content="blog"><meta property="og:title" content="群体遗传学与重测序分析"><meta property="og:url" content="https://lixiang117423.github.io/article/4b137aba/"><meta property="og:site_name" content="小蓝哥的知识荒原"><meta property="og:description" content="分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/1.jpg"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/2.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/3.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/4.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/5.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/6.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/7.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/8.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/9.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/11.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/12.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/13.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/14.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/15.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/16.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/17.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/18.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/19.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/20.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/21.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/22.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/23.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/24.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/25.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/26.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/27.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/28.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/29.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/30.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/31.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/32.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/33.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/34.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/35.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/36.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/01.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/37.png"><meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/38.png"><meta property="article:published_time" content="2020-01-07T07:23:30.000Z"><meta property="article:modified_time" content="2023-12-10T05:18:19.096Z"><meta property="article:author" content="小蓝哥"><meta property="article:tag" content="生物信息学"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://lixiang117423.github.io/article/4b137aba/1.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lixiang117423.github.io/article/4b137aba/"},"headline":"群体遗传学与重测序分析","image":["https://lixiang117423.github.io/article/4b137aba/1.jpg","https://lixiang117423.github.io/article/4b137aba/2.png","https://lixiang117423.github.io/article/4b137aba/3.png","https://lixiang117423.github.io/article/4b137aba/4.png","https://lixiang117423.github.io/article/4b137aba/5.png","https://lixiang117423.github.io/article/4b137aba/6.png","https://lixiang117423.github.io/article/4b137aba/7.png","https://lixiang117423.github.io/article/4b137aba/8.png","https://lixiang117423.github.io/article/4b137aba/9.png","https://lixiang117423.github.io/article/4b137aba/11.png","https://lixiang117423.github.io/article/4b137aba/12.png","https://lixiang117423.github.io/article/4b137aba/13.png","https://lixiang117423.github.io/article/4b137aba/14.png","https://lixiang117423.github.io/article/4b137aba/15.png","https://lixiang117423.github.io/article/4b137aba/16.png","https://lixiang117423.github.io/article/4b137aba/17.png","https://lixiang117423.github.io/article/4b137aba/18.png","https://lixiang117423.github.io/article/4b137aba/19.png","https://lixiang117423.github.io/article/4b137aba/20.png","https://lixiang117423.github.io/article/4b137aba/21.png","https://lixiang117423.github.io/article/4b137aba/22.png","https://lixiang117423.github.io/article/4b137aba/23.png","https://lixiang117423.github.io/article/4b137aba/24.png","https://lixiang117423.github.io/article/4b137aba/25.png","https://lixiang117423.github.io/article/4b137aba/26.png","https://lixiang117423.github.io/article/4b137aba/27.png","https://lixiang117423.github.io/article/4b137aba/28.png","https://lixiang117423.github.io/article/4b137aba/29.png","https://lixiang117423.github.io/article/4b137aba/30.png","https://lixiang117423.github.io/article/4b137aba/31.png","https://lixiang117423.github.io/article/4b137aba/32.png","https://lixiang117423.github.io/article/4b137aba/33.png","https://lixiang117423.github.io/article/4b137aba/34.png","https://lixiang117423.github.io/article/4b137aba/35.png","https://lixiang117423.github.io/article/4b137aba/36.png","https://lixiang117423.github.io/article/4b137aba/01.png","https://lixiang117423.github.io/article/4b137aba/37.png","https://lixiang117423.github.io/article/4b137aba/38.png"],"datePublished":"2020-01-07T07:23:30.000Z","dateModified":"2023-12-10T05:18:19.096Z","author":{"@type":"Person","name":"小蓝哥"},"publisher":{"@type":"Organization","name":"小蓝哥的知识荒原","logo":{"@type":"ImageObject","url":"https://lixiang117423.github.io/img/logo.svg"}},"description":"分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对"}</script><link rel="canonical" href="https://lixiang117423.github.io/article/4b137aba/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="小蓝哥">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
-  
-    <meta name="description" content="分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对">
-<meta property="og:type" content="article">
-<meta property="og:title" content="群体遗传学与重测序分析">
-<meta property="og:url" content="https://lixiang117423.github.io/article/4b137aba/index.html">
-<meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/1.jpg">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/2.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/3.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/4.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/5.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/6.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/7.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/8.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/9.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/11.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/12.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/13.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/14.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/15.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/16.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/17.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/18.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/19.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/20.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/21.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/22.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/23.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/24.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/25.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/26.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/27.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/28.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/29.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/30.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/31.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/32.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/33.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/34.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/35.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/36.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/01.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/37.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/4b137aba/38.png">
-<meta property="article:published_time" content="2020-01-07T07:23:30.000Z">
-<meta property="article:modified_time" content="2023-12-10T05:18:19.096Z">
-<meta property="article:author" content="小蓝哥">
-<meta property="article:tag" content="生物信息学">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lixiang117423.github.io/article/4b137aba/1.jpg">
-  
-  
-  
-  <title>群体遗传学与重测序分析 - 小蓝哥的知识荒原</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0">
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
-</head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>小蓝哥的知识荒原</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="群体遗传学与重测序分析"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-01-07 15:23" pubdate>
-          2020年1月7日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          4.9k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          41 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">群体遗传学与重测序分析</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <p>分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。<br>在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对应的观点可以简单概括为“物竞天择，适者生存”，这也是最为大众所接受的一种进化学说。直到1968年，日本遗传学家提出了中性进化理论[2]，也叫中性演化理论。中性理论的提出很大程度上是基于分子生物化学的发展。可以这样理解中性理论：一群人抽奖，在没有内幕的情况下，每个人抽到一等奖的概率是相等的，这个可能性和参与抽奖的人的身高、年龄、爱好等因素都没有关系。中性理论常作为群体遗传研究中的假设理论（CK）来计算其他各种统计指标。<br>群体遗传学，研究的单位是群体，比如粳稻、籼稻、野生稻，就能够构成不同的群体；我们国内的各省份的水稻也可以作为一个个群体。 群体遗传学大概可以分为群体内的研究和群体间的研究。比如研究云南元阳的水稻的遗传多样性；如果研究是的云南元阳的水稻和东北的水稻，那就可以算成是群体间的研究。群体间和群体内的研究是相互的。<br>测序价格的急剧下降[3]使得大规模的群体测序得以实现。</p>
-<img src="/article/4b137aba/1.jpg" srcset="/img/loading.gif" lazyload class="">
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-01-07T07:23:30.000Z" title="2020/1/7 15:23:30">2020-01-07</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:19.096Z" title="2023/12/10 13:18:19">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">37 分钟读完 (大约5541个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">群体遗传学与重测序分析</h1><div class="content"><p>分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。<br>在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对应的观点可以简单概括为“物竞天择，适者生存”，这也是最为大众所接受的一种进化学说。直到1968年，日本遗传学家提出了中性进化理论[2]，也叫中性演化理论。中性理论的提出很大程度上是基于分子生物化学的发展。可以这样理解中性理论：一群人抽奖，在没有内幕的情况下，每个人抽到一等奖的概率是相等的，这个可能性和参与抽奖的人的身高、年龄、爱好等因素都没有关系。中性理论常作为群体遗传研究中的假设理论（CK）来计算其他各种统计指标。<br>群体遗传学，研究的单位是群体，比如粳稻、籼稻、野生稻，就能够构成不同的群体；我们国内的各省份的水稻也可以作为一个个群体。 群体遗传学大概可以分为群体内的研究和群体间的研究。比如研究云南元阳的水稻的遗传多样性；如果研究是的云南元阳的水稻和东北的水稻，那就可以算成是群体间的研究。群体间和群体内的研究是相互的。<br>测序价格的急剧下降[3]使得大规模的群体测序得以实现。</p>
+<img src="/article/4b137aba/1.jpg" class="">
 <hr>
 <h1 id="几种变异类型"><a href="#几种变异类型" class="headerlink" title="几种变异类型"></a>几种变异类型</h1><p>常见的变异类型有SNP、IdDel、SV、CNV等。重测序中最关注的是SNP，其次是InDel。其他的几种结构变异的研究不是太多。</p>
-<img src="/article/4b137aba/2.png" srcset="/img/loading.gif" lazyload class="">
-<h1 id="重测序和从头组装"><a href="#重测序和从头组装" class="headerlink" title="重测序和从头组装"></a>重测序和从头组装</h1><p>有参考基因组的物种的全基因组测序叫做重测序，没有参考基因组的物种的全基因组测序则需要从头组装。随着测序价格的降低，越来越多物种的参考基因组都已经测序组装完成。<em>plant genomes</em>$^{[4]}$网站实时显示全基因组测序已经完成的植物，其中2012年以后爆发式增长。在群体遗传学研究中更多的是有参考基因组的物种，尤其是模式物种，植物中常见的是拟南芥、水稻和玉米。<br><img src="/article/4b137aba/3.png" srcset="/img/loading.gif" lazyload class=""></p>
-<h1 id="重测序分析流程"><a href="#重测序分析流程" class="headerlink" title="重测序分析流程"></a>重测序分析流程</h1><p>主要的分析流程见下图。现在的测序公司基本上都会帮客户完成整个的分析流程，因为主要耗费的资源是计算资源。我认为在整个分析的流程中最重要的是Linux目录的构建，混乱的目录会导致后续的分析频频出问题，重测序分析会生成很多的中间文件，良好的目录管理会使得项目分析流程井然有序。<br>该部分涉及到的软件的安装和基础的Linux基础知识就不详细说明了。<br><img src="/article/4b137aba/4.png" srcset="/img/loading.gif" lazyload class=""></p>
-<img src="/article/4b137aba/5.png" srcset="/img/loading.gif" lazyload class="">
-<h1 id="群体进化选择"><a href="#群体进化选择" class="headerlink" title="群体进化选择"></a>群体进化选择</h1><h2 id="正选择"><a href="#正选择" class="headerlink" title="正选择"></a>正选择</h2><p>正选择似乎可以更好地用自然选择来解释。就是一个基因or位点能够使个体有着更强的生存力或者是育性，这样就会使得这个个体的后代更多，如此一来，这个基因or位点在群体中就越来越多。<br><img src="/article/4b137aba/6.png" srcset="/img/loading.gif" lazyload class=""><br>正选择能够使有利的突变基因or位点在群体中得到传播，但是与此同时却降低了群体的多态性水平。也就是说原先该位点周围的核苷酸组成是多样性的，在经过正选择之后，这个位点周围核苷酸的多样性就渐渐的趋于同质化了。这就好比一块田，里面本来有水稻和稗草及其他杂草，由于稗草的适应性增强，稗草在逐渐增多，水稻慢慢变少，最后甚至是只剩下了稗草。<br>我们将这种选择之后多态性降低的情况叫做选择扫荡（Selective Sweep)。检测选择扫荡的软件有SweeD$^{[7]}$。选择扫荡有可能是人工选择的结果，如2014年 Nature Genetics关于非洲栽培稻的文章就使用了SweeD来检测非洲栽培稻基因组上受人工选择的区域$^{[8]}$。<br><img src="/article/4b137aba/7.png" srcset="/img/loading.gif" lazyload class=""></p>
-<h2 id="负选择"><a href="#负选择" class="headerlink" title="负选择"></a>负选择</h2><p>负选择和正选择刚好是相反的。简单理解成群体中的某个个体出现了一个致命的突变，从而自己或者是后代从群体中被淘汰。这也导致群体中该位点的多态性的降低。就好比我有10株水稻，其中一株在成长过程中突然不见了，那么对我的这个小的水稻群体来说，这个消失的水稻的独有的位点在群体中就不见了，整体的多态性就降低了。<br><img src="/article/4b137aba/8.png" srcset="/img/loading.gif" lazyload class=""></p>
-<h2 id="平衡选择"><a href="#平衡选择" class="headerlink" title="平衡选择"></a>平衡选择</h2><p>平衡选择指多个等位基因在一个群体的基因库中以高于遗传漂变预期的频率被保留，如杂合子优势。<br><img src="/article/4b137aba/9.png" srcset="/img/loading.gif" lazyload class=""></p>
+<img src="/article/4b137aba/2.png" class="">
+<h1 id="重测序和从头组装"><a href="#重测序和从头组装" class="headerlink" title="重测序和从头组装"></a>重测序和从头组装</h1><p>有参考基因组的物种的全基因组测序叫做重测序，没有参考基因组的物种的全基因组测序则需要从头组装。随着测序价格的降低，越来越多物种的参考基因组都已经测序组装完成。<em>plant genomes</em>$^{[4]}$网站实时显示全基因组测序已经完成的植物，其中2012年以后爆发式增长。在群体遗传学研究中更多的是有参考基因组的物种，尤其是模式物种，植物中常见的是拟南芥、水稻和玉米。<br><img src="/article/4b137aba/3.png" class=""></p>
+<h1 id="重测序分析流程"><a href="#重测序分析流程" class="headerlink" title="重测序分析流程"></a>重测序分析流程</h1><p>主要的分析流程见下图。现在的测序公司基本上都会帮客户完成整个的分析流程，因为主要耗费的资源是计算资源。我认为在整个分析的流程中最重要的是Linux目录的构建，混乱的目录会导致后续的分析频频出问题，重测序分析会生成很多的中间文件，良好的目录管理会使得项目分析流程井然有序。<br>该部分涉及到的软件的安装和基础的Linux基础知识就不详细说明了。<br><img src="/article/4b137aba/4.png" class=""></p>
+<img src="/article/4b137aba/5.png" class="">
+<h1 id="群体进化选择"><a href="#群体进化选择" class="headerlink" title="群体进化选择"></a>群体进化选择</h1><h2 id="正选择"><a href="#正选择" class="headerlink" title="正选择"></a>正选择</h2><p>正选择似乎可以更好地用自然选择来解释。就是一个基因or位点能够使个体有着更强的生存力或者是育性，这样就会使得这个个体的后代更多，如此一来，这个基因or位点在群体中就越来越多。<br><img src="/article/4b137aba/6.png" class=""><br>正选择能够使有利的突变基因or位点在群体中得到传播，但是与此同时却降低了群体的多态性水平。也就是说原先该位点周围的核苷酸组成是多样性的，在经过正选择之后，这个位点周围核苷酸的多样性就渐渐的趋于同质化了。这就好比一块田，里面本来有水稻和稗草及其他杂草，由于稗草的适应性增强，稗草在逐渐增多，水稻慢慢变少，最后甚至是只剩下了稗草。<br>我们将这种选择之后多态性降低的情况叫做选择扫荡（Selective Sweep)。检测选择扫荡的软件有SweeD$^{[7]}$。选择扫荡有可能是人工选择的结果，如2014年 Nature Genetics关于非洲栽培稻的文章就使用了SweeD来检测非洲栽培稻基因组上受人工选择的区域$^{[8]}$。<br><img src="/article/4b137aba/7.png" class=""></p>
+<h2 id="负选择"><a href="#负选择" class="headerlink" title="负选择"></a>负选择</h2><p>负选择和正选择刚好是相反的。简单理解成群体中的某个个体出现了一个致命的突变，从而自己或者是后代从群体中被淘汰。这也导致群体中该位点的多态性的降低。就好比我有10株水稻，其中一株在成长过程中突然不见了，那么对我的这个小的水稻群体来说，这个消失的水稻的独有的位点在群体中就不见了，整体的多态性就降低了。<br><img src="/article/4b137aba/8.png" class=""></p>
+<h2 id="平衡选择"><a href="#平衡选择" class="headerlink" title="平衡选择"></a>平衡选择</h2><p>平衡选择指多个等位基因在一个群体的基因库中以高于遗传漂变预期的频率被保留，如杂合子优势。<br><img src="/article/4b137aba/9.png" class=""></p>
 <p>平衡选择检测的算法有BetaScan2$^{[10]}$，这是个Python脚本，输入文件只需要过滤好的SNP数据即可。</p>
 <hr>
 <h1 id="群体遗传学中的统计指标"><a href="#群体遗传学中的统计指标" class="headerlink" title="群体遗传学中的统计指标"></a>群体遗传学中的统计指标</h1><h2 id="群体多态性参数"><a href="#群体多态性参数" class="headerlink" title="群体多态性参数"></a>群体多态性参数</h2><p>计算公式为：</p>
@@ -337,14 +50,14 @@
 <h2 id="分离位点数目"><a href="#分离位点数目" class="headerlink" title="分离位点数目"></a>分离位点数目</h2><p>分离位点数$\theta_w$是$\theta$的估计值，表示相关基因在多序列比对中表现出多态性的位置。计算公式为：</p>
 <script type="math/tex; mode=display">\theta_w = \frac{K}{a_n}</script><p>其中$K$为分离位点数量，比如SNP数量。<br>$a_n$为个体数量的倒数和：</p>
 <script type="math/tex; mode=display">a_n = \sum^{n-1}_{i = 1}\frac{1}{i}</script><h2 id="核苷酸多样性-pi"><a href="#核苷酸多样性-pi" class="headerlink" title="核苷酸多样性$\pi$"></a>核苷酸多样性$\pi$</h2><p>$\pi$指的是核苷酸多样性，值越大说明核苷酸多样性越高。通常用于衡量群体内的核苷酸多样性，也可以用来推演进化关系$^{[11]}$。计算公式为：</p>
-<script type="math/tex; mode=display">\pi = \sum_{ij}x_ix_j\pi_{ij}=2*\sum_{i = 2}^{n}\sum_{j=1}^{i-1}x_ix_j\pi{ij}</script><p>可以理解成现在群体内两两求$\pi$，再计算群体的均值。计算的软件最常见的是<em>vcftools</em>，也有对应的R包<em>PopGenome</em>。通常是选定有一定的基因组区域，设定好窗口大小，然后滑动窗口进行计算。<br>3KRGP文章就计算了水稻不同亚群间4号染色体部分区域上的$\pi$值$^{[12]}$，能够看出控制水稻籽粒落粒性的基因<em>Sh4</em>$^{[13]}$位置多态性在所有的亚群中都降低了。说明这个基因在所有的亚群中都是受到选择的，这可能是人工选择的结果。<br><img src="/article/4b137aba/11.png" srcset="/img/loading.gif" lazyload class=""></p>
+<script type="math/tex; mode=display">\pi = \sum_{ij}x_ix_j\pi_{ij}=2*\sum_{i = 2}^{n}\sum_{j=1}^{i-1}x_ix_j\pi{ij}</script><p>可以理解成现在群体内两两求$\pi$，再计算群体的均值。计算的软件最常见的是<em>vcftools</em>，也有对应的R包<em>PopGenome</em>。通常是选定有一定的基因组区域，设定好窗口大小，然后滑动窗口进行计算。<br>3KRGP文章就计算了水稻不同亚群间4号染色体部分区域上的$\pi$值$^{[12]}$，能够看出控制水稻籽粒落粒性的基因<em>Sh4</em>$^{[13]}$位置多态性在所有的亚群中都降低了。说明这个基因在所有的亚群中都是受到选择的，这可能是人工选择的结果。<br><img src="/article/4b137aba/11.png" class=""></p>
 <h2 id="群体内选择检验：Tajima’s-D"><a href="#群体内选择检验：Tajima’s-D" class="headerlink" title="群体内选择检验：Tajima’s D"></a>群体内选择检验：Tajima’s D</h2><p>Tajima’s D是日本学者Tajima Fumio 1989年提出的一种统计检验方法，用于检验DNA序列在演化过程中是否遵循中性演化模型$^{[14]}$。计算公式为：</p>
-<script type="math/tex; mode=display">D=\frac{\pi-\theta_w}{\sqrt{V(\pi-\theta_w)}}</script><p>D值大小有如下三种生物学意义：<br><img src="/article/4b137aba/12.png" srcset="/img/loading.gif" lazyload class=""></p>
+<script type="math/tex; mode=display">D=\frac{\pi-\theta_w}{\sqrt{V(\pi-\theta_w)}}</script><p>D值大小有如下三种生物学意义：<br><img src="/article/4b137aba/12.png" class=""></p>
 <h2 id="群体间分歧度检验：-F-st"><a href="#群体间分歧度检验：-F-st" class="headerlink" title="群体间分歧度检验：$F_{st}$"></a>群体间分歧度检验：<em>$F_{st}$</em></h2><p>$F_{st}$叫固定分化指数，用于估计亚群间平均多态性大小与整个种群平均多态性大小的差异，反映的是群体结构的变化。其简单估计的计算公式为：</p>
-<script type="math/tex; mode=display">F_{st}=\frac{\pi_{Between}-\pi_{Within}}{\pi_{Between}}</script><p>$F<em>{st}$的取值范围是[0,1]。当$F</em>{st}=1$时，表明亚群间有着明显的种群分化。<br>在中性进化条件下，$F<em>{st}$的大小主要取决于遗传漂变和迁移等因素的影响。假设种群中的某个等位基因因为对特定的生境的适应度较高而经历适应性选择，那该基因的频率在种群中会升高，种群的分化水平增大，使得种群有着较高的$F</em>{st}$值。<br>$F<em>{st}$值可以和GWAS的结果一起进行分析，$F</em>{st}$超过一定阈值的区域往往和GWAS筛选到的位点是一致的，如2018年棉花重测序的文章$^{[15]}$：<br><img src="/article/4b137aba/13.png" srcset="/img/loading.gif" lazyload class=""></p>
+<script type="math/tex; mode=display">F_{st}=\frac{\pi_{Between}-\pi_{Within}}{\pi_{Between}}</script><p>$F<em>{st}$的取值范围是[0,1]。当$F</em>{st}=1$时，表明亚群间有着明显的种群分化。<br>在中性进化条件下，$F<em>{st}$的大小主要取决于遗传漂变和迁移等因素的影响。假设种群中的某个等位基因因为对特定的生境的适应度较高而经历适应性选择，那该基因的频率在种群中会升高，种群的分化水平增大，使得种群有着较高的$F</em>{st}$值。<br>$F<em>{st}$值可以和GWAS的结果一起进行分析，$F</em>{st}$超过一定阈值的区域往往和GWAS筛选到的位点是一致的，如2018年棉花重测序的文章$^{[15]}$：<br><img src="/article/4b137aba/13.png" class=""></p>
 <h2 id="群体分歧度检验：ROD"><a href="#群体分歧度检验：ROD" class="headerlink" title="群体分歧度检验：ROD"></a>群体分歧度检验：ROD</h2><p>ROD可以基于野生群体和驯化群体间核苷酸多态性参数$\pi$的差异识别选择型号，也可以测量驯化群体和野生型群体相比损失的多态性。计算公式为：</p>
 <script type="math/tex; mode=display">ROD=1-\frac{\pi_{驯化群体}}{\pi_{野生群体}}</script><p>和$F_{st}$一样，ROD也可以和GWAS结合起来：</p>
-<img src="/article/4b137aba/14.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/4b137aba/14.png" class="">
 <h1 id="群体结构分析"><a href="#群体结构分析" class="headerlink" title="群体结构分析"></a>群体结构分析</h1><p>群体结构分析可以简单理解成采样测序的这些个体可以分成几个小组，以及给每个个体之间的远近关系是怎么样的。群体结构分析三剑客， 分别是<em>进化树</em>、<em>PCA</em>和<em>群体结构图</em>。</p>
 <h2 id="进化树"><a href="#进化树" class="headerlink" title="进化树"></a>进化树</h2><p>进化树就是将个体按照远近关系分别连接起来的图。</p>
 <h3 id="进化树算法"><a href="#进化树算法" class="headerlink" title="进化树算法"></a>进化树算法</h3><h4 id="基于距离"><a href="#基于距离" class="headerlink" title="基于距离"></a>基于距离</h4><ul>
@@ -357,56 +70,56 @@
 <li>贝叶斯推断—基于后验概率</li>
 </ul>
 <h3 id="进化树类型"><a href="#进化树类型" class="headerlink" title="进化树类型"></a>进化树类型</h3><ul>
-<li>有根树<br>有根树就是所有的个体都有一个共同的祖先。就像这样的：<img src="/article/4b137aba/15.png" srcset="/img/loading.gif" lazyload class=""></li>
-<li>无根树<br>无根树只展示个体间的距离，无共同祖先，就像这样的：<img src="/article/4b137aba/16.png" srcset="/img/loading.gif" lazyload class="">
+<li>有根树<br>有根树就是所有的个体都有一个共同的祖先。就像这样的：<img src="/article/4b137aba/15.png" class=""></li>
+<li>无根树<br>无根树只展示个体间的距离，无共同祖先，就像这样的：<img src="/article/4b137aba/16.png" class="">
 </li>
 </ul>
 <h3 id="进化树软件"><a href="#进化树软件" class="headerlink" title="进化树软件"></a>进化树软件</h3><p>常用的绘图软件是<em>Phylip</em>和<em>Snpphylo</em>。进化树修饰的软件有<em>MEGA</em>，<em>ggtree</em>等，推荐网页版工具<a target="_blank" rel="noopener" href="https://itol.embl.de/">iTOL</a>，无比强大。<br>外群定根法：当群体的个体的差异很小时，可以引入其他物种作为根。如在对三叶草建树时可以引入水稻的序列作为根进行建树。</p>
-<h2 id="PCA图"><a href="#PCA图" class="headerlink" title="PCA图"></a>PCA图</h2><p>PCA是很常见的降维方法，如微生物研究中常用来检验样品分群情况。PCA计算的软件很多，plink可以直接用vcf文件计算PCA，R语言也可以进行PCA计算。<br><img src="/article/4b137aba/17.png" srcset="/img/loading.gif" lazyload class=""><br>PCA图在群体重测序中有如下几种作用：</p>
+<h2 id="PCA图"><a href="#PCA图" class="headerlink" title="PCA图"></a>PCA图</h2><p>PCA是很常见的降维方法，如微生物研究中常用来检验样品分群情况。PCA计算的软件很多，plink可以直接用vcf文件计算PCA，R语言也可以进行PCA计算。<br><img src="/article/4b137aba/17.png" class=""><br>PCA图在群体重测序中有如下几种作用：</p>
 <ul>
-<li>查看分群信息，就是测序的样品大概分成几个群。如2015年大豆重测序文章的图[17]:<img src="/article/4b137aba/18.png" srcset="/img/loading.gif" lazyload class=""></li>
+<li>查看分群信息，就是测序的样品大概分成几个群。如2015年大豆重测序文章的图[17]:<img src="/article/4b137aba/18.png" class=""></li>
 <li>检测离群样本<br>离群样本就是在PCA图看起来和其他样本差异很大的样本，有可能是这个样本的遗传背景和其他样本本来就很大，也有可能是样本混淆了，比如了将野生型的样本标记成了驯化种进行测序。如果有离群样本，那在后续的类似于GWAS的分析中就需要将离群样本进行剔除。当然如果样本本来就是个很特别的，那就另当别论。</li>
-<li>推断亚群进化关系<br>可以从PCA图可以看出群体的进化关系，尤其是地理位置的进化关系。<img src="/article/4b137aba/19.png" srcset="/img/loading.gif" lazyload class="">
+<li>推断亚群进化关系<br>可以从PCA图可以看出群体的进化关系，尤其是地理位置的进化关系。<img src="/article/4b137aba/19.png" class="">
 </li>
 </ul>
-<h2 id="群体分层图"><a href="#群体分层图" class="headerlink" title="群体分层图"></a>群体分层图</h2><p>进化树和PCA能够看出来群体是不是分层的，但是无法知道群体分成几个群合适，也无法看出群体间的基因交流，更无法看出个体的混血程度。这时候就需要群体分层图了。<br><img src="/article/4b137aba/20.png" srcset="/img/loading.gif" lazyload class=""><br>群体分层图的本质是堆叠的柱状图，和微生物研究中的物种组成柱状图类似。每个柱子是一个样本，可以看出一个样本的血缘组成，有几种颜色就说明该样本由几个祖先而来，如果只有一个色，那就说明这个个体很纯。<br>常用的软件有<em>structure</em>和<em>ADMIXTURE</em>$^{[19]}$。两款软件给出的结果都是$K$值。一般选择最低的点为最终的$K$值。<br><img src="/article/4b137aba/21.png" srcset="/img/loading.gif" lazyload class=""><br>群体分层图的可视化有个极强大的R包：Pophelper$^{[20]}$。<br><img src="/article/4b137aba/22.png" srcset="/img/loading.gif" lazyload class=""></p>
+<h2 id="群体分层图"><a href="#群体分层图" class="headerlink" title="群体分层图"></a>群体分层图</h2><p>进化树和PCA能够看出来群体是不是分层的，但是无法知道群体分成几个群合适，也无法看出群体间的基因交流，更无法看出个体的混血程度。这时候就需要群体分层图了。<br><img src="/article/4b137aba/20.png" class=""><br>群体分层图的本质是堆叠的柱状图，和微生物研究中的物种组成柱状图类似。每个柱子是一个样本，可以看出一个样本的血缘组成，有几种颜色就说明该样本由几个祖先而来，如果只有一个色，那就说明这个个体很纯。<br>常用的软件有<em>structure</em>和<em>ADMIXTURE</em>$^{[19]}$。两款软件给出的结果都是$K$值。一般选择最低的点为最终的$K$值。<br><img src="/article/4b137aba/21.png" class=""><br>群体分层图的可视化有个极强大的R包：Pophelper$^{[20]}$。<br><img src="/article/4b137aba/22.png" class=""></p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>可以将进化树和群体分层图结合进行展示，如下图：</p>
-<img src="/article/4b137aba/23.png" srcset="/img/loading.gif" lazyload class="">
-<h1 id="连锁不平衡分析"><a href="#连锁不平衡分析" class="headerlink" title="连锁不平衡分析"></a>连锁不平衡分析</h1><p>先了解下概念，此处借鉴基迪奥生物网站的解释[22]。<br>要理解 LD 衰减图，我们就必须先理解连锁不平衡（Linkage disequilibrium，LD）的概念。连锁不平衡是由两个名词构成，连锁 + 不平衡。前者，很容易让我们产生概念混淆；后者，让这个概念变得愈加晦涩。因此从一个类似的概念入手，大家可能更容易理解 LD 的概念，那就是基因的共表达。<br>基因的共表达，通常指的是两个基因的表达量呈现相关性。比较常见的例子就是：转录组因子和靶基因间的关系。因为转录因子对它的靶基因有正调控作用，所以转录因子的表达量提高会导致靶基因的表达量也上调，两者往往存在正相关关系。这个正相关关系，可以使用相关系数 $r^2$ 来度量，这个数值在 - 1~1 之间。总而言之，相关性可以理解为两个元素共同变化，步调一致。<br>类似的，连锁不平衡（LD）就是度量两个分子标记的基因型变化是否步调一致，存在相关性的指标。如果两个 SNP 标记位置相邻，那么在群体中也会呈现基因型步调一致的情况。比如有两个基因座，分别对应 A/a 和 B/b 两种等位基因。如果两个基因座是相关的，我们将会看到某些基因型往往共同遗传，即某些单倍型的频率会高于期望值。<br>参照王荣焕等$^{[23]}$的方法进行LD参数计算：<br><img src="/article/4b137aba/24.png" srcset="/img/loading.gif" lazyload class=""></p>
+<img src="/article/4b137aba/23.png" class="">
+<h1 id="连锁不平衡分析"><a href="#连锁不平衡分析" class="headerlink" title="连锁不平衡分析"></a>连锁不平衡分析</h1><p>先了解下概念，此处借鉴基迪奥生物网站的解释[22]。<br>要理解 LD 衰减图，我们就必须先理解连锁不平衡（Linkage disequilibrium，LD）的概念。连锁不平衡是由两个名词构成，连锁 + 不平衡。前者，很容易让我们产生概念混淆；后者，让这个概念变得愈加晦涩。因此从一个类似的概念入手，大家可能更容易理解 LD 的概念，那就是基因的共表达。<br>基因的共表达，通常指的是两个基因的表达量呈现相关性。比较常见的例子就是：转录组因子和靶基因间的关系。因为转录因子对它的靶基因有正调控作用，所以转录因子的表达量提高会导致靶基因的表达量也上调，两者往往存在正相关关系。这个正相关关系，可以使用相关系数 $r^2$ 来度量，这个数值在 - 1~1 之间。总而言之，相关性可以理解为两个元素共同变化，步调一致。<br>类似的，连锁不平衡（LD）就是度量两个分子标记的基因型变化是否步调一致，存在相关性的指标。如果两个 SNP 标记位置相邻，那么在群体中也会呈现基因型步调一致的情况。比如有两个基因座，分别对应 A/a 和 B/b 两种等位基因。如果两个基因座是相关的，我们将会看到某些基因型往往共同遗传，即某些单倍型的频率会高于期望值。<br>参照王荣焕等$^{[23]}$的方法进行LD参数计算：<br><img src="/article/4b137aba/24.png" class=""></p>
 <h2 id="LD衰减分析"><a href="#LD衰减分析" class="headerlink" title="LD衰减分析"></a>LD衰减分析</h2><p>随着标记间的距离增加，平均的LD程度将降低，呈现出衰减状态，这种情况叫LD衰减。LD衰减分析的作用：</p>
 <ul>
-<li>判断群体的多样性差异，一般野生型群体的LD衰减快于驯化群体；<img src="/article/4b137aba/25.png" srcset="/img/loading.gif" lazyload class=""></li>
+<li>判断群体的多样性差异，一般野生型群体的LD衰减快于驯化群体；<img src="/article/4b137aba/25.png" class=""></li>
 <li>估计GWAS中标记的覆盖度，通过比较LD衰减距离(0.1)和标记间的平均距离来判断标记是否足够。</li>
 </ul>
 <hr>
-<h1 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h1><p>GWAS(genome-wide association study)，全基因组关联分析，常用在医学和农学领域。简单理解成将SNP等遗传标记和表型数据进行关联分析，检测和表型相关的位点，然后再倒回去找到对应的基因，研究其对表型的影响。这些被研究的表型在医学上常常是疾病的表型；在农学上常常是受关注的农艺性状，比如水稻的株高、产量、穗粒数等。GWAS思想首次提出是在心肌梗塞的治疗上[24]，首次应用是在2005年的文章上$^{[25]}$。<br><img src="/article/4b137aba/26.png" srcset="/img/loading.gif" lazyload class=""></p>
-<h2 id="GWAS流程"><a href="#GWAS流程" class="headerlink" title="GWAS流程"></a>GWAS流程</h2><img src="/article/4b137aba/27.png" srcset="/img/loading.gif" lazyload class="">
+<h1 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h1><p>GWAS(genome-wide association study)，全基因组关联分析，常用在医学和农学领域。简单理解成将SNP等遗传标记和表型数据进行关联分析，检测和表型相关的位点，然后再倒回去找到对应的基因，研究其对表型的影响。这些被研究的表型在医学上常常是疾病的表型；在农学上常常是受关注的农艺性状，比如水稻的株高、产量、穗粒数等。GWAS思想首次提出是在心肌梗塞的治疗上[24]，首次应用是在2005年的文章上$^{[25]}$。<br><img src="/article/4b137aba/26.png" class=""></p>
+<h2 id="GWAS流程"><a href="#GWAS流程" class="headerlink" title="GWAS流程"></a>GWAS流程</h2><img src="/article/4b137aba/27.png" class="">
 <ul>
 <li>样品准备就是要收集不同的个体，比如3KRGP就3000多个水稻材料[12]，然后对这些材料进行全基因组测序，还需要表型数据，比如水稻的株高、产量等。</li>
 <li>基因型的检测就是前面的变异检测，只是变异检测完的SNP数据还需要过滤才能进行后续的关联分析。</li>
 <li>关联分析这一步只需要将基因型数据和表型数据丢给软件就行了。</li>
 </ul>
-<h2 id="GWAS数学模型"><a href="#GWAS数学模型" class="headerlink" title="GWAS数学模型"></a>GWAS数学模型</h2><p>目前使用最广泛的模型是混合线性模型$^{[26]}$：<br><img src="/article/4b137aba/28.png" srcset="/img/loading.gif" lazyload class=""><br>所有的参数软件（如Emmax）会自动完成计算。</p>
+<h2 id="GWAS数学模型"><a href="#GWAS数学模型" class="headerlink" title="GWAS数学模型"></a>GWAS数学模型</h2><p>目前使用最广泛的模型是混合线性模型$^{[26]}$：<br><img src="/article/4b137aba/28.png" class=""><br>所有的参数软件（如Emmax）会自动完成计算。</p>
 <h2 id="GWAS结果"><a href="#GWAS结果" class="headerlink" title="GWAS结果"></a>GWAS结果</h2><p>GWAS结果文件通常只有两个图，一个是曼哈顿图，另外一个是Q-Q图。一般是先看Q-Q图，如果Q-Q正常，曼哈顿图的结果才有意义。</p>
 <ul>
-<li>Q-Q图<br>用于推断关联分析使用的模型是否正确，如下图：<img src="/article/4b137aba/29.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/article/4b137aba/30.png" srcset="/img/loading.gif" lazyload class=""></li>
+<li>Q-Q图<br>用于推断关联分析使用的模型是否正确，如下图：<img src="/article/4b137aba/29.png" class="">
+<img src="/article/4b137aba/30.png" class=""></li>
 <li>如果模型不正确，那就只能换算法或者软件。</li>
-<li>曼哈顿图<br>之所以叫曼哈顿图，是由于这种图长得像曼哈顿：<img src="/article/4b137aba/31.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/article/4b137aba/32.png" srcset="/img/loading.gif" lazyload class="">
+<li>曼哈顿图<br>之所以叫曼哈顿图，是由于这种图长得像曼哈顿：<img src="/article/4b137aba/31.png" class="">
+<img src="/article/4b137aba/32.png" class="">
 图中横着的虚线通常是研究者设定的，最严格的的阈值线是Bonfferonin($\frac{0.05}{total{SNPs}}$)。阈值线以上的点就是很值得关注的位点。<br>后续就是验证实验了，比如验证不同的单倍型的生物学功能。</li>
 </ul>
 <hr>
 <h1 id="其他统计指标和算法"><a href="#其他统计指标和算法" class="headerlink" title="其他统计指标和算法"></a>其他统计指标和算法</h1><h2 id="MSMC"><a href="#MSMC" class="headerlink" title="MSMC"></a>MSMC</h2><p>MSMC（multiple sequentially Markovian coalescent）$^{[27]}$，底层算法很复杂，类似于PSMC。MSMC的主要功能是推断有效群体大小和群体分离历史。</p>
-<img src="/article/4b137aba/33.png" srcset="/img/loading.gif" lazyload class="">这样看起来更直观：
-<img src="/article/4b137aba/34.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/article/4b137aba/35.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/4b137aba/33.png" class="">这样看起来更直观：
+<img src="/article/4b137aba/34.png" class="">
+<img src="/article/4b137aba/35.png" class="">
 <h2 id="LAMP"><a href="#LAMP" class="headerlink" title="LAMP"></a>LAMP</h2><p>LAMP(Local Ancestry in Admixed Populations，混杂群体的局部族源推断)，用于推断采用聚类的方法假设同时检测的位点间不存在重组情况，对每组相邻的 SNP 进行检测分析$^{[28]}$，在运算速度和推断准确度上都有了质的飞跃。</p>
-<h2 id="Treemix"><a href="#Treemix" class="headerlink" title="Treemix"></a>Treemix</h2><p>用于推断群体分离和混合[29]。图是这样的：<br><img src="/article/4b137aba/36.png" srcset="/img/loading.gif" lazyload class=""><br>这种图和进化树长得特别相似，可以将得到的结果和进化树进行比较。如2019年NC上关于<em>Cushion willow</em>的文章中就用到了这种算法根据。图是这样的：<br><img src="/article/4b137aba/01.png" srcset="/img/loading.gif" lazyload class=""></p>
-<img src="/article/4b137aba/37.png" srcset="/img/loading.gif" lazyload class="">
+<h2 id="Treemix"><a href="#Treemix" class="headerlink" title="Treemix"></a>Treemix</h2><p>用于推断群体分离和混合[29]。图是这样的：<br><img src="/article/4b137aba/36.png" class=""><br>这种图和进化树长得特别相似，可以将得到的结果和进化树进行比较。如2019年NC上关于<em>Cushion willow</em>的文章中就用到了这种算法根据。图是这样的：<br><img src="/article/4b137aba/01.png" class=""></p>
+<img src="/article/4b137aba/37.png" class="">
 <p>前文提到的很多软件和算法都是用来推断群体进化的，也就是找到群体的祖先。都可以看成族源推断。具体的差异可以参考综述<em>法医族源推断的分子生物学进展</em>$^{[31]}$。</p>
 <hr>
-<h1 id="群体重测序方案推荐"><a href="#群体重测序方案推荐" class="headerlink" title="群体重测序方案推荐"></a>群体重测序方案推荐</h1><p>测序方案关系到后续的分析，不同的样本量对应不同的测序方法和分析方法。<br><img src="/article/4b137aba/38.png" srcset="/img/loading.gif" lazyload class=""></p>
+<h1 id="群体重测序方案推荐"><a href="#群体重测序方案推荐" class="headerlink" title="群体重测序方案推荐"></a>群体重测序方案推荐</h1><p>测序方案关系到后续的分析，不同的样本量对应不同的测序方法和分析方法。<br><img src="/article/4b137aba/38.png" class=""></p>
 <hr>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p>[1]. <a href="[https://zh.wikipedia.org/wiki/%E8%87%AA%E7%84%B6%E9%80%89%E6%8B%A">自然选择(维基百科)</a><br>[2]. Kimura, Motoo. “Evolutionary rate at the molecular level.” <strong><em>Nature</em></strong>. 217.5129 (1968): 624-626 .<br>[3]. <a target="_blank" rel="noopener" href="https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Costs-Data">测序价格变化趋势</a><br>[4]. <a target="_blank" rel="noopener" href="https://www.plabipd.de/timeline_view.ep">plant genomes</a><br>[5]. DePristo, Mark A., et al. “A framework for variation discovery and genotyping using next-generation DNA sequencing data.” <strong><em>Nature Genetics</em></strong>. 43.5 (2011): 491.<br>[6]. Biswas, Shameek, and Joshua M. Akey. “Genomic insights into positive selection.” <strong><em>TRENDS in Genetics</em></strong> . 22.8 (2006): 437-446.<br>[7]. Pavlidis, Pavlos, et al. “Sweed: likelihood-based detection of selective sweeps in thousands of genomes.” <strong><em>Molecular biology and evolution</em></strong> 30.9 (2013): 2224-2234.<br>[8]. Wang, Muhua, et al. “The genome sequence of African rice (<em>Oryza glaberrima</em>) and evidence for independent domestication.” <strong><em>Nature Genetics</em></strong> 46.9 (2014): 982.<br>[9]. Bamshad, Michael, and Stephen P. Wooding. “Signatures of natural selection in the human genome.” <strong><em>Nature Reviews Genetics</em></strong> 4.2 (2003): 99.<br>[10]. Siewert, Katherine M., and Benjamin F. Voight. “BetaScan2: Standardized statistics to detect balancing selection utilizing substitution data.” <strong><em>BioRxiv</em></strong> (2018): 497255.<br>[11]. Yu, N.; Jensen-Seaman MI; Chemnick L; Ryder O; Li WH (March 2004).  <strong><em>Genetics</em></strong>. 166 (3): 1375–83.<br>[12]. Wang, Wensheng, et al. “Genomic variation in 3,010 diverse accessions of Asian cultivated rice.” <strong><em>Nature</em></strong> 557.7703 (2018): 43.<br>[13]. Li, C., Zhou, A. &amp; Sang, T. Rice domestication by reducing shattering. <strong><em>Science</em></strong> 311, 1936–1939 (2006).<br>[14]. Tajima, Fumio. “Statistical method for testing the neutral mutation hypothesis by DNA polymorphism.” <strong><em>Genetics</em></strong> 123.3 (1989): 585-595.<br>[15]. Du, Xiongming, et al. “Resequencing of 243 diploid cotton accessions based on an updated A genome identifies the genetic basis of key agronomic traits.” <strong><em>Nature Genetics</em></strong> 50.6 (2018): 796.<br>[16]. Lu, Kun, et al. “Whole-genome resequencing reveals Brassica napus origin and genetic loci involved in its improvement.” <strong><em>Nature communications</em></strong>. 10.1 (2019): 1154.<br>[17]. Zhou, Z., Jiang, Y., Wang, Z. et al. Resequencing 302 wild and cultivated accessions identifies genes related to domestication and improvement in soybean. <strong><em>Nat Biotechnol</em></strong> 33, 408–414 (2015).<br>[18]. Liang, Z., Duan, S., Sheng, J. et al. Whole-genome resequencing of 472 Vitis accessions for grapevine diversity and demographic history analyses. <strong><em>Nat Commun</em></strong> 10, 1190 (2019).<br>[19]. Alexander, D.H., Lange, K. Enhancements to the ADMIXTURE algorithm for individual ancestry estimation. <strong><em>BMC Bioinformatics</em></strong> 12, 246 (2011).<br>[20]. Francis, Roy M. “pophelper: an R package and web app to analyse and visualize population structure.” <strong><em>Molecular ecology resources</em></strong> 17.1 (2017): 27-32.<br>[21]. <a target="_blank" rel="noopener" href="http://www.royfrancis.com/pophelper/articles/index.html">http://www.royfrancis.com/pophelper/articles/index.html</a>.<br>[22]. <a target="_blank" rel="noopener" href="https://www.omicshare.com/forum/thread-878-1-1.html">https://www.omicshare.com/forum/thread-878-1-1.html</a>.<br>[23]. WANG Rong-Huan, WANG Tian-Yu, LI Yu. Linkage disequilibrium in plant genomes[J]. <strong><em>HEREDITAS</em></strong>, 2007, 29(11): 1317-1323.<br>[24]. Ozaki, K., Ohnishi, Y., Iida, A. et al. Functional SNPs in the lymphotoxin-α gene that are associated with susceptibility to myocardial infarction. <strong><em>Nat Genet</em></strong> 32, 650–654 (2002).<br>[25]. Klein, Robert J., et al. “Complement factor H polymorphism in age-related macular degeneration.” <strong><em>Science</em></strong> 308.5720 (2005): 385-389.<br>[26]. Yu, Jianming, et al. “A unified mixed-model method for association mapping that accounts for multiple levels of relatedness.” <strong><em>Nature genetics</em></strong> 38.2 (2006): 203.<br>[27]. Schiffels, Stephan, and Richard Durbin. “Inferring human population size and separation history from multiple genome sequences.” <strong><em>Nature genetics</em></strong> 46.8 (2014): 919.<br>[28]. Sankararaman, Sriram, et al. “Estimating local ancestry in admixed populations.” <strong><em>The American Journal of Human Genetics</em></strong> 82.2 (2008): 290-303.<br>[29]. Pickrell, Joseph K., and Jonathan K. Pritchard. “Inference of population splits and mixtures from genome-wide allele frequency data.” <strong><em>PLoS genetics</em></strong> 8.11 (2012): e1002967.<br>[30]. Chen, Jia-hui, et al. “Genome-wide analysis of Cushion willow provides insights into alpine plant divergence in a biodiversity hotspot.” <strong><em>Nature communications</em></strong> 10.1 (2019): 1-12.<br>[31]. 孙宽，侯一平。法医族源推断的分子生物学进展 [J]. <strong><em>法医学杂志</em></strong>，2018,34 (03):286-293.<br>[32]. <a target="_blank" rel="noopener" href="http://www.genek.tv/">genek.tv</a></p>
 <hr>
@@ -414,383 +127,48 @@
 <p>💌lixiang117423@gmail.com</p>
 <p>💌lixiang117423@foxmail.com</p>
 </blockquote>
-
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>群体遗传学与重测序分析</div>
-      <div>https://lixiang117423.github.io/article/4b137aba/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>小蓝哥</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2020年1月7日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/article/c719a57/" title="PCA在R语言中的实现">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">PCA在R语言中的实现</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/article/76358c9/" title="PCA和PERMANOVA分析">
-                        <span class="hidden-mobile">PCA和PERMANOVA分析</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+</div><div class="article-licensing box"><div class="licensing-title"><p>群体遗传学与重测序分析</p><p><a href="https://lixiang117423.github.io/article/4b137aba/">https://lixiang117423.github.io/article/4b137aba/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>小蓝哥</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-01-07</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-12-10</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>爱发电</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/article/c719a57/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">PCA在R语言中的实现</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/article/76358c9/"><span class="level-item">PCA和PERMANOVA分析</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">264</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">63</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Julia/"><span class="level-start"><span class="level-item">Julia</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/R%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">R语言</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools4You/"><span class="level-start"><span class="level-item">Tools4You</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/swxxx/"><span class="level-start"><span class="level-item">swxxx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="level-start"><span class="level-item">分子生物学</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E8%83%BD/"><span class="level-start"><span class="level-item">技能</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE/"><span class="level-start"><span class="level-item">文献</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文献阅读</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%9D%82%E6%96%87/"><span class="level-start"><span class="level-item">杂文</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物信息学</span></span><span class="level-end"><span class="level-item tag">150</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/"><span class="level-start"><span class="level-item">生物信息学 - 群体遗传学 - Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物学信息学</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A7%91%E7%A0%94/"><span class="level-start"><span class="level-item">科研</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="level-start"><span class="level-item">统计学</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="level-start"><span class="level-item">软件使用</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2222-12-30T16:00:00.000Z">2222-12-31</time></p><p class="title"><a href="/article/bioinf2allin1/">我的生物信息学知识合集</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-25T02:36:54.000Z">2024-11-25</time></p><p class="title"><a href="/article/gettaxonomy/">从NCBI批量获取物种的分类信息</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-10T01:29:14.000Z">2024-10-10</time></p><p class="title"><a href="/article/dnamethylation/">全基因组DNA甲基化分析流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-24T03:37:16.000Z">2024-09-24</time></p><p class="title"><a href="/article/bismarkbug/">bismark过程中的一个小细节</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-29T01:40:57.000Z">2024-08-29</time></p><p class="title"><a href="/article/secretome4fungi/">真菌分泌蛋白预测流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2222/12/"><span class="level-start"><span class="level-item">十二月 2222</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">十一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">十一月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">八月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Bookdown/"><span class="tag">Bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFF3/"><span class="tag">GFF3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Htseq/"><span class="tag">Htseq</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JupyterLab/"><span class="tag">JupyterLab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">Nginx端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/QIIME2/"><span class="tag">QIIME2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R/"><span class="tag">R</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-%E8%AF%AD%E8%A8%80/"><span class="tag">R 语言</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RNA-Seq/"><span class="tag">RNA-Seq</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSS/"><span class="tag">RSS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R%E8%AF%AD%E8%A8%80/"><span class="tag">R语言</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shiny/"><span class="tag">Shiny</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tools4You/"><span class="tag">Tools4You</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/T%E6%A3%80%E9%AA%8C/"><span class="tag">T检验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bookdown/"><span class="tag">bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/conda/"><span class="tag">conda</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/fasta%E6%96%87%E4%BB%B6/"><span class="tag">fasta文件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/featurecounts/"><span class="tag">featurecounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gffread/"><span class="tag">gffread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitee/"><span class="tag">gitee</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pfastq-dump/"><span class="tag">pfastq-dump</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/qPCR/"><span class="tag">qPCR</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shiny4qPCR/"><span class="tag">shiny4qPCR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/"><span class="tag">代谢组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%8D%E7%96%AB-%E7%94%9F%E9%95%BF%E5%B9%B3%E8%A1%A1/"><span class="tag">免疫-生长平衡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="tag">分子生物学</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="tag">博客搭建</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"><span class="tag">回归分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F/"><span class="tag">基因家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84/"><span class="tag">基因组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%BF%E5%9B%8A%E7%B4%A0/"><span class="tag">尿囊素</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/"><span class="tag">微生物组学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E8%83%BD/"><span class="tag">技能</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE/"><span class="tag">文献</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="tag">文献阅读</span><span class="tag">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">是生物信息学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%82%E6%96%87/"><span class="tag">杂文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">生物信息学</span><span class="tag">156</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%A7/"><span class="tag">相关性</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/"><span class="tag">科研思维</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="tag">统计学</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/"><span class="tag">转录组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="tag">软件使用</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"><span class="tag">软件安装</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"><span class="tag">软件相关</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%81%97%E4%BC%A0%E5%AD%A6/"><span class="tag">遗传学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%85%8D%E8%89%B2/"><span class="tag">配色</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a><p class="is-size-7"><span>&copy; 2024 小蓝哥</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

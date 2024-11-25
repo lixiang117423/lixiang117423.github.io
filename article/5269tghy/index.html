@@ -1,702 +1,501 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>重测序分析脚本 - 小蓝哥的知识荒原</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小蓝哥的知识荒原"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小蓝哥的知识荒原"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="重测序与群体遗传学 云南农业大学  云南生物资源保护与利用国家重点实验室 （李详  2019年12月31日）   软件安装该部分软件很难用conda直接安装，安装步骤比较特殊。"><meta property="og:type" content="blog"><meta property="og:title" content="重测序分析脚本"><meta property="og:url" content="https://lixiang117423.github.io/article/5269tghy/"><meta property="og:site_name" content="小蓝哥的知识荒原"><meta property="og:description" content="重测序与群体遗传学 云南农业大学  云南生物资源保护与利用国家重点实验室 （李详  2019年12月31日）   软件安装该部分软件很难用conda直接安装，安装步骤比较特殊。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://lixiang117423.github.io/img/cover/popgene.jpg"><meta property="article:published_time" content="2021-11-23T06:05:26.000Z"><meta property="article:modified_time" content="2023-12-10T05:18:19.491Z"><meta property="article:author" content="小蓝哥"><meta property="article:tag" content="生物信息学"><meta property="article:tag" content="Linux"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://lixiang117423.github.io/img/cover/popgene.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lixiang117423.github.io/article/5269tghy/"},"headline":"重测序分析脚本","image":["https://lixiang117423.github.io/img/cover/popgene.jpg"],"datePublished":"2021-11-23T06:05:26.000Z","dateModified":"2023-12-10T05:18:19.491Z","author":{"@type":"Person","name":"小蓝哥"},"publisher":{"@type":"Organization","name":"小蓝哥的知识荒原","logo":{"@type":"ImageObject","url":"https://lixiang117423.github.io/img/logo.svg"}},"description":"重测序与群体遗传学 云南农业大学  云南生物资源保护与利用国家重点实验室 （李详  2019年12月31日）   软件安装该部分软件很难用conda直接安装，安装步骤比较特殊。"}</script><link rel="canonical" href="https://lixiang117423.github.io/article/5269tghy/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="小蓝哥">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
-  
-    <meta name="description" content="重测序与群体遗传学 云南农业大学  云南生物资源保护与利用国家重点实验室 （李详  2019年12月31日）   软件安装该部分软件很难用conda直接安装，安装步骤比较特殊。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="重测序分析脚本">
-<meta property="og:url" content="https://lixiang117423.github.io/article/5269tghy/index.html">
-<meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="重测序与群体遗传学 云南农业大学  云南生物资源保护与利用国家重点实验室 （李详  2019年12月31日）   软件安装该部分软件很难用conda直接安装，安装步骤比较特殊。">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-23T06:05:26.000Z">
-<meta property="article:modified_time" content="2023-12-10T05:18:19.491Z">
-<meta property="article:author" content="小蓝哥">
-<meta property="article:tag" content="生物信息学">
-<meta property="article:tag" content="Linux">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>重测序分析脚本 - 小蓝哥的知识荒原</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0">
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
-</head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>小蓝哥的知识荒原</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="重测序分析脚本"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-11-23 14:05" pubdate>
-          2021年11月23日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          2.6k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          22 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">重测序分析脚本</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <center><font face="arial" bold="" size="10" color="black">重测序与群体遗传学</font></center>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><span class="image is-7by3"><img class="fill" src="/img/cover/popgene.jpg" alt="重测序分析脚本"></span></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2021-11-23T06:05:26.000Z" title="2021/11/23 14:05:26">2021-11-23</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:19.491Z" title="2023/12/10 13:18:19">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/">生物信息学 - 群体遗传学 - Linux</a></span><span class="level-item">19 分钟读完 (大约2873个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">重测序分析脚本</h1><div class="content"><center><font face="arial" bold="" size="10" color="black">重测序与群体遗传学</font></center>
 <center><font size="4" color="red">云南农业大学  云南生物资源保护与利用国家重点实验室</font></center>
 <center><font size="4" color="red">（李详  2019年12月31日）</font></center>
 
 <hr>
 <h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><p>该部分软件很难用<code>conda</code>直接安装，安装步骤比较特殊。</p>
 <span id="more"></span>
-<h2 id="lumpy-sv"><a href="#lumpy-sv" class="headerlink" title="lumpy-sv"></a>lumpy-sv</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">lumpy-sv 依赖 Python2.7，切换到py27环境下进行安装。<br>conda activate py27<br>git clone --recursive https://github.com/arq5x/lumpy-sv.git<br>cd lumpy-sv<br>make<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 安装svtyper</span></span><br>conda install svtyper<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="cnvnator"><a href="#cnvnator" class="headerlink" title="cnvnator"></a>cnvnator</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell">cnvnator依赖于root软件包及samtools软件包(包含HTSlib)，因此先安装Samtools及root软件包。<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 安装samtools</span></span><br>wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2<br>tar -xvf samtools-1.9.tar.bz2<br>cd samtools-1.9/<br>./configure<br>make<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 安装root软件, 直接下载后解压即可</span></span><br>wget https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz<br>tar -zxvf root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 安装cnvnator</span></span><br>git clone https://github.com/abyzovlab/CNVnator.git<br>cd CNVnator<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 链接samtools软件目录到cnvnator目录</span></span><br>ln -s ../samtools-1.9 ./samtools<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 加载root软件到环境变量</span></span><br>export ROOTSYS=/pub/software/root<br>export PATH=/pub/software/root/bin:$PATH<br>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ROOTSYS/lib<br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 安装cnvnator</span></span><br>make LIBS="-lcrypto" <br><br>less ../data/sample.list | awk '{ print "bwa mem -t 2 -R '\''@RG\\tID:"$1"\\tSM:"$1"\\tPL:illumina'\'' ../01.ref/genome.fasta  ../data/"$1"_1.fq.gz ../data/"$1"_2.fq.gz |  /pub/software/samtools/samtools sort -@ 2 -m 1G -o "$1".sort.bam -" }'<br></code></pre></td></tr></tbody></table></figure>
-<h1 id="变异检测"><a href="#变异检测" class="headerlink" title="变异检测"></a>变异检测</h1><h2 id="构建基因组index"><a href="#构建基因组index" class="headerlink" title="构建基因组index"></a>构建基因组index</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">create <span class="hljs-built_in">link</span></span><br>ln -s  ../data/genome.fasta  ./genome.fasta<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">for</span> gatk</span><br>samtools faidx genome.fasta <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">for</span> bwa</span><br>bwa index  genome.fasta  <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash"><span class="hljs-keyword">for</span> picard</span><br>picard CreateSequenceDictionary R=genome.fasta<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="比对排序去重"><a href="#比对排序去重" class="headerlink" title="比对排序去重"></a>比对排序去重</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">比对排序</span><br>bwa mem -t 2 -R '@RG\tID:S1\tSM:S1\tPL:illumina' ../01.ref/genome.fasta  ../data/S1_1.fq.gz ../data/S1_2.fq.gz |  /pub/software/samtools/samtools sort -@ 2 -m 1G -o S1.sort.bam -<br>bwa mem -t 2 -R '@RG\tID:S2\tSM:S2\tPL:illumina' ../01.ref/genome.fasta  ../data/S2_1.fq.gz ../data/S2_2.fq.gz |  /pub/software/samtools/samtools sort -@ 2 -m 1G -o S2.sort.bam -<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">去除重复</span><br>picard -Xmx4g  MarkDuplicates I=S1.sort.bam O=S1.sort.rmdup.bam  CREATE_INDEX=true  REMOVE_DUPLICATES=true M=S1.marked_dup_metrics.txt<br>picard -Xmx4g  MarkDuplicates I=S2.sort.bam O=S2.sort.rmdup.bam  CREATE_INDEX=true  REMOVE_DUPLICATES=true M=S2.marked_dup_metrics.txt<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">比对率统计</span><br>/pub/software/samtools/samtools  flagstat  S1.sort.bam &gt; S1.sort.bam.flagstat<br>/pub/software/samtools/samtools  flagstat  S2.sort.bam &gt; S2.sort.bam.flagstat<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="SNP、Indel检测"><a href="#SNP、Indel检测" class="headerlink" title="SNP、Indel检测"></a>SNP、Indel检测</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.HaplotypeCaller</span><br>gatk --java-options "-Xmx10g -Djava.io.tmpdir=./tmp" HaplotypeCaller -R ../01.ref/genome.fasta -I ../02.mapping/S1.sort.rmdup.bam  -ERC GVCF -O S1.g.vcf 1&gt;S1.HC.log   2&gt;&amp;1<br>gatk --java-options "-Xmx10g -Djava.io.tmpdir=./tmp" HaplotypeCaller -R ../01.ref/genome.fasta -I ../02.mapping/S2.sort.rmdup.bam  -ERC GVCF -O S2.g.vcf 1&gt;S2.HC.log   2&gt;&amp;1<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.CombineGVCFs</span><br>ls ./S*.g.vcf &gt; gvcf.list<br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"    CombineGVCFs -R ../01.ref/genome.fasta -V gvcf.list  -O all.merge.g.vcf <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step3.GenotypeGVCFs</span><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"   GenotypeGVCFs -R ../01.ref/genome.fasta --variant all.merge.g.vcf -O all.merge_raw.vcf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step4.SNP</span><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"  SelectVariants  -R ../01.ref/genome.fasta -V all.merge_raw.vcf --select-type SNP -O all.raw.snp.vcf<br><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"  VariantFiltration -R ../01.ref/genome.fasta -V all.raw.snp.vcf --filter-expression "QD &lt; 2.0 || MQ &lt; 40.0 || FS &gt; 60.0 || SOR &gt; 3.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0" --filter-name 'SNP_filter' -O all.filter.snp.vcf<br><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"  SelectVariants  -R ../01.ref/genome.fasta -V all.filter.snp.vcf --exclude-filtered  -O all.filtered.snp.vcf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step5.InDel</span><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"  SelectVariants  -R ../01.ref/genome.fasta -V all.merge_raw.vcf --select-type INDEL -O all.raw.indel.vcf<br><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"  VariantFiltration -R ../01.ref/genome.fasta -V all.raw.indel.vcf --filter-expression "QD &lt; 2.0 || FS &gt; 200.0 || SOR &gt; 10.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0" --filter-name 'INDEL_filter' -O all.filter.indel.vcf<br><br>gatk  --java-options "-Xmx4g -Djava.io.tmpdir=./tmp"  SelectVariants  -R ../01.ref/genome.fasta -V all.filter.indel.vcf  --exclude-filtered   -O all.filtered.indel.vcf<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="SV检测"><a href="#SV检测" class="headerlink" title="SV检测"></a>SV检测</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.discordants_bam</span><br>/pub/software/samtools/samtools view -b -F 1294 -@ 12 ../02.mapping/S1.sort.rmdup.bam &gt; S1.discordants.bam<br>/pub/software/samtools/samtools view -b -F 1294 -@ 12 ../02.mapping/S2.sort.rmdup.bam &gt; S2.discordants.bam<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.splitters_bam</span><br>/pub/software/samtools/samtools view -h ../02.mapping/S1.sort.rmdup.bam | /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin | /pub/software/samtools/samtools  sort -   &gt; S1.splitters.bam<br>/pub/software/samtools/samtools view -h ../02.mapping/S2.sort.rmdup.bam | /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin | /pub/software/samtools/samtools  sort -   &gt; S2.splitters.bam<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step3.lumpy</span><br>/pub/software/lumpy-sv/bin/lumpyexpress -B ../02.mapping/S1.sort.rmdup.bam,../02.mapping/S2.sort.rmdup.bam  -S S1.splitters.bam,S2.splitters.bam   -D S1.discordants.bam,S2.discordants.bam -o all.sv.lumpy.vcf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step4.ind_genotype</span><br>vcftools --vcf all.sv.lumpy.vcf --indv S1 --recode --recode-INFO-all --out S1 &amp;&amp; svtyper -i S1.recode.vcf -B ../02.mapping/S1.sort.rmdup.bam  -o S1.genotype.vcf<br>vcftools --vcf all.sv.lumpy.vcf --indv S2 --recode --recode-INFO-all --out S2 &amp;&amp; svtyper -i S2.recode.vcf -B ../02.mapping/S2.sort.rmdup.bam  -o S2.genotype.vcf<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="CNV检测"><a href="#CNV检测" class="headerlink" title="CNV检测"></a>CNV检测</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.prepare_genome</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># split genome into single sequence</span></span><br><br> ln -s  ../data/genome.fasta ./genome.fa<br><br> seqkit split -i ./genome.fa  -O split<br><br> ls ./split/genome.id_*.fa |sed 's/\.\/split\/genome\.id_//' |awk '{print "mv ./split/genome.id_"$aa"  ./split/"$aa}' &gt; mv_name.sh<br><br> sh mv_name.sh<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.cnvnator</span><br>export ROOTSYS=/pub/software/root<br>export PATH=/pub/software/root/bin:$PATH<br>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ROOTSYS/lib<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 链接文件到当前目录</span></span><br>ln -s ../02.mapping/S1.sort.rmdup.bam <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 提取比对结果</span></span><br>/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -tree S1.sort.rmdup.bam<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment">#生成深度分布</span></span><br>/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -his 500  -d split<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 进行统计计算</span></span><br>/pub/software/CNVnator/cnvnator -root S1.root -stat 500<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 检查bin size是否合适</span></span><br>/pub/software/CNVnator/cnvnator -root S1.root -eval 500  &gt; S1.eval.ratio <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># RD信号分割</span></span><br>/pub/software/CNVnator/cnvnator -root S1.root -partition 500<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># 进行CNV检测</span></span><br>/pub/software/CNVnator/cnvnator -root S1.root  -call 500 &gt; S1.cnv<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="SNP-INDEL注释"><a href="#SNP-INDEL注释" class="headerlink" title="SNP INDEL注释"></a>SNP INDEL注释</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.prepare_genome</span><br>ln -s ../data/genome.gtf <br>ln -s ../data/genome.fasta<br><br>gtfToGenePred  -genePredExt genome.gtf genome_refGene.txt<br>/pub/software/annovar/retrieve_seq_from_fasta.pl --format refGene --seqfile genome.fasta genome_refGene.txt --out genome_refGeneMrna.fa<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash">step2.ann_vcf</span><br>ln -s  ../03.SNP_indel/all.filtered.snp.vcf <br><br>/pub/software/annovar/convert2annovar.pl -format vcf4old all.filtered.snp.vcf  &gt;all.snp.vcf.annovar.input<br><br>/pub/software/annovar/annotate_variation.pl -geneanno --neargene 2000 -buildver genome -dbtype refGene -outfile all.anno -exonsort all.snp.vcf.annovar.input ./<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="CNV和SV注释"><a href="#CNV和SV注释" class="headerlink" title="CNV和SV注释"></a>CNV和SV注释</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell">less -S ../04.SV/all.sv.lumpy.vcf|awk -F ";" '{ if($1!~/#/){print $1"\t"$2"\t"$3"\t"$4} }'|awk '{print $1"\t"$2"\t"$11"\t"$3"\t"$8}'|sed 's/END=//' |sed 's/SVTYPE=//'| awk '$3&lt;$2' &gt; SV.bed<br>less -S ../04.SV/all.sv.lumpy.vcf|awk -F ";" '{ if($1!~/#/){print $1"\t"$2"\t"$3"\t"$4} }'|awk '{print $1"\t"$2"\t"$11"\t"$3"\t"$8}'|sed 's/END=//' |sed 's/SVTYPE=//'  &gt; SV.bed<br>awk '$5 !~ /BND/' SV.bed &gt;  SV_filter.bed<br>bedtools  intersect -wo  -a SV_filter.bed -b gene.gtf  &gt; SV_filter.Anno<br>less -S ../05.CNV/S1.cnv | awk '{print $2 "\t" $1}'|sed 's/:/\t/'|sed 's/-/\t/' &gt; CNV.bed<br>bedtools  intersect -wo  -a  CNV.bed  -b gene.gtf &gt; CNV.Anno<br><br></code></pre></td></tr></tbody></table></figure>
-<h1 id="群体结构"><a href="#群体结构" class="headerlink" title="群体结构"></a>群体结构</h1><h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">vcf=../data/all.vcf<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># filter missing and maf</span></span><br>plink --vcf  $vcf --geno 0.1 --maf 0.01 --out all.missing_maf --recode vcf-iid  --allow-extra-chr --set-missing-var-ids @:# --keep-allele-order<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># filter LD</span></span> <br>plink --vcf  all.missing_maf.vcf  --indep-pairwise 50 10 0.2 --out tmp.ld   --allow-extra-chr --set-missing-var-ids @:# <br>plink --vcf  all.missing_maf.vcf  --make-bed --extract tmp.ld.prune.in  --out all.LDfilter --recode vcf-iid  --keep-allele-order  --allow-extra-chr --set-missing-var-ids @:#  <br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><h3 id="NJ"><a href="#NJ" class="headerlink" title="NJ"></a>NJ</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell">perl  ../../script/vcf2phy.pl  ../../00.filter/all.LDfilter.vcf  &gt; sequences.dat<br><br>echo -e "sequences.dat\nY" &gt; dnadist.cfg<br><br>dnadist &lt; dnadist.cfg  &gt;dnadist.log<br><br>mv outfile infile.dist<br><br>echo -e "infile.dist\nY"  &gt; neighbor.cfg<br><br>neighbor  &lt;  neighbor.cfg  &gt;nj.log<br><br>less infile.dist | tr '\n' '|'| sed 's/| / /g' | tr '|' '\n' &gt;infile.dist.table<br>less outtree | tr '\n' ' '|sed 's/ //g' &gt; outtree.nwk<br><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="tree-snphylo"><a href="#tree-snphylo" class="headerlink" title="tree_snphylo"></a>tree_snphylo</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">/pub/software/SNPhylo/snphylo.sh -v ../../00.filter/all.LDfilter.vcf -r -l 1 -m 0.01 -o GA0001 -b -B 2 -P tree_snphylo <br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">plink --vcf  ../00.filter/all.LDfilter.vcf --pca 10 --out  PCA_out   --allow-extra-chr --set-missing-var-ids @:# <br><br>Rscript ../script/draw_PCA.R  PCA_out.eigenvec 1 2  ../data/sample.pop  PCA_out_figure<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="群体结构-1"><a href="#群体结构-1" class="headerlink" title="群体结构"></a>群体结构</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step0.vcf2bed</span><br>plink --vcf  ../00.filter/all.LDfilter.vcf  --make-bed --out all  --allow-extra-chr --keep-allele-order --set-missing-var-ids @:#<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.get_Admix_shell</span><br>seq 2 4 | awk '{print "admixture --cv -j2 all.bed "$1" 1&gt;admix."$1".log 2&gt;&amp;1"}' &gt; admixture.sh<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.run_admix</span><br>sh admixture.sh<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step3.draw_structure</span><br>mkdir result<br>cp  ./*.Q result/<br>Rscript  ../script/draw_admixture.R result all.nosex  structure <br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">admixture</span><br>admixture --cv -j2 all.bed 2 1&gt;admix.2.log 2&gt;&amp;1<br>admixture --cv -j2 all.bed 3 1&gt;admix.3.log 2&gt;&amp;1<br>admixture --cv -j2 all.bed 4 1&gt;admix.4.log 2&gt;&amp;1<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="遗传衰减"><a href="#遗传衰减" class="headerlink" title="遗传衰减"></a>遗传衰减</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.LD_calcu</span><br>/pub/software/PopLDdecay/bin/PopLDdecay -InVCF  ../data/all.vcf -SubPop  ../data/pop.SC.table -MaxDist 500 -OutStat pop.SC.stat<br>/pub/software/PopLDdecay/bin/PopLDdecay -InVCF  ../data/all.vcf -SubPop ../data/pop.YZR.table -MaxDist 500 -OutStat pop.YZR.stat<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.draw_singlePlot</span><br>perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl -inFile pop.SC.stat.gz -output pop.SC.ld<br>perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl -inFile pop.YZR.stat.gz -output pop.YZR.ld<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step3.draw_multiPlotare/PopLDdecay/bin/Plot_MultiPop.pl -inList ld_stat.list -output ld_stat.multi</span><br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="选择分析"><a href="#选择分析" class="headerlink" title="选择分析"></a>选择分析</h2><h3 id="i-ROD"><a href="#i-ROD" class="headerlink" title="i_ROD"></a>i_ROD</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.pi</span><br>vcf=../../data/all.vcf<br>window=20000<br>step=2000<br>vcftools  --vcf $vcf --window-pi $window --window-pi-step  $step  --keep ../../data/pop.SC.table   --out ./Pi.pop1<br>vcftools  --vcf $vcf --window-pi $window --window-pi-step  $step  --keep ../../data/pop.YZR.table  --out ./Pi.pop2<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.ROD</span><br>pi1=Pi.pop1.windowed.pi<br>pi2=Pi.pop2.windowed.pi<br>perl ../../script/merge2pi_ROD.pl $pi1 $pi2  &gt;Pi.ROD <br><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="tajimaD"><a href="#tajimaD" class="headerlink" title="tajimaD"></a>tajimaD</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs shell">vcf=../../data/all.vcf<br>window=20000<br><br>vcftools --vcf $vcf --TajimaD  $window  --keep  ../../data/pop.SC.table  --out TajimaD.pop1<br>vcftools --vcf $vcf --TajimaD  $window  --keep  ../../data/pop.YZR.table --out   TajimaD.pop2<br><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="Fst"><a href="#Fst" class="headerlink" title="Fst"></a>Fst</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">vcf=../../data/all.vcf<br>window=20000<br>step=2000<br>vcftools  --vcf $vcf --fst-window-size $window --fst-window-step $step  --weir-fst-pop  ../../data/pop.SC.table --weir-fst-pop ../../data/pop.YZR.table --out  ./Fst.pop1.pop2<br><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="ROD-Fst"><a href="#ROD-Fst" class="headerlink" title="ROD_Fst"></a>ROD_Fst</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">fst=../03.Fst/Fst.pop1.pop2.windowed.weir.fst<br>ROD=../01.pi_ROD/Pi.ROD<br>gff=../../data/genome.gff<br><br>perl ../../script/top_Fst_ROD_S.pl  $fst $ROD 0.05 0.05  Fst_ROD.table Fst_ROD.stat<br><br>awk '$NF=="top"' Fst_ROD.table  &gt; Fst_ROD.table.top<br><br><br>awk '$3=="gene"' $gff &gt; gene.gff<br><br>bedtools  intersect -wo -F 0.1  -a  Fst_ROD.table.top -b gene.gff | awk -F "\t"  '{print $7"\t"$10"\t"$11"\t"$13"\t"$15}' | sort -u  &gt; Fst_ROD.table.top.gene<br><br></code></pre></td></tr></tbody></table></figure>
-<h1 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h1><h2 id="mpute"><a href="#mpute" class="headerlink" title="mpute"></a>mpute</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">beagle -Xmx4g  -Djava.io.tmpdir=./TMP  gt=../data/all.vcf   out=all.impute impute=true window=10 nthreads=2<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="GWAS-1"><a href="#GWAS-1" class="headerlink" title="GWAS"></a>GWAS</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step1.prepare</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># prepare vcf</span></span><br>plink --vcf ../data/all.vcf --maf 0.05 --geno 0.1  --recode12  --output-missing-genotype 0 --transpose --out snp_filter   --set-missing-var-ids @:#  --allow-extra-chr<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"><span class="hljs-comment"># prepare phenotype</span></span><br><br>perl ../script/sort_pheno.pl snp_filter.tfam ../data/trait.table &gt; trait.sort.txt<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step2.kinship</span><br>/pub/software/emmax/emmax-kin-intel64 -v -d 10  -o ./pop.kinship  snp_filter<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step3.gwas</span><br>/pub/software/emmax/emmax-intel64 -v -d 10 -t snp_filter  -p trait.sort.txt -k pop.kinship   -o emmax.out 1&gt; emmax.log 2&gt;emmax.err<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">draw_manhattan</span><br>paste  snp_filter.map  emmax.out.ps | awk  'BEGIN{print "SNP\tCHR\tBP\tP"}{if($2==$5){print $2"\t"$1"\t"$4"\t"$NF}}'  &gt; emmax.out.ps.manht_input<br>Rscript ../script/manhattan.R emmax.out.ps.manht_input  emmax.out.ps.manht_figure<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="GWAS-Q"><a href="#GWAS-Q" class="headerlink" title="GWAS-Q"></a>GWAS-Q</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">step3.gwas</span><br>ln -s ../01.GWAS/snp_filter.tped<br>ln -s ../01.GWAS/snp_filter.tfam<br>ln -s ../01.GWAS/snp_filter.nosex<br>ln -s ../01.GWAS/snp_filter.map<br><br>ln -s ../01.GWAS/trait.sort.txt<br>ln -s ../../02.population_genetics/03.structure/all.3.Q<br><br>paste snp_filter.nosex all.3.Q |awk '{print $1" "$1" 1 "$3" "$4}'  &gt; pop.Qmatrix<br><br>/pub/software/emmax/emmax-intel64 -v -d 10 -t snp_filter  -p trait.sort.txt -k pop.kinship -c pop.Qmatrix   -o emmax.out 1&gt; emmax.log 2&gt;emmax.err<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">step4.draw_manhattan</span><br>paste  snp_filter.map  emmax.out.ps | awk  'BEGIN{print "SNP\tCHR\tBP\tP"}{if($2==$5){print $2"\t"$1"\t"$4"\t"$NF}}'  &gt; emmax.out.ps.manht_input<br>Rscript ../script/manhattan.R emmax.out.ps.manht_input  emmax.out.ps.manht_figure_Q<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="GWAS-realData"><a href="#GWAS-realData" class="headerlink" title="GWAS_realData"></a>GWAS_realData</h2><figure class="highlight less"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs less"># <span class="hljs-selector-tag">step1</span><span class="hljs-selector-class">.prepare</span><br>## <span class="hljs-selector-tag">prepare</span> <span class="hljs-selector-tag">vcf</span><br><span class="hljs-selector-tag">plink</span> <span class="hljs-selector-tag">--vcf</span>  ../<span class="hljs-selector-tag">data_real</span>/<span class="hljs-selector-tag">Sample215</span><span class="hljs-selector-class">.M5M8H3</span><span class="hljs-selector-class">.2allel</span><span class="hljs-selector-class">.vcf</span>  <span class="hljs-selector-tag">--maf</span> <span class="hljs-number">0.05</span> <span class="hljs-selector-tag">--geno</span> <span class="hljs-number">0.1</span>  <span class="hljs-selector-tag">--recode12</span>  <span class="hljs-selector-tag">--output-missing-genotype</span> <span class="hljs-number">0</span> <span class="hljs-selector-tag">--transpose</span> <span class="hljs-selector-tag">--out</span> <span class="hljs-selector-tag">snp_filter</span>   <span class="hljs-selector-tag">--set-missing-var-ids</span> @:#  <span class="hljs-selector-tag">--allow-extra-chr</span><br><br><br>## <span class="hljs-selector-tag">prepare</span> <span class="hljs-selector-tag">phenotype</span><br><br><span class="hljs-selector-tag">perl</span> ../<span class="hljs-selector-tag">script</span>/<span class="hljs-selector-tag">sort_pheno</span><span class="hljs-selector-class">.pl</span> <span class="hljs-selector-tag">snp_filter</span><span class="hljs-selector-class">.tfam</span>  ../<span class="hljs-selector-tag">data_real</span>/<span class="hljs-selector-tag">trait</span><span class="hljs-selector-class">.C16_0</span><span class="hljs-selector-class">.table</span>  &gt; <span class="hljs-selector-tag">trait</span><span class="hljs-selector-class">.sort</span><span class="hljs-selector-class">.txt</span><br><br># <span class="hljs-selector-tag">step2</span><span class="hljs-selector-class">.kinship</span><br>/<span class="hljs-selector-tag">pub</span>/<span class="hljs-selector-tag">software</span>/<span class="hljs-selector-tag">emmax</span>/<span class="hljs-selector-tag">emmax-kin-intel64</span> <span class="hljs-selector-tag">-v</span> <span class="hljs-selector-tag">-d</span> <span class="hljs-number">10</span>  <span class="hljs-selector-tag">-o</span> ./<span class="hljs-selector-tag">pop</span><span class="hljs-selector-class">.kinship</span>  <span class="hljs-selector-tag">snp_filter</span><br><br># <span class="hljs-selector-tag">step3</span><span class="hljs-selector-class">.gwas</span><br>/<span class="hljs-selector-tag">pub</span>/<span class="hljs-selector-tag">software</span>/<span class="hljs-selector-tag">emmax</span>/<span class="hljs-selector-tag">emmax-intel64</span> <span class="hljs-selector-tag">-v</span> <span class="hljs-selector-tag">-d</span> <span class="hljs-number">10</span> <span class="hljs-selector-tag">-t</span> <span class="hljs-selector-tag">snp_filter</span>  <span class="hljs-selector-tag">-p</span> <span class="hljs-selector-tag">trait</span><span class="hljs-selector-class">.sort</span><span class="hljs-selector-class">.txt</span> <span class="hljs-selector-tag">-k</span> <span class="hljs-selector-tag">pop</span><span class="hljs-selector-class">.kinship</span>   <span class="hljs-selector-tag">-o</span> <span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.out</span> <span class="hljs-number">1</span>&gt; <span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.log</span> <span class="hljs-number">2</span>&gt;<span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.err</span><br><br># <span class="hljs-selector-tag">step4</span><span class="hljs-selector-class">.draw_manhattan</span><br><span class="hljs-selector-tag">paste</span>  <span class="hljs-selector-tag">snp_filter</span><span class="hljs-selector-class">.map</span>  <span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.out</span><span class="hljs-selector-class">.ps</span> | <span class="hljs-selector-tag">awk</span>  '<span class="hljs-selector-tag">BEGIN</span>{<span class="hljs-selector-tag">print</span> "<span class="hljs-selector-tag">SNP</span>\<span class="hljs-selector-tag">tCHR</span>\<span class="hljs-selector-tag">tBP</span>\<span class="hljs-selector-tag">tP</span>"}{<span class="hljs-selector-tag">if</span>($<span class="hljs-number">2</span>==$<span class="hljs-number">5</span>){<span class="hljs-selector-tag">print</span> $<span class="hljs-number">2</span>"\<span class="hljs-selector-tag">t</span>"$<span class="hljs-number">1</span>"\<span class="hljs-selector-tag">t</span>"$<span class="hljs-number">4</span>"\<span class="hljs-selector-tag">t</span>"$<span class="hljs-selector-tag">NF</span>}}'  &gt; <span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.out</span><span class="hljs-selector-class">.ps</span><span class="hljs-selector-class">.manht_input</span><br><span class="hljs-selector-tag">Rscript</span> ../<span class="hljs-selector-tag">script</span>/<span class="hljs-selector-tag">manhattan</span><span class="hljs-selector-class">.R</span> <span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.out</span><span class="hljs-selector-class">.ps</span><span class="hljs-selector-class">.manht_input</span>  <span class="hljs-selector-tag">emmax</span><span class="hljs-selector-class">.out</span><span class="hljs-selector-class">.ps</span><span class="hljs-selector-class">.manht_figure_readData</span><br><br></code></pre></td></tr></tbody></table></figure>
-<h1 id="QTL-seq"><a href="#QTL-seq" class="headerlink" title="QTL-seq"></a>QTL-seq</h1><h2 id="change-VCF2Table"><a href="#change-VCF2Table" class="headerlink" title="change_VCF2Table"></a>change_VCF2Table</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">ref=<br>vcf=<br>outfile=<br>gatk  VariantsToTable -R  $ref -V $vcf -F CHROM -F POS -F REF -F ALT -GF AD -GF DP -GF GQ -GF PL -O  $outfile<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="QTLSeq-Analysis"><a href="#QTLSeq-Analysis" class="headerlink" title="QTLSeq_Analysis"></a>QTLSeq_Analysis</h2><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>QTLseqr<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span><span class="hljs-string">"ggplot2"</span><span class="hljs-punctuation">)</span><br><br><br>HighBulk <span class="hljs-operator">&lt;-</span> <span class="hljs-string">"SRR834931"</span> <span class="hljs-comment">## 高值混池名称</span><br>LowBulk <span class="hljs-operator">&lt;-</span> <span class="hljs-string">"SRR834927"</span>  <span class="hljs-comment">## 低值混池名称</span><br>Chroms <span class="hljs-operator">&lt;-</span> paste0<span class="hljs-punctuation">(</span><span class="hljs-built_in">rep</span><span class="hljs-punctuation">(</span><span class="hljs-string">"Chr"</span><span class="hljs-punctuation">,</span> <span class="hljs-number">12</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">12</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">## 染色体列表</span><br><br><span class="hljs-comment">## SNP数据读取</span><br>df <span class="hljs-operator">&lt;-</span> importFromGATK<span class="hljs-punctuation">(</span>file <span class="hljs-operator">=</span> <span class="hljs-string">"../data/Yang_et_al_2013.table"</span> <span class="hljs-punctuation">,</span><br>    highBulk <span class="hljs-operator">=</span> HighBulk<span class="hljs-punctuation">,</span> <span class="hljs-comment"># 指定高值混池</span><br>    lowBulk <span class="hljs-operator">=</span> LowBulk<span class="hljs-punctuation">,</span> <span class="hljs-comment"># 指定低至混池</span><br>    chromList <span class="hljs-operator">=</span> Chroms <span class="hljs-comment"># 指定分析用染色体列表</span><br>    <span class="hljs-punctuation">)</span> <br><br><br><span class="hljs-comment">## 绘制深度分布图 </span><br><br>p1 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>data <span class="hljs-operator">=</span> df<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_histogram<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> DP.HIGH <span class="hljs-operator">+</span> DP.LOW<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  xlim<span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">800</span><span class="hljs-punctuation">)</span><br>  <br>pdf<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"SNP_depth.pdf"</span><span class="hljs-punctuation">)</span><br>p1<br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 绘制ref等位基因频率分布图</span><br>p2 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>data <span class="hljs-operator">=</span> df<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_histogram<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> REF_FRQ<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>  <br>pdf<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"ref_allele_frequency.pdf"</span><span class="hljs-punctuation">)</span><br>p2<br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><br><span class="hljs-comment">## 绘制高值混池SNP-index分布</span><br>p3 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>data <span class="hljs-operator">=</span> df<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_histogram<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> SNPindex.HIGH<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>pdf<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"SNPindex.HIGH.dis.pdf"</span><span class="hljs-punctuation">)</span><br>p3<br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 绘制低值混池SNP-index分布</span><br>p4 <span class="hljs-operator">&lt;-</span> ggplot<span class="hljs-punctuation">(</span>data <span class="hljs-operator">=</span> df<span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_histogram<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> SNPindex.LOW<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>pdf<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"SNPindex.LOW.dis.pdf"</span><span class="hljs-punctuation">)</span><br>p4<br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## SNP过滤</span><br><br>df_filt <span class="hljs-operator">&lt;-</span> filterSNPs<span class="hljs-punctuation">(</span><br>    SNPset <span class="hljs-operator">=</span> df<span class="hljs-punctuation">,</span><br>    refAlleleFreq <span class="hljs-operator">=</span> <span class="hljs-number">0.20</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## ref allele频率过滤，0.2表示0.2~0.8之间</span><br>    minTotalDepth <span class="hljs-operator">=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## 最小深度过滤</span><br>    maxTotalDepth <span class="hljs-operator">=</span> <span class="hljs-number">400</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## 最大深度过滤</span><br>    minSampleDepth <span class="hljs-operator">=</span> <span class="hljs-number">40</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## 单个样品最小深度</span><br>    minGQ <span class="hljs-operator">=</span> <span class="hljs-number">99</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## genotype quality 过滤</span><br>    verbose <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span>  <span class="hljs-comment">## 输出日志</span><br>  <span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 进行deltaSNPindex 计算</span><br>df_filt <span class="hljs-operator">&lt;-</span> runQTLseqAnalysis<span class="hljs-punctuation">(</span>df_filt<span class="hljs-punctuation">,</span><br>    windowSize <span class="hljs-operator">=</span> <span class="hljs-number">1e6</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## 窗口大小</span><br>    popStruc <span class="hljs-operator">=</span> <span class="hljs-string">"F2"</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">## 群体类型，F2 或者RIL</span><br>    bulkSize <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">385</span><span class="hljs-punctuation">,</span> <span class="hljs-number">430</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## 混样个数，第一个高值组</span><br>    replications <span class="hljs-operator">=</span> <span class="hljs-number">10000</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">## bootstrap次数</span><br>    intervals <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">95</span><span class="hljs-punctuation">,</span> <span class="hljs-number">99</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">## 置信区间</span><br><span class="hljs-punctuation">)</span><br><br><br><span class="hljs-comment">## SNP 沿染色体分布图</span><br>p5 <span class="hljs-operator">&lt;-</span> plotQTLStats<span class="hljs-punctuation">(</span>SNPset <span class="hljs-operator">=</span> df_filt<span class="hljs-punctuation">,</span> var <span class="hljs-operator">=</span> <span class="hljs-string">"nSNPs"</span><span class="hljs-punctuation">)</span><br>pdf<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"SNP_filter.window.pdf"</span><span class="hljs-punctuation">,</span> width <span class="hljs-operator">=</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span><br>p5<br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## deltaSNPindex沿染色体分布</span><br>p6 <span class="hljs-operator">&lt;-</span> plotQTLStats<span class="hljs-punctuation">(</span>SNPset <span class="hljs-operator">=</span> df_filt<span class="hljs-punctuation">,</span> var <span class="hljs-operator">=</span> <span class="hljs-string">"deltaSNP"</span><span class="hljs-punctuation">,</span> plotIntervals <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><br>pdf<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"deltaSNPindex.pdf"</span><span class="hljs-punctuation">,</span> width <span class="hljs-operator">=</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span><br>p6<br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 提取显著性区域</span><br>QTL <span class="hljs-operator">&lt;-</span> getSigRegions<span class="hljs-punctuation">(</span>SNPset <span class="hljs-operator">=</span> df_filt<span class="hljs-punctuation">,</span> <br>    method <span class="hljs-operator">=</span> <span class="hljs-string">"QTLseq"</span><span class="hljs-punctuation">,</span> interval <span class="hljs-operator">=</span> <span class="hljs-number">95</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 输出到文件</span><br>write.table<span class="hljs-punctuation">(</span>QTL<span class="hljs-punctuation">[[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">"QTLseq_result.SigRegions.table"</span><span class="hljs-punctuation">,</span><br>    sep<span class="hljs-operator">=</span><span class="hljs-string">"\t"</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">quote</span><span class="hljs-operator">=</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 提取QTLseq结果</span><br>results99 <span class="hljs-operator">&lt;-</span> getQTLTable<span class="hljs-punctuation">(</span><br>  SNPset <span class="hljs-operator">=</span> df_filt<span class="hljs-punctuation">,</span>  <br>  method <span class="hljs-operator">=</span> <span class="hljs-string">"QTLseq"</span><span class="hljs-punctuation">,</span> <br>  interval <span class="hljs-operator">=</span> <span class="hljs-number">99</span><span class="hljs-punctuation">,</span>  <span class="hljs-comment">## 结果阈值</span><br>  export <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment">## 输出到文件</span><br>write.table<span class="hljs-punctuation">(</span>results99<span class="hljs-punctuation">,</span><br>    file<span class="hljs-operator">=</span><span class="hljs-string">"QTLseq_result_deltaSNPindex_CI99.table"</span> <span class="hljs-punctuation">,</span><br>    sep<span class="hljs-operator">=</span><span class="hljs-string">"\t"</span><span class="hljs-punctuation">,</span> <span class="hljs-built_in">quote</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span><br><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="lumpy-sv"><a href="#lumpy-sv" class="headerlink" title="lumpy-sv"></a>lumpy-sv</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">lumpy-sv 依赖 Python2.7，切换到py27环境下进行安装。
+conda activate py27
+<span class="token function">git</span> clone <span class="token parameter variable">--recursive</span> https://github.com/arq5x/lumpy-sv.git
+<span class="token builtin class-name">cd</span> lumpy-sv
+<span class="token function">make</span>
+<span class="token comment">## 安装svtyper</span>
+conda <span class="token function">install</span> svtyper<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="cnvnator"><a href="#cnvnator" class="headerlink" title="cnvnator"></a>cnvnator</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">cnvnator依赖于root软件包及samtools软件包<span class="token punctuation">(</span>包含HTSlib<span class="token punctuation">)</span>，因此先安装Samtools及root软件包。
+
+<span class="token comment">## 安装samtools</span>
+<span class="token function">wget</span> https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
+<span class="token function">tar</span> <span class="token parameter variable">-xvf</span> samtools-1.9.tar.bz2
+<span class="token builtin class-name">cd</span> samtools-1.9/
+./configure
+<span class="token function">make</span>
+<span class="token comment">## 安装root软件, 直接下载后解压即可</span>
+<span class="token function">wget</span> https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+<span class="token function">tar</span> <span class="token parameter variable">-zxvf</span> root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+<span class="token comment">## 安装cnvnator</span>
+<span class="token function">git</span> clone https://github.com/abyzovlab/CNVnator.git
+<span class="token builtin class-name">cd</span> CNVnator
+<span class="token comment">## 链接samtools软件目录到cnvnator目录</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/samtools-1.9 ./samtools
+<span class="token comment">## 加载root软件到环境变量</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ROOTSYS</span><span class="token operator">=</span>/pub/software/root
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/pub/software/root/bin:<span class="token environment constant">$PATH</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span><span class="token builtin class-name">:</span><span class="token variable">$ROOTSYS</span>/lib
+<span class="token comment">## 安装cnvnator</span>
+<span class="token function">make</span> <span class="token assign-left variable">LIBS</span><span class="token operator">=</span><span class="token string">"-lcrypto"</span> 
+
+<span class="token function">less</span> <span class="token punctuation">..</span>/data/sample.list <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{ print "bwa mem -t 2 -R '</span><span class="token punctuation">\</span>'<span class="token string">'@RG\\tID:"$1"\\tSM:"$1"\\tPL:illumina'</span><span class="token punctuation">\</span>'<span class="token string">' ../01.ref/genome.fasta  ../data/"$1"_1.fq.gz ../data/"$1"_2.fq.gz |  /pub/software/samtools/samtools sort -@ 2 -m 1G -o "$1".sort.bam -" }'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="变异检测"><a href="#变异检测" class="headerlink" title="变异检测"></a>变异检测</h1><h2 id="构建基因组index"><a href="#构建基因组index" class="headerlink" title="构建基因组index"></a>构建基因组index</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># create link</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span>  <span class="token punctuation">..</span>/data/genome.fasta  ./genome.fasta
+
+<span class="token comment"># for gatk</span>
+samtools faidx genome.fasta 
+
+<span class="token comment"># for bwa</span>
+bwa index  genome.fasta  
+
+<span class="token comment"># for picard</span>
+picard CreateSequenceDictionary <span class="token assign-left variable">R</span><span class="token operator">=</span>genome.fasta<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="比对排序去重"><a href="#比对排序去重" class="headerlink" title="比对排序去重"></a>比对排序去重</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 比对排序</span>
+bwa mem <span class="token parameter variable">-t</span> <span class="token number">2</span> <span class="token parameter variable">-R</span> <span class="token string">'@RG\tID:S1\tSM:S1\tPL:illumina'</span> <span class="token punctuation">..</span>/01.ref/genome.fasta  <span class="token punctuation">..</span>/data/S1_1.fq.gz <span class="token punctuation">..</span>/data/S1_2.fq.gz <span class="token operator">|</span>  /pub/software/samtools/samtools <span class="token function">sort</span> -@ <span class="token number">2</span> <span class="token parameter variable">-m</span> 1G <span class="token parameter variable">-o</span> S1.sort.bam -
+bwa mem <span class="token parameter variable">-t</span> <span class="token number">2</span> <span class="token parameter variable">-R</span> <span class="token string">'@RG\tID:S2\tSM:S2\tPL:illumina'</span> <span class="token punctuation">..</span>/01.ref/genome.fasta  <span class="token punctuation">..</span>/data/S2_1.fq.gz <span class="token punctuation">..</span>/data/S2_2.fq.gz <span class="token operator">|</span>  /pub/software/samtools/samtools <span class="token function">sort</span> -@ <span class="token number">2</span> <span class="token parameter variable">-m</span> 1G <span class="token parameter variable">-o</span> S2.sort.bam -
+
+<span class="token comment"># 去除重复</span>
+picard <span class="token parameter variable">-Xmx4g</span>  MarkDuplicates <span class="token assign-left variable">I</span><span class="token operator">=</span>S1.sort.bam <span class="token assign-left variable">O</span><span class="token operator">=</span>S1.sort.rmdup.bam  <span class="token assign-left variable">CREATE_INDEX</span><span class="token operator">=</span>true  <span class="token assign-left variable">REMOVE_DUPLICATES</span><span class="token operator">=</span>true <span class="token assign-left variable">M</span><span class="token operator">=</span>S1.marked_dup_metrics.txt
+picard <span class="token parameter variable">-Xmx4g</span>  MarkDuplicates <span class="token assign-left variable">I</span><span class="token operator">=</span>S2.sort.bam <span class="token assign-left variable">O</span><span class="token operator">=</span>S2.sort.rmdup.bam  <span class="token assign-left variable">CREATE_INDEX</span><span class="token operator">=</span>true  <span class="token assign-left variable">REMOVE_DUPLICATES</span><span class="token operator">=</span>true <span class="token assign-left variable">M</span><span class="token operator">=</span>S2.marked_dup_metrics.txt
+
+<span class="token comment"># 比对率统计</span>
+/pub/software/samtools/samtools  flagstat  S1.sort.bam <span class="token operator">&gt;</span> S1.sort.bam.flagstat
+/pub/software/samtools/samtools  flagstat  S2.sort.bam <span class="token operator">&gt;</span> S2.sort.bam.flagstat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="SNP、Indel检测"><a href="#SNP、Indel检测" class="headerlink" title="SNP、Indel检测"></a>SNP、Indel检测</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.HaplotypeCaller</span>
+gatk --java-options <span class="token string">"-Xmx10g -Djava.io.tmpdir=./tmp"</span> HaplotypeCaller <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-I</span> <span class="token punctuation">..</span>/02.mapping/S1.sort.rmdup.bam  <span class="token parameter variable">-ERC</span> GVCF <span class="token parameter variable">-O</span> S1.g.vcf <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>S1.HC.log   <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+gatk --java-options <span class="token string">"-Xmx10g -Djava.io.tmpdir=./tmp"</span> HaplotypeCaller <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-I</span> <span class="token punctuation">..</span>/02.mapping/S2.sort.rmdup.bam  <span class="token parameter variable">-ERC</span> GVCF <span class="token parameter variable">-O</span> S2.g.vcf <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>S2.HC.log   <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+
+<span class="token comment"># step2.CombineGVCFs</span>
+<span class="token function">ls</span> ./S*.g.vcf <span class="token operator">&gt;</span> gvcf.list
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>    CombineGVCFs <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> gvcf.list  <span class="token parameter variable">-O</span> all.merge.g.vcf 
+
+<span class="token comment"># step3.GenotypeGVCFs</span>
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>   GenotypeGVCFs <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">--variant</span> all.merge.g.vcf <span class="token parameter variable">-O</span> all.merge_raw.vcf
+
+<span class="token comment"># step4.SNP</span>
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>  SelectVariants  <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> all.merge_raw.vcf --select-type SNP <span class="token parameter variable">-O</span> all.raw.snp.vcf
+
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>  VariantFiltration <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> all.raw.snp.vcf --filter-expression <span class="token string">"QD &lt; 2.0 || MQ &lt; 40.0 || FS &gt; 60.0 || SOR &gt; 3.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0"</span> --filter-name <span class="token string">'SNP_filter'</span> <span class="token parameter variable">-O</span> all.filter.snp.vcf
+
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>  SelectVariants  <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> all.filter.snp.vcf --exclude-filtered  <span class="token parameter variable">-O</span> all.filtered.snp.vcf
+
+<span class="token comment"># step5.InDel</span>
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>  SelectVariants  <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> all.merge_raw.vcf --select-type INDEL <span class="token parameter variable">-O</span> all.raw.indel.vcf
+
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>  VariantFiltration <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> all.raw.indel.vcf --filter-expression <span class="token string">"QD &lt; 2.0 || FS &gt; 200.0 || SOR &gt; 10.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0"</span> --filter-name <span class="token string">'INDEL_filter'</span> <span class="token parameter variable">-O</span> all.filter.indel.vcf
+
+gatk  --java-options <span class="token string">"-Xmx4g -Djava.io.tmpdir=./tmp"</span>  SelectVariants  <span class="token parameter variable">-R</span> <span class="token punctuation">..</span>/01.ref/genome.fasta <span class="token parameter variable">-V</span> all.filter.indel.vcf  --exclude-filtered   <span class="token parameter variable">-O</span> all.filtered.indel.vcf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="SV检测"><a href="#SV检测" class="headerlink" title="SV检测"></a>SV检测</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.discordants_bam</span>
+/pub/software/samtools/samtools view <span class="token parameter variable">-b</span> <span class="token parameter variable">-F</span> <span class="token number">1294</span> -@ <span class="token number">12</span> <span class="token punctuation">..</span>/02.mapping/S1.sort.rmdup.bam <span class="token operator">&gt;</span> S1.discordants.bam
+/pub/software/samtools/samtools view <span class="token parameter variable">-b</span> <span class="token parameter variable">-F</span> <span class="token number">1294</span> -@ <span class="token number">12</span> <span class="token punctuation">..</span>/02.mapping/S2.sort.rmdup.bam <span class="token operator">&gt;</span> S2.discordants.bam
+
+<span class="token comment"># step2.splitters_bam</span>
+/pub/software/samtools/samtools view <span class="token parameter variable">-h</span> <span class="token punctuation">..</span>/02.mapping/S1.sort.rmdup.bam <span class="token operator">|</span> /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem <span class="token parameter variable">-i</span> stdin <span class="token operator">|</span> /pub/software/samtools/samtools  <span class="token function">sort</span> -   <span class="token operator">&gt;</span> S1.splitters.bam
+/pub/software/samtools/samtools view <span class="token parameter variable">-h</span> <span class="token punctuation">..</span>/02.mapping/S2.sort.rmdup.bam <span class="token operator">|</span> /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem <span class="token parameter variable">-i</span> stdin <span class="token operator">|</span> /pub/software/samtools/samtools  <span class="token function">sort</span> -   <span class="token operator">&gt;</span> S2.splitters.bam
+
+<span class="token comment"># step3.lumpy</span>
+/pub/software/lumpy-sv/bin/lumpyexpress <span class="token parameter variable">-B</span> <span class="token punctuation">..</span>/02.mapping/S1.sort.rmdup.bam,<span class="token punctuation">..</span>/02.mapping/S2.sort.rmdup.bam  <span class="token parameter variable">-S</span> S1.splitters.bam,S2.splitters.bam   <span class="token parameter variable">-D</span> S1.discordants.bam,S2.discordants.bam <span class="token parameter variable">-o</span> all.sv.lumpy.vcf
+
+<span class="token comment"># step4.ind_genotype</span>
+vcftools <span class="token parameter variable">--vcf</span> all.sv.lumpy.vcf <span class="token parameter variable">--indv</span> S1 <span class="token parameter variable">--recode</span> --recode-INFO-all <span class="token parameter variable">--out</span> S1 <span class="token operator">&amp;&amp;</span> svtyper <span class="token parameter variable">-i</span> S1.recode.vcf <span class="token parameter variable">-B</span> <span class="token punctuation">..</span>/02.mapping/S1.sort.rmdup.bam  <span class="token parameter variable">-o</span> S1.genotype.vcf
+vcftools <span class="token parameter variable">--vcf</span> all.sv.lumpy.vcf <span class="token parameter variable">--indv</span> S2 <span class="token parameter variable">--recode</span> --recode-INFO-all <span class="token parameter variable">--out</span> S2 <span class="token operator">&amp;&amp;</span> svtyper <span class="token parameter variable">-i</span> S2.recode.vcf <span class="token parameter variable">-B</span> <span class="token punctuation">..</span>/02.mapping/S2.sort.rmdup.bam  <span class="token parameter variable">-o</span> S2.genotype.vcf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="CNV检测"><a href="#CNV检测" class="headerlink" title="CNV检测"></a>CNV检测</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.prepare_genome</span>
+
+<span class="token comment">## split genome into single sequence</span>
+
+ <span class="token function">ln</span> <span class="token parameter variable">-s</span>  <span class="token punctuation">..</span>/data/genome.fasta ./genome.fa
+
+ seqkit <span class="token function">split</span> <span class="token parameter variable">-i</span> ./genome.fa  <span class="token parameter variable">-O</span> <span class="token function">split</span>
+
+ <span class="token function">ls</span> ./split/genome.id_*.fa <span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/\.\/split\/genome\.id_//'</span> <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print "mv ./split/genome.id_"$aa"  ./split/"$aa}'</span> <span class="token operator">&gt;</span> mv_name.sh
+
+ <span class="token function">sh</span> mv_name.sh
+
+<span class="token comment"># step2.cnvnator</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">ROOTSYS</span><span class="token operator">=</span>/pub/software/root
+<span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span>/pub/software/root/bin:<span class="token environment constant">$PATH</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">LD_LIBRARY_PATH</span><span class="token operator">=</span><span class="token variable">$LD_LIBRARY_PATH</span><span class="token builtin class-name">:</span><span class="token variable">$ROOTSYS</span>/lib
+
+<span class="token comment">## 链接文件到当前目录</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/02.mapping/S1.sort.rmdup.bam 
+
+<span class="token comment">## 提取比对结果</span>
+/pub/software/CNVnator/cnvnator <span class="token parameter variable">-genome</span> genome.fa <span class="token parameter variable">-root</span> S1.root <span class="token parameter variable">-tree</span> S1.sort.rmdup.bam
+
+<span class="token comment">##生成深度分布</span>
+/pub/software/CNVnator/cnvnator <span class="token parameter variable">-genome</span> genome.fa <span class="token parameter variable">-root</span> S1.root <span class="token parameter variable">-his</span> <span class="token number">500</span>  <span class="token parameter variable">-d</span> <span class="token function">split</span>
+
+<span class="token comment">## 进行统计计算</span>
+/pub/software/CNVnator/cnvnator <span class="token parameter variable">-root</span> S1.root <span class="token parameter variable">-stat</span> <span class="token number">500</span>
+
+<span class="token comment">## 检查bin size是否合适</span>
+/pub/software/CNVnator/cnvnator <span class="token parameter variable">-root</span> S1.root <span class="token parameter variable">-eval</span> <span class="token number">500</span>  <span class="token operator">&gt;</span> S1.eval.ratio 
+
+<span class="token comment">## RD信号分割</span>
+/pub/software/CNVnator/cnvnator <span class="token parameter variable">-root</span> S1.root <span class="token parameter variable">-partition</span> <span class="token number">500</span>
+
+<span class="token comment">## 进行CNV检测</span>
+/pub/software/CNVnator/cnvnator <span class="token parameter variable">-root</span> S1.root  <span class="token parameter variable">-call</span> <span class="token number">500</span> <span class="token operator">&gt;</span> S1.cnv<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="SNP-INDEL注释"><a href="#SNP-INDEL注释" class="headerlink" title="SNP INDEL注释"></a>SNP INDEL注释</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.prepare_genome</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/data/genome.gtf 
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/data/genome.fasta
+
+gtfToGenePred  <span class="token parameter variable">-genePredExt</span> genome.gtf genome_refGene.txt
+/pub/software/annovar/retrieve_seq_from_fasta.pl <span class="token parameter variable">--format</span> refGene <span class="token parameter variable">--seqfile</span> genome.fasta genome_refGene.txt <span class="token parameter variable">--out</span> genome_refGeneMrna.fa
+
+<span class="token comment">#step2.ann_vcf</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span>  <span class="token punctuation">..</span>/03.SNP_indel/all.filtered.snp.vcf 
+
+/pub/software/annovar/convert2annovar.pl <span class="token parameter variable">-format</span> vcf4old all.filtered.snp.vcf  <span class="token operator">&gt;</span>all.snp.vcf.annovar.input
+
+/pub/software/annovar/annotate_variation.pl <span class="token parameter variable">-geneanno</span> <span class="token parameter variable">--neargene</span> <span class="token number">2000</span> <span class="token parameter variable">-buildver</span> genome <span class="token parameter variable">-dbtype</span> refGene <span class="token parameter variable">-outfile</span> all.anno <span class="token parameter variable">-exonsort</span> all.snp.vcf.annovar.input ./<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="CNV和SV注释"><a href="#CNV和SV注释" class="headerlink" title="CNV和SV注释"></a>CNV和SV注释</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">less</span> <span class="token parameter variable">-S</span> <span class="token punctuation">..</span>/04.SV/all.sv.lumpy.vcf<span class="token operator">|</span><span class="token function">awk</span> <span class="token parameter variable">-F</span> <span class="token string">";"</span> <span class="token string">'{ if($1!~/#/){print $1"\t"$2"\t"$3"\t"$4} }'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $1"\t"$2"\t"$11"\t"$3"\t"$8}'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/END=//'</span> <span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/SVTYPE=//'</span><span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'$3&lt;$2'</span> <span class="token operator">&gt;</span> SV.bed
+<span class="token function">less</span> <span class="token parameter variable">-S</span> <span class="token punctuation">..</span>/04.SV/all.sv.lumpy.vcf<span class="token operator">|</span><span class="token function">awk</span> <span class="token parameter variable">-F</span> <span class="token string">";"</span> <span class="token string">'{ if($1!~/#/){print $1"\t"$2"\t"$3"\t"$4} }'</span><span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $1"\t"$2"\t"$11"\t"$3"\t"$8}'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/END=//'</span> <span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/SVTYPE=//'</span>  <span class="token operator">&gt;</span> SV.bed
+<span class="token function">awk</span> <span class="token string">'$5 !~ /BND/'</span> SV.bed <span class="token operator">&gt;</span>  SV_filter.bed
+bedtools  intersect <span class="token parameter variable">-wo</span>  <span class="token parameter variable">-a</span> SV_filter.bed <span class="token parameter variable">-b</span> gene.gtf  <span class="token operator">&gt;</span> SV_filter.Anno
+<span class="token function">less</span> <span class="token parameter variable">-S</span> <span class="token punctuation">..</span>/05.CNV/S1.cnv <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print $2 "\t" $1}'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/:/\t/'</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/-/\t/'</span> <span class="token operator">&gt;</span> CNV.bed
+bedtools  intersect <span class="token parameter variable">-wo</span>  <span class="token parameter variable">-a</span>  CNV.bed  <span class="token parameter variable">-b</span> gene.gtf <span class="token operator">&gt;</span> CNV.Anno
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="群体结构"><a href="#群体结构" class="headerlink" title="群体结构"></a>群体结构</h1><h2 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">vcf</span><span class="token operator">=</span><span class="token punctuation">..</span>/data/all.vcf
+
+<span class="token comment">## filter missing and maf</span>
+plink <span class="token parameter variable">--vcf</span>  <span class="token variable">$vcf</span> <span class="token parameter variable">--geno</span> <span class="token number">0.1</span> <span class="token parameter variable">--maf</span> <span class="token number">0.01</span> <span class="token parameter variable">--out</span> all.missing_maf <span class="token parameter variable">--recode</span> vcf-iid  --allow-extra-chr --set-missing-var-ids @:<span class="token comment"># --keep-allele-order</span>
+
+<span class="token comment">## filter LD </span>
+plink <span class="token parameter variable">--vcf</span>  all.missing_maf.vcf  --indep-pairwise <span class="token number">50</span> <span class="token number">10</span> <span class="token number">0.2</span> <span class="token parameter variable">--out</span> tmp.ld   --allow-extra-chr --set-missing-var-ids @:<span class="token comment"># </span>
+plink <span class="token parameter variable">--vcf</span>  all.missing_maf.vcf  --make-bed <span class="token parameter variable">--extract</span> tmp.ld.prune.in  <span class="token parameter variable">--out</span> all.LDfilter <span class="token parameter variable">--recode</span> vcf-iid  --keep-allele-order  --allow-extra-chr --set-missing-var-ids @:<span class="token comment">#  </span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h2><h3 id="NJ"><a href="#NJ" class="headerlink" title="NJ"></a>NJ</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">perl  <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/script/vcf2phy.pl  <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/00.filter/all.LDfilter.vcf  <span class="token operator">&gt;</span> sequences.dat
+
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-e</span> <span class="token string">"sequences.dat<span class="token entity" title="\n">\n</span>Y"</span> <span class="token operator">&gt;</span> dnadist.cfg
+
+dnadist <span class="token operator">&lt;</span> dnadist.cfg  <span class="token operator">&gt;</span>dnadist.log
+
+<span class="token function">mv</span> outfile infile.dist
+
+<span class="token builtin class-name">echo</span> <span class="token parameter variable">-e</span> <span class="token string">"infile.dist<span class="token entity" title="\n">\n</span>Y"</span>  <span class="token operator">&gt;</span> neighbor.cfg
+
+neighbor  <span class="token operator">&lt;</span>  neighbor.cfg  <span class="token operator">&gt;</span>nj.log
+
+<span class="token function">less</span> infile.dist <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">'\n'</span> <span class="token string">'|'</span><span class="token operator">|</span> <span class="token function">sed</span> <span class="token string">'s/| / /g'</span> <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">'|'</span> <span class="token string">'\n'</span> <span class="token operator">&gt;</span>infile.dist.table
+<span class="token function">less</span> outtree <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">'\n'</span> <span class="token string">' '</span><span class="token operator">|</span><span class="token function">sed</span> <span class="token string">'s/ //g'</span> <span class="token operator">&gt;</span> outtree.nwk
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="tree-snphylo"><a href="#tree-snphylo" class="headerlink" title="tree_snphylo"></a>tree_snphylo</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/pub/software/SNPhylo/snphylo.sh <span class="token parameter variable">-v</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/00.filter/all.LDfilter.vcf <span class="token parameter variable">-r</span> <span class="token parameter variable">-l</span> <span class="token number">1</span> <span class="token parameter variable">-m</span> <span class="token number">0.01</span> <span class="token parameter variable">-o</span> GA0001 <span class="token parameter variable">-b</span> <span class="token parameter variable">-B</span> <span class="token number">2</span> <span class="token parameter variable">-P</span> tree_snphylo 
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">plink <span class="token parameter variable">--vcf</span>  <span class="token punctuation">..</span>/00.filter/all.LDfilter.vcf <span class="token parameter variable">--pca</span> <span class="token number">10</span> <span class="token parameter variable">--out</span>  PCA_out   --allow-extra-chr --set-missing-var-ids @:<span class="token comment"># </span>
+
+Rscript <span class="token punctuation">..</span>/script/draw_PCA.R  PCA_out.eigenvec <span class="token number">1</span> <span class="token number">2</span>  <span class="token punctuation">..</span>/data/sample.pop  PCA_out_figure
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="群体结构-1"><a href="#群体结构-1" class="headerlink" title="群体结构"></a>群体结构</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step0.vcf2bed</span>
+plink <span class="token parameter variable">--vcf</span>  <span class="token punctuation">..</span>/00.filter/all.LDfilter.vcf  --make-bed <span class="token parameter variable">--out</span> all  --allow-extra-chr --keep-allele-order --set-missing-var-ids @:<span class="token comment">#</span>
+
+<span class="token comment"># step1.get_Admix_shell</span>
+<span class="token function">seq</span> <span class="token number">2</span> <span class="token number">4</span> <span class="token operator">|</span> <span class="token function">awk</span> <span class="token string">'{print "admixture --cv -j2 all.bed "$1" 1&gt;admix."$1".log 2&gt;&amp;1"}'</span> <span class="token operator">&gt;</span> admixture.sh
+
+<span class="token comment"># step2.run_admix</span>
+<span class="token function">sh</span> admixture.sh
+
+<span class="token comment"># step3.draw_structure</span>
+<span class="token function">mkdir</span> result
+<span class="token function">cp</span>  ./*.Q result/
+Rscript  <span class="token punctuation">..</span>/script/draw_admixture.R result all.nosex  structure 
+
+<span class="token comment"># admixture</span>
+admixture <span class="token parameter variable">--cv</span> <span class="token parameter variable">-j2</span> all.bed <span class="token number">2</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>admix.2.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+admixture <span class="token parameter variable">--cv</span> <span class="token parameter variable">-j2</span> all.bed <span class="token number">3</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>admix.3.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+admixture <span class="token parameter variable">--cv</span> <span class="token parameter variable">-j2</span> all.bed <span class="token number">4</span> <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span>admix.4.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span><span class="token file-descriptor important">&amp;1</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="遗传衰减"><a href="#遗传衰减" class="headerlink" title="遗传衰减"></a>遗传衰减</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.LD_calcu</span>
+/pub/software/PopLDdecay/bin/PopLDdecay <span class="token parameter variable">-InVCF</span>  <span class="token punctuation">..</span>/data/all.vcf <span class="token parameter variable">-SubPop</span>  <span class="token punctuation">..</span>/data/pop.SC.table <span class="token parameter variable">-MaxDist</span> <span class="token number">500</span> <span class="token parameter variable">-OutStat</span> pop.SC.stat
+/pub/software/PopLDdecay/bin/PopLDdecay <span class="token parameter variable">-InVCF</span>  <span class="token punctuation">..</span>/data/all.vcf <span class="token parameter variable">-SubPop</span> <span class="token punctuation">..</span>/data/pop.YZR.table <span class="token parameter variable">-MaxDist</span> <span class="token number">500</span> <span class="token parameter variable">-OutStat</span> pop.YZR.stat
+
+<span class="token comment"># step2.draw_singlePlot</span>
+perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl <span class="token parameter variable">-inFile</span> pop.SC.stat.gz <span class="token parameter variable">-output</span> pop.SC.ld
+perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl <span class="token parameter variable">-inFile</span> pop.YZR.stat.gz <span class="token parameter variable">-output</span> pop.YZR.ld
+
+<span class="token comment"># step3.draw_multiPlotare/PopLDdecay/bin/Plot_MultiPop.pl -inList ld_stat.list -output ld_stat.multi</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="选择分析"><a href="#选择分析" class="headerlink" title="选择分析"></a>选择分析</h2><h3 id="i-ROD"><a href="#i-ROD" class="headerlink" title="i_ROD"></a>i_ROD</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.pi</span>
+<span class="token assign-left variable">vcf</span><span class="token operator">=</span><span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/all.vcf
+<span class="token assign-left variable">window</span><span class="token operator">=</span><span class="token number">20000</span>
+<span class="token assign-left variable">step</span><span class="token operator">=</span><span class="token number">2000</span>
+vcftools  <span class="token parameter variable">--vcf</span> <span class="token variable">$vcf</span> --window-pi <span class="token variable">$window</span> --window-pi-step  <span class="token variable">$step</span>  <span class="token parameter variable">--keep</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/pop.SC.table   <span class="token parameter variable">--out</span> ./Pi.pop1
+vcftools  <span class="token parameter variable">--vcf</span> <span class="token variable">$vcf</span> --window-pi <span class="token variable">$window</span> --window-pi-step  <span class="token variable">$step</span>  <span class="token parameter variable">--keep</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/pop.YZR.table  <span class="token parameter variable">--out</span> ./Pi.pop2
+
+<span class="token comment"># step2.ROD</span>
+<span class="token assign-left variable">pi1</span><span class="token operator">=</span>Pi.pop1.windowed.pi
+<span class="token assign-left variable">pi2</span><span class="token operator">=</span>Pi.pop2.windowed.pi
+perl <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/script/merge2pi_ROD.pl <span class="token variable">$pi1</span> <span class="token variable">$pi2</span>  <span class="token operator">&gt;</span>Pi.ROD 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="tajimaD"><a href="#tajimaD" class="headerlink" title="tajimaD"></a>tajimaD</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">vcf</span><span class="token operator">=</span><span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/all.vcf
+<span class="token assign-left variable">window</span><span class="token operator">=</span><span class="token number">20000</span>
+
+vcftools <span class="token parameter variable">--vcf</span> <span class="token variable">$vcf</span> <span class="token parameter variable">--TajimaD</span>  <span class="token variable">$window</span>  <span class="token parameter variable">--keep</span>  <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/pop.SC.table  <span class="token parameter variable">--out</span> TajimaD.pop1
+vcftools <span class="token parameter variable">--vcf</span> <span class="token variable">$vcf</span> <span class="token parameter variable">--TajimaD</span>  <span class="token variable">$window</span>  <span class="token parameter variable">--keep</span>  <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/pop.YZR.table <span class="token parameter variable">--out</span>   TajimaD.pop2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Fst"><a href="#Fst" class="headerlink" title="Fst"></a>Fst</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">vcf</span><span class="token operator">=</span><span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/all.vcf
+<span class="token assign-left variable">window</span><span class="token operator">=</span><span class="token number">20000</span>
+<span class="token assign-left variable">step</span><span class="token operator">=</span><span class="token number">2000</span>
+vcftools  <span class="token parameter variable">--vcf</span> <span class="token variable">$vcf</span> --fst-window-size <span class="token variable">$window</span> --fst-window-step <span class="token variable">$step</span>  --weir-fst-pop  <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/pop.SC.table --weir-fst-pop <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/pop.YZR.table <span class="token parameter variable">--out</span>  ./Fst.pop1.pop2
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="ROD-Fst"><a href="#ROD-Fst" class="headerlink" title="ROD_Fst"></a>ROD_Fst</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">fst</span><span class="token operator">=</span><span class="token punctuation">..</span>/03.Fst/Fst.pop1.pop2.windowed.weir.fst
+<span class="token assign-left variable">ROD</span><span class="token operator">=</span><span class="token punctuation">..</span>/01.pi_ROD/Pi.ROD
+<span class="token assign-left variable">gff</span><span class="token operator">=</span><span class="token punctuation">..</span>/<span class="token punctuation">..</span>/data/genome.gff
+
+perl <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/script/top_Fst_ROD_S.pl  <span class="token variable">$fst</span> <span class="token variable">$ROD</span> <span class="token number">0.05</span> <span class="token number">0.05</span>  Fst_ROD.table Fst_ROD.stat
+
+<span class="token function">awk</span> <span class="token string">'$NF=="top"'</span> Fst_ROD.table  <span class="token operator">&gt;</span> Fst_ROD.table.top
+
+
+<span class="token function">awk</span> <span class="token string">'$3=="gene"'</span> <span class="token variable">$gff</span> <span class="token operator">&gt;</span> gene.gff
+
+bedtools  intersect <span class="token parameter variable">-wo</span> <span class="token parameter variable">-F</span> <span class="token number">0.1</span>  <span class="token parameter variable">-a</span>  Fst_ROD.table.top <span class="token parameter variable">-b</span> gene.gff <span class="token operator">|</span> <span class="token function">awk</span> <span class="token parameter variable">-F</span> <span class="token string">"<span class="token entity" title="\t">\t</span>"</span>  <span class="token string">'{print $7"\t"$10"\t"$11"\t"$13"\t"$15}'</span> <span class="token operator">|</span> <span class="token function">sort</span> <span class="token parameter variable">-u</span>  <span class="token operator">&gt;</span> Fst_ROD.table.top.gene
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h1><h2 id="mpute"><a href="#mpute" class="headerlink" title="mpute"></a>mpute</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">beagle <span class="token parameter variable">-Xmx4g</span>  <span class="token parameter variable">-Djava.io.tmpdir</span><span class="token operator">=</span>./TMP  <span class="token assign-left variable">gt</span><span class="token operator">=</span><span class="token punctuation">..</span>/data/all.vcf   <span class="token assign-left variable">out</span><span class="token operator">=</span>all.impute <span class="token assign-left variable">impute</span><span class="token operator">=</span>true <span class="token assign-left variable">window</span><span class="token operator">=</span><span class="token number">10</span> <span class="token assign-left variable">nthreads</span><span class="token operator">=</span><span class="token number">2</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="GWAS-1"><a href="#GWAS-1" class="headerlink" title="GWAS"></a>GWAS</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step1.prepare</span>
+<span class="token comment">## prepare vcf</span>
+plink <span class="token parameter variable">--vcf</span> <span class="token punctuation">..</span>/data/all.vcf <span class="token parameter variable">--maf</span> <span class="token number">0.05</span> <span class="token parameter variable">--geno</span> <span class="token number">0.1</span>  <span class="token parameter variable">--recode12</span>  --output-missing-genotype <span class="token number">0</span> <span class="token parameter variable">--transpose</span> <span class="token parameter variable">--out</span> snp_filter   --set-missing-var-ids @:<span class="token comment">#  --allow-extra-chr</span>
+
+
+<span class="token comment">## prepare phenotype</span>
+
+perl <span class="token punctuation">..</span>/script/sort_pheno.pl snp_filter.tfam <span class="token punctuation">..</span>/data/trait.table <span class="token operator">&gt;</span> trait.sort.txt
+
+<span class="token comment"># step2.kinship</span>
+/pub/software/emmax/emmax-kin-intel64 <span class="token parameter variable">-v</span> <span class="token parameter variable">-d</span> <span class="token number">10</span>  <span class="token parameter variable">-o</span> ./pop.kinship  snp_filter
+
+<span class="token comment"># step3.gwas</span>
+/pub/software/emmax/emmax-intel64 <span class="token parameter variable">-v</span> <span class="token parameter variable">-d</span> <span class="token number">10</span> <span class="token parameter variable">-t</span> snp_filter  <span class="token parameter variable">-p</span> trait.sort.txt <span class="token parameter variable">-k</span> pop.kinship   <span class="token parameter variable">-o</span> emmax.out <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> emmax.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>emmax.err
+
+<span class="token comment"># draw_manhattan</span>
+<span class="token function">paste</span>  snp_filter.map  emmax.out.ps <span class="token operator">|</span> <span class="token function">awk</span>  <span class="token string">'BEGIN{print "SNP\tCHR\tBP\tP"}{if($2==$5){print $2"\t"$1"\t"$4"\t"$NF}}'</span>  <span class="token operator">&gt;</span> emmax.out.ps.manht_input
+Rscript <span class="token punctuation">..</span>/script/manhattan.R emmax.out.ps.manht_input  emmax.out.ps.manht_figure
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="GWAS-Q"><a href="#GWAS-Q" class="headerlink" title="GWAS-Q"></a>GWAS-Q</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># step3.gwas</span>
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/01.GWAS/snp_filter.tped
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/01.GWAS/snp_filter.tfam
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/01.GWAS/snp_filter.nosex
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/01.GWAS/snp_filter.map
+
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/01.GWAS/trait.sort.txt
+<span class="token function">ln</span> <span class="token parameter variable">-s</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/02.population_genetics/03.structure/all.3.Q
+
+<span class="token function">paste</span> snp_filter.nosex all.3.Q <span class="token operator">|</span><span class="token function">awk</span> <span class="token string">'{print $1" "$1" 1 "$3" "$4}'</span>  <span class="token operator">&gt;</span> pop.Qmatrix
+
+/pub/software/emmax/emmax-intel64 <span class="token parameter variable">-v</span> <span class="token parameter variable">-d</span> <span class="token number">10</span> <span class="token parameter variable">-t</span> snp_filter  <span class="token parameter variable">-p</span> trait.sort.txt <span class="token parameter variable">-k</span> pop.kinship <span class="token parameter variable">-c</span> pop.Qmatrix   <span class="token parameter variable">-o</span> emmax.out <span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> emmax.log <span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span>emmax.err
+
+<span class="token comment"># step4.draw_manhattan</span>
+<span class="token function">paste</span>  snp_filter.map  emmax.out.ps <span class="token operator">|</span> <span class="token function">awk</span>  <span class="token string">'BEGIN{print "SNP\tCHR\tBP\tP"}{if($2==$5){print $2"\t"$1"\t"$4"\t"$NF}}'</span>  <span class="token operator">&gt;</span> emmax.out.ps.manht_input
+Rscript <span class="token punctuation">..</span>/script/manhattan.R emmax.out.ps.manht_input  emmax.out.ps.manht_figure_Q
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="GWAS-realData"><a href="#GWAS-realData" class="headerlink" title="GWAS_realData"></a>GWAS_realData</h2><pre class="line-numbers language-less" data-language="less"><code class="language-less"># step1.prepare
+## prepare vcf
+plink <span class="token operator">-</span><span class="token operator">-</span>vcf  ..<span class="token operator">/</span>data_real<span class="token operator">/</span>Sample215.M5M8H3.2allel.vcf  <span class="token operator">-</span><span class="token operator">-</span>maf 0.05 <span class="token operator">-</span><span class="token operator">-</span>geno 0.1  <span class="token operator">-</span><span class="token operator">-</span>recode12  <span class="token operator">-</span><span class="token operator">-</span>output<span class="token operator">-</span>missing<span class="token operator">-</span>genotype 0 <span class="token operator">-</span><span class="token operator">-</span>transpose <span class="token operator">-</span><span class="token operator">-</span>out snp_filter   <span class="token operator">-</span><span class="token operator">-</span>set<span class="token operator">-</span>missing<span class="token operator">-</span>var<span class="token operator">-</span>ids @<span class="token selector">:#  --allow-extra-chr
+
+
+## prepare phenotype
+
+perl ../script/sort_pheno.pl snp_filter.tfam  ../data_real/trait.C16_0.table  &gt; trait.sort.txt
+
+# step2.kinship
+/pub/software/emmax/emmax-kin-intel64 -v -d 10  -o ./pop.kinship  snp_filter
+
+# step3.gwas
+/pub/software/emmax/emmax-intel64 -v -d 10 -t snp_filter  -p trait.sort.txt -k pop.kinship   -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
+
+# step4.draw_manhattan
+paste  snp_filter.map  emmax.out.ps | awk  'BEGIN</span><span class="token punctuation">{</span>print <span class="token string">"SNP\tCHR\tBP\tP"</span><span class="token punctuation">}</span><span class="token punctuation">{</span><span class="token selector">if($2==$5)</span><span class="token punctuation">{</span>print $2<span class="token string">"\t"</span>$1<span class="token string">"\t"</span>$4<span class="token string">"\t"</span>$NF<span class="token punctuation">}</span><span class="token punctuation">}</span>'  &gt; emmax.out.ps.manht_input
+Rscript ..<span class="token operator">/</span>script<span class="token operator">/</span>manhattan.R emmax.out.ps.manht_input  emmax.out.ps.manht_figure_readData
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="QTL-seq"><a href="#QTL-seq" class="headerlink" title="QTL-seq"></a>QTL-seq</h1><h2 id="change-VCF2Table"><a href="#change-VCF2Table" class="headerlink" title="change_VCF2Table"></a>change_VCF2Table</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">ref</span><span class="token operator">=</span>
+<span class="token assign-left variable">vcf</span><span class="token operator">=</span>
+<span class="token assign-left variable">outfile</span><span class="token operator">=</span>
+gatk  VariantsToTable <span class="token parameter variable">-R</span>  <span class="token variable">$ref</span> <span class="token parameter variable">-V</span> <span class="token variable">$vcf</span> <span class="token parameter variable">-F</span> CHROM <span class="token parameter variable">-F</span> POS <span class="token parameter variable">-F</span> REF <span class="token parameter variable">-F</span> ALT <span class="token parameter variable">-GF</span> AD <span class="token parameter variable">-GF</span> DP <span class="token parameter variable">-GF</span> GQ <span class="token parameter variable">-GF</span> PL <span class="token parameter variable">-O</span>  <span class="token variable">$outfile</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="QTLSeq-Analysis"><a href="#QTLSeq-Analysis" class="headerlink" title="QTLSeq_Analysis"></a>QTLSeq_Analysis</h2><pre class="line-numbers language-R" data-language="R"><code class="language-R">library(QTLseqr)
+library("ggplot2")
+
+
+HighBulk &lt;- "SRR834931" ## 高值混池名称
+LowBulk &lt;- "SRR834927"  ## 低值混池名称
+Chroms &lt;- paste0(rep("Chr", 12), 1:12) ## 染色体列表
+
+## SNP数据读取
+df &lt;- importFromGATK(file = "../data/Yang_et_al_2013.table" ,
+    highBulk = HighBulk, # 指定高值混池
+    lowBulk = LowBulk, # 指定低至混池
+    chromList = Chroms # 指定分析用染色体列表
+    ) 
+
+
+## 绘制深度分布图 
+
+p1 &lt;- ggplot(data = df) +
+  geom_histogram(aes(x = DP.HIGH + DP.LOW)) +
+  xlim(0,800)
+  
+pdf(file="SNP_depth.pdf")
+p1
+dev.off()
+
+## 绘制ref等位基因频率分布图
+p2 &lt;- ggplot(data = df) +
+  geom_histogram(aes(x = REF_FRQ))
+  
+pdf(file="ref_allele_frequency.pdf")
+p2
+dev.off()
+
+
+## 绘制高值混池SNP-index分布
+p3 &lt;- ggplot(data = df) +
+  geom_histogram(aes(x = SNPindex.HIGH))
+pdf(file="SNPindex.HIGH.dis.pdf")
+p3
+dev.off()
+
+## 绘制低值混池SNP-index分布
+p4 &lt;- ggplot(data = df) +
+  geom_histogram(aes(x = SNPindex.LOW))
+
+pdf(file="SNPindex.LOW.dis.pdf")
+p4
+dev.off()
+
+## SNP过滤
+
+df_filt &lt;- filterSNPs(
+    SNPset = df,
+    refAlleleFreq = 0.20, ## ref allele频率过滤，0.2表示0.2~0.8之间
+    minTotalDepth = 100, ## 最小深度过滤
+    maxTotalDepth = 400, ## 最大深度过滤
+    minSampleDepth = 40, ## 单个样品最小深度
+    minGQ = 99, ## genotype quality 过滤
+    verbose = TRUE  ## 输出日志
+  )
+
+## 进行deltaSNPindex 计算
+df_filt &lt;- runQTLseqAnalysis(df_filt,
+    windowSize = 1e6, ## 窗口大小
+    popStruc = "F2",  ## 群体类型，F2 或者RIL
+    bulkSize = c(385, 430), ## 混样个数，第一个高值组
+    replications = 10000, ## bootstrap次数
+    intervals = c(95, 99) ## 置信区间
+)
+
+
+## SNP 沿染色体分布图
+p5 &lt;- plotQTLStats(SNPset = df_filt, var = "nSNPs")
+pdf(file="SNP_filter.window.pdf", width = 20, height = 4)
+p5
+dev.off()
+
+## deltaSNPindex沿染色体分布
+p6 &lt;- plotQTLStats(SNPset = df_filt, var = "deltaSNP", plotIntervals = TRUE)
+pdf(file="deltaSNPindex.pdf", width = 20, height = 4)
+p6
+dev.off()
+
+## 提取显著性区域
+QTL &lt;- getSigRegions(SNPset = df_filt, 
+    method = "QTLseq", interval = 95)
+
+## 输出到文件
+write.table(QTL[[1]],
+    "QTLseq_result.SigRegions.table",
+    sep="\t",quote=F)
+
+## 提取QTLseq结果
+results99 &lt;- getQTLTable(
+  SNPset = df_filt,  
+  method = "QTLseq", 
+  interval = 99,  ## 结果阈值
+  export = FALSE)
+
+## 输出到文件
+write.table(results99,
+    file="QTLseq_result_deltaSNPindex_CI99.table" ,
+    sep="\t", quote = F)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <hr>
 <blockquote>
 <p>💌lixiang117423@gmail.com</p>
 <p>💌lixiang117423@foxmail.com</p>
 </blockquote>
-
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/" class="category-chain-item">生物信息学 - 群体遗传学 - Linux</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
-      
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>重测序分析脚本</div>
-      <div>https://lixiang117423.github.io/article/5269tghy/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>小蓝哥</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2021年11月23日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/article/8955ljki/" title="NCBI-blast-本地比对">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">NCBI-blast-本地比对</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/article/10120676/" title="GENIE3构建基因调控网络">
-                        <span class="hidden-mobile">GENIE3构建基因调控网络</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+</div><div class="article-licensing box"><div class="licensing-title"><p>重测序分析脚本</p><p><a href="https://lixiang117423.github.io/article/5269tghy/">https://lixiang117423.github.io/article/5269tghy/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>小蓝哥</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-11-23</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-12-10</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a><a class="link-muted mr-2" rel="tag" href="/tags/Linux/">Linux</a></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>爱发电</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/article/8955ljki/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">NCBI-blast-本地比对</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/article/10120676/"><span class="level-item">GENIE3构建基因调控网络</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">264</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">63</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Julia/"><span class="level-start"><span class="level-item">Julia</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/R%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">R语言</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools4You/"><span class="level-start"><span class="level-item">Tools4You</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/swxxx/"><span class="level-start"><span class="level-item">swxxx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="level-start"><span class="level-item">分子生物学</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E8%83%BD/"><span class="level-start"><span class="level-item">技能</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE/"><span class="level-start"><span class="level-item">文献</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文献阅读</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%9D%82%E6%96%87/"><span class="level-start"><span class="level-item">杂文</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物信息学</span></span><span class="level-end"><span class="level-item tag">150</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/"><span class="level-start"><span class="level-item">生物信息学 - 群体遗传学 - Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物学信息学</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A7%91%E7%A0%94/"><span class="level-start"><span class="level-item">科研</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="level-start"><span class="level-item">统计学</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="level-start"><span class="level-item">软件使用</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2222-12-30T16:00:00.000Z">2222-12-31</time></p><p class="title"><a href="/article/bioinf2allin1/">我的生物信息学知识合集</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-25T02:36:54.000Z">2024-11-25</time></p><p class="title"><a href="/article/gettaxonomy/">从NCBI批量获取物种的分类信息</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-10T01:29:14.000Z">2024-10-10</time></p><p class="title"><a href="/article/dnamethylation/">全基因组DNA甲基化分析流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-24T03:37:16.000Z">2024-09-24</time></p><p class="title"><a href="/article/bismarkbug/">bismark过程中的一个小细节</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-29T01:40:57.000Z">2024-08-29</time></p><p class="title"><a href="/article/secretome4fungi/">真菌分泌蛋白预测流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2222/12/"><span class="level-start"><span class="level-item">十二月 2222</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">十一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">十一月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">八月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Bookdown/"><span class="tag">Bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFF3/"><span class="tag">GFF3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Htseq/"><span class="tag">Htseq</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JupyterLab/"><span class="tag">JupyterLab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">Nginx端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/QIIME2/"><span class="tag">QIIME2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R/"><span class="tag">R</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-%E8%AF%AD%E8%A8%80/"><span class="tag">R 语言</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RNA-Seq/"><span class="tag">RNA-Seq</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSS/"><span class="tag">RSS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R%E8%AF%AD%E8%A8%80/"><span class="tag">R语言</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shiny/"><span class="tag">Shiny</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tools4You/"><span class="tag">Tools4You</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/T%E6%A3%80%E9%AA%8C/"><span class="tag">T检验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bookdown/"><span class="tag">bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/conda/"><span class="tag">conda</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/fasta%E6%96%87%E4%BB%B6/"><span class="tag">fasta文件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/featurecounts/"><span class="tag">featurecounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gffread/"><span class="tag">gffread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitee/"><span class="tag">gitee</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pfastq-dump/"><span class="tag">pfastq-dump</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/qPCR/"><span class="tag">qPCR</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shiny4qPCR/"><span class="tag">shiny4qPCR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/"><span class="tag">代谢组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%8D%E7%96%AB-%E7%94%9F%E9%95%BF%E5%B9%B3%E8%A1%A1/"><span class="tag">免疫-生长平衡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="tag">分子生物学</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="tag">博客搭建</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"><span class="tag">回归分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F/"><span class="tag">基因家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84/"><span class="tag">基因组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%BF%E5%9B%8A%E7%B4%A0/"><span class="tag">尿囊素</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/"><span class="tag">微生物组学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E8%83%BD/"><span class="tag">技能</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE/"><span class="tag">文献</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="tag">文献阅读</span><span class="tag">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">是生物信息学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%82%E6%96%87/"><span class="tag">杂文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">生物信息学</span><span class="tag">156</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%A7/"><span class="tag">相关性</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/"><span class="tag">科研思维</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="tag">统计学</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/"><span class="tag">转录组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="tag">软件使用</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"><span class="tag">软件安装</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"><span class="tag">软件相关</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%81%97%E4%BC%A0%E5%AD%A6/"><span class="tag">遗传学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%85%8D%E8%89%B2/"><span class="tag">配色</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a><p class="is-size-7"><span>&copy; 2024 小蓝哥</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

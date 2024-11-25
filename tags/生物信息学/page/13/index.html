@@ -1,411 +1,739 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>标签: 生物信息学 - 小蓝哥的知识荒原</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小蓝哥的知识荒原"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小蓝哥的知识荒原"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="活在当下，正向提升！"><meta property="og:type" content="blog"><meta property="og:title" content="小蓝哥的知识荒原"><meta property="og:url" content="https://lixiang117423.github.io/"><meta property="og:site_name" content="小蓝哥的知识荒原"><meta property="og:description" content="活在当下，正向提升！"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://lixiang117423.github.io/img/og_image.png"><meta property="article:author" content="小蓝哥"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://lixiang117423.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lixiang117423.github.io"},"headline":"小蓝哥的知识荒原","image":["https://lixiang117423.github.io/img/og_image.png"],"author":{"@type":"Person","name":"小蓝哥"},"publisher":{"@type":"Organization","name":"小蓝哥的知识荒原","logo":{"@type":"ImageObject","url":"https://lixiang117423.github.io/img/logo.svg"}},"description":"活在当下，正向提升！"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="小蓝哥">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
-  
-    <meta name="description" content="活在当下，正向提升！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签 - 生物信息学">
-<meta property="og:url" content="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/13/index.html">
-<meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="活在当下，正向提升！">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="小蓝哥">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>标签 - 生物信息学 - 小蓝哥的知识荒原</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0">
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
-</head>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">生物信息学</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/mybioinf/"><img class="fill" src="/true" alt="生物信息学知识库"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-13T10:55:14.000Z" title="2022/8/13 18:55:14">2022-08-13</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:19.135Z" title="2023/12/10 13:18:19">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">8 分钟读完 (大约1163个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/mybioinf/">生物信息学知识库</a></p><div class="content"><h2 id="浅言前言"><a href="#浅言前言" class="headerlink" title="浅言前言"></a>浅言前言</h2><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h2 id="Linux基础"><a href="#Linux基础" class="headerlink" title="Linux基础"></a>Linux基础</h2><h3 id="报错及解决方案"><a href="#报错及解决方案" class="headerlink" title="报错及解决方案"></a>报错及解决方案</h3><ul>
+<li><code>Some index files failed to download. They have been ignored, or old ones used instead.</code>：编辑<code>vi /etc/resolv.conf</code>，加入：</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none">nameserver 8.8.8.8
+nameserver 8.8.4.4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><ul>
+<li>不同域名指定端口</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Default server configuration</span>
+<span class="token comment">#</span>
+server <span class="token punctuation">{</span>
+	listen <span class="token number">80</span> default_server<span class="token punctuation">;</span>
+	listen <span class="token punctuation">[</span>::<span class="token punctuation">]</span>:80 default_server<span class="token punctuation">;</span>
 
+	root /var/www/html<span class="token punctuation">;</span>
 
-<body>
-  
+	<span class="token comment"># Add index.php to the list if you are using PHP</span>
+	index index.html index.htm index.nginx-debian.html<span class="token punctuation">;</span>
 
-  <header>
-    
+	server_name _<span class="token punctuation">;</span>
 
-<div class="header-inner" style="height: 80vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>小蓝哥的知识荒原</strong>
-    </a>
+	location / <span class="token punctuation">{</span>
+		<span class="token comment"># First attempt to serve request as file, then</span>
+		<span class="token comment"># as directory, then fall back to displaying a 404.</span>
+		try_files <span class="token variable">$uri</span> <span class="token variable">$uri</span>/ <span class="token operator">=</span><span class="token number">404</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
+server <span class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name xxx.xxx.com<span class="token punctuation">;</span>
+    location / <span class="token punctuation">{</span>
+        proxy_pass http://localhost:3000<span class="token punctuation">;</span>
+        proxy_set_header Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        proxy_set_header X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+        proxy_set_header X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        proxy_set_header X-Forwarded-Proto <span class="token variable">$scheme</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
+server <span class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name xxx.xxx.com<span class="token punctuation">;</span>
+    location / <span class="token punctuation">{</span>
+        proxy_pass http://localhost:1288<span class="token punctuation">;</span>
+        proxy_set_header Host <span class="token variable">$host</span><span class="token punctuation">;</span>
+        proxy_set_header X-Real-IP <span class="token variable">$remote_addr</span><span class="token punctuation">;</span>
+        proxy_set_header X-Forwarded-For <span class="token variable">$proxy_add_x_forwarded_for</span><span class="token punctuation">;</span>
+        proxy_set_header X-Forwarded-Proto <span class="token variable">$scheme</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ul>
+<li><p><a target="_blank" rel="noopener" href="https://busco.ezlab.org/">BUSCO</a>：基因组组装质量评估软件。</p>
+<ul>
+<li>使用教程：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/5041460f7a5d">简书链接</a></li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.addgene.org/">Addgene</a>：非营利性的质粒库</p>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.primer3plus.com/">Primer3Plus</a>：引物设计</li>
+<li><a target="_blank" rel="noopener" href="https://transcriptionfactor.org/">DBD</a>：转录因子预测数据库</li>
+<li><a href="Plant Transcription Factor Database">Plant Transcription Factor Database</a>：植物转录因子数据库</li>
+<li><a target="_blank" rel="noopener" href="https://bis.zju.edu.cn/ricenetdb/"><em>RiceNetDB</em></a>：水稻基因互作数据库（浙大）</li>
+<li><a target="_blank" rel="noopener" href="https://cgm.sjtu.edu.cn/3kricedb/">RPAN: Rice Pan-genome Browser</a>：水稻泛基因组数据库（上海交大）</li>
+<li><a target="_blank" rel="noopener" href="https://ftp.ncbi.nih.gov/blast/db/">NCBI blast数据库</a></li>
+<li><a target="_blank" rel="noopener" href="https://nmdc.cn/datadownload">国家微生物数据科学中心数据下载</a></li>
+<li><a target="_blank" rel="noopener" href="http://systbio.cau.edu.cn/plad/index.php">PlaD</a>：植物对病原体防御反应的转录组学数据库</li>
+<li><a target="_blank" rel="noopener" href="http://ipf.sustech.edu.cn/pub/ricerna/">植物转录组表达数据库</a></li>
+<li><a target="_blank" rel="noopener" href="https://jaspar.genereg.net/">JASPAR：预测转录因子结合位点的网站</a></li>
+<li>NAR专刊: <a target="_blank" rel="noopener" href="https://academic.oup.com/nar/issue/47/D1">各种数据库文章</a></li>
+<li><a target="_blank" rel="noopener" href="http://ipf.sustech.edu.cn/pub/plantrna/">南方科技大学-植物转录组数据库</a></li>
+</ul>
+<h2 id="序列处理"><a href="#序列处理" class="headerlink" title="序列处理"></a>序列处理</h2><h3 id="从基因组提取蛋白序列"><a href="#从基因组提取蛋白序列" class="headerlink" title="从基因组提取蛋白序列"></a>从基因组提取蛋白序列</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">gffread genome.gff <span class="token parameter variable">-g</span> genome.fa <span class="token parameter variable">-y</span> <span class="token number">100</span>.pep<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="从基因组提取基因序列"><a href="#从基因组提取基因序列" class="headerlink" title="从基因组提取基因序列"></a>从基因组提取基因序列</h3><p>搜索半天找不到合适的工具，让ChatGPT写了一个：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> Bio <span class="token keyword">import</span> SeqIO
+<span class="token keyword">import</span> gffutils
+<span class="token keyword">import</span> argparse
+
+<span class="token comment"># 解析命令行参数</span>
+parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span>description<span class="token operator">=</span><span class="token string">"Extract gene sequences from genome and GFF files."</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"-genome"</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">"genome_file"</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"Path to the genome FASTA file"</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"-gff"</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">"gff_file"</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"Path to the GFF3 file"</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span><span class="token string">"-out"</span><span class="token punctuation">,</span> dest<span class="token operator">=</span><span class="token string">"out_file"</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span> <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">"Path to the output file"</span><span class="token punctuation">)</span>
+args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 读取基因组序列</span>
+genome_seq <span class="token operator">=</span> SeqIO<span class="token punctuation">.</span>to_dict<span class="token punctuation">(</span>SeqIO<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>args<span class="token punctuation">.</span>genome_file<span class="token punctuation">,</span> <span class="token string">"fasta"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 读取GFF文件并建立数据库</span>
+db_file <span class="token operator">=</span> args<span class="token punctuation">.</span>gff_file <span class="token operator">+</span> <span class="token string">".db"</span>
+db <span class="token operator">=</span> gffutils<span class="token punctuation">.</span>create_db<span class="token punctuation">(</span>args<span class="token punctuation">.</span>gff_file<span class="token punctuation">,</span> dbfn<span class="token operator">=</span>db_file<span class="token punctuation">,</span> force<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 遍历所有基因，提取核酸序列并输出到文件</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>out_file<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> out_file<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> gene <span class="token keyword">in</span> db<span class="token punctuation">.</span>features_of_type<span class="token punctuation">(</span><span class="token string">"gene"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token comment"># 获取基因序列的位置信息</span>
+        seq_region <span class="token operator">=</span> gene<span class="token punctuation">.</span>seqid
+        start <span class="token operator">=</span> gene<span class="token punctuation">.</span>start
+        end <span class="token operator">=</span> gene<span class="token punctuation">.</span>end
+        strand <span class="token operator">=</span> gene<span class="token punctuation">.</span>strand
         
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+        <span class="token comment"># 从基因组序列中提取基因核酸序列</span>
+        <span class="token keyword">if</span> seq_region <span class="token keyword">in</span> genome_seq<span class="token punctuation">:</span>
+            gene_seq <span class="token operator">=</span> genome_seq<span class="token punctuation">[</span>seq_region<span class="token punctuation">]</span><span class="token punctuation">[</span>start<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">:</span>end<span class="token punctuation">]</span><span class="token punctuation">.</span>seq
+            <span class="token keyword">if</span> strand <span class="token operator">==</span> <span class="token string">"-"</span><span class="token punctuation">:</span>
+                gene_seq <span class="token operator">=</span> gene_seq<span class="token punctuation">.</span>reverse_complement<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            
+            <span class="token comment"># 输出基因核酸序列到文件</span>
+            out_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">"&gt;"</span> <span class="token operator">+</span> gene<span class="token punctuation">.</span><span class="token builtin">id</span> <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">)</span>
+            out_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>gene_seq<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"\n"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="提取启动子序列"><a href="#提取启动子序列" class="headerlink" title="提取启动子序列"></a>提取启动子序列</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token comment"># 导入所需的包</span>
+<span class="token keyword">from</span> Bio <span class="token keyword">import</span> SeqIO
+<span class="token keyword">import</span> argparse
 
-  
+<span class="token comment"># 创建参数解析器</span>
+parser <span class="token operator">=</span> argparse<span class="token punctuation">.</span>ArgumentParser<span class="token punctuation">(</span>description<span class="token operator">=</span><span class="token string">'从GFF文件中提取每个转录本的信息，并在此基础上提取指定长度的启动子序列。'</span><span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span>
+    <span class="token string">'-i'</span><span class="token punctuation">,</span>
+    <span class="token string">'--input'</span><span class="token punctuation">,</span>
+    dest<span class="token operator">=</span><span class="token string">'gff_file'</span><span class="token punctuation">,</span>
+    <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span>
+    required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'输入GFF文件路径。'</span>
+<span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span>
+    <span class="token string">'-g'</span><span class="token punctuation">,</span>
+    <span class="token string">'--genome'</span><span class="token punctuation">,</span>
+    dest<span class="token operator">=</span><span class="token string">'genome_file'</span><span class="token punctuation">,</span>
+    <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span>
+    required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'输入基因组序列文件路径。'</span>
+<span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span>
+    <span class="token string">'-o'</span><span class="token punctuation">,</span>
+    <span class="token string">'--output'</span><span class="token punctuation">,</span>
+    dest<span class="token operator">=</span><span class="token string">'output_file'</span><span class="token punctuation">,</span>
+    <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">str</span><span class="token punctuation">,</span>
+    required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'输出文件路径。'</span>
+<span class="token punctuation">)</span>
+parser<span class="token punctuation">.</span>add_argument<span class="token punctuation">(</span>
+    <span class="token string">'-l'</span><span class="token punctuation">,</span>
+    <span class="token string">'--length'</span><span class="token punctuation">,</span>
+    dest<span class="token operator">=</span><span class="token string">'promoter_length'</span><span class="token punctuation">,</span>
+    <span class="token builtin">type</span><span class="token operator">=</span><span class="token builtin">int</span><span class="token punctuation">,</span>
+    default<span class="token operator">=</span><span class="token number">1500</span><span class="token punctuation">,</span>
+    <span class="token builtin">help</span><span class="token operator">=</span><span class="token string">'指定启动子序列的长度，默认为1500bp。'</span>
+<span class="token punctuation">)</span>
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="标签 - 生物信息学"></span>
-          
-        </div>
+<span class="token comment"># 解析参数</span>
+args <span class="token operator">=</span> parser<span class="token punctuation">.</span>parse_args<span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-        
-      </div>
+<span class="token comment"># 初始化基因组序列</span>
+genome_dict <span class="token operator">=</span> SeqIO<span class="token punctuation">.</span>to_dict<span class="token punctuation">(</span>SeqIO<span class="token punctuation">.</span>parse<span class="token punctuation">(</span>args<span class="token punctuation">.</span>genome_file<span class="token punctuation">,</span> <span class="token string">'fasta'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
+<span class="token comment"># 从GFF文件中提取转录本位置信息，并从基因组序列中提取启动子序列</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>output_file<span class="token punctuation">,</span> <span class="token string">'w'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> out_file<span class="token punctuation">,</span> <span class="token builtin">open</span><span class="token punctuation">(</span>args<span class="token punctuation">.</span>gff_file<span class="token punctuation">)</span> <span class="token keyword">as</span> in_file<span class="token punctuation">:</span>
+    <span class="token keyword">for</span> line <span class="token keyword">in</span> in_file<span class="token punctuation">:</span>
+        fields <span class="token operator">=</span> line<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'\t'</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> fields<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'mRNA'</span><span class="token punctuation">:</span>
+            transcript_id <span class="token operator">=</span> fields<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">';'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+            gene_id <span class="token operator">=</span> fields<span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">';'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">'='</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+            chr_num <span class="token operator">=</span> fields<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+            start <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>fields<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            end <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>fields<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+            strand <span class="token operator">=</span> fields<span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span>
+            <span class="token comment"># 根据正负链计算起始位置和终止位置</span>
+            <span class="token keyword">if</span> strand <span class="token operator">==</span> <span class="token string">'+'</span><span class="token punctuation">:</span>
+                promoter_start <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> start <span class="token operator">-</span> args<span class="token punctuation">.</span>promoter_length<span class="token punctuation">)</span>
+                promoter_end <span class="token operator">=</span> start
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                promoter_start <span class="token operator">=</span> end
+                promoter_end <span class="token operator">=</span> <span class="token builtin">min</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>genome_dict<span class="token punctuation">[</span>chr_num<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end <span class="token operator">+</span> args<span class="token punctuation">.</span>promoter_length<span class="token punctuation">)</span>
+            <span class="token comment"># 从基因组序列中提取启动子序列</span>
+            promoter_seq <span class="token operator">=</span> <span class="token builtin">str</span><span class="token punctuation">(</span>genome_dict<span class="token punctuation">[</span>chr_num<span class="token punctuation">]</span><span class="token punctuation">.</span>seq<span class="token punctuation">[</span>promoter_start<span class="token punctuation">:</span>promoter_end<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>upper<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token comment"># 将启动子序列写入输出文件</span>
+            out_file<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f'&gt;</span><span class="token interpolation"><span class="token punctuation">{</span>transcript_id<span class="token punctuation">}</span></span><span class="token string">\n</span><span class="token interpolation"><span class="token punctuation">{</span>promoter_seq<span class="token punctuation">}</span></span><span class="token string">\n'</span></span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>用法如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">python getpromoterseqfromgenome.py -genome 1.fa -gff temp.gff -length 5 -out test.fa    <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<hr>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/eggnotmapper/"><img class="fill" src="/img/cover/eggnotmapper.png" alt="eggNOG-mapper本地化"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-11T03:36:01.000Z" title="2022/8/11 11:36:01">2022-08-11</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:17.495Z" title="2023/12/10 13:18:17">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">2 分钟读完 (大约231个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/eggnotmapper/">eggNOG-mapper本地化</a></p><div class="content"><ul>
+<li>从GitHub克隆项目</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/eggnogdb/eggnog-mapper.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>下载<a target="_blank" rel="noopener" href="http://eggnog5.embl.de/download/emapperdb-5.0.2/">数据库</a>放在<code>data</code>文件夹下并解压</li>
+<li>开始使用<ul>
+<li>需要安装<code>diamond</code>，版本越新越好</li>
+<li>python：需要使用python3</li>
+<li>i：输入文件</li>
+<li>out：输出文件</li>
+<li>m：使用diamond比对</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python emapper.py <span class="token parameter variable">-i</span> pep.fa <span class="token parameter variable">--output</span> out <span class="token parameter variable">-m</span> diamond <span class="token parameter variable">--cpu</span> <span class="token number">12</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>输出结果</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token number">1</span><span class="token punctuation">\</span>. query_name 输入的ID
+<span class="token number">2</span><span class="token punctuation">\</span>. seed eggNOG ortholog 在eggNOG中比对到的最佳结果
+<span class="token number">3</span><span class="token punctuation">\</span>. seed ortholog evalue
+<span class="token number">4</span><span class="token punctuation">\</span>. seed ortholog score
+<span class="token number">5</span><span class="token punctuation">\</span>. Predicted taxonomic group
+<span class="token number">6</span><span class="token punctuation">\</span>. Predicted protein name 预测得到的蛋白名
+<span class="token number">7</span><span class="token punctuation">\</span>. Gene Ontology terms 注释到的GO terms
+<span class="token number">8</span><span class="token punctuation">\</span>. EC number
+<span class="token number">9</span><span class="token punctuation">\</span>. KEGG_ko 注释到的ko
+<span class="token number">10</span><span class="token punctuation">\</span>. KEGG_Pathway 注释到的通路
+<span class="token number">11</span><span class="token punctuation">\</span>. KEGG_Module
+<span class="token number">12</span><span class="token punctuation">\</span>. KEGG_Reaction
+<span class="token number">13</span><span class="token punctuation">\</span>. KEGG_rclass
+<span class="token number">14</span><span class="token punctuation">\</span>. BRITE
+<span class="token number">15</span><span class="token punctuation">\</span>. KEGG_TC
+<span class="token number">16</span><span class="token punctuation">\</span>. CAZy
+<span class="token number">17</span><span class="token punctuation">\</span>. BiGG Reaction
+<span class="token number">18</span><span class="token punctuation">\</span>. tax_scope: eggNOG taxonomic level used <span class="token keyword">for</span> annotation
+<span class="token number">19</span><span class="token punctuation">\</span>. eggNOG OGs
+<span class="token number">20</span><span class="token punctuation">\</span>. bestOG <span class="token punctuation">(</span>deprecated, use smallest from eggnog OGs<span class="token punctuation">)</span>
+<span class="token number">21</span><span class="token punctuation">\</span>. COG Functional Category
+<span class="token number">22</span><span class="token punctuation">\</span>. eggNOG <span class="token function">free</span> text description<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>421万条序列注释用了11小时。</strong></p>
+<hr>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/emapper_workflow.png" alt="img"></p>
+<hr>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/sharer/"><img class="fill" src="/img/cover/R1.jpg" alt="R语言笔记"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-10T13:30:48.000Z" title="2022/8/10 21:30:48">2022-08-10</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.174Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">17 分钟读完 (大约2608个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/sharer/">R语言笔记</a></p><div class="content"><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262149383.png" alt=""></p>
+<h2 id="R语言基础"><a href="#R语言基础" class="headerlink" title="R语言基础"></a>R语言基础</h2><h3 id="R语言简介"><a href="#R语言简介" class="headerlink" title="R语言简介"></a>R语言简介</h3><h3 id="R语言应用"><a href="#R语言应用" class="headerlink" title="R语言应用"></a>R语言应用</h3><p>谷歌学术2022年8月10日截图：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/Snipaste_2022-08-10_23-00-25.png" alt=""></p>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p>如果电脑分成系统盘（C盘）和非系统盘（非C盘），先在非C盘的位置创建文件夹<code>R</code>，然后安装<code>R</code>和<code>RStudio</code>的时候选择安装在这个路径。</p>
+<h4 id="R"><a href="#R" class="headerlink" title="R"></a>R</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/bin/">所有版本下载地址</a></li>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/bin/windows/base/old/">Windows旧版本下载地址</a></li>
+</ul>
+<h4 id="RStudio"><a href="#RStudio" class="headerlink" title="RStudio"></a>RStudio</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.rstudio.com/products/rstudio/download/#download">官网下载地址</a></li>
+</ul>
+<h4 id="rtools"><a href="#rtools" class="headerlink" title="rtools"></a>rtools</h4><p><code>rtools</code>的作用可以简单理解为有时候有些R包的安装需要用<code>rtools</code>编译才能安装。</p>
+<p>注意：<strong>安装时默认路径安装！！！</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/bin/windows/Rtools/">官网下载地址</a></li>
+</ul>
+<h3 id="软件设置"><a href="#软件设置" class="headerlink" title="软件设置"></a>软件设置</h3><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><h3 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h3><h2 id="R包管理"><a href="#R包管理" class="headerlink" title="R包管理"></a>R包管理</h2><h3 id="查找合适的包"><a href="#查找合适的包" class="headerlink" title="查找合适的包"></a>查找合适的包</h3><h3 id="R包管理-1"><a href="#R包管理-1" class="headerlink" title="R包管理"></a>R包管理</h3><h3 id="镜像问题"><a href="#镜像问题" class="headerlink" title="镜像问题"></a>镜像问题</h3><h3 id="Bioconductor包"><a href="#Bioconductor包" class="headerlink" title="Bioconductor包"></a>Bioconductor包</h3><h3 id="安装R包"><a href="#安装R包" class="headerlink" title="安装R包"></a>安装R包</h3><h3 id="R包迁移"><a href="#R包迁移" class="headerlink" title="R包迁移"></a>R包迁移</h3><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="认识数据"><a href="#认识数据" class="headerlink" title="认识数据"></a>认识数据</h3><h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><h3 id="读写文本文件"><a href="#读写文本文件" class="headerlink" title="读写文本文件"></a>读写文本文件</h3><h3 id="读写EXcel"><a href="#读写EXcel" class="headerlink" title="读写EXcel"></a>读写EXcel</h3><h3 id="读写其他文件"><a href="#读写其他文件" class="headerlink" title="读写其他文件"></a>读写其他文件</h3><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h3 id="数据结构-1"><a href="#数据结构-1" class="headerlink" title="数据结构"></a>数据结构</h3><h3 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h3><h2 id="数据索引"><a href="#数据索引" class="headerlink" title="数据索引"></a>数据索引</h2><h3 id="数据索引-1"><a href="#数据索引-1" class="headerlink" title="数据索引"></a>数据索引</h3><h3 id="判断类型"><a href="#判断类型" class="headerlink" title="判断类型"></a>判断类型</h3><h3 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h3><h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><h2 id="ggplot2基础"><a href="#ggplot2基础" class="headerlink" title="ggplot2基础"></a>ggplot2基础</h2><h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://rstudio-conf-2022.github.io/ggplot2-graphic-design/">R语言课程</a></li>
+</ul>
+<h3 id="绘图语法"><a href="#绘图语法" class="headerlink" title="绘图语法"></a>绘图语法</h3><ul>
+<li>理解区分分类变量和连续变量；</li>
+<li><code>+</code>必须位于每行绘图代码的末尾；</li>
+<li>区分形状颜色和填充色；</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262220337.png" alt="image-20220826222040082"></p>
+<ul>
+<li>不同的几何对象可以筛选数据；</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262230992.png" alt="image-20220826223036734" style="zoom:50%;"></p>
+<h3 id="图层概念"><a href="#图层概念" class="headerlink" title="图层概念"></a>图层概念</h3><h3 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h3><h3 id="颜色修改"><a href="#颜色修改" class="headerlink" title="颜色修改"></a>颜色修改</h3><h4 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://r-charts.com/colors/#converter">颜色代码转换</a></li>
+</ul>
+<h3 id="坐标修改"><a href="#坐标修改" class="headerlink" title="坐标修改"></a>坐标修改</h3><h3 id="分面操作"><a href="#分面操作" class="headerlink" title="分面操作"></a>分面操作</h3><h2 id="常见图形"><a href="#常见图形" class="headerlink" title="常见图形"></a>常见图形</h2><h3 id="学习资源-1"><a href="#学习资源-1" class="headerlink" title="学习资源"></a>学习资源</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://r-charts.com/ggplot2/">常见图形</a></li>
+<li><a target="_blank" rel="noopener" href="https://data.library.virginia.edu/mathematical-annotation-in-r/">绘图添加公式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.djnavarro.net/posts/2022-08-23_visualising-a-billion-rows/">十亿级数据可视化</a></li>
+<li><a target="_blank" rel="noopener" href="https://rkabacoff.github.io/datavis/">R数据可视化</a></li>
+<li>常见统计图形</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202209101502257.jpg" alt=""></p>
+<h3 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h3><h3 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h3><h4 id="堆积柱状图加上误差线"><a href="#堆积柱状图加上误差线" class="headerlink" title="堆积柱状图加上误差线"></a>堆积柱状图加上误差线</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R">StackedBarErrorBar &lt;- function(data, value, group, level) {
+  StackedBarErrorBar.sub &lt;- function(data, value, group, level) {
+    res &lt;- NULL
 
-</div>
+    col.name &lt;- colnames(data)
 
-  </header>
+    data %&gt;%
+      dplyr::rename(
+        value = value,
+        group = group
+      ) -&gt; data
 
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+    for (i in 1:length(level)) {
+      data %&gt;%
+        dplyr::filter(group %in% level[i:length(level)]) %&gt;%
+        dplyr::group_by(group) %&gt;%
+        dplyr::mutate(mean.value = mean(value)) %&gt;%
+        dplyr::ungroup() %&gt;%
+        dplyr::select(group, mean.value) %&gt;%
+        dplyr::filter(!duplicated(group)) %&gt;%
+        dplyr::select(mean.value) -&gt; res.1
 
-<div class="list-group">
-  <p class="h4">共计 156 篇文章</p>
-  <hr>
-  
-  
-    
-      
-      <p class="h5">2022</p>
-    
-    <a href="/article/mybioinf/" class="list-group-item list-group-item-action">
-      <time>08-13</time>
-      <div class="list-group-item-title">生物信息学知识库</div>
-    </a>
-  
-    
-    <a href="/article/eggnotmapper/" class="list-group-item list-group-item-action">
-      <time>08-11</time>
-      <div class="list-group-item-title">eggNOG-mapper本地化</div>
-    </a>
-  
-    
-    <a href="/article/sharer/" class="list-group-item list-group-item-action">
-      <time>08-10</time>
-      <div class="list-group-item-title">R语言笔记</div>
-    </a>
-  
-    
-    <a href="/article/7bda1387/" class="list-group-item list-group-item-action">
-      <time>08-09</time>
-      <div class="list-group-item-title">Nginx一个域名实多个项目管理+域名跳转</div>
-    </a>
-  
-    
-    <a href="/article/dockeraly/" class="list-group-item list-group-item-action">
-      <time>06-19</time>
-      <div class="list-group-item-title">Docker配置阿里云镜像</div>
-    </a>
-  
-    
-    <a href="/article/rmarkdowntemple/" class="list-group-item list-group-item-action">
-      <time>06-07</time>
-      <div class="list-group-item-title">Rmawkdown模板</div>
-    </a>
-  
-</div>
+      mean.value &lt;- sum(res.1$mean.value)
 
+      data %&gt;%
+        dplyr::filter(group == level[i]) %&gt;%
+        dplyr::mutate(mean.posi = mean.value) %&gt;%
+        dplyr::mutate(
+          mean.value = mean(value),
+          sd.posi = sd(value),
+          n = n(),
+          se = sd.posi / sqrt(n)
+        ) %&gt;%
+        rbind(res) -&gt; res
+    }
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/12/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">1</a><span class="space">&hellip;</span><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/11/#board">11</a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/12/#board">12</a><span class="page-number current">13</span><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/14/#board">14</a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/15/#board">15</a><span class="space">&hellip;</span><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/26/#board">26</a><a class="extend next" rel="next" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/14/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
+    col.name &lt;- c(col.name, "mean.posi", "mean.value", "sd.posi", "n", "se")
 
+    res %&gt;%
+      magrittr::set_names(col.name) -&gt; res
 
+    return(res)
+  }
 
+  # contiction
+  if ("grouped_df" %in% class(data)) {
+    data %&gt;%
+      do(StackedBarErrorBar.sub(.,
+        value = value,
+        group = group,
+        level = level
+      )) -&gt; res
+  } else {
+    StackedBarErrorBar.sub(
+      data = data,
+      value = value,
+      group = group,
+      level = level
+    ) -&gt; res
+  }
+  return(res)
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-none"><code class="language-none">df %&gt;% 
+  dplyr::filter(group == "干重") %&gt;% 
+  tidyr::pivot_longer(cols = 3:6) %&gt;% 
+  dplyr::select(-group)%&gt;% 
+  dplyr::group_by(treatment) %&gt;% 
+  StackedBarErrorBar(.,
+                     value = "Value",
+                     group = "name", 
+                     level = c("叶","茎", "主根","须根")) %&gt;% 
+  dplyr::mutate(name = factor(name, level = c("叶","茎", "主根","须根")),
+                label = "a") %&gt;% 
+  ggplot(aes(treatment, y = mean.value/n, fill = name)) +
+  geom_bar(stat = "identity") +
+  geom_errorbar(aes(ymin = mean.posi - se,
+                    ymax = mean.posi + se),
+                width = 0.2) +
+  geom_text(aes(treatment,y = mean.posi + se + 2, label = label), check_overlap = TRUE) +
+  geom_hline(yintercept = 62, color = NA) +
+  scale_fill_aaas() +
+  scale_y_continuous(expand = c(0,0)) +
+  mytheme() +
+  theme(legend.position = c(0.1, 0.85),
+        legend.title = element_blank(),
+        legend.background = element_blank())
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><h3 id="箱线图"><a href="#箱线图" class="headerlink" title="箱线图"></a>箱线图</h3><h3 id="韦恩图"><a href="#韦恩图" class="headerlink" title="韦恩图"></a>韦恩图</h3><h3 id="小提琴图"><a href="#小提琴图" class="headerlink" title="小提琴图"></a>小提琴图</h3><h3 id="热图"><a href="#热图" class="headerlink" title="热图"></a>热图</h3><h2 id="基础统计"><a href="#基础统计" class="headerlink" title="基础统计"></a>基础统计</h2><h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://rcompanion.org/handbook/">Summary and Analysis of Extension Program Evaluation in R</a></li>
+<li><a target="_blank" rel="noopener" href="https://xcelab.net/rm/statistical-rethinking/">贝叶斯统计学习</a></li>
+<li><a target="_blank" rel="noopener" href="https://modernstatisticswithr.com/index.html">现代统计在R中的实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://mlu-explain.github.io/linear-regression/">线性回归模型的可视化解释</a></li>
+<li><a target="_blank" rel="noopener" href="http://madrury.github.io/jekyll/update/statistics/2016/07/20/lm-in-R.html">R语言是如何实现线性回归模型的</a></li>
+</ul>
+<h3 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h3><ul>
+<li><p>求最小二乘均值并标注显著性</p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">library(tidyverse)
+library(multcomp)
+library(emmeans)
 
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+lm(Sepal.Length ~ Species, data = iris) %&gt;% 
+  emmeans(~Species) %&gt;% 
+  cld(alpha = 0.5, Letters = letters, adjust="tukey")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>什么是模型的<em>p</em>值：和空模型相比，是否显著。</p>
+</li>
+<li><p>什么是模型的<em>$R^2$</em>：多少的因变量被模型解释。</p>
+</li>
+<li><p><em>glm</em>模型不会返回<em>p</em>值和<em>$R^2$</em>，利用函数<em>anova</em>可以计算<em>p</em>值，函数<em>nagelkerke</em>可以计算伪<em>$R^2$</em>。</p>
+</li>
+</ul>
+<h3 id="t检验"><a href="#t检验" class="headerlink" title="t检验"></a>t检验</h3><h3 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h3><h3 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h3><h3 id="wilcox检验"><a href="#wilcox检验" class="headerlink" title="wilcox检验"></a>wilcox检验</h3><h3 id="Fisher精确检验"><a href="#Fisher精确检验" class="headerlink" title="Fisher精确检验"></a>Fisher精确检验</h3><pre class="line-numbers language-R" data-language="R"><code class="language-R"># create a dataframe
+df &lt;- data.frame("cured" = c(60, 30), "noncured" = c(10, 25), row.names = c("treated", "nontreated"))
+df
+# output
+           cured noncured
+treated       60       10
+nontreated    30       25
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+mosaicplot(df, color = TRUE)  
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
+library(stats)
+fisher.test(df)
+# output
 
-    
+	Fisher Exact Test for Count Data
 
-    
-  </main>
+data:  df
+p-value = 0.0002357
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+  1.983312 13.107997
+sample estimates:
+odds ratio 
+  4.930093
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
+# create a dataframe
+df &lt;- data.frame("no_disease" = c(40, 30, 25), "disease" = c(10, 20, 25), 
+                    row.names = c("drugA", "drugB", "drugC"))
+df
+# output
+      no_disease disease
+drugA         40      10
+drugB         30      20
+drugC         25      25
 
-  
-</div>
+mosaicplot(df, color = TRUE)  
 
-  </footer>
+library(stats)
+fisher.test(df)
+# output
+	Fishers Exact Test for Count Data
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+data:  df
+p-value = 0.005304
+alternative hypothesis: two.sided
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+library(rstatix)
+pairwise_fisher_test(as.matrix(df), p.adjust.method = "fdr")
 
+# output
+  group1 group2     n       p   p.adj p.adj.signif
+* &lt;chr&gt;  &lt;chr&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;       
+1 drugA  drugB    100 0.0486  0.0729  ns          
+2 drugA  drugC    100 0.00305 0.00915 **          
+3 drugB  drugC    100 0.422   0.422   ns   <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="贝叶斯统计"><a href="#贝叶斯统计" class="headerlink" title="贝叶斯统计"></a>贝叶斯统计</h3><h4 id="学习资料-1"><a href="#学习资料-1" class="headerlink" title="学习资料"></a>学习资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://bayesf22-notebook.classes.andrewheiss.com/bayes-rules/16-chapter.html">bayesf22</a></li>
+</ul>
+<h2 id="基础分析"><a href="#基础分析" class="headerlink" title="基础分析"></a>基础分析</h2><h3 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h3><h3 id="相关性分析"><a href="#相关性分析" class="headerlink" title="相关性分析"></a>相关性分析</h3><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/q02Y-xZV2F4ubtLg_CZKXQ">参考帖子</a></p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">#随机森林寻找 Biomarker 和环境驱动因子，以及气泡图 + 柱状图 + 热图组合可视化
+otu&lt;-read.csv("D://test/test_otu.csv",row.names = 1)
+env&lt;-read.csv("D://test/test_design.csv")
+#链接：https://pan.baidu.com/s/10MnqI7AJEk3f_qVoPDtjyA 提取码：5nnb #已经更新
+library(vegan)
+library(randomForest)
+library(vegan)
+library(ggplot2)
+library(reshape2)
+#构建数据框
+train_otu&lt;-cbind(env$Group,t(otu[1:100,]))
+train_otu&lt;-as.data.frame(train_otu)
+###### 构建模型
+set.seed(123)
+rf_train&lt;- randomForest (train_otu$V1~., data = train_otu, ntree=1000,importance = TRUE) #ntree 可用来调整模型效果
+rf_train
+###### 挖掘预测模型中最重要的关键微生物 biomarker
+df&lt;-data.frame(importance(rf_train), check.names = FALSE)
+###### heatmap of top 20 preditors
+#筛选前 20 重要 OTU, 依据 Increase in MSE%
+df&lt;-df[order(df$MeanDecreaseAccuracy,decreasing = T),]
+df&lt;-df[1:20,]
+#获取 top20otu 物种信息和丰度表
+otu_top&lt;-subset(otu,rownames(otu)%in%rownames(df))
+pp&lt;-otu_top[,1:24]
+pp_new&lt;-as.data.frame(cbind(rowSums(pp[,1:12])/12,rowSums(pp[,13:24])/12))
+colnames(pp_new)&lt;-c("AA","BB")
+pp_new$AA&lt;-as.numeric(as.character(pp_new$AA))
+pp_new$BB&lt;-as.numeric(as.character(pp_new$BB))
+io&lt;-pp_new%&gt;% mutate(pp_new=row.names(.))%&gt;%melt()
+#组图 A Biomarker 在样品之间的丰度气泡图
+ggplot(io,aes(variable,pp_new,fill=value))+
+  geom_tile(color="grey2",fill="white",size=0.7)+
+  geom_point(pch=21,size=8.2)+
+  scale_fill_gradientn(colours =colorRampPalette(c('#2D6DB1', 'white', '#DC1623'))(111))+
+  labs(x = NULL,y = NULL,fill="")+
+  theme_minimal()+
+ # theme(legend.position = "down",legend.text = element_text(size = 6))
+  theme(axis.text=element_text(colour='black',size=9))+
+  theme(axis.text.x =element_text(angle =90,hjust =0.9,vjust = 0.9,size=8))
+##### 组图 b 柱状图展示 top 20 OTU 的重要性
+dataframe&lt;-cbind(df,rownames(df))
+ggplot(dataframe, aes(x=MeanDecreaseAccuracy, y=rownames(df) )) + 
+  geom_bar(stat = "identity", width = 0.7,position = "dodge",colour="black",fill="#2D6DB1") + 
+  labs(x="Increase in MSE%", y="",size = 4)+
+  theme_bw(base_line_size = 1.1,base_rect_size =1.1)+
+  theme(panel.grid.major=element_blank(),panel.grid.minor=element_blank())+
+  theme(axis.text=element_text(colour='black'))+
+  theme(legend.position = "right",legend.text = element_text(size = 6))
+#组图 c 相关矩阵展示 top 20 OTU 和环境因子关联性
+#合并理化因子和微生物
+library(corrplot)
+library(Hmisc)
+library(reshape2)
+library(RColorBrewer)
+df3&lt;-cbind(t(otu_top[,1:24]),env[,5:12])
+#计算 Spearman 相关分析系数
+spearman_df &lt;- corr.test(df3, method = 'spearman', adjust = 'none')
+spearman_r&lt;- data.frame(spearman_df$r) 
+spearman_r&lt;-spearman_r[1:20,21:28]
+spearman_p&lt;- data.frame(spearman_df$p) 
+spearman_p&lt;-spearman_p[1:20,21:28]
+#绘制相关分析图
+#转化为 ggplot 画图需要的长列表
+io1&lt;-spearman_r%&gt;% mutate(pp=row.names(.))%&gt;%melt()
+io2&lt;-spearman_p%&gt;% mutate(pp=row.names(.))%&gt;%melt()
+df&lt;-cbind(io1,io2$value,io2$value)
+#添加显著性，标记星号，实际需要自行添加 (根据相关分析显著性结果 Spearman、Pearson 的 p 值)，这里仅供画图，数据无意义。
+colnames(df)&lt;-c("pp","variable","value","sig","p")
+df$sig[df$p&lt;=0.05]&lt;-"*"
+df$sig[df$p&lt;=0.01]&lt;-"**"
+df$sig[df$p&lt;=0.001]&lt;-"***"
+df$sig[df$p&gt;=0.05]&lt;-""
+#计算 Spearman、Pearson 的 r 值后，其范围为 - 1 到 1
+ggplot(df,aes(variable,pp,fill=value))+
+  geom_tile(color="grey2",fill="white",size=0.7)+
+  geom_point(pch=22,size=7.2)+
+  geom_text(aes(label=df$sig), color="gray2", size=4) +
+  scale_fill_gradientn(colours =colorRampPalette(c('#2D6DB1', 'white', '#DC1623'))(111))+
+  labs(x = NULL,y = NULL,fill="R value")+
+  theme_minimal()+
+  theme(axis.text=element_text(colour='black',size=9))+
+  theme(axis.text.x =element_text(angle =90,hjust =0.9,vjust = 0.9,size=9))<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="组学分析"><a href="#组学分析" class="headerlink" title="组学分析"></a>组学分析</h2><h3 id="转录组"><a href="#转录组" class="headerlink" title="转录组"></a>转录组</h3><h3 id="群体遗传学"><a href="#群体遗传学" class="headerlink" title="群体遗传学"></a>群体遗传学</h3><h4 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h4><h5 id="学习资料-2"><a href="#学习资料-2" class="headerlink" title="学习资料"></a>学习资料</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/whussain2/R-for-Plant-Breeding/tree/master/GWAS_in_R">R完成GWAS</a></li>
+</ul>
+<h3 id="微生物组"><a href="#微生物组" class="headerlink" title="微生物组"></a>微生物组</h3><h4 id="大数据挖掘"><a href="#大数据挖掘" class="headerlink" title="大数据挖掘"></a>大数据挖掘</h4><ul>
+<li><strong>NetMoss</strong>算法，通过分析微生物网络模块的变化鉴定疾病相关的生物指示者。<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s43588-022-00247-8">文献原文</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wvzSFh8AYuRM-yP7q-wA7A">微信公众号</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/xiaolw95/NetMoss2">GitHub</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="其他资料"><a href="#其他资料" class="headerlink" title="其他资料"></a>其他资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.davidzeleny.net/anadat-r/doku.php/en:start">生态学数据分析</a></li>
+</ul>
+<h4 id="PERMANOVA"><a href="#PERMANOVA" class="headerlink" title="PERMANOVA"></a>PERMANOVA</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R">library(vegan)
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+data(dune)
+data(dune.env)
 
+dune.dist &lt;- vegdist(dune, method="bray")
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+# default test by terms
 
+dune.div &lt;- adonis2(dune ~ Management*A1, 
+                    data = dune.env, 
+                    permutations = 999, 
+                    method="bray")
 
+dune.div %&gt;% 
+  as.data.frame()
 
+# overall tests
 
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
+adonis2(dune ~ Management*A1, 
+        data = dune.env, 
+        permutations = 999, 
+        method="bray",
+        by = NULL)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="结构方程模型"><a href="#结构方程模型" class="headerlink" title="结构方程模型"></a>结构方程模型</h4><h5 id="带线性混合效应模型的-SEM-构建、解释以及实际应用"><a href="#带线性混合效应模型的-SEM-构建、解释以及实际应用" class="headerlink" title="带线性混合效应模型的 SEM 构建、解释以及实际应用"></a>带线性混合效应模型的 SEM 构建、解释以及实际应用</h5><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202211131110711.png" alt="图片"></p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">#加载包，导入数据
+library(piecewiseSEM)#加载包
+sampld &lt;- read.table("clipboard",header=T)#读入数据
+sample_psem &lt;- psem( 
+  lme4::lmer(MBN ~ Plantdiversity + N_addition +(1|site), data = sampld),
+  lme4::lmer(PC1 ~ Plantdiversity + N_addition +(1|site), data = sampld), 
+  lme4::lmer(Plantdiversity ~ N_addition+(1|site), data = sampld),
+  lme4::lmer(N2O ~ N_addition+MBN+PC1+Plantdiversity + (1|site), data = sampld)
+)#建模
+summary(sample_psem)#提取建模结果
 
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+plot(sample_psem,digits = 2)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202211131110143.png" alt="图片"></p>
+<h2 id="R开发"><a href="#R开发" class="headerlink" title="R开发"></a>R开发</h2><h3 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h3><h4 id="golem开发shiny"><a href="#golem开发shiny" class="headerlink" title="golem开发shiny"></a>golem开发shiny</h4><ul>
+<li>学习资料：<a target="_blank" rel="noopener" href="https://engineering-shiny.org/">Engineering Production-Grade Shiny Apps</a></li>
+<li>速查表：<a target="_blank" rel="noopener" href="https://smach.github.io/R4JournalismBook/HowDoI.html">How Do I? …(do that in R)</a></li>
+</ul>
+<p>主要笔记：</p>
+<ul>
+<li>创建项目</li>
+</ul>
+<p>下面的代码会创建一个<code>R package</code>格式的文件夹，</p>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">golem::create_golem(path = "path/to/package")<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-R" data-language="R"><code class="language-R">.
++-- DESCRIPTION
++-- dev
+|   +-- 01_start.R
+|   +-- 02_dev.R
+|   +-- 03_deploy.R
+|   \-- run_dev.R
++-- GOKEGG4TCMP.Rproj
++-- inst
+|   +-- app
+|   |   \-- www
+|   |       \-- favicon.ico
+|   \-- golem-config.yml
++-- man
+|   \-- run_app.Rd
++-- NAMESPACE
+\-- R
+    +-- app_config.R
+    +-- app_server.R
+    +-- app_ui.R
+    \-- run_app.R<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>主要的操作都在<code>dev</code>这个文件夹下完成。</p>
+<ul>
+<li>编辑<code>DESCRIPTION</code>文件</li>
+</ul>
+<h4 id="shinyWidgets"><a href="#shinyWidgets" class="headerlink" title="shinyWidgets"></a>shinyWidgets</h4><p><a target="_blank" rel="noopener" href="https://dreamrs.github.io/shinyWidgets/index.html">各种有意思的组件</a></p>
+<h4 id="shiny案例"><a href="#shiny案例" class="headerlink" title="shiny案例"></a>shiny案例</h4><p><a target="_blank" rel="noopener" href="https://demo.appsilon.com/shiny-semantic-components/">appsilon</a></p>
+<h4 id="CSS优化shiny"><a href="#CSS优化shiny" class="headerlink" title="CSS优化shiny"></a>CSS优化shiny</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://appsilon.com/howto-css-and-shiny/">How to Use CSS to Style Your R Shiny Dashboards</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://unleash-shiny.rinterface.com/beautify-css.html">CSS for Shiny</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.rstudio.com/conference/2022/keynotes/past-future-shiny/">The Past and Future of Shiny</a></p>
+</li>
+</ul>
+<h4 id="服务器部署Rshiny注意事项"><a href="#服务器部署Rshiny注意事项" class="headerlink" title="服务器部署Rshiny注意事项"></a>服务器部署Rshiny注意事项</h4><ul>
+<li>应用文件夹应该放在<code>/srv/shiny-server</code>文件夹下才能生效，否则页面无法找到；</li>
+<li>可以把应用放在<code>/opt/shiny-server/app/</code>下，然后软连接到<code>/srv/shiny-server</code>.</li>
+</ul>
+<h2 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h2><h3 id="关于距离"><a href="#关于距离" class="headerlink" title="关于距离"></a>关于距离</h3><h4 id="各种距离计算"><a href="#各种距离计算" class="headerlink" title="各种距离计算"></a>各种距离计算</h4><p><a target="_blank" rel="noopener" href="https://franknielsen.github.io/Divergence/index.html">点击访问</a></p>
+<h3 id="git知识点"><a href="#git知识点" class="headerlink" title="git知识点"></a>git知识点</h3><h4 id="添加服务器git服务器"><a href="#添加服务器git服务器" class="headerlink" title="添加服务器git服务器"></a>添加服务器git服务器</h4><pre class="line-numbers language-R" data-language="R"><code class="language-R">git remote add sysfwq ssh://lixiang@xx.xx.xx.xx:2222/home/xx/gitppi/phdata.git
+git push sysfwq
+git push --set-upstream sysfwq master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="snakemake流程"><a href="#snakemake流程" class="headerlink" title="snakemake流程"></a>snakemake流程</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.schlosslab.org/just-enough-python/">适用于R用户的snakemake教程</a></li>
+</ul>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/7bda1387/"><img class="fill" src="/img/cover/nginx.jpg" alt="Nginx一个域名实多个项目管理+域名跳转"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-08-09T14:28:23.000Z" title="2022/8/9 22:28:23">2022-08-09</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:17.956Z" title="2023/12/10 13:18:17">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">几秒读完 (大约23个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/7bda1387/">Nginx一个域名实多个项目管理+域名跳转</a></p><div class="content"><p><a target="_blank" rel="noopener" href="https://www.web4xiang.top/post/nginxanddomain/">点击查看正文</a></p>
+<hr>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/dockeraly/"><img class="fill" src="/img/cover/docker.png" alt="Docker配置阿里云镜像"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-06-19T08:55:43.000Z" title="2022/6/19 16:55:43">2022-06-19</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:17.469Z" title="2023/12/10 13:18:17">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">几秒读完 (大约62个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/dockeraly/">Docker配置阿里云镜像</a></p><div class="content"><ul>
+<li><p>登录阿里云获取专用镜像链接：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
+</li>
+<li><p>修改配置文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vi</span>  /etc/docker/daemon.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>加入下面的内容：</p>
+</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">{</span>
+  <span class="token string">"registry-mirrors"</span><span class="token builtin class-name">:</span> <span class="token punctuation">[</span><span class="token string">"https://xxxxxxx.mirror.aliyuncs.com"</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/rmarkdowntemple/"><img class="fill" src="/img/cover/R.jpg" alt="Rmawkdown模板"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-06-07T13:54:02.000Z" title="2022/6/7 21:54:02">2022-06-07</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.131Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">几秒读完 (大约38个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/rmarkdowntemple/">Rmawkdown模板</a></p><div class="content"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup">---
+title: "YYT data analysis report"
+author: "Xiang Li"
+date: '2022-06-06'
+output: 
+  html_document: 
+    toc: true
+    toc_depth: 3
+    toc_float: true
+    #theme: united
+    css: style.css
+    number_sections: true
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<hr>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/12/">上一页</a></div><div class="pagination-next"><a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/14/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/12/">12</a></li><li><a class="pagination-link is-current" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/13/">13</a></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/14/">14</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/26/">26</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">264</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">63</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Julia/"><span class="level-start"><span class="level-item">Julia</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/R%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">R语言</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools4You/"><span class="level-start"><span class="level-item">Tools4You</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/swxxx/"><span class="level-start"><span class="level-item">swxxx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="level-start"><span class="level-item">分子生物学</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E8%83%BD/"><span class="level-start"><span class="level-item">技能</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE/"><span class="level-start"><span class="level-item">文献</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文献阅读</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%9D%82%E6%96%87/"><span class="level-start"><span class="level-item">杂文</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物信息学</span></span><span class="level-end"><span class="level-item tag">150</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/"><span class="level-start"><span class="level-item">生物信息学 - 群体遗传学 - Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物学信息学</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A7%91%E7%A0%94/"><span class="level-start"><span class="level-item">科研</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="level-start"><span class="level-item">统计学</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="level-start"><span class="level-item">软件使用</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2222-12-30T16:00:00.000Z">2222-12-31</time></p><p class="title"><a href="/article/bioinf2allin1/">我的生物信息学知识合集</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-25T02:36:54.000Z">2024-11-25</time></p><p class="title"><a href="/article/gettaxonomy/">从NCBI批量获取物种的分类信息</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-10T01:29:14.000Z">2024-10-10</time></p><p class="title"><a href="/article/dnamethylation/">全基因组DNA甲基化分析流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-24T03:37:16.000Z">2024-09-24</time></p><p class="title"><a href="/article/bismarkbug/">bismark过程中的一个小细节</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-29T01:40:57.000Z">2024-08-29</time></p><p class="title"><a href="/article/secretome4fungi/">真菌分泌蛋白预测流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2222/12/"><span class="level-start"><span class="level-item">十二月 2222</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">十一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">十一月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">八月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Bookdown/"><span class="tag">Bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFF3/"><span class="tag">GFF3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Htseq/"><span class="tag">Htseq</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JupyterLab/"><span class="tag">JupyterLab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">Nginx端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/QIIME2/"><span class="tag">QIIME2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R/"><span class="tag">R</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-%E8%AF%AD%E8%A8%80/"><span class="tag">R 语言</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RNA-Seq/"><span class="tag">RNA-Seq</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSS/"><span class="tag">RSS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R%E8%AF%AD%E8%A8%80/"><span class="tag">R语言</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shiny/"><span class="tag">Shiny</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tools4You/"><span class="tag">Tools4You</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/T%E6%A3%80%E9%AA%8C/"><span class="tag">T检验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bookdown/"><span class="tag">bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/conda/"><span class="tag">conda</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/fasta%E6%96%87%E4%BB%B6/"><span class="tag">fasta文件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/featurecounts/"><span class="tag">featurecounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gffread/"><span class="tag">gffread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitee/"><span class="tag">gitee</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pfastq-dump/"><span class="tag">pfastq-dump</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/qPCR/"><span class="tag">qPCR</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shiny4qPCR/"><span class="tag">shiny4qPCR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/"><span class="tag">代谢组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%8D%E7%96%AB-%E7%94%9F%E9%95%BF%E5%B9%B3%E8%A1%A1/"><span class="tag">免疫-生长平衡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="tag">分子生物学</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="tag">博客搭建</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"><span class="tag">回归分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F/"><span class="tag">基因家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84/"><span class="tag">基因组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%BF%E5%9B%8A%E7%B4%A0/"><span class="tag">尿囊素</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/"><span class="tag">微生物组学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E8%83%BD/"><span class="tag">技能</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE/"><span class="tag">文献</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="tag">文献阅读</span><span class="tag">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">是生物信息学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%82%E6%96%87/"><span class="tag">杂文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">生物信息学</span><span class="tag">156</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%A7/"><span class="tag">相关性</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/"><span class="tag">科研思维</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="tag">统计学</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/"><span class="tag">转录组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="tag">软件使用</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"><span class="tag">软件安装</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"><span class="tag">软件相关</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%81%97%E4%BC%A0%E5%AD%A6/"><span class="tag">遗传学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%85%8D%E8%89%B2/"><span class="tag">配色</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a><p class="is-size-7"><span>&copy; 2024 小蓝哥</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

@@ -1,300 +1,47 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>PTI中的信号网络 - 小蓝哥的知识荒原</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小蓝哥的知识荒原"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小蓝哥的知识荒原"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="摘要在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。"><meta property="og:type" content="blog"><meta property="og:title" content="PTI中的信号网络"><meta property="og:url" content="https://lixiang117423.github.io/article/39370b8f/"><meta property="og:site_name" content="小蓝哥的知识荒原"><meta property="og:description" content="摘要在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/2.png"><meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/3.png"><meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/4.png"><meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/1.png"><meta property="article:published_time" content="2020-12-27T04:38:40.000Z"><meta property="article:modified_time" content="2023-12-10T05:18:18.051Z"><meta property="article:author" content="小蓝哥"><meta property="article:tag" content="文献"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://lixiang117423.github.io/article/39370b8f/2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lixiang117423.github.io/article/39370b8f/"},"headline":"PTI中的信号网络","image":["https://lixiang117423.github.io/article/39370b8f/2.png","https://lixiang117423.github.io/article/39370b8f/3.png","https://lixiang117423.github.io/article/39370b8f/4.png","https://lixiang117423.github.io/article/39370b8f/1.png"],"datePublished":"2020-12-27T04:38:40.000Z","dateModified":"2023-12-10T05:18:18.051Z","author":{"@type":"Person","name":"小蓝哥"},"publisher":{"@type":"Organization","name":"小蓝哥的知识荒原","logo":{"@type":"ImageObject","url":"https://lixiang117423.github.io/img/logo.svg"}},"description":"摘要在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。"}</script><link rel="canonical" href="https://lixiang117423.github.io/article/39370b8f/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="小蓝哥">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
-  
-    <meta name="description" content="摘要在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PTI中的信号网络">
-<meta property="og:url" content="https://lixiang117423.github.io/article/39370b8f/index.html">
-<meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="摘要在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/2.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/3.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/4.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/39370b8f/1.png">
-<meta property="article:published_time" content="2020-12-27T04:38:40.000Z">
-<meta property="article:modified_time" content="2023-12-10T05:18:18.051Z">
-<meta property="article:author" content="小蓝哥">
-<meta property="article:tag" content="文献">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lixiang117423.github.io/article/39370b8f/2.png">
-  
-  
-  
-  <title>PTI中的信号网络 - 小蓝哥的知识荒原</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0">
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
-</head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>小蓝哥的知识荒原</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="PTI中的信号网络"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-12-27 12:38" pubdate>
-          2020年12月27日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          8k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          67 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">PTI中的信号网络</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。</p>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2020-12-27T04:38:40.000Z" title="2020/12/27 12:38:40">2020-12-27</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.051Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%96%87%E7%8C%AE/">文献</a></span><span class="level-item">1 小时读完 (大约8980个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">PTI中的信号网络</h1><div class="content"><h1 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h1><p>在自然环境下，植物时时刻刻都在面对病原物的入侵。然而，由于植物具有有效的免疫系统，植物病害很少发生。病原物被两层不同的识别系统识别：PTI和ETI。PTI和ETI都具有能够阻止病原入侵的诱导防御系统。本综述主要讨论PTI中的信号通路网络，主要聚焦于丝裂原活化蛋白激酶。</p>
 <span id="more"></span>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>植物能够将光变成糖类，因此植物成为了包括微生物（尤其是以植物地上地下部分为寄主的微生物）在内的大量生物的碳水源和能量来源。植物病原物根据其侵染方式和取食策略，可以分成活体营养型（如<em>Hyaloperonospora arabidopsidis</em>）、半活体营养型（如<em>Pseudomonas syringae</em>）和死体营养型（如<em>Botrytis cinerea</em>）。植物病原物能够降低植物的生物量、降低植物的育性、影响作物的产量和质量，甚至在是杀死植物，从而引起人们的关注。</p>
 <p>植物通常能够抵御大多数病原物的侵染，这种现象叫非寄主抗性（non-host resistance）。表皮和细胞壁是植物抵御病原菌侵染的第一层物理屏障。除开第一层物理屏障外，植物持续分泌的抗菌物质也能有效的抵御病原菌的侵染。陆生植物最外层都有由角质和蜡质组成的表皮。表皮在植物生理上有着重要的作用，如较少水分散失、抗UV辐射等。表皮同样能够有效抵御植物病原菌侵染和昆虫的取食（真菌能够通过机械压力来穿透表皮或者是通过分泌能够水解角质聚酯的角质来透过表皮）。此外，包裹在植物细胞周围的外骨骼——植物细胞壁，由纤维素微纤维、果胶、半纤维素、蛋白质及木质素等组成。细胞壁在完整性维护机制的控制下给细胞提供了结构支撑的同时能够有效应对（非）生物胁迫。某些真菌能够穿透表皮和细胞壁，但是细菌不能直接地穿透植物表皮。细菌需要借助一些自然孔口才能进入植物体内，这些自然孔口包括the hydathodes, the nectarthodes, the lenticels，最重要的孔口是气孔。此外，昆虫取食、食草动物、风、暴雨等造成的植物伤口也是病原物侵染植物的有效途径。除了利用物理屏障抵御病原菌的侵染外，植物还能持续稳定地合成并分泌抗菌物质来抑制病原菌的生长。一些代谢物和蛋白都具有这种抗菌活性，如十字花科植物的此生代谢产物芥子油甘及其衍生物。那些成功穿过植物物理屏障的病原物在进入植物细胞后需要卖你对的是植物的免疫系统。植物的免疫系统包括了两部分：病原物识别和病原物防御。</p>
 <p>植物免疫系统的第一层是PAMPs（病原相关分子模式）/PRRs（病原/模式识别受体）。PAMPs通常也来自非致病菌，因此它们被优先命名成MAMPs（微生物相关分子模式）。植物识别到MAMPs后会诱导PAMP激发的免疫，或者是诱导病原激活的免疫或者是模式激发的免疫，也就是PTI。植物同样能够感知到损伤相关的分子模式（DAMPs），这些DAMPs是植物在遭受病原菌侵染后降解的产物。DAMPs激发的免疫和响应和PTI响应类似。植物也可以通过感知病原物效应子（病原物合成后释放到植物的胞外空间或胞内来增强病原物的适应性）来感知病原的入侵。 不能正常感知到这些效应子的植物对该病原菌表现为感病，从而导致由效应子激发的易感性；而能够通过R蛋白来识别这些效应子的植物则会激发ETI。植物和病原在共进化的过程中形成了<strong>Z</strong>型模型。</p>
-<img src="/article/39370b8f/2.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/39370b8f/2.png" class="">
 <p>在成功识别病原物后，植物会启动一系列的防御机制，如关闭气孔阻止细菌的进入、控制营养物质从细胞质到质外体的转运来限制细菌的增殖、合成并分泌camalexin等植保素、合成分泌PR1等防御相关的蛋白或多肽、在被侵染部位合成与过敏反应相关的活性氧（ROS）。</p>
 <p>病原识别机制中涉及到了复杂的信号网络。本篇综述重点关注的是PTI过程中的信号网络及丝裂原活化蛋白激酶（MAMPs）参与途径。主要以拟南芥-细菌互作系统进行描述。</p>
 <h1 id="MAMP-DAMP识别"><a href="#MAMP-DAMP识别" class="headerlink" title="MAMP/DAMP识别"></a>MAMP/DAMP识别</h1><p>植物能够识别对微生物很重要的MAMPs。MAMPs包括蛋白（如细菌鞭毛蛋白和延伸因子Tu）、碳水化合物(如真菌的几丁质)及脂多糖等。DAMPs是病原菌侵染过程中植物的降解产物（如角质素单体）、细胞壁受损产物或者AtPep1等内源肽。PRRs通常是质膜结合类受体激酶（RLKs）或者是有着胞外结构域的类受体蛋白。已经鉴定到了一些PRR/DAMP对，如拟南芥中能够识别细菌鞭毛（铜绿假单胞菌的22个氨基酸长的抗原决定簇flg22为代表）的N端的flagellin-sensitive 2（FLS2）（图2）、拟南芥中的EF-Tu受体（EFR）。在DAMPs中，RLK蛋白PERR1是DAMP AtPep1的受体。</p>
-<img src="/article/39370b8f/3.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/39370b8f/3.png" class="">
 <p>此外，一些蛋白与PRRs组成了免疫受体复合物，而且这些蛋白对正常的MAMP识别和信号转导是至关重要的。MAMP感知不仅能够快速（几秒）诱导质膜上免疫受体复合物的形成，还能诱导不同的自磷酸化和反磷酸化。和BRI1相关的受体激酶1（BAK1）能够和FLS2互作，BAK1缺失会导致早期依赖flg22响应的下降。BAK1实际上可以与不同的PRR相互作用，并与FLS2互作结合flg22，因此可以被看成共受体。除了BAK1外，受体样胞质激酶葡萄孢菌诱导的激酶1（BIK1）和相关的PBL激酶能够与FLS2及EFR互作，在MAMP结合后迅速被磷酸化并从PRR复合物中释放。</p>
 <h1 id="Ca-2-爆发"><a href="#Ca-2-爆发" class="headerlink" title="Ca$^{2+}$爆发"></a>Ca$^{2+}$爆发</h1><p>植物在感知到MAMP/DAMP后，最早的物理响应之一就是胞外Ca$^{2+}$的内流，发生的时间在0.5-2min，4-6min达到峰值。BIK1以及其他BIK1家族蛋白正向调控Ca$^{2+}$的内流。Ca$^{2+}$的内流导致H$^{+}$内流、K$^{+}$和NO$_3^{+}$外流，从而使得胞外空间碱化（1min左右）及质膜去极化（1-3min）。正常情况下，细胞质中Ca$^{2+}$的浓度受质膜和膜内Ca$^{2+}$通道调节；但是涉及到MAMP/DAMP识别和信号转导相关的分子物质还尚不清楚。值得注意的是，在MAMP响应中，拟南芥脂膜上的能与FLS2及ACA8互作的拟南芥自抑制Ca$^{2+}$ATP激酶8和其同系物ACA10参与了Ca$^{2+}$水平调节。MAMP识别过程中除了Ca$^{2+}$会快速流入细胞质外，Nomura等发现在叶绿体基质中自由Ca$^{2+}$水平会持续更长时间。研究人员还观察到使用丝氨酸/苏氨酸蛋白激酶和MAPK激酶抑制剂可减少细胞质和间质Ca$^{2+}$的浓度变化，说明MAPK在Ca$^{2+}$信号的产生过程中可能有着相关的级联反应。考虑到MAMP/DAMP识别中质外体快算碱化，很可能质膜上H$^{+}$-ATP酶的抑制也影响着阴离子外流和质子内流。</p>
 <h1 id="ROS爆发"><a href="#ROS爆发" class="headerlink" title="ROS爆发"></a>ROS爆发</h1><p>由MAMP时，2-3min后胞外空间通常会发生活性氧爆发并在10-14min达到峰值。在拟南芥中，质膜上的NADPH氧化酶RBOHD和MAMP诱导的ROS爆发相关。有趣的是，<strong><em>P. syringae</em></strong>在拟南芥中引起的ROS爆发水平受到FLS PRR的调控，而且要在20min左右才能检测到ROS，在35-40min才达到峰值。波动的幅度也比flg22诱导的低。这些数据表明，鞭毛蛋白是在感染后80分钟内检测到的主要MAMP/DAMP，鞭毛蛋白的数量和/或可及性相对较弱。在MAMP感知中，RBOHD可以和FLS2及EFR关联，完全激活NADPH氧化酶需要Ca$^{2+}$诱导的钙依赖性蛋白激酶（CDPK）和BIK1对不同残基进行磷酸化。Ca$^{2+}$本身也能调控RBOHD。RBOHD能在质外体中产生不透膜的超氧化物O$_2^-$，该物质能够通过超氧化物歧化酶催化后变成H$_2$O$_2$。H$_2$O$_2$具有膜透性，从而能够进入到细胞质和不同的器官中。H$_2$O$_2$等活性氧也会影响胞内Ca$^{2+}$水平。MAMP/DAMP诱导的活性氧爆发对胞内Ca$^{2+}$水平有正反馈调节作用，从而导致二次峰值（flg22诱导后5min左右）。有趣的是，依赖于CDPK的RBOHD的磷酸化在ROS的刺激下也会发生。依赖MPK3/MPK6的MAMP/DAMP诱导的ROS爆发有着矛盾的结果。如，Zhang等发现细菌效应子HopAI1（能够使MPK3和MPK6失活）的诱导表达完全抑制了flg22诱导的ROS爆发，这个结果表明MPK3/MPK6作用在ROS爆发的上游。但是这种方法不能区分每个MAPK的特定贡献。后面又发现HopAI1还能抑制MPK4的活性。因为一些病原菌的效应子能够以不同的信号元件为靶标（如HopF2能够以多个MKKs和BAK1为靶标），因此HopAI1也有可能作用于位于ROS爆发上游的由flg22激发的信号的其他成分。Ranf等利用<em>mpk</em>的单突变体研究发现用flg22处理两个不同的<em>mpk3</em>突变体表现出更长时间的ROS爆发，<em>mpk6</em>突变体和野生型类似，所以MPK3负向调节由flg22诱导的ROS的爆发。Galletti等研究发现flg22诱导的ROS爆发在两个AP2C1（一个能够使MPK3和MPK6失活的MAPK磷酸化酶）过表达株系中没有受到影响，这个结果表明ROS爆发对于MPK3/MPK6来说是独立发生的。此外，他们也发现MPK4以AP2C1为靶标。最佳，Xu等发现<em>mpk3</em>与<em>mpk6</em>的双重突变体中ROS爆发与野生型类似，这表明ROS爆发与MPK3/MPK6无关。同样，由MAMP/DAMP诱导的依赖于MPK4的ROS爆发也有矛盾的结果。Zhang等发现flg22诱导的ROS爆发与MEKK1-MKK1/MKK2-MPK4级联反应无关。然而，与野生型相比，MPK4株系中ROS爆发水平降低了，突变体<em>mpk4</em>中ROS爆发水平上调了，这表明MPK4负向调节ROS爆发。目前比较清楚的是，MAMP诱导的ROS爆发是由RBOHD引起的；其他RBOH蛋白参与了不同的信号通路。然而，NADPH氧化酶并不是植物细胞中唯一的ROS源；越来越清楚的是，植物中的ROS源（叶绿体、过氧化物酶、线粒体及质膜）有着复杂的时空变化，而且ROS其他信号之间也是及其复杂的。</p>
@@ -307,7 +54,7 @@
 <h2 id="CDPKs"><a href="#CDPKs" class="headerlink" title="CDPKs"></a>CDPKs</h2><p>拟南芥基因组编辑34个CDPKs。CDPKs有个N端丝氨酸/苏氨酸蛋白激酶结构域和一个C端类CaM结构域（EF-hand结合位点，大多数都要依赖于Ca$^{2+}$）。CPK4、CPK5、CPK6及CPK11等一些CDPKs会被flg22暂时（5-30min）地激活。<em>P. syringae</em> 侵染后，CPK4/5/6/11参与了由flg22介导的ROS爆发、flg22介导的转录重编程和flg22诱导的抗性。一些CDPK底物被鉴定到，如CPK5的第五RBOHD、番茄中CDPK2的底物ACS2。除了Ca$^{2+}$，CDPKs也会被其他参与信号转导的分子（如脂类、14-3-3蛋白）调控。</p>
 <h2 id="AGC及其相关激酶"><a href="#AGC及其相关激酶" class="headerlink" title="AGC及其相关激酶"></a>AGC及其相关激酶</h2><p>AGC蛋白激酶参与了植物免疫响应并调控病原菌诱导的MAPK级联反应。在拟南芥中，AGC激酶家族有39个成员。通过H$_2$O$_2$、纤维素酶处理、抵御<em>Hyaloperonospora arabidopsidis</em> 和 <em>P. syringae</em> 侵染完全激活MPK3和MPK6需要AGC2-1（也叫OXI1）的参与才能完成。MAMPs和DAMPs（flg22、纤维素酶、H$_2$O$_2$）能够快速诱导根叶部OXI1的基因表达和酶活性。有趣的是，在RBOHD突变体或用NADPH氧化酶抑制剂二苯基碘处理后，拟南芥中OXI1的转录诱导下降。MAMPs处理或半活体营养型病原菌侵染后的ROS爆发与RBOHD相关，这表明在植物-病原互作中RBOHD介导的XOI1诱导会导致ROS合成。OXI1调控一类蛋白激酶，如Pti1-1到Pti1-4。<em>in vivo</em> 发现受胁迫诱导的Pti1-4能与MPK6互作。对其他的AGC激酶来说，OXI1活性受到AGC激酶PDK1的调控，PA能以依赖PDK1的方式激活OXI1。然而，Pti1激酶活性在flg22和H$_2$O$_2$条件下不依赖于PDK1，但是依赖于OXI1，这个结果表明在受到ROS或MAMP刺激时其他蛋白激酶作用于OXI1的上游。</p>
 <h2 id="MAPKs"><a href="#MAPKs" class="headerlink" title="MAPKs"></a>MAPKs</h2><p>拟南芥基因组编码20个MAPKs、10个MAPKKs和60个MAPKKKs。MAPKKKs、MAPKKs和MAPKs都含有能够将胞外刺激转化成适当响应的功能信号模块。这些MAPKs在植物-病原互作研究中被广泛关注。flg22和其他MAMP处理后，MAPK3/4/6/11在1-2min内被激活并在10-15分钟达到峰值，之后迅速下降。MKK4/MKK5组成的信号模块通过磷酸化和MPK4上游的MEKK1-MKK1/MKK2激活MPK3/MPK6（图4）。最开始的研究认为MEKK1是MKK4/MKK5-MPK3/MPK6上游的MAPKKK。然而，在flg22处理后<em>mekk1</em> 突变体后，MPK3和MPK6被激活，这个结果表明MEKK1并不是这个模块上有的MAPKKK，或者至少一个其他MAPKKK扮演多余的角色。有意思的是，参与气孔发育及花序结构的MAPK模块由YODA下游的MKK4 / MKK5- MPK3 / MPK6组成，即MAPKKK。然而，由MAMP激发的MPK3和MPK6的活性在<em>yoda</em> 突变体中是正常的。免疫反应中MKK4/MKK5-MPK3/MPK6上游的MAPKKK(s)的鉴定还不清楚。MKK4/MKK5-MPK3/MPK6模块正向调节防御响应。<em>mekk1</em>突变体的MEKK1激酶受损后半矮化程度降低，这表明MEKK1在其酶活性之外还有个独立的结构性功能，但是仍然不能完全排除此MEKK1激酶受损版本具有残留活性。酵母双杂分析发现MEKK1直接与MPK4互作。然而，没有更多的数据来支撑这个结果。首先，MEKK1-MKK1/MKK2-MPK4模块被认为会负向调控防御响应（级联模块突变体有着本构防御响应，如H$_2$O$_2$积累、<em>PR</em>基因的本构表达等，并且对病原菌的抗性增强了）。然而，最近的研究表明在<em>mkk1 mkk2</em>中这个MAPK模块实际上能够正向调节防御响应，而且被<em>R</em> 蛋白抑制子保护着。</p>
-<img src="/article/39370b8f/4.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/39370b8f/4.png" class="">
 <p>PRR免疫复合物和下游的MAPKKKs之间的分子连接仍旧不清楚。一些数据表明flg22诱导的MPK3/4/6的活性部分依赖于Ca$^{2+}$爆发，但是在<em>cpk5 cpk 6 cpk11</em> 三重突变体中，flg22诱导的MPK3/4/6的活性并没有变化。在<em>rbohd</em> 突变体中flg22诱导的MPK3/4/6的活性和野生型类似，这说明ROS爆发不需要MAPK激活就能完成。此外，在<em>bik1 pnl1</em> 双重突变体中flg22诱导后MPK3/4/6的活性正常，这说明它们的激活不需要BIK1和PBL1就能完成；但是细菌AvrAC效应子表达的情况下flg22诱导的MAPK活性降低了，这表明额外的BIK1相关蛋白可能激活MAPK。此外，利用四重突变体研究发现flg22诱导的MPK3/MPK6激活与野生型是有差异的，这表明MAPK激活与SA、JA及ET信号通路是无关的。</p>
 <h1 id="MAPK-底物"><a href="#MAPK-底物" class="headerlink" title="MAPK 底物"></a>MAPK 底物</h1><p>当前在生物学中重要挑战是将给定的蛋白激酶与其真实的底物进行高度关联，尤其是在信号转导研究中。在PTI中，MAPK底物是被研究得最多的。已经利用多种方法鉴定到了多个底物。</p>
 <h2 id="转录因子"><a href="#转录因子" class="headerlink" title="转录因子"></a>转录因子</h2><p>免疫MAPK底物半数都是转录因子，说明在免疫响应中免疫MAPKs在转录重编程中有着重要作用。<em>in vitro</em> 时MPK3、MPK4及MPK6不够磷酸化转录因子WRKY33，<em>in vivo</em> 条件下MPK3和MPK6引发的磷酸化也有相关研究进行报道。遗传分析表明在不同病原菌侵染时和MPK3/MPK6信号通路中WRKY33对camalexin的生物合成是至关重要的。在突变体WRKY33$^{SA}$中WRKY33中5个潜在的MAPK磷酸化位点被突变。WRKY33$^{SA}$中并没有<em>wrky33</em> 突变的表型，而且值得注意的是camalexin生物合成相关基因的激活效率更低。此外，WRKY33能和<em>PAD3</em> 的启动子进行结合，这表明WRKY33能够直接激活camalexin合成相关基因的表达。有趣的是，MPK3/MPK6信号调控<em>WRKY33</em> 的表达，WRKY33能够与其启动子结合，这表明在<em>WRKY33</em>  的表达中存在循坏调节。总之，camalexin的生物合成被MPK3/MPK6信号通过对WRKY33转录及转录后的调节明显地诱导。事实上，WRKY33还能与MPK4互作来控制camalexin的生物合成。WRKY33与MPK4和MKS1形成核复合物。flg22诱导或细菌侵染后，由MPK4引发的MKS1的磷酸化诱导MKS1-WRKY33复合物从MPK4中释放出来，从而激活<em>PAD3</em> 基因表达。此外，MKS1能够识别WRKY33中与DNA结合的WRKY结构域，刺激其与DNA的结合。然而，在突变体<em>mks1</em> 受到病原菌侵染后仍有camalexin的积累；<em>PAD3</em> 在<em>mpk4</em> 中表达稳，但在<em>mks1</em>中却被病原菌诱导表达。<em>mks4</em> 突变体中MKS1沉默表达后，矮化减轻。总之，MPK3/MPK6和MPK4-MKS1信号通过调节WRKY33来影响camalexin的生物合成，但是具体的crosstalk机制还不清楚。</p>
@@ -330,390 +77,55 @@
 <p>通讯作者：Heribert Hirt</p>
 <p>主要单位：King Abdullah University of Science and Technology</p>
 </blockquote>
-<img src="/article/39370b8f/1.png" srcset="/img/loading.gif" lazyload class="">
+<img src="/article/39370b8f/1.png" class="">
 <hr>
 <blockquote>
 <p>交流请联系：</p>
 <p>💌lixiang117423@gmail.com</p>
 <p>💌lixiang117423@foxmail.com</p>
 </blockquote>
-
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%96%87%E7%8C%AE/" class="category-chain-item">文献</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E6%96%87%E7%8C%AE/" class="print-no-link">#文献</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>PTI中的信号网络</div>
-      <div>https://lixiang117423.github.io/article/39370b8f/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>小蓝哥</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2020年12月27日</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/article/b7629aa1/" title="ggplot2坡度图">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ggplot2坡度图</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/article/b4fcbbe6/" title="清理WinSXS文件夹">
-                        <span class="hidden-mobile">清理WinSXS文件夹</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+</div><div class="article-licensing box"><div class="licensing-title"><p>PTI中的信号网络</p><p><a href="https://lixiang117423.github.io/article/39370b8f/">https://lixiang117423.github.io/article/39370b8f/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>小蓝哥</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2020-12-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2023-12-10</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%96%87%E7%8C%AE/">文献</a></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" href="/" target="_blank" rel="noopener" data-type="afdian"><span class="icon is-small"><i class="fas fa-charging-station"></i></span><span>爱发电</span></a><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="/" alt="支付宝"></span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="buymeacoffee"><span class="icon is-small"><i class="fas fa-coffee"></i></span><span>送我杯咖啡</span></a><a class="button donate" href="/" target="_blank" rel="noopener" data-type="patreon"><span class="icon is-small"><i class="fab fa-patreon"></i></span><span>Patreon</span></a><div class="notification is-danger">You forgot to set the <code>business</code> or <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.</div><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="/" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/article/b7629aa1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">ggplot2坡度图</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/article/b4fcbbe6/"><span class="level-item">清理WinSXS文件夹</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div class="notification is-danger">You forgot to set the <code>shortname</code> for Disqus. Please set it in <code>_config.yml</code>.</div></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">264</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">63</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Julia/"><span class="level-start"><span class="level-item">Julia</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/R%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">R语言</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools4You/"><span class="level-start"><span class="level-item">Tools4You</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/swxxx/"><span class="level-start"><span class="level-item">swxxx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="level-start"><span class="level-item">分子生物学</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E8%83%BD/"><span class="level-start"><span class="level-item">技能</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE/"><span class="level-start"><span class="level-item">文献</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文献阅读</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%9D%82%E6%96%87/"><span class="level-start"><span class="level-item">杂文</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物信息学</span></span><span class="level-end"><span class="level-item tag">150</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/"><span class="level-start"><span class="level-item">生物信息学 - 群体遗传学 - Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物学信息学</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A7%91%E7%A0%94/"><span class="level-start"><span class="level-item">科研</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="level-start"><span class="level-item">统计学</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="level-start"><span class="level-item">软件使用</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2222-12-30T16:00:00.000Z">2222-12-31</time></p><p class="title"><a href="/article/bioinf2allin1/">我的生物信息学知识合集</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-25T02:36:54.000Z">2024-11-25</time></p><p class="title"><a href="/article/gettaxonomy/">从NCBI批量获取物种的分类信息</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-10T01:29:14.000Z">2024-10-10</time></p><p class="title"><a href="/article/dnamethylation/">全基因组DNA甲基化分析流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-24T03:37:16.000Z">2024-09-24</time></p><p class="title"><a href="/article/bismarkbug/">bismark过程中的一个小细节</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-29T01:40:57.000Z">2024-08-29</time></p><p class="title"><a href="/article/secretome4fungi/">真菌分泌蛋白预测流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2222/12/"><span class="level-start"><span class="level-item">十二月 2222</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">十一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">十一月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">八月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Bookdown/"><span class="tag">Bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFF3/"><span class="tag">GFF3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Htseq/"><span class="tag">Htseq</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JupyterLab/"><span class="tag">JupyterLab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">Nginx端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/QIIME2/"><span class="tag">QIIME2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R/"><span class="tag">R</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-%E8%AF%AD%E8%A8%80/"><span class="tag">R 语言</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RNA-Seq/"><span class="tag">RNA-Seq</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSS/"><span class="tag">RSS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R%E8%AF%AD%E8%A8%80/"><span class="tag">R语言</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shiny/"><span class="tag">Shiny</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tools4You/"><span class="tag">Tools4You</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/T%E6%A3%80%E9%AA%8C/"><span class="tag">T检验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bookdown/"><span class="tag">bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/conda/"><span class="tag">conda</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/fasta%E6%96%87%E4%BB%B6/"><span class="tag">fasta文件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/featurecounts/"><span class="tag">featurecounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gffread/"><span class="tag">gffread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitee/"><span class="tag">gitee</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pfastq-dump/"><span class="tag">pfastq-dump</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/qPCR/"><span class="tag">qPCR</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shiny4qPCR/"><span class="tag">shiny4qPCR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/"><span class="tag">代谢组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%8D%E7%96%AB-%E7%94%9F%E9%95%BF%E5%B9%B3%E8%A1%A1/"><span class="tag">免疫-生长平衡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="tag">分子生物学</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="tag">博客搭建</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"><span class="tag">回归分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F/"><span class="tag">基因家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84/"><span class="tag">基因组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%BF%E5%9B%8A%E7%B4%A0/"><span class="tag">尿囊素</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/"><span class="tag">微生物组学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E8%83%BD/"><span class="tag">技能</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE/"><span class="tag">文献</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="tag">文献阅读</span><span class="tag">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">是生物信息学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%82%E6%96%87/"><span class="tag">杂文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">生物信息学</span><span class="tag">156</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%A7/"><span class="tag">相关性</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/"><span class="tag">科研思维</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="tag">统计学</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/"><span class="tag">转录组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="tag">软件使用</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"><span class="tag">软件安装</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"><span class="tag">软件相关</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%81%97%E4%BC%A0%E5%AD%A6/"><span class="tag">遗传学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%85%8D%E8%89%B2/"><span class="tag">配色</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a><p class="is-size-7"><span>&copy; 2024 小蓝哥</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

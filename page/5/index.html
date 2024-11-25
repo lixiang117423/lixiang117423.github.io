@@ -1,1070 +1,309 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>小蓝哥的知识荒原</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小蓝哥的知识荒原"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小蓝哥的知识荒原"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="活在当下，正向提升！"><meta property="og:type" content="blog"><meta property="og:title" content="小蓝哥的知识荒原"><meta property="og:url" content="https://lixiang117423.github.io/"><meta property="og:site_name" content="小蓝哥的知识荒原"><meta property="og:description" content="活在当下，正向提升！"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://lixiang117423.github.io/img/og_image.png"><meta property="article:author" content="小蓝哥"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://lixiang117423.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lixiang117423.github.io"},"headline":"小蓝哥的知识荒原","image":["https://lixiang117423.github.io/img/og_image.png"],"author":{"@type":"Person","name":"小蓝哥"},"publisher":{"@type":"Organization","name":"小蓝哥的知识荒原","logo":{"@type":"ImageObject","url":"https://lixiang117423.github.io/img/logo.svg"}},"description":"活在当下，正向提升！"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="小蓝哥">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
-  
-    <meta name="description" content="活在当下，正向提升！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小蓝哥的知识荒原">
-<meta property="og:url" content="https://lixiang117423.github.io/page/5/index.html">
-<meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="活在当下，正向提升！">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="小蓝哥">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>小蓝哥的知识荒原</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0">
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
-</head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>小蓝哥的知识荒原</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="蓝莲盛开，身心自在；活在当下，正向提升！"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/qiaomai/" target="_self">
-          多组学解析荞麦抗立枯丝核菌的分子机制
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/qiaomai/" target="_self">
-        <div>
-          文献信息 Multi-omics analysis reveals the molecular mechanisms underlying virulence in Rhizoctonia and jasmonic acid–mediated resistance in Tartary buckwheat (Fagopyrum tataricum)  研究背景 立枯丝核菌（Rhizoctonia
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-01 09:14" pubdate>
-              2023-05-01
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/mcscanx/" target="_self">
-          MCScanX遇到的一个坑
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/mcscanx/" target="_self">
-        <div>
-          输入一个巨大的基因组都没有得到结果，最后发现gff文件需要整理成这样的才行： 123456789101_352   Zm00001eb015320_T001    52489256        524909011_352   Zm00001eb015320_T002    52489256        524909011_352   Zm00001eb015320_T003    524894
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-16 17:49" pubdate>
-              2023-04-16
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/notung/" target="_self">
-          Notung推断基因的丢失和复制事件
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/notung/" target="_self">
-        <div>
-          Java安装从https://www.java.com/en/download/下载安装Java，一路默认即可，免得环境变量里面没有。 下载Nutong从http://goby.compbio.cs.cmu.edu/Notung/download29.html下载Nutong。解压后找个位置存放。 准备数据需要两个数据：  基因系统发育树：前缀需要有物种名称或者是代码。    物种系统发育树。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-15 18:14" pubdate>
-              2023-04-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/rlearning/" target="_self">
-          R语言学习资料推荐
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/rlearning/" target="_self">
-        <div>
-          如何快速学习我个人觉得最好的学习方法是这样的：  夯实基础：先把基础打牢（建议学习路径部分）； 项目实战：从项目出发，比如我想做微生物组分析，那就去找一篇经典的文献，学习其中的代码，把每行代码的意思搞懂，弄清楚需要的数据类型和结构，自己做项目分析的时候直接套用即可。 先让代码无报错的跑起来，再完善代码的可读性。切记：我们的目的是完成数据分析和可视化，而不是写很好看的代码！！！  建议学习路径 R、
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-14 10:03" pubdate>
-              2023-04-14
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/ubuntudocker/" target="_self">
-          Ubuntu安装Docker
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntudocker/" target="_self">
-        <div>
-          在 Ubuntu 中安装 Docker 的步骤如下：  更新和升级现有软件包以确保您拥有更新的软件源列表。  12sudo apt-get updatesudo apt-get upgrade  安装 Docker 所需的软件包，可以使用以下命令完成：  1sudo apt-get install apt-transport-https ca-certificates curl gnupg-age
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-09 10:21" pubdate>
-              2023-04-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">#软件安装</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/pvsgenome/" target="_self">
-          参与式育种在基因挖掘中的应用
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/pvsgenome/" target="_self">
-        <div>
-          参考文献 Gesesse C A, Nigir B, de Sousa K, et al. Genomics-driven breeding for local adaptation of durum wheat is enhanced by farmers’ traditional knowledge[J]. Proceedings of the National Academy of Scie
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-06 10:57" pubdate>
-              2023-04-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/heritability/" target="_self">
-          关于广义遗传力
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/heritability/" target="_self">
-        <div>
-          广义遗传力（broad-sense heritability）是一个用于描述性状在总体中遗传成分所占比例的统计量。它是指由所有基因效应和环境因素共同决定的某个性状的遗传变异部分与总变异部分之间的比例。 广义遗传力包括了所有遗传因素的影响，包括加性、显性、上位和互作效应等。它通常用 H^2 表示，其取值范围为 0 到 1 之间。当 H^2=0 时，表明该性状完全由环境因素决定；当 H^2=1 时，表
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 16:18" pubdate>
-              2023-04-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#是生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/orthofindererror/" target="_self">
-          OrthoFinder报错
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/orthofindererror/" target="_self">
-        <div>
-          ChatGPT是这样回答的：  这个错误通常是由于 Python 版本的更新导致的，Python 3.x 不再支持 ‘rU’ 模式。您可以尝试将代码中的 ‘rU’ 替换为 ‘r’，这应该可以解决问题。 如果您使用的是 OrthoFinder 的旧版本，可能需要升级到最新版本以解决此问题。您可以访问 OrthoFinder 的官方网站（https://github.com/davidemms/Or
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 16:14" pubdate>
-              2023-04-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/">#软件相关</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/vscodeline/" target="_self">
-          VSCode取消波浪线
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
-        <div>
-          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 11:35" pubdate>
-              2023-04-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/singlecell/" target="_self">
-          单细胞数据分析学习笔记
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/singlecell/" target="_self">
-        <div>
-          软件安装R包123install.packages("Seurat")BiocManager::install("scater")BiocManager::install("monocle") 参考文献选择最近发表者Science上的这篇文章的数据进行分析联系。  Nolan T M, Vukašinović N, Hsu C W, et al. Brassinosteroid gene regu
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-04 19:40" pubdate>
-              2023-04-04
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/phylotree/" target="_self">
-          系统发育树构建中的模型选择-ChatGPT版本
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/phylotree/" target="_self">
-        <div>
-          系统发育树构建中的不同模型指的是在建立系统发育树（phylogenetic tree）时所使用的不同计算模型，这些模型用于描述不同的进化历程。它们通常基于分子序列数据或形态特征数据，并用来估计进化距离、基因替换率、分支长度和概率等参数。 一些常见的系统发育树构建模型包括：  JC69 模型：最简单的核苷酸取代模型，假设所有碱基变异的概率相等。 K80 模型：假设两种碱基之间的取代率可能不同。 F8
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-03 19:40" pubdate>
-              2023-04-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/undefined/" target="_self">
-          生物信息学软件笔记
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/undefined/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-02 14:46" pubdate>
-              2023-04-02
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/#board">22</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/qiaomai/"><img class="fill" src="/true" alt="多组学解析荞麦抗立枯丝核菌的分子机制"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-05-01T01:14:49.000Z" title="2023/5/1 09:14:49">2023-05-01</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.765Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></span><span class="level-item">16 分钟读完 (大约2430个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/qiaomai/">多组学解析荞麦抗立枯丝核菌的分子机制</a></p><div class="content"><h2 id="文献信息"><a href="#文献信息" class="headerlink" title="文献信息"></a>文献信息</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://academic.oup.com/plcell/advance-article-abstract/doi/10.1093/plcell/koad118/7146951?redirectedFrom=fulltext&amp;login=false"><strong>Multi-omics analysis reveals the molecular mechanisms underlying virulence in</strong> <em>Rhizoctonia</em> <strong>and jasmonic acid–mediated resistance in Tartary buckwheat (Fagopyrum tataricum)</strong></a></p>
+</blockquote>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><ul>
+<li>立枯丝核菌（<strong><em>Rhizoctonia solani</em></strong>）是一种全球性的病害，能够侵染危害多种作物，如水稻、小麦、玉米、马铃薯、大豆、番茄及白菜等。</li>
+<li>防治主要依靠化学杀菌剂，农事操作和生防控制的效果一般般。</li>
+<li>立枯丝核菌4个代表性的融合群都有基因组草图。比较基因组和转录组发现不同融合群之间的遗传结构和基因表达具有差异。水稻受立枯丝核菌侵染后糖酵解和氧化戊糖磷酸途径发生显著变化。最近的一些研究利用GWAS找到与水稻/玉米纹枯病相关的基因。</li>
+<li>多核的立枯丝核菌可以分为14个“亚群”，报错AG-1到AG-13和AGB1. 其中AG4-HGI 3是从荞麦中分离得到的，能够导致荞麦茎秆溃烂、湿病和幼苗死亡，造成严重的产量损失。<strong>但是荞麦抗该菌的遗传机制还不清楚。</strong></li>
+</ul>
+<h2 id="研究结果"><a href="#研究结果" class="headerlink" title="研究结果"></a>研究结果</h2><h3 id="组装AG4-HGI-3基因组发现大量致病相关基因"><a href="#组装AG4-HGI-3基因组发现大量致病相关基因" class="headerlink" title="组装AG4-HGI 3基因组发现大量致病相关基因"></a>组装<code>AG4-HGI 3</code>基因组发现大量致病相关基因</h3><p>首先接种试验发现这个菌不仅能够侵染单子叶植物，还能侵染双子叶植物。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305010949934.png" alt="image-20230501094945272"></p>
+<p>通过比较基因组发现这个菌在分类上属于AG4这个“亚群”，而且发现了大量基因存在扩张和丢失现象。在这些扩张的基因中，大量基因和植物细胞壁相关，如果胶、纤维素、半纤维素、木质素等。病原菌致病基因通常会编码碳水化合物活性酶（CAZymes），研究者就想关注这些基因的变化情况。发现大约有5.45%的编码基因，也就是1026个基因参与这些关键的过程。【AA，辅助活性；CE，碳水化合物酯酶；GT，糖基转移酶；GH，糖苷水解酶水解酶；CBM，碳水化合物碳水化合物结合模块；PL，多糖裂解酶。】</p>
+<p>此外，研究者还预测了 2,355 个毒力基因、3,099 个病原-宿主相互作用基因、2,124 个转运体基因、2,071 个跨膜蛋白基因和 19 个次级代谢产物生物合成基因。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011000576.png" alt="image-20230501100013143"></p>
+<h3 id="AG4-HGI-3侵染过程中大量病原西瓜基因表达上调"><a href="#AG4-HGI-3侵染过程中大量病原西瓜基因表达上调" class="headerlink" title="AG4-HGI 3侵染过程中大量病原西瓜基因表达上调"></a><code>AG4-HGI 3</code>侵染过程中大量病原西瓜基因表达上调</h3><p>下一步，就是利用转录组技术探究<code>AG4-HGI 3</code>侵染荞麦过程中基因表达变化情况。设置了3个时间点：6小时、14小时和22小时。发现在这三个不同的时期，这个菌均有大量的基因表达上调，侵染后6小时只有503个基因表达上调，但是14小时就就有2102个基因表达上调，14小时到22小时变化不大。这说明这个菌在侵染荞麦后的14小时左右有大量基因表达上调。进一步分析这些表达上调的基因发现大量基因与致病相关。KEGG注释发现这些差异基因大多和核糖体相关，表明这个菌在侵染荞麦过程中发生的转录翻译具有代谢活性。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011021940.png" alt="image-20230501102155863"></p>
+<p>进一步的，还是和基因组分析类似，将CAZymes相关的基因挑选出来查看其表达情况。和基因组结果类似，这个菌在侵染荞麦的过程中与CAZymes相关的大量基因表达上调。这个结果也为进一步探究这个菌的侵染机制奠定了基础。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011030606.png" alt="image-20230501103045508"></p>
+<p>除了CAZymes相关的基因外，研究者还选择已经报道过的4个致病基因的同源基因进行异源表达。结果发现和对照相比，这4个毒性基因菌能够显著提高寄主的感病性。也就意味着这些毒性基因在这个菌侵染苦荞的过程中发挥中重要功能。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011046901.png" alt="image-20230501104620835"></p>
+<h3 id="JA途径参与苦荞对AG4-HGI-3的响应"><a href="#JA途径参与苦荞对AG4-HGI-3的响应" class="headerlink" title="JA途径参与苦荞对AG4-HGI 3的响应"></a>JA途径参与苦荞对<code>AG4-HGI 3</code>的响应</h3><p>在探究了<code>AG4-HGI 3</code>在侵染过程中的基因变化情况，研究者进一步的想探究寄主—苦荞在响应这个病原菌侵染过程中的转录表达变化。和病原菌的差异基因数量变化情况一致，随着侵染时间的变化，越来越多的基因参与到这个过程中。KEGG富集分析发现这些差异基因主要和植物次级代谢和植物激素信号转到相关。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011053716.png" alt="image-20230501105342653"></p>
+<p>既然是植物激素在其中发挥功能，那么到底是哪个激素在发挥功能呢？研究者使用共培养（侵染）的方法发现是JA在发挥作用。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011059691.png" alt="image-20230501105934928"></p>
+<p>在确定是JA在发挥功能后，研究者从转录组数据中将JA相关的基因筛选出来观察其表达量，发现这些基因的确实是发生了变化。进一步的，为了进一步确认这个结果，研究者直接用MeJA处理荞麦，然后进行转录组测序，将两次转录组的数据进行整合分析发现大量共有基因发生了差异表达变化。在此基础上，利用KEGG发现这些共有的基因大多与本丙烷和类黄酮合成相关。前期有研究发现JA能够调控类黄酮的是生物合成，而类黄酮则参与植物对生物胁迫的响应。研究者就假设这个病原菌侵染过程中，荞麦植株体内JA发生变化，从而调控类黄酮的生物合成，进而影响植株对这个病原菌的抗性。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011107433.png" alt="image-20230501110734975"></p>
+<p>证明了是JA在发挥作用，也把JA相关的同源基因都找出来了，那有没有新的基因呢？还真发现一个！而且通过qPCR和异源表达都发现了这个基因确实能够提高荞麦植株对立枯丝核菌的抗性。而且，过表达这个基因后，类黄酮的含量都显著的升高了。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011118826.png" alt="image-20230501111830758"></p>
+<h3 id="利用基于转录组的GWAS挖掘荞麦更多的抗性基因"><a href="#利用基于转录组的GWAS挖掘荞麦更多的抗性基因" class="headerlink" title="利用基于转录组的GWAS挖掘荞麦更多的抗性基因"></a>利用基于转录组的GWAS挖掘荞麦更多的抗性基因</h3><p>上面这一些列的操作确实是找到了关键的基因。但是，荞麦抵抗立枯丝核菌过程中发挥功能的基因肯定不止这一个，那怎么样才能把这些基因都挖掘出来呢？GWAS！</p>
+<p>研究者从全世界收集了320个荞麦种质资源并接种立枯丝核菌，病情指数变异系数大概是65.6%，这表明这个群体对立枯丝核菌的抗性差异很大。用病情指数作为表型，一共鉴定到122个显著相关的SNP位点，这些SNP分布在7条染色体上。在这些SNP上下游200kb的范围内寻找潜在的关键基因，一共发现790个候选基因。对这些候选基因进行KEGG注释分析发现有14个基因与植物-病原互作相关，这说明GWAS结果是比较准确的。</p>
+<p>在这个基础上，考虑到次级代谢在植物抗病过程中是非常重要的，研究者便将GWAS的结果与之前的mGWAS进行比较，发现有5个区域是重叠是，这5个区域与抗病代谢物和病情指数相关。</p>
+<p>在这个基础上，研究者将转录组和GWAS的结果进行整合分析。发现转录组中发生显著变化的基因中有106个位于GWAS结果中的15个基因组区域。这106个基因中有49个基因在立枯丝核菌侵染后或MeJA处理后表达上调。这些基因的同源基因在先前的研究中被发现与植物抗性相关。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011245530.png" alt="image-20230501112901127"></p>
+<h3 id="FtASP受JA诱导后能够通过抑制菌丝的生长阻止AG4-HGI-3的侵染"><a href="#FtASP受JA诱导后能够通过抑制菌丝的生长阻止AG4-HGI-3的侵染" class="headerlink" title="FtASP受JA诱导后能够通过抑制菌丝的生长阻止AG4-HGI 3的侵染"></a><em>FtASP</em>受JA诱导后能够通过抑制菌丝的生长阻止<code>AG4-HGI 3</code>的侵染</h3><p>为了进一步探究荞麦对<code>AG4-HGI 3</code>的抗性并验证GWAS结果的准确信，研究者从GWAS结果中筛选6个基因进行验证。异源表达发现这些基因都可以提高荞麦对立枯丝核菌的抗性。在这6个基因中，<em>FtPinG0302743900</em>编码天冬氨酸蛋白酶（<strong><em>FtASP</em></strong>），而且能够和毒性蛋白<strong><em>RsYTHDC</em></strong>互作。这个基因在320个材料中具有三种单倍型，而且<code>C</code>单倍型的抗性更高。qPCR检测基因表达发现这个基因表达量越高的品种对立枯丝核菌的抗性越强。过表达这个基因后，荞麦对立枯丝核菌的抗性显著提高。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305011211154.png" alt="image-20230501120949347"></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/mcscanx/"><img class="fill" src="/true" alt="MCScanX遇到的一个坑"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-16T09:49:23.000Z" title="2023/4/16 17:49:23">2023-04-16</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:17.823Z" title="2023/12/10 13:18:17">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">几秒读完 (大约67个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/mcscanx/">MCScanX遇到的一个坑</a></p><div class="content"><p>输入一个巨大的基因组都没有得到结果，最后发现<code>gff</code>文件需要整理成这样的才行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">1_352   Zm00001eb015320_T001    <span class="token number">52489256</span>        <span class="token number">52490901</span>
+1_352   Zm00001eb015320_T002    <span class="token number">52489256</span>        <span class="token number">52490901</span>
+1_352   Zm00001eb015320_T003    <span class="token number">52489489</span>        <span class="token number">52490901</span>
+1_352   Zm00001eb020400_T001    <span class="token number">75800802</span>        <span class="token number">75801504</span>
+1_352   Zm00001eb025220_T001    <span class="token number">107564069</span>       <span class="token number">107566034</span>
+1_352   Zm00001eb030990_T001    <span class="token number">171853294</span>       <span class="token number">171855490</span>
+1_352   Zm00001eb030990_T002    <span class="token number">171853349</span>       <span class="token number">171855490</span>
+1_352   Zm00001eb042020_T001    <span class="token number">221467932</span>       <span class="token number">221469468</span>
+1_352   Zm00001eb051120_T002    <span class="token number">259960362</span>       <span class="token number">259963720</span>
+1_352   Zm00001eb051120_T001    <span class="token number">259960362</span>       <span class="token number">259963720</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/notung/"><img class="fill" src="/true" alt="Notung推断基因的丢失和复制事件"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-15T10:14:30.000Z" title="2023/4/15 18:14:30">2023-04-15</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:17.971Z" title="2023/12/10 13:18:17">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">1 分钟读完 (大约187个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/notung/">Notung推断基因的丢失和复制事件</a></p><div class="content"><h2 id="Java安装"><a href="#Java安装" class="headerlink" title="Java安装"></a>Java安装</h2><p>从<a target="_blank" rel="noopener" href="https://www.java.com/en/download/下载安装Java，一路默认即可，免得环境变量里面没有。">https://www.java.com/en/download/下载安装Java，一路默认即可，免得环境变量里面没有。</a></p>
+<h2 id="下载Nutong"><a href="#下载Nutong" class="headerlink" title="下载Nutong"></a>下载Nutong</h2><p>从<a target="_blank" rel="noopener" href="http://goby.compbio.cs.cmu.edu/Notung/download29.html下载Nutong。解压后找个位置存放。">http://goby.compbio.cs.cmu.edu/Notung/download29.html下载Nutong。解压后找个位置存放。</a></p>
+<h2 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h2><p>需要两个数据：</p>
+<ul>
+<li>基因系统发育树：前缀需要有物种名称或者是代码。</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304151822743.png" alt="image-20230415182247437"></p>
+<ul>
+<li>物种系统发育树。</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304151823052.png" alt="image-20230415182308863"></p>
+<h2 id="运行软件"><a href="#运行软件" class="headerlink" title="运行软件"></a>运行软件</h2><p>Win+R代开cmd，然后输入：</p>
+<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">java -jar D:\MyData\Desktop\Notung-2.9.1.5\Notung-2.9.1.5.jar<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>回车后就有界面了：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304151824629.png" alt="image-20230415182450923"></p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304151825902.png" alt="image-20230415182522252"></p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304151825944.png" alt=""></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/rlearning/"><img class="fill" src="/true" alt="R语言学习资料推荐"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-14T02:03:47.000Z" title="2023/4/14 10:03:47">2023-04-14</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.232Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">6 分钟读完 (大约904个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/rlearning/">R语言学习资料推荐</a></p><div class="content"><h2 id="如何快速学习"><a href="#如何快速学习" class="headerlink" title="如何快速学习"></a>如何快速学习</h2><p>我个人觉得最好的学习方法是这样的：</p>
+<ul>
+<li>夯实基础：先把基础打牢（<code>建议学习路径</code>部分）；</li>
+<li>项目实战：从项目出发，比如我想做微生物组分析，那就去找一篇经典的文献，学习其中的代码，把每行代码的意思搞懂，弄清楚需要的数据类型和结构，自己做项目分析的时候直接套用即可。</li>
+<li>先让代码无报错的跑起来，再完善代码的可读性。切记：<strong>我们的目的是完成数据分析和可视化，而不是写很好看的代码！！！</strong></li>
+</ul>
+<h2 id="建议学习路径"><a href="#建议学习路径" class="headerlink" title="建议学习路径"></a>建议学习路径</h2><ol>
+<li>R、RStudio安装</li>
+<li>R包安装</li>
+<li>数据读入</li>
+<li>数据导出</li>
+<li>数据重塑<ol>
+<li>长变宽</li>
+<li>宽变长</li>
+</ol>
+</li>
+<li>基础绘图<ol>
+<li>ggplot2即可，不用学base绘图</li>
+<li>图片导出为PPT格式</li>
+</ol>
+</li>
+<li>批量化处理<ol>
+<li>for循环</li>
+</ol>
+</li>
+<li>可重复分析</li>
+</ol>
+<p>学完这些基本就能应对80%以上的分析任务了。</p>
+<h2 id="视频推荐"><a href="#视频推荐" class="headerlink" title="视频推荐"></a>视频推荐</h2><p>2018年我学的就是这个视屏，我也只推荐这个视屏作为R语言的快速入门视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19x411X7C6/?spm_id_from=333.337.search-card.all.click">B站视频-R 语言入门与数据分析</a></p>
+<h2 id="书籍推荐"><a href="#书籍推荐" class="headerlink" title="书籍推荐"></a>书籍推荐</h2><p>只推荐这么两本书：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/198185888">《R 语言编程 — 基于 tidyverse》</a>：R数据分析的最新书籍，也是我最推荐的书籍，尽量不要碰《R语言实战》这本书。</li>
+<li><a target="_blank" rel="noopener" href="https://yun.weicheng.men/Book/R语言数据可视化之美：专业图表绘制指南（增强版）.pdf">R 语言数据可视化之美：专业图表绘制指南</a>：几乎所有的数据可视化类型都有，有代码。</li>
+</ul>
+<h2 id="博客推荐"><a href="#博客推荐" class="headerlink" title="博客推荐"></a>博客推荐</h2><p>只推荐两个博客：</p>
+<ul>
+<li>北京大学统计科学中心李东风老师R语言教程：<a target="_blank" rel="noopener" href="https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html">https://www.math.pku.edu.cn/teachers/lidf/docs/Rbook/html/_Rbook/index.html</a></li>
+<li>四川师范大学王敏杰老师R语言教程：<a target="_blank" rel="noopener" href="https://bookdown.org/wangminjie/R4DS/author.html#author">https://bookdown.org/wangminjie/R4DS/author.html#author</a></li>
+</ul>
+<h2 id="公众号推荐"><a href="#公众号推荐" class="headerlink" title="公众号推荐"></a>公众号推荐</h2><ul>
+<li>YuLabSMU：顶级R语言开发大神Y叔公众号。</li>
+<li>生信技能树：我愿称之为国内生信最佳推广小组。</li>
+<li>生信媛：秀恩爱之余还不忘写代码的榜样。</li>
+<li>果子学生信：export包就是果子老师拯救的。</li>
+<li>红皇后学术：大量微生物相关的优秀内容。</li>
+<li>宏基因组：刘永鑫老师的公众号，强推。</li>
+<li>老俊俊的生信笔记：总是刷新认知的绘图大佬。</li>
+<li>R语言数据分析指南</li>
+<li>生信菜鸟团</li>
+<li>生信宝典</li>
+<li>统计之都</li>
+<li>VisualHub：很少更新，一更新就是惊喜。</li>
+<li>微生信生物：南京农大文涛老师公众号，微生物组宏基因组。</li>
+<li>小白鱼的生统笔记：从原理到代码的标杆公众号。</li>
+<li>庄闪闪的R语言手册</li>
+</ul>
+<h2 id="文献阅读"><a href="#文献阅读" class="headerlink" title="文献阅读"></a>文献阅读</h2><p>优秀的文献是会释放代码和数据的，比如水稻微生物组经典文献：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304141030092.png" alt="image-20230414103007962"></p>
+<p>在材料与方法里面有这样一段话：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304141030924.png" alt="image-20230414103057965"></p>
+<p>也就是说他们的分析代码和数据都是公开的，如果想实现类似的分析，那么参考他们的代码就可以：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304141032359.png" alt="image-20230414103201161"></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/ubuntudocker/"><img class="fill" src="/true" alt="Ubuntu安装Docker"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-09T02:21:16.000Z" title="2023/4/9 10:21:16">2023-04-09</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.360Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">2 分钟读完 (大约258个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/ubuntudocker/">Ubuntu安装Docker</a></p><div class="content"><p>在 Ubuntu 中安装 Docker 的步骤如下：</p>
+<ol>
+<li>更新和升级现有软件包以确保您拥有更新的软件源列表。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update
+sudo apt-get upgrade<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<ol>
+<li>安装 Docker 所需的软件包，可以使用以下命令完成：</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>添加 Docker GPG 密钥以保证软件包的真实性。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>向您的 APT 软件源添加 Docker 软件源。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>重新运行更新操作以更新新加入的 Docker 软件源。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol>
+<li>现在，您可以安装 Docker CE 包。</li>
+</ol>
+<pre class="line-numbers language-none"><code class="language-none">sudo apt-get install docker-ce docker-ce-cli containerd.io<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>以上是在 Ubuntu 中安装 Docker 的基本步骤。为了验证是否正确安装了 Docker，请运行以下命令：</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo docker run hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果输出 <code>Hello from Docker!</code>，则代表已成功安装 Docker。</p>
+<p>希望这对您有所帮助！</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/pvsgenome/"><img class="fill" src="/true" alt="参与式育种在基因挖掘中的应用"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-06T02:57:02.000Z" title="2023/4/6 10:57:02">2023-04-06</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.678Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">文献阅读</a></span><span class="level-item">6 分钟读完 (大约906个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/pvsgenome/">参与式育种在基因挖掘中的应用</a></p><div class="content"><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.pnas.org/doi/abs/10.1073/pnas.2205774119">Gesesse C A, Nigir B, de Sousa K, et al. Genomics-driven breeding for local adaptation of durum wheat is enhanced by farmers’ traditional knowledge[J]. Proceedings of the National Academy of Sciences, 2023, 120(14): e2205774119.</a></p>
+</blockquote>
+<h2 id="试验设计"><a href="#试验设计" class="headerlink" title="试验设计"></a>试验设计</h2><h3 id="试验材料"><a href="#试验材料" class="headerlink" title="试验材料"></a>试验材料</h3><p>一共是有两个试验群体：</p>
+<ul>
+<li>埃塞俄比亚本地的小麦群体，一共是400个（其中372个本地品种，28个是育种过程中改良的品种），标记为<code>DP</code>（Diversity Pool）；</li>
+<li>埃塞俄比亚NAM（Nested association mapping）群体（<code>EtNAM</code>）：利用上述400个本地品种中的50个加上一个意大利改良品种<strong><em>Bidi</em></strong>与改良的温带小麦品种<strong><em>Asassa</em></strong>构建NAM群体。也就是利用选择的51个品种与<strong><em>Asassa</em></strong>进行杂交，然后不断进行自交。这个研究利用单粒传法构建了自交8代后得到一个重组自交系（RIL）。这个重组近交系含有1200个Lines，属于12个families。</li>
+</ul>
+<h3 id="试验地点"><a href="#试验地点" class="headerlink" title="试验地点"></a>试验地点</h3><p>一共是选择3个地点开展本研究的的试验。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304061101519.png" alt="image-20230406110150663"></p>
+<h3 id="测量指标"><a href="#测量指标" class="headerlink" title="测量指标"></a>测量指标</h3><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304061135544.png" alt="image-20230406113542897"></p>
+<h3 id="当地农民的参与式选择"><a href="#当地农民的参与式选择" class="headerlink" title="当地农民的参与式选择"></a>当地农民的参与式选择</h3><p>当一半的小区都开花的时候，请试验地周围的对小麦种植很有经验的农民参与其中。将农民按照性别进行分组，每组5人。随机选择一个小区开始评估。评估时农民只需要回到对这个小区的整体感觉（overall appreciation， OA）。分值从1到5，分别代表最差和最好。这个过程中不关注具体的性状，比如株高，只需要问对整个小区的评价即可。每个农民的评价都单独记录。</p>
+<h3 id="数据处理"><a href="#数据处理" class="headerlink" title="数据处理"></a>数据处理</h3><p>农艺性状和农民的评估值都转换为BLUP值（最佳无偏线性估计）。</p>
+<h2 id="研究结果"><a href="#研究结果" class="headerlink" title="研究结果"></a>研究结果</h2><h3 id="农民对品种的评价"><a href="#农民对品种的评价" class="headerlink" title="农民对品种的评价"></a>农民对品种的评价</h3><p>首先是对EtNAM这些材料的OA值先转换为BLUP后再进行评估。三个地点中男性和女性农民的评分的分布基本是一致的，但是在Adet和Kulumsa这两个地点，男性农民的评分稍微高于女性农民的评分（下图A和B）。虽然在Kulumsa这个地点这个群体有这更高的产量（下图C），但是这些受邀参与评估的农民对Adet这个地点的评分更高。在这个基础上，研究人员筛选出OA排名前5%的品种，发现有26个材料不管是男性农民还是女性农民都很“喜欢”（下图D和E）。这26个材料主要来自于EtNAM的N51、N1和N8这三个family. </p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304061437119.png" alt="image-20230406143704779"></p>
+<p>进一步的，研究者探究了农民的评价和其他所有测量指标之间的相关性。发现农民的OA评分始终与产量和产量相关的性状正相关。这表明农民们更喜欢早熟、高产、高大且粗壮的品种。而且在三个地点中，</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304061514320.png" alt="image-20230406151406210"></p>
+<h3 id="农民评价在育种上的应用"><a href="#农民评价在育种上的应用" class="headerlink" title="农民评价在育种上的应用"></a>农民评价在育种上的应用</h3><p>在此基础上，研究者利用Plackett-Luce模型对农民的评分及选择模式进行分析和排名进一步确定那些因素是最重要的，将这些因素用于后续的EtNAM育种。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304071022747.png" alt="image-20230407102226415"></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/heritability/"><img class="fill" src="/true" alt="关于广义遗传力"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-05T08:18:02.000Z" title="2023/4/5 16:18:02">2023-04-05</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.856Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">1 分钟读完 (大约224个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/heritability/">关于广义遗传力</a></p><div class="content"><p>广义遗传力（broad-sense heritability）是一个用于描述性状在总体中遗传成分所占比例的统计量。它是指由所有基因效应和环境因素共同决定的某个性状的遗传变异部分与总变异部分之间的比例。</p>
+<p>广义遗传力包括了所有遗传因素的影响，包括加性、显性、上位和互作效应等。它通常用 H^2 表示，其取值范围为 0 到 1 之间。当 H^2=0 时，表明该性状完全由环境因素决定；当 H^2=1 时，表明该性状完全由遗传因素决定。</p>
+<p>广义遗传力是遗传学研究中一个重要的概念，可以帮助我们了解不同性状的遗传特征，并为育种和遗传改良提供理论依据。</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/orthofindererror/"><img class="fill" src="/true" alt="OrthoFinder报错"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-05T08:14:35.000Z" title="2023/4/5 16:14:35">2023-04-05</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:17.989Z" title="2023/12/10 13:18:17">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">1 分钟读完 (大约215个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/orthofindererror/">OrthoFinder报错</a></p><div class="content"><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304051616073.png" alt="image-20230405161610685"></p>
+<p>ChatGPT是这样回答的：</p>
+<blockquote>
+<p>这个错误通常是由于 Python 版本的更新导致的，Python 3.x 不再支持 ‘rU’ 模式。您可以尝试将代码中的 ‘rU’ 替换为 ‘r’，这应该可以解决问题。</p>
+<p>如果您使用的是 OrthoFinder 的旧版本，可能需要升级到最新版本以解决此问题。您可以访问 OrthoFinder 的官方网站（<a target="_blank" rel="noopener" href="https://github.com/davidemms/OrthoFinder）下载最新版本，并按照说明进行安装和使用。">https://github.com/davidemms/OrthoFinder）下载最新版本，并按照说明进行安装和使用。</a></p>
+<p>另外，如果您使用的是 Python 2.x 版本，那么 ‘rU’ 模式仍然是有效的。但是，由于 Python 2.x 已经停止维护，建议您尽快升级到 Python 3.x 版本以获得更好的性能和安全性。</p>
+</blockquote>
+<p>亲测有效！！！</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/vscodeline/"><img class="fill" src="/true" alt="VSCode取消波浪线"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-05T03:35:03.000Z" title="2023/4/5 11:35:03">2023-04-05</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.512Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">几秒读完 (大约70个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/vscodeline/">VSCode取消波浪线</a></p><div class="content"><p>取消前是这样的（强迫症患者表示受不了啊。。。。。。）：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202304051137396.png" alt="image-20230405113747579"></p>
+<p>取消方法：</p>
+<p>在设置文件<code>settings.json</code>文件中加入下面的内容即可：</p>
+<pre class="line-numbers language-none"><code class="language-none">"workbench.colorCustomizations": {
+        "editorError.foreground":   "#00000000",
+        "editorWarning.foreground": "#00000000",
+        "editorInfo.foreground":    "#00000000"
+    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/singlecell/"><img class="fill" src="/true" alt="单细胞数据分析学习笔记"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-04T11:40:22.000Z" title="2023/4/4 19:40:22">2023-04-04</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.731Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">1 分钟读完 (大约137个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/singlecell/">单细胞数据分析学习笔记</a></p><div class="content"><h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="R包"><a href="#R包" class="headerlink" title="R包"></a>R包</h3><pre class="line-numbers language-R" data-language="R"><code class="language-R">install.packages("Seurat")
+BiocManager::install("scater")
+BiocManager::install("monocle")<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>选择最近发表者<strong><em>Science</em></strong>上的这篇文章的数据进行分析联系。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.science.org/doi/10.1126/science.adf4721">Nolan T M, Vukašinović N, Hsu C W, et al. Brassinosteroid gene regulatory networks at cellular resolution in the Arabidopsis root[J]. Science, 2023, 379(6639): eadf4721.</a></p>
+</blockquote>
+<p>&gt;<br>&gt;</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41576-023-00586-w#citeas">Heumos, L., Schaar, A.C., Lance, C. <em>et al.</em> Best practices for single-cell analysis across modalities. <em>Nat Rev Genet</em> (2023). https://doi.org/10.1038/s41576-023-00586-w</a></p>
+</blockquote>
+<h2 id="流程资料"><a href="#流程资料" class="headerlink" title="流程资料"></a>流程资料</h2><p><a target="_blank" rel="noopener" href="https://www.sc-best-practices.org/preamble.html">上述第二篇文献对应的学习网站</a></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/phylotree/"><img class="fill" src="/true" alt="系统发育树构建中的模型选择-ChatGPT版本"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-03T11:40:53.000Z" title="2023/4/3 19:40:53">2023-04-03</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:19.335Z" title="2023/12/10 13:18:19">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">8 分钟读完 (大约1166个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/phylotree/">系统发育树构建中的模型选择-ChatGPT版本</a></p><div class="content"><p>系统发育树构建中的不同模型指的是在建立系统发育树（phylogenetic tree）时所使用的不同计算模型，这些模型用于描述不同的进化历程。它们通常基于分子序列数据或形态特征数据，并用来估计进化距离、基因替换率、分支长度和概率等参数。</p>
+<p>一些常见的系统发育树构建模型包括：</p>
+<ul>
+<li>JC69 模型：最简单的核苷酸取代模型，假设所有碱基变异的概率相等。</li>
+<li>K80 模型：假设两种碱基之间的取代率可能不同。</li>
+<li>F81 模型：假设在整个进化过程中，各种碱基的频率保持不变。</li>
+<li>HKY85 模型：结合了 K80 和 F81 两个模型。</li>
+<li>GTR 模型：广义时间反转模型，假设在不同的 DNA 序列位置上具有不同的碱基频率和取代率。</li>
+<li>JTT 模型：氨基酸序列变异模型，假定氨基酸之间的取代率是不同的。</li>
+<li>WAG 模型：结合了 Jones-Taylor-Thornton 模型和 Whelan-And Goldman 模型。</li>
+<li>LG 模型：Le and Gascuel 模型，基于大量的蛋白质序列信息，用于研究复杂的分子进化过程。</li>
+</ul>
+<p>这些模型在系统发育树的构建中发挥着关键作用，可以帮助研究人员更好地理解物种之间的进化关系和演化历史。</p>
+<hr>
+<p>当涉及到用于构建系统发育树的氨基酸替代模型时，以下是一些常用的模型：</p>
+<ol>
+<li>Dayhoff 模型：由 Margaret Dayhoff 等人于 1978 年首次介绍，在蛋白质序列相似性研究中广泛使用。Dayhoff 模型将氨基酸分成五个分类，从最多不同到最相似的等级，使用一个氨基酸替代矩阵，用于描述每个分类之间的氨基酸替代概率。Dayhoff 模型被视为是 PAM 和 JTT 模型的前身，且与这些模型相比较已经过时。</li>
+<li>PAM 模型：由 Margaret Dayhoff 和 Robert V. Eck 等人于 1965 年提出，是最早广泛使用的氨基酸替代模型之一。PAM 模型使用一组大小为 1 的基础对数几率，然后使用在百万年（PAM:point accepted mutation）内氨基酸替代情况的比率，计算不同的氨基酸之间的一个置换矩阵。由此，PAM 模型基于相当长时间内的进化历史，用于描述氨基酸之间的替代率，因此在某些场景下已过时。</li>
+<li>JTT 模型：由 Jones 和 Taylor 在 1990 年提出，是基于最小二乘法的统计方法，也称之为 Jones–Taylor–Thornton 模型。它基于已知氨基酸序列采集数据，对不同氨基酸对之间的替代率进行建模。</li>
+<li>WAG 模型：由 Whelan 和 Goldman 于 2001 年提出，是一个更复杂的模型，在相似的氨基酸对之间，它使用一个独立的校正因子作为修正系数。该模型较适用于从一个群体里不同种的近亲中选出的窄群体的簇间区间树的建立。</li>
+<li>LG 模型：由 Le 和 Gascuel 在 2008 年提出，计算干扰之间氨基酸之间距离的信息进行系统发育树构建。它是 JTT 模型的扩展版本，使用更大的数据来精确地定义氨基酸之间的相似性。</li>
+<li>CAT 模型：复合自适应型细分替换模型（CAT），是由 Lartillot 和 Philippe 在 2004 年提出。它是一种广义和强大的氨基酸替代模型，能够通过独立地处理每个氨基酸站点，区分平滑和分段的现象。CAT 模型使用了一种混合模型，调整了氨基酸替换概率。它是一种先进的进化分析方法，较适用于复杂的氨基酸过程，尤其是在比较不相关的序列时。</li>
+</ol>
+<p>这些模型是用于系统发育树构建中最常用的氨基酸替代模型之一。需要注意的是，不同模型的适用场景因数据类型、数据大小等因素的不同而有所不同。因此，在使用模型时，需要选择适合目标数据的模型，并比较模型的效果和准确性。</p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/undefined/"><img class="fill" src="/true" alt="生物信息学软件笔记"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-04-02T06:46:03.000Z" title="2023/4/2 14:46:03">2023-04-02</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:19.114Z" title="2023/12/10 13:18:19">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item">几秒读完 (大约0个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/undefined/">生物信息学软件笔记</a></p><div class="content"></div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/page/4/">上一页</a></div><div class="pagination-next"><a href="/page/6/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/">1</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/4/">4</a></li><li><a class="pagination-link is-current" href="/page/5/">5</a></li><li><a class="pagination-link" href="/page/6/">6</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/page/22/">22</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">264</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">63</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Julia/"><span class="level-start"><span class="level-item">Julia</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/R%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">R语言</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools4You/"><span class="level-start"><span class="level-item">Tools4You</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/swxxx/"><span class="level-start"><span class="level-item">swxxx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="level-start"><span class="level-item">分子生物学</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E8%83%BD/"><span class="level-start"><span class="level-item">技能</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE/"><span class="level-start"><span class="level-item">文献</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文献阅读</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%9D%82%E6%96%87/"><span class="level-start"><span class="level-item">杂文</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物信息学</span></span><span class="level-end"><span class="level-item tag">150</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/"><span class="level-start"><span class="level-item">生物信息学 - 群体遗传学 - Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物学信息学</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A7%91%E7%A0%94/"><span class="level-start"><span class="level-item">科研</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="level-start"><span class="level-item">统计学</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="level-start"><span class="level-item">软件使用</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2222-12-30T16:00:00.000Z">2222-12-31</time></p><p class="title"><a href="/article/bioinf2allin1/">我的生物信息学知识合集</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-25T02:36:54.000Z">2024-11-25</time></p><p class="title"><a href="/article/gettaxonomy/">从NCBI批量获取物种的分类信息</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-10T01:29:14.000Z">2024-10-10</time></p><p class="title"><a href="/article/dnamethylation/">全基因组DNA甲基化分析流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-24T03:37:16.000Z">2024-09-24</time></p><p class="title"><a href="/article/bismarkbug/">bismark过程中的一个小细节</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-29T01:40:57.000Z">2024-08-29</time></p><p class="title"><a href="/article/secretome4fungi/">真菌分泌蛋白预测流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2222/12/"><span class="level-start"><span class="level-item">十二月 2222</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">十一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">十一月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">八月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Bookdown/"><span class="tag">Bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFF3/"><span class="tag">GFF3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Htseq/"><span class="tag">Htseq</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JupyterLab/"><span class="tag">JupyterLab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">Nginx端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/QIIME2/"><span class="tag">QIIME2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R/"><span class="tag">R</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-%E8%AF%AD%E8%A8%80/"><span class="tag">R 语言</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RNA-Seq/"><span class="tag">RNA-Seq</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSS/"><span class="tag">RSS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R%E8%AF%AD%E8%A8%80/"><span class="tag">R语言</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shiny/"><span class="tag">Shiny</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tools4You/"><span class="tag">Tools4You</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/T%E6%A3%80%E9%AA%8C/"><span class="tag">T检验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bookdown/"><span class="tag">bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/conda/"><span class="tag">conda</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/fasta%E6%96%87%E4%BB%B6/"><span class="tag">fasta文件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/featurecounts/"><span class="tag">featurecounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gffread/"><span class="tag">gffread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitee/"><span class="tag">gitee</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pfastq-dump/"><span class="tag">pfastq-dump</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/qPCR/"><span class="tag">qPCR</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shiny4qPCR/"><span class="tag">shiny4qPCR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/"><span class="tag">代谢组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%8D%E7%96%AB-%E7%94%9F%E9%95%BF%E5%B9%B3%E8%A1%A1/"><span class="tag">免疫-生长平衡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="tag">分子生物学</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="tag">博客搭建</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"><span class="tag">回归分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F/"><span class="tag">基因家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84/"><span class="tag">基因组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%BF%E5%9B%8A%E7%B4%A0/"><span class="tag">尿囊素</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/"><span class="tag">微生物组学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E8%83%BD/"><span class="tag">技能</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE/"><span class="tag">文献</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="tag">文献阅读</span><span class="tag">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">是生物信息学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%82%E6%96%87/"><span class="tag">杂文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">生物信息学</span><span class="tag">156</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%A7/"><span class="tag">相关性</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/"><span class="tag">科研思维</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="tag">统计学</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/"><span class="tag">转录组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="tag">软件使用</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"><span class="tag">软件安装</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"><span class="tag">软件相关</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%81%97%E4%BC%A0%E5%AD%A6/"><span class="tag">遗传学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%85%8D%E8%89%B2/"><span class="tag">配色</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a><p class="is-size-7"><span>&copy; 2024 小蓝哥</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

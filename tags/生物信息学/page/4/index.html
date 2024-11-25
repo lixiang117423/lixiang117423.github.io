@@ -1,411 +1,503 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="robots" content="noindex"><meta><title>标签: 生物信息学 - 小蓝哥的知识荒原</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小蓝哥的知识荒原"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小蓝哥的知识荒原"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="活在当下，正向提升！"><meta property="og:type" content="blog"><meta property="og:title" content="小蓝哥的知识荒原"><meta property="og:url" content="https://lixiang117423.github.io/"><meta property="og:site_name" content="小蓝哥的知识荒原"><meta property="og:description" content="活在当下，正向提升！"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://lixiang117423.github.io/img/og_image.png"><meta property="article:author" content="小蓝哥"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://lixiang117423.github.io/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://lixiang117423.github.io"},"headline":"小蓝哥的知识荒原","image":["https://lixiang117423.github.io/img/og_image.png"],"author":{"@type":"Person","name":"小蓝哥"},"publisher":{"@type":"Organization","name":"小蓝哥的知识荒原","logo":{"@type":"ImageObject","url":"https://lixiang117423.github.io/img/logo.svg"}},"description":"活在当下，正向提升！"}</script><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
 
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
 
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
 
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="小蓝哥">
-  <meta name="keywords" content="">
-  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
-  
-    <meta name="description" content="活在当下，正向提升！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签 - 生物信息学">
-<meta property="og:url" content="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/4/index.html">
-<meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="活在当下，正向提升！">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="小蓝哥">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>标签 - 生物信息学 - 小蓝哥的知识荒原</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 6.3.0">
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
 <link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
-</head>
+</head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><div class="card-content"><nav class="breadcrumb" aria-label="breadcrumbs"><ul><li><a href="/tags">标签</a></li><li class="is-active"><a href="#" aria-current="page">生物信息学</a></li></ul></nav></div></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/dockererror/"><img class="fill" src="/true" alt="记一次Docker使用的坑"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-11-11T11:50:41.000Z" title="2023/11/11 19:50:41">2023-11-11</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.963Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">4 分钟读完 (大约618个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/dockererror/">记一次Docker使用的坑</a></p><div class="content"><p>最近在使用谷歌的<code>DeepVariant</code>处理三代数据，然后发现某个文件系统爆满了。。。。。。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">/dev/sda2       439G   439G  0G    <span class="token number">0</span>% /<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后我就发现Rstudio Server无法使用了（<a target="_blank" rel="noopener" href="https://www.web4xiang.com/blog/article/rstudioservererror/">点击跳转</a>），我以为是Rstudio Server出问题了，没多想。晚上的时候我想创建个<code>conda</code>环境，遇到报错说无法写入磁盘，磁盘空间已满。奇了怪了，我的<code>conda</code>是安装在家目录下的，按理说不应该啊。那就只能排查这个文件系统了，一个一个排查我发现<code>/var/lib/docker</code>这个目录居然有428G，那应该就是它的问题了。同时，我放在后台的<code>docker</code>程序也报错了：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker: Error response from daemon: symlink <span class="token punctuation">..</span>/83015c017c4cbeca7cbaf3248462fd13528f81549c038e88c26ec76507e77c5c-init/diff /var/lib/docker/overlay2/l/TD4TFUUO33QMTKMIODMQWLAJE4: no space left on device.
+See <span class="token string">'docker run --help'</span><span class="token builtin class-name">.</span>
+docker: Error response from daemon: symlink <span class="token punctuation">..</span>/5433420e38c356b530dda7918881973db38bb75628c30e7705e6f3d8eca2cd56-init/diff /var/lib/docker/overlay2/l/KD57PX56I2UU6VYEXXDTTUZ574: no space left on device.
+See <span class="token string">'docker run --help'</span><span class="token builtin class-name">.</span>
+docker: Error response from daemon: symlink <span class="token punctuation">..</span>/c9467a5a794bd582ec479484962214ef5b1d68b3ca1db78e4db2ee4234df9b3e-init/diff /var/lib/docker/overlay2/l/5VQY4MJCHU5OSCQPLUUFU2RU6A: no space left on device.
+See <span class="token string">'docker run --help'</span><span class="token builtin class-name">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>no space left on device</code>提示我没有磁盘空间了。OK，就是<code>docker</code>的锅了。</p>
+<hr>
+<p>我原来的代码没有把运行完的<code>docker</code>容器删除掉，每个容器都在后台运行，就导致这样。把后台已经运行完的容器删除就好了：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> container prune<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>居然释放出来那么多空间：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">4e484d315349990e9d9e7f1af1bd73fab8b71c4bcb07385adce56df9c40c6fdb
+2a6418adfb0a4d80c6b1a4efcf7a28bc533bd68f4bc87f8bccf6a5ebea2ccb63
+52bbb6fb5e4c5f7032329a5fc12c3b2cf987880d6de0145781a399ab340a8085
+8cb62d49ec1de2d6add8bb84308b1b886eb22871bc60562f4e611ae1f941ed73
+49360b64b5fed645556812abbe497d3447032471a8f398dc4939a895e17dfc3b
+fc1c04824659a1486ef78bb6c48eeff4f7ef256164efbd1a548cff67b6961d40
+260db0bfffcd5952191ab62d33fad991be06bcc9d9f3d46bd7ce396bf6d56572
+6918be1fb05fba1d60c8be35ff89f62a8093d013d58e9aae4cebe1e008e389ec
+e88d0c5f0622f0cee1880d2ec4aa281664d1a2dbd3627c77a9fe6c4606084f4e
+92dfe46e3d82704b68e34be8cbabd52c46a1694954106bdc6ed3d03a99570b9e
+8afbcaad109db4472967c82cee7b1d9b9fbb07f4a487e89e63fa7fcc020c1b8c
+2f56fce34cd5b9499eee8ddecc4532ed9f08d5ef86d868993fe2158e3a0d4edf
 
+Total reclaimed space: <span class="token number">441</span>.3GB<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/rstudioservererror/"><img class="fill" src="/true" alt="RstudioServer报错解决"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-11-11T09:37:38.000Z" title="2023/11/11 17:37:38">2023-11-11</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.139Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">1 分钟读完 (大约120个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/rstudioservererror/">RstudioServer报错解决</a></p><div class="content"><p>突然的报错。。。。。。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311111738324.png" alt="image-20231111173827973"></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">👉👉👉➡️  <span class="token function">df</span> <span class="token parameter variable">-hl</span> /tmp
+文件系统        容量  已用  可用 已用% 挂载点
+/dev/sda2       439G  426G     <span class="token number">0</span>  <span class="token number">100</span>% /<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>原来是这个系统盘爆满了，系统在上面，也不敢随便删文件。</p>
+<p>检索一番，找到解决方法：在自己的家目录下创建<code>.Renviron</code>这个文件，输入下面的内容：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">TMP</span><span class="token operator">=</span>/home/username/temp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/minigraph-cactus/"><img class="fill" src="/true" alt="崩溃的一天-配置Minigraph-Cactus"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-11-02T02:02:49.000Z" title="2023/11/2 10:02:49">2023-11-02</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.645Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">4 分钟读完 (大约607个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/minigraph-cactus/">崩溃的一天-配置Minigraph-Cactus</a></p><div class="content"><p>看到这篇文章：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311021005647.png" alt="image-20231102100555416"></p>
+<p>参考文献：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41587-023-01793-w">Hickey G, Monlong J, Ebler J, et al. Pangenome graph construction from genome alignments with Minigraph-Cactus[J]. Nature Biotechnology, 2023: 1-11.</a></p>
+</blockquote>
+<p>官方推荐使用docker安装，可是真的不想在实验室服务器上安装docker，conda上也是很久的包了，没有最新的。实验室服务器能不手动编译最好，那就在个人云服务器上线编译好再下载上传到实验室服务器。</p>
+<p>直接手动编译：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/ComparativeGenomicsToolkit/cactus.git <span class="token parameter variable">--recursive</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装依赖：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">python3 <span class="token parameter variable">-m</span> pip <span class="token function">install</span> virtualenv
+<span class="token builtin class-name">cd</span> cactus
+virtualenv <span class="token parameter variable">-p</span> python3 cactus_env
+<span class="token builtin class-name">echo</span> <span class="token string">"export PATH=<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/bin:\<span class="token environment constant">$PATH</span>"</span> <span class="token operator">&gt;&gt;</span> cactus_env/bin/activate
+<span class="token builtin class-name">echo</span> <span class="token string">"export PYTHONPATH=<span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">pwd</span><span class="token variable">)</span></span>/lib:\<span class="token variable">$PYTHONPATH</span>"</span> <span class="token operator">&gt;&gt;</span> cactus_env/bin/activate
+<span class="token builtin class-name">source</span> cactus_env/bin/activate
+python3 <span class="token parameter variable">-m</span> pip <span class="token function">install</span> <span class="token parameter variable">-U</span> setuptools pip wheel
+python3 <span class="token parameter variable">-m</span> pip <span class="token function">install</span> <span class="token parameter variable">-U</span> <span class="token builtin class-name">.</span>
+python3 <span class="token parameter variable">-m</span> pip <span class="token function">install</span> <span class="token parameter variable">-U</span> <span class="token parameter variable">-r</span> ./toil-requirement.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>再安装一些依赖：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token function">apt-get</span> Dockerfile <span class="token operator">|</span> <span class="token function">head</span> <span class="token parameter variable">-1</span> <span class="token operator">|</span> <span class="token function">sed</span> <span class="token parameter variable">-e</span> <span class="token string">'s/RUN //g'</span> <span class="token parameter variable">-e</span> <span class="token string">'s/apt-get/sudo apt-get/g'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>开始编译：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">make</span> <span class="token parameter variable">-j</span> <span class="token number">8</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>最需要的流程是Minigraph-Cactus：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">build-tools/downloadPangenomeTools<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>快编译完了报错：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">[</span> <span class="token number">98</span>%<span class="token punctuation">]</span> Building CXX object CMakeFiles/odgi.dir/src/main.cpp.o
+<span class="token punctuation">[</span> <span class="token number">98</span>%<span class="token punctuation">]</span> Linking CXX static library <span class="token punctuation">..</span>/lib/libodgi.a
+<span class="token punctuation">[</span> <span class="token number">98</span>%<span class="token punctuation">]</span> Linking CXX executable <span class="token punctuation">..</span>/bin/odgi
+/usr/bin/ld: cannot <span class="token function">find</span> <span class="token parameter variable">-ljemalloc</span>
+collect2: error: ld returned <span class="token number">1</span> <span class="token builtin class-name">exit</span> status
+make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>CMakeFiles/odgi.dir/build.make:345: <span class="token punctuation">..</span>/bin/odgi<span class="token punctuation">]</span> Error <span class="token number">1</span>
+make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>CMakeFiles/Makefile2:660: CMakeFiles/odgi.dir/all<span class="token punctuation">]</span> Error <span class="token number">2</span>
+make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** Waiting <span class="token keyword">for</span> unfinished jobs<span class="token punctuation">..</span><span class="token punctuation">..</span>
+/usr/bin/ld: cannot <span class="token function">find</span> <span class="token parameter variable">-ljemalloc</span>
+collect2: error: ld returned <span class="token number">1</span> <span class="token builtin class-name">exit</span> status
+make<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>CMakeFiles/libodgi_shared.dir/build.make:330: <span class="token punctuation">..</span>/lib/libodgi.so<span class="token punctuation">]</span> Error <span class="token number">1</span>
+make<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>: *** <span class="token punctuation">[</span>CMakeFiles/Makefile2:1056: CMakeFiles/libodgi_shared.dir/all<span class="token punctuation">]</span> Error <span class="token number">2</span>
+<span class="token punctuation">[</span> <span class="token number">98</span>%<span class="token punctuation">]</span> Built target libodgi_static
+make: *** <span class="token punctuation">[</span>Makefile:141: all<span class="token punctuation">]</span> Error <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>先把这个给安装了（PS：个人云服务器的好处就是随便玩，<code>sudo</code>都随便玩，大不了重装系统）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> libjemalloc-dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后重复上一步重新编译。</p>
+<p>通过没有加速，那下载这一堆东西都要崩溃：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">+ <span class="token function">wget</span> <span class="token parameter variable">-q</span> https://github.com/ComparativeGenomicsToolkit/hal2vg/releases/download/v1.1.4/hal2vg
++ <span class="token function">chmod</span> +x hal2vg
++ <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">''</span> <span class="token parameter variable">-ne</span> <span class="token number">1</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
++ <span class="token function">mv</span> hal2vg /home/lixiang/temp/cactus/bin
++ <span class="token builtin class-name">cd</span> /home/lixiang/temp/cactus/build-pangenome-tools
++ <span class="token function">wget</span> <span class="token parameter variable">-q</span> https://github.com/ComparativeGenomicsToolkit/hal2vg/releases/download/v1.1.4/clip-vg
++ <span class="token function">chmod</span> +x clip-vg
++ <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">''</span> <span class="token parameter variable">-ne</span> <span class="token number">1</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
++ <span class="token function">mv</span> clip-vg /home/lixiang/temp/cactus/bin
++ <span class="token builtin class-name">cd</span> /home/lixiang/temp/cactus/build-pangenome-tools
++ <span class="token function">wget</span> <span class="token parameter variable">-q</span> https://github.com/ComparativeGenomicsToolkit/hal2vg/releases/download/v1.1.4/halRemoveDupes
++ <span class="token function">chmod</span> +x halRemoveDupes
++ <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">''</span> <span class="token parameter variable">-ne</span> <span class="token number">1</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
++ <span class="token function">mv</span> halRemoveDupes /home/lixiang/temp/cactus/bin
++ <span class="token builtin class-name">cd</span> /home/lixiang/temp/cactus/build-pangenome-tools
++ <span class="token function">wget</span> <span class="token parameter variable">-q</span> https://github.com/ComparativeGenomicsToolkit/hal2vg/releases/download/v1.1.4/halMergeChroms
++ <span class="token function">chmod</span> +x halMergeChroms
++ <span class="token punctuation">[</span><span class="token punctuation">[</span> <span class="token string">''</span> <span class="token parameter variable">-ne</span> <span class="token number">1</span> <span class="token punctuation">]</span><span class="token punctuation">]</span>
++ <span class="token function">mv</span> halMergeChroms /home/lixiang/temp/cactus/bin
++ <span class="token builtin class-name">cd</span> /home/lixiang/temp/cactus/build-pangenome-tools
++ <span class="token function">wget</span> <span class="token parameter variable">-q</span> https://github.com/ComparativeGenomicsToolkit/hal2vg/releases/download/v1.1.4/halUnclip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>顺便把这个也编译了：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">build-tools/downloadMafTools<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/jiasugithub/"><img class="fill" src="/true" alt="加速服务器访问GitHub"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-11-02T01:44:43.000Z" title="2023/11/2 09:44:43">2023-11-02</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.971Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">几秒读完 (大约93个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/jiasugithub/">加速服务器访问GitHub</a></p><div class="content"><p>访问<code>GitHub</code>的速度真的是一言难尽啊，加速吧。。。。</p>
+<ul>
+<li><p>下载个<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/clash/releases/tag/v1.18.0">Clash</a>，搞个配置文件；</p>
+</li>
+<li><p>下载<a target="_blank" rel="noopener" href="https://github.com/Dreamacro/maxmind-geoip/releases">Country.mmdb</a>；</p>
+</li>
+<li><p>放后台运行：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> ./clash-linux-amd64-v1.18.0 <span class="token parameter variable">-f</span> clashconfig.yml <span class="token operator">&amp;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>指定端口：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">http_proxy</span><span class="token operator">=</span>http://127.0.0.1:7890
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">https_proxy</span><span class="token operator">=</span>http://127.0.0.1:7890<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311020950973.png" alt="image-20231102095022512"></p>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/findseqinfastq/"><img class="fill" src="/true" alt="从二代测序数据中鉴定是否含有特定基因"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-10-08T01:20:13.000Z" title="2023/10/8 09:20:13">2023-10-08</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.706Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">8 分钟读完 (大约1160个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/findseqinfastq/">从二代测序数据中鉴定是否含有特定基因</a></p><div class="content"><h2 id="基因组下载"><a href="#基因组下载" class="headerlink" title="基因组下载"></a>基因组下载</h2><p>下载参考基因组数据。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">get https://www.mbkbase.org/R498/R498_Chr.soft.fasta.gz
+get https://www.mbkbase.org/R498/R498_IGDBv3_coreset.tar.gz
+get https://www.mbkbase.org/R498/R498_CoreSet.pro.tar.gz
+get https://www.mbkbase.org/R498/R498_CoreSet.pro.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Blast比对"><a href="#Blast比对" class="headerlink" title="Blast比对"></a>Blast比对</h2><p>核酸序列建库疯狂报错：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">BLAST Database error: No <span class="token builtin class-name">alias</span> or index <span class="token function">file</span> found <span class="token keyword">for</span> protein database <span class="token punctuation">[</span>./blastdb/piapik<span class="token punctuation">]</span> <span class="token keyword">in</span> search path <span class="token punctuation">[</span>/sas16t/lixiang/yyt.reseq/02.blast::<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>换蛋白序列建库比对：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">makeblastdb <span class="token parameter variable">-in</span> piapik.fa <span class="token parameter variable">-dbtype</span> prot <span class="token parameter variable">-out</span> blastdb/piapik
+blastp <span class="token parameter variable">-query</span> R498_CoreSet.pros.format.fasta <span class="token parameter variable">-db</span> blastdb/piapik <span class="token parameter variable">-evalue</span> 1e-5 <span class="token parameter variable">-num_threads</span> <span class="token number">60</span> <span class="token parameter variable">-outfmt</span> <span class="token number">6</span> <span class="token parameter variable">-out</span> blast.out.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="提取gff文件和基因序列"><a href="#提取gff文件和基因序列" class="headerlink" title="提取gff文件和基因序列"></a>提取gff文件和基因序列</h2><p>提取gff文件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">grep</span> <span class="token string">"OsR498G1119642600.01"</span> R498_IGDBv3_coreset/R498_IGDBv3_coreset.gff <span class="token operator">&gt;</span> pia.gff
+<span class="token function">grep</span> <span class="token string">"OsR498G1120737800.01"</span> R498_IGDBv3_coreset/R498_IGDBv3_coreset.gff <span class="token operator">&gt;</span> pik.gff<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>提取基因序列：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"gene"</span>
+<span class="token function">sed</span> <span class="token string">'s/"/\t/g'</span> piapik.gff <span class="token operator">|</span> <span class="token function">awk</span> <span class="token parameter variable">-v</span> <span class="token assign-left variable">type</span><span class="token operator">=</span><span class="token string">"<span class="token variable">${type}</span>"</span> <span class="token string">'BEGIN{OFS=FS="\t"}{if($3==type) {print $1,$4-1,$5,$14,".",$7}}'</span> <span class="token operator">&gt;</span> piapik.bed <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>提取蛋白序列和CDS序列用于后续的SnpEff：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">seqkit <span class="token function">grep</span> <span class="token parameter variable">-f</span> piapik.cds.id.txt genome.cds.fa <span class="token operator">&gt;</span> piapik.cds.fa
+seqkit <span class="token function">grep</span> <span class="token parameter variable">-f</span> piapik.cds.id.txt genome.pro.fa <span class="token operator">&gt;</span> piapik.pro.fa<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>将这些文件拷贝到SnpEff文件夹：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">cp</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/01.data/genome/piapik.fa sequences.fa
+<span class="token function">cp</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/01.data/genome/piapik.gff genes.gff
+<span class="token function">cp</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/01.data/genome/R498_IGDBv3_coreset/piapik.cds.fa cds.fa
+<span class="token function">cp</span> <span class="token punctuation">..</span>/<span class="token punctuation">..</span>/<span class="token punctuation">..</span>/01.data/genome/R498_IGDBv3_coreset/piapik.pro.fa ./protein.fa
+<span class="token function">cp</span> PiaPik/sequences.fa ./genomes/PiaPik.fa <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="构建索引"><a href="#构建索引" class="headerlink" title="构建索引"></a>构建索引</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">bwa index 01.data/genome/piapik.fa
+samtools  faidx 01.data/genome/piapik.fa
+gatk CreateSequenceDictionary <span class="token parameter variable">-R</span> 01.data/genome/piapik.fa <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="SnpEff索引"><a href="#SnpEff索引" class="headerlink" title="SnpEff索引"></a>SnpEff索引</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">java</span> <span class="token parameter variable">-jar</span> /home/lixiang/mambaforge/envs/gatk4/share/snpeff-5.1-2/snpEff.jar build <span class="token parameter variable">-c</span> snpEff.config <span class="token parameter variable">-gff3</span> <span class="token parameter variable">-v</span> PiaPik <span class="token parameter variable">-noCheckCds</span> <span class="token parameter variable">-noCheckProtein</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="批量运行"><a href="#批量运行" class="headerlink" title="批量运行"></a>批量运行</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rm<span class="token punctuation">(</span>list <span class="token operator">=</span> ls<span class="token punctuation">(</span><span class="token punctuation">))</span>
 
-<body>
-  
+library<span class="token punctuation">(</span>tidyverse<span class="token punctuation">)</span>
 
-  <header>
+dir<span class="token punctuation">(</span><span class="token string">"./01.data/clean.data/"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  magrittr::set_names<span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  dplyr::mutate<span class="token punctuation">(</span>sample <span class="token operator">=</span> stringr::str_split<span class="token punctuation">(</span>file, <span class="token string">"<span class="token entity" title="\\">\\</span>."</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                  sapply<span class="token punctuation">(</span><span class="token string">"["</span>, <span class="token number">1</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                  stringr::str_sub<span class="token punctuation">(</span><span class="token number">1</span>, stringr::str_length<span class="token punctuation">(</span>.<span class="token punctuation">)</span>-2<span class="token punctuation">))</span> -<span class="token operator">&gt;</span> samples
+
+<span class="token comment"># 构建批量代码</span>
+
+genome <span class="token operator">=</span> <span class="token string">"01.data/genome/piapik.fa "</span>
+
+all.run <span class="token operator">=</span> NULL
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> unique<span class="token punctuation">(</span>samples<span class="token variable">$sample</span><span class="token punctuation">))</span> <span class="token punctuation">{</span>
+  <span class="token comment"># exit then skip </span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>file.exists<span class="token punctuation">(</span>sprintf<span class="token punctuation">(</span><span class="token string">"./03.mapping/%s.sorted.mapped.bam"</span>,i<span class="token punctuation">))</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    next
+  <span class="token punctuation">}</span>else<span class="token punctuation">{</span>
+    f.read <span class="token operator">=</span> sprintf<span class="token punctuation">(</span><span class="token string">"./01.data/clean.data/%s_1.clean.fq.gz"</span>,i<span class="token punctuation">)</span>
+    r.read <span class="token operator">=</span> sprintf<span class="token punctuation">(</span><span class="token string">"./01.data/clean.data/%s_2.clean.fq.gz"</span>,i<span class="token punctuation">)</span>
+    title <span class="token operator">=</span> sprintf<span class="token punctuation">(</span><span class="token string">"<span class="token entity" title="\&quot;">\"</span>@RG<span class="token entity" title="\\">\\</span>tID:%s<span class="token entity" title="\\">\\</span>tSM:%s<span class="token entity" title="\\">\\</span>tPL:illumina<span class="token entity" title="\&quot;">\"</span>"</span>,i,i<span class="token punctuation">)</span>
+    bam <span class="token operator">=</span> sprintf<span class="token punctuation">(</span><span class="token string">"./03.mapping/%s.sorted.bam"</span>,i<span class="token punctuation">)</span>
     
-
-<div class="header-inner" style="height: 80vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>小蓝哥的知识荒原</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="标签 - 生物信息学"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
+    <span class="token comment"># bwa mem</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"bwa mem -M -t 75 -R %s %s %s %s | samtools sort -@ 50 -m 8G -o %s"</span>,title, genome, f.read, r.read, bam<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.run
     
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 156 篇文章</p>
-  <hr>
-  
-  
+    <span class="token comment"># extract mapped</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"samtools view -bF 12 -@ 75 03.mapping/%s.sorted.bam -o 04.sorted.bam/%s.sorted.mapped.bam"</span>,i,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.run
     
-      
-      <p class="h5">2023</p>
+    <span class="token comment"># index</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"samtools index -@ 75 -bc 04.sorted.bam/%s.sorted.mapped.bam"</span>,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.run
     
-    <a href="/article/dockererror/" class="list-group-item list-group-item-action">
-      <time>11-11</time>
-      <div class="list-group-item-title">记一次Docker使用的坑</div>
-    </a>
-  
+    <span class="token comment"># # Pia</span>
+    <span class="token comment"># sprintf("samtools view 03.mapping/%s.sorted.mapped.bam Pia -o 03.mapping/%s.sorted.mapped.Pia.bam",i,i) %&gt;% </span>
+    <span class="token comment">#   as_data_frame() %&gt;% </span>
+    <span class="token comment">#   rbind(all.run) -&gt; all.run</span>
+    <span class="token comment"># </span>
+    <span class="token comment"># # Pik</span>
+    <span class="token comment"># sprintf("samtools view 03.mapping/%s.sorted.mapped.bam Pik -o 03.mapping/%s.sorted.mapped.Pik.bam",i,i) %&gt;% </span>
+    <span class="token comment">#   as_data_frame() %&gt;% </span>
+    <span class="token comment">#   rbind(all.run) -&gt; all.run</span>
     
-    <a href="/article/rstudioservererror/" class="list-group-item list-group-item-action">
-      <time>11-11</time>
-      <div class="list-group-item-title">RstudioServer报错解决</div>
-    </a>
-  
+    <span class="token comment"># # bam2fastq</span>
+    <span class="token comment"># sprintf("bedtools bamtofastq -i 03.mapping/%s.sorted.mapped.Pia.bam -fq 03.mapped.fastq/%s_1.Pia.fsatq -fq2 03.mapped.fastq/%s_2.Pia.fsatq",i,i,i) %&gt;% </span>
+    <span class="token comment">#   as_data_frame() %&gt;% </span>
+    <span class="token comment">#   rbind(all.run) -&gt; all.run</span>
     
-    <a href="/article/minigraph-cactus/" class="list-group-item list-group-item-action">
-      <time>11-02</time>
-      <div class="list-group-item-title">崩溃的一天-配置Minigraph-Cactus</div>
-    </a>
-  
+    <span class="token comment"># sprintf("bedtools bamtofastq -i 03.mapping/%s.sorted.mapped.Pik.bam -fq 03.mapped.fastq/%s_1.Pik.fsatq -fq2 03.mapped.fastq/%s_2.Pik.fsatq",i,i,i) %&gt;% </span>
+    <span class="token comment">#   as_data_frame() %&gt;% </span>
+    <span class="token comment">#   rbind(all.run) -&gt; all.run</span>
     
-    <a href="/article/jiasugithub/" class="list-group-item list-group-item-action">
-      <time>11-02</time>
-      <div class="list-group-item-title">加速服务器访问GitHub</div>
-    </a>
-  
+    <span class="token comment"># # rm bam</span>
+    <span class="token comment"># sprintf("rm 03.mapping/%s.sorted.bam",i) %&gt;% </span>
+    <span class="token comment">#   as_data_frame() %&gt;% </span>
+    <span class="token comment">#   rbind(all.run) -&gt; all.run</span>
     
-    <a href="/article/findseqinfastq/" class="list-group-item list-group-item-action">
-      <time>10-08</time>
-      <div class="list-group-item-title">从二代测序数据中鉴定是否含有特定基因</div>
-    </a>
-  
+    <span class="token comment"># coverage</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"samtools coverage ./04.sorted.bam/%s.sorted.mapped.bam &gt; 05.converage/%s.coverage.txt"</span>,i,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.run
     
-    <a href="/article/svdss/" class="list-group-item list-group-item-action">
-      <time>10-03</time>
-      <div class="list-group-item-title">结构变异检测软件SVDSS使用</div>
-    </a>
-  
-</div>
-
-
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/3/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">1</a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/2/#board">2</a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/3/#board">3</a><span class="page-number current">4</span><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/5/#board">5</a><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/6/#board">6</a><span class="space">&hellip;</span><a class="page-number" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/26/#board">26</a><a class="extend next" rel="next" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/5/#board"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <span class="token comment"># picard</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"picard -Xmx400g MarkDuplicates I=04.sorted.bam/%s.sorted.mapped.bam O=06.picard/%s.picard.bam CREATE_INDEX=true  REMOVE_DUPLICATES=trueu M=06.picard/%s.txt"</span>,i, i, i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.run
     
-
+    <span class="token comment"># gatk</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"gatk --java-options <span class="token entity" title="\&quot;">\"</span>-Xmx20G -XX:ParallelGCThreads=8<span class="token entity" title="\&quot;">\"</span> HaplotypeCaller -R 01.data/genome/piapik.fa  -I 06.picard/%s.picard.bam -O 07.gatk/%s.gvcf -ERC GVCF"</span>,i,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span>all.run
     
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
+    <span class="token comment"># gvcf 2 vcf</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"gatk GenotypeGVCFs -R 01.data/genome/piapik.fa  -V 07.gatk/%s.gvcf -O 07.gatk/%s.vcf"</span>,i,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span>all.run
     
+    <span class="token comment"># SneEff</span>
+    sprintf<span class="token punctuation">(</span><span class="token string">"java -Xmx10G -jar ~/mambaforge/envs/gatk4/share/snpeff-5.1-2/snpEff.jar ann -c  08.snpeff/snpEff.config PiaPik 07.gatk/%s.vcf &gt; 08.snpeff/%s.ann.vcf -csvStats 08.snpeff/%s.positive.csv -stats 08.snpeff/%s.positive.html"</span>,i,i,i,i<span class="token punctuation">)</span>  %<span class="token operator">&gt;</span>% 
+      as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+      rbind<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span> -<span class="token operator">&gt;</span>all.run
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
+all.run %<span class="token operator">&gt;</span>% 
+  dplyr::slice<span class="token punctuation">(</span>nrow<span class="token punctuation">(</span>all.run<span class="token punctuation">)</span>:1<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  write.table<span class="token punctuation">(</span><span class="token string">"./run.all.sh"</span>, col.names <span class="token operator">=</span> FALSE, row.names <span class="token operator">=</span> FALSE, quote <span class="token operator">=</span> FALSE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="合并覆盖度"><a href="#合并覆盖度" class="headerlink" title="合并覆盖度"></a>合并覆盖度</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">dir<span class="token punctuation">(</span><span class="token string">"./05.converage/"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  magrittr::set_names<span class="token punctuation">(</span><span class="token string">"file"</span><span class="token punctuation">)</span> -<span class="token operator">&gt;</span> coverage
 
-    
+all.converage.final <span class="token operator">=</span> NULL
 
-    
-  </main>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> coverage<span class="token variable">$file</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sprintf<span class="token punctuation">(</span><span class="token string">"./05.converage/%s"</span>,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    readr::read_delim<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    dplyr::mutate<span class="token punctuation">(</span>sample <span class="token operator">=</span> stringr::str_replace<span class="token punctuation">(</span>i,<span class="token string">".coverage.txt"</span>,<span class="token string">""</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::select<span class="token punctuation">(</span>ncol<span class="token punctuation">(</span>.<span class="token punctuation">)</span>, <span class="token number">1</span>:<span class="token punctuation">(</span>ncol<span class="token punctuation">(</span>.<span class="token punctuation">)</span>-1<span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    rbind<span class="token punctuation">(</span>all.converage.final<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.converage.final
+<span class="token punctuation">}</span>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
+all.converage.final %<span class="token operator">&gt;</span>% 
+  write.table<span class="token punctuation">(</span><span class="token string">"./all.coverage.txt"</span>, sep <span class="token operator">=</span> <span class="token string">"<span class="token entity" title="\t">\t</span>"</span>, quote <span class="token operator">=</span> FALSE, row.names <span class="token operator">=</span> FALSE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="判断突变类型"><a href="#判断突变类型" class="headerlink" title="判断突变类型"></a>判断突变类型</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">rm<span class="token punctuation">(</span>list <span class="token operator">=</span> ls<span class="token punctuation">(</span><span class="token punctuation">))</span>
 
-  
-</div>
+readr::read_delim<span class="token punctuation">(</span><span class="token string">"./01.data/genome/piapik.gff"</span>, col_names <span class="token operator">=</span> FALSE<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  dplyr::select<span class="token punctuation">(</span><span class="token number">1,3</span>:5<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  magrittr::set_names<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"HROM"</span>,<span class="token string">"gene.region"</span>,<span class="token string">"start"</span>,<span class="token string">"end"</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+  dplyr::filter<span class="token punctuation">(</span>gene.region <span class="token operator">==</span> <span class="token string">"exon"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  dplyr::mutate<span class="token punctuation">(</span>HROM <span class="token operator">=</span> stringr::str_replace<span class="token punctuation">(</span>HROM,<span class="token string">"<span class="token entity" title="\\">\\</span>."</span>,<span class="token string">"_"</span><span class="token punctuation">))</span>-<span class="token operator">&gt;</span> df.gff
 
-  </footer>
+dir<span class="token punctuation">(</span><span class="token string">"./08.snpeff/"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  as_data_frame<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  magrittr::set_names<span class="token punctuation">(</span><span class="token string">"vcf"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+  dplyr::filter<span class="token punctuation">(</span>stringr::str_ends<span class="token punctuation">(</span>vcf, <span class="token string">"ann.vcf"</span><span class="token punctuation">))</span>-<span class="token operator">&gt;</span> vcf
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+all.vcf <span class="token operator">=</span> NULL
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+<span class="token keyword">for</span> <span class="token punctuation">(</span>i <span class="token keyword">in</span> vcf<span class="token variable">$vcf</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sprintf<span class="token punctuation">(</span><span class="token string">"./08.snpeff/%s"</span>,i<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    data.table::fread<span class="token punctuation">(</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    magrittr::set_names<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"HROM"</span>, <span class="token string">"POS"</span>, <span class="token string">"ID"</span>, <span class="token string">"REF"</span>, <span class="token string">"ALT"</span>, <span class="token string">"QUAL"</span>, <span class="token string">"FILTER"</span>, <span class="token string">"INFO"</span>, <span class="token string">"FORMAT"</span>, <span class="token string">"sample"</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::select<span class="token punctuation">(</span><span class="token number">1</span>:8<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    dplyr::mutate<span class="token punctuation">(</span>mutation.type <span class="token operator">=</span> stringr::str_split<span class="token punctuation">(</span>INFO,<span class="token string">";"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    sapply<span class="token punctuation">(</span><span class="token string">"["</span>,12<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    stringr::str_split<span class="token punctuation">(</span><span class="token string">"<span class="token entity" title="\\">\\</span>|"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    sapply<span class="token punctuation">(</span><span class="token string">"["</span>,2<span class="token punctuation">)</span>,
+                  mutation.region <span class="token operator">=</span> stringr::str_split<span class="token punctuation">(</span>INFO,<span class="token string">";"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    sapply<span class="token punctuation">(</span><span class="token string">"["</span>,12<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    stringr::str_split<span class="token punctuation">(</span><span class="token string">"<span class="token entity" title="\\">\\</span>|"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    sapply<span class="token punctuation">(</span><span class="token string">"["</span>,6<span class="token punctuation">)</span>,
+                  mutation.protein <span class="token operator">=</span> stringr::str_split<span class="token punctuation">(</span>INFO,<span class="token string">";"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    sapply<span class="token punctuation">(</span><span class="token string">"["</span>,12<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    stringr::str_split<span class="token punctuation">(</span><span class="token string">"<span class="token entity" title="\\">\\</span>|"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+                    sapply<span class="token punctuation">(</span><span class="token string">"["</span>,11<span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::select<span class="token punctuation">(</span>-INFO<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    dplyr::left_join<span class="token punctuation">(</span>df.gff<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    dplyr::mutate<span class="token punctuation">(</span>group <span class="token operator">=</span> case_when<span class="token punctuation">(</span>POS <span class="token operator">&gt;=</span> start <span class="token operator">&amp;</span> POS <span class="token operator">&lt;=</span> end ~ <span class="token string">"Exon"</span>, TRUE ~ <span class="token string">"Non-exon"</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::filter<span class="token punctuation">(</span>group <span class="token operator">==</span> <span class="token string">"Exon"</span><span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    dplyr::select<span class="token punctuation">(</span><span class="token number">1</span>:5,8:10<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    magrittr::set_names<span class="token punctuation">(</span>c<span class="token punctuation">(</span><span class="token string">"chrom"</span>, <span class="token string">"position"</span>, <span class="token string">"id"</span>, <span class="token string">"ref"</span>, <span class="token string">"alt"</span>, <span class="token string">"mutation.type"</span>, <span class="token string">"mutation.region"</span>, <span class="token string">"mutation.protein"</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::mutate<span class="token punctuation">(</span>sample <span class="token operator">=</span> stringr::str_replace<span class="token punctuation">(</span>i,<span class="token string">".ann.vcf"</span>,<span class="token string">""</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::mutate<span class="token punctuation">(</span>rgene <span class="token operator">=</span> case_when<span class="token punctuation">(</span>chrom <span class="token operator">==</span> <span class="token string">"OsR498G1119642600_01"</span> ~ <span class="token string">"Pia"</span>, TRUE ~ <span class="token string">"Pik"</span><span class="token punctuation">))</span> %<span class="token operator">&gt;</span>% 
+    dplyr::select<span class="token punctuation">(</span><span class="token number">9</span>:10,2:8<span class="token punctuation">)</span> %<span class="token operator">&gt;</span>% 
+    rbind<span class="token punctuation">(</span>all.vcf<span class="token punctuation">)</span> -<span class="token operator">&gt;</span> all.vcf
+<span class="token punctuation">}</span>
 
+all.vcf %<span class="token operator">&gt;</span>% 
+  write.table<span class="token punctuation">(</span><span class="token string">"./all.vcf.txt"</span>, sep <span class="token operator">=</span> <span class="token string">"<span class="token entity" title="\t">\t</span>"</span>, quote <span class="token operator">=</span> FALSE, row.names <span class="token operator">=</span> FALSE<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</div></article></div><div class="card"><div class="card-image"><a class="image is-7by3" href="/article/svdss/"><img class="fill" src="/true" alt="结构变异检测软件SVDSS使用"></a></div><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2023-10-03T07:52:27.000Z" title="2023/10/3 15:52:27">2023-10-03</time>发表</span><span class="level-item"><time dateTime="2023-12-10T05:18:18.987Z" title="2023/12/10 13:18:18">2023-12-10</time>更新</span><span class="level-item"> 李详【Xiang LI】 </span><span class="level-item"><a class="link-muted" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></span><span class="level-item">10 分钟读完 (大约1440个字)</span></div></div><p class="title is-3 is-size-4-mobile"><a class="link-muted" href="/article/svdss/">结构变异检测软件SVDSS使用</a></p><div class="content"><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-022-01674-1">Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(4): 550-558.</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oE8uvMklWVE">点击观看官方视屏</a>.</p>
+<h2 id="计算原理"><a href="#计算原理" class="headerlink" title="计算原理"></a>计算原理</h2><p>SVDSS融合了基于比对、无比对和基于组装这三种方法的优势。整个流程可以分为如下几步：</p>
+<ol>
+<li><code>read-smoothing</code>：基于比对到参考基因组上的方法将测序错误碱基、SNP和小片段插入（&lt;20bp）的序列去除。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png" alt="image-20231003155907569"></li>
+<li><code>构建SFS superstring</code>：在完成上一步的基础上对样品特异性片段（sample-specific string，SFS）进行提取，然后再将SFS组装成superstrings.<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031600513.png" alt="image-20231003160041288"><br>什么是specific strings？官方视屏中的介绍是这样的：也就是在A中有在B中没有的片段。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031608727.png" alt="image-20231003160823249"></li>
+<li><code>SV预测</code>：基于这些SFS在参考基因组上的位置对其进行聚类，然后鉴定SV.<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031614558.png" alt="image-20231003161405487"></li>
+</ol>
+<h2 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h2><h3 id="软件安装"><a href="#软件安装" class="headerlink" title="## 软件安装"></a>## 软件安装</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">mamba create <span class="token parameter variable">--name</span> svdss
+mamba activate svdss
+mamba <span class="token function">install</span> <span class="token parameter variable">-c</span> bioconda svdss<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h3><p>官方使用的是人类基因组数据，我选择水稻的数据。</p>
+<p>从<a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/web/download"></a><a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/">RiceSuperPIRdb</a>下载日本晴的T2T基因组和注释信息。从<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S009286742100581X">Qin P, Lu H, Du H, et al. Pan-genome analysis of 33 genetically diverse rice accessions reveals hidden genomic variations[J]. Cell, 2021, 184(13): 3542-3558. e16.</a>提供的数据中下载2个样品全基因组测序数据。下载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://ngdc.cncb.ac.cn/search/?dbId=gsa&amp;q=PRJCA002103.&amp;page=1">https://ngdc.cncb.ac.cn/search/?dbId=gsa&amp;q=PRJCA002103.&amp;page=1</a></p>
+<hr>
+<p>剩下的步骤大概可以分为如下几步：</p>
+<ol>
+<li>Build FMD index of reference genome (<code>SVDSS index</code>)</li>
+<li>Smooth the input BAM file (<code>SVDSS smooth</code>)</li>
+<li>Extract SFS from smoothed BAM file (<code>SVDSS search</code>)</li>
+<li>Assemble SFS into superstrings (<code>SVDSS assemble</code>)</li>
+<li>Genotype SVs from the assembled superstrings (<code>SVDSS call</code>)</li>
+</ol>
+<p>但是软件输出的帮助文档的顺序和GitHub上的不一样：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SVDSS, Structural Variant Discovery from Sample-specific Strings.
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+Usage: 
+        * Index reference/sample:
+                SVDSS index --fastq/--fasta /path/to/genome/file <span class="token parameter variable">--index</span> /path/to/output/index/file
 
+                Optional arguments: 
+                        -b, <span class="token parameter variable">--binary</span>                            output index <span class="token keyword">in</span> binary format. Allows <span class="token keyword">for</span> another index to be appended to this index later.
+                        -a, <span class="token parameter variable">--append</span> /path/to/binary/index      append to existing binary index.
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+        * Extract SFS from BAM/FASTQ/FASTA files:
+                SVDSS search <span class="token parameter variable">--index</span> /path/to/index --fastq/--bam /path/to/input <span class="token parameter variable">--workdir</span> /output/directory
 
+                Optional arguments: 
+                        <span class="token parameter variable">--assemble</span>                              automatically runs SVDSS assemble on output
 
+        * Assemble SFS into superstrings:
+                SVDSS assemble <span class="token parameter variable">--workdir</span> /path/to/.sfs/files <span class="token parameter variable">--batches</span> /number/of/SFS/batches
 
+        * Reconstruct sample:
+                SVDSS smooth <span class="token parameter variable">--workdir</span> /output/file/direcotry <span class="token parameter variable">--bam</span> /path/to/input/bam/file <span class="token parameter variable">--reference</span> /path/to/reference/genome/fasta
 
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
+        * Call SVs:
+                SVDSS call <span class="token parameter variable">--workdir</span> /path/to/assembled/.sfs/files <span class="token parameter variable">--bam</span> /path/to/input/bam/file <span class="token parameter variable">--reference</span> /path/to/reference/genome/fasta
 
+                Optional arguments: 
+                        <span class="token parameter variable">--clipped</span>                               calls SVs from clipped SFS.
+                        --min-cluster-weight                    minimum number of supporting superstrings <span class="token keyword">for</span> a call to be reported.
+                        --min-sv-length                         minimum length of reported SVs. Default is <span class="token number">25</span>. Values <span class="token operator">&lt;</span> <span class="token number">25</span> are ignored.
 
+General options: 
+        <span class="token parameter variable">--threads</span>                                               sets number of threads, default <span class="token number">4</span>.
+        <span class="token parameter variable">--version</span>                                               print version information.
+        <span class="token parameter variable">--help</span>                                                  print this <span class="token builtin class-name">help</span> message.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>先跟着GitHub上的步骤操作一波试试。</p>
+<hr>
+<blockquote>
+<p>All of SVDSS steps must be run in the same directory so we always pass <code>--workdir $PWD</code> for every command.</p>
+</blockquote>
+<h3 id="构建参考基因组索引"><a href="#构建参考基因组索引" class="headerlink" title="构建参考基因组索引"></a>构建参考基因组索引</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token number">1</span>.refer.index
+SVDSS index <span class="token parameter variable">--fasta</span> 00.data/genome/nip.t2t.fa <span class="token parameter variable">--index</span> 01.refer.index/refer.genome.fmds<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>373M的基因组运行结果如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SVDSS, Structural Variant Discovery from Sample-specific Strings.
+Mode: index
+<span class="token punctuation">[</span>I<span class="token punctuation">]</span> <span class="token builtin class-name">.</span> 
+<span class="token punctuation">[</span>M::mr_insert_multi<span class="token punctuation">]</span> Turn off parallelization <span class="token keyword">for</span> this batch as too few strings are left.
+<span class="token punctuation">[</span>I<span class="token punctuation">]</span> Complete. Runtime: <span class="token number">876</span> seconds. <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h3><p>使用<code>Minimap2</code>将序列比对到参考基因组上获得<code>BAM</code>文件。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">minimap2 <span class="token parameter variable">-ax</span> map-pb  ref.fa pacbio-reads.fq <span class="token operator">&gt;</span> aln.sam   <span class="token comment"># for PacBio CLR reads</span>
+minimap2 <span class="token parameter variable">-ax</span> map-ont ref.fa ont-reads.fq <span class="token operator">&gt;</span> aln.sam      <span class="token comment"># for Oxford Nanopore reads</span>
+minimap2 <span class="token parameter variable">-ax</span> map-iclr ref.fa iclr-reads.fq <span class="token operator">&gt;</span> aln.sam    <span class="token comment"># for Illumina Complete Long Reads</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">minimap2 <span class="token parameter variable">-t</span> <span class="token number">70</span> <span class="token parameter variable">-ax</span> map-pb 00.data/genome/nip.t2t.fa 00.data/sample/zh11.fastq <span class="token operator">&gt;</span> zh11.sam<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>57G数据运行了25分钟左右。</p>
+<p>将<code>SAM</code>转为<code>BAM</code>排序后构建索引：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">samtools view -@ <span class="token number">70</span> <span class="token parameter variable">-b</span> zh11.sam <span class="token operator">&gt;</span> zh11.bam
+samtools <span class="token function">sort</span> --write-index -@ <span class="token number">70</span> zh11.bam <span class="token parameter variable">-o</span> zh11.sorted.bam <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="Smooth样品"><a href="#Smooth样品" class="headerlink" title="Smooth样品"></a>Smooth样品</h3><p>剔除样品中的测序错误碱基、SNP和小片段插入（&lt;20bp）。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SVDSS smooth <span class="token parameter variable">--threads</span> <span class="token number">70</span> <span class="token parameter variable">--reference</span> nip.t2t.fa <span class="token parameter variable">--bam</span> zh11.sorted.bam<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>构建索引。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">samtools index -@ <span class="token number">70</span> <span class="token parameter variable">-b</span> smoothed.selective.bam<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="提取样品的SFS并组装"><a href="#提取样品的SFS并组装" class="headerlink" title="提取样品的SFS并组装"></a>提取样品的SFS并组装</h3><p>看了下一步的代码里面有一个参数是batches，猜测不同的样本的batches不同，批量处理就不好处理，那就直接一步完成了。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SVDSS search <span class="token parameter variable">--threads</span> <span class="token number">70</span> <span class="token parameter variable">--index</span> refer.genome.fmd <span class="token parameter variable">--bam</span> smoothed.selective.bam<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="预测SVs"><a href="#预测SVs" class="headerlink" title="预测SVs"></a>预测SVs</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">SVDSS call <span class="token parameter variable">--threads</span> <span class="token number">70</span> <span class="token parameter variable">--reference</span> nip.t2t.fa <span class="token parameter variable">--bam</span> smoothed.selective.bam  <span class="token operator">&gt;</span> zh11.sv.vcf <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="汇总结果"><a href="#汇总结果" class="headerlink" title="汇总结果"></a>汇总结果</h3><pre class="line-numbers language-none"><code class="language-none">mkdir 02.each/zh11
+mv zh11* 02.each/zh11 
+mv s* 02.each/zh11 
+mv ignored_reads.txt 02.each/zh11 
+mv poa.sam 02.each/zh11 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="另一种方法"><a href="#另一种方法" class="headerlink" title="另一种方法"></a>另一种方法</h2><p>我尝试了上面的方法，不行，最终得不到结构变异。选择直接从fastq文件开始，不用比对了。</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> <span class="token number">1</span>.refer.index
+SVDSS index <span class="token parameter variable">--fasta</span> 00.data/genome/nip.t2t.fa <span class="token parameter variable">--index</span> 01.refer.index/refer.genome.fmds
+minimap2 <span class="token parameter variable">-t</span> <span class="token number">70</span> <span class="token parameter variable">-ax</span> map-pb 00.data/genome/nip.t2t.fa 00.data/sample/zh11.fastq <span class="token operator">&gt;</span> zh11.sam
+samtools view -@ <span class="token number">70</span> <span class="token parameter variable">-b</span> zh11.sam <span class="token operator">&gt;</span> zh11.bam
+samtools <span class="token function">sort</span> --write-index -@ <span class="token number">70</span> zh11.bam <span class="token parameter variable">-o</span> zh11.sorted.bam 
+SVDSS search <span class="token parameter variable">--threads</span> <span class="token number">70</span> <span class="token parameter variable">--assemble</span> <span class="token parameter variable">--index</span> refer.genome.fmd <span class="token parameter variable">--fastq</span> 00.data/sample/zh11.fastq
+SVDSS call --min-sv-length <span class="token number">50</span> <span class="token parameter variable">--threads</span> <span class="token number">70</span> <span class="token parameter variable">--reference</span> nip.t2t.fa <span class="token parameter variable">--bam</span> zh11.sorted.bam  <span class="token operator">&gt;</span> zh11.sv.vcf
 
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-</body>
-</html>
+<span class="token function">mkdir</span> 02.each/zh11
+<span class="token function">mv</span> zh11* 02.each/zh11 
+<span class="token function">mv</span> s* 02.each/zh11 
+<span class="token function">mv</span> ignored_reads.txt 02.each/zh11 
+<span class="token function">mv</span> poa.sam 02.each/zh11 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>只得到200个SV，不知道对不对。得到这样一个图：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310042031756.png" alt="image-20231004203123690"></p>
+<h2 id="结构变异可视化"><a href="#结构变异可视化" class="headerlink" title="结构变异可视化"></a>结构变异可视化</h2><p>在<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-023-01932-w">Ahsan M U, Liu Q, Perdomo J E, et al. A survey of algorithms for the detection of genomic structural variants from long-read sequencing data[J]. Nature Methods, 2023, 20(8): 1143-1158.</a>这个文章里面看到这个图：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310041547002.png" alt="image-20231004154750643"></p>
+<p>找到这个文章：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/37/3/413/5885081">Maria Nattestad, Robert Aboukhalil, Chen-Shan Chin, Michael C Schatz, Ribbon: intuitive visualization for complex genomic variation, <em>Bioinformatics</em>, Volume 37, Issue 3, February 2021, Pages 413–415</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/marianattestad/ribbon">点击查看GitHub代码</a>。</p>
+<p>直接部署一个到自己的服务器上，接个域名方便自己使用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.xxx.com/ribbon/">https://www.xxx.com/ribbon/</a></p>
+</div></article></div><nav class="pagination" role="navigation" aria-label="pagination"><div class="pagination-previous"><a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/3/">上一页</a></div><div class="pagination-next"><a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/5/">下一页</a></div><ul class="pagination-list is-hidden-mobile"><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">1</a></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/2/">2</a></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/3/">3</a></li><li><a class="pagination-link is-current" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/4/">4</a></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/5/">5</a></li><li><span class="pagination-ellipsis">&hellip;</span></li><li><a class="pagination-link" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/page/26/">26</a></li></ul></nav></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Your name"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Your name</p><p class="is-size-6 is-block">Your title</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Your location</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">264</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">19</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">63</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="me noopener">关注我</a></div><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Github" href="https://github.com/ppoffice"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="me noopener" title="RSS" href="/"><i class="fas fa-rss"></i></a></div></div></div><!--!--><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/Julia/"><span class="level-start"><span class="level-item">Julia</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/Python/"><span class="level-start"><span class="level-item">Python</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/R%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">R语言</span></span><span class="level-end"><span class="level-item tag">29</span></span></a></li><li><a class="level is-mobile" href="/categories/Tools4You/"><span class="level-start"><span class="level-item">Tools4You</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/hexo/"><span class="level-start"><span class="level-item">hexo</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/swxxx/"><span class="level-start"><span class="level-item">swxxx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="level-start"><span class="level-item">分子生物学</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E8%83%BD/"><span class="level-start"><span class="level-item">技能</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="level-start"><span class="level-item">数据库</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE/"><span class="level-start"><span class="level-item">文献</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="level-start"><span class="level-item">文献阅读</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%9D%82%E6%96%87/"><span class="level-start"><span class="level-item">杂文</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物信息学</span></span><span class="level-end"><span class="level-item tag">150</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6-%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6-Linux/"><span class="level-start"><span class="level-item">生物信息学 - 群体遗传学 - Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%94%9F%E7%89%A9%E5%AD%A6%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="level-start"><span class="level-item">生物学信息学</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%A7%91%E7%A0%94/"><span class="level-start"><span class="level-item">科研</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="level-start"><span class="level-item">统计学</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/categories/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="level-start"><span class="level-item">软件使用</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2222-12-30T16:00:00.000Z">2222-12-31</time></p><p class="title"><a href="/article/bioinf2allin1/">我的生物信息学知识合集</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-11-25T02:36:54.000Z">2024-11-25</time></p><p class="title"><a href="/article/gettaxonomy/">从NCBI批量获取物种的分类信息</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-10T01:29:14.000Z">2024-10-10</time></p><p class="title"><a href="/article/dnamethylation/">全基因组DNA甲基化分析流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-24T03:37:16.000Z">2024-09-24</time></p><p class="title"><a href="/article/bismarkbug/">bismark过程中的一个小细节</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-29T01:40:57.000Z">2024-08-29</time></p><p class="title"><a href="/article/secretome4fungi/">真菌分泌蛋白预测流程</a></p><p class="categories"><a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">生物信息学</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2222/12/"><span class="level-start"><span class="level-item">十二月 2222</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/11/"><span class="level-start"><span class="level-item">十一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/11/"><span class="level-start"><span class="level-item">十一月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/10/"><span class="level-start"><span class="level-item">十月 2023</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/09/"><span class="level-start"><span class="level-item">九月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/08/"><span class="level-start"><span class="level-item">八月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/07/"><span class="level-start"><span class="level-item">七月 2023</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/06/"><span class="level-start"><span class="level-item">六月 2023</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/05/"><span class="level-start"><span class="level-item">五月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/04/"><span class="level-start"><span class="level-item">四月 2023</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/03/"><span class="level-start"><span class="level-item">三月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/02/"><span class="level-start"><span class="level-item">二月 2023</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/01/"><span class="level-start"><span class="level-item">一月 2023</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/11/"><span class="level-start"><span class="level-item">十一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/10/"><span class="level-start"><span class="level-item">十月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/09/"><span class="level-start"><span class="level-item">九月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/08/"><span class="level-start"><span class="level-item">八月 2022</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/06/"><span class="level-start"><span class="level-item">六月 2022</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/05/"><span class="level-start"><span class="level-item">五月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/04/"><span class="level-start"><span class="level-item">四月 2022</span></span><span class="level-end"><span class="level-item tag">8</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/03/"><span class="level-start"><span class="level-item">三月 2022</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/02/"><span class="level-start"><span class="level-item">二月 2022</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">18</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">19</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">22</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/06/"><span class="level-start"><span class="level-item">六月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/04/"><span class="level-start"><span class="level-item">四月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/03/"><span class="level-start"><span class="level-item">三月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/02/"><span class="level-start"><span class="level-item">二月 2021</span></span><span class="level-end"><span class="level-item tag">9</span></span></a></li><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">一月 2021</span></span><span class="level-end"><span class="level-item tag">16</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/12/"><span class="level-start"><span class="level-item">十二月 2020</span></span><span class="level-end"><span class="level-item tag">15</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">11</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Bookdown/"><span class="tag">Bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/GFF3/"><span class="tag">GFF3</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Htseq/"><span class="tag">Htseq</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/JupyterLab/"><span class="tag">JupyterLab</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">Nginx端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Python/"><span class="tag">Python</span><span class="tag">10</span></a></div><div class="control"><a class="tags has-addons" href="/tags/QIIME2/"><span class="tag">QIIME2</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R/"><span class="tag">R</span><span class="tag">12</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R-%E8%AF%AD%E8%A8%80/"><span class="tag">R 语言</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RNA-Seq/"><span class="tag">RNA-Seq</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RSS/"><span class="tag">RSS</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/R%E8%AF%AD%E8%A8%80/"><span class="tag">R语言</span><span class="tag">29</span></a></div><div class="control"><a class="tags has-addons" href="/tags/SSL/"><span class="tag">SSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Shiny/"><span class="tag">Shiny</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Tools4You/"><span class="tag">Tools4You</span><span class="tag">6</span></a></div><div class="control"><a class="tags has-addons" href="/tags/T%E6%A3%80%E9%AA%8C/"><span class="tag">T检验</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Ubuntu/"><span class="tag">Ubuntu</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/WSL/"><span class="tag">WSL</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/bookdown/"><span class="tag">bookdown</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/conda/"><span class="tag">conda</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/docker/"><span class="tag">docker</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/fasta%E6%96%87%E4%BB%B6/"><span class="tag">fasta文件</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/featurecounts/"><span class="tag">featurecounts</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gffread/"><span class="tag">gffread</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/gitee/"><span class="tag">gitee</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/github/"><span class="tag">github</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/hexo/"><span class="tag">hexo</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/pfastq-dump/"><span class="tag">pfastq-dump</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/qPCR/"><span class="tag">qPCR</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shiny4qPCR/"><span class="tag">shiny4qPCR</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E4%BB%A3%E8%B0%A2%E7%BB%84/"><span class="tag">代谢组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%8D%E7%96%AB-%E7%94%9F%E9%95%BF%E5%B9%B3%E8%A1%A1/"><span class="tag">免疫-生长平衡</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/"><span class="tag">分子生物学</span><span class="tag">8</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><span class="tag">博客搭建</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/"><span class="tag">回归分析</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F/"><span class="tag">基因家族</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84/"><span class="tag">基因组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%B0%BF%E5%9B%8A%E7%B4%A0/"><span class="tag">尿囊素</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%BE%AE%E7%94%9F%E7%89%A9%E7%BB%84%E5%AD%A6/"><span class="tag">微生物组学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E8%83%BD/"><span class="tag">技能</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/"><span class="tag">数据可视化</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE/"><span class="tag">文献</span><span class="tag">13</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"><span class="tag">文献阅读</span><span class="tag">17</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">是生物信息学</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tag">机器学习</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%9D%82%E6%96%87/"><span class="tag">杂文</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"><span class="tag">生物信息学</span><span class="tag">156</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%9B%B8%E5%85%B3%E6%80%A7/"><span class="tag">相关性</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94/"><span class="tag">科研</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/"><span class="tag">科研思维</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/"><span class="tag">端口转发</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/"><span class="tag">统计学</span><span class="tag">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E5%BD%95%E7%BB%84/"><span class="tag">转录组</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"><span class="tag">软件使用</span><span class="tag">16</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"><span class="tag">软件安装</span><span class="tag">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AF%E4%BB%B6%E7%9B%B8%E5%85%B3/"><span class="tag">软件相关</span><span class="tag">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%81%97%E4%BC%A0%E5%AD%A6/"><span class="tag">遗传学</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E9%85%8D%E8%89%B2/"><span class="tag">配色</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget"><div class="card-content"><div class="notification is-danger">You need to set <code>client_id</code> and <code>slot_id</code> to show this AD unit. Please set it in <code>_config.yml</code>.</div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="小蓝哥的知识荒原" height="28"></a><p class="is-size-7"><span>&copy; 2024 小蓝哥</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script><script src="/js/pjax.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
