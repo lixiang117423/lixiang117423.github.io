@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://lixiang117423.github.io/article/gettaxonomy/</loc>
+    
+    <lastmod>2024-11-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://lixiang117423.github.io/article/bioinf2allin1/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -2581,14 +2590,14 @@
   </url>
   
   <url>
-    <loc>https://lixiang117423.github.io/tags/conda/</loc>
+    <loc>https://lixiang117423.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lixiang117423.github.io/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</loc>
+    <loc>https://lixiang117423.github.io/tags/conda/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2693,14 +2702,14 @@
   </url>
   
   <url>
-    <loc>https://lixiang117423.github.io/tags/shell/</loc>
+    <loc>https://lixiang117423.github.io/tags/qPCR/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lixiang117423.github.io/tags/qPCR/</loc>
+    <loc>https://lixiang117423.github.io/tags/shell/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2714,14 +2723,14 @@
   </url>
   
   <url>
-    <loc>https://lixiang117423.github.io/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/</loc>
+    <loc>https://lixiang117423.github.io/tags/T%E6%A3%80%E9%AA%8C/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lixiang117423.github.io/tags/T%E6%A3%80%E9%AA%8C/</loc>
+    <loc>https://lixiang117423.github.io/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2812,6 +2821,20 @@
   </url>
   
   <url>
+    <loc>https://lixiang117423.github.io/tags/%E7%A7%91%E7%A0%94/</loc>
+    <lastmod>2024-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lixiang117423.github.io/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/</loc>
+    <lastmod>2024-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://lixiang117423.github.io/tags/Bookdown/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -2827,20 +2850,6 @@
   
   <url>
     <loc>https://lixiang117423.github.io/tags/Nginx%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91/</loc>
-    <lastmod>2024-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lixiang117423.github.io/tags/%E7%A7%91%E7%A0%94/</loc>
-    <lastmod>2024-11-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lixiang117423.github.io/tags/%E7%A7%91%E7%A0%94%E6%80%9D%E7%BB%B4/</loc>
     <lastmod>2024-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

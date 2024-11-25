@@ -29,6 +29,31 @@
     
     
     <entry>
+      <title>从NCBI批量获取物种的分类信息</title>
+      <link href="/article/gettaxonomy/"/>
+      <url>/article/gettaxonomy/</url>
+      
+        <content type="html"><![CDATA[<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><p>从<a href="https://www.ncbi.nlm.nih.gov/datasets/docs/v2/download-and-install/">NCBI</a>官方网站下载<a href="https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/datasets">datasets</a>和<a href="https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/v2/linux-amd64/dataformat">dataformat</a>，<code>chmod</code>修改为可执行文件即可。</p><h2 id="输入文件"><a href="#输入文件" class="headerlink" title="输入文件"></a>输入文件</h2><p>直接用拉丁名即可。但是不能是<em>Hordeum vulgare L.</em>这种格式，不然会报错：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash">The taxonomy name <span class="hljs-string">'Hordeum vulgare L.'</span> is not exact. Try using one of the suggested taxids:<br>Hordeum vulgare (species, taxid: 4513)<br>Hordeum vulgare alphaendornavirus (species, taxid: 1774276, Hordeum vulgare endornavirus)<br>Hordeum vulgare subsp. vulgare (subspecies, taxid: 112509, Hordeum vulgare var. vulgare)<br>Hordeum vulgare var. distichon (varietas, taxid: 1288821, Hordeum vulgare var. distichum)<br>Hordeum vulgare var. coeleste (varietas, taxid: 2881371)<br>Hordeum vulgare subsp. spontaneum (subspecies, taxid: 77009)<br>Hordeum vulgare var. trifurcatum (varietas, taxid: 2821315)<br>Hordeum vulgare var. hexastichon (varietas, taxid: 1288822)<br>Hordeum vulgare f. agriocrithon (forma, taxid: 191506)<br>Hordeum vulgare dicistro-like virus 1 (species, taxid: 2872415)<br><br>No valid taxons provided <span class="hljs-keyword">for</span> summary - exiting<br></code></pre></td></tr></tbody></table></figure><h2 id="输出文件"><a href="#输出文件" class="headerlink" title="输出文件"></a>输出文件</h2><p>输出文件就是标准的<code>tsv</code>格式的：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">Query   Taxid   Tax name        Authority       Rank    Basionym        Basionym authority      Curator common name     Has <span class="hljs-built_in">type</span> material       Group name       Superkingdom name       Superkingdom taxid      Kingdom name    Kingdom taxid   Phylum name     Phylum taxid    Class name      Class taxid      Order name      Order taxid     Family name     Family taxid    Genus name      Genus taxid     Species name    Species taxid   Scientific name is formal<br>Oryza minuta    63629   Oryza minuta    J.Presl, 1830   SPECIES                         no      monocots        Eukaryota       2759    Viridiplantae    33090   Streptophyta    35493   Magnoliopsida   3398    Poales  38820   Poaceae 4479    Oryza   4527    Oryza minuta    63629   TRUE<br></code></pre></td></tr></tbody></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生物信息学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生物信息学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>全基因组DNA甲基化分析流程</title>
       <link href="/article/dnamethylation/"/>
       <url>/article/dnamethylation/</url>

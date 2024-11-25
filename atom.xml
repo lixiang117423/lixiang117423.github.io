@@ -43,6 +43,31 @@
   </entry>
   
   <entry>
+    <title>从NCBI批量获取物种的分类信息</title>
+    <link href="https://lixiang117423.github.io/article/gettaxonomy/"/>
+    <id>https://lixiang117423.github.io/article/gettaxonomy/</id>
+    <published>2024-11-25T02:36:54.000Z</published>
+    <updated>2024-11-25T02:41:59.669Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;软件下载&quot;&gt;&lt;a href=&quot;#软件下载&quot; class=&quot;headerlink&quot; title=&quot;软件下载&quot;&gt;&lt;/a&gt;软件下载&lt;/h2&gt;&lt;p&gt;从&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>全基因组DNA甲基化分析流程</title>
     <link href="https://lixiang117423.github.io/article/dnamethylation/"/>
     <id>https://lixiang117423.github.io/article/dnamethylation/</id>
@@ -1257,31 +1282,6 @@
         
     <summary type="html">&lt;p&gt;输入一个巨大的基因组都没有得到结果，最后发现&lt;code&gt;gff&lt;/code&gt;文件需要整理成这样的才行：&lt;/p&gt;
 &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="软件使用" scheme="https://lixiang117423.github.io/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Notung推断基因的丢失和复制事件</title>
-    <link href="https://lixiang117423.github.io/article/notung/"/>
-    <id>https://lixiang117423.github.io/article/notung/</id>
-    <published>2023-04-15T10:14:30.000Z</published>
-    <updated>2023-12-10T05:18:17.971Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Java安装&quot;&gt;&lt;a href=&quot;#Java安装&quot; class=&quot;headerlink&quot; title=&quot;Java安装&quot;&gt;&lt;/a&gt;Java安装&lt;/h2&gt;&lt;p&gt;从&lt;a</summary>
         
       
     
