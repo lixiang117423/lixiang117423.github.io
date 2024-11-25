@@ -252,7 +252,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-python&quot; data-language=&quot;python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt;</summary>
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -277,8 +277,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code class=&quot;language-R&quot;&gt;callDAMs(metabolites.table = metabolites.table,
-        </summary>
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -303,7 +302,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-python&quot; data-language=&quot;python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt;</summary>
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -329,7 +328,7 @@
         
         
     <summary type="html">&lt;p&gt;加载&lt;code&gt;igraph&lt;/code&gt;时报错：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code class=&quot;language-R&quot;&gt;错误: package or namespace</summary>
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -433,7 +432,7 @@
         
         
     <summary type="html">&lt;p&gt;数据长这样：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;chr01&lt;span class=&quot;token</summary>
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -459,7 +458,7 @@
         
         
     <summary type="html">&lt;p&gt;我安装的是&lt;code&gt;zsh&lt;/code&gt;，安装&lt;code&gt;Mambaforge&lt;/code&gt;的时候始终无法使用，运行&lt;code&gt;mamba init&lt;/code&gt;显示下面的内容：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+&lt;figure class=&quot;highlight</summary>
         
       
     
@@ -511,7 +510,7 @@
         
         
     <summary type="html">&lt;p&gt;最近在使用谷歌的&lt;code&gt;DeepVariant&lt;/code&gt;处理三代数据，然后发现某个文件系统爆满了。。。。。。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -537,7 +536,7 @@
         
         
     <summary type="html">&lt;p&gt;突然的报错。。。。。。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311111738324.png&quot; class=&quot;lazyload&quot;</summary>
+&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311111738324.png&quot;</summary>
         
       
     
@@ -563,7 +562,7 @@
         
         
     <summary type="html">&lt;p&gt;看到这篇文章：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311021005647.png&quot; class=&quot;lazyload&quot;</summary>
+&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311021005647.png&quot;</summary>
         
       
     
@@ -616,7 +615,7 @@
         
         
     <summary type="html">&lt;h2 id=&quot;基因组下载&quot;&gt;&lt;a href=&quot;#基因组下载&quot; class=&quot;headerlink&quot; title=&quot;基因组下载&quot;&gt;&lt;/a&gt;基因组下载&lt;/h2&gt;&lt;p&gt;下载参考基因组数据。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+&lt;figure class=&quot;highlight</summary>
         
       
     
@@ -695,7 +694,7 @@
         
     <summary type="html">&lt;p&gt;参考&lt;a href=&quot;https://zhuanlan.zhihu.com/p/533318295&quot;&gt;知乎文章&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;编辑一个新的宏：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot;</summary>
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -773,7 +772,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -876,7 +875,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;# # Get editor</summary>
+    <summary type="html">&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -901,7 +900,8 @@
       
         
         
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082143458.png&quot; class=&quot;lazyload&quot;</summary>
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082143458.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot;</summary>
         
       
     
@@ -950,7 +950,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -1026,9 +1026,7 @@
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code class=&quot;language-R&quot;&gt;# 核心微生物鉴定方法
-
-rm(list =</summary>
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -1054,8 +1052,7 @@ rm(list =</summary>
         
         
     <summary type="html">&lt;p&gt;Rstudio-Server绘图报错：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code class=&quot;language-R&quot;&gt;Error in RStudioGD() : 
-  Shadow</summary>
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -1080,9 +1077,7 @@ rm(list =</summary>
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-R&quot; data-language=&quot;R&quot;&gt;&lt;code class=&quot;language-R&quot;&gt;AnnotationDbi::select(
-  GO.db,
-  keys = keys(GO.db,</summary>
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -1107,7 +1102,7 @@ rm(list =</summary>
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&lt;span class=&quot;token doctype&quot;&gt;&lt;span</summary>
+    <summary type="html">&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -1132,7 +1127,7 @@ rm(list =</summary>
       
         
         
-    <summary type="html">&lt;pre class=&quot;line-numbers language-markup&quot; data-language=&quot;markup&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&lt;span class=&quot;token doctype&quot;&gt;&lt;span</summary>
+    <summary type="html">&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -1286,7 +1281,7 @@ rm(list =</summary>
         
         
     <summary type="html">&lt;p&gt;输入一个巨大的基因组都没有得到结果，最后发现&lt;code&gt;gff&lt;/code&gt;文件需要整理成这样的才行：&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-bash&quot; data-language=&quot;bash&quot;&gt;&lt;code</summary>
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span</summary>
         
       
     
