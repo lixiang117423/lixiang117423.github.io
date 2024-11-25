@@ -3,11 +3,11 @@
   <title>小蓝哥的知识荒原</title>
   
   <subtitle>蓝莲盛开，身心自在~</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://lixiang117423.github.io/"/>
   <updated>2024-11-15T08:20:37.796Z</updated>
-  <id>http://example.com/</id>
+  <id>https://lixiang117423.github.io/</id>
   
   <author>
     <name>小蓝哥</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>我的生物信息学知识合集</title>
-    <link href="http://example.com/article/bioinf2allin1/"/>
-    <id>http://example.com/article/bioinf2allin1/</id>
+    <link href="https://lixiang117423.github.io/article/bioinf2allin1/"/>
+    <id>https://lixiang117423.github.io/article/bioinf2allin1/</id>
     <published>2222-12-30T16:00:00.000Z</published>
     <updated>2024-11-15T08:20:37.796Z</updated>
     
@@ -35,17 +35,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>全基因组DNA甲基化分析流程</title>
-    <link href="http://example.com/article/dnamethylation/"/>
-    <id>http://example.com/article/dnamethylation/</id>
+    <link href="https://lixiang117423.github.io/article/dnamethylation/"/>
+    <id>https://lixiang117423.github.io/article/dnamethylation/</id>
     <published>2024-10-10T01:29:14.000Z</published>
     <updated>2024-10-11T01:27:58.061Z</updated>
     
@@ -60,17 +60,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>bismark过程中的一个小细节</title>
-    <link href="http://example.com/article/bismarkbug/"/>
-    <id>http://example.com/article/bismarkbug/</id>
+    <link href="https://lixiang117423.github.io/article/bismarkbug/"/>
+    <id>https://lixiang117423.github.io/article/bismarkbug/</id>
     <published>2024-09-24T03:37:16.000Z</published>
     <updated>2024-09-24T03:44:40.809Z</updated>
     
@@ -90,8 +90,8 @@
   
   <entry>
     <title>真菌分泌蛋白预测流程</title>
-    <link href="http://example.com/article/secretome4fungi/"/>
-    <id>http://example.com/article/secretome4fungi/</id>
+    <link href="https://lixiang117423.github.io/article/secretome4fungi/"/>
+    <id>https://lixiang117423.github.io/article/secretome4fungi/</id>
     <published>2024-08-29T01:40:57.000Z</published>
     <updated>2024-08-29T08:32:52.080Z</updated>
     
@@ -106,17 +106,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>遗传力的概念和计算</title>
-    <link href="http://example.com/article/heritability01/"/>
-    <id>http://example.com/article/heritability01/</id>
+    <link href="https://lixiang117423.github.io/article/heritability01/"/>
+    <id>https://lixiang117423.github.io/article/heritability01/</id>
     <published>2024-08-27T01:28:57.000Z</published>
     <updated>2024-08-27T03:41:46.840Z</updated>
     
@@ -131,17 +131,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>自动下载校验fastq文件</title>
-    <link href="http://example.com/article/downloadfastq/"/>
-    <id>http://example.com/article/downloadfastq/</id>
+    <link href="https://lixiang117423.github.io/article/downloadfastq/"/>
+    <id>https://lixiang117423.github.io/article/downloadfastq/</id>
     <published>2024-08-21T07:16:21.000Z</published>
     <updated>2024-08-21T07:32:00.407Z</updated>
     
@@ -157,17 +157,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>BLUP和BLUE</title>
-    <link href="http://example.com/article/blueandblup/"/>
-    <id>http://example.com/article/blueandblup/</id>
+    <link href="https://lixiang117423.github.io/article/blueandblup/"/>
+    <id>https://lixiang117423.github.io/article/blueandblup/</id>
     <published>2024-08-07T03:01:06.000Z</published>
     <updated>2024-08-07T03:02:46.248Z</updated>
     
@@ -182,17 +182,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Positron设置快捷键</title>
-    <link href="http://example.com/article/positronshortcuts/"/>
-    <id>http://example.com/article/positronshortcuts/</id>
+    <link href="https://lixiang117423.github.io/article/positronshortcuts/"/>
+    <id>https://lixiang117423.github.io/article/positronshortcuts/</id>
     <published>2024-07-10T12:27:31.000Z</published>
     <updated>2024-07-10T12:32:00.999Z</updated>
     
@@ -208,17 +208,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>NCBI数据库BioProject中的Description</title>
-    <link href="http://example.com/article/ncbi.bioproject/"/>
-    <id>http://example.com/article/ncbi.bioproject/</id>
+    <link href="https://lixiang117423.github.io/article/ncbi.bioproject/"/>
+    <id>https://lixiang117423.github.io/article/ncbi.bioproject/</id>
     <published>2024-06-16T03:58:38.000Z</published>
     <updated>2024-06-16T04:02:22.353Z</updated>
     
@@ -233,17 +233,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>代谢物鉴定函数</title>
-    <link href="http://example.com/article/calldams/"/>
-    <id>http://example.com/article/calldams/</id>
+    <link href="https://lixiang117423.github.io/article/calldams/"/>
+    <id>https://lixiang117423.github.io/article/calldams/</id>
     <published>2024-06-12T13:36:23.000Z</published>
     <updated>2024-06-13T00:34:31.783Z</updated>
     
@@ -258,17 +258,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>JASPAR爬取Class信息</title>
-    <link href="http://example.com/article/jaspar/"/>
-    <id>http://example.com/article/jaspar/</id>
+    <link href="https://lixiang117423.github.io/article/jaspar/"/>
+    <id>https://lixiang117423.github.io/article/jaspar/</id>
     <published>2024-03-22T05:18:38.000Z</published>
     <updated>2024-03-22T05:21:20.610Z</updated>
     
@@ -283,17 +283,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Rstudio-Server安装igraph报错解决</title>
-    <link href="http://example.com/article/rstudioerror/"/>
-    <id>http://example.com/article/rstudioerror/</id>
+    <link href="https://lixiang117423.github.io/article/rstudioerror/"/>
+    <id>https://lixiang117423.github.io/article/rstudioerror/</id>
     <published>2024-03-07T01:38:30.000Z</published>
     <updated>2024-03-07T01:42:18.613Z</updated>
     
@@ -309,17 +309,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>混合效应模型学习笔记</title>
-    <link href="http://example.com/article/mixefflearning/"/>
-    <id>http://example.com/article/mixefflearning/</id>
+    <link href="https://lixiang117423.github.io/article/mixefflearning/"/>
+    <id>https://lixiang117423.github.io/article/mixefflearning/</id>
     <published>2024-02-27T12:42:13.000Z</published>
     <updated>2024-02-27T13:01:09.399Z</updated>
     
@@ -334,17 +334,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>微生物组VSEARCH学习笔记</title>
-    <link href="http://example.com/article/vsearch/"/>
-    <id>http://example.com/article/vsearch/</id>
+    <link href="https://lixiang117423.github.io/article/vsearch/"/>
+    <id>https://lixiang117423.github.io/article/vsearch/</id>
     <published>2024-02-20T10:40:15.000Z</published>
     <updated>2024-02-20T10:42:43.413Z</updated>
     
@@ -360,17 +360,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>TASSEL进行GWAS分析</title>
-    <link href="http://example.com/article/tasselgwas/"/>
-    <id>http://example.com/article/tasselgwas/</id>
+    <link href="https://lixiang117423.github.io/article/tasselgwas/"/>
+    <id>https://lixiang117423.github.io/article/tasselgwas/</id>
     <published>2024-01-04T05:45:42.000Z</published>
     <updated>2024-09-18T08:44:11.365Z</updated>
     
@@ -387,17 +387,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>ggplot2绘制GWAS曼哈顿图</title>
-    <link href="http://example.com/article/manhattan/"/>
-    <id>http://example.com/article/manhattan/</id>
+    <link href="https://lixiang117423.github.io/article/manhattan/"/>
+    <id>https://lixiang117423.github.io/article/manhattan/</id>
     <published>2023-12-21T11:13:34.000Z</published>
     <updated>2023-12-21T11:18:32.324Z</updated>
     
@@ -413,17 +413,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>记录安装Mambaforge遇到的坑</title>
-    <link href="http://example.com/article/mambaerror/"/>
-    <id>http://example.com/article/mambaerror/</id>
+    <link href="https://lixiang117423.github.io/article/mambaerror/"/>
+    <id>https://lixiang117423.github.io/article/mambaerror/</id>
     <published>2023-12-12T11:24:55.000Z</published>
     <updated>2023-12-12T11:29:19.457Z</updated>
     
@@ -439,17 +439,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Blossom配置</title>
-    <link href="http://example.com/article/blossom/"/>
-    <id>http://example.com/article/blossom/</id>
+    <link href="https://lixiang117423.github.io/article/blossom/"/>
+    <id>https://lixiang117423.github.io/article/blossom/</id>
     <published>2023-12-10T02:38:43.000Z</published>
     <updated>2023-12-10T05:18:17.378Z</updated>
     
@@ -465,17 +465,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>记一次Docker使用的坑</title>
-    <link href="http://example.com/article/dockererror/"/>
-    <id>http://example.com/article/dockererror/</id>
+    <link href="https://lixiang117423.github.io/article/dockererror/"/>
+    <id>https://lixiang117423.github.io/article/dockererror/</id>
     <published>2023-11-11T11:50:41.000Z</published>
     <updated>2023-12-10T05:18:18.963Z</updated>
     
@@ -491,17 +491,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>RstudioServer报错解决</title>
-    <link href="http://example.com/article/rstudioservererror/"/>
-    <id>http://example.com/article/rstudioservererror/</id>
+    <link href="https://lixiang117423.github.io/article/rstudioservererror/"/>
+    <id>https://lixiang117423.github.io/article/rstudioservererror/</id>
     <published>2023-11-11T09:37:38.000Z</published>
     <updated>2023-12-10T05:18:18.139Z</updated>
     
@@ -517,17 +517,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>崩溃的一天-配置Minigraph-Cactus</title>
-    <link href="http://example.com/article/minigraph-cactus/"/>
-    <id>http://example.com/article/minigraph-cactus/</id>
+    <link href="https://lixiang117423.github.io/article/minigraph-cactus/"/>
+    <id>https://lixiang117423.github.io/article/minigraph-cactus/</id>
     <published>2023-11-02T02:02:49.000Z</published>
     <updated>2023-12-10T05:18:18.645Z</updated>
     
@@ -543,17 +543,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>加速服务器访问GitHub</title>
-    <link href="http://example.com/article/jiasugithub/"/>
-    <id>http://example.com/article/jiasugithub/</id>
+    <link href="https://lixiang117423.github.io/article/jiasugithub/"/>
+    <id>https://lixiang117423.github.io/article/jiasugithub/</id>
     <published>2023-11-02T01:44:43.000Z</published>
     <updated>2023-12-10T05:18:18.971Z</updated>
     
@@ -570,17 +570,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>从二代测序数据中鉴定是否含有特定基因</title>
-    <link href="http://example.com/article/findseqinfastq/"/>
-    <id>http://example.com/article/findseqinfastq/</id>
+    <link href="https://lixiang117423.github.io/article/findseqinfastq/"/>
+    <id>https://lixiang117423.github.io/article/findseqinfastq/</id>
     <published>2023-10-08T01:20:13.000Z</published>
     <updated>2023-12-10T05:18:18.706Z</updated>
     
@@ -596,17 +596,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>结构变异检测软件SVDSS使用</title>
-    <link href="http://example.com/article/svdss/"/>
-    <id>http://example.com/article/svdss/</id>
+    <link href="https://lixiang117423.github.io/article/svdss/"/>
+    <id>https://lixiang117423.github.io/article/svdss/</id>
     <published>2023-10-03T07:52:27.000Z</published>
     <updated>2023-12-10T05:18:18.987Z</updated>
     
@@ -622,17 +622,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>调控植物-植物互作的地下部分信号</title>
-    <link href="http://example.com/article/ppiunderground/"/>
-    <id>http://example.com/article/ppiunderground/</id>
+    <link href="https://lixiang117423.github.io/article/ppiunderground/"/>
+    <id>https://lixiang117423.github.io/article/ppiunderground/</id>
     <published>2023-10-01T01:42:36.000Z</published>
     <updated>2023-12-10T05:18:18.746Z</updated>
     
@@ -648,17 +648,17 @@
     
     
     
-    <category term="文献阅读" scheme="http://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="文献阅读" scheme="http://example.com/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>Word交叉引用设置颜色为蓝色</title>
-    <link href="http://example.com/article/wordjcyy/"/>
-    <id>http://example.com/article/wordjcyy/</id>
+    <link href="https://lixiang117423.github.io/article/wordjcyy/"/>
+    <id>https://lixiang117423.github.io/article/wordjcyy/</id>
     <published>2023-09-11T03:20:34.000Z</published>
     <updated>2023-12-10T05:18:18.565Z</updated>
     
@@ -675,17 +675,17 @@
     
     
     
-    <category term="文献阅读" scheme="http://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="文献阅读" scheme="http://example.com/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>光果龙葵基因组助力马铃薯晚疫病抗性基因的挖掘</title>
-    <link href="http://example.com/article/gglk/"/>
-    <id>http://example.com/article/gglk/</id>
+    <link href="https://lixiang117423.github.io/article/gglk/"/>
+    <id>https://lixiang117423.github.io/article/gglk/</id>
     <published>2023-08-31T04:01:57.000Z</published>
     <updated>2023-12-10T05:18:18.864Z</updated>
     
@@ -701,17 +701,17 @@
     
     
     
-    <category term="文献阅读" scheme="http://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="文献阅读" scheme="http://example.com/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>本地构建UniProt数据库进行blast比对</title>
-    <link href="http://example.com/article/uniprot/"/>
-    <id>http://example.com/article/uniprot/</id>
+    <link href="https://lixiang117423.github.io/article/uniprot/"/>
+    <id>https://lixiang117423.github.io/article/uniprot/</id>
     <published>2023-07-28T01:42:09.000Z</published>
     <updated>2023-12-10T05:18:18.636Z</updated>
     
@@ -728,17 +728,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>R语言绘制地图</title>
-    <link href="http://example.com/article/rmap/"/>
-    <id>http://example.com/article/rmap/</id>
+    <link href="https://lixiang117423.github.io/article/rmap/"/>
+    <id>https://lixiang117423.github.io/article/rmap/</id>
     <published>2023-07-23T00:54:29.000Z</published>
     <updated>2023-12-10T05:18:18.202Z</updated>
     
@@ -753,17 +753,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>iTOL辅助R包itol.toolkit学习笔记</title>
-    <link href="http://example.com/article/itoltoolkit/"/>
-    <id>http://example.com/article/itoltoolkit/</id>
+    <link href="https://lixiang117423.github.io/article/itoltoolkit/"/>
+    <id>https://lixiang117423.github.io/article/itoltoolkit/</id>
     <published>2023-07-17T02:47:33.000Z</published>
     <updated>2023-12-10T05:18:17.733Z</updated>
     
@@ -778,17 +778,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>一些R语言资源</title>
-    <link href="http://example.com/article/rziyuan/"/>
-    <id>http://example.com/article/rziyuan/</id>
+    <link href="https://lixiang117423.github.io/article/rziyuan/"/>
+    <id>https://lixiang117423.github.io/article/rziyuan/</id>
     <published>2023-07-15T03:32:23.000Z</published>
     <updated>2023-12-10T05:18:19.395Z</updated>
     
@@ -805,17 +805,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>GTDB-Tk数据库配置</title>
-    <link href="http://example.com/article/gtdbtk/"/>
-    <id>http://example.com/article/gtdbtk/</id>
+    <link href="https://lixiang117423.github.io/article/gtdbtk/"/>
+    <id>https://lixiang117423.github.io/article/gtdbtk/</id>
     <published>2023-07-14T04:02:17.000Z</published>
     <updated>2023-12-10T05:18:17.652Z</updated>
     
@@ -831,17 +831,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>我的starship配置文件</title>
-    <link href="http://example.com/article/starship/"/>
-    <id>http://example.com/article/starship/</id>
+    <link href="https://lixiang117423.github.io/article/starship/"/>
+    <id>https://lixiang117423.github.io/article/starship/</id>
     <published>2023-07-10T05:34:36.000Z</published>
     <updated>2023-12-10T05:18:19.272Z</updated>
     
@@ -856,17 +856,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>细菌泛基因组分析工具panX</title>
-    <link href="http://example.com/article/panx/"/>
-    <id>http://example.com/article/panx/</id>
+    <link href="https://lixiang117423.github.io/article/panx/"/>
+    <id>https://lixiang117423.github.io/article/panx/</id>
     <published>2023-07-08T13:41:34.000Z</published>
     <updated>2023-12-10T05:18:19.347Z</updated>
     
@@ -882,17 +882,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>如何批量从NCBI下载基因组数据</title>
-    <link href="http://example.com/article/sheng-wu-xin-xi-xue/"/>
-    <id>http://example.com/article/sheng-wu-xin-xi-xue/</id>
+    <link href="https://lixiang117423.github.io/article/sheng-wu-xin-xi-xue/"/>
+    <id>https://lixiang117423.github.io/article/sheng-wu-xin-xi-xue/</id>
     <published>2023-07-06T03:06:59.000Z</published>
     <updated>2023-12-10T05:18:19.103Z</updated>
     
@@ -909,14 +909,14 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>MAGpurify2配置</title>
-    <link href="http://example.com/article/magpurify2/"/>
-    <id>http://example.com/article/magpurify2/</id>
+    <link href="https://lixiang117423.github.io/article/magpurify2/"/>
+    <id>https://lixiang117423.github.io/article/magpurify2/</id>
     <published>2023-06-30T02:00:08.000Z</published>
     <updated>2023-12-10T05:18:17.814Z</updated>
     
@@ -931,17 +931,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>宏基因组学习笔记</title>
-    <link href="http://example.com/article/metagenomelearning/"/>
-    <id>http://example.com/article/metagenomelearning/</id>
+    <link href="https://lixiang117423.github.io/article/metagenomelearning/"/>
+    <id>https://lixiang117423.github.io/article/metagenomelearning/</id>
     <published>2023-06-15T03:07:37.000Z</published>
     <updated>2023-12-10T05:18:18.894Z</updated>
     
@@ -956,17 +956,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>MetaPhlAn4宏基因组数据分析流程学习笔记</title>
-    <link href="http://example.com/article/metaphlan4/"/>
-    <id>http://example.com/article/metaphlan4/</id>
+    <link href="https://lixiang117423.github.io/article/metaphlan4/"/>
+    <id>https://lixiang117423.github.io/article/metaphlan4/</id>
     <published>2023-06-12T00:34:08.000Z</published>
     <updated>2023-12-10T05:18:17.834Z</updated>
     
@@ -982,17 +982,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>一种核心微生物的鉴定方法</title>
-    <link href="http://example.com/article/coremicrobiome/"/>
-    <id>http://example.com/article/coremicrobiome/</id>
+    <link href="https://lixiang117423.github.io/article/coremicrobiome/"/>
+    <id>https://lixiang117423.github.io/article/coremicrobiome/</id>
     <published>2023-06-08T01:22:16.000Z</published>
     <updated>2023-12-10T05:18:19.414Z</updated>
     
@@ -1007,17 +1007,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Rstudio-server绘图报错</title>
-    <link href="http://example.com/article/rstudoserverploterror/"/>
-    <id>http://example.com/article/rstudoserverploterror/</id>
+    <link href="https://lixiang117423.github.io/article/rstudoserverploterror/"/>
+    <id>https://lixiang117423.github.io/article/rstudoserverploterror/</id>
     <published>2023-05-30T03:20:01.000Z</published>
     <updated>2023-12-10T05:18:18.147Z</updated>
     
@@ -1033,17 +1033,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>快速获取GO注释信息</title>
-    <link href="http://example.com/article/getgo/"/>
-    <id>http://example.com/article/getgo/</id>
+    <link href="https://lixiang117423.github.io/article/getgo/"/>
+    <id>https://lixiang117423.github.io/article/getgo/</id>
     <published>2023-05-17T12:45:54.000Z</published>
     <updated>2023-12-10T05:18:19.009Z</updated>
     
@@ -1058,17 +1058,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>CSS基础学习</title>
-    <link href="http://example.com/article/csslearning/"/>
-    <id>http://example.com/article/csslearning/</id>
+    <link href="https://lixiang117423.github.io/article/csslearning/"/>
+    <id>https://lixiang117423.github.io/article/csslearning/</id>
     <published>2023-05-14T01:43:06.000Z</published>
     <updated>2023-12-10T05:18:17.431Z</updated>
     
@@ -1083,17 +1083,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>html学习笔记</title>
-    <link href="http://example.com/article/learninghtml/"/>
-    <id>http://example.com/article/learninghtml/</id>
+    <link href="https://lixiang117423.github.io/article/learninghtml/"/>
+    <id>https://lixiang117423.github.io/article/learninghtml/</id>
     <published>2023-05-13T11:33:13.000Z</published>
     <updated>2023-12-10T05:18:17.712Z</updated>
     
@@ -1108,17 +1108,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>统计建模学习笔记</title>
-    <link href="http://example.com/article/statmodel/"/>
-    <id>http://example.com/article/statmodel/</id>
+    <link href="https://lixiang117423.github.io/article/statmodel/"/>
+    <id>https://lixiang117423.github.io/article/statmodel/</id>
     <published>2023-05-11T02:10:33.000Z</published>
     <updated>2023-12-10T05:18:19.228Z</updated>
     
@@ -1133,17 +1133,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>Windows下Git-bash配置zsh主题</title>
-    <link href="http://example.com/article/gitbash.jpg/"/>
-    <id>http://example.com/article/gitbash.jpg/</id>
+    <link href="https://lixiang117423.github.io/article/gitbash.jpg/"/>
+    <id>https://lixiang117423.github.io/article/gitbash.jpg/</id>
     <published>2023-05-11T01:27:52.000Z</published>
     <updated>2023-12-10T05:18:18.547Z</updated>
     
@@ -1158,17 +1158,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="生物信息学" scheme="http://example.com/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
   <entry>
     <title>组合遗传变异增强植物生产力</title>
-    <link href="http://example.com/article/combinegenetic/"/>
-    <id>http://example.com/article/combinegenetic/</id>
+    <link href="https://lixiang117423.github.io/article/combinegenetic/"/>
+    <id>https://lixiang117423.github.io/article/combinegenetic/</id>
     <published>2023-05-09T05:08:37.000Z</published>
     <updated>2023-12-10T05:18:19.528Z</updated>
     
@@ -1184,17 +1184,17 @@
     
     
     
-    <category term="文献阅读" scheme="http://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="文献阅读" scheme="http://example.com/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>不同栽培地点柳枝稷根际微生物群落的遗传决定因素</title>
-    <link href="http://example.com/article/liuzhiji/"/>
-    <id>http://example.com/article/liuzhiji/</id>
+    <link href="https://lixiang117423.github.io/article/liuzhiji/"/>
+    <id>https://lixiang117423.github.io/article/liuzhiji/</id>
     <published>2023-05-06T01:03:05.000Z</published>
     <updated>2023-12-10T05:18:18.662Z</updated>
     
@@ -1210,17 +1210,17 @@
     
     
     
-    <category term="文献阅读" scheme="http://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="文献阅读" scheme="http://example.com/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>多组学解析荞麦抗立枯丝核菌的分子机制</title>
-    <link href="http://example.com/article/qiaomai/"/>
-    <id>http://example.com/article/qiaomai/</id>
+    <link href="https://lixiang117423.github.io/article/qiaomai/"/>
+    <id>https://lixiang117423.github.io/article/qiaomai/</id>
     <published>2023-05-01T01:14:49.000Z</published>
     <updated>2023-12-10T05:18:18.765Z</updated>
     
@@ -1236,17 +1236,17 @@
     
     
     
-    <category term="文献阅读" scheme="http://example.com/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
     
-    <category term="文献阅读" scheme="http://example.com/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
   <entry>
     <title>MCScanX遇到的一个坑</title>
-    <link href="http://example.com/article/mcscanx/"/>
-    <id>http://example.com/article/mcscanx/</id>
+    <link href="https://lixiang117423.github.io/article/mcscanx/"/>
+    <id>https://lixiang117423.github.io/article/mcscanx/</id>
     <published>2023-04-16T09:49:23.000Z</published>
     <updated>2023-12-10T05:18:17.823Z</updated>
     
@@ -1262,17 +1262,17 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="软件使用" scheme="http://example.com/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    <category term="软件使用" scheme="https://lixiang117423.github.io/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
   <entry>
     <title>Notung推断基因的丢失和复制事件</title>
-    <link href="http://example.com/article/notung/"/>
-    <id>http://example.com/article/notung/</id>
+    <link href="https://lixiang117423.github.io/article/notung/"/>
+    <id>https://lixiang117423.github.io/article/notung/</id>
     <published>2023-04-15T10:14:30.000Z</published>
     <updated>2023-12-10T05:18:17.971Z</updated>
     
@@ -1287,10 +1287,10 @@
     
     
     
-    <category term="生物信息学" scheme="http://example.com/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
     
-    <category term="软件使用" scheme="http://example.com/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
+    <category term="软件使用" scheme="https://lixiang117423.github.io/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/"/>
     
   </entry>
   
