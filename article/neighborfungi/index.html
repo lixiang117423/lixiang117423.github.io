@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="文献信息 Ampt E A, van Ruijven J, Zwart M P, et al. Plant neighbours can make or break the disease transmission chain of a fungal root pathogen[J]. New Phytologist, 2022, 233(3): 1303-1316.  数据信息 代码和数据链接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="植物邻居可以促使或者是阻断根部真菌的病害传播">
+<meta property="og:url" content="https://lixiang117423.github.io/article/neighborfungi/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="文献信息 Ampt E A, van Ruijven J, Zwart M P, et al. Plant neighbours can make or break the disease transmission chain of a fungal root pathogen[J]. New Phytologist, 2022, 233(3): 1303-1316.  数据信息 代码和数据链接">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218120023864.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218120526698.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218134026012.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218141947436.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218142351303.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218142833736.png">
+<meta property="article:published_time" content="2023-02-18T02:32:34.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:19.467Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="文献阅读">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218120023864.png">
+  
+  
+  
+  <title>植物邻居可以促使或者是阻断根部真菌的病害传播 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="植物邻居可以促使或者是阻断根部真菌的病害传播"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-18 10:32" pubdate>
+          2023年2月18日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">植物邻居可以促使或者是阻断根部真菌的病害传播</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="文献信息"><a href="#文献信息" class="headerlink" title="文献信息"></a>文献信息</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.17866">Ampt E A, van Ruijven J, Zwart M P, et al. Plant neighbours can make or break the disease transmission chain of a fungal root pathogen[J]. New Phytologist, 2022, 233(3): 1303-1316.</a></p>
+</blockquote>
+<h2 id="数据信息"><a href="#数据信息" class="headerlink" title="数据信息"></a>数据信息</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/ElineAmpt/Neighbour_transmission_modelling">代码和数据链接</a></p>
+</blockquote>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>生物多样性可以减缓或者是加剧病害传播。这种不同的效应说明决定病害传播的因素是群落组成，而不是多样性。在自然的植物群落中，关于邻居植物品种在地下病害传播中的功能还知之甚少。</li>
+<li>该研究探究了两种focal植株和4中neighbor植株的两个生长阶段中根部病原菌立枯丝核菌<strong><em>Rhizoctonia solani</em></strong>的病害传播情况。该研究建立了一个随机模型来评估两种传播-修正机制的相对重要性：<ul>
+<li>受侵染的寄主作为营养源促进菌丝生长，此时成功的病害传播是自我增强的；</li>
+<li>植物抗性随着植物生长发育逐渐增强。</li>
+</ul>
+</li>
+<li>邻居植物要么减少要么增加focal植株的病害传播。这种效应取决于neighbor植株的生长阶段，但是不能用简单的二分法来进行解释，也就是不能简单的解释为neighbor植株是否是立枯丝核菌病的寄主来进行解释。</li>
+<li>模型选择发现上述的两种传播-修正机制是相关的，而且focal植株-neighbor植株的互作发生了改变，正是这种机制控制了病害的传播速率。</li>
+<li>该研究表明neighbor诱导的这些机制在根际网络中的变化能够增强或者是破坏病害传播链。在理解多样性是如何影响病害传播时需要考虑到focal植株是如何与neighbor植株或者是病原菌进行互作的。</li>
+</ul>
+<h2 id="研究背景"><a href="#研究背景" class="headerlink" title="研究背景"></a>研究背景</h2><ul>
+<li>植物多样性和产量的正相关关系的一个解释是<strong>地下资源互补理论</strong>。</li>
+<li>多样性系统更高产的一个原因在于引发根部病害的病原菌在多样性系统中被稀释了。</li>
+<li>尽管多样性系统中病原菌稀释是常态，但是也有研究发现在多样性系统中病原菌不但没有被稀释，反而扩增了。</li>
+<li>部分植株在受到病原菌侵染后可能不会有病斑出现，但是它们的根系却可以作为桥梁让病原菌传播到另外一株对病原菌敏感的植株上。在这种情况下，这些植株就将增加病原菌在群落中的传播。</li>
+<li>在植株病害研究中常常被认为是中性的无害的非寄主植株也能影响病害传播，比如通过根系释放抗菌物质、吸引病原菌的拮抗物质（如有益微生物等）。</li>
+<li>立枯丝核菌病等许多根部真菌主要依靠菌丝的生长从受侵染的植株传播到另外的植株上，这种情况在大规模单一生产的农业生态系统中最常见，总是可以看到具有代表性的病斑。</li>
+<li>侵染导致的菌丝在植物间的生长通常被称为<strong>再侵染</strong>，初侵染就是某个植株被土壤中的病原菌侵染的过程。被侵染的植株可以作为营养源供菌丝生长，从而进一步促进菌丝的生长和侵染。因此，每次成功的再侵染都可能增加病原菌更快发现并侵染下一个植株的可能性。</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218120023864.png" srcset="/img/loading.gif" lazyload alt="image-20230218120023864" style="zoom:50%;"></p>
+<ul>
+<li>影响病原菌传播的另外一个机制是寄主植物的敏感性，这种敏感性通常和植物的生长阶段相关。如果植物对病原菌的抗性随着其生长发育阶段而逐渐增加，那么这种情况下抗性的增强可能会超过病原菌的生长，从而限制病原菌的传播。</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218120526698.png" srcset="/img/loading.gif" lazyload alt="image-20230218120526698" style="zoom:50%;"></p>
+<ul>
+<li>在该研究中，作者主要探究了以下几个方面：<ul>
+<li>不同的neighbor植株能否分别影响病原菌在两种寄主中的传播？</li>
+<li>neighbor植株是否会影响传播-校正机制的作用？</li>
+</ul>
+</li>
+</ul>
+<h2 id="材料与方法"><a href="#材料与方法" class="headerlink" title="材料与方法"></a>材料与方法</h2><h3 id="研究材料"><a href="#研究材料" class="headerlink" title="研究材料"></a>研究材料</h3><ul>
+<li><p>立枯丝核菌病AG4-HGI</p>
+</li>
+<li><p>四种多年生草本植物，这些寄主在之前的研究中被发现具有寄主特异性且根际对病原菌具有稀释效应。</p>
+<ul>
+<li><p><em>Leucanthemum vulgare</em>：法国菊</p>
+</li>
+<li><p><em>Plantago lanceolata</em>：长叶车前</p>
+</li>
+<li><em>Anthoxanthum odoratum</em>：黄花茅</li>
+<li><em>Festuca rubra</em>：紫羊茅</li>
+</ul>
+<p>其中法国菊和长叶车前作为focal plant；与此同时，四种植物都作为neighbor plant. </p>
+</li>
+<li><p>neighbor plant的两个生长阶段分别是：</p>
+<ul>
+<li>和focal plant一样大的幼苗；</li>
+<li>比focal plant先生长10天的苗。</li>
+</ul>
+</li>
+</ul>
+<h3 id="实验设计"><a href="#实验设计" class="headerlink" title="实验设计"></a>实验设计</h3><ul>
+<li>对照组：两个focal plant单作，接种/不接种，不接种的作为Mock对照，接种的作为阳性对照。</li>
+<li>试验组：两个focal plant和4个neighbor plant（有两个是其本身）。一个重要的处理就是同一天播种的幼苗或者是提前10天播种的幼苗。接种后第十七天开始，每2天调查一次病害发生情况。</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218134026012.png" srcset="/img/loading.gif" lazyload alt="image-20230218134026012"></p>
+<h2 id="结果与讨论"><a href="#结果与讨论" class="headerlink" title="结果与讨论"></a>结果与讨论</h2><h3 id="neighbor-plant的种类和生长阶段影响病害传播"><a href="#neighbor-plant的种类和生长阶段影响病害传播" class="headerlink" title="neighbor plant的种类和生长阶段影响病害传播"></a>neighbor plant的种类和生长阶段影响病害传播</h3><p>首先观察发现在没有neighbor植株时，立枯丝核菌病引发的病害在长叶车前中的传播比在法国菊中具有更高的传播速率。长叶车前作为neighbor植株时，两种focal植株中病害的传播都增加了，但是这种增加只发生在长叶车前是Young阶段时。提前播种长叶车前的话，病害的发生情况和对照没有显著差异。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218141947436.png" srcset="/img/loading.gif" lazyload alt="image-20230218141947436" style="zoom: 67%;"></p>
+<p>neighbor植株能够显著影响病害的传播。这种效应受到多方面的影响，包括寄主类型、neighbor植株类型及生长阶段等。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218142351303.png" srcset="/img/loading.gif" lazyload alt="image-20230218142351303"></p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230218142833736.png" srcset="/img/loading.gif" lazyload alt="image-20230218142833736"></p>
+<p>总的来说，这部分结果说明立枯丝核菌病在这两种寄主中的传播是有差异的，而且neighbor植株不同时，对病害传播的影响是不同的。focal植株在整体上会影响neighbor植株产生的影响，但是这些影响在很大程度上由neighbor植株的种类和生长阶段决定。</p>
+<h3 id="传播-修正机制取决于focal-neighbor的互作"><a href="#传播-修正机制取决于focal-neighbor的互作" class="headerlink" title="传播-修正机制取决于focal-neighbor的互作"></a>传播-修正机制取决于focal-neighbor的互作</h3><p>该研究构建了随机模型来评估病害传播的不同机制。</p>
+<p>在零模型中，两个focal植株间病害传播的概率是一致的（模型1）。在更复杂的模型中，这个传播概率是可变的，原因如下：</p>
+<ul>
+<li>病原菌成功侵染会得到更多的营养（模型2）；</li>
+<li>随着生长发育时间的推移，寄主植物对病原菌的抗性会增强（模型3）；</li>
+<li>上述两种情况同时发生（模型4）。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="print-no-link">#文献阅读</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>植物邻居可以促使或者是阻断根部真菌的病害传播</div>
+      <div>https://lixiang117423.github.io/article/neighborfungi/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月18日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/ncbint/" title="NCBI-NT库本地化构建流程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">NCBI-NT库本地化构建流程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/learningmlr3/" title="R语言机器学习框架mlr3学习笔记">
+                        <span class="hidden-mobile">R语言机器学习框架mlr3学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

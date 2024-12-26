@@ -1,0 +1,791 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="概览 R语言基础R语言简介R语言应用谷歌学术2022年8月10日截图：  软件安装如果电脑分成系统盘（C盘）和非系统盘（非C盘），先在非C盘的位置创建文件夹R，然后安装R和RStudio的时候选择安装在这个路径。 R 所有版本下载地址 Windows旧版本下载地址  RStudio 官网下载地址  rtoolsrtools的作用可以简单理解为有时候有些R包的安装需要用rtools编译才能安装。 注">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R语言笔记">
+<meta property="og:url" content="https://lixiang117423.github.io/article/sharer/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="概览 R语言基础R语言简介R语言应用谷歌学术2022年8月10日截图：  软件安装如果电脑分成系统盘（C盘）和非系统盘（非C盘），先在非C盘的位置创建文件夹R，然后安装R和RStudio的时候选择安装在这个路径。 R 所有版本下载地址 Windows旧版本下载地址  RStudio 官网下载地址  rtoolsrtools的作用可以简单理解为有时候有些R包的安装需要用rtools编译才能安装。 注">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262149383.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/Snipaste_2022-08-10_23-00-25.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262220337.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262230992.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202209101502257.jpg">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202211131110711.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202211131110143.png">
+<meta property="article:published_time" content="2022-08-10T13:30:48.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.174Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262149383.png">
+  
+  
+  
+  <title>R语言笔记 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="R语言笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-08-10 21:30" pubdate>
+          2022年8月10日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">R语言笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262149383.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h2 id="R语言基础"><a href="#R语言基础" class="headerlink" title="R语言基础"></a>R语言基础</h2><h3 id="R语言简介"><a href="#R语言简介" class="headerlink" title="R语言简介"></a>R语言简介</h3><h3 id="R语言应用"><a href="#R语言应用" class="headerlink" title="R语言应用"></a>R语言应用</h3><p>谷歌学术2022年8月10日截图：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/Snipaste_2022-08-10_23-00-25.png" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h3><p>如果电脑分成系统盘（C盘）和非系统盘（非C盘），先在非C盘的位置创建文件夹<code>R</code>，然后安装<code>R</code>和<code>RStudio</code>的时候选择安装在这个路径。</p>
+<h4 id="R"><a href="#R" class="headerlink" title="R"></a>R</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/bin/">所有版本下载地址</a></li>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/bin/windows/base/old/">Windows旧版本下载地址</a></li>
+</ul>
+<h4 id="RStudio"><a href="#RStudio" class="headerlink" title="RStudio"></a>RStudio</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.rstudio.com/products/rstudio/download/#download">官网下载地址</a></li>
+</ul>
+<h4 id="rtools"><a href="#rtools" class="headerlink" title="rtools"></a>rtools</h4><p><code>rtools</code>的作用可以简单理解为有时候有些R包的安装需要用<code>rtools</code>编译才能安装。</p>
+<p>注意：<strong>安装时默认路径安装！！！</strong></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/bin/windows/Rtools/">官网下载地址</a></li>
+</ul>
+<h3 id="软件设置"><a href="#软件设置" class="headerlink" title="软件设置"></a>软件设置</h3><h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><h3 id="常见报错"><a href="#常见报错" class="headerlink" title="常见报错"></a>常见报错</h3><h2 id="R包管理"><a href="#R包管理" class="headerlink" title="R包管理"></a>R包管理</h2><h3 id="查找合适的包"><a href="#查找合适的包" class="headerlink" title="查找合适的包"></a>查找合适的包</h3><h3 id="R包管理-1"><a href="#R包管理-1" class="headerlink" title="R包管理"></a>R包管理</h3><h3 id="镜像问题"><a href="#镜像问题" class="headerlink" title="镜像问题"></a>镜像问题</h3><h3 id="Bioconductor包"><a href="#Bioconductor包" class="headerlink" title="Bioconductor包"></a>Bioconductor包</h3><h3 id="安装R包"><a href="#安装R包" class="headerlink" title="安装R包"></a>安装R包</h3><h3 id="R包迁移"><a href="#R包迁移" class="headerlink" title="R包迁移"></a>R包迁移</h3><h2 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h2><h3 id="认识数据"><a href="#认识数据" class="headerlink" title="认识数据"></a>认识数据</h3><h3 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h3><h3 id="工作目录"><a href="#工作目录" class="headerlink" title="工作目录"></a>工作目录</h3><h3 id="读写文本文件"><a href="#读写文本文件" class="headerlink" title="读写文本文件"></a>读写文本文件</h3><h3 id="读写EXcel"><a href="#读写EXcel" class="headerlink" title="读写EXcel"></a>读写EXcel</h3><h3 id="读写其他文件"><a href="#读写其他文件" class="headerlink" title="读写其他文件"></a>读写其他文件</h3><h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><h3 id="数据结构-1"><a href="#数据结构-1" class="headerlink" title="数据结构"></a>数据结构</h3><h3 id="变量操作"><a href="#变量操作" class="headerlink" title="变量操作"></a>变量操作</h3><h2 id="数据索引"><a href="#数据索引" class="headerlink" title="数据索引"></a>数据索引</h2><h3 id="数据索引-1"><a href="#数据索引-1" class="headerlink" title="数据索引"></a>数据索引</h3><h3 id="判断类型"><a href="#判断类型" class="headerlink" title="判断类型"></a>判断类型</h3><h3 id="修改内容"><a href="#修改内容" class="headerlink" title="修改内容"></a>修改内容</h3><h2 id="数据操作"><a href="#数据操作" class="headerlink" title="数据操作"></a>数据操作</h2><h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><h3 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h3><h3 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h3><h3 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h3><h2 id="ggplot2基础"><a href="#ggplot2基础" class="headerlink" title="ggplot2基础"></a>ggplot2基础</h2><h3 id="资料"><a href="#资料" class="headerlink" title="资料"></a>资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://rstudio-conf-2022.github.io/ggplot2-graphic-design/">R语言课程</a></li>
+</ul>
+<h3 id="绘图语法"><a href="#绘图语法" class="headerlink" title="绘图语法"></a>绘图语法</h3><ul>
+<li>理解区分分类变量和连续变量；</li>
+<li><code>+</code>必须位于每行绘图代码的末尾；</li>
+<li>区分形状颜色和填充色；</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262220337.png" srcset="/img/loading.gif" lazyload alt="image-20220826222040082"></p>
+<ul>
+<li>不同的几何对象可以筛选数据；</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202208262230992.png" srcset="/img/loading.gif" lazyload alt="image-20220826223036734" style="zoom:50%;"></p>
+<h3 id="图层概念"><a href="#图层概念" class="headerlink" title="图层概念"></a>图层概念</h3><h3 id="主题修改"><a href="#主题修改" class="headerlink" title="主题修改"></a>主题修改</h3><h3 id="颜色修改"><a href="#颜色修改" class="headerlink" title="颜色修改"></a>颜色修改</h3><h4 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://r-charts.com/colors/#converter">颜色代码转换</a></li>
+</ul>
+<h3 id="坐标修改"><a href="#坐标修改" class="headerlink" title="坐标修改"></a>坐标修改</h3><h3 id="分面操作"><a href="#分面操作" class="headerlink" title="分面操作"></a>分面操作</h3><h2 id="常见图形"><a href="#常见图形" class="headerlink" title="常见图形"></a>常见图形</h2><h3 id="学习资源-1"><a href="#学习资源-1" class="headerlink" title="学习资源"></a>学习资源</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://r-charts.com/ggplot2/">常见图形</a></li>
+<li><a target="_blank" rel="noopener" href="https://data.library.virginia.edu/mathematical-annotation-in-r/">绘图添加公式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.djnavarro.net/posts/2022-08-23_visualising-a-billion-rows/">十亿级数据可视化</a></li>
+<li><a target="_blank" rel="noopener" href="https://rkabacoff.github.io/datavis/">R数据可视化</a></li>
+<li>常见统计图形</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202209101502257.jpg" srcset="/img/loading.gif" lazyload alt=""></p>
+<h3 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h3><h3 id="柱状图"><a href="#柱状图" class="headerlink" title="柱状图"></a>柱状图</h3><h4 id="堆积柱状图加上误差线"><a href="#堆积柱状图加上误差线" class="headerlink" title="堆积柱状图加上误差线"></a>堆积柱状图加上误差线</h4><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs R">StackedBarErrorBar <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">function</span><span class="hljs-punctuation">(</span>data<span class="hljs-punctuation">,</span> value<span class="hljs-punctuation">,</span> group<span class="hljs-punctuation">,</span> level<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br>  StackedBarErrorBar.sub <span class="hljs-operator">&lt;-</span> <span class="hljs-keyword">function</span><span class="hljs-punctuation">(</span>data<span class="hljs-punctuation">,</span> value<span class="hljs-punctuation">,</span> group<span class="hljs-punctuation">,</span> level<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br>    res <span class="hljs-operator">&lt;-</span> <span class="hljs-literal">NULL</span><br><br>    col.name <span class="hljs-operator">&lt;-</span> colnames<span class="hljs-punctuation">(</span>data<span class="hljs-punctuation">)</span><br><br>    data <span class="hljs-operator">%&gt;%</span><br>      dplyr<span class="hljs-operator">::</span>rename<span class="hljs-punctuation">(</span><br>        value <span class="hljs-operator">=</span> value<span class="hljs-punctuation">,</span><br>        group <span class="hljs-operator">=</span> group<br>      <span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> data<br><br>    <span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-built_in">length</span><span class="hljs-punctuation">(</span>level<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br>      data <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span>group <span class="hljs-operator">%in%</span> level<span class="hljs-punctuation">[</span>i<span class="hljs-operator">:</span><span class="hljs-built_in">length</span><span class="hljs-punctuation">(</span>level<span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>group_by<span class="hljs-punctuation">(</span>group<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>mean.value <span class="hljs-operator">=</span> mean<span class="hljs-punctuation">(</span>value<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>ungroup<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span>group<span class="hljs-punctuation">,</span> mean.value<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>duplicated<span class="hljs-punctuation">(</span>group<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span>mean.value<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> res.1<br><br>      mean.value <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>res.1<span class="hljs-operator">$</span>mean.value<span class="hljs-punctuation">)</span><br><br>      data <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span>group <span class="hljs-operator">==</span> level<span class="hljs-punctuation">[</span>i<span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>mean.posi <span class="hljs-operator">=</span> mean.value<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span><br>          mean.value <span class="hljs-operator">=</span> mean<span class="hljs-punctuation">(</span>value<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>          sd.posi <span class="hljs-operator">=</span> sd<span class="hljs-punctuation">(</span>value<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>          n <span class="hljs-operator">=</span> n<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>          se <span class="hljs-operator">=</span> sd.posi <span class="hljs-operator">/</span> <span class="hljs-built_in">sqrt</span><span class="hljs-punctuation">(</span>n<span class="hljs-punctuation">)</span><br>        <span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>        rbind<span class="hljs-punctuation">(</span>res<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> res<br>    <span class="hljs-punctuation">}</span><br><br>    col.name <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>col.name<span class="hljs-punctuation">,</span> <span class="hljs-string">"mean.posi"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"mean.value"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"sd.posi"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"n"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"se"</span><span class="hljs-punctuation">)</span><br><br>    res <span class="hljs-operator">%&gt;%</span><br>      magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span>col.name<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> res<br><br>    <span class="hljs-built_in">return</span><span class="hljs-punctuation">(</span>res<span class="hljs-punctuation">)</span><br>  <span class="hljs-punctuation">}</span><br><br>  <span class="hljs-comment"># contiction</span><br>  <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-string">"grouped_df"</span> <span class="hljs-operator">%in%</span> <span class="hljs-built_in">class</span><span class="hljs-punctuation">(</span>data<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br>    data <span class="hljs-operator">%&gt;%</span><br>      do<span class="hljs-punctuation">(</span>StackedBarErrorBar.sub<span class="hljs-punctuation">(</span>.<span class="hljs-punctuation">,</span><br>        value <span class="hljs-operator">=</span> value<span class="hljs-punctuation">,</span><br>        group <span class="hljs-operator">=</span> group<span class="hljs-punctuation">,</span><br>        level <span class="hljs-operator">=</span> level<br>      <span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> res<br>  <span class="hljs-punctuation">}</span> <span class="hljs-keyword">else</span> <span class="hljs-punctuation">{</span><br>    StackedBarErrorBar.sub<span class="hljs-punctuation">(</span><br>      data <span class="hljs-operator">=</span> data<span class="hljs-punctuation">,</span><br>      value <span class="hljs-operator">=</span> value<span class="hljs-punctuation">,</span><br>      group <span class="hljs-operator">=</span> group<span class="hljs-punctuation">,</span><br>      level <span class="hljs-operator">=</span> level<br>    <span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> res<br>  <span class="hljs-punctuation">}</span><br>  <span class="hljs-built_in">return</span><span class="hljs-punctuation">(</span>res<span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">}</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs css">df %&gt;% <br>  dplyr::<span class="hljs-built_in">filter</span>(group == <span class="hljs-string">"干重"</span>) %&gt;% <br>  tidyr::<span class="hljs-built_in">pivot_longer</span>(cols = <span class="hljs-number">3</span>:<span class="hljs-number">6</span>) %&gt;% <br>  dplyr::<span class="hljs-built_in">select</span>(-group)%&gt;% <br>  dplyr::<span class="hljs-built_in">group_by</span>(treatment) %&gt;% <br>  <span class="hljs-built_in">StackedBarErrorBar</span>(.,<br>                     value = <span class="hljs-string">"Value"</span>,<br>                     group = <span class="hljs-string">"name"</span>, <br>                     level = <span class="hljs-built_in">c</span>(<span class="hljs-string">"叶"</span>,<span class="hljs-string">"茎"</span>, <span class="hljs-string">"主根"</span>,<span class="hljs-string">"须根"</span>)) %&gt;% <br>  dplyr::<span class="hljs-built_in">mutate</span>(name = <span class="hljs-built_in">factor</span>(name, level = <span class="hljs-built_in">c</span>(<span class="hljs-string">"叶"</span>,<span class="hljs-string">"茎"</span>, <span class="hljs-string">"主根"</span>,<span class="hljs-string">"须根"</span>)),<br>                label = <span class="hljs-string">"a"</span>) %&gt;% <br>  <span class="hljs-built_in">ggplot</span>(<span class="hljs-built_in">aes</span>(treatment, y = mean.value/n, fill = name)) +<br>  <span class="hljs-built_in">geom_bar</span>(stat = <span class="hljs-string">"identity"</span>) +<br>  <span class="hljs-built_in">geom_errorbar</span>(<span class="hljs-built_in">aes</span>(ymin = mean.posi - se,<br>                    ymax = mean.posi + se),<br>                width = <span class="hljs-number">0.2</span>) +<br>  <span class="hljs-built_in">geom_text</span>(<span class="hljs-built_in">aes</span>(treatment,y = mean.posi + se + <span class="hljs-number">2</span>, label = label), check_overlap = TRUE) +<br>  <span class="hljs-built_in">geom_hline</span>(yintercept = <span class="hljs-number">62</span>, color = NA) +<br>  <span class="hljs-built_in">scale_fill_aaas</span>() +<br>  <span class="hljs-built_in">scale_y_continuous</span>(expand = <span class="hljs-built_in">c</span>(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)) +<br>  <span class="hljs-built_in">mytheme</span>() +<br>  <span class="hljs-built_in">theme</span>(legend.position = <span class="hljs-built_in">c</span>(<span class="hljs-number">0.1</span>, <span class="hljs-number">0.85</span>),<br>        legend.title = <span class="hljs-built_in">element_blank</span>(),<br>        legend.background = <span class="hljs-built_in">element_blank</span>())<br><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h3><h3 id="箱线图"><a href="#箱线图" class="headerlink" title="箱线图"></a>箱线图</h3><h3 id="韦恩图"><a href="#韦恩图" class="headerlink" title="韦恩图"></a>韦恩图</h3><h3 id="小提琴图"><a href="#小提琴图" class="headerlink" title="小提琴图"></a>小提琴图</h3><h3 id="热图"><a href="#热图" class="headerlink" title="热图"></a>热图</h3><h2 id="基础统计"><a href="#基础统计" class="headerlink" title="基础统计"></a>基础统计</h2><h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://rcompanion.org/handbook/">Summary and Analysis of Extension Program Evaluation in R</a></li>
+<li><a target="_blank" rel="noopener" href="https://xcelab.net/rm/statistical-rethinking/">贝叶斯统计学习</a></li>
+<li><a target="_blank" rel="noopener" href="https://modernstatisticswithr.com/index.html">现代统计在R中的实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://mlu-explain.github.io/linear-regression/">线性回归模型的可视化解释</a></li>
+<li><a target="_blank" rel="noopener" href="http://madrury.github.io/jekyll/update/statistics/2016/07/20/lm-in-R.html">R语言是如何实现线性回归模型的</a></li>
+</ul>
+<h3 id="线性模型"><a href="#线性模型" class="headerlink" title="线性模型"></a>线性模型</h3><ul>
+<li><p>求最小二乘均值并标注显著性</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>tidyverse<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>multcomp<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>emmeans<span class="hljs-punctuation">)</span><br><br>lm<span class="hljs-punctuation">(</span>Sepal.Length <span class="hljs-operator">~</span> Species<span class="hljs-punctuation">,</span> data <span class="hljs-operator">=</span> iris<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  emmeans<span class="hljs-punctuation">(</span><span class="hljs-operator">~</span>Species<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  cld<span class="hljs-punctuation">(</span>alpha <span class="hljs-operator">=</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">,</span> Letters <span class="hljs-operator">=</span> <span class="hljs-built_in">letters</span><span class="hljs-punctuation">,</span> adjust<span class="hljs-operator">=</span><span class="hljs-string">"tukey"</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>什么是模型的<em>p</em>值：和空模型相比，是否显著。</p>
+</li>
+<li><p>什么是模型的<em>$R^2$</em>：多少的因变量被模型解释。</p>
+</li>
+<li><p><em>glm</em>模型不会返回<em>p</em>值和<em>$R^2$</em>，利用函数<em>anova</em>可以计算<em>p</em>值，函数<em>nagelkerke</em>可以计算伪<em>$R^2$</em>。</p>
+</li>
+</ul>
+<h3 id="t检验"><a href="#t检验" class="headerlink" title="t检验"></a>t检验</h3><h3 id="方差分析"><a href="#方差分析" class="headerlink" title="方差分析"></a>方差分析</h3><h3 id="卡方检验"><a href="#卡方检验" class="headerlink" title="卡方检验"></a>卡方检验</h3><h3 id="wilcox检验"><a href="#wilcox检验" class="headerlink" title="wilcox检验"></a>wilcox检验</h3><h3 id="Fisher精确检验"><a href="#Fisher精确检验" class="headerlink" title="Fisher精确检验"></a>Fisher精确检验</h3><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># create a dataframe</span><br>df <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span><span class="hljs-string">"cured"</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">60</span><span class="hljs-punctuation">,</span> <span class="hljs-number">30</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"noncured"</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span> <span class="hljs-number">25</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> row.names <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"treated"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"nontreated"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>df<br><span class="hljs-comment"># output</span><br>           cured noncured<br>treated       <span class="hljs-number">60</span>       <span class="hljs-number">10</span><br>nontreated    <span class="hljs-number">30</span>       <span class="hljs-number">25</span><br><br>mosaicplot<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span>  <br><br>library<span class="hljs-punctuation">(</span>stats<span class="hljs-punctuation">)</span><br>fisher.test<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># output</span><br><br>	Fisher Exact Test <span class="hljs-keyword">for</span> Count Data<br><br>data<span class="hljs-operator">:</span>  df<br>p<span class="hljs-operator">-</span>value <span class="hljs-operator">=</span> <span class="hljs-number">0.0002357</span><br>alternative hypothesis<span class="hljs-operator">:</span> true odds ratio is not equal to <span class="hljs-number">1</span><br><span class="hljs-number">95</span> percent confidence interval<span class="hljs-operator">:</span><br>  <span class="hljs-number">1.983312</span> <span class="hljs-number">13.107997</span><br>sample estimates<span class="hljs-operator">:</span><br>odds ratio <br>  <span class="hljs-number">4.930093</span><br><br><span class="hljs-comment"># create a dataframe</span><br>df <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span><span class="hljs-string">"no_disease"</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">40</span><span class="hljs-punctuation">,</span> <span class="hljs-number">30</span><span class="hljs-punctuation">,</span> <span class="hljs-number">25</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"disease"</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span> <span class="hljs-number">20</span><span class="hljs-punctuation">,</span> <span class="hljs-number">25</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <br>                    row.names <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"drugA"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"drugB"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"drugC"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>df<br><span class="hljs-comment"># output</span><br>      no_disease disease<br>drugA         <span class="hljs-number">40</span>      <span class="hljs-number">10</span><br>drugB         <span class="hljs-number">30</span>      <span class="hljs-number">20</span><br>drugC         <span class="hljs-number">25</span>      <span class="hljs-number">25</span><br><br>mosaicplot<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span>  <br><br>library<span class="hljs-punctuation">(</span>stats<span class="hljs-punctuation">)</span><br>fisher.test<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span><br><span class="hljs-comment"># output</span><br>	Fishers Exact Test <span class="hljs-keyword">for</span> Count Data<br><br>data<span class="hljs-operator">:</span>  df<br>p<span class="hljs-operator">-</span>value <span class="hljs-operator">=</span> <span class="hljs-number">0.005304</span><br>alternative hypothesis<span class="hljs-operator">:</span> two.sided<br><br>library<span class="hljs-punctuation">(</span>rstatix<span class="hljs-punctuation">)</span><br>pairwise_fisher_test<span class="hljs-punctuation">(</span>as.matrix<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> p.adjust.method <span class="hljs-operator">=</span> <span class="hljs-string">"fdr"</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># output</span><br>  group1 group2     n       p   p.adj p.adj.signif<br><span class="hljs-operator">*</span> <span class="hljs-operator">&lt;</span>chr<span class="hljs-operator">&gt;</span>  <span class="hljs-operator">&lt;</span>chr<span class="hljs-operator">&gt;</span>  <span class="hljs-operator">&lt;</span>dbl<span class="hljs-operator">&gt;</span>   <span class="hljs-operator">&lt;</span>dbl<span class="hljs-operator">&gt;</span>   <span class="hljs-operator">&lt;</span>dbl<span class="hljs-operator">&gt;</span> <span class="hljs-operator">&lt;</span>chr<span class="hljs-operator">&gt;</span>       <br><span class="hljs-number">1</span> drugA  drugB    <span class="hljs-number">100</span> <span class="hljs-number">0.0486</span>  <span class="hljs-number">0.0729</span>  ns          <br><span class="hljs-number">2</span> drugA  drugC    <span class="hljs-number">100</span> <span class="hljs-number">0.00305</span> <span class="hljs-number">0.00915</span> <span class="hljs-operator">*</span><span class="hljs-operator">*</span>          <br><span class="hljs-number">3</span> drugB  drugC    <span class="hljs-number">100</span> <span class="hljs-number">0.422</span>   <span class="hljs-number">0.422</span>   ns   <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="贝叶斯统计"><a href="#贝叶斯统计" class="headerlink" title="贝叶斯统计"></a>贝叶斯统计</h3><h4 id="学习资料-1"><a href="#学习资料-1" class="headerlink" title="学习资料"></a>学习资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://bayesf22-notebook.classes.andrewheiss.com/bayes-rules/16-chapter.html">bayesf22</a></li>
+</ul>
+<h2 id="基础分析"><a href="#基础分析" class="headerlink" title="基础分析"></a>基础分析</h2><h3 id="回归分析"><a href="#回归分析" class="headerlink" title="回归分析"></a>回归分析</h3><h3 id="相关性分析"><a href="#相关性分析" class="headerlink" title="相关性分析"></a>相关性分析</h3><h2 id="机器学习"><a href="#机器学习" class="headerlink" title="机器学习"></a>机器学习</h2><h3 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h3><h3 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h3><h3 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/q02Y-xZV2F4ubtLg_CZKXQ">参考帖子</a></p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment">#随机森林寻找 Biomarker 和环境驱动因子，以及气泡图 + 柱状图 + 热图组合可视化</span><br>otu<span class="hljs-operator">&lt;-</span>read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">"D://test/test_otu.csv"</span><span class="hljs-punctuation">,</span>row.names <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><br>env<span class="hljs-operator">&lt;-</span>read.csv<span class="hljs-punctuation">(</span><span class="hljs-string">"D://test/test_design.csv"</span><span class="hljs-punctuation">)</span><br><span class="hljs-comment">#链接：https://pan.baidu.com/s/10MnqI7AJEk3f_qVoPDtjyA 提取码：5nnb #已经更新</span><br>library<span class="hljs-punctuation">(</span>vegan<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>randomForest<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>vegan<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>ggplot2<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>reshape2<span class="hljs-punctuation">)</span><br><span class="hljs-comment">#构建数据框</span><br>train_otu<span class="hljs-operator">&lt;-</span>cbind<span class="hljs-punctuation">(</span>env<span class="hljs-operator">$</span>Group<span class="hljs-punctuation">,</span>t<span class="hljs-punctuation">(</span>otu<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>train_otu<span class="hljs-operator">&lt;-</span>as.data.frame<span class="hljs-punctuation">(</span>train_otu<span class="hljs-punctuation">)</span><br><span class="hljs-comment">###### 构建模型</span><br>set.seed<span class="hljs-punctuation">(</span><span class="hljs-number">123</span><span class="hljs-punctuation">)</span><br>rf_train<span class="hljs-operator">&lt;-</span> randomForest <span class="hljs-punctuation">(</span>train_otu<span class="hljs-operator">$</span>V1<span class="hljs-operator">~</span>.<span class="hljs-punctuation">,</span> data <span class="hljs-operator">=</span> train_otu<span class="hljs-punctuation">,</span> ntree<span class="hljs-operator">=</span><span class="hljs-number">1000</span><span class="hljs-punctuation">,</span>importance <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#ntree 可用来调整模型效果</span><br>rf_train<br><span class="hljs-comment">###### 挖掘预测模型中最重要的关键微生物 biomarker</span><br>df<span class="hljs-operator">&lt;-</span>data.frame<span class="hljs-punctuation">(</span>importance<span class="hljs-punctuation">(</span>rf_train<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> check.names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br><span class="hljs-comment">###### heatmap of top 20 preditors</span><br><span class="hljs-comment">#筛选前 20 重要 OTU, 依据 Increase in MSE%</span><br>df<span class="hljs-operator">&lt;-</span>df<span class="hljs-punctuation">[</span>order<span class="hljs-punctuation">(</span>df<span class="hljs-operator">$</span>MeanDecreaseAccuracy<span class="hljs-punctuation">,</span>decreasing <span class="hljs-operator">=</span> <span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br>df<span class="hljs-operator">&lt;-</span>df<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">20</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br><span class="hljs-comment">#获取 top20otu 物种信息和丰度表</span><br>otu_top<span class="hljs-operator">&lt;-</span>subset<span class="hljs-punctuation">(</span>otu<span class="hljs-punctuation">,</span>rownames<span class="hljs-punctuation">(</span>otu<span class="hljs-punctuation">)</span><span class="hljs-operator">%in%</span>rownames<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>pp<span class="hljs-operator">&lt;-</span>otu_top<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">24</span><span class="hljs-punctuation">]</span><br>pp_new<span class="hljs-operator">&lt;-</span>as.data.frame<span class="hljs-punctuation">(</span>cbind<span class="hljs-punctuation">(</span>rowSums<span class="hljs-punctuation">(</span>pp<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">12</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">12</span><span class="hljs-punctuation">,</span>rowSums<span class="hljs-punctuation">(</span>pp<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">13</span><span class="hljs-operator">:</span><span class="hljs-number">24</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-number">12</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>colnames<span class="hljs-punctuation">(</span>pp_new<span class="hljs-punctuation">)</span><span class="hljs-operator">&lt;-</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"AA"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"BB"</span><span class="hljs-punctuation">)</span><br>pp_new<span class="hljs-operator">$</span>AA<span class="hljs-operator">&lt;-</span><span class="hljs-built_in">as.numeric</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">as.character</span><span class="hljs-punctuation">(</span>pp_new<span class="hljs-operator">$</span>AA<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>pp_new<span class="hljs-operator">$</span>BB<span class="hljs-operator">&lt;-</span><span class="hljs-built_in">as.numeric</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">as.character</span><span class="hljs-punctuation">(</span>pp_new<span class="hljs-operator">$</span>BB<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>io<span class="hljs-operator">&lt;-</span>pp_new<span class="hljs-operator">%&gt;%</span> mutate<span class="hljs-punctuation">(</span>pp_new<span class="hljs-operator">=</span>row.names<span class="hljs-punctuation">(</span>.<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">%&gt;%</span>melt<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><span class="hljs-comment">#组图 A Biomarker 在样品之间的丰度气泡图</span><br>ggplot<span class="hljs-punctuation">(</span>io<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>variable<span class="hljs-punctuation">,</span>pp_new<span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span>value<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  geom_tile<span class="hljs-punctuation">(</span>color<span class="hljs-operator">=</span><span class="hljs-string">"grey2"</span><span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span><span class="hljs-string">"white"</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">0.7</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>pch<span class="hljs-operator">=</span><span class="hljs-number">21</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">8.2</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  scale_fill_gradientn<span class="hljs-punctuation">(</span>colours <span class="hljs-operator">=</span>colorRampPalette<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">'#2D6DB1'</span><span class="hljs-punctuation">,</span> <span class="hljs-string">'white'</span><span class="hljs-punctuation">,</span> <span class="hljs-string">'#DC1623'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">(</span><span class="hljs-number">111</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span>y <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span><span class="hljs-string">""</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme_minimal<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br> <span class="hljs-comment"># theme(legend.position = "down",legend.text = element_text(size = 6))</span><br>  theme<span class="hljs-punctuation">(</span>axis.text<span class="hljs-operator">=</span>element_text<span class="hljs-punctuation">(</span>colour<span class="hljs-operator">=</span><span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">9</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>axis.text.x <span class="hljs-operator">=</span>element_text<span class="hljs-punctuation">(</span>angle <span class="hljs-operator">=</span><span class="hljs-number">90</span><span class="hljs-punctuation">,</span>hjust <span class="hljs-operator">=</span><span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span>vjust <span class="hljs-operator">=</span> <span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">8</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><span class="hljs-comment">##### 组图 b 柱状图展示 top 20 OTU 的重要性</span><br>dataframe<span class="hljs-operator">&lt;-</span>cbind<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">,</span>rownames<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>ggplot<span class="hljs-punctuation">(</span>dataframe<span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>MeanDecreaseAccuracy<span class="hljs-punctuation">,</span> y<span class="hljs-operator">=</span>rownames<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span> <span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <br>  geom_bar<span class="hljs-punctuation">(</span>stat <span class="hljs-operator">=</span> <span class="hljs-string">"identity"</span><span class="hljs-punctuation">,</span> width <span class="hljs-operator">=</span> <span class="hljs-number">0.7</span><span class="hljs-punctuation">,</span>position <span class="hljs-operator">=</span> <span class="hljs-string">"dodge"</span><span class="hljs-punctuation">,</span>colour<span class="hljs-operator">=</span><span class="hljs-string">"black"</span><span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span><span class="hljs-string">"#2D6DB1"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span> <br>  labs<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span><span class="hljs-string">"Increase in MSE%"</span><span class="hljs-punctuation">,</span> y<span class="hljs-operator">=</span><span class="hljs-string">""</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">4</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span>base_line_size <span class="hljs-operator">=</span> <span class="hljs-number">1.1</span><span class="hljs-punctuation">,</span>base_rect_size <span class="hljs-operator">=</span><span class="hljs-number">1.1</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>panel.grid.major<span class="hljs-operator">=</span>element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>panel.grid.minor<span class="hljs-operator">=</span>element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>axis.text<span class="hljs-operator">=</span>element_text<span class="hljs-punctuation">(</span>colour<span class="hljs-operator">=</span><span class="hljs-string">'black'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>legend.position <span class="hljs-operator">=</span> <span class="hljs-string">"right"</span><span class="hljs-punctuation">,</span>legend.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>size <span class="hljs-operator">=</span> <span class="hljs-number">6</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><span class="hljs-comment">#组图 c 相关矩阵展示 top 20 OTU 和环境因子关联性</span><br><span class="hljs-comment">#合并理化因子和微生物</span><br>library<span class="hljs-punctuation">(</span>corrplot<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>Hmisc<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>reshape2<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>RColorBrewer<span class="hljs-punctuation">)</span><br>df3<span class="hljs-operator">&lt;-</span>cbind<span class="hljs-punctuation">(</span>t<span class="hljs-punctuation">(</span>otu_top<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">24</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>env<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-operator">:</span><span class="hljs-number">12</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br><span class="hljs-comment">#计算 Spearman 相关分析系数</span><br>spearman_df <span class="hljs-operator">&lt;-</span> corr.test<span class="hljs-punctuation">(</span>df3<span class="hljs-punctuation">,</span> method <span class="hljs-operator">=</span> <span class="hljs-string">'spearman'</span><span class="hljs-punctuation">,</span> adjust <span class="hljs-operator">=</span> <span class="hljs-string">'none'</span><span class="hljs-punctuation">)</span><br>spearman_r<span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>spearman_df<span class="hljs-operator">$</span>r<span class="hljs-punctuation">)</span> <br>spearman_r<span class="hljs-operator">&lt;-</span>spearman_r<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">20</span><span class="hljs-punctuation">,</span><span class="hljs-number">21</span><span class="hljs-operator">:</span><span class="hljs-number">28</span><span class="hljs-punctuation">]</span><br>spearman_p<span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>spearman_df<span class="hljs-operator">$</span>p<span class="hljs-punctuation">)</span> <br>spearman_p<span class="hljs-operator">&lt;-</span>spearman_p<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">20</span><span class="hljs-punctuation">,</span><span class="hljs-number">21</span><span class="hljs-operator">:</span><span class="hljs-number">28</span><span class="hljs-punctuation">]</span><br><span class="hljs-comment">#绘制相关分析图</span><br><span class="hljs-comment">#转化为 ggplot 画图需要的长列表</span><br>io1<span class="hljs-operator">&lt;-</span>spearman_r<span class="hljs-operator">%&gt;%</span> mutate<span class="hljs-punctuation">(</span>pp<span class="hljs-operator">=</span>row.names<span class="hljs-punctuation">(</span>.<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">%&gt;%</span>melt<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br>io2<span class="hljs-operator">&lt;-</span>spearman_p<span class="hljs-operator">%&gt;%</span> mutate<span class="hljs-punctuation">(</span>pp<span class="hljs-operator">=</span>row.names<span class="hljs-punctuation">(</span>.<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">%&gt;%</span>melt<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br>df<span class="hljs-operator">&lt;-</span>cbind<span class="hljs-punctuation">(</span>io1<span class="hljs-punctuation">,</span>io2<span class="hljs-operator">$</span>value<span class="hljs-punctuation">,</span>io2<span class="hljs-operator">$</span>value<span class="hljs-punctuation">)</span><br><span class="hljs-comment">#添加显著性，标记星号，实际需要自行添加 (根据相关分析显著性结果 Spearman、Pearson 的 p 值)，这里仅供画图，数据无意义。</span><br>colnames<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">)</span><span class="hljs-operator">&lt;-</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"pp"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"variable"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"value"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"sig"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"p"</span><span class="hljs-punctuation">)</span><br>df<span class="hljs-operator">$</span>sig<span class="hljs-punctuation">[</span>df<span class="hljs-operator">$</span>p<span class="hljs-operator">&lt;=</span><span class="hljs-number">0.05</span><span class="hljs-punctuation">]</span><span class="hljs-operator">&lt;-</span><span class="hljs-string">"*"</span><br>df<span class="hljs-operator">$</span>sig<span class="hljs-punctuation">[</span>df<span class="hljs-operator">$</span>p<span class="hljs-operator">&lt;=</span><span class="hljs-number">0.01</span><span class="hljs-punctuation">]</span><span class="hljs-operator">&lt;-</span><span class="hljs-string">"**"</span><br>df<span class="hljs-operator">$</span>sig<span class="hljs-punctuation">[</span>df<span class="hljs-operator">$</span>p<span class="hljs-operator">&lt;=</span><span class="hljs-number">0.001</span><span class="hljs-punctuation">]</span><span class="hljs-operator">&lt;-</span><span class="hljs-string">"***"</span><br>df<span class="hljs-operator">$</span>sig<span class="hljs-punctuation">[</span>df<span class="hljs-operator">$</span>p<span class="hljs-operator">&gt;=</span><span class="hljs-number">0.05</span><span class="hljs-punctuation">]</span><span class="hljs-operator">&lt;-</span><span class="hljs-string">""</span><br><span class="hljs-comment">#计算 Spearman、Pearson 的 r 值后，其范围为 - 1 到 1</span><br>ggplot<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>variable<span class="hljs-punctuation">,</span>pp<span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span>value<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  geom_tile<span class="hljs-punctuation">(</span>color<span class="hljs-operator">=</span><span class="hljs-string">"grey2"</span><span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span><span class="hljs-string">"white"</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">0.7</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>pch<span class="hljs-operator">=</span><span class="hljs-number">22</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">7.2</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  geom_text<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>label<span class="hljs-operator">=</span>df<span class="hljs-operator">$</span>sig<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> color<span class="hljs-operator">=</span><span class="hljs-string">"gray2"</span><span class="hljs-punctuation">,</span> size<span class="hljs-operator">=</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_fill_gradientn<span class="hljs-punctuation">(</span>colours <span class="hljs-operator">=</span>colorRampPalette<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">'#2D6DB1'</span><span class="hljs-punctuation">,</span> <span class="hljs-string">'white'</span><span class="hljs-punctuation">,</span> <span class="hljs-string">'#DC1623'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">(</span><span class="hljs-number">111</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span>y <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span>fill<span class="hljs-operator">=</span><span class="hljs-string">"R value"</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme_minimal<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>axis.text<span class="hljs-operator">=</span>element_text<span class="hljs-punctuation">(</span>colour<span class="hljs-operator">=</span><span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">9</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>axis.text.x <span class="hljs-operator">=</span>element_text<span class="hljs-punctuation">(</span>angle <span class="hljs-operator">=</span><span class="hljs-number">90</span><span class="hljs-punctuation">,</span>hjust <span class="hljs-operator">=</span><span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span>vjust <span class="hljs-operator">=</span> <span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span>size<span class="hljs-operator">=</span><span class="hljs-number">9</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="组学分析"><a href="#组学分析" class="headerlink" title="组学分析"></a>组学分析</h2><h3 id="转录组"><a href="#转录组" class="headerlink" title="转录组"></a>转录组</h3><h3 id="群体遗传学"><a href="#群体遗传学" class="headerlink" title="群体遗传学"></a>群体遗传学</h3><h4 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h4><h5 id="学习资料-2"><a href="#学习资料-2" class="headerlink" title="学习资料"></a>学习资料</h5><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/whussain2/R-for-Plant-Breeding/tree/master/GWAS_in_R">R完成GWAS</a></li>
+</ul>
+<h3 id="微生物组"><a href="#微生物组" class="headerlink" title="微生物组"></a>微生物组</h3><h4 id="大数据挖掘"><a href="#大数据挖掘" class="headerlink" title="大数据挖掘"></a>大数据挖掘</h4><ul>
+<li><strong>NetMoss</strong>算法，通过分析微生物网络模块的变化鉴定疾病相关的生物指示者。<ul>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s43588-022-00247-8">文献原文</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/wvzSFh8AYuRM-yP7q-wA7A">微信公众号</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/xiaolw95/NetMoss2">GitHub</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="其他资料"><a href="#其他资料" class="headerlink" title="其他资料"></a>其他资料</h4><ul>
+<li><a target="_blank" rel="noopener" href="https://www.davidzeleny.net/anadat-r/doku.php/en:start">生态学数据分析</a></li>
+</ul>
+<h4 id="PERMANOVA"><a href="#PERMANOVA" class="headerlink" title="PERMANOVA"></a>PERMANOVA</h4><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>vegan<span class="hljs-punctuation">)</span><br><br>data<span class="hljs-punctuation">(</span>dune<span class="hljs-punctuation">)</span><br>data<span class="hljs-punctuation">(</span>dune.env<span class="hljs-punctuation">)</span><br><br>dune.dist <span class="hljs-operator">&lt;-</span> vegdist<span class="hljs-punctuation">(</span>dune<span class="hljs-punctuation">,</span> method<span class="hljs-operator">=</span><span class="hljs-string">"bray"</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># default test by terms</span><br><br>dune.div <span class="hljs-operator">&lt;-</span> adonis2<span class="hljs-punctuation">(</span>dune <span class="hljs-operator">~</span> Management<span class="hljs-operator">*</span>A1<span class="hljs-punctuation">,</span> <br>                    data <span class="hljs-operator">=</span> dune.env<span class="hljs-punctuation">,</span> <br>                    permutations <span class="hljs-operator">=</span> <span class="hljs-number">999</span><span class="hljs-punctuation">,</span> <br>                    method<span class="hljs-operator">=</span><span class="hljs-string">"bray"</span><span class="hljs-punctuation">)</span><br><br>dune.div <span class="hljs-operator">%&gt;%</span> <br>  as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># overall tests</span><br><br>adonis2<span class="hljs-punctuation">(</span>dune <span class="hljs-operator">~</span> Management<span class="hljs-operator">*</span>A1<span class="hljs-punctuation">,</span> <br>        data <span class="hljs-operator">=</span> dune.env<span class="hljs-punctuation">,</span> <br>        permutations <span class="hljs-operator">=</span> <span class="hljs-number">999</span><span class="hljs-punctuation">,</span> <br>        method<span class="hljs-operator">=</span><span class="hljs-string">"bray"</span><span class="hljs-punctuation">,</span><br>        by <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="结构方程模型"><a href="#结构方程模型" class="headerlink" title="结构方程模型"></a>结构方程模型</h4><h5 id="带线性混合效应模型的-SEM-构建、解释以及实际应用"><a href="#带线性混合效应模型的-SEM-构建、解释以及实际应用" class="headerlink" title="带线性混合效应模型的 SEM 构建、解释以及实际应用"></a>带线性混合效应模型的 SEM 构建、解释以及实际应用</h5><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202211131110711.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment">#加载包，导入数据</span><br>library<span class="hljs-punctuation">(</span>piecewiseSEM<span class="hljs-punctuation">)</span><span class="hljs-comment">#加载包</span><br>sampld <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">"clipboard"</span><span class="hljs-punctuation">,</span>header<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><span class="hljs-comment">#读入数据</span><br>sample_psem <span class="hljs-operator">&lt;-</span> psem<span class="hljs-punctuation">(</span> <br>  lme4<span class="hljs-operator">::</span>lmer<span class="hljs-punctuation">(</span>MBN <span class="hljs-operator">~</span> Plantdiversity <span class="hljs-operator">+</span> N_addition <span class="hljs-operator">+</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">|</span>site<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> data <span class="hljs-operator">=</span> sampld<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>  lme4<span class="hljs-operator">::</span>lmer<span class="hljs-punctuation">(</span>PC1 <span class="hljs-operator">~</span> Plantdiversity <span class="hljs-operator">+</span> N_addition <span class="hljs-operator">+</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">|</span>site<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> data <span class="hljs-operator">=</span> sampld<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> <br>  lme4<span class="hljs-operator">::</span>lmer<span class="hljs-punctuation">(</span>Plantdiversity <span class="hljs-operator">~</span> N_addition<span class="hljs-operator">+</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">|</span>site<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> data <span class="hljs-operator">=</span> sampld<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>  lme4<span class="hljs-operator">::</span>lmer<span class="hljs-punctuation">(</span>N2O <span class="hljs-operator">~</span> N_addition<span class="hljs-operator">+</span>MBN<span class="hljs-operator">+</span>PC1<span class="hljs-operator">+</span>Plantdiversity <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">|</span>site<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> data <span class="hljs-operator">=</span> sampld<span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">)</span><span class="hljs-comment">#建模</span><br>summary<span class="hljs-punctuation">(</span>sample_psem<span class="hljs-punctuation">)</span><span class="hljs-comment">#提取建模结果</span><br><br>plot<span class="hljs-punctuation">(</span>sample_psem<span class="hljs-punctuation">,</span>digits <span class="hljs-operator">=</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202211131110143.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<h2 id="R开发"><a href="#R开发" class="headerlink" title="R开发"></a>R开发</h2><h3 id="shiny"><a href="#shiny" class="headerlink" title="shiny"></a>shiny</h3><h4 id="golem开发shiny"><a href="#golem开发shiny" class="headerlink" title="golem开发shiny"></a>golem开发shiny</h4><ul>
+<li>学习资料：<a target="_blank" rel="noopener" href="https://engineering-shiny.org/">Engineering Production-Grade Shiny Apps</a></li>
+<li>速查表：<a target="_blank" rel="noopener" href="https://smach.github.io/R4JournalismBook/HowDoI.html">How Do I? …(do that in R)</a></li>
+</ul>
+<p>主要笔记：</p>
+<ul>
+<li>创建项目</li>
+</ul>
+<p>下面的代码会创建一个<code>R package</code>格式的文件夹，</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">golem<span class="hljs-operator">::</span>create_golem<span class="hljs-punctuation">(</span>path <span class="hljs-operator">=</span> <span class="hljs-string">"path/to/package"</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs R">.<br><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> DESCRIPTION<br><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> dev<br><span class="hljs-operator">|</span>   <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> <span class="hljs-number">01</span>_start.R<br><span class="hljs-operator">|</span>   <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> <span class="hljs-number">02</span>_dev.R<br><span class="hljs-operator">|</span>   <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> <span class="hljs-number">03</span>_deploy.R<br><span class="hljs-operator">|</span>   <span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> run_dev.R<br><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> GOKEGG4TCMP.Rproj<br><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> inst<br><span class="hljs-operator">|</span>   <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> app<br><span class="hljs-operator">|</span>   <span class="hljs-operator">|</span>   <span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> www<br><span class="hljs-operator">|</span>   <span class="hljs-operator">|</span>       <span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> favicon.ico<br><span class="hljs-operator">|</span>   <span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> golem<span class="hljs-operator">-</span>config.yml<br><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> man<br><span class="hljs-operator">|</span>   <span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> run_app.Rd<br><span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> NAMESPACE<br><span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> R<br>    <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> app_config.R<br>    <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> app_server.R<br>    <span class="hljs-operator">+</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> app_ui.R<br>    <span class="hljs-punctuation">\</span><span class="hljs-operator">-</span><span class="hljs-operator">-</span> run_app.R<br></code></pre></td></tr></tbody></table></figure>
+<p>主要的操作都在<code>dev</code>这个文件夹下完成。</p>
+<ul>
+<li>编辑<code>DESCRIPTION</code>文件</li>
+</ul>
+<h4 id="shinyWidgets"><a href="#shinyWidgets" class="headerlink" title="shinyWidgets"></a>shinyWidgets</h4><p><a target="_blank" rel="noopener" href="https://dreamrs.github.io/shinyWidgets/index.html">各种有意思的组件</a></p>
+<h4 id="shiny案例"><a href="#shiny案例" class="headerlink" title="shiny案例"></a>shiny案例</h4><p><a target="_blank" rel="noopener" href="https://demo.appsilon.com/shiny-semantic-components/">appsilon</a></p>
+<h4 id="CSS优化shiny"><a href="#CSS优化shiny" class="headerlink" title="CSS优化shiny"></a>CSS优化shiny</h4><ul>
+<li><p><a target="_blank" rel="noopener" href="https://appsilon.com/howto-css-and-shiny/">How to Use CSS to Style Your R Shiny Dashboards</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://unleash-shiny.rinterface.com/beautify-css.html">CSS for Shiny</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.rstudio.com/conference/2022/keynotes/past-future-shiny/">The Past and Future of Shiny</a></p>
+</li>
+</ul>
+<h4 id="服务器部署Rshiny注意事项"><a href="#服务器部署Rshiny注意事项" class="headerlink" title="服务器部署Rshiny注意事项"></a>服务器部署Rshiny注意事项</h4><ul>
+<li>应用文件夹应该放在<code>/srv/shiny-server</code>文件夹下才能生效，否则页面无法找到；</li>
+<li>可以把应用放在<code>/opt/shiny-server/app/</code>下，然后软连接到<code>/srv/shiny-server</code>.</li>
+</ul>
+<h2 id="其他知识点"><a href="#其他知识点" class="headerlink" title="其他知识点"></a>其他知识点</h2><h3 id="关于距离"><a href="#关于距离" class="headerlink" title="关于距离"></a>关于距离</h3><h4 id="各种距离计算"><a href="#各种距离计算" class="headerlink" title="各种距离计算"></a>各种距离计算</h4><p><a target="_blank" rel="noopener" href="https://franknielsen.github.io/Divergence/index.html">点击访问</a></p>
+<h3 id="git知识点"><a href="#git知识点" class="headerlink" title="git知识点"></a>git知识点</h3><h4 id="添加服务器git服务器"><a href="#添加服务器git服务器" class="headerlink" title="添加服务器git服务器"></a>添加服务器git服务器</h4><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R">git remote add sysfwq ssh<span class="hljs-operator">:</span><span class="hljs-operator">/</span><span class="hljs-operator">/</span>lixiang<span class="hljs-operator">@</span>xx.xx.xx.xx<span class="hljs-operator">:</span><span class="hljs-number">2222</span><span class="hljs-operator">/</span>home<span class="hljs-operator">/</span>xx<span class="hljs-operator">/</span>gitppi<span class="hljs-operator">/</span>phdata.git<br>git push sysfwq<br>git push <span class="hljs-operator">-</span><span class="hljs-operator">-</span>set<span class="hljs-operator">-</span>upstream sysfwq master<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="snakemake流程"><a href="#snakemake流程" class="headerlink" title="snakemake流程"></a>snakemake流程</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.schlosslab.org/just-enough-python/">适用于R用户的snakemake教程</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+        <a href="/tags/R/" class="print-no-link">#R</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>R语言笔记</div>
+      <div>https://lixiang117423.github.io/article/sharer/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年8月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/eggnotmapper/" title="eggNOG-mapper本地化">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">eggNOG-mapper本地化</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/7bda1387/" title="Nginx一个域名实多个项目管理+域名跳转">
+                        <span class="hidden-mobile">Nginx一个域名实多个项目管理+域名跳转</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

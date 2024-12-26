@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="更新版本: 推荐的资料 https:&#x2F;&#x2F;bookdown.org&#x2F;roback&#x2F;bookdown-BeyondMLR&#x2F;ch-GLMM.html https:&#x2F;&#x2F;m-clark.github.io&#x2F;mixed-models-with-R&#x2F;  文献信息 Harrison X A, Donaldson L, Correa-Cano M E, et al. A brief introduction to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="广义线性混合模型操作指南">
+<meta property="og:url" content="https://lixiang117423.github.io/article/glmm/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="更新版本: 推荐的资料 https:&#x2F;&#x2F;bookdown.org&#x2F;roback&#x2F;bookdown-BeyondMLR&#x2F;ch-GLMM.html https:&#x2F;&#x2F;m-clark.github.io&#x2F;mixed-models-with-R&#x2F;  文献信息 Harrison X A, Donaldson L, Correa-Cano M E, et al. A brief introduction to">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251933076.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251415887.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251505694.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251311861.png">
+<meta property="article:published_time" content="2023-01-25T04:24:52.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.866Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251933076.png">
+  
+  
+  
+  <title>广义线性混合模型操作指南 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="广义线性混合模型操作指南"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-01-25 12:24" pubdate>
+          2023年1月25日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">广义线性混合模型操作指南</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><strong>更新版本</strong>:</p>
+<h2 id="推荐的资料"><a href="#推荐的资料" class="headerlink" title="推荐的资料"></a>推荐的资料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://bookdown.org/roback/bookdown-BeyondMLR/ch-GLMM.html">https://bookdown.org/roback/bookdown-BeyondMLR/ch-GLMM.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://m-clark.github.io/mixed-models-with-R/">https://m-clark.github.io/mixed-models-with-R/</a></li>
+</ul>
+<h2 id="文献信息"><a href="#文献信息" class="headerlink" title="文献信息"></a>文献信息</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://peerj.com/articles/4794/">Harrison X A, Donaldson L, Correa-Cano M E, et al. A brief introduction to mixed effects modelling and multi-model inference in ecology[J]. PeerJ, 2018, 6: e4794.</a></p>
+</blockquote>
+<h2 id="固定效应和随机效应"><a href="#固定效应和随机效应" class="headerlink" title="固定效应和随机效应"></a>固定效应和随机效应</h2><p>案例：假设有5种动物，每种动物测量了100只（指标是体重），得到500个数据点。</p>
+<p>代码：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">M1 <span class="hljs-operator">&lt;-</span> lm <span class="hljs-punctuation">(</span>mass ∼ group<span class="hljs-punctuation">)</span> <span class="hljs-comment"># 固定效应</span><br>M2 <span class="hljs-operator">&lt;-</span> lmer<span class="hljs-punctuation">(</span>mass ∼ <span class="hljs-number">1</span> <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">|</span>group<span class="hljs-punctuation">)</span> <span class="hljs-comment"># 随机效应</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="控制数据点之间的非独立性"><a href="#控制数据点之间的非独立性" class="headerlink" title="控制数据点之间的非独立性"></a>控制数据点之间的非独立性</h3><p>生物学数据通常是嵌套的，或者是具有层次结构的，比如多年多点多处理的重复测量数据。随机效应可以通过控制斜率或者是截距来控制这种非独立性。只拟合随机截距能够保证组件的均值是有差异的，但是得假设对一个拟合的协变量（固定效应）来说所有分组间的斜率是一样的。拟合随机截距和斜率允许预测变量的斜率根据单独的分组变量而变化。比如我们假设动物成功繁殖是其体重的一个函数，研究是说动物能否成功繁殖和其体重相关。如果有多点的采样，那么就会希望将“采样点”拟合为随机截距，然后去估计一个固定的斜率。也就是说成功繁殖“1单位”的变化在各组之间引起的变化是一样的。</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">M3 <span class="hljs-operator">&lt;-</span> glmer<span class="hljs-punctuation">(</span>successful.breed ∼ body.mass <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">|</span>sample.site<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> family<span class="hljs-operator">=</span>binomial<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<p>如果假设不同采样点会影响到繁殖率，也就是说不同采样点之间，体重对繁殖率的影响强度是不一样的（斜率不一样），即体重每改变 1 个单位，繁殖成功率的变化在各组之间并不一致。这时候就需要随机斜率。</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">M4 <span class="hljs-operator">&lt;-</span> glmer<span class="hljs-punctuation">(</span>successful.breed ∼ body.mass <span class="hljs-operator">+</span> <span class="hljs-punctuation">(</span>body.mass<span class="hljs-operator">|</span>sample.site<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> family<span class="hljs-operator">=</span>binomial<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<p>下面的图就分别展示了随机截距模型（A）和随机斜率且随机截距模型（B）。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251933076.png" srcset="/img/loading.gif" lazyload alt="image-20230125193353811"></p>
+<h3 id="提高参数估计的准确性"><a href="#提高参数估计的准确性" class="headerlink" title="提高参数估计的准确性"></a>提高参数估计的准确性</h3><p>随机效应模型使用来自所有分组的数据来估计分组均值整体分布的均值和方差。**假设所有均值都来自于一个共同的分布，会导致均值的估计值向着全局均值漂移。这种现象叫收缩，可以得到更小更精确的均值标准误。</p>
+<h3 id="方差分量估计"><a href="#方差分量估计" class="headerlink" title="方差分量估计"></a>方差分量估计</h3><p>有时候组间方差是被关注的。</p>
+<h2 id="拟合随机效应时的注意事项"><a href="#拟合随机效应时的注意事项" class="headerlink" title="拟合随机效应时的注意事项"></a>拟合随机效应时的注意事项</h2><ul>
+<li>拟合随机截距时，至少需要5个<code>level</code>，也就是5个分组。</li>
+<li>组间样本量差异较大时，模型很可能不稳定，尤其是随机斜率模型时。</li>
+<li>难以评估组间方差的显著性和重要性。</li>
+<li>随机效应的错误指定：<ul>
+<li>未能辨别嵌套数据中由于分层引起的非独立性，如对一只鸟多个窝点的测量；</li>
+<li>没有指定随机斜率；</li>
+<li>在分层模型的错误 “水平 “上测试固定效应的显著性。传统的方法是<code>F</code>检验，但是呢<code>F</code>检验有缺陷，最新的标准方法是<code>likelihood ratio tests</code>，也就是似然比检验。</li>
+</ul>
+</li>
+</ul>
+<h2 id="GLMM模型的结构"><a href="#GLMM模型的结构" class="headerlink" title="GLMM模型的结构"></a>GLMM模型的结构</h2><h3 id="选择误差结构和链接函数"><a href="#选择误差结构和链接函数" class="headerlink" title="选择误差结构和链接函数"></a>选择误差结构和链接函数</h3><p>非正态的数据怎么处理：</p>
+<ul>
+<li>转换成正态的再进行处理；</li>
+<li>使用GLM或者是GLMM并指定合适的误差分布和链接函数，选用的链接函数考虑到了我们的数据的（假定的）经验分布。</li>
+</ul>
+<p>直接的数据转换和通过链接函数得到的数据是不一样的，就是取对数的后的数和<code>logarithm</code>拟合后得到的新数据是不一样的。</p>
+<h3 id="选择随机效应"><a href="#选择随机效应" class="headerlink" title="选择随机效应"></a>选择随机效应</h3><h4 id="交叉还是嵌套？"><a href="#交叉还是嵌套？" class="headerlink" title="交叉还是嵌套？"></a>交叉还是嵌套？</h4><p>实际数据可以根据试验设计或者是采样设计来指定随机效应。</p>
+<hr>
+<p><strong>下面的内容是旧的，部分描述可能不正确。</strong></p>
+<h2 id="文献信息-1"><a href="#文献信息-1" class="headerlink" title="文献信息"></a>文献信息</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/abs/pii/S0169534709000196">Bolker B M, Brooks M E, Clark C J, et al. Generalized linear mixed models: a practical guide for ecology and evolution[J]. Trends in ecology &amp; evolution, 2009, 24(3): 127-135.</a></p>
+</blockquote>
+<h2 id="关键名词"><a href="#关键名词" class="headerlink" title="关键名词"></a>关键名词</h2><ul>
+<li>贝叶斯统计：一种统计学派或者说统计方法，特点是利用先验信息，形成先验分布，提高推断准确率。</li>
+<li>偏差：估计值和真实值得之间的差异。</li>
+<li>块随机效应：对组内所有个体影响一致的效应，导致群体内单一水平的相关性；</li>
+<li>指数族：统计分布族，包括正态分布、二项分布、泊松分布、指数分布和伽马分布等。</li>
+<li>固定效应和随机效应：固定效应和随机效应的区别就在于如何看待参数。对于固定效应来说，参数的含义是，自变量每变化一个单位，应变量平均变化多少。而对于随机效应而言，参数是服从正态分布的一个随机变量，也就是说对于两个不同的自变量的值，对应变量的影响不一定是相同的。</li>
+</ul>
+<h2 id="前言内容"><a href="#前言内容" class="headerlink" title="前言内容"></a>前言内容</h2><ul>
+<li>当随机效应存在时，GLMM（Generalized linear mixed models，广义线性混合模型，广义线混模型）更适用于非正态的数据。</li>
+<li>基础统计的一个基础是数据必须符合正态分布，而且呢基础统计想要量化的是每个变量的确切影响，也就是每个变量对目标变量的影响到底有多大。</li>
+<li>一个很常见的随机效应：多年多点试验中的“区块”，可以理解成田间试验中的小区；个体之间的差异也可以看作随机效应。</li>
+<li>在面对非正态分布的数据时，一种常见的取巧的办法是将非正态的数据转化为正态的，比如利用非参数检验。这些方法可能会忽视掉随机因子，或者是把这些随机因子当成了固定因子。</li>
+<li>相比较于直接把数据丢进基础统计这个大框中，研究人员更应该考虑并选择合适的统计方法来满足他们的数据需求。</li>
+<li>GLMM融合了LMM和GLM两种模型的优势：LMM模型考虑了随机效应；GLM使用链接函数和指数族来处理非正态分布的数据。</li>
+<li>GLMM是处理非正态分布的最佳工具，在使用时只需要指定随机效应的分布、链接函数和结构。</li>
+</ul>
+<h2 id="估计Estimation"><a href="#估计Estimation" class="headerlink" title="估计Estimation"></a>估计Estimation</h2><p>对大多数的统计分析来说，估计模型的参数是很重要的一步。对GLMM，主要的参数有两个：</p>
+<ul>
+<li>固定效应参数：协变量的影响，处理和互作之间的差异。</li>
+<li>随机效应参数：随机效应的标准差。</li>
+</ul>
+<p>当前的大都数GLMM工具都是利用最大似然法（Maximun Likelihood,ML）来估计这些参数的。如果，试验设计的时候的均衡的，响应变量是正态的，所有的处理都有一样的样品量，所有的随机效应都是嵌套效应，那么这时候用ANOVA计算得到的参数和ML计算得到的参数是一致的。但是对于更复杂的LMM或者是GLMM，就没有那么简单了：要找到ML的估计值，就需要对随机效应所有的ML估计值进行整合，这种方法呢就比较慢，而且当数据量大的时候，可能会计算不了。</p>
+<p>为了解决这些问题，统计学家开发出伪似然等方法来估计GLMM的参数。需要区分标准的最大似然法（假定固定效应的估计值是准确无误的，然后去估计随机效应的标准差）和有限的最大似然法（REML）（对固定效应中的某些不确定进行平均化）。在数据集不是很大的时候，ML会低估随机效应的标准差；但是对于具有不同固定效应的模型，ML更有用。</p>
+<p>penalized quasilikelihood（PQL）是最简单的，也是使用最广泛的。但是当司机效应的标准差过大时，PQL会得到有偏的参数，尤其是在处理二进制数据时。Poisso分布数据的平均Counts小于5或者是二进制数据中成功/失败的平均期望值小于5时，PQL的表现会比较差，但是还是有很多研究使用PQL。</p>
+<p>Laplace approximation是比PQL更好一些的方法，其结果接近于真实的ML估计值。Gauss-Hermite quadrature的准确度更高，但是速度比Laplace approximation慢一些；当随机因子超过2各时，就不太适用了。</p>
+<p>除此之外，还有基于贝叶斯框架的MCMC方法。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251415887.png" srcset="/img/loading.gif" lazyload alt="image-20230125141517699"></p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251505694.png" srcset="/img/loading.gif" lazyload alt="image-20230125150539592"></p>
+<h2 id="推断Inference"><a href="#推断Inference" class="headerlink" title="推断Inference"></a>推断Inference</h2><p>完成第一步的参数估计后，下一步就是进行统计推断。也就是：通过评估估计值及其置信区间、比较并选择最佳模型，从而得到统计学和生物学上的结论。常见的推断有三种：</p>
+<ul>
+<li>假设检验：频率学派的假设检验来检验统计量，通过<em>p</em>值得判断是否拒绝零假设，如ANOVA中的F检验。</li>
+<li>模型比较：通过假设检验进行比较，比如比较简单的嵌套模型和更复杂的模型；或者是使用信息论 的方法，即使用预期预测能力的度量来对模型进行排名或对其预测进行平均。</li>
+<li>贝叶斯方法</li>
+</ul>
+<h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h3><p>常见的方法有Wald Z、$X^2$、t检验和F检验 。Wald Z和$X^2$只适用于没有过度离散的GLMM；Wald t 和F检验适用于过度离散的GLMM。不确定性的计算取决于残差自由度的数量，但是呢很难计算。</p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>基因型与环境相互作用在拟南芥对食草动物反应中的作用（genotype-by-environment interaction in the response of Arabidopsis to herbivory）。</p>
+<p>数据来源：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://onlinelibrary.wiley.com/doi/full/10.1111/j.1558-5646.2007.00189.x">Banta J A, Dole J, Cruzan M B, et al. Evidence of local adaptation to coarse‐grained environmental variation in Arabidopsis thaliana[J]. Evolution: International Journal of Organic Evolution, 2007, 61(10): 2419-2432.</a></p>
+</blockquote>
+<p>响应变量：单株的果实数量，计数型数据，比如1株10个啊20个这种。</p>
+<p>选择的模型是Poisson，链接函数是<code>log</code>.</p>
+<p>有些处理中果实数量少于5个，因此呢选择<code>Laplace approximation</code>.</p>
+<p>模型使用固定效应：<code>nutrient + clipping + nutrient × clipping</code>.</p>
+<p>虽然植株材料来自于三大区域，但是呢考虑到采样个体不够，就忽略了群体结构。</p>
+<p>由于残差过度离散，因此使用<code>quasi-Poisson model</code>。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301251311861.png" srcset="/img/loading.gif" lazyload alt="image-20230125131134648" style="zoom:50%;"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>广义线性混合模型操作指南</div>
+      <div>https://lixiang117423.github.io/article/glmm/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年1月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/paper/" title="我精读过的那些Paper">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我精读过的那些Paper</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/plantmemory/" title="受胁迫植物的表观遗传记忆">
+                        <span class="hidden-mobile">受胁迫植物的表观遗传记忆</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

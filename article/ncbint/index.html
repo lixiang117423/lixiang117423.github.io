@@ -1,0 +1,675 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="数据库下载https:&#x2F;&#x2F;ftp.ncbi.nih.gov&#x2F;blast&#x2F;db&#x2F; ascp（conda安装即可）高速下载链接： 1ascp -v -k 1 -T -l 1000m -i &#x2F;home&#x2F;xxxxx&#x2F;miniconda3&#x2F;envs&#x2F;bioinfTools&#x2F;etc&#x2F;asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nih.gov:&#x2F;blast&#x2F;db&#x2F;nt.0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NCBI-NT库本地化构建流程">
+<meta property="og:url" content="https://lixiang117423.github.io/article/ncbint/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="数据库下载https:&#x2F;&#x2F;ftp.ncbi.nih.gov&#x2F;blast&#x2F;db&#x2F; ascp（conda安装即可）高速下载链接： 1ascp -v -k 1 -T -l 1000m -i &#x2F;home&#x2F;xxxxx&#x2F;miniconda3&#x2F;envs&#x2F;bioinfTools&#x2F;etc&#x2F;asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nih.gov:&#x2F;blast&#x2F;db&#x2F;nt.0">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-22T13:22:36.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:17.915Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>NCBI-NT库本地化构建流程 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="NCBI-NT库本地化构建流程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-22 21:22" pubdate>
+          2023年2月22日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          594 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">NCBI-NT库本地化构建流程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="数据库下载"><a href="#数据库下载" class="headerlink" title="数据库下载"></a>数据库下载</h2><p><a target="_blank" rel="noopener" href="https://ftp.ncbi.nih.gov/blast/db/">https://ftp.ncbi.nih.gov/blast/db/</a></p>
+<p>ascp（conda安装即可）高速下载链接：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ascp -v -k 1 -T -l 1000m -i /home/xxxxx/miniconda3/envs/bioinfTools/etc/asperaweb_id_dsa.openssh anonftp@ftp.ncbi.nih.gov:/blast/db/nt.00.tar.gz ./<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>需要将所有的文nt库文件全部下载！</strong>下载完成后解压即可。下载好的数据是已经完成建库的，可以直接运行<code>blastn</code>进行比对。</p>
+<h2 id="提取分类信息"><a href="#提取分类信息" class="headerlink" title="提取分类信息"></a>提取分类信息</h2><h3 id="处理blast结果"><a href="#处理blast结果" class="headerlink" title="处理blast结果"></a>处理blast结果</h3><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>tidyverse<span class="hljs-punctuation">)</span><br><br>vroom<span class="hljs-operator">::</span>vroom<span class="hljs-punctuation">(</span><span class="hljs-string">"./ncbi.nt.blast.result.ljy.txt"</span><span class="hljs-punctuation">,</span> col_names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.ncbi.res<br><br>df.ncbi.res <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span>X3 <span class="hljs-operator">==</span> <span class="hljs-number">100</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.ncbi.res.100 <span class="hljs-comment"># 一共是258个</span><br><br>df.ncbi.res <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span>X3 <span class="hljs-operator">!=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span> X3 <span class="hljs-operator">&gt;</span> <span class="hljs-number">98</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>X1 <span class="hljs-operator">%in%</span> df.ncbi.res.100<span class="hljs-operator">$</span>X1<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.ncbi.res.over.98 <span class="hljs-comment"># 一共是232个</span><br><br>df.ncbi.res.100 <span class="hljs-operator">%&gt;%</span> <br>  rbind<span class="hljs-punctuation">(</span>df.ncbi.res.over.98<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.ncbi.res.filtered<br><br>writexl<span class="hljs-operator">::</span>write_xlsx<span class="hljs-punctuation">(</span>df.ncbi.res.filtered<span class="hljs-punctuation">,</span> path <span class="hljs-operator">=</span> <span class="hljs-string">"./ncbi.nt.筛选后的结果.xlsx"</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># 提取单独的NCBI accession</span><br>df.ncbi.res.filtered <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>distinct_all<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>   <span class="hljs-operator">%&gt;%</span> <br>  magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"accession.version"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  data.table<span class="hljs-operator">::</span>as.data.table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> id<br><br>id <span class="hljs-operator">%&gt;%</span> <br>  data.table<span class="hljs-operator">::</span>fwrite<span class="hljs-punctuation">(</span><span class="hljs-string">"./accession.id.txt"</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="准备accession2taxoid表格"><a href="#准备accession2taxoid表格" class="headerlink" title="准备accession2taxoid表格"></a>准备accession2taxoid表格</h3><p>从<a target="_blank" rel="noopener" href="https://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid/下载核酸或者是蛋白的`accession2taxi`表格，如果是`gene">https://ftp.ncbi.nih.gov/pub/taxonomy/accession2taxid/下载核酸或者是蛋白的`accession2taxi`表格，如果是`gene</a> bank<code>的话需要下载</code>nucl_gb.accession2taxid.gz`才行，整理成这个表格。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">accession.version taxid<br>A00001.1 10641<br>A00002.1 9913<br>A00003.1 9913<br>A00004.1 32630<br>A00005.1 32630<br>A00006.1 32630<br>A00008.1 32630<br>A00009.1 32630<br>A00010.1 32630<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="将ncbi得到的结果与上述表格进行比较筛选"><a href="#将ncbi得到的结果与上述表格进行比较筛选" class="headerlink" title="将ncbi得到的结果与上述表格进行比较筛选"></a>将ncbi得到的结果与上述表格进行比较筛选</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep -f id.txt /home/xxx/database/nt/taxnonmy/nucl.gb.acc2taxid.txt &gt; accession2taxoid.txt<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">head accession2taxoid.txt<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs R">AB001448.1 <span class="hljs-number">319</span><br>AB008001.1 <span class="hljs-number">303</span><br>AB013253.1 <span class="hljs-number">114707</span><br>AB015575.1 <span class="hljs-number">86473</span><br>AB019037.1 <span class="hljs-number">83814</span><br>AB022911.1 <span class="hljs-number">795097</span><br>AB023784.1 <span class="hljs-number">74315</span><br>AB024305.1 <span class="hljs-number">89568</span><br>AB038136.1 <span class="hljs-number">303</span><br>AB051692.1 <span class="hljs-number">143811</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="提取唯一的taxonomy编号"><a href="#提取唯一的taxonomy编号" class="headerlink" title="提取唯一的taxonomy编号"></a>提取唯一的taxonomy编号</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">awk '{print $2}' accession2taxoid.txt | uniq -&gt; taxo.id.txt<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="提取分类信息-1"><a href="#提取分类信息-1" class="headerlink" title="提取分类信息"></a>提取分类信息</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">taxonkit lineage taxo.id.txt |taxonkit reformat &gt; taxo.id.2.taxonomy.txt<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="处理分类结果"><a href="#处理分类结果" class="headerlink" title="处理分类结果"></a>处理分类结果</h3><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><code class="hljs R"><br><span class="hljs-comment"># 提取单独的NCBI accession</span><br>df.ncbi.res.filtered <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>distinct_all<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span>   <span class="hljs-operator">%&gt;%</span> <br>  magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"accession.version"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  data.table<span class="hljs-operator">::</span>as.data.table<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> id<br><br>id <span class="hljs-operator">%&gt;%</span> <br>  data.table<span class="hljs-operator">::</span>fwrite<span class="hljs-punctuation">(</span><span class="hljs-string">"./accession.id.txt"</span><span class="hljs-punctuation">)</span><br><br><br><span class="hljs-comment"># 读取taxonomy结果</span><br>vroom<span class="hljs-operator">::</span>vroom<span class="hljs-punctuation">(</span><span class="hljs-string">"./taxo.id.2.taxonomy.txt"</span><span class="hljs-punctuation">,</span> col_names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>rename<span class="hljs-punctuation">(</span>taxoid <span class="hljs-operator">=</span> X1<span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>界 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                门 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                纲 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                目 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                科 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                属 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">6</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                种 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>X3<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span><span class="hljs-number">7</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.taxo.res<br><br><span class="hljs-comment"># 读取accession id和taxo id表</span><br>vroom<span class="hljs-operator">::</span>vroom<span class="hljs-punctuation">(</span><span class="hljs-string">"./accession2taxoid.txt"</span><span class="hljs-punctuation">,</span> col_names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"accession.id"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"taxoid"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>left_join<span class="hljs-punctuation">(</span>df.taxo.res<span class="hljs-punctuation">,</span> by <span class="hljs-operator">=</span> <span class="hljs-string">"taxoid"</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>distinct_all<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.acc.taxo.res<br><br><span class="hljs-comment"># 合并blast结果和taxonomy结果</span><br>df.ncbi.res.filtered <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"sample"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"accession.id"</span><span class="hljs-punctuation">,</span><span class="hljs-string">"相似度"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>left_join<span class="hljs-punctuation">(</span>df.acc.taxo.res<span class="hljs-punctuation">,</span> by <span class="hljs-operator">=</span> <span class="hljs-string">"accession.id"</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>temp <span class="hljs-operator">=</span> paste0<span class="hljs-punctuation">(</span>sample<span class="hljs-punctuation">,</span> 属<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>filter<span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>duplicated<span class="hljs-punctuation">(</span>temp<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span>  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span>temp<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.res.final<br><br>df.res.final <span class="hljs-operator">%&gt;%</span> <br>  writexl<span class="hljs-operator">::</span>write_xlsx<span class="hljs-punctuation">(</span><span class="hljs-string">"./最终结果.xlsx"</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>NCBI-NT库本地化构建流程</div>
+      <div>https://lixiang117423.github.io/article/ncbint/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/transnetplantimmunity/" title="植物免疫的转录调控网络">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">植物免疫的转录调控网络</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/neighborfungi/" title="植物邻居可以促使或者是阻断根部真菌的病害传播">
+                        <span class="hidden-mobile">植物邻居可以促使或者是阻断根部真菌的病害传播</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

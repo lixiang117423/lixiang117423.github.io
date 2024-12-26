@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="基因组下载下载参考基因组数据。 1234get https:&#x2F;&#x2F;www.mbkbase.org&#x2F;R498&#x2F;R498_Chr.soft.fasta.gzget https:&#x2F;&#x2F;www.mbkbase.org&#x2F;R498&#x2F;R498_IGDBv3_coreset.tar.gzget https:&#x2F;&#x2F;www.mbkbase.org&#x2F;R498&#x2F;R498_CoreSet.pro.tar.gzget https:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从二代测序数据中鉴定是否含有特定基因">
+<meta property="og:url" content="https://lixiang117423.github.io/article/findseqinfastq/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="基因组下载下载参考基因组数据。 1234get https:&#x2F;&#x2F;www.mbkbase.org&#x2F;R498&#x2F;R498_Chr.soft.fasta.gzget https:&#x2F;&#x2F;www.mbkbase.org&#x2F;R498&#x2F;R498_IGDBv3_coreset.tar.gzget https:&#x2F;&#x2F;www.mbkbase.org&#x2F;R498&#x2F;R498_CoreSet.pro.tar.gzget https:">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-08T01:20:13.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.706Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>从二代测序数据中鉴定是否含有特定基因 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="从二代测序数据中鉴定是否含有特定基因"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-08 09:20" pubdate>
+          2023年10月8日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">从二代测序数据中鉴定是否含有特定基因</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="基因组下载"><a href="#基因组下载" class="headerlink" title="基因组下载"></a>基因组下载</h2><p>下载参考基因组数据。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">get https://www.mbkbase.org/R498/R498_Chr.soft.fasta.gz<br>get https://www.mbkbase.org/R498/R498_IGDBv3_coreset.tar.gz<br>get https://www.mbkbase.org/R498/R498_CoreSet.pro.tar.gz<br>get https://www.mbkbase.org/R498/R498_CoreSet.pro.tar.gz<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Blast比对"><a href="#Blast比对" class="headerlink" title="Blast比对"></a>Blast比对</h2><p>核酸序列建库疯狂报错：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">BLAST Database error: No <span class="hljs-built_in">alias</span> or index file found <span class="hljs-keyword">for</span> protein database [./blastdb/piapik] <span class="hljs-keyword">in</span> search path [/sas16t/lixiang/yyt.reseq/02.blast::]<br></code></pre></td></tr></tbody></table></figure>
+<p>换蛋白序列建库比对：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">makeblastdb -<span class="hljs-keyword">in</span> piapik.fa -dbtype prot -out blastdb/piapik<br>blastp -query R498_CoreSet.pros.format.fasta -db blastdb/piapik -evalue 1e-5 -num_threads 60 -outfmt 6 -out blast.out.txt<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="提取gff文件和基因序列"><a href="#提取gff文件和基因序列" class="headerlink" title="提取gff文件和基因序列"></a>提取gff文件和基因序列</h2><p>提取gff文件：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">grep <span class="hljs-string">"OsR498G1119642600.01"</span> R498_IGDBv3_coreset/R498_IGDBv3_coreset.gff &gt; pia.gff<br>grep <span class="hljs-string">"OsR498G1120737800.01"</span> R498_IGDBv3_coreset/R498_IGDBv3_coreset.gff &gt; pik.gff<br></code></pre></td></tr></tbody></table></figure>
+<p>提取基因序列：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">type</span>=<span class="hljs-string">"gene"</span><br>sed <span class="hljs-string">'s/"/\t/g'</span> piapik.gff | awk -v <span class="hljs-built_in">type</span>=<span class="hljs-string">"<span class="hljs-variable">${type}</span>"</span> <span class="hljs-string">'BEGIN{OFS=FS="\t"}{if($3==type) {print $1,$4-1,$5,$14,".",$7}}'</span> &gt; piapik.bed <br></code></pre></td></tr></tbody></table></figure>
+<p>提取蛋白序列和CDS序列用于后续的SnpEff：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">seqkit grep -f piapik.cds.id.txt genome.cds.fa &gt; piapik.cds.fa<br>seqkit grep -f piapik.cds.id.txt genome.pro.fa &gt; piapik.pro.fa<br></code></pre></td></tr></tbody></table></figure>
+<p>将这些文件拷贝到SnpEff文件夹：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cp</span> ../../../01.data/genome/piapik.fa sequences.fa<br><span class="hljs-built_in">cp</span> ../../../01.data/genome/piapik.gff genes.gff<br><span class="hljs-built_in">cp</span> ../../../01.data/genome/R498_IGDBv3_coreset/piapik.cds.fa cds.fa<br><span class="hljs-built_in">cp</span> ../../../01.data/genome/R498_IGDBv3_coreset/piapik.pro.fa ./protein.fa<br><span class="hljs-built_in">cp</span> PiaPik/sequences.fa ./genomes/PiaPik.fa <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="构建索引"><a href="#构建索引" class="headerlink" title="构建索引"></a>构建索引</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">bwa index 01.data/genome/piapik.fa<br>samtools  faidx 01.data/genome/piapik.fa<br>gatk CreateSequenceDictionary -R 01.data/genome/piapik.fa <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="SnpEff索引"><a href="#SnpEff索引" class="headerlink" title="SnpEff索引"></a>SnpEff索引</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">java -jar /home/lixiang/mambaforge/envs/gatk4/share/snpeff-5.1-2/snpEff.jar build -c snpEff.config -gff3 -v PiaPik -noCheckCds -noCheckProtein<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="批量运行"><a href="#批量运行" class="headerlink" title="批量运行"></a>批量运行</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">rm</span>(list = <span class="hljs-built_in">ls</span>())<br><br>library(tidyverse)<br><br><span class="hljs-built_in">dir</span>(<span class="hljs-string">"./01.data/clean.data/"</span>) %&gt;% <br>  as_data_frame() %&gt;% <br>  magrittr::set_names(<span class="hljs-string">"file"</span>) %&gt;% <br>  dplyr::mutate(sample = stringr::str_split(file, <span class="hljs-string">"\\."</span>) %&gt;% <br>                  sapply(<span class="hljs-string">"["</span>, 1) %&gt;% <br>                  stringr::str_sub(1, stringr::str_length(.)-2)) -&gt; samples<br><br><span class="hljs-comment"># 构建批量代码</span><br><br>genome = <span class="hljs-string">"01.data/genome/piapik.fa "</span><br><br>all.run = NULL<br><br><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> unique(samples<span class="hljs-variable">$sample</span>)) {<br>  <span class="hljs-comment"># exit then skip </span><br>  <span class="hljs-keyword">if</span> (file.exists(sprintf(<span class="hljs-string">"./03.mapping/%s.sorted.mapped.bam"</span>,i))) {<br>    next<br>  }<span class="hljs-keyword">else</span>{<br>    f.read = sprintf(<span class="hljs-string">"./01.data/clean.data/%s_1.clean.fq.gz"</span>,i)<br>    r.read = sprintf(<span class="hljs-string">"./01.data/clean.data/%s_2.clean.fq.gz"</span>,i)<br>    title = sprintf(<span class="hljs-string">"\"@RG\\tID:%s\\tSM:%s\\tPL:illumina\""</span>,i,i)<br>    bam = sprintf(<span class="hljs-string">"./03.mapping/%s.sorted.bam"</span>,i)<br>    <br>    <span class="hljs-comment"># bwa mem</span><br>    sprintf(<span class="hljs-string">"bwa mem -M -t 75 -R %s %s %s %s | samtools sort -@ 50 -m 8G -o %s"</span>,title, genome, f.read, r.read, bam) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt; all.run<br>    <br>    <span class="hljs-comment"># extract mapped</span><br>    sprintf(<span class="hljs-string">"samtools view -bF 12 -@ 75 03.mapping/%s.sorted.bam -o 04.sorted.bam/%s.sorted.mapped.bam"</span>,i,i) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt; all.run<br>    <br>    <span class="hljs-comment"># index</span><br>    sprintf(<span class="hljs-string">"samtools index -@ 75 -bc 04.sorted.bam/%s.sorted.mapped.bam"</span>,i) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt; all.run<br>    <br>    <span class="hljs-comment"># # Pia</span><br>    <span class="hljs-comment"># sprintf("samtools view 03.mapping/%s.sorted.mapped.bam Pia -o 03.mapping/%s.sorted.mapped.Pia.bam",i,i) %&gt;% </span><br>    <span class="hljs-comment">#   as_data_frame() %&gt;% </span><br>    <span class="hljs-comment">#   rbind(all.run) -&gt; all.run</span><br>    <span class="hljs-comment"># </span><br>    <span class="hljs-comment"># # Pik</span><br>    <span class="hljs-comment"># sprintf("samtools view 03.mapping/%s.sorted.mapped.bam Pik -o 03.mapping/%s.sorted.mapped.Pik.bam",i,i) %&gt;% </span><br>    <span class="hljs-comment">#   as_data_frame() %&gt;% </span><br>    <span class="hljs-comment">#   rbind(all.run) -&gt; all.run</span><br>    <br>    <span class="hljs-comment"># # bam2fastq</span><br>    <span class="hljs-comment"># sprintf("bedtools bamtofastq -i 03.mapping/%s.sorted.mapped.Pia.bam -fq 03.mapped.fastq/%s_1.Pia.fsatq -fq2 03.mapped.fastq/%s_2.Pia.fsatq",i,i,i) %&gt;% </span><br>    <span class="hljs-comment">#   as_data_frame() %&gt;% </span><br>    <span class="hljs-comment">#   rbind(all.run) -&gt; all.run</span><br>    <br>    <span class="hljs-comment"># sprintf("bedtools bamtofastq -i 03.mapping/%s.sorted.mapped.Pik.bam -fq 03.mapped.fastq/%s_1.Pik.fsatq -fq2 03.mapped.fastq/%s_2.Pik.fsatq",i,i,i) %&gt;% </span><br>    <span class="hljs-comment">#   as_data_frame() %&gt;% </span><br>    <span class="hljs-comment">#   rbind(all.run) -&gt; all.run</span><br>    <br>    <span class="hljs-comment"># # rm bam</span><br>    <span class="hljs-comment"># sprintf("rm 03.mapping/%s.sorted.bam",i) %&gt;% </span><br>    <span class="hljs-comment">#   as_data_frame() %&gt;% </span><br>    <span class="hljs-comment">#   rbind(all.run) -&gt; all.run</span><br>    <br>    <span class="hljs-comment"># coverage</span><br>    sprintf(<span class="hljs-string">"samtools coverage ./04.sorted.bam/%s.sorted.mapped.bam &gt; 05.converage/%s.coverage.txt"</span>,i,i) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt; all.run<br>    <br>    <span class="hljs-comment"># picard</span><br>    sprintf(<span class="hljs-string">"picard -Xmx400g MarkDuplicates I=04.sorted.bam/%s.sorted.mapped.bam O=06.picard/%s.picard.bam CREATE_INDEX=true  REMOVE_DUPLICATES=trueu M=06.picard/%s.txt"</span>,i, i, i) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt; all.run<br>    <br>    <span class="hljs-comment"># gatk</span><br>    sprintf(<span class="hljs-string">"gatk --java-options \"-Xmx20G -XX:ParallelGCThreads=8\" HaplotypeCaller -R 01.data/genome/piapik.fa  -I 06.picard/%s.picard.bam -O 07.gatk/%s.gvcf -ERC GVCF"</span>,i,i) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt;all.run<br>    <br>    <span class="hljs-comment"># gvcf 2 vcf</span><br>    sprintf(<span class="hljs-string">"gatk GenotypeGVCFs -R 01.data/genome/piapik.fa  -V 07.gatk/%s.gvcf -O 07.gatk/%s.vcf"</span>,i,i) %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt;all.run<br>    <br>    <span class="hljs-comment"># SneEff</span><br>    sprintf(<span class="hljs-string">"java -Xmx10G -jar ~/mambaforge/envs/gatk4/share/snpeff-5.1-2/snpEff.jar ann -c  08.snpeff/snpEff.config PiaPik 07.gatk/%s.vcf &gt; 08.snpeff/%s.ann.vcf -csvStats 08.snpeff/%s.positive.csv -stats 08.snpeff/%s.positive.html"</span>,i,i,i,i)  %&gt;% <br>      as_data_frame() %&gt;% <br>      rbind(all.run) -&gt;all.run<br>  }<br>}<br><br>all.run %&gt;% <br>  dplyr::slice(nrow(all.run):1) %&gt;% <br>  write.table(<span class="hljs-string">"./run.all.sh"</span>, col.names = FALSE, row.names = FALSE, quote = FALSE)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="合并覆盖度"><a href="#合并覆盖度" class="headerlink" title="合并覆盖度"></a>合并覆盖度</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">dir</span>(<span class="hljs-string">"./05.converage/"</span>) %&gt;% <br>  as_data_frame() %&gt;% <br>  magrittr::set_names(<span class="hljs-string">"file"</span>) -&gt; coverage<br><br>all.converage.final = NULL<br><br><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> coverage<span class="hljs-variable">$file</span>) {<br>  sprintf(<span class="hljs-string">"./05.converage/%s"</span>,i) %&gt;% <br>    readr::read_delim() %&gt;% <br>    dplyr::mutate(sample = stringr::str_replace(i,<span class="hljs-string">".coverage.txt"</span>,<span class="hljs-string">""</span>)) %&gt;% <br>    dplyr::select(ncol(.), 1:(ncol(.)-1)) %&gt;% <br>    rbind(all.converage.final) -&gt; all.converage.final<br>}<br><br>all.converage.final %&gt;% <br>  write.table(<span class="hljs-string">"./all.coverage.txt"</span>, sep = <span class="hljs-string">"\t"</span>, quote = FALSE, row.names = FALSE)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="判断突变类型"><a href="#判断突变类型" class="headerlink" title="判断突变类型"></a>判断突变类型</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">rm</span>(list = <span class="hljs-built_in">ls</span>())<br><br>readr::read_delim(<span class="hljs-string">"./01.data/genome/piapik.gff"</span>, col_names = FALSE) %&gt;% <br>  dplyr::select(1,3:5) %&gt;% <br>  magrittr::set_names(c(<span class="hljs-string">"HROM"</span>,<span class="hljs-string">"gene.region"</span>,<span class="hljs-string">"start"</span>,<span class="hljs-string">"end"</span>)) %&gt;% <br>  dplyr::filter(gene.region == <span class="hljs-string">"exon"</span>) %&gt;% <br>  dplyr::mutate(HROM = stringr::str_replace(HROM,<span class="hljs-string">"\\."</span>,<span class="hljs-string">"_"</span>))-&gt; df.gff<br><br><span class="hljs-built_in">dir</span>(<span class="hljs-string">"./08.snpeff/"</span>) %&gt;% <br>  as_data_frame() %&gt;% <br>  magrittr::set_names(<span class="hljs-string">"vcf"</span>) %&gt;% <br>  dplyr::filter(stringr::str_ends(vcf, <span class="hljs-string">"ann.vcf"</span>))-&gt; vcf<br><br>all.vcf = NULL<br><br><span class="hljs-keyword">for</span> (i <span class="hljs-keyword">in</span> vcf<span class="hljs-variable">$vcf</span>) {<br>  sprintf(<span class="hljs-string">"./08.snpeff/%s"</span>,i) %&gt;% <br>    data.table::fread() %&gt;% <br>    magrittr::set_names(c(<span class="hljs-string">"HROM"</span>, <span class="hljs-string">"POS"</span>, <span class="hljs-string">"ID"</span>, <span class="hljs-string">"REF"</span>, <span class="hljs-string">"ALT"</span>, <span class="hljs-string">"QUAL"</span>, <span class="hljs-string">"FILTER"</span>, <span class="hljs-string">"INFO"</span>, <span class="hljs-string">"FORMAT"</span>, <span class="hljs-string">"sample"</span>)) %&gt;% <br>    dplyr::select(1:8) %&gt;% <br>    dplyr::mutate(mutation.type = stringr::str_split(INFO,<span class="hljs-string">";"</span>) %&gt;% <br>                    sapply(<span class="hljs-string">"["</span>,12) %&gt;% <br>                    stringr::str_split(<span class="hljs-string">"\\|"</span>) %&gt;% <br>                    sapply(<span class="hljs-string">"["</span>,2),<br>                  mutation.region = stringr::str_split(INFO,<span class="hljs-string">";"</span>) %&gt;% <br>                    sapply(<span class="hljs-string">"["</span>,12) %&gt;% <br>                    stringr::str_split(<span class="hljs-string">"\\|"</span>) %&gt;% <br>                    sapply(<span class="hljs-string">"["</span>,6),<br>                  mutation.protein = stringr::str_split(INFO,<span class="hljs-string">";"</span>) %&gt;% <br>                    sapply(<span class="hljs-string">"["</span>,12) %&gt;% <br>                    stringr::str_split(<span class="hljs-string">"\\|"</span>) %&gt;% <br>                    sapply(<span class="hljs-string">"["</span>,11)) %&gt;% <br>    dplyr::select(-INFO) %&gt;% <br>    dplyr::left_join(df.gff) %&gt;% <br>    dplyr::mutate(group = case_when(POS &gt;= start &amp; POS &lt;= end ~ <span class="hljs-string">"Exon"</span>, TRUE ~ <span class="hljs-string">"Non-exon"</span>)) %&gt;% <br>    dplyr::filter(group == <span class="hljs-string">"Exon"</span>) %&gt;% <br>    dplyr::select(1:5,8:10) %&gt;% <br>    magrittr::set_names(c(<span class="hljs-string">"chrom"</span>, <span class="hljs-string">"position"</span>, <span class="hljs-string">"id"</span>, <span class="hljs-string">"ref"</span>, <span class="hljs-string">"alt"</span>, <span class="hljs-string">"mutation.type"</span>, <span class="hljs-string">"mutation.region"</span>, <span class="hljs-string">"mutation.protein"</span>)) %&gt;% <br>    dplyr::mutate(sample = stringr::str_replace(i,<span class="hljs-string">".ann.vcf"</span>,<span class="hljs-string">""</span>)) %&gt;% <br>    dplyr::mutate(rgene = case_when(chrom == <span class="hljs-string">"OsR498G1119642600_01"</span> ~ <span class="hljs-string">"Pia"</span>, TRUE ~ <span class="hljs-string">"Pik"</span>)) %&gt;% <br>    dplyr::select(9:10,2:8) %&gt;% <br>    rbind(all.vcf) -&gt; all.vcf<br>}<br><br>all.vcf %&gt;% <br>  write.table(<span class="hljs-string">"./all.vcf.txt"</span>, sep = <span class="hljs-string">"\t"</span>, quote = FALSE, row.names = FALSE)<br></code></pre></td></tr></tbody></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>从二代测序数据中鉴定是否含有特定基因</div>
+      <div>https://lixiang117423.github.io/article/findseqinfastq/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月8日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/jiasugithub/" title="加速服务器访问GitHub">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">加速服务器访问GitHub</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/svdss/" title="结构变异检测软件SVDSS使用">
+                        <span class="hidden-mobile">结构变异检测软件SVDSS使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

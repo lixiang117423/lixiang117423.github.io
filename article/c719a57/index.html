@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="PCA 简介PCA（Principal Component Analysis），即主成分分析。PCA是一种研究数据相似性或差异性的可视化方法，采取降维的思想，PCA 可以找到距离矩阵中最主要的坐标，把复杂的数据用一系列的特征值和特征向量进行排序后，选择主要的前几位特征值，来表示样品之间的关系。通过 PCA 可以观察个体或群体间的差异。PC 后面的百分数表示对应特征向量对数据的解释量，此值越大越好。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PCA在R语言中的实现">
+<meta property="og:url" content="https://lixiang117423.github.io/article/c719a57/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="PCA 简介PCA（Principal Component Analysis），即主成分分析。PCA是一种研究数据相似性或差异性的可视化方法，采取降维的思想，PCA 可以找到距离矩阵中最主要的坐标，把复杂的数据用一系列的特征值和特征向量进行排序后，选择主要的前几位特征值，来表示样品之间的关系。通过 PCA 可以观察个体或群体间的差异。PC 后面的百分数表示对应特征向量对数据的解释量，此值越大越好。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-01-07T10:10:11.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.025Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="R语言">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>PCA在R语言中的实现 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="PCA在R语言中的实现"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-01-07 18:10" pubdate>
+          2020年1月7日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          650 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">PCA在R语言中的实现</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="PCA-简介"><a href="#PCA-简介" class="headerlink" title="PCA 简介"></a>PCA 简介</h1><p>PCA（<em>Principal Component Analysis</em>），即主成分分析。PCA是一种研究数据相似性或差异性的可视化方法，采取降维的思想，PCA 可以找到距离矩阵中最主要的坐标，把复杂的数据用一系列的特征值和特征向量进行排序后，选择主要的前几位特征值，来表示样品之间的关系。通过 PCA 可以观察个体或群体间的差异。PC 后面的百分数表示对应特征向量对数据的解释量，此值越大越好。</p>
+<span id="more"></span>
+<p>和PCA类似的数据降维方法还有MDS和PCoA。它们三者之间的区别联系如下图。</p>
+<p>PCA creates plots based on correlations among samples.</p>
+<p>MDS and PCoA create plots based on distances among samples.</p>
+
+<h1 id="PCA算法"><a href="#PCA算法" class="headerlink" title="PCA算法"></a>PCA算法</h1><p>PCA的计算过程比较复杂，可以参考B站up主上传的YouTube上的视频（<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/av35447404?from=search&amp;seid=1532616759578227057">点击观看</a>）作为参考。PS：YouTube上的StatQuest系列视频及其通俗易懂，强推。</p>
+<h1 id="PCA在R语言中的实现"><a href="#PCA在R语言中的实现" class="headerlink" title="PCA在R语言中的实现"></a>PCA在R语言中的实现</h1><p>（R代码下载：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1hLwiBLDvk2uiJBj-q1yFwg">点击下载</a>）</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs R">data.matrix <span class="hljs-operator">&lt;-</span> matrix<span class="hljs-punctuation">(</span>nrow <span class="hljs-operator">=</span> <span class="hljs-number">100</span><span class="hljs-punctuation">,</span>ncol <span class="hljs-operator">=</span> <span class="hljs-number">10</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#创建一个100行10列的空矩阵</span><br><br>colnames<span class="hljs-punctuation">(</span>data.matrix<span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">"wt"</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span>sep <span class="hljs-operator">=</span> <span class="hljs-string">""</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">"ko"</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span>sep <span class="hljs-operator">=</span> <span class="hljs-string">""</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#命名矩阵的列</span><br><br>rownames<span class="hljs-punctuation">(</span>data.matrix<span class="hljs-punctuation">)</span> <span class="hljs-operator">&lt;-</span> paste<span class="hljs-punctuation">(</span><span class="hljs-string">"gene"</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span>sep <span class="hljs-operator">=</span> <span class="hljs-string">""</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#命名矩阵的行</span><br><br><span class="hljs-punctuation">\</span><span class="hljs-comment"># for循环填充矩阵</span><br><br><span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>i <span class="hljs-keyword">in</span> <span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">100</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br><br>  wt.values <span class="hljs-operator">&lt;-</span> rpois<span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span>lambda <span class="hljs-operator">=</span> sample<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span><span class="hljs-number">10</span><span class="hljs-operator">:</span><span class="hljs-number">1000</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>  ko.values <span class="hljs-operator">&lt;-</span> rpois<span class="hljs-punctuation">(</span><span class="hljs-number">5</span><span class="hljs-punctuation">,</span>lambda <span class="hljs-operator">=</span> sample<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span><span class="hljs-number">10</span><span class="hljs-operator">:</span><span class="hljs-number">1000</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>  data.matrix<span class="hljs-punctuation">[</span>i<span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span>wt.values<span class="hljs-punctuation">,</span>ko.values<span class="hljs-punctuation">)</span><br><br><span class="hljs-punctuation">}</span><br><br>pca <span class="hljs-operator">&lt;-</span> prcomp<span class="hljs-punctuation">(</span>t<span class="hljs-punctuation">(</span>data.matrix<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>scale <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#t()函数的功能的将矩阵的行列位置进行置换，本例中研究的是“样本”，不是“Gene”</span><br><br><span class="hljs-punctuation">\</span><span class="hljs-comment">#prcomp()的结果是三个值：x,sdev和rotation。三个值在后面都会用到</span><br><br>plot<span class="hljs-punctuation">(</span>pca<span class="hljs-operator">$</span>x<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>pca<span class="hljs-operator">$</span>x<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br><br>pca.var <span class="hljs-operator">&lt;-</span> pca<span class="hljs-operator">$</span>sdev<span class="hljs-operator">^</span><span class="hljs-number">2</span> <span class="hljs-comment"># 计算原始数据中的每个数据在每个PC上的比重</span><br><br>pca.var.per <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">round</span><span class="hljs-punctuation">(</span>pca.var<span class="hljs-operator">/</span><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>pca.var<span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#计算每个PC占所有PC的和的比列</span><br><br>barplot<span class="hljs-punctuation">(</span>pca.var.per<span class="hljs-punctuation">,</span>main <span class="hljs-operator">=</span> <span class="hljs-string">"Sreen Plot"</span><span class="hljs-punctuation">,</span>xlab <span class="hljs-operator">=</span> <span class="hljs-string">"Princioal Component"</span><span class="hljs-punctuation">,</span>ylab <span class="hljs-operator">=</span> <span class="hljs-string">"percent Variation"</span><span class="hljs-punctuation">)</span><span class="hljs-comment">#柱状图显示每个PC所占的比列</span><br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>ggplot2<span class="hljs-punctuation">)</span><span class="hljs-comment">#调用ggplot2()</span><br><br>pca.data <span class="hljs-operator">&lt;-</span> data.frame<span class="hljs-punctuation">(</span>Sample<span class="hljs-operator">=</span>rownames<span class="hljs-punctuation">(</span>pca<span class="hljs-operator">$</span>x<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span>X<span class="hljs-operator">=</span>pca<span class="hljs-operator">$</span>x<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>Y<span class="hljs-operator">=</span>pca<span class="hljs-operator">$</span>x<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-comment">#创建数据框</span><br><br><span class="hljs-punctuation">\</span><span class="hljs-comment">#ggplot2绘图</span><br><br>ggplot<span class="hljs-punctuation">(</span>data <span class="hljs-operator">=</span> pca.data<span class="hljs-punctuation">,</span>aes<span class="hljs-punctuation">(</span>x<span class="hljs-operator">=</span>X<span class="hljs-punctuation">,</span>y<span class="hljs-operator">=</span>Y<span class="hljs-punctuation">,</span>label<span class="hljs-operator">=</span>Sample<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br><br>  geom_text<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br><br>  xlab<span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">"PC1 - "</span><span class="hljs-punctuation">,</span>pca.var.per<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><span class="hljs-string">"%"</span><span class="hljs-punctuation">,</span>sep <span class="hljs-operator">=</span> <span class="hljs-string">""</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br><br>  ylab<span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">"PC2 - "</span><span class="hljs-punctuation">,</span>pca.var.per<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><span class="hljs-string">"%"</span><span class="hljs-punctuation">,</span>sep <span class="hljs-operator">=</span> <span class="hljs-string">""</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-operator">+</span><br><br>  ggtitle<span class="hljs-punctuation">(</span><span class="hljs-string">"My PCA Graph"</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs R">loading_scores <span class="hljs-operator">&lt;-</span> pca<span class="hljs-operator">$</span>rotation<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-comment">#查看PC1的loading scores</span><br><br>gene_scores <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">abs</span><span class="hljs-punctuation">(</span>loading_scores<span class="hljs-punctuation">)</span> <span class="hljs-comment">#计算loading score的绝对值</span><br><br>gene_score_ranked <span class="hljs-operator">&lt;-</span> sort<span class="hljs-punctuation">(</span>gene_scores<span class="hljs-punctuation">,</span>decreasing <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span> <span class="hljs-comment">#降序排列loading scores</span><br><br>top_10_genes <span class="hljs-operator">&lt;-</span> <span class="hljs-built_in">names</span><span class="hljs-punctuation">(</span>gene_score_ranked<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">10</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br><br>top_10_genes<br><br>pca<span class="hljs-operator">$</span>rotation<span class="hljs-punctuation">[</span>top_10_genes<span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="代码生成"><a href="#代码生成" class="headerlink" title="代码生成"></a>代码生成</h1><p>在网站<a target="_blank" rel="noopener" href="https://carbon.now.sh/?bg=rgba(13%2C78%2C165%2C1">https://carbon.now.sh</a>&amp;t=blackboard&amp;wt=none&amp;l=r&amp;ds=true&amp;dsyoff=20px&amp;dsblur=68px&amp;wc=false&amp;wa=true&amp;pv=48px&amp;ph=32px&amp;ln=false&amp;fm=Hack&amp;fs=17px&amp;lh=133%&amp;si=false&amp;es=2x&amp;wm=false)上生成带感的代码图片。</p>
+
+<hr>
+<blockquote>
+<p>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/R%E8%AF%AD%E8%A8%80/" class="print-no-link">#R语言</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>PCA在R语言中的实现</div>
+      <div>https://lixiang117423.github.io/article/c719a57/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年1月7日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/2b23a230/" title="听他十年，成长十年">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">听他十年，成长十年</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/4b137aba/" title="群体遗传学与重测序分析">
+                        <span class="hidden-mobile">群体遗传学与重测序分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,746 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="R最强大的莫过于统计分析和可视化，关键是完全的开源免费啊。有时候使用多了以后，会积累一些函数或者是数据库，而这些函数和数据库通常能够帮助到别人，这时候就可以把这些函数或者是数据库打包成R包，上传到CRAN、Bioconductor或者是GitHub，让 其他的使用者使用自己的包。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发一个R包">
+<meta property="og:url" content="https://lixiang117423.github.io/article/6f22d8f6/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="R最强大的莫过于统计分析和可视化，关键是完全的开源免费啊。有时候使用多了以后，会积累一些函数或者是数据库，而这些函数和数据库通常能够帮助到别人，这时候就可以把这些函数或者是数据库打包成R包，上传到CRAN、Bioconductor或者是GitHub，让 其他的使用者使用自己的包。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/1.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/2.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/3.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/4.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/6.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/7.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/6f22d8f6/8.png">
+<meta property="article:published_time" content="2020-01-10T08:26:48.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.994Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="R语言">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lixiang117423.github.io/article/6f22d8f6/1.png">
+  
+  
+  
+  <title>开发一个R包 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="开发一个R包"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-01-10 16:26" pubdate>
+          2020年1月10日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">开发一个R包</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>R最强大的莫过于统计分析和可视化，关键是完全的开源免费啊。有时候使用多了以后，会积累一些函数或者是数据库，而这些函数和数据库通常能够帮助到别人，这时候就可以把这些函数或者是数据库打包成R包，上传到CRAN、Bioconductor或者是GitHub，让 其他的使用者使用自己的包。</p>
+<span id="more"></span>
+<p>我开发的第一个包是<a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/riceidconverter/index.html">riceidconverter</a>，主要的用途是水稻的ID转换。整个包的开发断断续续经历了两个月，包括数据的爬取(Python脚本见<a href="[https://github.com/GitHub-LiXiang/R/tree/master/R%E5%8C%85%E5%BC%80%E5%8F%91/riceidconverter/NCBI%E7%88%AC%E8%99%ABPython%E8%84%9A%E6%9C%AC](https://github.com/GitHub-LiXiang/R/tree/master/R包开发/riceidconverter/NCBI爬虫Python脚本">GitHub</a>))、整理、函数的构思，以及最艰难的调试。</p>
+<img src="/article/6f22d8f6/1.png" srcset="/img/loading.gif" lazyload class="">
+<h1 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h1><p>我的开发流程是软件安装、构思R包、准备数据、编写R包、调试代码、R包提交。下面就从这几方面一一道来我这个小白的经验。</p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="MikTex"><a href="#MikTex" class="headerlink" title="MikTex"></a>MikTex</h2><p><code>MikTex</code>主要是用于编译后面的pdf文档，如果包只是自己用，就不用安装这个软件。软件的下载地址是<a target="_blank" rel="noopener" href="https://miktex.org/download">MikTex</a>。安装的话一路默认就OK。</p>
+<h2 id="roxygen2"><a href="#roxygen2" class="headerlink" title="roxygen2"></a>roxygen2</h2><p><code>roxygen2</code>是个R包，通过注释的方式，生成文档。直接<code>install。package('roxygen2')</code>即可。</p>
+<h2 id="devtools"><a href="#devtools" class="headerlink" title="devtools"></a>devtools</h2><p>这个包主要是用来<code>build</code>和<code>check</code>R包的。直接<code>install。package('devtools')</code>即可。</p>
+<h1 id="构思R包"><a href="#构思R包" class="headerlink" title="构思R包"></a>构思R包</h1><p>这个比较难说清楚，每个R包都有一定的功能的，构思的过程就是R包功能完善的过程。</p>
+<h1 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h1><p>这个环节，也是很难说清除。如果数据要内嵌到R包，而且包里面的函数会用到数据，那表头名称和函数中的变量名称要保持一致。</p>
+<h1 id="编写R包"><a href="#编写R包" class="headerlink" title="编写R包"></a>编写R包</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>直接用RStudio创建<code>R Package即可</code>：<code>File→New Project→New Directory→R Package</code>。<font color="red">需要注意的是选择的路径不可以有中文字符！</font>会生成下面的文件：</p>
+<img src="/article/6f22d8f6/2.png" srcset="/img/loading.gif" lazyload class="">
+<p>比较重要的是<code>man</code>、<code>R</code>和<code>DESCRIPTION</code>这三个文件(夹)。其他的几个可以删除。</p>
+<h2 id="编写DESCRIPTION"><a href="#编写DESCRIPTION" class="headerlink" title="编写DESCRIPTION"></a>编写DESCRIPTION</h2><p>这个文件是用来描述一些基本信息的，这些信息也是必填的一些信息。</p>
+<img src="/article/6f22d8f6/3.png" srcset="/img/loading.gif" lazyload class="">
+<p>下面这是我的包的一些描述：</p>
+<img src="/article/6f22d8f6/4.png" srcset="/img/loading.gif" lazyload class="">
+<font color="red">需要注意的是在`Title`部分，大小写要求很严格。</font>
+
+<p>另外需要注意的是在<code>Description</code>部分，每个缩写都需要有详细的解释，如果有链接，还需要将链接放在<code>&lt;&gt;</code>里面，而不是<code>()</code>。</p>
+<h2 id="编写函数"><a href="#编写函数" class="headerlink" title="编写函数"></a>编写函数</h2><p>在<code>R</code>这个文件夹下面创建对应的<code>.R</code>文件。比如想实现的功能是<code>t</code>检验，那就创建一个<code>t.test.R</code>。打开以后还是有几行<code>#'</code>开头的描述，这些是必须的：</p>
+<img src="/article/6f22d8f6/6.png" srcset="/img/loading.gif" lazyload class="">
+<p><code>@name</code>是指这个函数的名称，其他的就是和<code>DESCRIPTION</code>类似的；<code>@param</code>表示的是参数；<code>@example</code>表示的是函数使用的例子；<code>@return</code>表示的是返回的结果；接着下一行编写函数就行：</p>
+<img src="/article/6f22d8f6/7.png" srcset="/img/loading.gif" lazyload class="">
+<font color="red">需要注意的是在`R`文件夹下面还应该创建一个和R包名称相同的`.R`文件。</font>只需要填写这些东西就可以了：
+
+<img src="/article/6f22d8f6/8.png" srcset="/img/loading.gif" lazyload class="">
+
+## 调试代码
+
+这个部分，就需要不断的调试，就是使用不同的数据去测试这个函数是否可靠。
+
+## 添加数据
+
+如果需要将数据内嵌在R包怎么办呢？一行代码搞定：`use_data(test.data, internal = TRUE)`。`test.data`就是先前准备好的数据，需要先加载到R环境中。会在`R`文件夹下生成一个`sysdata.rda`文件。
+
+# R包提交
+
+在完成编写和调试后，就只剩下`build`、`check`和`upload`了。
+
+先要生成注释文件：
+
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>roxygen2<span class="hljs-punctuation">)</span><br>roxygenize<span class="hljs-punctuation">(</span><span class="hljs-string">'packagename'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+
+## build
+
+一行代码：
+
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">system<span class="hljs-punctuation">(</span><span class="hljs-string">'R CMD build packagename --binary'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+
+会生成一个`tar.gz`文件。这个文件用于后面的提交。
+
+## check 
+
+一行代码：
+
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">system<span class="hljs-punctuation">(</span><span class="hljs-string">'R CMD check packagename --as-cran'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+
+完后会生成一个`riceidconverter.Rcheck`文件夹，里面有各种报告。在RStudio输出界面没有`ERROR`、`Warning`还有`NOTE`，那就基本没问题了。
+
+## 安装
+
+先尝试一下能不能安装上：
+
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">system<span class="hljs-punctuation">(</span><span class="hljs-string">'R CMD INSTALL packagename'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+
+## <font color="red">提交</font>
+
+<p>这个就比较简单了，直接在<a target="_blank" rel="noopener" href="https://cran.r-project.org/submit.html">https://cran.r-project.org/submit.html</a>按照要求提交<code>tar.gz</code>文件就行。</p>
+<hr>
+<p>最后，等着邮件吧。</p>
+<hr>
+<blockquote>
+<p>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/R%E8%AF%AD%E8%A8%80/" class="print-no-link">#R语言</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>开发一个R包</div>
+      <div>https://lixiang117423.github.io/article/6f22d8f6/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年1月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/926c2b5a/" title="Python英文文献爬虫">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Python英文文献爬虫</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/651c50ad/" title="iTOL修饰进化树">
+                        <span class="hidden-mobile">iTOL修饰进化树</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

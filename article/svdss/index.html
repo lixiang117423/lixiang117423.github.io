@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="参考文献 Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结构变异检测软件SVDSS使用">
+<meta property="og:url" content="https://lixiang117423.github.io/article/svdss/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="参考文献 Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031600513.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031608727.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031614558.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310042031756.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310041547002.png">
+<meta property="article:published_time" content="2023-10-03T07:52:27.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.987Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png">
+  
+  
+  
+  <title>结构变异检测软件SVDSS使用 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="结构变异检测软件SVDSS使用"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-10-03 15:52" pubdate>
+          2023年10月3日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          978 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">结构变异检测软件SVDSS使用</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-022-01674-1">Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(4): 550-558.</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oE8uvMklWVE">点击观看官方视屏</a>.</p>
+<h2 id="计算原理"><a href="#计算原理" class="headerlink" title="计算原理"></a>计算原理</h2><p>SVDSS融合了基于比对、无比对和基于组装这三种方法的优势。整个流程可以分为如下几步：</p>
+<ol>
+<li><code>read-smoothing</code>：基于比对到参考基因组上的方法将测序错误碱基、SNP和小片段插入（&lt;20bp）的序列去除。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png" srcset="/img/loading.gif" lazyload alt="image-20231003155907569"></li>
+<li><code>构建SFS superstring</code>：在完成上一步的基础上对样品特异性片段（sample-specific string，SFS）进行提取，然后再将SFS组装成superstrings.<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031600513.png" srcset="/img/loading.gif" lazyload alt="image-20231003160041288"><br>什么是specific strings？官方视屏中的介绍是这样的：也就是在A中有在B中没有的片段。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031608727.png" srcset="/img/loading.gif" lazyload alt="image-20231003160823249"></li>
+<li><code>SV预测</code>：基于这些SFS在参考基因组上的位置对其进行聚类，然后鉴定SV.<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031614558.png" srcset="/img/loading.gif" lazyload alt="image-20231003161405487"></li>
+</ol>
+<h2 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h2><h3 id="软件安装"><a href="#软件安装" class="headerlink" title="## 软件安装"></a>## 软件安装</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create --name svdss<br>mamba activate svdss<br>mamba install -c bioconda svdss<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h3><p>官方使用的是人类基因组数据，我选择水稻的数据。</p>
+<p>从<a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/web/download"></a><a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/">RiceSuperPIRdb</a>下载日本晴的T2T基因组和注释信息。从<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S009286742100581X">Qin P, Lu H, Du H, et al. Pan-genome analysis of 33 genetically diverse rice accessions reveals hidden genomic variations[J]. Cell, 2021, 184(13): 3542-3558. e16.</a>提供的数据中下载2个样品全基因组测序数据。下载地址：</p>
+<p><a target="_blank" rel="noopener" href="https://ngdc.cncb.ac.cn/search/?dbId=gsa&amp;q=PRJCA002103.&amp;page=1">https://ngdc.cncb.ac.cn/search/?dbId=gsa&amp;q=PRJCA002103.&amp;page=1</a></p>
+<hr>
+<p>剩下的步骤大概可以分为如下几步：</p>
+<ol>
+<li>Build FMD index of reference genome (<code>SVDSS index</code>)</li>
+<li>Smooth the input BAM file (<code>SVDSS smooth</code>)</li>
+<li>Extract SFS from smoothed BAM file (<code>SVDSS search</code>)</li>
+<li>Assemble SFS into superstrings (<code>SVDSS assemble</code>)</li>
+<li>Genotype SVs from the assembled superstrings (<code>SVDSS call</code>)</li>
+</ol>
+<p>但是软件输出的帮助文档的顺序和GitHub上的不一样：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS, Structural Variant Discovery from Sample-specific Strings.<br><br>Usage: <br>        * Index reference/sample:<br>                SVDSS index --fastq/--fasta /path/to/genome/file --index /path/to/output/index/file<br><br>                Optional arguments: <br>                        -b, --binary                            output index <span class="hljs-keyword">in</span> binary format. Allows <span class="hljs-keyword">for</span> another index to be appended to this index later.<br>                        -a, --append /path/to/binary/index      append to existing binary index.<br><br>        * Extract SFS from BAM/FASTQ/FASTA files:<br>                SVDSS search --index /path/to/index --fastq/--bam /path/to/input --workdir /output/directory<br><br>                Optional arguments: <br>                        --assemble                              automatically runs SVDSS assemble on output<br><br>        * Assemble SFS into superstrings:<br>                SVDSS assemble --workdir /path/to/.sfs/files --batches /number/of/SFS/batches<br><br>        * Reconstruct sample:<br>                SVDSS smooth --workdir /output/file/direcotry --bam /path/to/input/bam/file --reference /path/to/reference/genome/fasta<br><br>        * Call SVs:<br>                SVDSS call --workdir /path/to/assembled/.sfs/files --bam /path/to/input/bam/file --reference /path/to/reference/genome/fasta<br><br>                Optional arguments: <br>                        --clipped                               calls SVs from clipped SFS.<br>                        --min-cluster-weight                    minimum number of supporting superstrings <span class="hljs-keyword">for</span> a call to be reported.<br>                        --min-sv-length                         minimum length of reported SVs. Default is 25. Values &lt; 25 are ignored.<br><br>General options: <br>        --threads                                               sets number of threads, default 4.<br>        --version                                               <span class="hljs-built_in">print</span> version information.<br>        --<span class="hljs-built_in">help</span>                                                  <span class="hljs-built_in">print</span> this <span class="hljs-built_in">help</span> message.<br></code></pre></td></tr></tbody></table></figure>
+<p>先跟着GitHub上的步骤操作一波试试。</p>
+<hr>
+<blockquote>
+<p>All of SVDSS steps must be run in the same directory so we always pass <code>--workdir $PWD</code> for every command.</p>
+</blockquote>
+<h3 id="构建参考基因组索引"><a href="#构建参考基因组索引" class="headerlink" title="构建参考基因组索引"></a>构建参考基因组索引</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 1.refer.index<br>SVDSS index --fasta 00.data/genome/nip.t2t.fa --index 01.refer.index/refer.genome.fmds<br></code></pre></td></tr></tbody></table></figure>
+<p>373M的基因组运行结果如下：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS, Structural Variant Discovery from Sample-specific Strings.<br>Mode: index<br>[I] . <br>[M::mr_insert_multi] Turn off parallelization <span class="hljs-keyword">for</span> this batch as too few strings are left.<br>[I] Complete. Runtime: 876 seconds. <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h3><p>使用<code>Minimap2</code>将序列比对到参考基因组上获得<code>BAM</code>文件。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">minimap2 -ax map-pb  ref.fa pacbio-reads.fq &gt; aln.sam   <span class="hljs-comment"># for PacBio CLR reads</span><br>minimap2 -ax map-ont ref.fa ont-reads.fq &gt; aln.sam      <span class="hljs-comment"># for Oxford Nanopore reads</span><br>minimap2 -ax map-iclr ref.fa iclr-reads.fq &gt; aln.sam    <span class="hljs-comment"># for Illumina Complete Long Reads</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">minimap2 -t 70 -ax map-pb 00.data/genome/nip.t2t.fa 00.data/sample/zh11.fastq &gt; zh11.sam<br></code></pre></td></tr></tbody></table></figure>
+<p>57G数据运行了25分钟左右。</p>
+<p>将<code>SAM</code>转为<code>BAM</code>排序后构建索引：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">samtools view -@ 70 -b zh11.sam &gt; zh11.bam<br>samtools <span class="hljs-built_in">sort</span> --write-index -@ 70 zh11.bam -o zh11.sorted.bam <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Smooth样品"><a href="#Smooth样品" class="headerlink" title="Smooth样品"></a>Smooth样品</h3><p>剔除样品中的测序错误碱基、SNP和小片段插入（&lt;20bp）。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS smooth --threads 70 --reference nip.t2t.fa --bam zh11.sorted.bam<br></code></pre></td></tr></tbody></table></figure>
+<p>构建索引。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">samtools index -@ 70 -b smoothed.selective.bam<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="提取样品的SFS并组装"><a href="#提取样品的SFS并组装" class="headerlink" title="提取样品的SFS并组装"></a>提取样品的SFS并组装</h3><p>看了下一步的代码里面有一个参数是batches，猜测不同的样本的batches不同，批量处理就不好处理，那就直接一步完成了。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS search --threads 70 --index refer.genome.fmd --bam smoothed.selective.bam<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="预测SVs"><a href="#预测SVs" class="headerlink" title="预测SVs"></a>预测SVs</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS call --threads 70 --reference nip.t2t.fa --bam smoothed.selective.bam  &gt; zh11.sv.vcf <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="汇总结果"><a href="#汇总结果" class="headerlink" title="汇总结果"></a>汇总结果</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> 02.each/zh11<br><span class="hljs-built_in">mv</span> zh11* 02.each/zh11 <br><span class="hljs-built_in">mv</span> s* 02.each/zh11 <br><span class="hljs-built_in">mv</span> ignored_reads.txt 02.each/zh11 <br><span class="hljs-built_in">mv</span> poa.sam 02.each/zh11 <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="另一种方法"><a href="#另一种方法" class="headerlink" title="另一种方法"></a>另一种方法</h2><p>我尝试了上面的方法，不行，最终得不到结构变异。选择直接从fastq文件开始，不用比对了。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 1.refer.index<br>SVDSS index --fasta 00.data/genome/nip.t2t.fa --index 01.refer.index/refer.genome.fmds<br>minimap2 -t 70 -ax map-pb 00.data/genome/nip.t2t.fa 00.data/sample/zh11.fastq &gt; zh11.sam<br>samtools view -@ 70 -b zh11.sam &gt; zh11.bam<br>samtools <span class="hljs-built_in">sort</span> --write-index -@ 70 zh11.bam -o zh11.sorted.bam <br>SVDSS search --threads 70 --assemble --index refer.genome.fmd --fastq 00.data/sample/zh11.fastq<br>SVDSS call --min-sv-length 50 --threads 70 --reference nip.t2t.fa --bam zh11.sorted.bam  &gt; zh11.sv.vcf<br><br><span class="hljs-built_in">mkdir</span> 02.each/zh11<br><span class="hljs-built_in">mv</span> zh11* 02.each/zh11 <br><span class="hljs-built_in">mv</span> s* 02.each/zh11 <br><span class="hljs-built_in">mv</span> ignored_reads.txt 02.each/zh11 <br><span class="hljs-built_in">mv</span> poa.sam 02.each/zh11 <br></code></pre></td></tr></tbody></table></figure>
+<p>只得到200个SV，不知道对不对。得到这样一个图：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310042031756.png" srcset="/img/loading.gif" lazyload alt="image-20231004203123690"></p>
+<h2 id="结构变异可视化"><a href="#结构变异可视化" class="headerlink" title="结构变异可视化"></a>结构变异可视化</h2><p>在<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-023-01932-w">Ahsan M U, Liu Q, Perdomo J E, et al. A survey of algorithms for the detection of genomic structural variants from long-read sequencing data[J]. Nature Methods, 2023, 20(8): 1143-1158.</a>这个文章里面看到这个图：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310041547002.png" srcset="/img/loading.gif" lazyload alt="image-20231004154750643"></p>
+<p>找到这个文章：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://academic.oup.com/bioinformatics/article/37/3/413/5885081">Maria Nattestad, Robert Aboukhalil, Chen-Shan Chin, Michael C Schatz, Ribbon: intuitive visualization for complex genomic variation, <em>Bioinformatics</em>, Volume 37, Issue 3, February 2021, Pages 413–415</a></p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/marianattestad/ribbon">点击查看GitHub代码</a>。</p>
+<p>直接部署一个到自己的服务器上，接个域名方便自己使用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.xxx.com/ribbon/">https://www.xxx.com/ribbon/</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>结构变异检测软件SVDSS使用</div>
+      <div>https://lixiang117423.github.io/article/svdss/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年10月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/findseqinfastq/" title="从二代测序数据中鉴定是否含有特定基因">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">从二代测序数据中鉴定是否含有特定基因</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/ppiunderground/" title="调控植物-植物互作的地下部分信号">
+                        <span class="hidden-mobile">调控植物-植物互作的地下部分信号</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

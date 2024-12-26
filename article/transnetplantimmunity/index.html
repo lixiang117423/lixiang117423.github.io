@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="文献信息 Tsuda K, Somssich I E. Transcriptional networks in plant immunity[J]. New Phytologist, 2015, 206(3): 932-947.  Summary除了大量的非生物胁迫外，植物还时刻都需要面对大量来自其周围环境中的病原菌。因此，在进化过程中的生存和繁殖能力在很大程度上依赖于对这些潜在威胁的有效感知、响">
+<meta property="og:type" content="article">
+<meta property="og:title" content="植物免疫的转录调控网络">
+<meta property="og:url" content="https://lixiang117423.github.io/article/transnetplantimmunity/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="文献信息 Tsuda K, Somssich I E. Transcriptional networks in plant immunity[J]. New Phytologist, 2015, 206(3): 932-947.  Summary除了大量的非生物胁迫外，植物还时刻都需要面对大量来自其周围环境中的病原菌。因此，在进化过程中的生存和繁殖能力在很大程度上依赖于对这些潜在威胁的有效感知、响">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225151340036.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225153434424.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225154457446.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225154609400.png">
+<meta property="article:published_time" content="2023-02-25T01:38:32.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:19.475Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="文献阅读">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225151340036.png">
+  
+  
+  
+  <title>植物免疫的转录调控网络 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="植物免疫的转录调控网络"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-25 09:38" pubdate>
+          2023年2月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          28 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">植物免疫的转录调控网络</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="文献信息"><a href="#文献信息" class="headerlink" title="文献信息"></a>文献信息</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://nph.onlinelibrary.wiley.com/doi/full/10.1111/nph.13286">Tsuda K, Somssich I E. Transcriptional networks in plant immunity[J]. New Phytologist, 2015, 206(3): 932-947.</a></p>
+</blockquote>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>除了大量的非生物胁迫外，植物还时刻都需要面对大量来自其周围环境中的病原菌。因此，在进化过程中的生存和繁殖能力在很大程度上依赖于对这些潜在威胁的有效感知、响应及适应。因此，不足为奇的是现代植物具有高度复杂的免疫库，包括多样化的信号感知通路和保内信号通路。这个信号网络不但错综复杂而且相互关联，这也说明不同的病原菌侵染植物时有着不同的寄生方式和侵染策略。此外，这个复杂的网络还能完成生长发育和防御之间的信号交流，从而保证植物的生长和健康不会受到明显的影响。当前主要的研究领域有两方面，一是植物是如何整合和优先考虑外界输入的信号的？另一方面是这些信号是如何被转导从而激活适当的免疫响应的？一个重要的发现是病原菌入侵会激发寄主植物胞内大量的转录重编程的发生。一些类似的研究发现转录因子通常是这些信号的收敛位点，而且具有信号调控功能的转录因子能够和其他的转录因子以及转录共调控因子共同作用来建立植物免疫所需的转录调控网络。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>植物拥有两层先天的免疫系统来抵抗病院微生物的侵染。位于质膜上的模式识别受体（<strong>PRRs</strong>）能够感知到具有保守分子结构的微生物、病原相关分子模式（<strong>MAMPs/PAMPs</strong>），从而激活植物的第一层免疫系统。通过这种方式出发的免疫叫做<strong>PTI</strong>。研究得比较透彻的模式识别受体是拟南芥的<strong><em>AtFLS2</em></strong> (FLAGELLINSENSING2)和<strong><em>AtEFR</em></strong> (EF-TU RECEPTOR). 这两个模式识别受体能够分别识别细菌的鞭毛蛋白和延伸因子-Tu。具有适应性的病原菌获得了多种毒力机制来抑制植物的PTI等免疫响应。如常见的使用效应子蛋白。为了应对病原菌的效应子泛白，植物进化出第二层免疫系统。植物的第二层免疫系统可以直接或间接地识别病原菌的效应子，从而激发效应子出发的免疫（<strong>ETI</strong>）。典型的ETI受体是核苷酸结合位点/亮氨酸重复（NLR）蛋白，这些NLR蛋白可以根据N端结构的不同大体分为两个亚类：有一个Toll-Interleukin1受体结构域的叫做<strong>TNLs</strong>，有coiled-coil结构域的叫做<strong>CNLs</strong>。</p>
+<p>在<strong>PTI</strong>和<strong>ETI</strong>过程中，植物会激发多种免疫响应，如活性氧（<strong>ROS</strong>）产生、胞内<strong>Ca$^{2+}$</strong>峰、<strong>MAP</strong>激酶激活、植物激素合成及转录重编程等。植物会将这些免疫侠响应进行整合，进一步地作用在被侵染位点或者是系统性作用于距侵染点较远的其他部位。<strong>PTI</strong>和<strong>ETI</strong>共享一些具有不同激活活性的信号组分。</p>
+<p>信号免疫受体被激活后会触发一些列的免疫响应。如果面对自然界中的生物胁迫和非生物胁迫一样，植物在面对这些免疫响应时同样需要很“小心”。植物需要协调其免疫响应和生长之间的均衡，最大化实现其自身的适应性。最近的研究发现信号整合过程受转录因子调控网络调控。转录重编程是植物免疫的一个主要特征，这个过程受转录因子和与离散的转录复合物相关的共调控蛋白的共同调控。在受体激活和信号启动时，特定的转录因子和相关的共因子会与信号通路进行整合，通过多个途径共同完成信号解析，从而实现多样化的转录变化。</p>
+<p>这篇综述主要讨论了参与植物免疫、转录复合物的调控及不同植物激素通路的主要的转录因子家族，另外一方面，本文还指出了与分析这类网络相关的困难以及为分析它们所采取的方法。</p>
+<h2 id="参与植物免疫的主要转录因子家族"><a href="#参与植物免疫的主要转录因子家族" class="headerlink" title="参与植物免疫的主要转录因子家族"></a>参与植物免疫的主要转录因子家族</h2><p>转录因子是调控控制植物生长和响应相关转录过程的主要因素。植物体内的转录因子库与动物的明显不同。大多数的动物转录因子属于<strong>bHLH</strong>、<strong>同源盒结构域</strong>及<strong>C2H2类锌指蛋白</strong>；植物中除开这三类转录因子外，主要的转录因子还有<strong>AP2/ERF</strong>、<strong>bZIP</strong>、<strong>MADS box</strong>、<strong>MYB</strong>、<strong>NAC</strong>及<strong>WRKY</strong>等家族。</p>
+<p>在过去二十年中，分子和遗传相关的研究已经鉴定出了大量的转录因子家族成员，这些转录因子成员在调控植物对病原菌的转录响应中有着关键的作用。当前对转录因子在植物中的功能研究主要集中在模式植物上，如拟南芥呢水稻。尽管如此，其他植物上的大量研究也为转录因子的提供了新的思路和见解。</p>
+<p>某些转录因子家族似乎特别热衷于参与植物的免疫调节，如<strong>AP2/ERF</strong>、<strong>bHLH</strong>、<strong>bZIP</strong>、<strong>MYB</strong>、<strong>NAC</strong>及<strong>WRKY</strong>等家族。下面将对这些转录因子家族在植物免疫中的功能进行一一阐释。</p>
+<h3 id="AP2-ERF家族"><a href="#AP2-ERF家族" class="headerlink" title="AP2/ERF家族"></a><strong>AP2/ERF</strong>家族</h3><p><strong>AP2/ERF</strong>（APETALA2/ETHYLENE-RESPONSE ELEMENT BINDING FACTOR）转录因子家族是一个很大的基因家族，在拟南芥中有140多个家族成员，在水稻中有160多个家族成员。所有的家族成员都有一个长为60个氨基酸的DNA结合结构域。在<strong>ERF</strong>家族中，<strong>DREB</strong>蛋白亚家族能够和脱水响应元件 （Dehydration-Response-Element，DRE）这个DNA motif（A/GCCGAC）进行结合，进而调控植株在受到冷害胁迫、干旱胁迫及高盐胁迫等非生物胁迫时靶基因的表达。于此相反的是，<strong>ERF</strong>亚家族成员对<strong>GCC</strong>序列（AGCCGCC）有着最高的亲和性，参与基因的调控表达对事物胁迫作出相应，尤其是与茉莉酸和乙烯激素信号通路相关的基因。这个亚家族成员包括<strong><em>AtERF1</em></strong>、<strong><em>AtERF6</em></strong>、<strong><em>AtERF104</em></strong>及<strong><em>AtORA59</em></strong>.</p>
+<h3 id="bHLH家族"><a href="#bHLH家族" class="headerlink" title="bHLH家族"></a><strong>bHLH</strong>家族</h3><p><strong>bHLH</strong>（basic-helix-loop-helix）家族在拟南芥中有162个家族成员，在水稻中有167个家族成员。但是很多非典型的<strong>bHLH</strong>蛋白逐渐被发现。<strong>bHLH</strong>家族的DNA结合结构域有50~60个氨基酸。该结构域允许同源或异源二聚化到它们的DNA一致六聚体序列<strong>CANNTG</strong>. 在这个家族中只有很少的家族成员被发现与植物免疫相关。然而，转录因子<strong><em>AtMYC2/JAi1/JIN1</em></strong>与其密切相关的蛋白<strong><em>AtMYC3</em></strong>和<strong><em>AtMYC4</em></strong>是茉莉酸介导的防御响应中关键的调控基因，而且这个转录因子还能介导茉莉酸和水杨酸、脱落酸、赤霉素及生长素等其他植物激素的串扰。</p>
+<h3 id="TGA-bZIP家族"><a href="#TGA-bZIP家族" class="headerlink" title="TGA-bZIP家族"></a><strong>TGA-bZIP</strong>家族</h3><p><strong>bZIP</strong>（basic domain leucine zipper）家族在拟南芥中有74个成员，水稻中有89个成员。在拟南芥中，<strong>zBIP</strong>家族被划分为10个亚家族，其中<strong>C</strong>和<strong>D</strong>两个亚家族中的成员与植物免疫相关。通常来说，<strong>bZIP</strong>家族可以作为同源或者是异源二聚体与含有<strong>ACGT</strong>核心序列的DNA序列进行结合。亚家族<strong>D</strong>中的<strong>TGA</strong>因子可以进一步分为3级，<strong><em>AtTGA1</em></strong>和<strong><em>AtTGA4</em></strong>属于Clade I；<strong><em>AtTGA2</em></strong>、<strong><em>AtTGA5</em></strong>及<strong><em>AtTGA6</em></strong>属于Clade II；<strong><em>AtTGA3</em></strong>和<strong><em>AtTGA7</em></strong>属于Clade III. 这些转录因子是水杨酸信号通路相关的防御系统中的核心成员，能够激发植物对活体营养型病原菌的抗性。<strong><em>AtTGA2</em></strong>、<strong><em>AtTGA5</em></strong>及<strong><em>AtTGA6</em></strong>在系统获得性抗性中也有重要作用。此外，这三个基因还可以调控寄主的解毒相关通路并且是乙烯诱导的防御响应中的关键因子。</p>
+<h3 id="MYB家族"><a href="#MYB家族" class="headerlink" title="MYB家族"></a><strong>MYB</strong>家族</h3><p><strong>MYB</strong>家族在拟南芥和水稻中都有160个以上的家族成员。与动物不同的是，植物植物中有一个<strong>MYB</strong>亚家族，该家族含有<strong>R2R3 MYB</strong>结构域。<strong>R2R3 MYB</strong>蛋白可以分为两种类型，可以分别和<strong>(T/C)AAC(T/G)G</strong>、<strong>G(G/T)T(A/T)G(G/T)T</strong>两种DNA序列进行结合。已经报道的和植物免疫相关的该家族成员有拟南芥中的<strong>AtMYB30</strong>、<strong>AtMYB44</strong>及<strong>AtMYB108/BOSI1</strong>和大麦中的<strong>HvMYB6</strong>.</p>
+<h3 id="NAC家族"><a href="#NAC家族" class="headerlink" title="NAC家族"></a>NAC家族</h3><p><strong>NAC</strong>家族在拟南芥汇中有100个成员，在水稻中有150个成员。<strong>NAC</strong>基因家族转录因子与特定的DNA序列<strong>CATGTG</strong>结合。该家族中大多数的成员与非干旱和高盐等生物胁迫相关，但是也有部分家族成员与植物免疫相关，如大麦中的<strong><em>HvATAF1</em></strong>，拟南芥中的<strong><em>AtANAC019</em></strong>、 <strong><em>AtANAC055</em></strong> 及 <strong><em>AtANAC072</em></strong>.</p>
+<h3 id="WRKY家族"><a href="#WRKY家族" class="headerlink" title="WRKY家族"></a><strong>WRKY</strong>家族</h3><p><strong>WRKY</strong>转录因子家族在拟南芥中有70多位家族成员，在水稻中家族成员数量超过100个。这个转录因子家族主要出现在植物中，但是在粘菌盘基网柄菌和单细胞原生生物 <strong>Gardia lamblia</strong>基因组中也发现该家族的存在。通常成员都有60个氨基酸长度的<strong>WRKY</strong>结构域，与DNA序列<strong>C/TTGAC/T</strong>（<strong>W-box</strong>）进行特异性结合。大量的研究表明<strong>WRKY</strong>转录因子家族成员广泛地参与了植物的免疫响应。</p>
+<h2 id="转录复合物的调控"><a href="#转录复合物的调控" class="headerlink" title="转录复合物的调控"></a>转录复合物的调控</h2><p>转录因子的表达会受到转录调控和转录后的调控，而且转录因子的激活也受到多重调控，如磷酸化、去磷酸化、改变亚细胞定位和靶向降解。成功的转录重编程和免疫离不开转录因子的调控。一些来自病原菌的因子能够暗中破坏寄主的转录复合物，从而增强其毒性。这表明寄主防御转录调控的重要性。</p>
+<h3 id="免疫受体对转录因子的直接调控"><a href="#免疫受体对转录因子的直接调控" class="headerlink" title="免疫受体对转录因子的直接调控"></a>免疫受体对转录因子的直接调控</h3><p>NLRs激活会触发转录重编程在内的免疫响应。对于核质NLRs的几种情况，核积累是其在ETI中充分发挥功能所必需的，这表明这写NLRs能够直接调控转录过程。也有研究证明了一些NLRs通过与转录因子结合来实现其功能。</p>
+<p>大麦中的核质 CNL MLA10通过其<strong>CC</strong>结构域与<strong>WRKY</strong>转录抑制因子<strong><em>HvWRKY1</em></strong>和<strong><em>HvWRKY2</em></strong>进行互作，负向调控植株对<strong><em>Blumeria graminis</em></strong>的免疫。这个基因也可以和<strong>MYB</strong>转录因子家族基因<strong><em>HvMYB6</em></strong>互作正向调控植株的免疫。<strong><em>HvWRKY1</em></strong>与<strong><em>HvMYB6</em></strong>互作时其功能被抑制。MLA10可以通过增强<strong><em>HvMYB6</em></strong>的DNA结合活性和将<strong><em>HvMYB6</em></strong>从<strong><em>HvWRKY1</em></strong>的抑制中释放出来这两种方式改变转录复合物。因此，MLA10通过细胞核中转录复合物的状态来直接调控植株的转录，从而激活植株的免疫（下图左）。</p>
+<p>水稻中的PRR XA21能够增强植株对<strong><em>Xanthomonas oryzae</em></strong>的抗性。XA21虽然定位在质膜上，但是其会释放跨膜激酶结构域。这个结构域会进入到细胞核，并且与<strong><em>OsWRKY62</em></strong>进行互作。这个例子说明位于膜上的免疫受体能够转移到细胞核内，并且与转录因子互作从而直接调控转录过程（下图右）。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225151340036.png" srcset="/img/loading.gif" lazyload alt="image-20230225151340036" style="zoom: 67%;"></p>
+<h3 id="MAPK级联反应对转录复合物的调控"><a href="#MAPK级联反应对转录复合物的调控" class="headerlink" title="MAPK级联反应对转录复合物的调控"></a>MAPK级联反应对转录复合物的调控</h3><p>MAPK级联反应是重要的信号通路，其能够通过对转录因子等的磷酸化来连外界接刺激和下游响应。大量的研究已经证明了这个信号通路在植物免疫中的功能。如，拟南芥中的<strong><em>AtMPK3</em></strong> 和 <strong><em>AtMPK6</em></strong>能够被上游的MAPK 激酶<strong><em>AtMKK4</em></strong> 和 <strong><em>AtMKK5</em></strong>激活，与此同时<strong><em>AtMKK4</em></strong>和<strong><em>AtMPK11</em></strong>会被<strong><em>AtMKK1</em></strong>和<strong><em>AtMKK2</em></strong>调控。被激活的MAPKs能够通过磷酸化来调控多个转录因子（下图）。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225153434424.png" srcset="/img/loading.gif" lazyload alt="image-20230225153434424" style="zoom:67%;"></p>
+<h2 id="植物激素信号中的转录因子网络"><a href="#植物激素信号中的转录因子网络" class="headerlink" title="植物激素信号中的转录因子网络"></a>植物激素信号中的转录因子网络</h2><h3 id="水杨酸"><a href="#水杨酸" class="headerlink" title="水杨酸"></a>水杨酸</h3><p>水杨酸主要在叶绿体中被合成然后通过叶绿体膜上的<strong><em>AtEDS5</em></strong>转运到细胞质中。受诱导的水杨酸的积累能够被中心调控因子<strong><em>AtNPR1</em></strong>感受到，这个<strong><em>AtNPR1</em></strong>是水杨酸类似物BTH介导的转录过程所必须的。</p>
+<h3 id="茉莉酸"><a href="#茉莉酸" class="headerlink" title="茉莉酸"></a>茉莉酸</h3><p>茉莉酸在叶绿体中被合成然后在细胞质中被转换成具有生物活性的茉莉酸-异亮氨酸。虽然病原菌的侵染会导致茉莉酸积累，但是任然不清楚的是在植物免疫过程中茉莉酸的生物合成是否在转录水平上被调控 。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225154457446.png" srcset="/img/loading.gif" lazyload alt="image-20230225154457446" style="zoom:67%;"></p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/image-20230225154609400.png" srcset="/img/loading.gif" lazyload alt="image-20230225154609400"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="print-no-link">#文献阅读</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>植物免疫的转录调控网络</div>
+      <div>https://lixiang117423.github.io/article/transnetplantimmunity/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/rtrycatch/" title="R语言自动跳过Error实现循环">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">R语言自动跳过Error实现循环</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/ncbint/" title="NCBI-NT库本地化构建流程">
+                        <span class="hidden-mobile">NCBI-NT库本地化构建流程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

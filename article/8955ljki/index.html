@@ -1,0 +1,725 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="安装 Blast +将下载的安装包解压缩后安装对应的.exe文件即可，安装完成后将安装目录下的bin文件夹的路径添加到环境变量中的Path中。 ftp:&#x2F;&#x2F;ftp.ncbi.nlm.nih.gov&#x2F;blast&#x2F;db&#x2F; 构建比对数据库可以利用自带的函数下载数据库： 1nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NCBI-blast-本地比对">
+<meta property="og:url" content="https://lixiang117423.github.io/article/8955ljki/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="安装 Blast +将下载的安装包解压缩后安装对应的.exe文件即可，安装完成后将安装目录下的bin文件夹的路径添加到环境变量中的Path中。 ftp:&#x2F;&#x2F;ftp.ncbi.nlm.nih.gov&#x2F;blast&#x2F;db&#x2F; 构建比对数据库可以利用自带的函数下载数据库： 1nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log &amp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-11-23T06:41:53.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:17.896Z">
+<meta property="article:author" content="小蓝哥">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>NCBI-blast-本地比对 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="NCBI-blast-本地比对"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-11-23 14:41" pubdate>
+          2021年11月23日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">NCBI-blast-本地比对</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="安装-Blast"><a href="#安装-Blast" class="headerlink" title="安装 Blast +"></a>安装 Blast +</h1><p>将下载的<a target="_blank" rel="noopener" href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/">安装包</a>解压缩后安装对应的<code>.exe</code>文件即可，安装完成后将安装目录下的<code>bin</code>文件夹的路径添加到环境变量中的<code>Path</code>中。</p>
+<p><a href="ftp://ftp.ncbi.nlm.nih.gov/blast/db/">ftp://ftp.ncbi.nlm.nih.gov/blast/db/</a></p>
+<h1 id="构建比对数据库"><a href="#构建比对数据库" class="headerlink" title="构建比对数据库"></a>构建比对数据库</h1><p>可以利用自带的函数下载数据库：</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log &amp;<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">makeblastdb -in swissprot -dbtype prot -out swissprot.blast<br></code></pre></td></tr></tbody></table></figure>
+<blockquote>
+<ul>
+<li>-in: 待格式化的序列文件     </li>
+<li>-dbtype: 数据库类型，nucl 为核酸，prot 为蛋白  </li>
+<li>-out: 输出数据库名，可用于后续 -db 参数设置</li>
+</ul>
+</blockquote>
+<h1 id="比对"><a href="#比对" class="headerlink" title="比对"></a>比对</h1><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">blastn -query AE014075.fasta -db /e/Blast+/database/test/res_genome.blast -out 20210421test.txt -evalue 1e-5 -outfmt 6<br></code></pre></td></tr></tbody></table></figure>
+<blockquote>
+<ul>
+<li>-query: 输入文件路径及文件名</li>
+<li>-out: 输出文件路径及文件名</li>
+<li>-db: 格式化了的数据库路径及数据库名</li>
+<li>-outfmt: 输出文件格式，共 12 种，6 是 tabular 格式对应 BLAST 的 m8 格式</li>
+<li>-evalue: 设置输出结果的 e-value 值，e 值越小最后结果可信度越</li>
+</ul>
+</blockquote>
+<h1 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h1><p>[1] Query id：已知的序列 ID</p>
+<p>[2] Subject id: 比对到数据库中的序列 ID</p>
+<p>[3] % identity : 相似度(在氨基酸水平上，相似度可以设置为 30，严格一些可以设置为 70；在核苷酸水上，可以设置 70 或 90。没有统一的标准，还是以特定研究的参考文献为准。)</p>
+<p>[4] alignment length：比对长度</p>
+<p>[5] mismatches ：错配数目</p>
+<p>[6] gap openings：gap 的数目</p>
+<p>[7] q. Start：已知的序列比对起始位置</p>
+<p>[8] q. End：已知的序列比对终止位置</p>
+<p>[9] s. Start：数据库中序列比对起始位置</p>
+<p>[10] s. End；数据库中序列比对终止位置</p>
+<p>[11] E value；比对的 E 值</p>
+<p>[12] score；比对的得分</p>
+<p>注意比对到的序列长度。评价一个 blast 结果的标准主要有三项，E 值（Expect)，一致性 (Identities)，缺失或插入（Gaps）。加上比对长度的话，就有四个标准了。</p>
+<p><strong>E 值（Expect)</strong>：表示随机匹配的可能性，例如，E=1，表示在目前大小的数据库中，完全由机会搜到对象数的平均值为 1.E 值越大，随机匹配的可能性也越大。E 值接近零或为零时，具本上就是完全匹配了。通常来讲，我们认为 E 值小于 10-5 就是比较可性的 S 值结果。我们可以想象，相同的数据库，E=0.001 时如果有 1000 条都有机会 S 值比现在这个要高的话，那么不 E 设置为 10-6 时可能就会只得到一条结果，就是 S 值最可靠的那个。但是 E 值也不是万能的。它在以下几个情况下有局限性：</p>
+<p>1）当目标序列过小时，E 值会偏大，因为无法得到较高的 S 值。</p>
+<p>2）当两序列同源性虽然高，但有较大的 gap（空隙）时，S 值会下降。这个时候 gap scores 就非常有用。</p>
+<p>3）有些序列的非功能区有较低的随机性时，可能会造成两序列较高的同源性。</p>
+<p>E 值总结：</p>
+<p>E 值适合于有一定长度，而且复杂度不能太低的序列。当 E 值小于 10-5</p>
+<p>时，表明两序列有较高的同源性，而不是因为计算错误。当 E 值小于 10-6 时，表时两序列的同源性非常高，几乎没有必要再做确认。</p>
+<p><strong>一致性 (Identities)</strong>：或相似性。匹配上的碱基数占总序列长的百分数。</p>
+<p><strong>Score</strong> 得分值越高说明同源性越好；Expect 期望值越小比对结果越好，说明因某些原因而引起的误差越小；Identities 是同源性（相似性），例中所示比对的 1299 个碱基中只有 35 个不配，其他 97％相同；</p>
+<p><strong>Gaps</strong> 是指多出或少的碱基或缺失的碱基数；缺失或插入（Gaps）：插入或缺失。用 “—“ 来表示。</p>
+<p>此外比对的 <strong>Strand</strong> 则通 s. Start：和 s. End 判断，如上述结果的第三行. Star 值大于 s. End，则表示负链。</p>
+<h1 id="Blast与Blast-的差异"><a href="#Blast与Blast-的差异" class="headerlink" title="Blast与Blast+的差异"></a>Blast与Blast+的差异</h1><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>Blast</strong></th>
+<th><strong>Blast+</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库格式化函数</td>
+<td>formatdb</td>
+<td>makeblastdb</td>
+</tr>
+<tr>
+<td>输入 / 输出</td>
+<td>-i / -o</td>
+<td>-query / -out</td>
+</tr>
+<tr>
+<td>格式化了的数据库路径及数据库名</td>
+<td>-d</td>
+<td>-db</td>
+</tr>
+<tr>
+<td>输出结果的 e-value 值</td>
+<td>-e</td>
+<td>-evalue</td>
+</tr>
+<tr>
+<td>输出文件格式</td>
+<td>-m</td>
+<td>-outfmt</td>
+</tr>
+<tr>
+<td>最大目标的数目</td>
+<td>-v / -b</td>
+<td>-max_target_seqs</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>NCBI-blast-本地比对</div>
+      <div>https://lixiang117423.github.io/article/8955ljki/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年11月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/594585ty/" title="Ubuntu部署Hexo">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Ubuntu部署Hexo</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/5269tghy/" title="重测序分析脚本">
+                        <span class="hidden-mobile">重测序分析脚本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

@@ -1,0 +1,1296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小蓝哥的知识荒原</title>
+  
+  <subtitle>蓝莲盛开，身心自在~</subtitle>
+  <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://lixiang117423.github.io/"/>
+  <updated>2024-11-15T08:20:37.796Z</updated>
+  <id>https://lixiang117423.github.io/</id>
+  
+  <author>
+    <name>小蓝哥</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的生物信息学知识合集</title>
+    <link href="https://lixiang117423.github.io/article/bioinf2allin1/"/>
+    <id>https://lixiang117423.github.io/article/bioinf2allin1/</id>
+    <published>2222-12-30T16:00:00.000Z</published>
+    <updated>2024-11-15T08:20:37.796Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h1&gt;&lt;p&gt;趁着这次培训，把学的东西都整理一下。不断更新，想到啥更新啥。。。。。。&lt;/p&gt;
+&lt;h1 id=&quot;软件推荐&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R包biohelpers使用说明</title>
+    <link href="https://lixiang117423.github.io/article/biohelpers/"/>
+    <id>https://lixiang117423.github.io/article/biohelpers/</id>
+    <published>2024-12-26T05:22:33.000Z</published>
+    <updated>2024-12-26T05:31:21.076Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;p&gt;从&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从NCBI批量获取物种的分类信息</title>
+    <link href="https://lixiang117423.github.io/article/gettaxonomy/"/>
+    <id>https://lixiang117423.github.io/article/gettaxonomy/</id>
+    <published>2024-11-25T02:36:54.000Z</published>
+    <updated>2024-11-25T02:41:59.669Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;软件下载&quot;&gt;&lt;a href=&quot;#软件下载&quot; class=&quot;headerlink&quot; title=&quot;软件下载&quot;&gt;&lt;/a&gt;软件下载&lt;/h2&gt;&lt;p&gt;从&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>全基因组DNA甲基化分析流程</title>
+    <link href="https://lixiang117423.github.io/article/dnamethylation/"/>
+    <id>https://lixiang117423.github.io/article/dnamethylation/</id>
+    <published>2024-10-10T01:29:14.000Z</published>
+    <updated>2024-10-11T01:27:58.061Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;测序原理&quot;&gt;&lt;a href=&quot;#测序原理&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bismark过程中的一个小细节</title>
+    <link href="https://lixiang117423.github.io/article/bismarkbug/"/>
+    <id>https://lixiang117423.github.io/article/bismarkbug/</id>
+    <published>2024-09-24T03:37:16.000Z</published>
+    <updated>2024-09-24T03:44:40.809Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;在最后一步&lt;code&gt;bismark_methylation_extractor&lt;/code&gt;的时候，输出的&lt;code&gt;.bedGraph&lt;/code&gt; 和</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>真菌分泌蛋白预测流程</title>
+    <link href="https://lixiang117423.github.io/article/secretome4fungi/"/>
+    <id>https://lixiang117423.github.io/article/secretome4fungi/</id>
+    <published>2024-08-29T01:40:57.000Z</published>
+    <updated>2024-08-29T08:32:52.080Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;软件配置&quot;&gt;&lt;a href=&quot;#软件配置&quot; class=&quot;headerlink&quot; title=&quot;软件配置&quot;&gt;&lt;/a&gt;软件配置&lt;/h1&gt;&lt;h2 id=&quot;DeepLoc-2-0&quot;&gt;&lt;a href=&quot;#DeepLoc-2-0&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>遗传力的概念和计算</title>
+    <link href="https://lixiang117423.github.io/article/heritability01/"/>
+    <id>https://lixiang117423.github.io/article/heritability01/</id>
+    <published>2024-08-27T01:28:57.000Z</published>
+    <updated>2024-08-27T03:41:46.840Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动下载校验fastq文件</title>
+    <link href="https://lixiang117423.github.io/article/downloadfastq/"/>
+    <id>https://lixiang117423.github.io/article/downloadfastq/</id>
+    <published>2024-08-21T07:16:21.000Z</published>
+    <updated>2024-08-21T07:32:00.407Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;首先，直接在&lt;a href=&quot;https://www.ebi.ac.uk/ena/browser/view/&quot;&gt;ENA&lt;/a&gt;上检索想要下载的数据，如：&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>BLUP和BLUE</title>
+    <link href="https://lixiang117423.github.io/article/blueandblup/"/>
+    <id>https://lixiang117423.github.io/article/blueandblup/</id>
+    <published>2024-08-07T03:01:06.000Z</published>
+    <updated>2024-08-07T03:02:46.248Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;为何要计算-BLUE-值？&quot;&gt;&lt;a href=&quot;#为何要计算-BLUE-值？&quot; class=&quot;headerlink&quot; title=&quot;为何要计算 BLUE 值？&quot;&gt;&lt;/a&gt;为何要计算 BLUE</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Positron设置快捷键</title>
+    <link href="https://lixiang117423.github.io/article/positronshortcuts/"/>
+    <id>https://lixiang117423.github.io/article/positronshortcuts/</id>
+    <published>2024-07-10T12:27:31.000Z</published>
+    <updated>2024-07-10T12:32:00.999Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;毫无疑问，&lt;code&gt;Positron&lt;/code&gt;是非常好用的，可是一些快捷键无法设置，那就直接编辑快捷键吧。&lt;/p&gt;
+&lt;p&gt;找到&lt;code&gt;Positron&lt;/code&gt;的安装路径下的这个文件&lt;code&gt;keybindings.json&lt;/code&gt;，我的路径是：&lt;/p</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NCBI数据库BioProject中的Description</title>
+    <link href="https://lixiang117423.github.io/article/ncbi.bioproject/"/>
+    <id>https://lixiang117423.github.io/article/ncbi.bioproject/</id>
+    <published>2024-06-16T03:58:38.000Z</published>
+    <updated>2024-06-16T04:02:22.353Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>代谢物鉴定函数</title>
+    <link href="https://lixiang117423.github.io/article/calldams/"/>
+    <id>https://lixiang117423.github.io/article/calldams/</id>
+    <published>2024-06-12T13:36:23.000Z</published>
+    <updated>2024-06-13T00:34:31.783Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>JASPAR爬取Class信息</title>
+    <link href="https://lixiang117423.github.io/article/jaspar/"/>
+    <id>https://lixiang117423.github.io/article/jaspar/</id>
+    <published>2024-03-22T05:18:38.000Z</published>
+    <updated>2024-03-22T05:21:20.610Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rstudio-Server安装igraph报错解决</title>
+    <link href="https://lixiang117423.github.io/article/rstudioerror/"/>
+    <id>https://lixiang117423.github.io/article/rstudioerror/</id>
+    <published>2024-03-07T01:38:30.000Z</published>
+    <updated>2024-03-07T01:42:18.613Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;加载&lt;code&gt;igraph&lt;/code&gt;时报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>混合效应模型学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/mixefflearning/"/>
+    <id>https://lixiang117423.github.io/article/mixefflearning/</id>
+    <published>2024-02-27T12:42:13.000Z</published>
+    <updated>2024-02-27T13:01:09.399Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;线性回归模型的局限性&quot;&gt;&lt;a href=&quot;#线性回归模型的局限性&quot; class=&quot;headerlink&quot; title=&quot;线性回归模型的局限性&quot;&gt;&lt;/a&gt;线性回归模型的局限性&lt;/h2&gt;&lt;h3 id=&quot;正态性判断&quot;&gt;&lt;a href=&quot;#正态性判断&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微生物组VSEARCH学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/vsearch/"/>
+    <id>https://lixiang117423.github.io/article/vsearch/</id>
+    <published>2024-02-20T10:40:15.000Z</published>
+    <updated>2024-02-20T10:42:43.413Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文献&quot;&gt;&lt;a href=&quot;#文献&quot; class=&quot;headerlink&quot; title=&quot;文献&quot;&gt;&lt;/a&gt;文献&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://peerj.com/articles/2584/#fig-7&quot;&gt;Rognes</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TASSEL进行GWAS分析</title>
+    <link href="https://lixiang117423.github.io/article/tasselgwas/"/>
+    <id>https://lixiang117423.github.io/article/tasselgwas/</id>
+    <published>2024-01-04T05:45:42.000Z</published>
+    <updated>2024-09-18T08:44:11.365Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一开始折腾的是GAPIT，可是老是报错，实在是没办法了，就折腾TASSEL.&lt;/p&gt;
+&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ggplot2绘制GWAS曼哈顿图</title>
+    <link href="https://lixiang117423.github.io/article/manhattan/"/>
+    <id>https://lixiang117423.github.io/article/manhattan/</id>
+    <published>2023-12-21T11:13:34.000Z</published>
+    <updated>2023-12-21T11:18:32.324Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;数据长这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录安装Mambaforge遇到的坑</title>
+    <link href="https://lixiang117423.github.io/article/mambaerror/"/>
+    <id>https://lixiang117423.github.io/article/mambaerror/</id>
+    <published>2023-12-12T11:24:55.000Z</published>
+    <updated>2023-12-12T11:29:19.457Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我安装的是&lt;code&gt;zsh&lt;/code&gt;，安装&lt;code&gt;Mambaforge&lt;/code&gt;的时候始终无法使用，运行&lt;code&gt;mamba init&lt;/code&gt;显示下面的内容：&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blossom配置</title>
+    <link href="https://lixiang117423.github.io/article/blossom/"/>
+    <id>https://lixiang117423.github.io/article/blossom/</id>
+    <published>2023-12-10T02:38:43.000Z</published>
+    <updated>2023-12-10T05:18:17.378Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;准备在NAS上折腾的，各种端口开放不方便，直接就用腾讯云服务器折腾吧。。。。。。&lt;/p&gt;
+&lt;h2 id=&quot;安装并运行数据库&quot;&gt;&lt;a href=&quot;#安装并运行数据库&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次Docker使用的坑</title>
+    <link href="https://lixiang117423.github.io/article/dockererror/"/>
+    <id>https://lixiang117423.github.io/article/dockererror/</id>
+    <published>2023-11-11T11:50:41.000Z</published>
+    <updated>2023-12-10T05:18:18.963Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近在使用谷歌的&lt;code&gt;DeepVariant&lt;/code&gt;处理三代数据，然后发现某个文件系统爆满了。。。。。。&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>RstudioServer报错解决</title>
+    <link href="https://lixiang117423.github.io/article/rstudioservererror/"/>
+    <id>https://lixiang117423.github.io/article/rstudioservererror/</id>
+    <published>2023-11-11T09:37:38.000Z</published>
+    <updated>2023-12-10T05:18:18.139Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;突然的报错。。。。。。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311111738324.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>崩溃的一天-配置Minigraph-Cactus</title>
+    <link href="https://lixiang117423.github.io/article/minigraph-cactus/"/>
+    <id>https://lixiang117423.github.io/article/minigraph-cactus/</id>
+    <published>2023-11-02T02:02:49.000Z</published>
+    <updated>2023-12-10T05:18:18.645Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;看到这篇文章：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311021005647.png&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>加速服务器访问GitHub</title>
+    <link href="https://lixiang117423.github.io/article/jiasugithub/"/>
+    <id>https://lixiang117423.github.io/article/jiasugithub/</id>
+    <published>2023-11-02T01:44:43.000Z</published>
+    <updated>2023-12-10T05:18:18.971Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;访问&lt;code&gt;GitHub&lt;/code&gt;的速度真的是一言难尽啊，加速吧。。。。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;下载个&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从二代测序数据中鉴定是否含有特定基因</title>
+    <link href="https://lixiang117423.github.io/article/findseqinfastq/"/>
+    <id>https://lixiang117423.github.io/article/findseqinfastq/</id>
+    <published>2023-10-08T01:20:13.000Z</published>
+    <updated>2023-12-10T05:18:18.706Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基因组下载&quot;&gt;&lt;a href=&quot;#基因组下载&quot; class=&quot;headerlink&quot; title=&quot;基因组下载&quot;&gt;&lt;/a&gt;基因组下载&lt;/h2&gt;&lt;p&gt;下载参考基因组数据。&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>结构变异检测软件SVDSS使用</title>
+    <link href="https://lixiang117423.github.io/article/svdss/"/>
+    <id>https://lixiang117423.github.io/article/svdss/</id>
+    <published>2023-10-03T07:52:27.000Z</published>
+    <updated>2023-12-10T05:18:18.987Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>调控植物-植物互作的地下部分信号</title>
+    <link href="https://lixiang117423.github.io/article/ppiunderground/"/>
+    <id>https://lixiang117423.github.io/article/ppiunderground/</id>
+    <published>2023-10-01T01:42:36.000Z</published>
+    <updated>2023-12-10T05:18:18.746Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文献信息&quot;&gt;&lt;a href=&quot;#文献信息&quot; class=&quot;headerlink&quot; title=&quot;文献信息&quot;&gt;&lt;/a&gt;文献信息&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Word交叉引用设置颜色为蓝色</title>
+    <link href="https://lixiang117423.github.io/article/wordjcyy/"/>
+    <id>https://lixiang117423.github.io/article/wordjcyy/</id>
+    <published>2023-09-11T03:20:34.000Z</published>
+    <updated>2023-12-10T05:18:18.565Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;参考&lt;a href=&quot;https://zhuanlan.zhihu.com/p/533318295&quot;&gt;知乎文章&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;编辑一个新的宏：&lt;/p&gt;
+&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>光果龙葵基因组助力马铃薯晚疫病抗性基因的挖掘</title>
+    <link href="https://lixiang117423.github.io/article/gglk/"/>
+    <id>https://lixiang117423.github.io/article/gglk/</id>
+    <published>2023-08-31T04:01:57.000Z</published>
+    <updated>2023-12-10T05:18:18.864Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本地构建UniProt数据库进行blast比对</title>
+    <link href="https://lixiang117423.github.io/article/uniprot/"/>
+    <id>https://lixiang117423.github.io/article/uniprot/</id>
+    <published>2023-07-28T01:42:09.000Z</published>
+    <updated>2023-12-10T05:18:18.636Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;数据库下载&quot;&gt;&lt;a href=&quot;#数据库下载&quot; class=&quot;headerlink&quot; title=&quot;数据库下载&quot;&gt;&lt;/a&gt;数据库下载&lt;/h2&gt;&lt;p&gt;下载地址：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>R语言绘制地图</title>
+    <link href="https://lixiang117423.github.io/article/rmap/"/>
+    <id>https://lixiang117423.github.io/article/rmap/</id>
+    <published>2023-07-23T00:54:29.000Z</published>
+    <updated>2023-12-10T05:18:18.202Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iTOL辅助R包itol.toolkit学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/itoltoolkit/"/>
+    <id>https://lixiang117423.github.io/article/itoltoolkit/</id>
+    <published>2023-07-17T02:47:33.000Z</published>
+    <updated>2023-12-10T05:18:17.733Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一些R语言资源</title>
+    <link href="https://lixiang117423.github.io/article/rziyuan/"/>
+    <id>https://lixiang117423.github.io/article/rziyuan/</id>
+    <published>2023-07-15T03:32:23.000Z</published>
+    <updated>2023-12-10T05:18:19.395Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://r4pde.netlify.app/&quot;&gt;R语言处理植物病害数据&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GTDB-Tk数据库配置</title>
+    <link href="https://lixiang117423.github.io/article/gtdbtk/"/>
+    <id>https://lixiang117423.github.io/article/gtdbtk/</id>
+    <published>2023-07-14T04:02:17.000Z</published>
+    <updated>2023-12-10T05:18:17.652Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;安装使用&lt;code&gt;mamba&lt;/code&gt;即可。&lt;/p&gt;
+&lt;h2 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的starship配置文件</title>
+    <link href="https://lixiang117423.github.io/article/starship/"/>
+    <id>https://lixiang117423.github.io/article/starship/</id>
+    <published>2023-07-10T05:34:36.000Z</published>
+    <updated>2023-12-10T05:18:19.272Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>细菌泛基因组分析工具panX</title>
+    <link href="https://lixiang117423.github.io/article/panx/"/>
+    <id>https://lixiang117423.github.io/article/panx/</id>
+    <published>2023-07-08T13:41:34.000Z</published>
+    <updated>2023-12-10T05:18:19.347Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082143458.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何批量从NCBI下载基因组数据</title>
+    <link href="https://lixiang117423.github.io/article/sheng-wu-xin-xi-xue/"/>
+    <id>https://lixiang117423.github.io/article/sheng-wu-xin-xi-xue/</id>
+    <published>2023-07-06T03:06:59.000Z</published>
+    <updated>2023-12-10T05:18:19.103Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;想下载几千个细菌的基因组做泛基因组分析，结果啊总是网络错误下载失败。于是我就搜了搜，发现这个：&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/genome/doc/ftpfaq/&quot;&gt;Genomes Download (FTP)</summary>
+        
+      
+    
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MAGpurify2配置</title>
+    <link href="https://lixiang117423.github.io/article/magpurify2/"/>
+    <id>https://lixiang117423.github.io/article/magpurify2/</id>
+    <published>2023-06-30T02:00:08.000Z</published>
+    <updated>2023-12-10T05:18:17.814Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>宏基因组学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/metagenomelearning/"/>
+    <id>https://lixiang117423.github.io/article/metagenomelearning/</id>
+    <published>2023-06-15T03:07:37.000Z</published>
+    <updated>2023-12-10T05:18:18.894Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;分析策略&quot;&gt;&lt;a href=&quot;#分析策略&quot; class=&quot;headerlink&quot; title=&quot;分析策略&quot;&gt;&lt;/a&gt;分析策略&lt;/h2&gt;&lt;p&gt;以下三个图来自微信公众号[&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MetaPhlAn4宏基因组数据分析流程学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/metaphlan4/"/>
+    <id>https://lixiang117423.github.io/article/metaphlan4/</id>
+    <published>2023-06-12T00:34:08.000Z</published>
+    <updated>2023-12-10T05:18:17.834Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>一种核心微生物的鉴定方法</title>
+    <link href="https://lixiang117423.github.io/article/coremicrobiome/"/>
+    <id>https://lixiang117423.github.io/article/coremicrobiome/</id>
+    <published>2023-06-08T01:22:16.000Z</published>
+    <updated>2023-12-10T05:18:19.414Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rstudio-server绘图报错</title>
+    <link href="https://lixiang117423.github.io/article/rstudoserverploterror/"/>
+    <id>https://lixiang117423.github.io/article/rstudoserverploterror/</id>
+    <published>2023-05-30T03:20:01.000Z</published>
+    <updated>2023-12-10T05:18:18.147Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Rstudio-Server绘图报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速获取GO注释信息</title>
+    <link href="https://lixiang117423.github.io/article/getgo/"/>
+    <id>https://lixiang117423.github.io/article/getgo/</id>
+    <published>2023-05-17T12:45:54.000Z</published>
+    <updated>2023-12-10T05:18:19.009Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS基础学习</title>
+    <link href="https://lixiang117423.github.io/article/csslearning/"/>
+    <id>https://lixiang117423.github.io/article/csslearning/</id>
+    <published>2023-05-14T01:43:06.000Z</published>
+    <updated>2023-12-10T05:18:17.431Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>html学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/learninghtml/"/>
+    <id>https://lixiang117423.github.io/article/learninghtml/</id>
+    <published>2023-05-13T11:33:13.000Z</published>
+    <updated>2023-12-10T05:18:17.712Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>统计建模学习笔记</title>
+    <link href="https://lixiang117423.github.io/article/statmodel/"/>
+    <id>https://lixiang117423.github.io/article/statmodel/</id>
+    <published>2023-05-11T02:10:33.000Z</published>
+    <updated>2023-12-10T05:18:19.228Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;统计建模&quot;&gt;&lt;a href=&quot;#统计建模&quot; class=&quot;headerlink&quot; title=&quot;统计建模&quot;&gt;&lt;/a&gt;统计建模&lt;/h2&gt;&lt;h3 id=&quot;什么是统计模型&quot;&gt;&lt;a href=&quot;#什么是统计模型&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows下Git-bash配置zsh主题</title>
+    <link href="https://lixiang117423.github.io/article/gitbash.jpg/"/>
+    <id>https://lixiang117423.github.io/article/gitbash.jpg/</id>
+    <published>2023-05-11T01:27:52.000Z</published>
+    <updated>2023-12-10T05:18:18.547Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;下载zsh安装包&quot;&gt;&lt;a href=&quot;#下载zsh安装包&quot; class=&quot;headerlink&quot; title=&quot;下载zsh安装包&quot;&gt;&lt;/a&gt;下载zsh安装包&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>组合遗传变异增强植物生产力</title>
+    <link href="https://lixiang117423.github.io/article/combinegenetic/"/>
+    <id>https://lixiang117423.github.io/article/combinegenetic/</id>
+    <published>2023-05-09T05:08:37.000Z</published>
+    <updated>2023-12-10T05:18:19.528Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文献信息&quot;&gt;&lt;a href=&quot;#文献信息&quot; class=&quot;headerlink&quot; title=&quot;文献信息&quot;&gt;&lt;/a&gt;文献信息&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>不同栽培地点柳枝稷根际微生物群落的遗传决定因素</title>
+    <link href="https://lixiang117423.github.io/article/liuzhiji/"/>
+    <id>https://lixiang117423.github.io/article/liuzhiji/</id>
+    <published>2023-05-06T01:03:05.000Z</published>
+    <updated>2023-12-10T05:18:18.662Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文献信息&quot;&gt;&lt;a href=&quot;#文献信息&quot; class=&quot;headerlink&quot; title=&quot;文献信息&quot;&gt;&lt;/a&gt;文献信息&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多组学解析荞麦抗立枯丝核菌的分子机制</title>
+    <link href="https://lixiang117423.github.io/article/qiaomai/"/>
+    <id>https://lixiang117423.github.io/article/qiaomai/</id>
+    <published>2023-05-01T01:14:49.000Z</published>
+    <updated>2023-12-10T05:18:18.765Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;文献信息&quot;&gt;&lt;a href=&quot;#文献信息&quot; class=&quot;headerlink&quot; title=&quot;文献信息&quot;&gt;&lt;/a&gt;文献信息&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
+  
+</feed>

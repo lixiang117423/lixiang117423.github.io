@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="Tools4You是什么Tools4You是一个基于R shiny的网页工具，能够完成常见的统计分析及数据可视化。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tools4You教程1：关于Tools4You + t检验">
+<meta property="og:url" content="https://lixiang117423.github.io/article/c5bde688/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="Tools4You是什么Tools4You是一个基于R shiny的网页工具，能够完成常见的统计分析及数据可视化。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lixiang117423.github.io/article/c5bde688/1.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/c5bde688/2.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/c5bde688/3.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/c5bde688/4.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/c5bde688/5.png">
+<meta property="article:published_time" content="2021-01-15T13:00:36.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.285Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="Tools4You">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lixiang117423.github.io/article/c5bde688/1.png">
+  
+  
+  
+  <title>Tools4You教程1：关于Tools4You + t检验 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Tools4You教程1：关于Tools4You + t检验"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-01-15 21:00" pubdate>
+          2021年1月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          10 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Tools4You教程1：关于Tools4You + t检验</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Tools4You是什么"><a href="#Tools4You是什么" class="headerlink" title="Tools4You是什么"></a><code>Tools4You</code>是什么</h1><p><code>Tools4You</code>是一个基于<code>R shiny</code>的网页工具，能够完成常见的统计分析及数据可视化。</p>
+<span id="more"></span>
+<h1 id="Tools4You的开发初衷"><a href="#Tools4You的开发初衷" class="headerlink" title="Tools4You的开发初衷"></a><code>Tools4You</code>的开发初衷</h1><p>作为<code>R</code>语言的重度使用者，自从习惯用<code>R</code>以后，我就很少用那些破解版的付费软件，如<code>SPSS</code>、<code>OriginLab</code>等。我们课题组相对比较大，总是有同学在找各种软件的破解包来进行统计分析或者是绘图。使用盗版（破解）软件有些不足之处，比如说破解的版本经常无法使用，或者说在投稿的时候因为破解版软件影响到文章等。相比之下，<code>R</code>作为一个完全开源免费的软件，在生命科学领域正在大放异彩，囊括了从统计分析到数据可视化的各种功能，不乏<code>CNS</code>级别的文章都使用<code>R</code>进行统计和绘图。但是要从头学习一个语言是比较困难的，虽然<code>R</code>的学习曲线相对来说不是很陡峭，但是对于我们农学口的研究生来说，要拿出大把的时间学习<code>R</code>也是比较困难的。很感谢我的导师，从我本科毕业开始就让我往生信方向走，从那时候开始学习<code>R</code>，现在也快两年半了，算不上精通<code>R</code>，我认为我只是熟悉<code>R</code>。在研三这个特殊的时期，我突然决定以<code>R shiny</code>为基础开发一个网页版工具，供实验室的同学使用，如果能够帮助到其他学校/研究所的同学，那我将倍感荣幸。</p>
+<p><code>Tools4You</code>目前预计功能模块有30个左右，总代码量达到1.5~2.0W行。由于目前完全是我一个人在开发，临近毕业需要写毕业论文+做实验，所以进度较慢，预计一周能够更新1-2个功能模块；一个人开发，免不了代码不规范、代码冗余，暂时的目标是搭建好一个基本的可使用的框架，更多细节留在后面慢慢调试。</p>
+<blockquote>
+<p>目前<code>Tools4You</code>托管在阿里云服务器上，由于服务器内存只有2G，访问的时候加载时间大概是10秒左右，还请耐心等待。</p>
+<p>如果遇到报错或者是有任何的建议意见，欢迎联系我们：</p>
+<p>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com</p>
+</blockquote>
+<h1 id="访问Tools4You"><a href="#访问Tools4You" class="headerlink" title="访问Tools4You"></a>访问<code>Tools4You</code></h1><p>浏览器访问网址<a target="_blank" rel="noopener" href="http://shinyapp.top:3838/Tools4You/，手机端暂不兼容。">http://shinyapp.top:3838/Tools4You/，手机端暂不兼容。</a></p>
+<p>访问连接成功后便是如下界面：</p>
+<img src="/article/c5bde688/1.png" srcset="/img/loading.gif" lazyload class="">
+<p>主要分为3个大的功能模块：    </p>
+<ul>
+<li><code>常用小工具</code>：分组求均值，数据正态性检验，方差齐性检验等；</li>
+<li><code>统计&amp;分析</code>：常见的统计分析方法；</li>
+<li><code>数据可视化</code>：生命科学研究中常见的图形。</li>
+</ul>
+<p>点开每个大的功能模块下会有具体的功能模块。</p>
+<h1 id="t检验"><a href="#t检验" class="headerlink" title="t检验"></a><code>t</code>检验</h1><img src="/article/c5bde688/2.png" srcset="/img/loading.gif" lazyload class="">
+<p>使用流程：</p>
+<ol>
+<li><code>上传数据</code>：目前只支持<code>.csv</code>格式文件的上传，<strong>检验先下载示例数据，按照示例数据的格式整理数据，然后上传分析</strong>；</li>
+<li><code>选择统计检验的置信度</code>，通常是0.99或者0.55，默认的是0.99；</li>
+<li>下方的<code>单尾/双尾</code>和<code>方差相等</code>通常都是默认值；</li>
+<li><code>配对数据</code>：如果数据是配对的，选择<code>是</code>，否则就是默认<code>否</code>；</li>
+<li><code>误差棒数据</code>：选择柱状图误差棒是用<code>标准误</code>还是<code>标准差</code>，默认是<code>标准差</code>；</li>
+<li><code>下载参数设置</code>：下载统计分析结果的文件格式，默认的是’Excel’文件，图片下载格式默认的是<code>PDF</code>，下面是图片的长度和宽度设置；</li>
+<li><code>绘图参数设置</code>：坐标轴及图片名称等，<strong>需要注意的是，如果没有输入在那个分组上标注显著性，则默认在两个柱子上都标注显著性</strong>；</li>
+<li>将所有参数设置完成后，点击<code>点击提交</code>即可；</li>
+<li>如果需要调整某个参数，则在调整完参数后再次点击<code>点击提交</code>；</li>
+<li>完成后下载对应的表格结果和图片即可。</li>
+</ol>
+<img src="/article/c5bde688/3.png" srcset="/img/loading.gif" lazyload class="">
+<p>注：展示的图片长宽和下载的图片长款是没有关系的，如果需要更进一步的细节修改，可以使用<code>AI</code>等软件进行调整，也可以在后续我们更新相关模块后进行细调整。</p>
+<h1 id="t检验结果解读"><a href="#t检验结果解读" class="headerlink" title="t检验结果解读"></a><code>t</code>检验结果解读</h1><img src="/article/c5bde688/4.png" srcset="/img/loading.gif" lazyload class="">
+<p>这是<code>t检验</code>的结果，从左到右分别表示：分组名称、重复数量、和、均值、标准差、标准误、<em>P</em> 值和显著性。</p>
+<img src="/article/c5bde688/5.png" srcset="/img/loading.gif" lazyload class="">
+<p>这个是导出的绘图结果，基本能用。</p>
+<h1 id="Tools4You教程合集"><a href="#Tools4You教程合集" class="headerlink" title="Tools4You教程合集"></a><a target="_blank" rel="noopener" href="https://www.blog4xiang.world/categories/Tools4You/">Tools4You教程合集</a></h1><hr>
+<blockquote>
+<p>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Tools4You/" class="category-chain-item">Tools4You</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Tools4You/" class="print-no-link">#Tools4You</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Tools4You教程1：关于Tools4You + t检验</div>
+      <div>https://lixiang117423.github.io/article/c5bde688/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年1月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/3a1c1c6c/" title="带连接线的堆积柱状图">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">带连接线的堆积柱状图</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/96076236/" title="部署Rshiny到服务器的常见问题">
+                        <span class="hidden-mobile">部署Rshiny到服务器的常见问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

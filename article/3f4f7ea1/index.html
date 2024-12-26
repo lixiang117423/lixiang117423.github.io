@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="小蓝哥">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="主成分分析（Principal Component Analysis，PCA）是一种无监督降维方法，能够有效对高维数据进行处理。但PCA对相关性较小的变量不敏感，而PLS-DA（Partial Least Squares-Discriminant Analysis，偏最小二乘判别分析）能够有效解决这个问题。而OPLS-DA（正交偏最小二乘判别分析）结合了正交信号和PLS-DA来筛选差异变量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OPLS-DA在R语言中的实现">
+<meta property="og:url" content="https://lixiang117423.github.io/article/3f4f7ea1/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="主成分分析（Principal Component Analysis，PCA）是一种无监督降维方法，能够有效对高维数据进行处理。但PCA对相关性较小的变量不敏感，而PLS-DA（Partial Least Squares-Discriminant Analysis，偏最小二乘判别分析）能够有效解决这个问题。而OPLS-DA（正交偏最小二乘判别分析）结合了正交信号和PLS-DA来筛选差异变量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/0.png">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/1.jpg">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/2.jpg">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/3.jpg">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/4.jpg">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/5.jpg">
+<meta property="og:image" content="https://lixiang117423.github.io/article/3f4f7ea1/6.jpg">
+<meta property="article:published_time" content="2020-12-13T08:23:51.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:17.981Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="R语言">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://lixiang117423.github.io/article/3f4f7ea1/0.png">
+  
+  
+  
+  <title>OPLS-DA在R语言中的实现 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="OPLS-DA在R语言中的实现"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2020-12-13 16:23" pubdate>
+          2020年12月13日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">OPLS-DA在R语言中的实现</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>主成分分析（Principal Component Analysis，PCA）是一种无监督降维方法，能够有效对高维数据进行处理。但PCA对相关性较小的变量不敏感，而PLS-DA（Partial Least Squares-Discriminant Analysis，偏最小二乘判别分析）能够有效解决这个问题。而OPLS-DA（正交偏最小二乘判别分析）结合了正交信号和PLS-DA来筛选差异变量。</p>
+<span id="more"></span>
+<img src="/article/3f4f7ea1/0.png" srcset="/img/loading.gif" lazyload class=""> 
+<p>图片来自：<a target="_blank" rel="noopener" href="https://www.r-bloggers.com/2013/07/orthogonal-partial-least-squares-opls-in-r/">https://www.r-bloggers.com/2013/07/orthogonal-partial-least-squares-opls-in-r/</a></p>
+<h1 id="安装和加载包"><a href="#安装和加载包" class="headerlink" title="安装和加载包"></a>安装和加载包</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># install ropls</span><br><span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">F</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br>  <span class="hljs-keyword">if</span> <span class="hljs-punctuation">(</span><span class="hljs-operator">!</span>requireNamespace<span class="hljs-punctuation">(</span><span class="hljs-string">"BiocManager"</span><span class="hljs-punctuation">,</span> quietly <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>    install.packages<span class="hljs-punctuation">(</span><span class="hljs-string">"BiocManager"</span><span class="hljs-punctuation">)</span><br>  <br>  BiocManager<span class="hljs-operator">::</span>install<span class="hljs-punctuation">(</span><span class="hljs-string">"ropls"</span><span class="hljs-punctuation">)</span><br><span class="hljs-punctuation">}</span><br><br><span class="hljs-comment"># load  packages</span><br>library<span class="hljs-punctuation">(</span>ropls<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>ggplot2<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>ggsci<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>Cairo<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>tidyverse<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>extrafont<span class="hljs-punctuation">)</span><br>loadfonts<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="示例数据"><a href="#示例数据" class="headerlink" title="示例数据"></a>示例数据</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># load data</span><br>data<span class="hljs-punctuation">(</span>sacurine<span class="hljs-punctuation">)</span><br><span class="hljs-built_in">names</span><span class="hljs-punctuation">(</span>sacurine<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># view data information</span><br>attach<span class="hljs-punctuation">(</span>sacurine<span class="hljs-punctuation">)</span><br>strF<span class="hljs-punctuation">(</span>dataMatrix<span class="hljs-punctuation">)</span><br>strF<span class="hljs-punctuation">(</span>sampleMetadata<span class="hljs-punctuation">)</span><br>strF<span class="hljs-punctuation">(</span>variableMetadata<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<p>这个数据集是不同年龄、性别和BMI的183个人的尿液中109种代谢物的浓度差异$^{[1]}$。下面的分析主要以性别为变量来研究不同性别人群尿液种代谢物的差异。下面的分析主要包含PCA、PLS-DA和OPLS-DA。</p>
+<h1 id="PCA分析"><a href="#PCA分析" class="headerlink" title="　PCA分析"></a>　PCA分析</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># PCA analysis</span><br>pca <span class="hljs-operator">=</span> opls<span class="hljs-punctuation">(</span>dataMatrix<span class="hljs-punctuation">)</span><br>genderFc <span class="hljs-operator">=</span> sampleMetadata<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"gender"</span><span class="hljs-punctuation">]</span><br><br>pdf<span class="hljs-punctuation">(</span>file <span class="hljs-operator">=</span> <span class="hljs-string">'figures/PCA.pdf'</span><span class="hljs-punctuation">,</span> width <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">)</span><br>plot<span class="hljs-punctuation">(</span>pca<span class="hljs-punctuation">,</span> typeVc <span class="hljs-operator">=</span> <span class="hljs-string">"x-score"</span><span class="hljs-punctuation">,</span><br>     parAsColFcVn <span class="hljs-operator">=</span> genderFc<span class="hljs-punctuation">,</span> parEllipsesL <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<img src="/article/3f4f7ea1/1.jpg" srcset="/img/loading.gif" lazyload class="">
+<p>可以看到的是如果用PCA的话，不同性别的人群是混在一起的。</p>
+<h1 id="PLS-DA"><a href="#PLS-DA" class="headerlink" title="PLS-DA"></a>PLS-DA</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># PLSDA analysis</span><br>plsda <span class="hljs-operator">=</span> opls<span class="hljs-punctuation">(</span>dataMatrix<span class="hljs-punctuation">,</span>genderFc<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># sample scores plot</span><br>sample.score <span class="hljs-operator">=</span> plsda<span class="hljs-operator">@</span>scoreMN <span class="hljs-operator">%&gt;%</span> <br>  as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  mutate<span class="hljs-punctuation">(</span>gender <span class="hljs-operator">=</span> sacurine<span class="hljs-punctuation">[[</span><span class="hljs-string">"sampleMetadata"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">[[</span><span class="hljs-string">"gender"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br>  <br>p1 <span class="hljs-operator">=</span> ggplot<span class="hljs-punctuation">(</span>sample.score<span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>p1<span class="hljs-punctuation">,</span> p2<span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> gender<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_hline<span class="hljs-punctuation">(</span>yintercept <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'dashed'</span><span class="hljs-punctuation">,</span> size <span class="hljs-operator">=</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_vline<span class="hljs-punctuation">(</span>xintercept <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'dashed'</span><span class="hljs-punctuation">,</span> size <span class="hljs-operator">=</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span><span class="hljs-number">10</span><span class="hljs-punctuation">,</span><span class="hljs-operator">-</span><span class="hljs-number">10</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-string">'white'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-string">'P1(10.0%)'</span><span class="hljs-punctuation">,</span>y <span class="hljs-operator">=</span> <span class="hljs-string">'P2(9%)'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  stat_ellipse<span class="hljs-punctuation">(</span>level <span class="hljs-operator">=</span> <span class="hljs-number">0.95</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'solid'</span><span class="hljs-punctuation">,</span> <br>               size <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> show.legend <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_color_manual<span class="hljs-punctuation">(</span>values <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">'#008000'</span><span class="hljs-punctuation">,</span><span class="hljs-string">'#FFA74F'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>legend.position <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.9</span><span class="hljs-punctuation">,</span><span class="hljs-number">0.8</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>    legend.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>    panel.background <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>    panel.grid <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>    axis.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>    axis.title <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>    axis.ticks <span class="hljs-operator">=</span> element_line<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>ggsave<span class="hljs-punctuation">(</span>p1<span class="hljs-punctuation">,</span> filename <span class="hljs-operator">=</span> <span class="hljs-string">'figures/pls.pdf'</span><span class="hljs-punctuation">,</span> <br>       width <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> device <span class="hljs-operator">=</span> cairo_pdf<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<img src="/article/3f4f7ea1/2.jpg" srcset="/img/loading.gif" lazyload class="">
+<p>和PCA相比，PLS-DA的效果相对较好。PLS-DA分析的目的是找到差异变量（本例中的109种代谢物的某几种）。因此，需要找到VIP值大于1的变量（代谢物）：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># VIP scores plot</span><br>vip.score <span class="hljs-operator">=</span> as.data.frame<span class="hljs-punctuation">(</span>plsda<span class="hljs-operator">@</span>vipVn<span class="hljs-punctuation">)</span><br>colnames<span class="hljs-punctuation">(</span>vip.score<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">'vip'</span><br>vip.score<span class="hljs-operator">$</span>metabolites <span class="hljs-operator">=</span> rownames<span class="hljs-punctuation">(</span>vip.score<span class="hljs-punctuation">)</span><br>vip.score <span class="hljs-operator">=</span> vip.score<span class="hljs-punctuation">[</span>order<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span>vip.score<span class="hljs-operator">$</span>vip<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br>vip.score<span class="hljs-operator">$</span>metabolites <span class="hljs-operator">=</span> factor<span class="hljs-punctuation">(</span>vip.score<span class="hljs-operator">$</span>metabolites<span class="hljs-punctuation">,</span><br>                               levels <span class="hljs-operator">=</span> vip.score<span class="hljs-operator">$</span>metabolites<span class="hljs-punctuation">)</span><br><br>loading.score <span class="hljs-operator">=</span> plsda<span class="hljs-operator">@</span>loadingMN <span class="hljs-operator">%&gt;%</span> as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br>loading.score<span class="hljs-operator">$</span>metabolites <span class="hljs-operator">=</span> rownames<span class="hljs-punctuation">(</span>loading.score<span class="hljs-punctuation">)</span><br><br>all.score <span class="hljs-operator">=</span> merge<span class="hljs-punctuation">(</span>vip.score<span class="hljs-punctuation">,</span> loading.score<span class="hljs-punctuation">,</span> by <span class="hljs-operator">=</span> <span class="hljs-string">'metabolites'</span><span class="hljs-punctuation">)</span><br><br>all.score<span class="hljs-operator">$</span>cat <span class="hljs-operator">=</span> paste<span class="hljs-punctuation">(</span><span class="hljs-string">'A'</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span>nrow<span class="hljs-punctuation">(</span>all.score<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">''</span><span class="hljs-punctuation">)</span><br><br>p2 <span class="hljs-operator">=</span> ggplot<span class="hljs-punctuation">(</span>all.score<span class="hljs-punctuation">[</span>all.score<span class="hljs-operator">$</span>vip <span class="hljs-operator">&gt;=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>cat<span class="hljs-punctuation">,</span> vip<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_segment<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> cat<span class="hljs-punctuation">,</span> xend <span class="hljs-operator">=</span> cat<span class="hljs-punctuation">,</span><br>                   y <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> yend <span class="hljs-operator">=</span> vip<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>shape <span class="hljs-operator">=</span> <span class="hljs-number">21</span><span class="hljs-punctuation">,</span> size <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-string">'#008000'</span> <span class="hljs-punctuation">,</span>fill <span class="hljs-operator">=</span> <span class="hljs-string">'#008000'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2.5</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-string">'white'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_hline<span class="hljs-punctuation">(</span>yintercept <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'dashed'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_y_continuous<span class="hljs-punctuation">(</span>expand <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-string">''</span><span class="hljs-punctuation">,</span> y <span class="hljs-operator">=</span> <span class="hljs-string">'VIP value'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>legend.position <span class="hljs-operator">=</span> <span class="hljs-string">'none'</span><span class="hljs-punctuation">,</span><br>        legend.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.background <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.grid <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text.x <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>angle <span class="hljs-operator">=</span> <span class="hljs-number">90</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.title <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks <span class="hljs-operator">=</span> element_line<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks.x <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>ggsave<span class="hljs-punctuation">(</span>p2<span class="hljs-punctuation">,</span> filename <span class="hljs-operator">=</span> <span class="hljs-string">'figures/pls_VIP.pdf'</span><span class="hljs-punctuation">,</span> <br>       width <span class="hljs-operator">=</span> <span class="hljs-number">8</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> device <span class="hljs-operator">=</span> cairo_pdf<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<p>下面这些物质就是差异代谢物（VIP值大于等于1）：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs R"> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">gamma</span><span class="hljs-punctuation">)</span>Glu<span class="hljs-operator">-</span>Leu<span class="hljs-operator">/</span>Ile                                                                  <br> <span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><span class="hljs-operator">-</span>acetamido<span class="hljs-operator">-</span><span class="hljs-number">4</span><span class="hljs-operator">-</span>methylphenyl acetate                                                  <br> <span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><span class="hljs-operator">-</span>Methylhippuric acid                                                               <br> <span class="hljs-punctuation">[</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><span class="hljs-operator">-</span>Methylcrotonylglycine                                                             <br> <span class="hljs-punctuation">[</span><span class="hljs-number">5</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-operator">-</span>Dihydroxybenzeneacetic acid                                                     <br> <span class="hljs-punctuation">[</span><span class="hljs-number">6</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-operator">-</span>dihydroxybenzoic acid<span class="hljs-operator">/</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-operator">-</span>dihydroxybenzoic acid                                 <br> <span class="hljs-punctuation">[</span><span class="hljs-number">7</span><span class="hljs-punctuation">]</span> <span class="hljs-number">4</span><span class="hljs-operator">-</span>Acetamidobutanoic acid isomer <span class="hljs-number">3</span>                                                   <br> <span class="hljs-punctuation">[</span><span class="hljs-number">8</span><span class="hljs-punctuation">]</span> <span class="hljs-number">6</span><span class="hljs-operator">-</span><span class="hljs-punctuation">(</span>carboxymethoxy<span class="hljs-punctuation">)</span><span class="hljs-operator">-</span>hexanoic acid                                                    <br> <span class="hljs-punctuation">[</span><span class="hljs-number">9</span><span class="hljs-punctuation">]</span> Acetaminophen glucuronide                                                           <br><span class="hljs-punctuation">[</span><span class="hljs-number">10</span><span class="hljs-punctuation">]</span> Acetylphenylalanine                                                                 <br><span class="hljs-punctuation">[</span><span class="hljs-number">11</span><span class="hljs-punctuation">]</span> alpha<span class="hljs-operator">-</span>N<span class="hljs-operator">-</span>Phenylacetyl<span class="hljs-operator">-</span>glutamine                                                      <br><span class="hljs-punctuation">[</span><span class="hljs-number">12</span><span class="hljs-punctuation">]</span> Asp<span class="hljs-operator">-</span>Leu<span class="hljs-operator">/</span>Ile isomer <span class="hljs-number">1</span>                                                                <br><span class="hljs-punctuation">[</span><span class="hljs-number">13</span><span class="hljs-punctuation">]</span> Citric acid                                                                         <br><span class="hljs-punctuation">[</span><span class="hljs-number">14</span><span class="hljs-punctuation">]</span> Dehydroepiandrosterone <span class="hljs-number">3</span><span class="hljs-operator">-</span>glucuronide                                                <br><span class="hljs-punctuation">[</span><span class="hljs-number">15</span><span class="hljs-punctuation">]</span> Dehydroepiandrosterone sulfate                                                      <br><span class="hljs-punctuation">[</span><span class="hljs-number">16</span><span class="hljs-punctuation">]</span> Gluconic acid and<span class="hljs-operator">/</span>or isomers                                                        <br><span class="hljs-punctuation">[</span><span class="hljs-number">17</span><span class="hljs-punctuation">]</span> Glucuronic acid and<span class="hljs-operator">/</span>or isomers                                                      <br><span class="hljs-punctuation">[</span><span class="hljs-number">18</span><span class="hljs-punctuation">]</span> Glyceric acid                                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">19</span><span class="hljs-punctuation">]</span> Hippuric acid                                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">20</span><span class="hljs-punctuation">]</span> Hydroxybenzyl alcohol isomer                                                        <br><span class="hljs-punctuation">[</span><span class="hljs-number">21</span><span class="hljs-punctuation">]</span> Malic acid                                                                          <br><span class="hljs-punctuation">[</span><span class="hljs-number">22</span><span class="hljs-punctuation">]</span> Methyl <span class="hljs-punctuation">(</span>hydroxymethyl<span class="hljs-punctuation">)</span>pyrrolidine<span class="hljs-operator">-</span>carboxylate<span class="hljs-operator">/</span>Methyl <span class="hljs-punctuation">(</span>hydroxy<span class="hljs-punctuation">)</span>piperidine<span class="hljs-operator">-</span>carboxylate<br><span class="hljs-punctuation">[</span><span class="hljs-number">23</span><span class="hljs-punctuation">]</span> Monoethyl phthalate                                                                 <br><span class="hljs-punctuation">[</span><span class="hljs-number">24</span><span class="hljs-punctuation">]</span> N<span class="hljs-operator">-</span>Acetyl<span class="hljs-operator">-</span>aspartic acid                                                              <br><span class="hljs-punctuation">[</span><span class="hljs-number">25</span><span class="hljs-punctuation">]</span> Oxoglutaric acid                                                                    <br><span class="hljs-punctuation">[</span><span class="hljs-number">26</span><span class="hljs-punctuation">]</span> p<span class="hljs-operator">-</span>Anisic acid                                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">27</span><span class="hljs-punctuation">]</span> p<span class="hljs-operator">-</span>Hydroxyhippuric acid                                                              <br><span class="hljs-punctuation">[</span><span class="hljs-number">28</span><span class="hljs-punctuation">]</span> Pantothenic acid                                                                    <br><span class="hljs-punctuation">[</span><span class="hljs-number">29</span><span class="hljs-punctuation">]</span> Pentose                                                                             <br><span class="hljs-punctuation">[</span><span class="hljs-number">30</span><span class="hljs-punctuation">]</span> Phe<span class="hljs-operator">-</span>Tyr<span class="hljs-operator">-</span>Asp <span class="hljs-punctuation">(</span>and isomers<span class="hljs-punctuation">)</span>                                                           <br><span class="hljs-punctuation">[</span><span class="hljs-number">31</span><span class="hljs-punctuation">]</span> Pyruvic acid                                                                        <br><span class="hljs-punctuation">[</span><span class="hljs-number">32</span><span class="hljs-punctuation">]</span> Testosterone glucuronide                                                            <br><span class="hljs-punctuation">[</span><span class="hljs-number">33</span><span class="hljs-punctuation">]</span> Threonic acid<span class="hljs-operator">/</span>Erythronic acid                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">34</span><span class="hljs-punctuation">]</span> Valerylglycine isomer <span class="hljs-number">1</span>                                                             <br><span class="hljs-punctuation">[</span><span class="hljs-number">35</span><span class="hljs-punctuation">]</span> Valerylglycine isomer <span class="hljs-number">2</span>                                                              <br></code></pre></td></tr></tbody></table></figure>
+<p>将它们的VIP值得进行可视化（某些代谢物名称太长，进行转换表示）：</p>
+<img src="/article/3f4f7ea1/3.jpg" srcset="/img/loading.gif" lazyload class="">
+<h1 id="OPLS-DA分析"><a href="#OPLS-DA分析" class="headerlink" title="OPLS-DA分析"></a>OPLS-DA分析</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># OPLS-DA analysis</span><br>oplsda <span class="hljs-operator">=</span> opls<span class="hljs-punctuation">(</span>dataMatrix<span class="hljs-punctuation">,</span> genderFc<span class="hljs-punctuation">,</span> predI <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> orthoI <span class="hljs-operator">=</span> <span class="hljs-literal">NA</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># sample scores plot</span><br>sample.score <span class="hljs-operator">=</span> oplsda<span class="hljs-operator">@</span>scoreMN <span class="hljs-operator">%&gt;%</span> <br>  as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  mutate<span class="hljs-punctuation">(</span>gender <span class="hljs-operator">=</span> sacurine<span class="hljs-punctuation">[[</span><span class="hljs-string">"sampleMetadata"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">[[</span><span class="hljs-string">"gender"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>         o1 <span class="hljs-operator">=</span> oplsda<span class="hljs-operator">@</span>orthoScoreMN<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><br><br>p3 <span class="hljs-operator">=</span> ggplot<span class="hljs-punctuation">(</span>sample.score<span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>p1<span class="hljs-punctuation">,</span> o1<span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> gender<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_hline<span class="hljs-punctuation">(</span>yintercept <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'dashed'</span><span class="hljs-punctuation">,</span> size <span class="hljs-operator">=</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_vline<span class="hljs-punctuation">(</span>xintercept <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'dashed'</span><span class="hljs-punctuation">,</span> size <span class="hljs-operator">=</span> <span class="hljs-number">0.5</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  <span class="hljs-comment">#geom_point(aes(-10,-10), color = 'white') +</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-string">'P1(5.0%)'</span><span class="hljs-punctuation">,</span>y <span class="hljs-operator">=</span> <span class="hljs-string">'to1'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  stat_ellipse<span class="hljs-punctuation">(</span>level <span class="hljs-operator">=</span> <span class="hljs-number">0.95</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'solid'</span><span class="hljs-punctuation">,</span> <br>               size <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> show.legend <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_color_manual<span class="hljs-punctuation">(</span>values <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">'#008000'</span><span class="hljs-punctuation">,</span><span class="hljs-string">'#FFA74F'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>legend.position <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">0.1</span><span class="hljs-punctuation">,</span><span class="hljs-number">0.85</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        legend.title <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        legend.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.background <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.grid <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.title <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks <span class="hljs-operator">=</span> element_line<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>ggsave<span class="hljs-punctuation">(</span>p3<span class="hljs-punctuation">,</span> filename <span class="hljs-operator">=</span> <span class="hljs-string">'figures/opls.pdf'</span><span class="hljs-punctuation">,</span> <br>       width <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> device <span class="hljs-operator">=</span> cairo_pdf<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<img src="/article/3f4f7ea1/4.jpg" srcset="/img/loading.gif" lazyload class="">
+<p>可以看到的是OPLS-DA的效果比PLS-DA更好一些。</p>
+<p>同样进行差异代谢物筛选：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># VIP scores plot</span><br>vip.score <span class="hljs-operator">=</span> as.data.frame<span class="hljs-punctuation">(</span>oplsda<span class="hljs-operator">@</span>vipVn<span class="hljs-punctuation">)</span><br>colnames<span class="hljs-punctuation">(</span>vip.score<span class="hljs-punctuation">)</span> <span class="hljs-operator">=</span> <span class="hljs-string">'vip'</span><br>vip.score<span class="hljs-operator">$</span>metabolites <span class="hljs-operator">=</span> rownames<span class="hljs-punctuation">(</span>vip.score<span class="hljs-punctuation">)</span><br>vip.score <span class="hljs-operator">=</span> vip.score<span class="hljs-punctuation">[</span>order<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span>vip.score<span class="hljs-operator">$</span>vip<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br>vip.score<span class="hljs-operator">$</span>metabolites <span class="hljs-operator">=</span> factor<span class="hljs-punctuation">(</span>vip.score<span class="hljs-operator">$</span>metabolites<span class="hljs-punctuation">,</span><br>                               levels <span class="hljs-operator">=</span> vip.score<span class="hljs-operator">$</span>metabolites<span class="hljs-punctuation">)</span><br><br>loading.score <span class="hljs-operator">=</span> oplsda<span class="hljs-operator">@</span>loadingMN <span class="hljs-operator">%&gt;%</span> as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br>loading.score<span class="hljs-operator">$</span>metabolites <span class="hljs-operator">=</span> rownames<span class="hljs-punctuation">(</span>loading.score<span class="hljs-punctuation">)</span><br><br>all.score <span class="hljs-operator">=</span> merge<span class="hljs-punctuation">(</span>vip.score<span class="hljs-punctuation">,</span> loading.score<span class="hljs-punctuation">,</span> by <span class="hljs-operator">=</span> <span class="hljs-string">'metabolites'</span><span class="hljs-punctuation">)</span><br><br>all.score<span class="hljs-operator">$</span>cat <span class="hljs-operator">=</span> paste<span class="hljs-punctuation">(</span><span class="hljs-string">'A'</span><span class="hljs-punctuation">,</span><span class="hljs-number">1</span><span class="hljs-operator">:</span>nrow<span class="hljs-punctuation">(</span>all.score<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">''</span><span class="hljs-punctuation">)</span><br><br>p4 <span class="hljs-operator">=</span> ggplot<span class="hljs-punctuation">(</span>all.score<span class="hljs-punctuation">[</span>all.score<span class="hljs-operator">$</span>vip <span class="hljs-operator">&gt;=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>cat<span class="hljs-punctuation">,</span> vip<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_segment<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> cat<span class="hljs-punctuation">,</span> xend <span class="hljs-operator">=</span> cat<span class="hljs-punctuation">,</span><br>                   y <span class="hljs-operator">=</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span> yend <span class="hljs-operator">=</span> vip<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>shape <span class="hljs-operator">=</span> <span class="hljs-number">21</span><span class="hljs-punctuation">,</span> size <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-string">'#008000'</span> <span class="hljs-punctuation">,</span>fill <span class="hljs-operator">=</span> <span class="hljs-string">'#008000'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">2.5</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> <span class="hljs-string">'white'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_hline<span class="hljs-punctuation">(</span>yintercept <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> linetype <span class="hljs-operator">=</span> <span class="hljs-string">'dashed'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_y_continuous<span class="hljs-punctuation">(</span>expand <span class="hljs-operator">=</span> <span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">0</span><span class="hljs-punctuation">,</span><span class="hljs-number">0</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-string">''</span><span class="hljs-punctuation">,</span> y <span class="hljs-operator">=</span> <span class="hljs-string">'VIP value'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>legend.position <span class="hljs-operator">=</span> <span class="hljs-string">'none'</span><span class="hljs-punctuation">,</span><br>        legend.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.background <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.grid <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text.x <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>angle <span class="hljs-operator">=</span> <span class="hljs-number">90</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.title <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks <span class="hljs-operator">=</span> element_line<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks.x <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>p4<br>ggsave<span class="hljs-punctuation">(</span>p4<span class="hljs-punctuation">,</span> filename <span class="hljs-operator">=</span> <span class="hljs-string">'figures/opls_VIP.pdf'</span><span class="hljs-punctuation">,</span> <br>       width <span class="hljs-operator">=</span> <span class="hljs-number">8</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> device <span class="hljs-operator">=</span> cairo_pdf<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<p>下面的的是差异代谢物：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs R"> <span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-punctuation">(</span><span class="hljs-built_in">gamma</span><span class="hljs-punctuation">)</span>Glu<span class="hljs-operator">-</span>Leu<span class="hljs-operator">/</span>Ile                                                                  <br> <span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><span class="hljs-operator">-</span>acetamido<span class="hljs-operator">-</span><span class="hljs-number">4</span><span class="hljs-operator">-</span>methylphenyl acetate                                                  <br> <span class="hljs-punctuation">[</span><span class="hljs-number">3</span><span class="hljs-punctuation">]</span> <span class="hljs-number">2</span><span class="hljs-operator">-</span>Methylhippuric acid                                                               <br> <span class="hljs-punctuation">[</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><span class="hljs-operator">-</span>Methylcrotonylglycine                                                             <br> <span class="hljs-punctuation">[</span><span class="hljs-number">5</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-operator">-</span>Dihydroxybenzeneacetic acid                                                     <br> <span class="hljs-punctuation">[</span><span class="hljs-number">6</span><span class="hljs-punctuation">]</span> <span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">5</span><span class="hljs-operator">-</span>dihydroxybenzoic acid<span class="hljs-operator">/</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><span class="hljs-number">4</span><span class="hljs-operator">-</span>dihydroxybenzoic acid                                 <br> <span class="hljs-punctuation">[</span><span class="hljs-number">7</span><span class="hljs-punctuation">]</span> <span class="hljs-number">4</span><span class="hljs-operator">-</span>Acetamidobutanoic acid isomer <span class="hljs-number">3</span>                                                   <br> <span class="hljs-punctuation">[</span><span class="hljs-number">8</span><span class="hljs-punctuation">]</span> <span class="hljs-number">6</span><span class="hljs-operator">-</span><span class="hljs-punctuation">(</span>carboxymethoxy<span class="hljs-punctuation">)</span><span class="hljs-operator">-</span>hexanoic acid                                                    <br> <span class="hljs-punctuation">[</span><span class="hljs-number">9</span><span class="hljs-punctuation">]</span> Acetaminophen glucuronide                                                           <br><span class="hljs-punctuation">[</span><span class="hljs-number">10</span><span class="hljs-punctuation">]</span> Acetylphenylalanine                                                                 <br><span class="hljs-punctuation">[</span><span class="hljs-number">11</span><span class="hljs-punctuation">]</span> alpha<span class="hljs-operator">-</span>N<span class="hljs-operator">-</span>Phenylacetyl<span class="hljs-operator">-</span>glutamine                                                      <br><span class="hljs-punctuation">[</span><span class="hljs-number">12</span><span class="hljs-punctuation">]</span> Asp<span class="hljs-operator">-</span>Leu<span class="hljs-operator">/</span>Ile isomer <span class="hljs-number">1</span>                                                                <br><span class="hljs-punctuation">[</span><span class="hljs-number">13</span><span class="hljs-punctuation">]</span> Citric acid                                                                         <br><span class="hljs-punctuation">[</span><span class="hljs-number">14</span><span class="hljs-punctuation">]</span> Dehydroepiandrosterone <span class="hljs-number">3</span><span class="hljs-operator">-</span>glucuronide                                                <br><span class="hljs-punctuation">[</span><span class="hljs-number">15</span><span class="hljs-punctuation">]</span> Dehydroepiandrosterone sulfate                                                      <br><span class="hljs-punctuation">[</span><span class="hljs-number">16</span><span class="hljs-punctuation">]</span> Gluconic acid and<span class="hljs-operator">/</span>or isomers                                                        <br><span class="hljs-punctuation">[</span><span class="hljs-number">17</span><span class="hljs-punctuation">]</span> Glucuronic acid and<span class="hljs-operator">/</span>or isomers                                                      <br><span class="hljs-punctuation">[</span><span class="hljs-number">18</span><span class="hljs-punctuation">]</span> Glyceric acid                                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">19</span><span class="hljs-punctuation">]</span> Hippuric acid                                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">20</span><span class="hljs-punctuation">]</span> Hydroxybenzyl alcohol isomer                                                        <br><span class="hljs-punctuation">[</span><span class="hljs-number">21</span><span class="hljs-punctuation">]</span> Malic acid                                                                          <br><span class="hljs-punctuation">[</span><span class="hljs-number">22</span><span class="hljs-punctuation">]</span> Methyl <span class="hljs-punctuation">(</span>hydroxymethyl<span class="hljs-punctuation">)</span>pyrrolidine<span class="hljs-operator">-</span>carboxylate<span class="hljs-operator">/</span>Methyl <span class="hljs-punctuation">(</span>hydroxy<span class="hljs-punctuation">)</span>piperidine<span class="hljs-operator">-</span>carboxylate<br><span class="hljs-punctuation">[</span><span class="hljs-number">23</span><span class="hljs-punctuation">]</span> Monoethyl phthalate                                                                 <br><span class="hljs-punctuation">[</span><span class="hljs-number">24</span><span class="hljs-punctuation">]</span> N<span class="hljs-operator">-</span>Acetyl<span class="hljs-operator">-</span>aspartic acid                                                              <br><span class="hljs-punctuation">[</span><span class="hljs-number">25</span><span class="hljs-punctuation">]</span> Oxoglutaric acid                                                                    <br><span class="hljs-punctuation">[</span><span class="hljs-number">26</span><span class="hljs-punctuation">]</span> p<span class="hljs-operator">-</span>Anisic acid                                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">27</span><span class="hljs-punctuation">]</span> p<span class="hljs-operator">-</span>Hydroxyhippuric acid                                                              <br><span class="hljs-punctuation">[</span><span class="hljs-number">28</span><span class="hljs-punctuation">]</span> Pantothenic acid                                                                    <br><span class="hljs-punctuation">[</span><span class="hljs-number">29</span><span class="hljs-punctuation">]</span> Pentose                                                                             <br><span class="hljs-punctuation">[</span><span class="hljs-number">30</span><span class="hljs-punctuation">]</span> Phe<span class="hljs-operator">-</span>Tyr<span class="hljs-operator">-</span>Asp <span class="hljs-punctuation">(</span>and isomers<span class="hljs-punctuation">)</span>                                                           <br><span class="hljs-punctuation">[</span><span class="hljs-number">31</span><span class="hljs-punctuation">]</span> Pyruvic acid                                                                        <br><span class="hljs-punctuation">[</span><span class="hljs-number">32</span><span class="hljs-punctuation">]</span> Testosterone glucuronide                                                            <br><span class="hljs-punctuation">[</span><span class="hljs-number">33</span><span class="hljs-punctuation">]</span> Threonic acid<span class="hljs-operator">/</span>Erythronic acid                                                       <br><span class="hljs-punctuation">[</span><span class="hljs-number">34</span><span class="hljs-punctuation">]</span> Valerylglycine isomer <span class="hljs-number">1</span>                                                             <br><span class="hljs-punctuation">[</span><span class="hljs-number">35</span><span class="hljs-punctuation">]</span> Valerylglycine isomer <span class="hljs-number">2</span>                                                             <br></code></pre></td></tr></tbody></table></figure>
+<img src="/article/3f4f7ea1/5.jpg" srcset="/img/loading.gif" lazyload class="">
+<h1 id="模型训练与预测"><a href="#模型训练与预测" class="headerlink" title="模型训练与预测"></a>模型训练与预测</h1><p>这些降维的方法都属于机器学习算法，那就可以对模型进行训练，并用这个模型去预测未知的数据。</p>
+<p>模型训练很简单：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># model training</span><br>oplsda.2 <span class="hljs-operator">=</span> opls<span class="hljs-punctuation">(</span>dataMatrix<span class="hljs-punctuation">,</span> genderFc<span class="hljs-punctuation">,</span> predI <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> orthoI <span class="hljs-operator">=</span> <span class="hljs-literal">NA</span><span class="hljs-punctuation">,</span>subset <span class="hljs-operator">=</span> <span class="hljs-string">"odd"</span><span class="hljs-punctuation">)</span> <br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs R">OPLS<span class="hljs-operator">-</span>DA<br><span class="hljs-number">92</span> samples x <span class="hljs-number">109</span> variables and <span class="hljs-number">1</span> response<br>standard scaling of predictors and response<span class="hljs-punctuation">(</span>s<span class="hljs-punctuation">)</span><br>      R2X<span class="hljs-punctuation">(</span>cum<span class="hljs-punctuation">)</span> R2Y<span class="hljs-punctuation">(</span>cum<span class="hljs-punctuation">)</span> Q2<span class="hljs-punctuation">(</span>cum<span class="hljs-punctuation">)</span><br>Total     <span class="hljs-number">0.26</span>    <span class="hljs-number">0.825</span>   <span class="hljs-number">0.608</span><br>      RMSEE RMSEP pre ort<br>Total <span class="hljs-number">0.213</span> <span class="hljs-number">0.341</span>   <span class="hljs-number">1</span>   <span class="hljs-number">2</span><br>Warning message<span class="hljs-operator">:</span><br><span class="hljs-string">'permI'</span> set to <span class="hljs-number">0</span> because train<span class="hljs-operator">/</span>test partition is selected.<br></code></pre></td></tr></tbody></table></figure>
+<p>可以看到使用了92个样本进行训练。</p>
+<p>先看看模型在训练集上的准确率：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># 模型在训练集上的准确率</span><br>trainVi <span class="hljs-operator">=</span> getSubsetVi<span class="hljs-punctuation">(</span>oplsda.2<span class="hljs-punctuation">)</span><br>tab <span class="hljs-operator">=</span> table<span class="hljs-punctuation">(</span>genderFc<span class="hljs-punctuation">[</span>trainVi<span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> fitted<span class="hljs-punctuation">(</span>oplsda.2<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>print<span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">'模型准确率：'</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">round</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>diag<span class="hljs-punctuation">(</span>tab<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>tab<span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-string">'%'</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">''</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">   M  <span class="hljs-built_in">F</span><br>  M <span class="hljs-number">50</span>  <span class="hljs-number">0</span><br>  <span class="hljs-built_in">F</span>  <span class="hljs-number">0</span> <span class="hljs-number">42</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-string">"模型准确率：100%"</span><br></code></pre></td></tr></tbody></table></figure>
+<p>看模型在训练集上的准确率是没有什么意义的，要是在训练集的表现都不好，那模型一定不好。那看看模型在未知数据上的预测准确率吧：</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># model on test data</span><br>tab2 <span class="hljs-operator">=</span> table<span class="hljs-punctuation">(</span>genderFc<span class="hljs-punctuation">[</span><span class="hljs-operator">-</span>trainVi<span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>predict<span class="hljs-punctuation">(</span>oplsda.2<span class="hljs-punctuation">,</span> dataMatrix<span class="hljs-punctuation">[</span><span class="hljs-operator">-</span>trainVi<span class="hljs-punctuation">,</span> <span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>print<span class="hljs-punctuation">(</span>paste<span class="hljs-punctuation">(</span><span class="hljs-string">'模型准确率：'</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">round</span><span class="hljs-punctuation">(</span><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>diag<span class="hljs-punctuation">(</span>tab2<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-operator">/</span><span class="hljs-built_in">sum</span><span class="hljs-punctuation">(</span>tab2<span class="hljs-punctuation">)</span><span class="hljs-operator">*</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-string">'%'</span><span class="hljs-punctuation">,</span> sep <span class="hljs-operator">=</span> <span class="hljs-string">''</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs R">     M  <span class="hljs-built_in">F</span><br>  M <span class="hljs-number">43</span>  <span class="hljs-number">7</span><br>  <span class="hljs-built_in">F</span>  <span class="hljs-number">7</span> <span class="hljs-number">34</span><br><span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span> <span class="hljs-string">"模型准确率：84.62%"</span><br></code></pre></td></tr></tbody></table></figure>
+<p>这个准确率已经很棒了。</p>
+<h1 id="差异代谢物其他筛选方法"><a href="#差异代谢物其他筛选方法" class="headerlink" title="差异代谢物其他筛选方法"></a>差异代谢物其他筛选方法</h1><p>除了用(O)PLS-DA中的VIP值对代谢物进行筛选，还可以用别的方法进行筛选，如<code>log2FC</code>等。通常是绘制火山图。</p>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment"># volcano plot</span><br>df <span class="hljs-operator">=</span> dataMatrix <span class="hljs-operator">%&gt;%</span> as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br>df<span class="hljs-operator">$</span>gender <span class="hljs-operator">=</span> sacurine<span class="hljs-punctuation">[[</span><span class="hljs-string">"sampleMetadata"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">[[</span><span class="hljs-string">"gender"</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">]</span><br>df <span class="hljs-operator">=</span> df<span class="hljs-punctuation">[</span>order<span class="hljs-punctuation">(</span>df<span class="hljs-operator">$</span>gender<span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><br>df <span class="hljs-operator">=</span> df<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-operator">-</span><span class="hljs-number">110</span><span class="hljs-punctuation">]</span><br><br>M.mean <span class="hljs-operator">=</span> apply<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">100</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span>FUN <span class="hljs-operator">=</span> mean<span class="hljs-punctuation">)</span><br>F.mean <span class="hljs-operator">=</span> apply<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">[</span><span class="hljs-number">101</span><span class="hljs-operator">:</span><span class="hljs-number">183</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">,</span>FUN <span class="hljs-operator">=</span> mean<span class="hljs-punctuation">)</span><br><br>FC <span class="hljs-operator">=</span> M.mean <span class="hljs-operator">/</span> F.mean<br>log2FC <span class="hljs-operator">=</span> <span class="hljs-built_in">log</span><span class="hljs-punctuation">(</span>FC<span class="hljs-punctuation">,</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span><br><br>pvalue <span class="hljs-operator">=</span> apply<span class="hljs-punctuation">(</span>df<span class="hljs-punctuation">,</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span> <span class="hljs-keyword">function</span><span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">)</span><br>  <span class="hljs-punctuation">{</span>t.test<span class="hljs-punctuation">(</span>x<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">100</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>x<span class="hljs-punctuation">[</span><span class="hljs-number">101</span><span class="hljs-operator">:</span><span class="hljs-number">183</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">)</span><span class="hljs-operator">$</span>p.value<span class="hljs-punctuation">}</span><span class="hljs-punctuation">)</span><br><br>p.adj <span class="hljs-operator">=</span> p.adjust<span class="hljs-punctuation">(</span>pvalue<span class="hljs-punctuation">,</span> method <span class="hljs-operator">=</span> <span class="hljs-string">'BH'</span><span class="hljs-punctuation">)</span><br>p.adj.log <span class="hljs-operator">=</span> <span class="hljs-operator">-</span>log10<span class="hljs-punctuation">(</span>p.adj<span class="hljs-punctuation">)</span><br><br>colcano.df <span class="hljs-operator">=</span> data.frame<span class="hljs-punctuation">(</span>log2FC<span class="hljs-punctuation">,</span>p.adj<span class="hljs-punctuation">,</span> p.adj.log<span class="hljs-punctuation">)</span><br>colcano.df<span class="hljs-operator">$</span>cat <span class="hljs-operator">=</span> ifelse<span class="hljs-punctuation">(</span>colcano.df<span class="hljs-operator">$</span>log2FC <span class="hljs-operator">&gt;=</span> <span class="hljs-number">1</span> <span class="hljs-operator">&amp;</span> colcano.df<span class="hljs-operator">$</span>p.adj <span class="hljs-operator">&lt;</span> <span class="hljs-number">0.05</span><span class="hljs-punctuation">,</span><span class="hljs-string">'Up'</span><span class="hljs-punctuation">,</span><br>                        ifelse<span class="hljs-punctuation">(</span>colcano.df<span class="hljs-operator">$</span>log2FC <span class="hljs-operator">&lt;=</span> <span class="hljs-operator">-</span><span class="hljs-number">1</span> <span class="hljs-operator">&amp;</span> colcano.df<span class="hljs-operator">$</span>p.adj <span class="hljs-operator">&lt;</span> <span class="hljs-number">0.05</span><span class="hljs-punctuation">,</span><span class="hljs-string">'Down'</span><span class="hljs-punctuation">,</span><span class="hljs-string">'NS'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>p5 <span class="hljs-operator">=</span> ggplot<span class="hljs-punctuation">(</span>colcano.df<span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>log2FC<span class="hljs-punctuation">,</span> p.adj.log<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>y <span class="hljs-operator">=</span> <span class="hljs-string">'-log10(p-value.adj)'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>legend.position <span class="hljs-operator">=</span> <span class="hljs-string">'none'</span><span class="hljs-punctuation">,</span><br>        legend.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.background <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        panel.grid <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.text.x <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>angle <span class="hljs-operator">=</span> <span class="hljs-number">90</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.title <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">15</span><span class="hljs-punctuation">,</span> family <span class="hljs-operator">=</span> <span class="hljs-string">'Arial'</span><span class="hljs-punctuation">,</span> face <span class="hljs-operator">=</span> <span class="hljs-string">'plain'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks <span class="hljs-operator">=</span> element_line<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>        axis.ticks.x <span class="hljs-operator">=</span> element_blank<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br>p5<br>ggsave<span class="hljs-punctuation">(</span>p5<span class="hljs-punctuation">,</span> filename <span class="hljs-operator">=</span> <span class="hljs-string">'20201214PLSDA分析/figures/volcano.pdf'</span><span class="hljs-punctuation">,</span> <br>       width <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> height <span class="hljs-operator">=</span> <span class="hljs-number">5</span><span class="hljs-punctuation">,</span> device <span class="hljs-operator">=</span> cairo_pdf<span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<img src="/article/3f4f7ea1/6.jpg" srcset="/img/loading.gif" lazyload class="">
+<p>可能是这个例子中的代谢物太少了，导致算完以后都没有差异代谢物了。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><blockquote>
+<p>[1] Thévenot E A, Roux A, Xu Y, et al. Analysis of the human adult urinary metabolome variations with age, body mass index, and gender by implementing a comprehensive workflow for univariate and OPLS statistical analyses[J]. <strong><em>Journal of proteome research</em></strong>, 2015, 14(8): 3322-3335.</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>交流请联系：</p>
+<p>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/R%E8%AF%AD%E8%A8%80/" class="print-no-link">#R语言</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>OPLS-DA在R语言中的实现</div>
+      <div>https://lixiang117423.github.io/article/3f4f7ea1/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>小蓝哥</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2020年12月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/6cdff7bd/" title="文献检索、追踪、阅读等小总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">文献检索、追踪、阅读等小总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/926c2b5a/" title="Python英文文献爬虫">
+                        <span class="hidden-mobile">Python英文文献爬虫</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

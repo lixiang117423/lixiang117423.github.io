@@ -1,0 +1,806 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="分析策略以下三个图来自微信公众号[希研未来]。  基于reads    基于组装    基于Bin   软件安装常用的这些软件用Conda或者是mamba都很好处理，但是metaWRAP这个软件是真的难安装啊。踩坑多次终于安装上了： 1mamba create -y --name metawrap-env --channel ursky metawrap-mg&#x3D;1.3.2      数据配置Che">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宏基因组学习笔记">
+<meta property="og:url" content="https://lixiang117423.github.io/article/metagenomelearning/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="分析策略以下三个图来自微信公众号[希研未来]。  基于reads    基于组装    基于Bin   软件安装常用的这些软件用Conda或者是mamba都很好处理，但是metaWRAP这个软件是真的难安装啊。踩坑多次终于安装上了： 1mamba create -y --name metawrap-env --channel ursky metawrap-mg&#x3D;1.3.2      数据配置Che">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161344092.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161344467.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161345873.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306151418952.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306151727946.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306152059641.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306160832367.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161100975.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161143519.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161348822.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161354767.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161435929.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161436707.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161438324.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161505209.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161528500.png">
+<meta property="article:published_time" content="2023-06-15T03:07:37.000Z">
+<meta property="article:modified_time" content="2023-12-10T05:18:18.894Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161344092.png">
+  
+  
+  
+  <title>宏基因组学习笔记 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="宏基因组学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-15 11:07" pubdate>
+          2023年6月15日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">宏基因组学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="分析策略"><a href="#分析策略" class="headerlink" title="分析策略"></a>分析策略</h2><p>以下三个图来自微信公众号[<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/0xRDjO5cD-dwMraAQbWouw">希研未来</a>]。</p>
+<ul>
+<li>基于<code>reads</code></li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161344092.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<ul>
+<li>基于组装</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161344467.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<ul>
+<li>基于<code>Bin</code></li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161345873.png" srcset="/img/loading.gif" lazyload alt="图片"></p>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>常用的这些软件用<code>Conda</code>或者是<code>mamba</code>都很好处理，但是<code>metaWRAP</code>这个软件是真的难安装啊。踩坑多次终于安装上了：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create -y --name metawrap-env --channel ursky metawrap-mg=1.3.2     <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="数据配置"><a href="#数据配置" class="headerlink" title="数据配置"></a>数据配置</h2><h3 id="CheckM"><a href="#CheckM" class="headerlink" title="CheckM"></a>CheckM</h3><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkcd ~<span class="hljs-regexp">/database/</span>checkm<br>axel -n <span class="hljs-number">50</span> ftp:<span class="hljs-regexp">//</span>download.nmdc.cn<span class="hljs-regexp">/tools/m</span>eta<span class="hljs-regexp">/checkm/</span>checkm_data_2015_01_16.tar.gz      <br>tar -xvf checkm_data_2015_01_16.tar.gz   <br></code></pre></td></tr></tbody></table></figure>
+<p>可以通过运行<code>checkm data setRoot</code>设置数据库路径。</p>
+<h3 id="kraken2"><a href="#kraken2" class="headerlink" title="kraken2"></a>kraken2</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mkcd ~/database/kraken2<br>axel -n 50 ftp://download.nmdc.cn/tools/meta/kraken2/k2_pluspf_20230314.tar.gz<br>tar -xvf k2_pluspf_20230314.tar.gz<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="NCAI-nt"><a href="#NCAI-nt" class="headerlink" title="NCAI-nt"></a>NCAI-nt</h3><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">mkcd ~<span class="hljs-regexp">/database/</span>ncbi.nt<br>~<span class="hljs-regexp">/.aspera/</span>connect<span class="hljs-regexp">/bin/</span>ascp -i ~<span class="hljs-regexp">/mambaforge/</span>envs<span class="hljs-regexp">/tools4bioinf/</span>etc/asperaweb_id_dsa.openssh --overwrite=diff -QTr -l6000m \ <br>    anonftp@ftp.ncbi.nlm.nih.gov:blast<span class="hljs-regexp">/db/</span>v4<span class="hljs-regexp">/nt_v4.{00..85}.tar.gz ./</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="NCBI-taxonomy"><a href="#NCBI-taxonomy" class="headerlink" title="NCBI-taxonomy"></a>NCBI-taxonomy</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mkcd ~/database/ncbi.taxonomy<br>axel -n 50 ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz<br>tar -xvf taxdump.tar.gz<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="宿主基因组"><a href="#宿主基因组" class="headerlink" title="宿主基因组"></a>宿主基因组</h3><p>通常第一步是去除宿主基因组，需要构建索引，（其他宿主类似），如下：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh">mkcd ~/database/human.genome<br>axel -n 50 http://hgdownload.soe.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz   <br>gunzip hg38.fa.gz<br><span class="hljs-built_in">cat</span> *fa &gt; hg38.fa<br><span class="hljs-built_in">rm</span> chr*.fa<br>bmtool -d hg38.fa -o hg38.bitmask<br>srprism mkindex -i hg38.fa -o hg38.srprism -M 100000<br></code></pre></td></tr></tbody></table></figure>
+<p>为了识别不同的宿主，该软件参数<code>-x</code>可以指定宿主，如<code>-x rice</code>，默认的宿主是<code>human</code>，文件前缀是<code>hg38</code>.</p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs sh">vi ~/mambaforge/envs/metawrap-env/bin/config-metawrap<br><span class="hljs-comment"># Paths to metaWRAP scripts (dont have to modify)</span><br>mw_path=$(<span class="hljs-built_in">which</span> metawrap)<br>bin_path=<span class="hljs-variable">${mw_path%/*}</span><br>SOFT=<span class="hljs-variable">${bin_path}</span>/metawrap-scripts<br>PIPES=<span class="hljs-variable">${bin_path}</span>/metawrap-modules<br><br><span class="hljs-comment"># CONFIGURABLE PATHS FOR DATABASES (see 'Databases' section of metaWRAP README for details)</span><br><span class="hljs-comment"># path to kraken standard database</span><br><span class="hljs-comment"># KRAKEN_DB=~/KRAKEN_DB</span><br>KRAKEN2_DB=~/database/kraken2.plus.plantandfungi <br><br><span class="hljs-comment"># path to indexed human (or other host) genome (see metaWRAP website for guide). This includes .bitmask and .srprism files</span><br>BMTAGGER_DB=~/database/human.genome<br><span class="hljs-comment">#</span><br><span class="hljs-comment"># paths to BLAST databases</span><br>BLASTDB=~/database/ncbi.nt<br>TAXDUMP=~/database/ncbi.taxonomy<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="数据质控"><a href="#数据质控" class="headerlink" title="数据质控"></a>数据质控</h2><p>如果宿主不是人类，可以使用参数<code>--skip-bmtagger</code>跳过：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap read_qc --skip-bmtagger -1 data/C3_1.R1.raw.fastq -2 data/C3_1.R2.raw.fastq -t 60 -o readqc/C3_1<br></code></pre></td></tr></tbody></table></figure>
+<p>有多个文件时，批量运行：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">for</span> F <span class="hljs-keyword">in</span> RAW_READS/*_1.fastq; <span class="hljs-keyword">do</span><br>R=<span class="hljs-variable">${F%_*}</span>_2.fastq<br>BASE=<span class="hljs-variable">${F##*/}</span><br>SAMPLE=<span class="hljs-variable">${BASE%_*}</span><br>metawrap read_qc -1 <span class="hljs-variable">$F</span> -2 <span class="hljs-variable">$R</span> -t 1 -o<br>READ_QC/<span class="hljs-variable">$SAMPLE</span> &amp;<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></tbody></table></figure>
+<p>测试两个文件差不多35G，60线程跑了45分钟左右。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306151418952.png" srcset="/img/loading.gif" lazyload alt="download"></p>
+<h2 id="宏基因组组装"><a href="#宏基因组组装" class="headerlink" title="宏基因组组装"></a>宏基因组组装</h2><p>可以单个样品分别组装，也可以将群落所有文件一起组装。如果要全部一起组装，就先把文件合并：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cat</span> CLEAN_READS/ERR*_1.fastq &gt; CLEAN_READS/ALL_READS_1.fastq<br><span class="hljs-built_in">cat</span> CLEAN_READS/ERR*_2.fastq &gt; CLEAN_READS/ALL_READS_2.fastq<br></code></pre></td></tr></tbody></table></figure>
+<p>开始组装：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap assembly -1 readqc/C3_1/C3_1.R1.raw_val_1.fq -2 readqc/C3_1/C3_1.R2.raw_val_2.fq -m 100 -t 60 --megahit -o assembly  <br></code></pre></td></tr></tbody></table></figure>
+<p>有两种组装方式可以选择：</p>
+<ul>
+<li><code>megahit</code>：默认的算法，速度更快。</li>
+<li><code>metaspades</code>：速度更慢且需要更多的内存，但是结果更准确。</li>
+</ul>
+<p>组装完成的结果文件是<code>final_assembly.fasta</code>，对应的报告文件是<code>assembly_report.html</code>.</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306151727946.png" srcset="/img/loading.gif" lazyload alt="image-20230615172713903"></p>
+<p>测试两个文件差不多35G，60线程+100G内存跑了3小时20分钟左右。组装大小是108M，一共有67463个contigs.</p>
+<h2 id="分类和丰度"><a href="#分类和丰度" class="headerlink" title="分类和丰度"></a>分类和丰度</h2><p>使用<code>kraken2</code>的，同时对原始的<code>reads</code>和组装后的<code>contigs</code>进行分析，但是目的不一样：</p>
+<ul>
+<li>基于<code>reads</code>：是看样品中哪些群落被检测到了；</li>
+<li>基于<code>contigs</code>：目的是看那些物种比其他的组装得更好，通常不适用<code>contigs</code>来推断整个群落组成结构。</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap kraken2  --no-preload -t 60 -s 1000000 -o kraken readqc/C3_1/C3_1.R* assembly/final_assembly.fasta<br></code></pre></td></tr></tbody></table></figure>
+<p>结果文件：</p>
+<ul>
+<li><code>.kraken</code>是估计的分类特征表；</li>
+<li><code>.krona</code>是<code>KronaTools</code>输出的描述统计信息；</li>
+<li><code>kronagram.html</code>包含了所有的分类信息。</li>
+</ul>
+<h2 id="分箱Bin"><a href="#分箱Bin" class="headerlink" title="分箱Bin"></a>分箱Bin</h2><p>使用三种算法对组装的结果进行分箱。这一步对文件的后缀貌似非常严格，好像必须是<code>fastq</code>. 耗时1小时10分钟。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap binning -o init.binning -t 60 -a assembly/final_assembly.fasta --metabat2 --maxbin2 --concoct readqc/C3_1/C3_1.R1.raw_val_*fastq<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="合并分箱结果"><a href="#合并分箱结果" class="headerlink" title="合并分箱结果"></a>合并分箱结果</h2><p>这一步需要使用<code>CheckM</code>这个数据库，见<code>数据配置</code>环节。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap bin_refinement -o bin.refinement -t 60 -A init.binning/metabat2_bins -B init.binning/maxbin2_bins -C init.binning/concoct_bins -c 50 -x 10  <br></code></pre></td></tr></tbody></table></figure>
+<p>运行时间差不多3小时。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306152059641.png" srcset="/img/loading.gif" lazyload alt="image-20230615205927716"></p>
+<h2 id="分箱可视化"><a href="#分箱可视化" class="headerlink" title="分箱可视化"></a>分箱可视化</h2><p>运行：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap blobology -a assembly/final_assembly.fasta -t 60 -o blobology --bins bin.refinement/metawrap_50_10_bins readqc/C3_1/C3_1.R1.raw_val_*fastq  <br></code></pre></td></tr></tbody></table></figure>
+<p>遇到报错：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">BLAST Database error: Error: Not a valid version 4 database.<br></code></pre></td></tr></tbody></table></figure>
+<p>解决方法：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">ln</span> -s /home/xxx/mambaforge/envs/blast+/bin/blastn /home/xxx/mambaforge/envs/metawrap-env/bin/blastn    <br></code></pre></td></tr></tbody></table></figure>
+<p>运行时间差不多10小时。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306160832367.png" srcset="/img/loading.gif" lazyload alt="image-20230616083215326"></p>
+<h2 id="基因组草图丰度"><a href="#基因组草图丰度" class="headerlink" title="基因组草图丰度"></a>基因组草图丰度</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap quant_bins -b bin.refinement/metawrap_50_10_bins -o quant.bins -a assembly/final_assembly.fasta readqc/C3_1/C3_1.R1.raw_val_*fastq    <br></code></pre></td></tr></tbody></table></figure>
+<p>耗时1小时。</p>
+<p>结果文件存放在<code>bin_abundance_table.tab</code>这个文件中。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161100975.png" srcset="/img/loading.gif" lazyload alt="image-20230616110048572"></p>
+<h2 id="重新组装bins"><a href="#重新组装bins" class="headerlink" title="重新组装bins"></a>重新组装bins</h2><p>相当于对最佳的<code>bin</code>再次进行重新组装，只有让<code>bins</code>质量变得更好的<code>reads</code>才会被添加到<code>bins</code>中。这一步是用所有的<code>reads</code>进行分析的。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap reassemble_bins -o bin.reassembly -1 readqc/C3_1/C3_1.R1.raw_val_1.fastq -2 readqc/C3_1/C3_1.R1.raw_val_2.fastq -t 60 -m 100 -c 50 -x 10 -b bin.refinement/metawrap_50_10_bins<br></code></pre></td></tr></tbody></table></figure>
+<p>耗时30分钟。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161143519.png" srcset="/img/loading.gif" lazyload alt="reassembly_results"></p>
+<h2 id="分箱物种丰度"><a href="#分箱物种丰度" class="headerlink" title="分箱物种丰度"></a>分箱物种丰度</h2><p>耗时1小时13分钟。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap classify_bins -b bin.reassembly/reassembled_bins -o bins.classification -t 60    <br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161348822.png" srcset="/img/loading.gif" lazyload alt="image-20230616134819875"></p>
+<h2 id="分箱功能注释"><a href="#分箱功能注释" class="headerlink" title="分箱功能注释"></a>分箱功能注释</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap annotate_bins -o bins.anno -t 60 -b bin.reassembly/reassembled_bins  <br></code></pre></td></tr></tbody></table></figure>
+<p>遇到报错：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">Please rename your contigs or use --centre XXX to generate clean contig names.<br></code></pre></td></tr></tbody></table></figure>
+<p>原因是<code>bin</code>中的序列名称超过20个字符了，因此需要修改序列名称。解决方法（<a target="_blank" rel="noopener" href="https://www.metagenomics.wiki/tools/annotation/prokka">见Prokka官网</a>）：</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161354767.png" srcset="/img/loading.gif" lazyload alt="image-20230616135359463"></p>
+<p>写了个<code>python</code>代码解决这个问题：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> sys<br><br>fasta_file = sys.argv[<span class="hljs-number">1</span>]<br>out_file = sys.argv[<span class="hljs-number">2</span>]<br>index_file = sys.argv[<span class="hljs-number">3</span>]<br><br>i = <span class="hljs-number">0</span>  <span class="hljs-comment"># 从数字0开始</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(fasta_file, <span class="hljs-string">"r"</span>) <span class="hljs-keyword">as</span> f, <span class="hljs-built_in">open</span>(out_file, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> out, <span class="hljs-built_in">open</span>(index_file, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> index:<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>        <span class="hljs-keyword">if</span> line.startswith(<span class="hljs-string">"&gt;"</span>):<br>            i += <span class="hljs-number">1</span><br>            <span class="hljs-comment"># 修改序列名称</span><br>            out.write(<span class="hljs-string">"&gt;seq{0}\n"</span>.<span class="hljs-built_in">format</span>(i))<br>            <span class="hljs-comment"># 输出新旧ID对应关系</span><br>            old_id = line.replace(<span class="hljs-string">"&gt;"</span>,<span class="hljs-string">""</span>)<br>            new_id = <span class="hljs-string">"&gt;seq"</span> + <span class="hljs-built_in">str</span>(i)<br>            index.write(<span class="hljs-built_in">str</span>(new_id) + <span class="hljs-string">"\t"</span> + old_id)<br>        <span class="hljs-keyword">else</span>:<br>            out.write(line)<br>    <br><span class="hljs-built_in">print</span>(<span class="hljs-string">"Done."</span>)<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">python3 ~/scripts/rename.fasta.id.py reassembled_bins/bin.1.orig.fa renamed.bins/bin1.fa bin1.id.txt<br></code></pre></td></tr></tbody></table></figure>
+<p>重新运行注释代码：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap annotate_bins -o bins.anno -t 60 -b bin.reassembly/renamed.bins<br></code></pre></td></tr></tbody></table></figure>
+<p>运行很快，基本上就是一分钟左右。</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161435929.png" srcset="/img/loading.gif" lazyload alt="image-20230616143508827"></p>
+<ul>
+<li>功能注释：</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161436707.png" srcset="/img/loading.gif" lazyload alt="image-20230616143634334"></p>
+<p>既然拿到了<code>gff</code>文件，那么就可以计算不同基因在不同样品的中丰度了。</p>
+<ul>
+<li>翻译的蛋白：</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161438324.png" srcset="/img/loading.gif" lazyload alt="image-20230616143807921"></p>
+<p>既然拿到了蛋白序列，那就可以用<code>eggNOG-mapper</code>进行功能注释了（<a target="_blank" rel="noopener" href="https://www.web4xiang.com/blog/article/eggnotmapper/">参考博客</a>）：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs python">python3 ~/software/eggNOgmapper/emapper.py -i bin_translated_genes/bin1.faa --output eggnog -m diamond --cpu <span class="hljs-number">60</span><br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161505209.png" srcset="/img/loading.gif" lazyload alt="image-20230616150504533"></p>
+<p>基本上需要的信息都有了。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><h3 id="数据质控-1"><a href="#数据质控-1" class="headerlink" title="数据质控"></a>数据质控</h3><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306161528500.png" srcset="/img/loading.gif" lazyload alt="image-20230616152806322"></p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">for</span> F <span class="hljs-keyword">in</span> 0.data/*_1.fastq; <span class="hljs-keyword">do</span> R=<span class="hljs-variable">${F%_*}</span>_2.fastq; BASE=<span class="hljs-variable">${F##*/}</span>; SAMPLE=<span class="hljs-variable">${BASE%_*}</span>; metawrap read_qc --skip-bmtagger -1 <span class="hljs-variable">$F</span> -2 <span class="hljs-variable">$R</span> -t 70 -o 1.read.qc/<span class="hljs-variable">$SAMPLE</span> &amp; <span class="hljs-keyword">done</span><br></code></pre></td></tr></tbody></table></figure>
+<p>将质控后的数据移动到新的文件中：</p>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> -p 2.clean.reads/all<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 1.read.qc/*; <span class="hljs-keyword">do</span><br>b=<span class="hljs-variable">${i#*/}</span><br><span class="hljs-built_in">mv</span> <span class="hljs-variable">${i}</span>/final_pure_reads_1.fastq 2.clean.reads/<span class="hljs-variable">${b}</span>_1.fastq<br><span class="hljs-built_in">mv</span> <span class="hljs-variable">${i}</span>/final_pure_reads_2.fastq 2.clean.reads/<span class="hljs-variable">${b}</span>_2.fastq<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="宏基因组组装-1"><a href="#宏基因组组装-1" class="headerlink" title="宏基因组组装"></a>宏基因组组装</h3><p>将<code>F</code>和<code>R</code>分别合并后再进行组装。</p>
+<ul>
+<li>先合并</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">cat</span> 2.clean.reads/*_1.fastq &gt; 2.clean.reads/all/all_reads_1.fastq<br><span class="hljs-built_in">cat</span> 2.clean.reads/*_2.fastq &gt; 2.clean.reads/all/all_reads_2.fastq<br></code></pre></td></tr></tbody></table></figure>
+<ul>
+<li>开始组装</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> metawrap assembly -1 2.clean.reads/all/all_reads_1.fastq -2 2.clean.reads/all/all_reads_2.fastq -m 100 -t 60 --megahit -o 3.assembly &amp;  <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="kraken2注释"><a href="#kraken2注释" class="headerlink" title="kraken2注释"></a>kraken2注释</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> metawrap kraken2 -o 4.kraken2 -s 1000000 2.clean.reads/*.fastq 3.assembly/final_assembly.fasta &amp;<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="分箱"><a href="#分箱" class="headerlink" title="分箱"></a>分箱</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap binning -o 5.init.binning -t 60 -a 3.assembly/final_assembly.fasta --metabat2 --maxbin2 --concoct 2.clean.reads/*.fastq  <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="合并分箱结果-1"><a href="#合并分箱结果-1" class="headerlink" title="合并分箱结果"></a>合并分箱结果</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> metawrap bin_refinement -o 6.bin.refinement -t 60 -A 5.init.binning/metabat2_bins -B 5.init.binning/maxbin2_bins -C 5.init.binning/concoct_bins -c 50 -x 10  &amp;<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="分箱结果可视化"><a href="#分箱结果可视化" class="headerlink" title="分箱结果可视化"></a>分箱结果可视化</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> metawrap blobology -a 3.assembly/final_assembly.fasta -t 60 -o 7.blobology --bins 6.bin.refinement/metawrap_50_10_bins 2.clean.reads/*fastq  &amp; <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="分箱丰度"><a href="#分箱丰度" class="headerlink" title="分箱丰度"></a>分箱丰度</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> metawrap quant_bins -b 6.bin.refinement/metawrap_50_10_bins -o 8.quant.bins -a 3.assembly/final_assembly.fasta 2.clean.reads/*fastq &amp; <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="再次分箱"><a href="#再次分箱" class="headerlink" title="再次分箱"></a>再次分箱</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> metawrap reassemble_bins -o 9.bin.reassembly -1 2.clean.reads/all/all_reads_1.fastq -2 2.clean.reads/all/all_reads_2.fastq -t 60 -m 100 -c 50 -x 10 -b 6.bin.refinement/metawrap_50_10_bins &amp;<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="分箱物种丰度-1"><a href="#分箱物种丰度-1" class="headerlink" title="分箱物种丰度"></a>分箱物种丰度</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metawrap classify_bins -b  9.bin.reassembly/reassembled_bins -o 10.bins.classification -t 60<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="分箱功能注释-1"><a href="#分箱功能注释-1" class="headerlink" title="分箱功能注释"></a>分箱功能注释</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 9.bin.reassembly/renamed.bins<br><span class="hljs-built_in">mkdir</span> 9.bin.reassembly/renamed.bins.id<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 9.bin.reassembly/reassembled_bins/*; <span class="hljs-keyword">do</span> python3 ~/scripts/rename.fasta.id.py <span class="hljs-variable">${i}</span> 9.bin.reassembly/renamed.bins/<span class="hljs-variable">${i##*/}</span> 9.bin.reassembly/renamed.bins.id/<span class="hljs-variable">${i##*/}</span>.id.txt; <span class="hljs-keyword">done</span><br><br> <span class="hljs-built_in">nohup</span> metawrap annotate_bins -o 11.bins.anno -t 60 -b 9.bin.reassembly/renamed.bins &amp;   <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="eggNOG-mapper注释"><a href="#eggNOG-mapper注释" class="headerlink" title="eggNOG-mapper注释"></a>eggNOG-mapper注释</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 12.eggNOG-mapper<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 11.bins.anno/bin_translated_genes/*; <span class="hljs-keyword">do</span> python3 ~/software/eggNOgmapper/emapper.py -m diamond --cpu 60 -i  11.bins.anno/bin_translated_genes/<span class="hljs-variable">${i##*/}</span> --output 12.eggNOG-mapper/<span class="hljs-variable">${i##*/}</span>.eggnogmapper.txt; <span class="hljs-keyword">done</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="所有脚本"><a href="#所有脚本" class="headerlink" title="所有脚本"></a>所有脚本</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">for</span> F <span class="hljs-keyword">in</span> 0.data/*_1.fastq; <span class="hljs-keyword">do</span> R=<span class="hljs-variable">${F%_*}</span>_2.fastq; BASE=<span class="hljs-variable">${F##*/}</span>; SAMPLE=<span class="hljs-variable">${BASE%_*}</span>; metawrap read_qc --skip-bmtagger -1 <span class="hljs-variable">$F</span> -2 <span class="hljs-variable">$R</span> -t 70 -o 1.read.qc/<span class="hljs-variable">$SAMPLE</span> &amp; <span class="hljs-keyword">done</span><br><br><span class="hljs-built_in">mkdir</span> -p 2.clean.reads/all<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 1.read.qc/*; <span class="hljs-keyword">do</span><br>b=<span class="hljs-variable">${i#*/}</span><br><span class="hljs-built_in">mv</span> <span class="hljs-variable">${i}</span>/final_pure_reads_1.fastq 2.clean.reads/<span class="hljs-variable">${b}</span>_1.fastq<br><span class="hljs-built_in">mv</span> <span class="hljs-variable">${i}</span>/final_pure_reads_2.fastq 2.clean.reads/<span class="hljs-variable">${b}</span>_2.fastq<br><span class="hljs-keyword">done</span><br><br><span class="hljs-built_in">cat</span> 2.clean.reads/*_1.fastq &gt; 2.clean.reads/all/all_reads_1.fastq<br><span class="hljs-built_in">cat</span> 2.clean.reads/*_2.fastq &gt; 2.clean.reads/all/all_reads_2.fastq<br><br>metawrap assembly -1 2.clean.reads/all/all_reads_1.fastq -2 2.clean.reads/all/all_reads_2.fastq -m 100 -t 60 --megahit -o 3.assembly<br><br>metawrap kraken2 -o 4.kraken2 -s 1000000 2.clean.reads/*.fastq 3.assembly/final_assembly.fasta &amp;      <br><br>metawrap binning -o 5.init.binning -t 60 -a 3.assembly/final_assembly.fasta --metabat2 --maxbin2 --concoct 2.clean.reads/*.fastq <br><br>metawrap bin_refinement -o 6.bin.refinement -t 60 -A 5.init.binning/metabat2_bins -B 5.init.binning/maxbin2_bins -C 5.init.binning/concoct_bins -c 50 -x 10<br><br>metawrap blobology -a 3.assembly/final_assembly.fasta -t 60 -o 7.blobology --bins 6.bin.refinement/metawrap_50_10_bins 2.clean.reads/*fastq<br><br>metawrap quant_bins -b 6.bin.refinement/metawrap_50_10_bins -o 8.quant.bins -a 3.assembly/final_assembly.fasta 2.clean.reads/*fastq<br><br>metawrap reassemble_bins -o 9.bin.reassembly -1 2.clean.reads/all/all_reads_1.fastq -2 2.clean.reads/all/all_reads_2.fastq -t 60 -m 100 -c 50 -x 10 -b 6.bin.refinement/metawrap_50_10_bins<br><br>metawrap classify_bins -b  9.bin.reassembly/reassembled_bins -o 10.bins.classification -t 60 <br><br><span class="hljs-built_in">mkdir</span> 9.bin.reassembly/renamed.bins<br><span class="hljs-built_in">mkdir</span> 9.bin.reassembly/renamed.bins.id<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 9.bin.reassembly/reassembled_bins/*; <span class="hljs-keyword">do</span> python3 ~/scripts/rename.fasta.id.py <span class="hljs-variable">${i}</span> 9.bin.reassembly/renamed.bins/<span class="hljs-variable">${i##*/}</span> 9.bin.reassembly/renamed.bins.id/<span class="hljs-variable">${i##*/}</span>.id.txt; <span class="hljs-keyword">done</span><br><br>metawrap annotate_bins -o 11.bins.anno -t 60 -b 9.bin.reassembly/renamed.bins<br><br><span class="hljs-built_in">mkdir</span> 12.eggNOG-mapper<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> 11.bins.anno/bin_translated_genes/*; <span class="hljs-keyword">do</span> python3 ~/software/eggNOgmapper/emapper.py -m diamond --cpu 60 -i  11.bins.anno/bin_translated_genes/<span class="hljs-variable">${i##*/}</span> --output 12.eggNOG-mapper/<span class="hljs-variable">${i##*/}</span>.eggnogmapper.txt; <span class="hljs-keyword">done</span><br></code></pre></td></tr></tbody></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>宏基因组学习笔记</div>
+      <div>https://lixiang117423.github.io/article/metagenomelearning/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/magpurify2/" title="MAGpurify2配置">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MAGpurify2配置</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/metaphlan4/" title="MetaPhlAn4宏基因组数据分析流程学习笔记">
+                        <span class="hidden-mobile">MetaPhlAn4宏基因组数据分析流程学习笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
