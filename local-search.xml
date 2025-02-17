@@ -29,6 +29,31 @@
   
   
   <entry>
+    <title>部署GROBID和BioBERT</title>
+    <link href="/article/deploygrobidandbiobert/"/>
+    <url>/article/deploygrobidandbiobert/</url>
+    
+    <content type="html"><![CDATA[<h2 id="GROBID"><a href="#GROBID" class="headerlink" title="GROBID"></a>GROBID</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>重要是使用docker进行安装。</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull grobid/grobid:0.8.1<br></code></pre></td></tr></tbody></table></figure><h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --<span class="hljs-built_in">rm</span> --init --<span class="hljs-built_in">ulimit</span> core=0 -p 8070:8070 docker.1ms.run/grobid/grobid:0.8.1<br></code></pre></td></tr></tbody></table></figure><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul><li>全量模式：有GPU的时候可以使用。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --<span class="hljs-built_in">rm</span> --gpus all --init --<span class="hljs-built_in">ulimit</span> core=0 -p 8070:8070 grobid/grobid:0.8.1<br></code></pre></td></tr></tbody></table></figure><ul><li>轻量模式：没有GPU的时候施用。</li></ul><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run --<span class="hljs-built_in">rm</span> --init --<span class="hljs-built_in">ulimit</span> core=0 -p 8070:8070 lfoppiano/grobid:0.8.1<br></code></pre></td></tr></tbody></table></figure><p>可以使用Web界面，浏览器输入<code>http://服务器IP地址:8070</code>即可访问界面。</p><p>熟悉命令行处理的话可以使用官方推荐的<strong><a href="https://github.com/kermitt2/grobid_client_python">grobid_client_python</a></strong>. 下载方式很简单：<br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 -m pip install grobid-client-python<br></code></pre></td></tr></tbody></table></figure><p></p><p>使用前需要先运行GROBID. 此外，还需要一个配置文件<code>config.json</code>，默认的配置文件是这样的：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">{<br>    <span class="hljs-string">"grobid_server"</span>: <span class="hljs-string">"http://localhost:8070"</span>,<br>    <span class="hljs-string">"batch_size"</span>: 1000,<br>    <span class="hljs-string">"sleep_time"</span>: 5,<br>    <span class="hljs-string">"timeout"</span>: 60,<br>    <span class="hljs-string">"coordinates"</span>: [ <span class="hljs-string">"persName"</span>, <span class="hljs-string">"figure"</span>, <span class="hljs-string">"ref"</span>, <span class="hljs-string">"biblStruct"</span>, <span class="hljs-string">"formula"</span>, <span class="hljs-string">"s"</span> ]<br>}<br></code></pre></td></tr></tbody></table></figure><p>此时使用下面的命令就可以处理PDF文件了：</p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">grobid_client --input ./paper --output ./output processFulltextDocument <br></code></pre></td></tr></tbody></table></figure><p>输出结果是个<code>xml</code>文件。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>生物信息学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>生物信息学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>ubuntu配置程序开机自动运行</title>
     <link href="/article/autorun/"/>
     <url>/article/autorun/</url>
