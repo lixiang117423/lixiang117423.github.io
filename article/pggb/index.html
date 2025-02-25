@@ -20,19 +20,19 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="目的构建一个局部有方向且无循环的graph，一次来存储和展示大量的变异信息。保持局部线性对于解释、展示和重复使用泛基因组变异graph是很重要的。 安装手动安装需要用到的软件有：wfmash、seqwish、smoothxg、odgi和gfaffix. 这些软件可以使用conda安装。 https:&#x2F;&#x2F;github.com&#x2F;waveygang&#x2F;wfmash https:&#x2F;&#x2F;github.com&#x2F;e">
+    <meta name="description" content="文献笔记泛基因组包含了所有的序列、基因组间的同源性和所有的变异类型。泛基因组可以用于变异检测、保守性估计、重组事件评估和推断系统发育关系。现有的方法使用reference的策略和tree-guide的方法构建泛基因组，这些方法得到的遗传变异信息会不完整，也不稳定。现有的方法基本上就是把与参考基因组足够相似的序列添加到参考基因组上，这些方法后对结构上高度可变的区域进行修剪处理，例如着丝粒和其他是卫星">
 <meta property="og:type" content="article">
 <meta property="og:title" content="泛基因组工具PGGB文档学习">
 <meta property="og:url" content="https://lixiang117423.github.io/article/pggb/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="目的构建一个局部有方向且无循环的graph，一次来存储和展示大量的变异信息。保持局部线性对于解释、展示和重复使用泛基因组变异graph是很重要的。 安装手动安装需要用到的软件有：wfmash、seqwish、smoothxg、odgi和gfaffix. 这些软件可以使用conda安装。 https:&#x2F;&#x2F;github.com&#x2F;waveygang&#x2F;wfmash https:&#x2F;&#x2F;github.com&#x2F;e">
+<meta property="og:description" content="文献笔记泛基因组包含了所有的序列、基因组间的同源性和所有的变异类型。泛基因组可以用于变异检测、保守性估计、重组事件评估和推断系统发育关系。现有的方法使用reference的策略和tree-guide的方法构建泛基因组，这些方法得到的遗传变异信息会不完整，也不稳定。现有的方法基本上就是把与参考基因组足够相似的序列添加到参考基因组上，这些方法后对结构上高度可变的区域进行修剪处理，例如着丝粒和其他是卫星">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/23014278/1740401529688-25064bdd-a738-4212-9448-3d5c0c2779f2.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/23014278/1740401659676-9dd9d279-f1ab-446d-90f8-56c7bd0dabc3.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/23014278/1740446386314-f3baff51-a1ab-4979-a152-0ff457b36c96.png">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2025/png/23014278/1740455099422-dbee3174-7ce3-40ca-8ef6-860daeb0a184.png">
 <meta property="article:published_time" content="2025-02-25T08:54:36.000Z">
-<meta property="article:modified_time" content="2025-02-25T08:56:21.128Z">
+<meta property="article:modified_time" content="2025-02-25T13:03:03.530Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary_large_image">
@@ -232,7 +232,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.2k 字
+          6.9k 字
         
       </span>
     
@@ -243,7 +243,7 @@
         
         
         
-          44 分钟
+          58 分钟
         
       </span>
     
@@ -285,7 +285,20 @@
             
               <div class="markdown-body">
                 
-                <h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>构建一个局部有方向且无循环的graph，一次来存储和展示大量的变异信息。保持局部线性对于解释、展示和重复使用泛基因组变异graph是很重要的。</p>
+                <h1 id="文献笔记"><a href="#文献笔记" class="headerlink" title="文献笔记"></a>文献笔记</h1><p>泛基因组包含了所有的序列、基因组间的同源性和所有的变异类型。泛基因组可以用于变异检测、保守性估计、重组事件评估和推断系统发育关系。现有的方法使用reference的策略和tree-guide的方法构建泛基因组，这些方法得到的遗传变异信息会不完整，也不稳定。现有的方法基本上就是把与参考基因组足够相似的序列添加到参考基因组上，这些方法后对结构上高度可变的区域进行修剪处理，例如着丝粒和其他是卫星序列。PGGB是reference-free的流程，能够构建无偏差的泛基因组变异图。</p>
+<h2 id="WFMASH两两比对"><a href="#WFMASH两两比对" class="headerlink" title="WFMASH两两比对"></a>WFMASH两两比对</h2><p>PGGB从序列比对开始。reads、genes和genome甚至是这三者的组合都可以用于构建泛基因组，格式是FASTA或者是FASTQ都可以。为了避免参考基因组和顺序的偏差影响，PGGB使用all-to-all的策略进行序列比对。这样的好处就是每条序列在泛基因组中都可以作为reference来描述遗传变异。有个问题就是两两比较的话会有个问题就是需要更多的计算资源和时间，PGGB使用的是WFMASH，这个软件利用序列片段进行同源性比较，而不是使用单个碱基来进行同源性比较。这个方法能够保留较长范围内的共线性，但是对转座子和微卫星序列之间的重复序列以和较短的相似序列并不敏感。WFMASH的比对结果是PGGB构建泛基因组的理想结构，但是PGGB也可以使用任何以PAF格式存储的比对结果构建泛基因组。</p>
+<h2 id="SEQWISH构建variation-graph"><a href="#SEQWISH构建variation-graph" class="headerlink" title="SEQWISH构建variation graph"></a>SEQWISH构建variation graph</h2><p>第二步是泛基因组graph构建：使用SEQWISH将基因组和成对比对结果转换为变异图（variation graph）。SEQWISH能够将上一步比对结果中的不存在的同源关系进行恢复（The SEQWISH graph recovers transitive homology relationships that may not be present in the initial alignment set）。这样的好处是能够使用随机稀疏化来降低比对结果的复杂性。首先是提取WFMASH结果中的同源比对结果，然后只align上一步mapping结果中的一个子集。我们期望泛基因组的每个同源locus的alignment graph是局部全连接的，这样的话就需要足够多的mapping. PGGB使用基于 Erdös–Rényi 随机图模型的方法来确保稀疏化的安全阈值。这样做的好处是不用计算所有的两两比对就能重建variation graph中的传递关系。这样就能在保证结果准确的前提下还能降低运行时间，增加10倍基因组，只需要增加44倍左右的时间，而不是100倍。</p>
+<h2 id="SMOOTHXG构建泛基因组"><a href="#SMOOTHXG构建泛基因组" class="headerlink" title="SMOOTHXG构建泛基因组"></a>SMOOTHXG构建泛基因组</h2><p>第三步是使用SMOOTHXG 局部压缩和简化泛基因组variation graph来完成泛基因组构建。上一步的SEQWISH构建的graph已经是近乎完整的模型，这个模型已经能够代表输入的基因组和序列之间的alignment了；但是通常会含有复杂的局部motif，这些motif会使得下游的分析变得更加复杂。之所以这样是因为输入的用于alignment的序列之间并没有进行相互标准化，从而导致低复杂度序列中变异的表示有所不同，还可能多出一些密集的小的looping motif. 为了解决这个问题，PGGB采用的方法是移除SEQWISH输入数据中短的match. 这样是可以降低复杂度，但是呢也可能会生成一个并不能代表所有局部成对关系的graph. 为了解决这个问题，PGGB使用偏序比对（partial order alignment，POA）来解决这个问题。这种方法会删除长度短于POA长度的小圈（small cycles），但是会保留更大的cycles，这些更大的cycles可以紧凑地表示结构可变的loci. 这样做有利于针对短reads、古老的和低覆盖度的基因组进行genotyping. SMOOTHXG能够使用POA的优势去优化泛基因组。GFAFFIX用于压缩非冗余的nodes，ODGI对最终的graph进行排序。</p>
+<h2 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h2><p>PGGB输出的结果可以用于解释、质控和下游分析。使用ODGI可以对泛基因组进行基本的统计和可视化，也可以输出MultiQC报告。使用VG可以从PGGB输出的结果中鉴定遗传变异，生成对对应的VCF文件。为了便于后续分析，PGGB使用BiWFA将复杂的嵌套变异分解为最小化的reference-relative的表示。这时候PGGB就成为了多样本全基因组组装的遗传变异调用器。</p>
+<h2 id="benchmark"><a href="#benchmark" class="headerlink" title="benchmark"></a>benchmark</h2><p>PGGB表现和MUMMER4大差不差，但是呢MUMMER4输出的结果是针对某个参考基因组的，而PGGB输出的结果是针对所有的基因组的。</p>
+<p>在variation graph中，nodes表示的是alleles，可以将基因组理解为等位基因计数的载体。基于这种方法可以考虑所有的变异类型，而且不会因为参考基因组的不同而有偏差。PGGB构建的系统发育树和先前的研究使用SNP构建的系统发育树一致。有趣的是，基于MUMMER结果的SNV-based构建失败的系统发育树施用PGGB构建成功。Minigraph-Cactus这种方法构建的泛基因组构建的系统发育树和先前的研究所报道的有所差异。</p>
+<h2 id="PGGB优势"><a href="#PGGB优势" class="headerlink" title="PGGB优势"></a>PGGB优势</h2><ul>
+<li>无偏差：和序列顺序无关、和系统发育无关；</li>
+<li>无损：输入的基因组都保留在了泛基因组中，每个基因组都可以作为下游分析的参考基因组；</li>
+<li>模块化：每个模块输出的文件都是文本格式的，方便后续的其他泛基因组构建方法进行调用；</li>
+<li>已验证：HPRC就是使用PGGB构建的人类泛基因组</li>
+<li>开放性：社区开发，流程部署</li>
+</ul>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h2><p>需要用到的软件有：wfmash、seqwish、smoothxg、odgi和gfaffix. 这些软件可以使用conda安装。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/waveygang/wfmash">https://github.com/waveygang/wfmash</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ekg/seqwish">https://github.com/ekg/seqwish</a></p>
@@ -472,6 +485,14 @@
 <h1 id="更大的泛基因组"><a href="#更大的泛基因组" class="headerlink" title="更大的泛基因组"></a>更大的泛基因组</h1><p>还是关注-p和-s这两个参数。-s这个参数通常设置为5-20 kbp，-p设置为接近序列分歧度的那个值计算得到的值。如果想获得高质量的比对结果，就把-p设置大一些。增加-s和-p会减少运行的时间以及内存需求，但是会降低graph的压缩程度。</p>
 <p>如果使用10-20个基因组，多样性在1-5%，那么这两个参数就可以设置为-s10000 -p 95；但是，如果想把其他物种的基因组也加进这个泛基因组（多样性20%），那么-p这个参数就应该设置为70. </p>
 <p>使用SPOA或abPOA处理复杂的blocks时，需要大量的内存。可以设置-T参数来降低内存的消耗。</p>
+<h1 id="示例文献"><a href="#示例文献" class="headerlink" title="示例文献"></a>示例文献</h1><h2 id="葡萄泛基因组"><a href="#葡萄泛基因组" class="headerlink" title="葡萄泛基因组"></a>葡萄泛基因组</h2><p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41588-024-01967-5">https://www.nature.com/articles/s41588-024-01967-5</a></p>
+<p>To represent the genetic diversity of grapes, we constructed a graph pangenome that incorporated a total of 29 haplotype assemblies, including 18 newly sequenced haplotype assemblies from 9 phase-resolved accessions and 11 previously published assemblies based on continuous long read data (two phase-resolved and seven primary assemblies). Based on these genome assemblies, we used two tools to build graph pangenome, MC (v.2.6.11) and PGGB (v.0.5.4), respectively. We combined reads mapping and assembled alignments to validate the graph paths, edges and nodes in the grape pangenome. To address the issue of small fragments in assemblies, we implemented filtering steps to exclude minor, fragmented and diverse assemblies that could introduce the wrong structures.</p>
+<h2 id="野生和驯化大麦"><a href="#野生和驯化大麦" class="headerlink" title="野生和驯化大麦"></a>野生和驯化大麦</h2><p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-024-08187-1">https://www.nature.com/articles/s41586-024-08187-1</a></p>
+<p>The coordinates of amy1_1 copies in 76 genome assemblies were obtained by BLAST searches with the Morex allele of HORVU.MOREX.PROJ.6HG00545380. The genomic intervals surrounding amy1_1 from 10 kb upstream of the first copy to 10 kb downstream of the last copy were extracted from corresponding assemblies and used for further analyses. We applied PGGB (v.0.4.0, <a target="_blank" rel="noopener" href="https://github.com/pangenome/pggb">https://github.com/pangenome/pggb</a>) for 76 amy1_1 sequences with parameters ‘-n 76 -t 20 -p 90 -s 1000 -N’. The graph was visualized using Bandage125 (v.0.8.1). ODGI (v.0.7.3, command ‘paths’)110 was used to get a sparse distance matrix for paths with the parameter ‘-d’. The resultant distance matrix was plotted with the R package pheatmap (<a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/pheatmap/pheatmap.pdf">https://cran.r-project.org/web/packages/pheatmap/pheatmap.pdf</a>). Six representative sequences of amy1_1 were aligned against Morex by BLAST+ (v.2.13.0).</p>
+<h2 id="马铃薯泛基因组"><a href="#马铃薯泛基因组" class="headerlink" title="马铃薯泛基因组"></a>马铃薯泛基因组</h2><p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-024-08476-9">https://www.nature.com/articles/s41586-024-08476-9</a></p>
+<p>The Minigraph-Cactus pipeline27 and PGGB26 were used to construct a pseudo-phased pangenome with all 61 haplotypes based on the whole-genome alignment (including the DMv6.1 reference genome). For the PGGB, we estimated the divergence of each chromosome with mash distances and confirmed chromosome community with wfmash87 mapping. Then, we used “pggb -s 10000 -n 61 -p 90 -k 47 -P asm20 -O 0.001” to build each chromosome graph. We visualized the 1D layout of the graph and estimated presence and absence ratios to the DMv6.1 reference in 100-kb sliding windows using ODGI88. The small variants and SVs were detected by vg deconstruct from snarls, and we only kept top-level and &lt;1-Mb variants with vcfbub. For the Minigraph-Cactus pipeline, we assigned DMv6.1 as the guide for the paths, and progressively aligned the 60 haplotypes to it. We used the cactus-pangenome script with parameters “—gfa full —gbz full —vcfReference DMv6.1” to generate complete workflows and execute commands. The generated graph fragment assembly (GFA) format graph was used for edge, node and coverage statistics and subgraph generation from a BED input. The VCF output file comprises all graph variations based on the DMv6.1 reference, enabling the calculation of polymorphisms.</p>
+<h2 id="结构变异挖掘综述"><a href="#结构变异挖掘综述" class="headerlink" title="结构变异挖掘综述"></a>结构变异挖掘综述</h2><p><a target="_blank" rel="noopener" href="https://www.cell.com/cell/abstract/S0092-8674(24)00004-7?rss=yes">https://www.cell.com/cell/abstract/S0092-8674(24)00004-7?rss=yes</a></p>
+<h2 id="人类泛基因组"><a href="#人类泛基因组" class="headerlink" title="人类泛基因组"></a>人类泛基因组</h2><p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-023-05896-x">https://www.nature.com/articles/s41586-023-05896-x</a></p>
 
                 
               </div>
