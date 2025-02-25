@@ -43,11 +43,36 @@
   </entry>
   
   <entry>
+    <title>泛基因组工具PGGB文档学习</title>
+    <link href="https://lixiang117423.github.io/article/pggb/"/>
+    <id>https://lixiang117423.github.io/article/pggb/</id>
+    <published>2025-02-25T08:54:36.000Z</published>
+    <updated>2025-02-25T08:56:21.128Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;目的&quot;&gt;&lt;a href=&quot;#目的&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>部署GROBID和BioBERT</title>
     <link href="https://lixiang117423.github.io/article/deploygrobidandbiobert/"/>
     <id>https://lixiang117423.github.io/article/deploygrobidandbiobert/</id>
     <published>2025-02-17T03:17:08.000Z</published>
-    <updated>2025-02-17T11:43:32.263Z</updated>
+    <updated>2025-02-17T11:52:06.025Z</updated>
     
     
       
@@ -1256,31 +1281,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;统计建模&quot;&gt;&lt;a href=&quot;#统计建模&quot; class=&quot;headerlink&quot; title=&quot;统计建模&quot;&gt;&lt;/a&gt;统计建模&lt;/h2&gt;&lt;h3 id=&quot;什么是统计模型&quot;&gt;&lt;a href=&quot;#什么是统计模型&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windows下Git-bash配置zsh主题</title>
-    <link href="https://lixiang117423.github.io/article/gitbash.jpg/"/>
-    <id>https://lixiang117423.github.io/article/gitbash.jpg/</id>
-    <published>2023-05-11T01:27:52.000Z</published>
-    <updated>2023-12-10T05:18:18.547Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;下载zsh安装包&quot;&gt;&lt;a href=&quot;#下载zsh安装包&quot; class=&quot;headerlink&quot; title=&quot;下载zsh安装包&quot;&gt;&lt;/a&gt;下载zsh安装包&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
         
       
     
