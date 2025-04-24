@@ -1,0 +1,850 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="1 材料方法 实验设计与样本采集   田间试验设计：使用182个基因组测序水稻品种（来自美国农业部水稻种质资源库的Mini-core集合），在两个田间（I和II）随机种植并重复。  微生物与表型数据收集：采集根际微生物样本（基于16S rRNA测序），统计分蘖数，每个品种3-6个生物学重复，共获得2,128个根样本和78,653,817条高质量测序序列。  数据分析：通过线性回归模型评估根际微生物">
+<meta property="og:type" content="article">
+<meta property="og:title" content="根际微生物调控水稻分蘖">
+<meta property="og:url" content="https://lixiang117423.github.io/article/riceroot/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="1 材料方法 实验设计与样本采集   田间试验设计：使用182个基因组测序水稻品种（来自美国农业部水稻种质资源库的Mini-core集合），在两个田间（I和II）随机种植并重复。  微生物与表型数据收集：采集根际微生物样本（基于16S rRNA测序），统计分蘖数，每个品种3-6个生物学重复，共获得2,128个根样本和78,653,817条高质量测序序列。  数据分析：通过线性回归模型评估根际微生物">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-04-24T08:02:35.000Z">
+<meta property="article:modified_time" content="2025-04-24T08:04:17.958Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="文献阅读">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>根际微生物调控水稻分蘖 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="根际微生物调控水稻分蘖"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-24 16:02" pubdate>
+          2025年4月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          19 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">根际微生物调控水稻分蘖</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-材料方法"><a href="#1-材料方法" class="headerlink" title="1 材料方法"></a>1 材料方法</h1><ol>
+<li>实验设计与样本采集</li>
+</ol>
+<ul>
+<li><p>田间试验设计：使用182个基因组测序水稻品种（来自美国农业部水稻种质资源库的Mini-core集合），在两个田间（I和II）随机种植并重复。</p>
+</li>
+<li><p>微生物与表型数据收集：采集根际微生物样本（基于16S rRNA测序），统计分蘖数，每个品种3-6个生物学重复，共获得2,128个根样本和78,653,817条高质量测序序列。</p>
+</li>
+<li><p>数据分析：通过线性回归模型评估根际微生物组成、水稻基因型及其交互作用对分蘖变异的贡献（使用QIIME 2和R进行微生物多样性分析）。</p>
+</li>
+</ul>
+<ol>
+<li>微生物与分蘖关联分析</li>
+</ol>
+<ul>
+<li><p>多样性指标：计算α多样性（Shannon指数）和β多样性（Bray-Curtis差异），结合主坐标分析（PCoA）评估微生物群落结构与分蘖数的相关性。</p>
+</li>
+<li><p>关键菌属鉴定：通过相关性分析（FDR校正p&lt;0.05）确定与分蘖正相关（如Roseateles）和负相关（如Exiguobacterium）的细菌属。</p>
+</li>
+</ul>
+<ol>
+<li>功能验证实验</li>
+</ol>
+<ul>
+<li><p>细菌分离与接种：从根际分离培养5个与分蘖相关的菌属（Exiguobacterium、Burkholderia、Pleomorphomonas、Roseateles、Piscinibacter），在实验室（水培）和田间接种水稻，观察分蘖表型。</p>
+</li>
+<li><p>分子机制研究：</p>
+</li>
+<li><p>免疫印迹：检测SL信号通路关键蛋白OsD53的降解。</p>
+</li>
+<li><p>代谢组学：分析SLs（如4-deoxyorobanchol、orobanchol）含量变化。</p>
+</li>
+<li><p>化合物分离：通过生物活性导向分离法从Exiguobacterium R2567培养物中提取活性化合物cyclo(Leu-Pro)，并通过NMR和LC-MS鉴定其结构。</p>
+</li>
+</ul>
+<ol>
+<li>结构生物学与互作验证</li>
+</ol>
+<ul>
+<li><p>结合亲和力检测：微量热泳动（MST）和生物层干涉（BLI）实验测定cyclo(Leu-Pro)与OsD14的结合常数（Kd≈2.5 μM）。</p>
+</li>
+<li><p>晶体结构解析：利用X射线晶体学（分辨率1.4 Å）解析cyclo(Leu-Pro)与OsD14的复合结构，揭示其通过氢键和疏水作用结合的分子机制。</p>
+</li>
+</ul>
+<h1 id="2-结果"><a href="#2-结果" class="headerlink" title="2 结果"></a>2 结果</h1><ol>
+<li>微生物对分蘖的调控作用</li>
+</ol>
+<ul>
+<li><p>贡献度分析：根际微生物组成解释了28.2%的分蘖变异，与基因型贡献（26.9%）相当，交互作用占21.5%（图1B）。</p>
+</li>
+<li><p>多样性关联：分蘖数与微生物Shannon指数显著正相关（ρ=5.3×10⁻¹⁰），且与特定菌属丰度相关（如Exiguobacterium负相关，Roseateles正相关）（图1C-D）。</p>
+</li>
+</ul>
+<ol>
+<li>细菌对分蘖的因果调控</li>
+</ol>
+<ul>
+<li><p>实验室验证：接种Exiguobacterium R2567使分蘖数减少13.6%-35.2%，而Roseateles R780增加11.2%（图2A-B）。</p>
+</li>
+<li><p>田间一致性：分蘖抑制菌还降低穗数和地上部生物量（图2E-F）。</p>
+</li>
+</ul>
+<ol>
+<li>分子机制解析</li>
+</ol>
+<ul>
+<li><p>SL信号通路激活：Exiguobacterium R2567通过分泌cyclo(Leu-Pro)诱导OsD53蛋白降解（降低59%），激活SL通路（图3B）。</p>
+</li>
+<li><p>受体依赖性：cyclo(Leu-Pro)的抑制作用在OsD14受体突变体（d14）中消失，但在SL合成突变体（d27）中保留（图3G）。</p>
+</li>
+</ul>
+<ol>
+<li>cyclo(Leu-Pro)的结构与功能</li>
+</ol>
+<ul>
+<li><p>结构特征：cyclo(Leu-Pro)为环状二肽，通过氢键（Trp205、Ser270）和疏水作用（Phe186、Val194）结合OsD14（图5C-D）。</p>
+</li>
+<li><p>跨组织运输：水稻根系吸收cyclo(Leu-Pro)并运输至分蘖芽，抑制分蘖发育（图S4B-C）。</p>
+</li>
+</ul>
+<ol>
+<li>微生物与宿主的互作反馈</li>
+</ol>
+<ul>
+<li>正反馈调节：水稻根分泌物刺激Exiguobacterium R2567增产cyclo(Leu-Pro)，同时该化合物抑制细菌运动性并促进生物膜形成，增强定殖能力（图S4H-I）。</li>
+</ul>
+<h1 id="3-讨论"><a href="#3-讨论" class="headerlink" title="3 讨论"></a>3 讨论</h1><ol>
+<li>科学创新性</li>
+</ol>
+<ul>
+<li><p>首例微生物源SL类似物：cyclo(Leu-Pro)是首个被发现的通过模拟SL信号调控分蘖的微生物代谢物，揭示了植物-微生物信号通路的趋同进化。</p>
+</li>
+<li><p>多维互作网络：根际微生物通过代谢物直接干预宿主发育，为“微生物组工程”优化作物性状提供新思路。</p>
+</li>
+</ul>
+<ol>
+<li>农业应用潜力</li>
+</ol>
+<ul>
+<li><p>非遗传改良策略：利用特定根际菌群或化合物（如cyclo(Leu-Pro）调控分蘖，避免基因编辑的潜在风险。</p>
+</li>
+<li><p>环境适应性：微生物调控分蘖的机制可能增强水稻对资源分配和逆境的适应性。</p>
+</li>
+</ul>
+<ol>
+<li>局限性与展望</li>
+</ol>
+<ul>
+<li><p>普适性验证：需扩大水稻品种和环境条件（如土壤类型、气候）验证结论。</p>
+</li>
+<li><p>机制深度解析：</p>
+</li>
+<li><p>解析D3-D14-D53复合体在cyclo(Leu-Pro)信号传递中的结构变化。</p>
+</li>
+<li><p>探索其他分蘖相关菌（如Burkholderia）的调控分子。</p>
+</li>
+<li><p>生态互作研究：微生物群落的稳定性及其与环境因子的互作需进一步评估。</p>
+</li>
+</ul>
+<h1 id="4-结论"><a href="#4-结论" class="headerlink" title="4 结论"></a>4 结论</h1><p>根际微生物通过分泌特定代谢物（如Exiguobacterium R2567的cyclo(Leu-Pro））直接调控水稻分蘖，其作用依赖于SL信号通路受体OsD14。这一发现为利用微生物组工程提高作物产量和农业可持续性提供了理论依据，并拓展了植物-微生物互作的研究维度。</p>
+<hr>
+<h1 id="5-其他"><a href="#5-其他" class="headerlink" title="5 其他"></a>5 其他</h1><ul>
+<li>独脚金内酯的生物合成通路<br>![[Pasted image 20250423095205.png|500]]</li>
+<li>移栽8周后调查分蘖数，也就是营养生长结束后；每个小区中间6株水稻</li>
+</ul>
+<hr>
+<h1 id="6-Cyclo-Leu-Pro-的鉴定步骤"><a href="#6-Cyclo-Leu-Pro-的鉴定步骤" class="headerlink" title="6 Cyclo(Leu-Pro)的鉴定步骤"></a>6 Cyclo(Leu-Pro)的鉴定步骤</h1><p>以下是论文中鉴定Exiguobacterium R2567产生的Cyclo(Leu-Pro)的详细流程：</p>
+<ol>
+<li>活性导向分馏（Bioactivity-guided fractionation）</li>
+</ol>
+<p>目标：从细菌培养物中分离具有生物活性的化合物。</p>
+<p>提取：用乙酸乙酯（ethyl acetate）提取Exiguobacterium R2567的菌体培养物，获得粗提物。</p>
+<p>初步活性验证：将粗提物处理水稻幼苗，观察到OsD53蛋白降解（类似SL类似物rac-GR24的效果），确认存在活性成分。</p>
+<p>分馏纯化：</p>
+<p>使用硅胶柱层析（silica chromatography）对粗提物进行分级分离，获得多个组分。</p>
+<p>通过生物活性筛选确定诱导OsD53降解的活性组分（如F3-1）。</p>
+<p>进一步通过半制备高效液相色谱（semi-preparative HPLC）对活性组分进行纯化，最终分离出单一活性化合物（命名为S6）。</p>
+<ol>
+<li>结构解析</li>
+</ol>
+<p>目标：确定化合物S6的化学结构。</p>
+<p>质谱分析（LC-MS）：</p>
+<p>通过液相色谱-质谱联用（LC-MS）测得S6的分子量为211.1440 Da（对应分子式C₁₁H₁₉N₂O₂）。</p>
+<p>高分辨率质谱（HRMS）确认分子式为C₁₁H₁₈N₂O₂。</p>
+<p>核磁共振（NMR）：</p>
+<p>¹H NMR和¹³C NMR：检测到两个羰基信号（δc 172.8和168.9 ppm）、酰胺键特征峰（δH 4.25和4.12 ppm）以及脂肪链信号。</p>
+<p>二维NMR（COSY、HSQC、HMBC）：</p>
+<p>通过COSY谱确定氨基酸残基的连接顺序。</p>
+<p>HMBC谱显示环状结构的连接方式（如Leu的侧链与Pro的α-碳连接）。</p>
+<p>结论：S6被确定为环状二肽——cyclo(L-亮氨酸-L-脯氨酸)（cyclo(Leu-Pro)）。</p>
+<ol>
+<li>结构验证</li>
+</ol>
+<p>目标：确认S6与已知标准品的一致性。</p>
+<p>对照实验：</p>
+<p>将S6与商业购买的cyclo(Leu-Pro)标准品进行对比。</p>
+<p>LC-MS保留时间和质谱图：完全匹配。</p>
+<p>NMR数据：与标准品的¹H和¹³C谱图一致。</p>
+<ol>
+<li>功能验证</li>
+</ol>
+<p>目标：验证cyclo(Leu-Pro)的生物活性及其作用机制。</p>
+<p>OsD53降解实验：</p>
+<p>用纯化的cyclo(Leu-Pro)处理水稻，通过Western blot检测OsD53蛋白水平显著降低（类似SL类似物rac-GR24）。</p>
+<p>表型分析：</p>
+<p>实验室条件：cyclo(Leu-Pro)处理显著抑制水稻分蘖（减少50%），并影响根系发育（促进主根伸长，抑制侧根）。</p>
+<p>田间试验：在多个水稻品种（如Nipponbare、9311）中验证分蘖抑制效果。</p>
+<p>受体结合实验：</p>
+<p>分子对接（Docking）：预测cyclo(Leu-Pro)与水稻SL受体OsD14的结合模式。</p>
+<p>微量热泳动（MST）：测得cyclo(Leu-Pro)与OsD14的结合亲和力（Kd=2.56 μM），与rac-GR24（Kd=2.15 μM）相似。</p>
+<p>X射线晶体学：解析OsD14与cyclo(Leu-Pro)复合物的晶体结构（分辨率1.4 Å），显示其结合位点与SL类似物rac-GR24重叠。</p>
+<ol>
+<li>代谢与转运分析</li>
+</ol>
+<p>目标：探究cyclo(Leu-Pro)的产生和运输机制。</p>
+<p>细菌代谢调控：</p>
+<p>水稻根系分泌物促进Exiguobacterium R2567合成cyclo(Leu-Pro)。</p>
+<p>植物内运输：</p>
+<p>通过靶向代谢组学检测，cyclo(Leu-Pro)从根系转运至分蘖芽，诱导OsD53降解。</p>
+<ol>
+<li>特异性验证</li>
+</ol>
+<p>目标：确认cyclo(Leu-Pro)仅作用于OsD14受体。</p>
+<p>受体突变体实验：</p>
+<p>在OsD14突变体（d14）中，cyclo(Leu-Pro)无法诱导OsD53降解或抑制分蘖。</p>
+<p>其他受体（如OsKAI2）不结合cyclo(Leu-Pro)，显示其特异性。</p>
+<p>总结</p>
+<p>通过活性导向分馏结合色谱纯化、质谱与NMR结构解析、生物活性验证及受体相互作用分析，研究团队成功鉴定并证实了Exiguobacterium R2567产生的cyclo(Leu-Pro)通过激活水稻SL信号通路抑制分蘖。这一过程综合运用了化学分离、结构生物学和遗传学方法，揭示了微生物代谢产物调控植物发育的新机制。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="print-no-link">#文献阅读</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>根际微生物调控水稻分蘖</div>
+      <div>https://lixiang117423.github.io/article/riceroot/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年4月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/bioinf2allin1/" title="我的生物信息学知识合集">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我的生物信息学知识合集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/pggb/" title="泛基因组工具PGGB文档学习">
+                        <span class="hidden-mobile">泛基因组工具PGGB文档学习</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
