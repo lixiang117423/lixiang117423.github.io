@@ -1,0 +1,728 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="1 BRAKER3的优势 可以使用转录组和蛋白数据2 基因预测成功的关键 高质量的基因组：short scaffolds太多的话不会得到很准确的结果。 简单的序列名称：如Chr1这种是最好的。 要标记重复序列：the genome should be masked for repeats，避免对重复序列和低复杂度区域预测到基因结构；转录组数据比对是重复序列也会影响；在GeneMark-ES&#x2F;ET&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BRAKER学习笔记">
+<meta property="og:url" content="https://lixiang117423.github.io/article/braker3/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="1 BRAKER3的优势 可以使用转录组和蛋白数据2 基因预测成功的关键 高质量的基因组：short scaffolds太多的话不会得到很准确的结果。 简单的序列名称：如Chr1这种是最好的。 要标记重复序列：the genome should be masked for repeats，避免对重复序列和低复杂度区域预测到基因结构；转录组数据比对是重复序列也会影响；在GeneMark-ES&#x2F;ET&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940197.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940198.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940199.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250939135.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251014959.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251039400.png">
+<meta property="article:published_time" content="2025-04-25T02:40:11.000Z">
+<meta property="article:modified_time" content="2025-04-25T02:42:11.862Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940197.png">
+  
+  
+  
+  <title>BRAKER学习笔记 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="BRAKER学习笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-04-25 10:40" pubdate>
+          2025年4月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">BRAKER学习笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-BRAKER3的优势"><a href="#1-BRAKER3的优势" class="headerlink" title="1 BRAKER3的优势"></a>1 BRAKER3的优势</h1><ul>
+<li>可以使用转录组和蛋白数据<h1 id="2-基因预测成功的关键"><a href="#2-基因预测成功的关键" class="headerlink" title="2 基因预测成功的关键"></a>2 基因预测成功的关键</h1></li>
+<li>高质量的基因组：<code>short scaffolds</code>太多的话不会得到很准确的结果。</li>
+<li>简单的序列名称：如<code>Chr1</code>这种是最好的。</li>
+<li>要标记重复序列：<code>the genome should be masked for repeats</code>，避免对重复序列和低复杂度区域预测到基因结构；转录组数据比对是重复序列也会影响；在<code>GeneMark-ES/ET/EP/ETP</code>和<code>AUGUSTUS</code>流程中，<code>softmasking</code>比<code>hardmasking</code>表现更好。<ul>
+<li><code>softmasking</code>：重复区域的核苷酸用小写字母，其他区域的用大写字母。</li>
+<li><code>hardmasking</code>：重复区域的核苷酸序列用<code>N</code>表示。</li>
+</ul>
+</li>
+<li>注意分支特异性：例如部分真菌会有特殊的分支点等，需要根据物种信息选择合适的参数。</li>
+<li>进一步使用预测结果之前需要确定预测的准确性。<h1 id="3-BRAKER运行模式"><a href="#3-BRAKER运行模式" class="headerlink" title="3 BRAKER运行模式"></a>3 BRAKER运行模式</h1><h2 id="3-1-只有基因组"><a href="#3-1-只有基因组" class="headerlink" title="3.1 只有基因组"></a>3.1 只有基因组</h2>在这种模式下，<code>GeneMark-ES</code>使用基因组进行训练，<code>GeneMark-ES</code>预测的长基因用于训练后续的<code>AUGUSTUS</code>；最终使用<code>AUGUSTUS</code>进行预测。这种模式得到的结果的准确性是最低的。</li>
+</ul>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940197.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250424204809"></p>
+<h2 id="3-2-基因组-转录组"><a href="#3-2-基因组-转录组" class="headerlink" title="3.2 基因组+转录组"></a>3.2 基因组+转录组</h2><p>短读长的RNA-seq数据适合这种预测方法。这种方法要求每个<code>intro</code>被很多的<code>alignments</code>覆盖，<strong>但是组装过的转录组比对不适用于这种方法</strong>。长读长的RNA-seq数据也是可以的，但是需要注意的是每个进行训练的转录本都需要多次测序并与基因组进行比对。<strong>现在BRAKER还不支持短读长和长读长的RNA-seq数据的混合使用</strong>。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940198.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250424205041"></p>
+<h2 id="3-3-基因组-蛋白序列"><a href="#3-3-基因组-蛋白序列" class="headerlink" title="3.3 基因组+蛋白序列"></a>3.3 基因组+蛋白序列</h2><p>这种方法尤其适用于没有RNA-seq数据的情况，而且使用的蛋白序列可以是来自和目标物种遗传距离未知的物种，当然，使用近缘物种肯定预测得更准确些。<strong>这个方法需要蛋白家族，也就是每个蛋白家族具有代表性的序列应该在数据库中</strong>。<code>OrthoDB</code>这个数据库是测试过的。官方提供了<a target="_blank" rel="noopener" href="https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/">OrthoDB v.11</a>和<a target="_blank" rel="noopener" href="https://bioinf.uni-greifswald.de/bioinf/partitioned_odb12/">OrthoDB v.12</a>.</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250940199.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250424205550"></p>
+<h2 id="3-4-基因组-转录组-蛋白序列"><a href="#3-4-基因组-转录组-蛋白序列" class="headerlink" title="3.4 基因组+转录组+蛋白序列"></a>3.4 基因组+转录组+蛋白序列</h2><p>从头预测+转录本+同源蛋白预测。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250939135.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h1 id="4-软件安装"><a href="#4-软件安装" class="headerlink" title="4 软件安装"></a>4 软件安装</h1><h2 id="4-1-Docker安装"><a href="#4-1-Docker安装" class="headerlink" title="4.1 Docker安装"></a>4.1 Docker安装</h2><p>推荐使用docekr进行安装：<br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull teambraker/braker3<br></code></pre></td></tr></tbody></table></figure><br>进入容器：<br><figure class="highlight dockerfile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">docker <span class="hljs-keyword">run</span><span class="language-bash"> --<span class="hljs-built_in">rm</span> -it -v $(<span class="hljs-built_in">pwd</span>):/work teambraker/braker3:latest /bin/bash</span><br></code></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="4-2-Conda安装"><a href="#4-2-Conda安装" class="headerlink" title="4.2 Conda安装"></a>4.2 Conda安装</h2><p>如果没有docker权限，可以尝试使用conda进行安装：<br></p><figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs cmake">wget https://repo.anaconda.com/archive/Anaconda3-<span class="hljs-number">2018.12</span>-Linux-x86_64.sh<br>bash bin/Anaconda3-<span class="hljs-number">2018.12</span>-Linux-x86_64.sh <span class="hljs-comment"># do not install VS (needs root privileges)</span><br>conda <span class="hljs-keyword">install</span> -c anaconda perl<br>conda <span class="hljs-keyword">install</span> -c anaconda biopython<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-app-cpanminus<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">file</span>-spec<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-hash-merge<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">list</span>-util<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-module-load-conditional<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-posix<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">file</span>-homedir<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-parallel-forkmanager<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-scalar-util-numeric<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-yaml<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-class-data-inheritable<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-exception-class<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">test</span>-pod<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">file</span>-which <span class="hljs-comment"># skip if you are not comparing to reference annotation</span><br>conda <span class="hljs-keyword">install</span> -c bioconda perl-mce<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-threaded<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">list</span>-util<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-<span class="hljs-keyword">math</span>-utils<br>conda <span class="hljs-keyword">install</span> -c bioconda cdbtools<br>conda <span class="hljs-keyword">install</span> -c eumetsat perl-yaml-xs<br>conda <span class="hljs-keyword">install</span> -c bioconda perl-data-dumper<br></code></pre></td></tr></tbody></table></figure><br><code>BRAKER</code>和<code>AUGUSTUS</code>在conda上也是有的。<br><strong>个人推荐速度更快的Miniforge替代原生conda</strong>。<p></p>
+<h2 id="4-3-软件依赖"><a href="#4-3-软件依赖" class="headerlink" title="4.3 软件依赖"></a>4.3 软件依赖</h2><ul>
+<li>AUGUSTUS 3.5.0 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#g2">F2</a></li>
+<li>GeneMark-ETP (source see Dockerfile)</li>
+<li>BAMTOOLS 2.5.1<a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f5">R5</a></li>
+<li>SAMTOOLS 1.7-4-g93586ed<a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f6">R6</a></li>
+<li>Spaln 2.3.3d <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f8">R8,</a> <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f9">R9,</a> <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f10">R10</a></li>
+<li>NCBI BLAST+ 2.2.31+ <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f12">R12,</a> <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f13">R13</a></li>
+<li>DIAMOND 0.9.24</li>
+<li>cdbfasta 0.99</li>
+<li>cdbyank 0.981</li>
+<li>GUSHR 1.0.0</li>
+<li>SRA Toolkit 3.00 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f14">R14</a></li>
+<li>HISAT2 2.2.1 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f15">R15</a></li>
+<li>BEDTOOLS 2.30 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f16">R16</a></li>
+<li>StringTie2 2.2.1 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f17">R17</a></li>
+<li>GFFRead 0.12.7 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f18">R18</a></li>
+<li>compleasm 0.2.5 <a target="_blank" rel="noopener" href="https://github.com/Gaius-Augustus/BRAKER/blob/master/README.md#f27">R27</a><h2 id="4-4-脚本依赖"><a href="#4-4-脚本依赖" class="headerlink" title="4.4 脚本依赖"></a>4.4 脚本依赖</h2>主要的脚本是<code>braker.pl</code>，在运行<code>braker.pl</code>时会调用以下这些脚本：</li>
+<li>`filterGenemark.pl    </li>
+<li><code>filterIntronsFindStrand.pl</code></li>
+<li><code>helpMod_braker.pm</code></li>
+<li><code>findGenesInIntrons.pl</code></li>
+<li><code>downsample_traingenes.pl</code></li>
+<li><code>ensure_n_training_genes.py</code></li>
+<li><code>get_gc_content.py</code></li>
+<li><code>get_etp_hints.py</code><br><strong>需要确保这些脚本都是可执行状态，也就是有<code>x</code>这个属性；如果不是可执行状态，需要使用<code>chmod a+x *.pl *.py</code>添加可执行属性</strong>。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251014959.png" srcset="/img/loading.gif" lazyload alt="image.png"><h1 id="5-运行BRAKER"><a href="#5-运行BRAKER" class="headerlink" title="5 运行BRAKER"></a>5 运行BRAKER</h1>建议使用<code>softmasked Repeats</code>后的基因组。<h2 id="5-1-模式选择"><a href="#5-1-模式选择" class="headerlink" title="5.1 模式选择"></a>5.1 模式选择</h2><h3 id="5-1-1-转录组"><a href="#5-1-1-转录组" class="headerlink" title="5.1.1 转录组"></a>5.1.1 转录组</h3>这个流程适用于有转录组但是没有蛋白质数据的情况。<code>BRAKER</code>有多种方式接收传入的转录组数据：</li>
+<li>使用<code>SRA</code>数据：有多个<code>SRA</code>数据时使用<code>,</code>进行分隔，<code>BRAKER</code>会自动下载对应的SRA数据：<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">braker.pl <span class="hljs-attribute">--species</span>=yourSpecies <span class="hljs-attribute">--genome</span>=genome.fasta <span class="hljs-attribute">--rnaseq_sets_ids</span>=SRA_ID1,SRA_ID2<br></code></pre></td></tr></tbody></table></figure></li>
+<li>使用本地的<code>FASTQ</code>文件：可以是为<code>mapping</code>过的原始数据，同样需要提供<code>FASTQ</code>文件的文件名称和对应的文件的路径，会根据文件的ID自动识别文件，如果是双末端的会识别为<code>SRA_ID1_1.fastq</code>和<code>SRA_ID1_2.fastq</code>这样，如果是单末端的会识别为<code>ID.fastq</code>. <figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs routeros">braker.pl <span class="hljs-attribute">--species</span>=yourSpecies <span class="hljs-attribute">--genome</span>=genome.fasta \<br>   <span class="hljs-attribute">--rnaseq_sets_ids</span>=SRA_ID1,SRA_ID2 \<br>   <span class="hljs-attribute">--rnaseq_sets_dirs</span>=/path/to/local/fastq/files/<br></code></pre></td></tr></tbody></table></figure></li>
+<li>使用比对后的<code>bam</code>文件<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 类似FASTQ输入方式</span><br>braker.pl <span class="hljs-attribute">--species</span>=yourSpecies <span class="hljs-attribute">--genome</span>=genome.fasta \<br>   <span class="hljs-attribute">--rnaseq_sets_ids</span>=BAM_ID1,BAM_ID2 \<br>   <span class="hljs-attribute">--rnaseq_sets_dirs</span>=/path/to/local/bam/files/<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-comment"># 直接指定bam文件</span><br>braker.pl <span class="hljs-attribute">--species</span>=yourSpecies <span class="hljs-attribute">--genome</span>=genome.fasta <span class="hljs-attribute">--bam</span>=file1.bam,file2.bam<br></code></pre></td></tr></tbody></table></figure>
+<p>使用<code>bam</code>文件时，<code>BRAKER</code>默认<code>bam</code>文件是<code>HISAT2</code>比对得到的结果；如果想使用<code>SATR</code>的话，需要加上参数<code>--outSAMstrandField intronMotif</code>. </p>
+<ul>
+<li>从比对信息中提取的<code>gff</code>格式信息：<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros">braker.pl <span class="hljs-attribute">--species</span>=yourSpecies <span class="hljs-attribute">--genome</span>=genome.fasta <span class="hljs-attribute">--hints</span>=hints1.gff,hints2.gff<br></code></pre></td></tr></tbody></table></figure>
+格式类似于这样：<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">chrName</span> b2h intron  <span class="hljs-number">6591</span>    <span class="hljs-number">8003</span>    <span class="hljs-number">1</span>   +   .   pri=<span class="hljs-number">4</span>;src=E<br><span class="hljs-attribute">chrName</span> b2h intron  <span class="hljs-number">6136</span>    <span class="hljs-number">9084</span>    <span class="hljs-number">11</span>  +   .   mult=<span class="hljs-number">11</span>;pri=<span class="hljs-number">4</span>;src=E<br></code></pre></td></tr></tbody></table></figure>
+<strong>第二列的<code>b2h</code>和最后一列的<code>src=E</code>是必须要的</strong>。</li>
+</ul>
+<hr>
+<p>可以将上面这些方法进行组合，但是需要注意的是，<strong>如果使用转录组+蛋白组这种方式的话，不建议使用<code>--hints</code>这种方法</strong>。</p>
+<h3 id="5-1-2-蛋白组"><a href="#5-1-2-蛋白组" class="headerlink" title="5.1.2 蛋白组"></a>5.1.2 蛋白组</h3><p>这种方法尤其适用于没有转录组的情况。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251039400.png" srcset="/img/loading.gif" lazyload alt="image.png"></p>
+<h2 id="5-2-参数选择"><a href="#5-2-参数选择" class="headerlink" title="5.2 参数选择"></a>5.2 参数选择</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>BRAKER学习笔记</div>
+      <div>https://lixiang117423.github.io/article/braker3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年4月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/bioinf2allin1/" title="我的生物信息学知识合集">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我的生物信息学知识合集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/riceroot/" title="根际微生物调控水稻分蘖">
+                        <span class="hidden-mobile">根际微生物调控水稻分蘖</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
