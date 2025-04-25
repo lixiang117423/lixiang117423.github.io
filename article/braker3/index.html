@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504250939135.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251014959.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251039400.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251341484.png">
 <meta property="article:published_time" content="2025-04-25T02:40:11.000Z">
-<meta property="article:modified_time" content="2025-04-25T04:57:11.446Z">
+<meta property="article:modified_time" content="2025-04-25T06:27:53.381Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary_large_image">
@@ -234,7 +235,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2.6k 字
         
       </span>
     
@@ -245,7 +246,7 @@
         
         
         
-          18 分钟
+          22 分钟
         
       </span>
     
@@ -362,8 +363,31 @@
 <p><strong>Warnings</strong>：</p>
 <ul>
 <li>不能混合使用短读长和长读长的转录组数据。</li>
-<li><code>isoseq</code>数据的深度严重影响着基因预测的准确度。<h2 id="5-4-参数选择"><a href="#5-4-参数选择" class="headerlink" title="5.4 参数选择"></a>5.4 参数选择</h2><h3 id="5-4-1-—ab-initio"><a href="#5-4-1-—ab-initio" class="headerlink" title="5.4.1 —ab_initio"></a>5.4.1 —ab_initio</h3>Compute AUGUSTUS <em>ab initio</em> predictions in addition to AUGUSTUS predictions with hints (additional output files: <code>augustus.ab_initio.*</code>. This may be useful for estimating the quality of training gene parameters when inspecting predictions in a Browser.<h3 id="5-4-2-—augustus-args-”—some-arg-bla”"><a href="#5-4-2-—augustus-args-”—some-arg-bla”" class="headerlink" title="5.4.2 —augustus_args=”—some_arg=bla”"></a>5.4.2 —augustus_args=”—some_arg=bla”</h3>知道物种适用的<code>AUGUSTUS</code>的话可以把这些参数传入，使用空格进行分隔，如<code>--first_arg=sth --second_arg=sth</code>.<h3 id="5-4-3-—threads-INT"><a href="#5-4-3-—threads-INT" class="headerlink" title="5.4.3 —threads=INT"></a>5.4.3 —threads=INT</h3>指定线程数，某些步骤使用单线程，部分步骤使用多线程。设置超过8线程的话，对于多线程步骤会加速计算。<h3 id="5-4-4-—fungus"><a href="#5-4-4-—fungus" class="headerlink" title="5.4.4 —fungus"></a>5.4.4 —fungus</h3>是<code>GeneMark-ETP</code>的参数选项，如果是真菌的话使用这个参数，其他不用。<h3 id="5-4-5-—useexisting"><a href="#5-4-5-—useexisting" class="headerlink" title="5.4.5 —useexisting"></a>5.4.5 —useexisting</h3>是否使用现成的配置文件，如果使用的话就会覆盖掉软件默认的参数文件。</li>
+<li><code>isoseq</code>数据的深度严重影响着基因预测的准确度。<h2 id="5-4-参数选择"><a href="#5-4-参数选择" class="headerlink" title="5.4 参数选择"></a>5.4 参数选择</h2><h3 id="5-4-1-—ab-initio"><a href="#5-4-1-—ab-initio" class="headerlink" title="5.4.1 —ab_initio"></a>5.4.1 —ab_initio</h3>Compute AUGUSTUS <em>ab initio</em> predictions in addition to AUGUSTUS predictions with hints (additional output files: <code>augustus.ab_initio.*</code>. This may be useful for estimating the quality of training gene parameters when inspecting predictions in a Browser.<h3 id="5-4-2-—augustus-args-”—some-arg-bla”"><a href="#5-4-2-—augustus-args-”—some-arg-bla”" class="headerlink" title="5.4.2 —augustus_args=”—some_arg=bla”"></a>5.4.2 —augustus_args=”—some_arg=bla”</h3>知道物种适用的<code>AUGUSTUS</code>的话可以把这些参数传入，使用空格进行分隔，如<code>--first_arg=sth --second_arg=sth</code>.<h3 id="5-4-3-—threads-INT"><a href="#5-4-3-—threads-INT" class="headerlink" title="5.4.3 —threads=INT"></a>5.4.3 —threads=INT</h3>指定线程数，某些步骤使用单线程，部分步骤使用多线程。设置超过8线程的话，对于多线程步骤会加速计算。<h3 id="5-4-4-—fungus"><a href="#5-4-4-—fungus" class="headerlink" title="5.4.4 —fungus"></a>5.4.4 —fungus</h3>是<code>GeneMark-ETP</code>的参数选项，如果是真菌的话使用这个参数，其他不用。<h3 id="5-4-5-—useexisting"><a href="#5-4-5-—useexisting" class="headerlink" title="5.4.5 —useexisting"></a>5.4.5 —useexisting</h3>是否使用现成的配置文件，如果使用的话就会覆盖掉软件默认的参数文件。<h3 id="5-4-6-—crf"><a href="#5-4-6-—crf" class="headerlink" title="5.4.6 —crf"></a>5.4.6 —crf</h3>是否为<code>AUGUSTUS</code>执行<code>CRF training</code>，生成的参数只是用于最后的预测，使用的话会增加运行时间。<h3 id="5-4-7-—lambda-int"><a href="#5-4-7-—lambda-int" class="headerlink" title="5.4.7 —lambda=int"></a>5.4.7 —lambda=int</h3>默认的是参数值是2，如果有大量单个外显子的基因的话，参数可以设置为0.<h3 id="5-4-8-—UTR-on"><a href="#5-4-8-—UTR-on" class="headerlink" title="5.4.8 —UTR=on"></a>5.4.8 —UTR=on</h3>见上述步骤。<h3 id="5-4-9-—addUTR-on"><a href="#5-4-9-—addUTR-on" class="headerlink" title="5.4.9 —addUTR=on"></a>5.4.9 —addUTR=on</h3>见上述步骤。<h3 id="5-4-10-—stranded-…"><a href="#5-4-10-—stranded-…" class="headerlink" title="5.4.10 —stranded=+,-,.,…"></a>5.4.10 —stranded=+,-,.,…</h3>见上述步骤。<h1 id="6-输出结果"><a href="#6-输出结果" class="headerlink" title="6 输出结果"></a>6 输出结果</h1></li>
+<li><code>braker.gtf</code>：最终的基因集，不同的模式有不同的结果<ul>
+<li><code>ETPmode</code>：<code>AUGUSTUS</code>和<code>GeneMark-ETP</code>的整合结果</li>
+<li><code>otherwise</code>：官方不建议使用的模式和结果。</li>
 </ul>
+</li>
+<li><code>braker.codingseq</code>：最终基因集的编码序列。</li>
+<li><code>braker.aa</code>：最终基因集的蛋白序列。</li>
+<li><code>braker.gff3</code>：最终基因集的注释文件，需要加上<code>--gff3</code>这个参数选项。</li>
+<li><code>Augustus/*</code>：<code>Augustus</code>的输出结果。</li>
+<li><code>GeneMark-E*/genemark.gtf</code>：<code>GeneMark-ES/ET/EP/EP+/ETP</code>的输出结果。</li>
+<li><code>hintsfile.gff</code>：从转录组或者是蛋白质组中输出的结果。</li>
+<li><code>braker_original/*</code>：<code>BRAKER</code>输出的结果，这个结果是运行<code>compleasm</code>之前的结果。</li>
+<li><code>bbc/*</code>：<code>best_by_compleasm.py</code>的输出结果。</li>
+</ul>
+<p>如果设置<code>--skipGetAnnoFromFasta</code>参数的话不会生成编码序列和蛋白序列结果。</p>
+<h1 id="7-测试练习"><a href="#7-测试练习" class="headerlink" title="7 测试练习"></a>7 测试练习</h1><h2 id="7-1-数据下载"><a href="#7-1-数据下载" class="headerlink" title="7.1 数据下载"></a>7.1 数据下载</h2><p>基因组数据来自文章<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41586-025-08883-6">A pangenome reference of wild and cultivated rice</a>，选择的是品种是<code>GP119</code>，这个基因组是<code>soft masking</code>的，下载地址<a target="_blank" rel="noopener" href="http://ricepandb.ncgr.ac.cn/download">RicePandb</a>.</p>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202504251341484.png" srcset="/img/loading.gif" lazyload alt="image.png"><br>蛋白质组数据来自<a target="_blank" rel="noopener" href="https://ricerc.sicau.edu.cn/RiceRC/download/downloadBefore">Rice Resource Center</a>的R498这个水稻品种。<br>转录组数据来自文章的提供的数据：</p>
+<ul>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/lixiang117423/biohelpers_python">biohelpers</a>中的<code>get_fq_meta</code>下载测序数据的meta信息：<figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs gradle">get_fq_meta -id PRJEB73710 -o PRJEB73710.meta.txt<br><br><span class="hljs-keyword">grep</span> GP119 PRJEB73710.meta.txt | <span class="hljs-keyword">grep</span> TRANSCRIPTOMIC | awk <span class="hljs-string">'{print $1}'</span><br></code></pre></td></tr></tbody></table></figure>
+这四个文件是GP119的转录组数据：<figure class="highlight dns"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dns">ERR<span class="hljs-number">13336195</span>                                                                                        <br>ERR<span class="hljs-number">13336317</span>                                                                                        <br>ERR<span class="hljs-number">13336603</span>                                                                                        <br>ERR<span class="hljs-number">13336454</span><br></code></pre></td></tr></tbody></table></figure></li>
+<li>使用<a target="_blank" rel="noopener" href="https://github.com/lixiang117423/biohelpers_python">biohelpers</a>中的<code>get_fq_file</code>下载测序数据的meta信息（全部下载后再筛选）<figure class="highlight applescript"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">get_fq_file -<span class="hljs-built_in">id</span> PRJEB73710 -m save -t ftp -o ./<br></code></pre></td></tr></tbody></table></figure>
+</li>
+</ul>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">grep ERR13336195 download_PRJEB73710_fastq_by_wget<span class="hljs-selector-class">.sh</span> &gt;&gt; download<span class="hljs-selector-class">.final</span><span class="hljs-selector-class">.sh</span>                   <br>grep ERR13336317 download_PRJEB73710_fastq_by_wget<span class="hljs-selector-class">.sh</span> &gt;&gt; download<span class="hljs-selector-class">.final</span><span class="hljs-selector-class">.sh</span>                  <br>grep ERR13336603 download_PRJEB73710_fastq_by_wget<span class="hljs-selector-class">.sh</span> &gt;&gt; download<span class="hljs-selector-class">.final</span><span class="hljs-selector-class">.sh</span>                  <br>grep ERR13336454 download_PRJEB73710_fastq_by_wget<span class="hljs-selector-class">.sh</span> &gt;&gt; download<span class="hljs-selector-class">.final</span>.sh<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
