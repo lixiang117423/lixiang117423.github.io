@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="1 IntroductionGitHub地址文章链接 使用手册大佬Evan E. Eichler团队基于Miropeats开发的用于基因组结构变异可视化的工具SVbyEye，使用ggplot2绘图语法实现。 2 PAF格式输入文件需要输入的文件是PAF格式的，官方使用的比对软件是minimap2 (version &gt;&#x3D;2.24)，但是任何sequence-to-sequence比对生成的结果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="结构变异可视化工具SVbyEye">
+<meta property="og:url" content="https://lixiang117423.github.io/article/svbyeye/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="1 IntroductionGitHub地址文章链接 使用手册大佬Evan E. Eichler团队基于Miropeats开发的用于基因组结构变异可视化的工具SVbyEye，使用ggplot2绘图语法实现。 2 PAF格式输入文件需要输入的文件是PAF格式的，官方使用的比对软件是minimap2 (version &gt;&#x3D;2.24)，但是任何sequence-to-sequence比对生成的结果">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418997.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418998.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418999.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418000.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418001.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418002.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418003.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418005.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418006.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418007.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418008.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418009.png">
+<meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418010.png">
+<meta property="article:published_time" content="2025-05-09T06:19:08.000Z">
+<meta property="article:modified_time" content="2025-05-09T06:20:04.459Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418997.png">
+  
+  
+  
+  <title>结构变异可视化工具SVbyEye - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="结构变异可视化工具SVbyEye"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-09 14:19" pubdate>
+          2025年5月9日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          943 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">结构变异可视化工具SVbyEye</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1 Introduction"></a>1 Introduction</h1><p><a target="_blank" rel="noopener" href="https://github.com/daewoooo/SVbyEye">GitHub地址</a><br><a target="_blank" rel="noopener" href="https://www.biorxiv.org/content/10.1101/2024.09.11.612418v1">文章链接</a></p>
+<h2 id="使用手册"><a href="#使用手册" class="headerlink" title="使用手册"></a><a target="_blank" rel="noopener" href="https://htmlpreview.github.io/?https://github.com/daewoooo/SVbyEye/blob/master/man/doc/SVbyEye.html">使用手册</a></h2><p>大佬Evan E. Eichler团队基于Miropeats开发的用于基因组结构变异可视化的工具SVbyEye，使用ggplot2绘图语法实现。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418997.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412155600"></p>
+<h1 id="2-PAF格式输入文件"><a href="#2-PAF格式输入文件" class="headerlink" title="2 PAF格式输入文件"></a>2 PAF格式输入文件</h1><p>需要输入的文件是PAF格式的，官方使用的比对软件是minimap2 (version &gt;=2.24)，但是任何sequence-to-sequence比对生成的结果只要可以转换为PAF格式都可以。如果使用minimap2进行比对的话不能设置<code>-a</code>这个参数，这个参数生成的结果是SAM格式；但是要设置<code>-c</code>这个参数将 CIGAR strings导出为PAF文件中的<code>cg</code>标签；建议设置<code>–eqx</code>参数将CIGAR string标记为<code>=/X</code>，这个是用来表示<code>match/mismatch</code>的。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418998.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412161314"></p>
+<h2 id="2-1-assembly-to-reference"><a href="#2-1-assembly-to-reference" class="headerlink" title="2.1 assembly-to-reference"></a>2.1 assembly-to-reference</h2><figure class="highlight dust"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml">minimap2 -x asm20 -c –eqx –secondary=no </span><span class="hljs-template-variable">{reference.fasta}</span><span class="language-xml"> </span><span class="hljs-template-variable">{query.fasta}</span><span class="language-xml"> &gt; </span><span class="hljs-template-variable">{output.alignment}</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-2-sequence-to-sequence"><a href="#2-2-sequence-to-sequence" class="headerlink" title="2.2 sequence-to-sequence"></a>2.2 sequence-to-sequence</h2><figure class="highlight llvm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs llvm">minimap<span class="hljs-number">2</span> -<span class="hljs-keyword">x</span> <span class="hljs-keyword">asm</span><span class="hljs-number">20</span> -<span class="hljs-keyword">c</span> –eqx –secondary<span class="hljs-operator">=</span>no {<span class="hljs-keyword">target</span>.fasta} {query.fasta} &gt; {output.alignment}<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="2-3-all-versus-all"><a href="#2-3-all-versus-all" class="headerlink" title="2.3 all-versus-all"></a>2.3 all-versus-all</h2><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">minimap2 -x asm20 -c –eqx -D -P –dual=no {<span class="hljs-selector-tag">input</span><span class="hljs-selector-class">.multi</span>.fasta} {<span class="hljs-selector-tag">input</span><span class="hljs-selector-class">.multi</span>.fasta} &gt; {output<span class="hljs-selector-class">.ava</span>.alignment}<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="3-读取和过滤PAF文件"><a href="#3-读取和过滤PAF文件" class="headerlink" title="3 读取和过滤PAF文件"></a>3 读取和过滤PAF文件</h1><h2 id="3-1-读取"><a href="#3-1-读取" class="headerlink" title="3.1 读取"></a>3.1 读取</h2><figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-comment">## 获取PAF文件的路径</span><br><br>paf.<span class="hljs-built_in">file</span> &lt;- <span class="hljs-keyword">system</span>.<span class="hljs-built_in">file</span>(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test1.paf"</span>,package = <span class="hljs-string">"SVbyEye"</span>)<br><br><span class="hljs-comment">## 读取PAF文件</span><br>paf.table &lt;- readPaf(<br><br>    paf.<span class="hljs-built_in">file</span> = paf.<span class="hljs-built_in">file</span>,<br><br>    <span class="hljs-built_in">include</span>.paf.tags = <span class="hljs-literal">TRUE</span>, restrict.paf.tags = <span class="hljs-string">"cg"</span><br><br>)<br><br><span class="hljs-comment">## 查看读入的PAF文件</span><br>paf.table<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="3-2-过滤"><a href="#3-2-过滤" class="headerlink" title="3.2 过滤"></a>3.2 过滤</h2><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">## 基于比对的大小进行筛选<br>filter<span class="hljs-constructor">Paf(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">min</span>.<span class="hljs-params">align</span>.<span class="hljs-params">len</span> = 100000)</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="3-3-转换"><a href="#3-3-转换" class="headerlink" title="3.3 转换"></a>3.3 转换</h2><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">## 强制调换PAF比对结果中的链特征<br>flip<span class="hljs-constructor">Paf(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">force</span> = TRUE)</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="4-sequence-to-sequence比对结果可视化"><a href="#4-sequence-to-sequence比对结果可视化" class="headerlink" title="4 sequence-to-sequence比对结果可视化"></a>4 sequence-to-sequence比对结果可视化</h1><p>可视化的主要函数是<code>plotMiro()</code>，可以可视化一个序列比对到参考基因组的结果，也可以可视化两个及以上序列相互比对的结果。这个函数输出的图像是水平的，最上面的是<code>target sequence</code>，下面的是<code>query sequence</code>.<br></p><figure class="highlight stata"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stata">library(SVbyEye)<br><br>## Get PAF to <span class="hljs-keyword">plot</span><br>paf.<span class="hljs-keyword">file</span> &lt;- system.<span class="hljs-keyword">file</span>(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test1.paf"</span>,<br>    package = <span class="hljs-string">"SVbyEye"</span><br>)<br><br>## <span class="hljs-keyword">Read</span> <span class="hljs-keyword">in</span> PAF<br>paf.<span class="hljs-keyword">table</span> &lt;- readPaf(<br>    paf.<span class="hljs-keyword">file</span> = paf.<span class="hljs-keyword">file</span>,<br>    <span class="hljs-keyword">include</span>.paf.tags = TRUE, restrict.paf.tags = <span class="hljs-string">"cg"</span><br>)<br><br>paf.<span class="hljs-keyword">table</span><br><br>## Make a <span class="hljs-keyword">plot</span> colored <span class="hljs-keyword">by</span> alignment directionality<br>plotMiro(paf.<span class="hljs-keyword">table</span> = paf.<span class="hljs-keyword">table</span>, color.<span class="hljs-keyword">by</span> = <span class="hljs-string">"direction"</span>)<br></code></pre></td></tr></tbody></table></figure><br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418999.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412165205"><br><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"># 设置颜色<br>plot<span class="hljs-constructor">Miro(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">color</span>.<span class="hljs-params">palette</span> = <span class="hljs-params">c</span>(<span class="hljs-string">"+"</span> = <span class="hljs-string">"azure3"</span>, <span class="hljs-string">"-"</span> = <span class="hljs-string">"yellow3"</span>)</span>)<br></code></pre></td></tr></tbody></table></figure><br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418000.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412165241"><br><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"># 使用相似度上色，而不是方向<br>plot<span class="hljs-constructor">Miro(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">color</span>.<span class="hljs-params">by</span> = <span class="hljs-string">"identity"</span>)</span><br></code></pre></td></tr></tbody></table></figure><br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418001.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412165313"><br><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"># 设置划窗的大小<br>plot<span class="hljs-constructor">Miro(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">binsize</span> = 1000)</span><br></code></pre></td></tr></tbody></table></figure><br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418002.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412165121"><p></p>
+<h2 id="4-1-添加注释信息"><a href="#4-1-添加注释信息" class="headerlink" title="4.1 添加注释信息"></a>4.1 添加注释信息</h2><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">## Make a plot<br>plt &lt;- plot<span class="hljs-constructor">Miro(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>)</span><br>## Load target annotation file<br>target.annot &lt;- system.file(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test1_target_annot.txt"</span>, package = <span class="hljs-string">"SVbyEye"</span>)<br>target.annot.df &lt;- read.table(target.annot, header = TRUE, sep = <span class="hljs-string">"\t"</span>, stringsAsFactors = FALSE)<br>target.annot.gr &lt;- GenomicRanges::make<span class="hljs-constructor">GRangesFromDataFrame(<span class="hljs-params">target</span>.<span class="hljs-params">annot</span>.<span class="hljs-params">df</span>)</span><br><br>## Add target annotation <span class="hljs-keyword">as</span> arrowhead<br>add<span class="hljs-constructor">Annotation(<span class="hljs-params">ggplot</span>.<span class="hljs-params">obj</span> = <span class="hljs-params">plt</span>, <span class="hljs-params">annot</span>.<span class="hljs-params">gr</span> = <span class="hljs-params">target</span>.<span class="hljs-params">annot</span>.<span class="hljs-params">gr</span>, <span class="hljs-params">coordinate</span>.<span class="hljs-params">space</span> = <span class="hljs-string">"target"</span>)</span><br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418003.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412165739"><br></p><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">## Load query annotation file<br>query.annot &lt;- system.file(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test1_query_annot.txt"</span>, package = <span class="hljs-string">"SVbyEye"</span>)<br>query.annot.df &lt;- read.table(query.annot, header = TRUE, sep = <span class="hljs-string">"\t"</span>, stringsAsFactors = FALSE)<br>query.annot.gr &lt;- GenomicRanges::make<span class="hljs-constructor">GRangesFromDataFrame(<span class="hljs-params">query</span>.<span class="hljs-params">annot</span>.<span class="hljs-params">df</span>)</span><br><br>## Add query annotation <span class="hljs-keyword">as</span> rectangle<br>add<span class="hljs-constructor">Annotation(<span class="hljs-params">ggplot</span>.<span class="hljs-params">obj</span> = <span class="hljs-params">plt</span>, <span class="hljs-params">annot</span>.<span class="hljs-params">gr</span> = <span class="hljs-params">query</span>.<span class="hljs-params">annot</span>.<span class="hljs-params">gr</span>, <span class="hljs-params">shape</span> = <span class="hljs-string">"rectangle"</span>, <span class="hljs-params">coordinate</span>.<span class="hljs-params">space</span> = <span class="hljs-string">"query"</span>)</span><br></code></pre></td></tr></tbody></table></figure><br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418005.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412165852"><p></p>
+<h2 id="4-2-添加基因注释信息"><a href="#4-2-添加基因注释信息" class="headerlink" title="4.2 添加基因注释信息"></a>4.2 添加基因注释信息</h2><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">## <span class="hljs-keyword">Create</span> gene-<span class="hljs-keyword">like</span> annotation<br>test.gr &lt;- GenomicRanges::GRanges(<br>              seqnames = <span class="hljs-string">'target.region'</span>,<br>              ranges = IRanges::IRanges(start = c(<span class="hljs-number">19000000</span>,<span class="hljs-number">19030000</span>,<span class="hljs-number">19070000</span>),<br>                                        end = c(<span class="hljs-number">19010000</span>,<span class="hljs-number">19050000</span>,<span class="hljs-number">19090000</span>)),<br>                                        ID = <span class="hljs-string">'gene1'</span>)<br><br>## <span class="hljs-keyword">Add</span> single gene annotation<br>addAnnotation(ggplot.obj = plt, annot.gr = test.gr, coordinate.space = "target",shape = <span class="hljs-string">'rectangle'</span>, annotation.<span class="hljs-keyword">group</span> = <span class="hljs-string">'ID'</span>, fill.<span class="hljs-keyword">by</span> = <span class="hljs-string">'ID'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418006.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412170137"></p>
+<h2 id="4-3-强调某个部分"><a href="#4-3-强调某个部分" class="headerlink" title="4.3 强调某个部分"></a>4.3 强调某个部分</h2><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">## Make a plot<br>plt1 &lt;- plotMiro(paf.table = paf.<span class="hljs-keyword">table</span>, <span class="hljs-keyword">add</span>.alignment.arrows = <span class="hljs-keyword">FALSE</span>)<br><br>## Highlight alignment <span class="hljs-keyword">as</span> a filled <span class="hljs-type">polygon</span><br>addAlignments(ggplot.obj = plt1, paf.table = paf.<span class="hljs-keyword">table</span>[<span class="hljs-number">3</span>,], fill.<span class="hljs-keyword">by</span> = <span class="hljs-string">'strand'</span>,<br>              fill.palette = c(<span class="hljs-string">'+'</span> = <span class="hljs-string">'red'</span>))<br>addAlignments(ggplot.obj = plt1, paf.table = paf.<span class="hljs-keyword">table</span>[<span class="hljs-number">4</span>,], linetype = <span class="hljs-string">'dashed'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="4-4-插入和缺失检测与可视化"><a href="#4-4-插入和缺失检测与可视化" class="headerlink" title="4.4 插入和缺失检测与可视化"></a>4.4 插入和缺失检测与可视化</h2><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">plot<span class="hljs-constructor">Miro(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">min</span>.<span class="hljs-params">deletion</span>.<span class="hljs-params">size</span> = 50, <span class="hljs-params">highlight</span>.<span class="hljs-params">sv</span> = <span class="hljs-string">"fill"</span>)</span> -&gt; p<br>ggsave(p, file = <span class="hljs-string">"D:/OneDrive/桌面/4.pdf"</span>, width = <span class="hljs-number">8</span>, height = <span class="hljs-number">4</span>, dpi = <span class="hljs-number">500</span>, bg = <span class="hljs-string">"white"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418007.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412170634"></p>
+<h2 id="4-5-热图展示GC含量"><a href="#4-5-热图展示GC含量" class="headerlink" title="4.5 热图展示GC含量"></a>4.5 热图展示GC含量</h2><figure class="highlight livecodeserver"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver"><span class="hljs-comment">## Get PAF to plot</span><br>paf.<span class="hljs-built_in">file</span> &lt;- <span class="hljs-keyword">system</span>.<span class="hljs-built_in">file</span>(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test_getFASTA.paf"</span>,<br>    package = <span class="hljs-string">"SVbyEye"</span><br>)<br><br><span class="hljs-comment">## Read in PAF</span><br>paf.table &lt;- readPaf(<br>    paf.<span class="hljs-built_in">file</span> = paf.<span class="hljs-built_in">file</span>,<br>    <span class="hljs-built_in">include</span>.paf.tags = <span class="hljs-literal">TRUE</span>, restrict.paf.tags = <span class="hljs-string">"cg"</span><br>)<br><br><span class="hljs-comment">## Make a plot colored by alignment directionality</span><br>plt &lt;- plotMiro(paf.table = paf.table, color.<span class="hljs-keyword">by</span> = <span class="hljs-string">"direction"</span>)<br><br><span class="hljs-comment">## Get query sequence composition</span><br>fa.<span class="hljs-built_in">file</span> &lt;- paf.<span class="hljs-built_in">file</span> &lt;- <span class="hljs-keyword">system</span>.<span class="hljs-built_in">file</span>(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test_getFASTA_query.fasta"</span>,<br>    package = <span class="hljs-string">"SVbyEye"</span><br>)<br><br><span class="hljs-comment">## Calculate GC content per 5kbp bin</span><br>gc.content &lt;- fasta2nucleotideContent(fasta.<span class="hljs-built_in">file</span> = fa.<span class="hljs-built_in">file</span>,<br>                                      binsize = <span class="hljs-number">5000</span>, nucleotide.content = <span class="hljs-string">'GC'</span>)<br><br><span class="hljs-comment">## Add GC content as annotation heatmap</span><br>addAnnotation(ggplot.obj = plt, annot.gr = gc.content, shape = <span class="hljs-string">'rectangle'</span>,<br>              fill.<span class="hljs-keyword">by</span> = <span class="hljs-string">'GC_nuc.freq'</span>, coordinate.<span class="hljs-literal">space</span> = <span class="hljs-string">'query'</span>, annotation.label = <span class="hljs-string">'GCcont'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418008.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412170915"></p>
+<h2 id="4-6-多序列比对结果"><a href="#4-6-多序列比对结果" class="headerlink" title="4.6 多序列比对结果"></a>4.6 多序列比对结果</h2><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">## Get PAF <span class="hljs-keyword">to</span> plot<br>paf.file &lt;- system.file(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"test_ava.paf"</span>, package = <span class="hljs-string">"SVbyEye"</span>)<br><br>## Read <span class="hljs-keyword">in</span> PAF<br>paf.table &lt;- read<span class="hljs-constructor">Paf(<span class="hljs-params">paf</span>.<span class="hljs-params">file</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">file</span>, <span class="hljs-params">include</span>.<span class="hljs-params">paf</span>.<span class="hljs-params">tags</span> = TRUE, <span class="hljs-params">restrict</span>.<span class="hljs-params">paf</span>.<span class="hljs-params">tags</span> = <span class="hljs-string">"cg"</span>)</span><br><br>plot<span class="hljs-constructor">AVA(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">binsize</span> = 20000)</span><br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418009.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412171154"></p>
+<h1 id="5-全基因组比对可视化"><a href="#5-全基因组比对可视化" class="headerlink" title="5 全基因组比对可视化"></a>5 全基因组比对可视化</h1><figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">## Get PAF <span class="hljs-keyword">to</span> plot ##<br>paf.file &lt;- system.file(<span class="hljs-string">"extdata"</span>, <span class="hljs-string">"PTR_test.paf"</span>, package = <span class="hljs-string">"SVbyEye"</span>)<br><br>## Read <span class="hljs-keyword">in</span> PAF<br>paf.table &lt;- read<span class="hljs-constructor">Paf(<span class="hljs-params">paf</span>.<span class="hljs-params">file</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">file</span>)</span><br><br>## Color by alignment directionality<br><br>plot<span class="hljs-constructor">Genome(<span class="hljs-params">paf</span>.<span class="hljs-params">table</span> = <span class="hljs-params">paf</span>.<span class="hljs-params">table</span>, <span class="hljs-params">chromosomes</span> = <span class="hljs-params">paste0</span>('<span class="hljs-params">chr</span>', <span class="hljs-params">c</span>(4, 5, 9, 12)</span>), chromosome.bar.width = grid::<span class="hljs-built_in">unit</span>(<span class="hljs-number">2</span>, 'mm'), min.query.aligned.bp = <span class="hljs-number">5000000</span>)<br></code></pre></td></tr></tbody></table></figure>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202505091418010.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20250412171533"></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>结构变异可视化工具SVbyEye</div>
+      <div>https://lixiang117423.github.io/article/svbyeye/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/bioinf2allin1/" title="我的生物信息学知识合集">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">我的生物信息学知识合集</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/pangenome-vg/" title="泛基因组工具vg">
+                        <span class="hidden-mobile">泛基因组工具vg</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
