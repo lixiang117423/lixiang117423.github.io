@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-05-09T01:08:58.994Z</updated>
+  <updated>2025-05-09T01:08:58.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lixiang117423.github.io/article/bioinf2allin1/"/>
     <id>https://lixiang117423.github.io/article/bioinf2allin1/</id>
     <published>2222-12-30T16:00:00.000Z</published>
-    <updated>2025-05-09T01:08:58.994Z</updated>
+    <updated>2025-05-09T01:08:58.000Z</updated>
     
     
       
@@ -43,11 +43,37 @@
   </entry>
   
   <entry>
+    <title>泛基因组工具vg</title>
+    <link href="https://lixiang117423.github.io/article/pangenome-vg/"/>
+    <id>https://lixiang117423.github.io/article/pangenome-vg/</id>
+    <published>2025-05-09T06:16:15.000Z</published>
+    <updated>2025-05-09T06:17:16.665Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;vg：variation graph data structures, interchange formats, alignment, genotyping, and variant calling methods.&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PGGB学习笔记</title>
     <link href="https://lixiang117423.github.io/article/pggb/"/>
     <id>https://lixiang117423.github.io/article/pggb/</id>
     <published>2025-05-09T00:56:07.000Z</published>
-    <updated>2025-05-09T00:56:47.647Z</updated>
+    <updated>2025-05-09T00:56:47.000Z</updated>
     
     
       
@@ -72,7 +98,7 @@
     <link href="https://lixiang117423.github.io/article/braker3/"/>
     <id>https://lixiang117423.github.io/article/braker3/</id>
     <published>2025-04-25T02:40:11.000Z</published>
-    <updated>2025-04-25T06:27:53.000Z</updated>
+    <updated>2025-04-25T06:27:53.381Z</updated>
     
     
       
@@ -98,7 +124,7 @@
     <link href="https://lixiang117423.github.io/article/riceroot/"/>
     <id>https://lixiang117423.github.io/article/riceroot/</id>
     <published>2025-04-24T08:02:35.000Z</published>
-    <updated>2025-04-24T08:04:17.000Z</updated>
+    <updated>2025-04-24T08:04:17.958Z</updated>
     
     
       
@@ -1257,31 +1283,6 @@
         
     <summary type="html">&lt;p&gt;Rstudio-Server绘图报错：&lt;/p&gt;
 &lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>快速获取GO注释信息</title>
-    <link href="https://lixiang117423.github.io/article/getgo/"/>
-    <id>https://lixiang117423.github.io/article/getgo/</id>
-    <published>2023-05-17T12:45:54.000Z</published>
-    <updated>2023-12-10T05:18:19.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
