@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-05-09T01:08:58.000Z</updated>
+  <updated>2025-05-09T06:20:04.459Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>我的生物信息学知识合集</title>
-    <link href="https://lixiang117423.github.io/article/bioinf2allin1/"/>
-    <id>https://lixiang117423.github.io/article/bioinf2allin1/</id>
-    <published>2222-12-30T16:00:00.000Z</published>
-    <updated>2025-05-09T01:08:58.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h1&gt;&lt;p&gt;趁着这次培训，把学的东西都整理一下。不断更新，想到啥更新啥。。。。。。&lt;/p&gt;
-&lt;h1 id=&quot;软件推荐&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
   
   <entry>
     <title>结构变异可视化工具SVbyEye</title>
@@ -1282,6 +1256,32 @@
         
         
     <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Rstudio-server绘图报错</title>
+    <link href="https://lixiang117423.github.io/article/rstudoserverploterror/"/>
+    <id>https://lixiang117423.github.io/article/rstudoserverploterror/</id>
+    <published>2023-05-30T03:20:01.000Z</published>
+    <updated>2023-12-10T05:18:18.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Rstudio-Server绘图报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
