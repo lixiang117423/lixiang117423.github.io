@@ -27,14 +27,11 @@
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="下载安装Rshiny-server参考链接：  https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s?src&#x3D;11&amp;timestamp&#x3D;1610162005&amp;ver&#x3D;2817&amp;signature&#x3D;BhA59HXhKAj1PYvJS11senjcK8co0LgnZ2iS-7RlClhHqqsESkCMVrw*HFaCnmTHdlC9CiGzbKV*xlzUOr6hXj6vME">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lixiang117423.github.io/article/96076236/1.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/96076236/2.png">
 <meta property="article:published_time" content="2021-01-09T02:53:19.000Z">
 <meta property="article:modified_time" content="2023-12-10T05:18:18.000Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lixiang117423.github.io/article/96076236/1.png">
   
   
   
@@ -334,11 +331,11 @@
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">Disconnected from the server.<br>Reload<br></code></pre></td></tr></tbody></table></figure>
 </li>
 <li><p>如果显示下面的图片，通常是R包和R版本冲突，需要重新安装R包。</p>
-<img src="/article/96076236/1.png" srcset="/img/loading.gif" lazyload class="">
+
 </li>
 </ul>
 <h1 id="用户传入文件"><a href="#用户传入文件" class="headerlink" title="用户传入文件"></a>用户传入文件</h1><p>用户传入的文件结构是这样的：</p>
-<img src="/article/96076236/2.png" srcset="/img/loading.gif" lazyload class="">
+
 <ul>
 <li><p>上传多个文件：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs R">fileInput<span class="hljs-punctuation">(</span><span class="hljs-string">"data_input"</span><span class="hljs-punctuation">,</span><br>                       label <span class="hljs-operator">=</span> h4<span class="hljs-punctuation">(</span><span class="hljs-string">"上传数据"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                       multiple <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span><br>                       accept <span class="hljs-operator">=</span> <span class="hljs-string">".csv"</span><span class="hljs-punctuation">,</span><br>                       buttonLabel <span class="hljs-operator">=</span> <span class="hljs-string">"浏览..."</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>

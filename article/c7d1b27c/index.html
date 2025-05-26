@@ -27,24 +27,11 @@
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="写在前面前两天在某个群里面，两个群友争论起来，给我的感受是我们使用某个方法之前还是需要了解基本的概念和用法，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/2.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/3.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/1.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/4.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/5.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/7.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/6.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/8.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/12.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/9.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/10.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/c7d1b27c/11.png">
 <meta property="article:published_time" content="2021-02-01T08:14:44.000Z">
 <meta property="article:modified_time" content="2023-12-10T05:18:18.000Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="Tools4You">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lixiang117423.github.io/article/c7d1b27c/2.png">
   
   
   
@@ -296,36 +283,36 @@
                 <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>前两天在某个群里面，两个群友争论起来，给我的感受是<strong>我们使用某个方法之前还是需要了解基本的概念和用法，<span id="more"></span>不能拿着就往自己的数据上套。</strong>这也是我觉得我自己还需要学习很多东西的原因。</p>
 <h1 id="Anova教程"><a href="#Anova教程" class="headerlink" title="Anova教程"></a>Anova教程</h1><ul>
 <li><p>数据格式：分组信息必须在第一列，名称不一定必须是“group”，只要保证分组信息在第一列即可，后面的表示的是重复，重复也不一定要写成“rep_”，写什么都行。</p>
-<img src="/article/c7d1b27c/2.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>如果数据有缺失值的话空出来就行，就像这样（此处感谢师弟提出的需求！）：</p>
-<img src="/article/c7d1b27c/3.png" srcset="/img/loading.gif" lazyload class="">
+
 </li>
 <li><p>选择模块：打开网站<a target="_blank" rel="noopener" href="http://shinyapp.top:3838/Tools4You/，选择”Anova”模块：">http://shinyapp.top:3838/Tools4You/，选择”Anova”模块：</a></p>
-<img src="/article/c7d1b27c/1.png" srcset="/img/loading.gif" lazyload class="">
+
 </li>
 <li><p>上传数据：目前只支持CSV格式的数据，初次使用可以下载示例数据用示例数据先熟悉熟悉流程。</p>
 </li>
-<li><p>误差棒数据：Anova模块出图默认的是柱状图，柱状图通常需要加上误差棒， 误差棒通常使用的是均值±标准差来表示，也有使用均值±标准误来表示的。因此，我们提供了这两种选择（默认是标准差）：<br><img src="/article/c7d1b27c/4.png" srcset="/img/loading.gif" lazyload class="">.</p>
+<li><p>误差棒数据：Anova模块出图默认的是柱状图，柱状图通常需要加上误差棒， 误差棒通常使用的是均值±标准差来表示，也有使用均值±标准误来表示的。因此，我们提供了这两种选择（默认是标准差）：<br>.</p>
 </li>
 <li><p>是否显示显著性：方差分析的结果通常是用字母来表示的，如果这个选项选择的是“否”，那就不会在柱子上标注显著性，默认是“是”：</p>
-<img src="/article/c7d1b27c/5.png" srcset="/img/loading.gif" lazyload class="">
+
 </li>
 <li><p>添加散点：通常柱状图上是没有散点的，现在某些期刊上会在柱状图上添加上散点，这样可以明显地看出重复之间的重复性好不好，比误差棒更加直观，默认是不添加散点的，需要添加的话改成“是”即可：</p>
-<img src="/article/c7d1b27c/7.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/article/c7d1b27c/6.png" srcset="/img/loading.gif" lazyload class="">
+
+
 </li>
 <li><p>点击提交：设置完上述这些参数后，直接点击下方的“点击提交”按钮，稍等几秒钟，就能在右边弹出计算的结果和图片：</p>
-<img src="/article/c7d1b27c/8.png" srcset="/img/loading.gif" lazyload class="">
+
 </li>
 <li><p>柱子顺序：R绘图会按照默认的顺序排序绘图，如果顺序不是自己想要的，按照下面的方法输入自己想要的顺序即可，<font color="red">必须用英文逗号分隔!!!</font>&gt;</p>
-<img src="/article/c7d1b27c/12.png" srcset="/img/loading.gif" lazyload class="">
+
 </li>
 <li><p>其他参数：</p>
 <ul>
-<li>柱子宽度：默认的是0.6，如果出图的结果柱子太宽或太窄，可以滑动滑块调节这个参数：<img src="/article/c7d1b27c/9.png" srcset="/img/loading.gif" lazyload class=""></li>
+<li>柱子宽度：默认的是0.6，如果出图的结果柱子太宽或太窄，可以滑动滑块调节这个参数：</li>
 <li>柱子颜色：默认的参照AAAS系列杂志的配送进行上色，自定义颜色的时候颜色的数量需要和柱子数量对应，但是如果只想设置成一种颜色，比如黑色，那输入一个“black”即可。</li>
-<li>其他绘图参数：坐标轴、标题等直接输入就好：<img src="/article/c7d1b27c/10.png" srcset="/img/loading.gif" lazyload class=""></li>
-<li>图片下载格式：默认的是PDF格式，因为PDF是矢量图，可以自由编辑，其他的几类图大多不可编辑，建议下载PDF格式图片，后续要细调啥的方便：<img src="/article/c7d1b27c/11.png" srcset="/img/loading.gif" lazyload class="">
+<li>其他绘图参数：坐标轴、标题等直接输入就好：</li>
+<li>图片下载格式：默认的是PDF格式，因为PDF是矢量图，可以自由编辑，其他的几类图大多不可编辑，建议下载PDF格式图片，后续要细调啥的方便：
 </li>
 </ul>
 <p>将所有参数设置完成后再次点击“点击提交”按钮即可，然后下载结果表格和图片即可。</p>

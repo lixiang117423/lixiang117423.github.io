@@ -27,24 +27,12 @@
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="看到这样一篇文献$^{[1]}$，利用转录组研究水稻-稻瘟病互作过程中的核心基因。想着水稻-稻瘟病互作中转录组研究还有啥好做的呢，结果仔细一看，直呼精彩，尤其是转录组数据分析思路何技巧，让我受益匪浅。  试验设计首先是试验设计很巧妙，利用一个感病品种Nipponbare和抗性品种Hui1586为材料，在温室进行稻瘟病接种，然后12h、24h、36h及48h进行采样。每个时间点都设置了对照。对叶片进">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/1.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/2.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/3.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/4.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/5.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/6.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/7.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/8.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/9.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/10.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/riceblast/11.png">
 <meta property="article:published_time" content="2021-11-25T10:49:33.000Z">
 <meta property="article:modified_time" content="2023-12-10T05:18:19.000Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="分子生物学">
 <meta property="article:tag" content="文献">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lixiang117423.github.io/article/riceblast/1.png">
   
   
   
@@ -294,7 +282,7 @@
               <div class="markdown-body">
                 
                 <p>看到这样一篇文献$^{[1]}$，利用转录组研究水稻-稻瘟病互作过程中的核心基因。想着水稻-稻瘟病互作中转录组研究还有啥好做的呢，结果仔细一看，直呼精彩，尤其是转录组数据分析思路何技巧，让我受益匪浅。</p>
-<img src="/article/riceblast/1.png" srcset="/img/loading.gif" lazyload class="">
+
 <h1 id="试验设计"><a href="#试验设计" class="headerlink" title="试验设计"></a>试验设计</h1><p>首先是试验设计很巧妙，利用一个感病品种Nipponbare和抗性品种Hui1586为材料，在温室进行稻瘟病接种，然后12h、24h、36h及48h进行采样。每个时间点都设置了对照。对叶片进行转录组分析。</p>
 <ul>
 <li>间隔12h可以把生物钟的影响考虑进去；</li>
@@ -302,23 +290,23 @@
 <li>每个时间点都设置对照，可以进一步探究生物钟的影响。</li>
 </ul>
 <h1 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h1><p>从PCA和层次聚类可以看出不同时间段的处理是分开的，不管是接种还是没接种，也就说时间变化是最大的影响因素。尤其是从层次聚类可以看出的是，CK（$H_2O$）和处理是明显分开的，每个时间段都是这样。这表明稻瘟病菌的侵染对水稻基因的转录表达影响明显。但是值得注意的是，基因的转录表达并不是随着时间变化的梯度变化的，12个小时之后并不是24小时，而是36小时。但是很明显的可以看出接种稻瘟病菌12小时后水稻基因的转录表达和其余三个时间段完全不一样。</p>
-<img src="/article/riceblast/2.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>进一步分析基因表达上调下调的情况，发现不管是抗性品种还是感病品种，在接种12小时后基因的转录表达变化最大，这个就和之前的研究不一样，之前的研究发现稻瘟病菌侵染24小时的时候基因的变化最明显。作者人为稻瘟病侵染后水稻基因表达变化最显著的时间点还在12小时之前，需要更多的时间点来证明（注：我猜测他们正在做这个）。比较抗感品种差异基因，发现全部差异表达基因中有8211个是共有的，也就说明水稻在响应稻瘟病菌侵染的过程中大量基因的转录表达发生了变化。抗感品种中特异性表达以响应稻瘟病侵染的基因数量差不多。这也说明抗感水稻品种在响应稻瘟病侵染的过程中，部分基因是特异性的。</p>
-<img src="/article/riceblast/3.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>为了进一步证明抗感品种响应稻瘟病过程中具有差异，还做了染色，36小时和48小时的结果差异是很明显的。</p>
-<img src="/article/riceblast/4.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>抗感品种之间的差异很可能是由基础免疫差异导致的，对CK处理下两个水稻品种进行比较（下图）：很有趣是，即使没有稻瘟病菌的侵染，两个水稻品种的差异表达基因在12h的时候也是最多的，而且差异基因数量随着时间变化在逐渐减少。通过韦恩图分析发现有1331个基因在48小时内的转录表达均有差异。而且对这些差异基因进行KEGG和GO富集分析，发现这些差异基因多和防御相关。通常分析到这里就结束了，但是作者还研究了差异基因中类受体激酶和NLR受体相关基因的比例，发现在这1331个差异基因中，类受体激酶及NLR相关基因所占的比例远比基因组中的比列高，也就是说抗感差异品种的基础免疫差异是很明显的，基础免疫响应过程中富集到的与类受体激酶及NLR受体相关的基因的数量有明显差异的。</p>
-<img src="/article/riceblast/5.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>在证明抗感品种的基础免疫具有差异以后，紧接着就应该看稻瘟病菌侵染对水稻基因转录表达的影响。首先是常规的韦恩图分析，首先可以看出在稻瘟病菌侵染后，转录表达发生变化的基因中上调的占多数。还是和之前的结果一样，12小时时发生变化的基因是最多的。然后就对12小时的差异基因进行分析，也就是说稻瘟病菌侵染后的12小时内，水稻植株基因的转录表达发生了急剧变化。KEGG和GO富集发现，12小时的差异基因多和蛋白合成相关，如KEGG中的“Ribosome”及GO中的“translation”。从这个结果作者人为水稻对稻瘟病菌响应的过程中，蛋白质合成发生了明显的变化。将蛋白合成相关的基因进行进一步的研究，进一步证明了该结果。整个部分的结果说明水稻在响应稻瘟病菌侵染的过程中蛋白质相关的机制是很重要的影响因素，其次也可以看出抗性品种中这种蛋白相关基因的变化更为明显。</p>
-<img src="/article/riceblast/6.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>这个文章的主要目的是找到核心基因，怎么找呢？直接对抗感品种中差异基因的核心部分基因再找核心，也就是先找每个品种中随之时间变化都显著变化的基因，然后再从这些持续变化的核心基因中找交集，这样就能找到抗感品种中都被稻瘟病菌明显诱导转录表达的基因（353个）。然后将这353个基因绘制热图，发现这353个基因可以分成两类，一类是在稻瘟病菌侵染后表达明显上调的基因，另外一部分是表达下调的基因。然后对表达上调的321个基因进行KEGG富集分析，发现这些基因和植物免疫相关，如二萜化合物的生物合成、黄酮的生物合成、植物-病原互作及MAPK信号通路等。这个结果表明在稻瘟病菌侵染的过程中，这321个基因一直都在做出响应，也就把这321个基因定义为“核心基因”。</p>
-<img src="/article/riceblast/7.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>现在有个问题是，“你以为你以为的就是你以为的么？”。你说这些是核心基因就一定是吗？为了进一步证明这些记忆是核心基因，作者从NCBI的GEO数据库中找了2308个基因探针数据和305个转录组数据，探究这些基因在这些研究中的转录表达情况。结果发现这321个基因在水稻抵御水稻白叶枯病、稻曲病及干旱胁迫中都有明显作用，尤其是免疫响应，都显著地上调了。进一步的还对这321个基因中的转录因子进行了研究。</p>
-<img src="/article/riceblast/8.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/article/riceblast/9.png" srcset="/img/loading.gif" lazyload class="">
+
+
 <p>似乎到这里就结束了，毕竟核心基因（集）已经找到了，还做了转录因子探究。但是测了那么多样品，不找几个基因敲一下，都好像不完整。然后就根据FPKM值找了三个基因进行敲除验证。其中<em>Perox</em>负向调控水稻对稻瘟病抗性，<em>OsMT1a</em>和<em>OsMT1b</em>正向调控水稻对稻瘟病的抗性。</p>
-<img src="/article/riceblast/10.png" srcset="/img/loading.gif" lazyload class="">
-<img src="/article/riceblast/11.png" srcset="/img/loading.gif" lazyload class="">
+
+
 <h1 id="文献收获"><a href="#文献收获" class="headerlink" title="文献收获"></a>文献收获</h1><ul>
 <li>首先是get到生长-免疫平衡的文献，之前找了好久一直没有找到；</li>
 <li>转录组分析策略：<ul>

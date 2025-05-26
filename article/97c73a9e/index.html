@@ -27,16 +27,11 @@
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="最近在分析水稻的转录组数据，用的参考基因组是我们小组自己组装的，没有用常见的那几个参考基因组做比对，这就导致一个问题，">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://lixiang117423.github.io/article/97c73a9e/1.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/97c73a9e/2.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/97c73a9e/3.png">
-<meta property="og:image" content="https://lixiang117423.github.io/article/97c73a9e/4.png">
 <meta property="article:published_time" content="2021-03-31T06:51:12.000Z">
 <meta property="article:modified_time" content="2023-12-10T05:18:17.000Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="R语言">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://lixiang117423.github.io/article/97c73a9e/1.png">
   
   
   
@@ -286,18 +281,18 @@
               <div class="markdown-body">
                 
                 <p>最近在分析水稻的转录组数据，用的参考基因组是我们小组自己组装的，没有用常见的那几个参考基因组做比对，这就导致一个问题，<span id="more"></span>得到的基因ID是我们参考基因组上的，而不是常见的水稻基因ID，也就无法转换成ENTREZID，想要用<code>clusterProfiler$$^{[1]}做$$GO</code>或者<code>KEGG</code>富集分析就很困难。难道就用公司返回的数据么？肯定不行啊，想要自己探索数据都不方便。怎么办呢？</p>
-<p>仔细观察公司返回的数据，发现他们注释的信息里面是有GO和KEGG信息的：<br><img src="/article/97c73a9e/1.png" srcset="/img/loading.gif" lazyload class=""></p>
+<p>仔细观察公司返回的数据，发现他们注释的信息里面是有GO和KEGG信息的：<br></p>
 <p>那我把这些信息整合一下就可以用<code>clusterProfiler</code>包的函数<code>enricher</code>进行富集分析。</p>
 <h1 id="构建富集分析的背景文件"><a href="#构建富集分析的背景文件" class="headerlink" title="构建富集分析的背景文件"></a>构建富集分析的背景文件</h1><p>通过一些列的代码将公司返回的数据里面的相关信息进行整理：</p>
-<img src="/article/97c73a9e/2.png" srcset="/img/loading.gif" lazyload class="">
+
 <p>第一列是基因ID，第二列是GO term的ID，第三列是GO term的描述，第四列是GO term的分类。</p>
 <p>这个文件就是富集分析里面用到背景文件，背景文件里面的基因数量越多，后面富集到的也就越多。</p>
 <h1 id="开始富集分析"><a href="#开始富集分析" class="headerlink" title="开始富集分析"></a>开始富集分析</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">go.rich.1 <span class="hljs-operator">=</span> enricher<span class="hljs-punctuation">(</span>gene <span class="hljs-operator">=</span> df.1<span class="hljs-operator">$</span>id<span class="hljs-punctuation">,</span> <span class="hljs-comment"># 输入的差异基因的ID</span><br>                     TERM2GENE <span class="hljs-operator">=</span> go.anno<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">'ID'</span><span class="hljs-punctuation">,</span><span class="hljs-string">'gene.id'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 指定背景文件中的基因ID</span><br>                     TERM2NAME <span class="hljs-operator">=</span> go.anno<span class="hljs-punctuation">[</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">'ID'</span><span class="hljs-punctuation">,</span><span class="hljs-string">'Description'</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 指定背景文件中的GO term的描述</span><br>                     pvalueCutoff <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># p值阈值</span><br>                     pAdjustMethod <span class="hljs-operator">=</span> <span class="hljs-string">'BH'</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># p值校正方法</span><br>                     maxGSSize <span class="hljs-operator">=</span> <span class="hljs-built_in">length</span><span class="hljs-punctuation">(</span>df.1<span class="hljs-operator">$</span>id<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-comment"># 最大基因数量</span><br></code></pre></td></tr></tbody></table></figure>
 <p>运行完了以后，就得到对应的富集分析结果。</p>
 <h1 id="富集分析结果可视化"><a href="#富集分析结果可视化" class="headerlink" title="富集分析结果可视化"></a>富集分析结果可视化</h1><p>可视化我没有选择<code>clusterProfiler</code>默认的绘图函数，而是先把数据稍加整理，然后用<code>ggplot2</code>进行可视化。</p>
-<img src="/article/97c73a9e/3.png" srcset="/img/loading.gif" lazyload class="">
+
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs R">ggplot<span class="hljs-punctuation">(</span>df.plot<span class="hljs-punctuation">,</span> aes<span class="hljs-punctuation">(</span>GeneRatio<span class="hljs-punctuation">,</span>Description<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_point<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>size <span class="hljs-operator">=</span> Count<span class="hljs-punctuation">,</span> shape <span class="hljs-operator">=</span> Ontology<span class="hljs-punctuation">,</span> color <span class="hljs-operator">=</span> pvalue<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_color_gradient<span class="hljs-punctuation">(</span>low <span class="hljs-operator">=</span> <span class="hljs-string">'navy'</span><span class="hljs-punctuation">,</span>high <span class="hljs-operator">=</span> <span class="hljs-string">'firebrick3'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>y <span class="hljs-operator">=</span> <span class="hljs-string">'GO term'</span><span class="hljs-punctuation">,</span> title <span class="hljs-operator">=</span> <span class="hljs-string">'15(15||15) VS 87(87||87)'</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_bw<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme<span class="hljs-punctuation">(</span>axis.text <span class="hljs-operator">=</span> element_text<span class="hljs-punctuation">(</span>color <span class="hljs-operator">=</span> <span class="hljs-string">'black'</span><span class="hljs-punctuation">,</span>size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
-<img src="/article/97c73a9e/4.png" srcset="/img/loading.gif" lazyload class="">
+
 <h1 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h1><blockquote>
 <p>[1] Yu G, Wang L G, Han Y, et al. clusterProfiler: an R package for comparing biological themes among gene clusters[J]. Omics: a journal of integrative biology, 2012, 16(5): 284-287.</p>
 <p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
