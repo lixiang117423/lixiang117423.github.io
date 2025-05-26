@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>泛基因组时代中的序列到图映射算法综述</title>
+      <link href="/article/seq2graph/"/>
+      <url>/article/seq2graph/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-背景与意义"><a href="#1-背景与意义" class="headerlink" title="1 背景与意义"></a>1 <strong>背景与意义</strong></h1><p>传统线性参考基因组存在<strong>参考偏倚</strong>问题，导致非参考等位基因被遗漏或错误映射。泛基因组（Pangenome）通过整合多个个体基因组构建图结构，提供更全面的遗传多样性参考。<strong>序列到图映射（Sequence-to-Graph Mapping, S2G）</strong> 是泛基因组分析的核心技术，支撑变异检测、基因分型、长读长纠错等应用。近年来已有20余种S2G算法开发，但此前尚无系统性综述。</p><h1 id="2-泛基因组图的表示形式"><a href="#2-泛基因组图的表示形式" class="headerlink" title="2 泛基因组图的表示形式"></a>2 <strong>泛基因组图的表示形式</strong></h1><ol><li><strong>De Bruijn图（DBG）</strong><ul><li>节点为固定长度k-mer，边表示k-mer重叠关系。紧凑化DBG（cDBG）合并非分支路径（unitig）以减少规模，彩色DBG（cDBG）标记不同单倍型。</li></ul></li><li><strong>序列图（Sequence Graph）</strong><ul><li>节点代表序列，边表示连接关系，常用于有向无环图（DAG）表达变异分支。</li></ul></li><li><strong>变异图（Variation Graph）</strong><ul><li>双向图结构，节点包含正反链序列，边可双向遍历，支持嵌入路径表示单倍型。</li></ul></li><li><strong>弹性表示（Elastic Representation）</strong><ul><li><strong>弹性创始图（EFG）</strong>：将多序列比对（MSA）分块合并节点，实现高效模式匹配索引。</li><li><strong>弹性退化字符串（ED-string）</strong>：用非确定性字符串表示小变异（如SNV、indel）。</li></ul></li></ol><h1 id="3-S2G映射策略：种子-过滤-扩展"><a href="#3-S2G映射策略：种子-过滤-扩展" class="headerlink" title="3 S2G映射策略：种子-过滤-扩展"></a>3 <strong>S2G映射策略：种子-过滤-扩展</strong></h1><p>主流算法采用<strong>种子-过滤-扩展</strong>三步策略（图2），平衡效率与精度：</p><ol><li><p><strong>种子生成（Seeding）</strong></p><ul><li><strong>静态种子</strong>：固定长度k-mer（如GenomeMapper）、最小化子（minimizer，如minigraph）、间隔种子（spaced seeding）等。</li><li><strong>动态种子</strong>：如最大精确匹配（MEM/SMEM，如GraphAligner），根据序列特性动态选择。</li><li><strong>索引方法</strong>：<ul><li><strong>哈希索引</strong>：快速查询但内存开销大（如BGREAT）。</li><li><strong>基于压缩的索引</strong>：BWT（如VG giraffe的GBWT）、GCSA2（支持长k-mer索引）。</li><li><strong>草图索引</strong>：MG-SKETCH结合Tensor Sketching与HNSW，加速大规模数据匹配。</li></ul></li></ul></li><li><p><strong>过滤（Filtering）</strong></p><ul><li><strong>经典方法</strong>：筛选（去除低质量锚点）、聚类（合并相似锚点）、链化（构建有序锚点链）。</li><li><strong>图特异性方法</strong>：构建全局/局部坐标系（如minigraph的稳定坐标编码），解决图结构复杂性导致的定位难题。</li></ul></li><li><p><strong>扩展（Extension）</strong></p><ul><li>动态规划（DP）算法：带状DP（banded DP）、Smith-Waterman（SW）优化（如SIMD加速）。</li><li>图拓扑优化：A*搜索（ASTARIX）、Bit-parallel NW（GraphAligner）、GWFA（结合WFA算法）。</li><li>高性能计算：向量化处理（如DP的反斜向量计算，图2d）。</li></ul></li></ol><h1 id="4-算法工具比较与趋势"><a href="#4-算法工具比较与趋势" class="headerlink" title="4 算法工具比较与趋势"></a>4 <strong>算法工具比较与趋势</strong></h1><ul><li><strong>代表性工具</strong>（表1）：<ul><li><strong>短读长优先</strong>：GenomeMapper（k-mer+DP）、VG giraffe（minimizer+GBWT）。</li><li><strong>长读长优化</strong>：GraphAligner（minimizer链+Bit-parallel DP）、minigraph（minimizer链+SIMD SW）。</li><li><strong>特殊图支持</strong>：GED-MAP（ED-string）、deBGA（DBG）。</li></ul></li><li><strong>技术趋势</strong>：<ul><li><strong>索引优化</strong>：从哈希表转向压缩索引（如GBWT、GCSA2）及草图技术。</li><li><strong>长读长适配</strong>：动态种子（MEM）与链化策略提升长序列比对效率。</li><li><strong>跨物种应用</strong>：逐步扩展至物种间泛基因组（如结核杆菌、茄科植物）。</li></ul></li></ul><h1 id="5-挑战与未来方向"><a href="#5-挑战与未来方向" class="headerlink" title="5 挑战与未来方向"></a>5 <strong>挑战与未来方向</strong></h1><ol><li><strong>复杂区域处理</strong>：重复序列、高变区易导致错误锚点，需改进索引与过滤策略。</li><li><strong>长读长优化</strong>：平衡精度与速度，探索神经网络辅助预测。</li><li><strong>跨物种泛基因组</strong>：需统一表示不同物种间的保守与变异区域。</li><li><strong>计算资源优化</strong>：降低内存占用（如弹性索引），支持大规模数据实时分析。</li><li><strong>端到端学习</strong>：利用深度学习模型（如Transformer）替代传统启发式策略。</li></ol><h1 id="6-结论"><a href="#6-结论" class="headerlink" title="6 结论"></a>6 <strong>结论</strong></h1><p>该综述系统梳理了S2G映射算法的发展现状，强调了泛基因组时代对高效、精确比对技术的需求。未来算法需结合压缩索引、动态种子、高性能计算等多领域技术，推动泛基因组在临床医学、进化研究等场景的应用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生物信息学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 生物信息学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基因注释软件BRAKER学习笔记</title>
       <link href="/article/braker/"/>
       <url>/article/braker/</url>
