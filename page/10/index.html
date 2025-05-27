@@ -233,6 +233,67 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/article/gff3gene/" target="_self">
+          gff文件缺少gene特征
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/gff3gene/" target="_self">
+        <div>
+          1awk -F"[\t=]"  'BEGIN{OFS="\t"}{if($3=="mRNA"){print $1,$2,"gene",$4,$5,$6,$7,$8,$9"="$10 ; print $1,$2,$3,$4,$5,$6,$7,$8,$9"="$10"Parent="$10;}else{print $0}}' all.gff3 &gt; all.gff3.new 复制粘贴使用： 1aw
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-02 21:08" pubdate>
+              2022-10-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/article/pan-genefamily/" target="_self">
           Pan-基因家族鉴定方法
         </a>
@@ -867,67 +928,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2022-08-09 22:28" pubdate>
               2022-08-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/dockeraly/" target="_self">
-          Docker配置阿里云镜像
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/dockeraly/" target="_self">
-        <div>
-          登录阿里云获取专用镜像链接：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors  修改配置文件 1sudo vi  /etc/docker/daemon.json  加入下面的内容：   123{  "registry-mirrors": ["https://xxxxxxx.mirror.aliyuncs.com"]}  💌l
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-19 16:55" pubdate>
-              2022-06-19
             </time>
           </div>
         
