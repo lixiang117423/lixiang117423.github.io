@@ -1,0 +1,684 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="数据准备和质控1. 数据质量评估1234567891011# 短读长数据质控 (Illumina)fastqc short_reads_R1.fastq.gz short_reads_R2.fastq.gz -o qc_reports&#x2F;# 长读长数据质控 (Nanopore)NanoPlot --fastq nanopore_reads.fastq.gz --outdir nanopore_qc&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude给的基因组组装和注释的流程代码">
+<meta property="og:url" content="https://lixiang117423.github.io/article/genomeann/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="数据准备和质控1. 数据质量评估1234567891011# 短读长数据质控 (Illumina)fastqc short_reads_R1.fastq.gz short_reads_R2.fastq.gz -o qc_reports&#x2F;# 长读长数据质控 (Nanopore)NanoPlot --fastq nanopore_reads.fastq.gz --outdir nanopore_qc&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-05-27T12:27:35.000Z">
+<meta property="article:modified_time" content="2025-05-27T12:28:47.433Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Claude给的基因组组装和注释的流程代码 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Claude给的基因组组装和注释的流程代码"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-05-27 20:27" pubdate>
+          2025年5月27日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Claude给的基因组组装和注释的流程代码</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="数据准备和质控"><a href="#数据准备和质控" class="headerlink" title="数据准备和质控"></a>数据准备和质控</h2><h3 id="1-数据质量评估"><a href="#1-数据质量评估" class="headerlink" title="1. 数据质量评估"></a>1. 数据质量评估</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 短读长数据质控 (Illumina)</span><br>fastqc short_reads_R1.fastq.gz short_reads_R2.fastq.gz -o qc_reports/<br><br><span class="hljs-comment"># 长读长数据质控 (Nanopore)</span><br>NanoPlot --fastq nanopore_reads.fastq.gz --outdir nanopore_qc/<br><br><span class="hljs-comment"># Hi-Fi数据质控 (PacBio)</span><br>fastqc hifi_reads.fastq.gz -o qc_reports/<br><br><span class="hljs-comment"># Hi-C数据质控</span><br>fastqc hic_R1.fastq.gz hic_R2.fastq.gz -o qc_reports/<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-数据预处理"><a href="#2-数据预处理" class="headerlink" title="2. 数据预处理"></a>2. 数据预处理</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 短读长数据去接头和质量过滤</span><br>fastp -i short_reads_R1.fastq.gz -I short_reads_R2.fastq.gz \<br>      -o cleaned_R1.fastq.gz -O cleaned_R2.fastq.gz \<br>      --thread 16 --html fastp_report.html<br><br><span class="hljs-comment"># Nanopore数据过滤（去除低质量reads）</span><br>filtlong --min_length 1000 --keep_percent 90 \<br>         nanopore_reads.fastq.gz &gt; filtered_nanopore.fastq.gz<br><br><span class="hljs-comment"># Hi-Fi数据通常质量较高，可直接使用</span><br><span class="hljs-comment"># Hi-C数据去接头</span><br>fastp -i hic_R1.fastq.gz -I hic_R2.fastq.gz \<br>      -o hic_clean_R1.fastq.gz -O hic_clean_R2.fastq.gz<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="基因组组装流程"><a href="#基因组组装流程" class="headerlink" title="基因组组装流程"></a>基因组组装流程</h2><h3 id="3-初步组装（使用长读长数据）"><a href="#3-初步组装（使用长读长数据）" class="headerlink" title="3. 初步组装（使用长读长数据）"></a>3. 初步组装（使用长读长数据）</h3><h4 id="使用Flye进行Nanopore组装"><a href="#使用Flye进行Nanopore组装" class="headerlink" title="使用Flye进行Nanopore组装"></a>使用Flye进行Nanopore组装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Nanopore数据组装</span><br>flye --nano-raw filtered_nanopore.fastq.gz \<br>     --out-dir flye_assembly \<br>     --threads 32 \<br>     --genome-size 500m  <span class="hljs-comment"># 根据实际基因组大小调整</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="使用Hifiasm进行Hi-Fi组装"><a href="#使用Hifiasm进行Hi-Fi组装" class="headerlink" title="使用Hifiasm进行Hi-Fi组装"></a>使用Hifiasm进行Hi-Fi组装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Hi-Fi数据组装</span><br>hifiasm -o hifi_assembly.asm -t 32 hifi_reads.fastq.gz<br><br><span class="hljs-comment"># 转换为FASTA格式</span><br>awk <span class="hljs-string">'/^S/{print "&gt;"$2"\n"$3}'</span> hifi_assembly.asm.bp.p_ctg.gfa &gt; hifi_primary.fasta<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="4-组装结果比较和选择"><a href="#4-组装结果比较和选择" class="headerlink" title="4. 组装结果比较和选择"></a>4. 组装结果比较和选择</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用QUAST评估组装质量</span><br>quast.py flye_assembly/assembly.fasta hifi_primary.fasta \<br>         -o assembly_comparison \<br>         --threads 16<br><br><span class="hljs-comment"># 使用BUSCO评估组装完整性</span><br>busco -i flye_assembly/assembly.fasta -l eukaryota_odb10 \<br>      -o flye_busco -m genome<br>busco -i hifi_primary.fasta -l eukaryota_odb10 \<br>      -o hifi_busco -m genome<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="5-组装优化和纠错"><a href="#5-组装优化和纠错" class="headerlink" title="5. 组装优化和纠错"></a>5. 组装优化和纠错</h3><h4 id="使用短读长数据进行纠错"><a href="#使用短读长数据进行纠错" class="headerlink" title="使用短读长数据进行纠错"></a>使用短读长数据进行纠错</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 选择质量更好的组装结果作为基础</span><br>ASSEMBLY=<span class="hljs-string">"hifi_primary.fasta"</span>  <span class="hljs-comment"># 或 flye_assembly/assembly.fasta</span><br><br><span class="hljs-comment"># 使用Pilon进行纠错</span><br><span class="hljs-comment"># 首先建立索引</span><br>bwa index <span class="hljs-variable">$ASSEMBLY</span><br><br><span class="hljs-comment"># 比对短读长数据</span><br>bwa mem -t 16 <span class="hljs-variable">$ASSEMBLY</span> cleaned_R1.fastq.gz cleaned_R2.fastq.gz | \<br>samtools <span class="hljs-built_in">sort</span> -@ 16 -o aligned_short.bam<br><br>samtools index aligned_short.bam<br><br><span class="hljs-comment"># 使用Pilon纠错</span><br>pilon --genome <span class="hljs-variable">$ASSEMBLY</span> --frags aligned_short.bam \<br>      --output polished_assembly --threads 16<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="使用长读长数据进一步纠错"><a href="#使用长读长数据进一步纠错" class="headerlink" title="使用长读长数据进一步纠错"></a>使用长读长数据进一步纠错</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用Racon进行额外纠错</span><br>minimap2 -ax map-ont polished_assembly.fasta filtered_nanopore.fastq.gz | \<br>samtools <span class="hljs-built_in">sort</span> -@ 16 -o nanopore_aligned.bam<br><br>samtools index nanopore_aligned.bam<br><br>racon filtered_nanopore.fastq.gz nanopore_aligned.bam \<br>      polished_assembly.fasta &gt; racon_polished.fasta<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="6-Hi-C辅助的染色体级别组装"><a href="#6-Hi-C辅助的染色体级别组装" class="headerlink" title="6. Hi-C辅助的染色体级别组装"></a>6. Hi-C辅助的染色体级别组装</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Hi-C数据比对到组装序列</span><br>POLISHED_ASSEMBLY=<span class="hljs-string">"racon_polished.fasta"</span><br><br><span class="hljs-comment"># 建立索引</span><br>bwa index <span class="hljs-variable">$POLISHED_ASSEMBLY</span><br><br><span class="hljs-comment"># 比对Hi-C数据</span><br>bwa mem -5SP -t 16 <span class="hljs-variable">$POLISHED_ASSEMBLY</span> hic_clean_R1.fastq.gz hic_clean_R2.fastq.gz | \<br>samtools view -Sb - &gt; hic_aligned.bam<br><br><span class="hljs-comment"># 使用3D-DNA进行Hi-C组装</span><br>run-asm-pipeline.sh <span class="hljs-variable">$POLISHED_ASSEMBLY</span> hic_aligned.bam<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="基因组注释流程"><a href="#基因组注释流程" class="headerlink" title="基因组注释流程"></a>基因组注释流程</h2><h3 id="7-重复序列注释"><a href="#7-重复序列注释" class="headerlink" title="7. 重复序列注释"></a>7. 重复序列注释</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 构建重复序列库</span><br>BuildDatabase -name genome_db final_assembly.fasta<br><br>RepeatModeler -database genome_db -pa 16 -LTRStruct<br><br><span class="hljs-comment"># 注释重复序列</span><br>RepeatMasker -pa 16 -lib consensi.fa.classified \<br>             -gff -<span class="hljs-built_in">dir</span> repeat_annotation final_assembly.fasta<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="8-基因结构预测"><a href="#8-基因结构预测" class="headerlink" title="8. 基因结构预测"></a>8. 基因结构预测</h3><h4 id="Ab-initio基因预测"><a href="#Ab-initio基因预测" class="headerlink" title="Ab initio基因预测"></a>Ab initio基因预测</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用AUGUSTUS进行基因预测</span><br>augustus --species=generic --gff3=on \<br>         final_assembly.fasta &gt; augustus_genes.gff3<br><br><span class="hljs-comment"># 使用GeneMark进行基因预测</span><br>gmes_petap.pl --ES --sequence final_assembly.fasta<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="基于同源性的基因预测"><a href="#基于同源性的基因预测" class="headerlink" title="基于同源性的基因预测"></a>基于同源性的基因预测</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载相关物种的蛋白质序列</span><br><span class="hljs-comment"># 使用GeMoMa进行基于同源性的预测</span><br>GeMoMa -Xmx100g GeMoMaPipeline threads=16 \<br>       t=final_assembly.fasta \<br>       i=species annotation=reference_proteins.fasta \<br>       outdir=gemoma_results<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="基于转录组的基因预测"><a href="#基于转录组的基因预测" class="headerlink" title="基于转录组的基因预测"></a>基于转录组的基因预测</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 如果有RNA-seq数据</span><br><span class="hljs-comment"># 首先比对RNA-seq数据到基因组</span><br>hisat2-build final_assembly.fasta genome_index<br><br>hisat2 -x genome_index -1 rnaseq_R1.fastq.gz -2 rnaseq_R2.fastq.gz \<br>       -S rnaseq_aligned.sam --threads 16<br><br>samtools <span class="hljs-built_in">sort</span> -@ 16 rnaseq_aligned.sam -o rnaseq_aligned.bam<br><br><span class="hljs-comment"># 使用StringTie进行转录本组装</span><br>stringtie rnaseq_aligned.bam -o transcripts.gtf -p 16<br><br><span class="hljs-comment"># 转换为GFF3格式用于后续整合</span><br>gffread transcripts.gtf -o transcripts.gff3<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="9-基因预测结果整合"><a href="#9-基因预测结果整合" class="headerlink" title="9. 基因预测结果整合"></a>9. 基因预测结果整合</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用EvidenceModeler整合多种预测结果</span><br><span class="hljs-comment"># 准备权重文件</span><br><span class="hljs-built_in">cat</span> &gt; weights.txt &lt;&lt; <span class="hljs-string">EOF</span><br><span class="hljs-string">ABINITIO_PREDICTION     augustus        1</span><br><span class="hljs-string">ABINITIO_PREDICTION     genemark        1</span><br><span class="hljs-string">PROTEIN                 gemoma          5</span><br><span class="hljs-string">TRANSCRIPT              stringtie       10</span><br><span class="hljs-string">EOF</span><br><br><span class="hljs-comment"># 运行EVM</span><br>EVidenceModeler --genome final_assembly.fasta \<br>                --weights weights.txt \<br>                --gene_predictions augustus_genes.gff3 \<br>                --gene_predictions genemark.gtf \<br>                --protein_alignments gemoma_results/final_annotation.gff \<br>                --transcript_alignments transcripts.gff3 \<br>                --segmentSize 100000 --overlapSize 10000 \<br>                --CPU 16 &gt; evm_consensus.gff3<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="10-功能注释"><a href="#10-功能注释" class="headerlink" title="10. 功能注释"></a>10. 功能注释</h3><h4 id="蛋白质序列提取"><a href="#蛋白质序列提取" class="headerlink" title="蛋白质序列提取"></a>蛋白质序列提取</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 从基因预测结果提取蛋白质序列</span><br>gffread -g final_assembly.fasta -y proteins.fasta evm_consensus.gff3<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="数据库比对注释"><a href="#数据库比对注释" class="headerlink" title="数据库比对注释"></a>数据库比对注释</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># BLAST注释</span><br>makeblastdb -<span class="hljs-keyword">in</span> nr.fa -dbtype prot -out nr_db<br><br>blastp -query proteins.fasta -db nr_db -outfmt 6 \<br>       -evalue 1e-5 -num_threads 16 -out blast_nr.txt<br><br><span class="hljs-comment"># InterProScan功能域注释</span><br>interproscan.sh -i proteins.fasta -f tsv -o interpro_results.tsv -cpu 16<br><br><span class="hljs-comment"># GO注释（基于InterPro结果）</span><br>python3 scripts/interpro2go.py interpro_results.tsv &gt; go_annotations.txt<br><br><span class="hljs-comment"># KEGG注释</span><br><span class="hljs-comment"># 使用KAAS或本地KEGG数据库进行注释</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="11-非编码RNA注释"><a href="#11-非编码RNA注释" class="headerlink" title="11. 非编码RNA注释"></a>11. 非编码RNA注释</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># tRNA注释</span><br>tRNAscan-SE -o trna_results.txt final_assembly.fasta<br><br><span class="hljs-comment"># rRNA注释</span><br>barrnap --kingdom euk --threads 16 final_assembly.fasta &gt; rrna_results.gff3<br><br><span class="hljs-comment"># miRNA注释（如果是动物基因组）</span><br><span class="hljs-comment"># 使用miRBase数据进行注释</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="12-最终注释整合和格式转换"><a href="#12-最终注释整合和格式转换" class="headerlink" title="12. 最终注释整合和格式转换"></a>12. 最终注释整合和格式转换</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 整合所有注释信息</span><br>python3 scripts/integrate_annotations.py \<br>    --genome final_assembly.fasta \<br>    --genes evm_consensus.gff3 \<br>    --blast blast_nr.txt \<br>    --interpro interpro_results.tsv \<br>    --go go_annotations.txt \<br>    --trna trna_results.txt \<br>    --rrna rrna_results.gff3 \<br>    --output final_annotation.gff3<br><br><span class="hljs-comment"># 生成GenBank格式</span><br><span class="hljs-comment"># 使用GAG或其他工具转换格式</span><br><br><span class="hljs-comment"># 生成统计报告</span><br>python3 scripts/annotation_stats.py final_annotation.gff3 &gt; annotation_summary.txt<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="质量评估和验证"><a href="#质量评估和验证" class="headerlink" title="质量评估和验证"></a>质量评估和验证</h2><h3 id="13-最终质量评估"><a href="#13-最终质量评估" class="headerlink" title="13. 最终质量评估"></a>13. 最终质量评估</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 组装质量评估</span><br>quast.py final_assembly.fasta -o final_quast_report --threads 16<br><br><span class="hljs-comment"># 基因注释完整性评估</span><br>busco -i proteins.fasta -l eukaryota_odb10 -o final_busco -m proteins<br><br><span class="hljs-comment"># 组装连续性统计</span><br>assembly-stats final_assembly.fasta &gt; assembly_stats.txt<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="重要脚本和配置文件"><a href="#重要脚本和配置文件" class="headerlink" title="重要脚本和配置文件"></a>重要脚本和配置文件</h2><h3 id="辅助脚本示例"><a href="#辅助脚本示例" class="headerlink" title="辅助脚本示例"></a>辅助脚本示例</h3><h4 id="interpro2go-py"><a href="#interpro2go-py" class="headerlink" title="interpro2go.py"></a>interpro2go.py</h4><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-keyword">import</span> sys<br><br><span class="hljs-comment"># 读取InterPro到GO的映射文件</span><br>go_mapping = {}<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">'interpro2go'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>        <span class="hljs-keyword">if</span> line.startswith(<span class="hljs-string">'InterPro:'</span>):<br>            parts = line.strip().split(<span class="hljs-string">' ; '</span>)<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(parts) &gt;= <span class="hljs-number">2</span>:<br>                interpro_id = parts[<span class="hljs-number">0</span>].split(<span class="hljs-string">':'</span>)[<span class="hljs-number">1</span>]<br>                go_id = parts[<span class="hljs-number">1</span>].split(<span class="hljs-string">':'</span>)[<span class="hljs-number">1</span>]<br>                <span class="hljs-keyword">if</span> interpro_id <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> go_mapping:<br>                    go_mapping[interpro_id] = []<br>                go_mapping[interpro_id].append(go_id)<br><br><span class="hljs-comment"># 处理InterProScan结果</span><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(sys.argv[<span class="hljs-number">1</span>], <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f:<br>        fields = line.strip().split(<span class="hljs-string">'\t'</span>)<br>        protein_id = fields[<span class="hljs-number">0</span>]<br>        interpro_id = fields[<span class="hljs-number">11</span>] <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(fields) &gt; <span class="hljs-number">11</span> <span class="hljs-keyword">and</span> fields[<span class="hljs-number">11</span>] != <span class="hljs-string">'-'</span> <span class="hljs-keyword">else</span> <span class="hljs-literal">None</span><br>        <br>        <span class="hljs-keyword">if</span> interpro_id <span class="hljs-keyword">and</span> interpro_id <span class="hljs-keyword">in</span> go_mapping:<br>            <span class="hljs-keyword">for</span> go_id <span class="hljs-keyword">in</span> go_mapping[interpro_id]:<br>                <span class="hljs-built_in">print</span>(<span class="hljs-string">f"<span class="hljs-subst">{protein_id}</span>\t<span class="hljs-subst">{go_id}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建conda环境</span><br>conda create -n genome_assembly -c bioconda -c conda-forge \<br>    fastqc fastp flye hifiasm quast busco \<br>    bwa samtools pilon racon \<br>    augustus genemark gemoma \<br>    blast interproscan \<br>    trnascan-se barrnap<br><br><span class="hljs-comment"># 激活环境</span><br>conda activate genome_assembly<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="流程总结"><a href="#流程总结" class="headerlink" title="流程总结"></a>流程总结</h2><p>这个完整的流程整合了：</p>
+<ol>
+<li><strong>多种测序数据</strong>：Hi-Fi（高质量长读长）、Nanopore（长读长）、Illumina（短读长）、Hi-C（染色体构象）</li>
+<li><strong>组装策略</strong>：长读长初步组装 → 短读长纠错 → Hi-C辅助scaffold</li>
+<li><strong>注释方法</strong>：重复序列 → 基因结构预测 → 功能注释 → 非编码RNA</li>
+<li><strong>质量控制</strong>：每个步骤都包含质量评估和验证</li>
+</ol>
+<p>根据具体的基因组大小、复杂性和可用计算资源，可以调整参数和选择适当的工具组合。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Claude给的基因组组装和注释的流程代码</div>
+      <div>https://lixiang117423.github.io/article/genomeann/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年5月27日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/bsa/" title="BSA测序的原理和分析">
+                        <span class="hidden-mobile">BSA测序的原理和分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

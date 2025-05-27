@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-05-27T06:39:00.222Z</updated>
+  <updated>2025-05-27T12:28:47.433Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Claude给的基因组组装和注释的流程代码</title>
+    <link href="https://lixiang117423.github.io/article/genomeann/"/>
+    <id>https://lixiang117423.github.io/article/genomeann/</id>
+    <published>2025-05-27T12:27:35.000Z</published>
+    <updated>2025-05-27T12:28:47.433Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;数据准备和质控&quot;&gt;&lt;a href=&quot;#数据准备和质控&quot; class=&quot;headerlink&quot; title=&quot;数据准备和质控&quot;&gt;&lt;/a&gt;数据准备和质控&lt;/h2&gt;&lt;h3 id=&quot;1-数据质量评估&quot;&gt;&lt;a href=&quot;#1-数据质量评估&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>BSA测序的原理和分析</title>
@@ -1262,30 +1287,6 @@
     
     
     <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何批量从NCBI下载基因组数据</title>
-    <link href="https://lixiang117423.github.io/article/sheng-wu-xin-xi-xue/"/>
-    <id>https://lixiang117423.github.io/article/sheng-wu-xin-xi-xue/</id>
-    <published>2023-07-06T03:06:59.000Z</published>
-    <updated>2023-12-10T05:18:19.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;想下载几千个细菌的基因组做泛基因组分析，结果啊总是网络错误下载失败。于是我就搜了搜，发现这个：&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.ncbi.nlm.nih.gov/genome/doc/ftpfaq/&quot;&gt;Genomes Download (FTP)</summary>
-        
-      
-    
-    
     
     
     <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
