@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-05-27T12:28:47.433Z</updated>
+  <updated>2025-05-29T11:02:34.574Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生物信息学常用的软件</title>
+    <link href="https://lixiang117423.github.io/article/bioinftools/"/>
+    <id>https://lixiang117423.github.io/article/bioinftools/</id>
+    <published>2025-05-29T10:23:19.000Z</published>
+    <updated>2025-05-29T11:02:34.574Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-Annovar&quot;&gt;&lt;a href=&quot;#1-Annovar&quot; class=&quot;headerlink&quot; title=&quot;1 Annovar&quot;&gt;&lt;/a&gt;1 Annovar&lt;/h1&gt;&lt;h2 id=&quot;1-1-下载安装&quot;&gt;&lt;a href=&quot;#1-1-下载安装&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>Claude给的基因组组装和注释的流程代码</title>
@@ -1255,32 +1280,6 @@
         
         
     <summary type="html">&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>细菌泛基因组分析工具panX</title>
-    <link href="https://lixiang117423.github.io/article/panx/"/>
-    <id>https://lixiang117423.github.io/article/panx/</id>
-    <published>2023-07-08T13:41:34.000Z</published>
-    <updated>2023-12-10T05:18:19.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082143458.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot;</summary>
         
       
     
