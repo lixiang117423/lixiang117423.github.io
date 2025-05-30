@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-05-29T12:52:31.814Z</updated>
+  <updated>2025-05-30T02:09:47.236Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-05-29T12:52:31.814Z</updated>
+    <updated>2025-05-30T02:09:47.236Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-Annovar&quot;&gt;&lt;a href=&quot;#1-Annovar&quot; class=&quot;headerlink&quot; title=&quot;1 Annovar&quot;&gt;&lt;/a&gt;1 Annovar&lt;/h1&gt;&lt;h2 id=&quot;1-1-下载安装&quot;&gt;&lt;a href=&quot;#1-1-下载安装&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;1-Annovar&quot;&gt;&lt;a href=&quot;#1-Annovar&quot; class=&quot;headerlink&quot; title=&quot;1 Annovar&quot;&gt;&lt;/a&gt;1 Annovar&lt;/h1&gt;&lt;h2 id=&quot;1-1-参考文献&quot;&gt;&lt;a href=&quot;#1-1-参考文献&quot;</summary>
         
       
     
@@ -282,7 +282,13 @@
       
         
         
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
         
       
     
@@ -303,13 +309,7 @@
       
         
         
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
         
       
     
