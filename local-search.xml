@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>结构方程模型计算Fisher&#39;s C值</title>
+    <link href="/article/semfilshersc/"/>
+    <url>/article/semfilshersc/</url>
+    
+    <content type="html"><![CDATA[<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span>(list = <span class="hljs-built_in">ls</span>())<br><br><span class="hljs-comment"># 安装并加载必要的包</span><br>library(piecewiseSEM)<br>library(lavaan)<br><br><span class="hljs-comment"># 读取数据</span><br>dat &lt;- read.csv(<span class="hljs-string">"~/Downloads/MYDATA(1).csv"</span>, header = T, row.names = 1)<br>all.scaled &lt;- as.data.frame(scale(dat, center = FALSE))<br><br><span class="hljs-comment"># 转换为分段回归模型</span><br><span class="hljs-comment"># 将SEM模型转换为多个回归方程，分别创建每个模型</span><br>model1 &lt;- lm(RR ~ ST + I + AB + TF + PS, data = all.scaled)<br>model2 &lt;- lm(AB ~ ST + I, data = all.scaled)<br>model3 &lt;- lm(APH ~ AB + TF + PS + ST + I, data = all.scaled)  <span class="hljs-comment"># 注意这里包含了直接效应 I</span><br>model4 &lt;- lm(TF ~ ST + PS, data = all.scaled)<br>model5 &lt;- lm(PS ~ I, data = all.scaled)<br>model6 &lt;- lm(I ~ ST, data = all.scaled)<br><br><span class="hljs-comment"># 创建piecewiseSEM对象</span><br>psem_model &lt;- psem(model1, model2, model3, model4, model5, model6)<br><br><span class="hljs-comment"># 获取Fisher's C统计量</span><br>fisher_c_result &lt;- fisherC(psem_model)<br><span class="hljs-built_in">print</span>(fisher_c_result)<br><br><span class="hljs-comment"># 获取模型汇总，包括Fisher's C值</span><br>summary(psem_model)<br></code></pre></td></tr></tbody></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>生物信息学</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>生物信息学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>生物信息学常用软件</title>
     <link href="/article/bioinftools/"/>
     <url>/article/bioinftools/</url>
