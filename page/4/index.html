@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/blossom/" target="_self">
-          Blossom配置
+        <a href="/article/coremicrobiome/" target="_self">
+          一种核心微生物的鉴定方法
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/blossom/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/coremicrobiome/" target="_self">
         <div>
-          准备在NAS上折腾的，各种端口开放不方便，直接就用腾讯云服务器折腾吧。。。。。。 安装并运行数据库安装： 1docker pull mysql:8.0.31 运行：  官方模板  123456789101112docker run \-d \--name mysql \#【可选修改】数据库 root 用户的密码 -e MYSQL_ROOT_PASSWORD=jasmine888 \-p 3306:
+          12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210
         </div>
       </a>
 
@@ -249,8 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-12-10 10:38" pubdate>
-              2023-12-10
+            <time datetime="2023-06-08 09:22" pubdate>
+              2023-06-08
             </time>
           </div>
         
@@ -294,15 +294,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/dockererror/" target="_self">
-          记一次Docker使用的坑
+        <a href="/article/sra2fastq/" target="_self">
+          一行linux命令实现批量sra转fastq
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/dockererror/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/sra2fastq/" target="_self">
         <div>
-          最近在使用谷歌的DeepVariant处理三代数据，然后发现某个文件系统爆满了。。。。。。 1/dev/sda2       439G   439G  0G    0% / 然后我就发现Rstudio Server无法使用了（点击跳转），我以为是Rstudio Server出问题了，没多想。晚上的时候我想创建个conda环境，遇到报错说无法写入磁盘，磁盘空间已满。奇了怪了，我的conda是安装在家
+          123ls data/sra/ | while read id; do parallel-fastq-dump -s ./data/sra/$id --o ./data/fastq --split-files -t 30; donenohup ls data/sra | while read id; do hisat2 -p 30 -x index/genome.index -1 data/fas
         </div>
       </a>
 
@@ -310,8 +310,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-11 19:50" pubdate>
-              2023-11-11
+            <time datetime="2022-12-12 21:13" pubdate>
+              2022-12-12
             </time>
           </div>
         
@@ -355,15 +355,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/rstudioservererror/" target="_self">
-          RstudioServer报错解决
+        <a href="/article/abug4tidyverse/" target="_self">
+          使用tidyverse遇到的一个问题
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/rstudioservererror/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/abug4tidyverse/" target="_self">
         <div>
-          突然的报错。。。。。。  123👉👉👉➡️  df -hl /tmp文件系统        容量  已用  可用 已用% 挂载点/dev/sda2       439G  426G     0  100% / 原来是这个系统盘爆满了，系统在上面，也不敢随便删文件。 检索一番，找到解决方法：在自己的家目录下创建.Renviron这个文件，输入下面的内容： 1TMP=/home/username
+          1234567library(tidyverse)iris %&gt;%   dplyr::mutate(temp = case_when(    Species == "setosa" ~ "lp",    TRUE ~ Species  )) 报错： 123456Error in `dplyr::mutate()`:! Problem while computing `temp = case_
         </div>
       </a>
 
@@ -371,8 +371,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-11 17:37" pubdate>
-              2023-11-11
+            <time datetime="2022-11-23 14:17" pubdate>
+              2022-11-23
             </time>
           </div>
         
@@ -416,15 +416,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/minigraph-cactus/" target="_self">
-          崩溃的一天-配置Minigraph-Cactus
+        <a href="/article/da044cd8/" target="_self">
+          使用ImageJ计算叶片面积
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/minigraph-cactus/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/da044cd8/" target="_self">
         <div>
-          看到这篇文章：  参考文献：  Hickey G, Monlong J, Ebler J, et al. Pangenome graph construction from genome alignments with Minigraph-Cactus[J]. Nature Biotechnology, 2023: 1-11.  官方推荐使用docker安装，可是真的不想在实验室服务器上安装doc
+          后续要扫描大量的水稻叶片然后计算病斑数量，之前没有使用过ImageJ这个软件，今天下午学了一下，成功get扫描一个图片中多个叶片面积的方法。
         </div>
       </a>
 
@@ -432,8 +432,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-02 10:02" pubdate>
-              2023-11-02
+            <time datetime="2021-01-30 17:59" pubdate>
+              2021-01-30
             </time>
           </div>
         
@@ -448,7 +448,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  <a href="/categories/%E6%8A%80%E8%83%BD/" class="category-chain-item">技能</a>
   
   
 
@@ -463,7 +463,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+              <a href="/tags/%E6%8A%80%E8%83%BD/">#技能</a>
             
           </div>
         
@@ -477,15 +477,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/jiasugithub/" target="_self">
-          加速服务器访问GitHub
+        <a href="/article/jaimmunity/" target="_self">
+          依赖茉莉酸的长久免疫记忆需要DNA甲基化的参与
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/jiasugithub/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/jaimmunity/" target="_self">
         <div>
-          访问GitHub的速度真的是一言难尽啊，加速吧。。。。  下载个Clash，搞个配置文件；  下载Country.mmdb；  放后台运行： 1nohup ./clash-linux-amd64-v1.18.0 -f clashconfig.yml &amp;  指定端口： 12export http_proxy=http://127.0.0.1:7890export https_proxy=ht
+          文献信息 Wilkinson S W, Hannan Parker A, Muench A, et al. Long-lasting memory of jasmonic acid-dependent immunity requires DNA demethylation and ARGONAUTE1[J]. Nature Plants, 2023: 1-15.  研究背景 水杨酸（SA）参与的防
         </div>
       </a>
 
@@ -493,191 +493,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-11-02 09:44" pubdate>
-              2023-11-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/findseqinfastq/" target="_self">
-          从二代测序数据中鉴定是否含有特定基因
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/findseqinfastq/" target="_self">
-        <div>
-          基因组下载下载参考基因组数据。 1234get https://www.mbkbase.org/R498/R498_Chr.soft.fasta.gzget https://www.mbkbase.org/R498/R498_IGDBv3_coreset.tar.gzget https://www.mbkbase.org/R498/R498_CoreSet.pro.tar.gzget https:
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-08 09:20" pubdate>
-              2023-10-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/svdss/" target="_self">
-          结构变异检测软件SVDSS使用
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/svdss/" target="_self">
-        <div>
-          参考文献 Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-03 15:52" pubdate>
-              2023-10-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/ppiunderground/" target="_self">
-          调控植物-植物互作的地下部分信号
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ppiunderground/" target="_self">
-        <div>
-          文献信息 Yoneyama K, Bennett T. Whispers in the dark: Signals regulating underground plant–plant interactions[J]. Current Opinion in Plant Biology, 2023: 102456.  摘要植物能够感知周围是否存在其他植物并做出响应，以此来优化自我的生理响应从而保护自
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-10-01 09:42" pubdate>
-              2023-10-01
+            <time datetime="2023-01-11 09:49" pubdate>
+              2023-01-11
             </time>
           </div>
         
@@ -721,15 +538,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/wordjcyy/" target="_self">
-          Word交叉引用设置颜色为蓝色
+        <a href="/article/li-yong-imagej-pi-liang-ji-suan-xie-pian-mian-ji/" target="_self">
+          利用ImageJ批量计算叶片面积
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wordjcyy/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/li-yong-imagej-pi-liang-ji-suan-xie-pian-mian-ji/" target="_self">
         <div>
-          参考知乎文章。 编辑一个新的宏： 12345678Sub CitingColor()    For i = 1 To ActiveDocument.Fields.Count '遍历文档所有域        If Left(ActiveDocument.Fields(i).Code, 4) = " REF" Or Left(ActiveDocument.Fields(i).Code, 14) = "
+          我以为只有在Linux上才能批量进行图片处理，没想到啊ImageJ在Windows上也可以。
         </div>
       </a>
 
@@ -737,8 +554,132 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-11 11:20" pubdate>
-              2023-09-11
+            <time datetime="2021-02-02 13:20" pubdate>
+              2021-02-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%8A%80%E8%83%BD/" class="category-chain-item">技能</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%8A%80%E8%83%BD/">#技能</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/removestarfromfa/" target="_self">
+          去除序列中的*号
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/removestarfromfa/" target="_self">
+        <div>
+          123456789101112131415161718192021222324252627282930import osimport reimport argparseimport subprocessparser = argparse.ArgumentParser(description="You should add those parameters")parser.add_argument(
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-07 20:09" pubdate>
+              2022-04-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/plantmemory/" target="_self">
+          受胁迫植物的表观遗传记忆
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/plantmemory/" target="_self">
+        <div>
+          文献信息 Gallusci P, Agius D R, Moschou P N, et al. Deep inside the epigenetic memories of stressed plants[J]. Trends in Plant Science, 2022.00266-7?_returnURL=https%3A%2F%2Flinkinghub.elsevier.com%2Fretr
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-01-23 14:38" pubdate>
+              2023-01-23
             </time>
           </div>
         
@@ -782,15 +723,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/gglk/" target="_self">
-          光果龙葵基因组助力马铃薯晚疫病抗性基因的挖掘
+        <a href="/article/2b23a230/" target="_self">
+          听他十年，成长十年
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/gglk/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/2b23a230/" target="_self">
         <div>
-          参考文献 Lin X, Jia Y, Heal R, et al. Solanum americanum genome-assisted discovery of immune receptors that detect potato late blight pathogen effectors[J]. Nature Genetics, 2023: 1-10.  研究背景马铃薯晚疫病是由Phyto
+          《蓝莲花》—许巍  “又见小蓝哥”。她在舍友空间说说下评论到。
         </div>
       </a>
 
@@ -798,8 +739,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-08-31 12:01" pubdate>
-              2023-08-31
+            <time datetime="2020-01-07 18:12" pubdate>
+              2020-01-07
             </time>
           </div>
         
@@ -814,7 +755,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  <a href="/categories/%E6%9D%82%E6%96%87/" class="category-chain-item">杂文</a>
   
   
 
@@ -829,7 +770,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
+              <a href="/tags/%E6%9D%82%E6%96%87/">#杂文</a>
             
           </div>
         
@@ -843,15 +784,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/uniprot/" target="_self">
-          本地构建UniProt数据库进行blast比对
+        <a href="/article/tjkyxu/" target="_self">
+          图解开源协议
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/uniprot/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/tjkyxu/" target="_self">
         <div>
-          数据库下载下载地址：  https://www.uniprot.org/help/downloads  镜像下载地址：  https://ftp.expasy.org/databases/uniprot/current_release/knowledgebase/complete/  下载速度可以说是非常慢了。买个阿里云的海外服务器中转一下。
+          💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
         </div>
       </a>
 
@@ -859,8 +800,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-07-28 09:42" pubdate>
-              2023-07-28
+            <time datetime="2022-03-04 14:27" pubdate>
+              2022-03-04
             </time>
           </div>
         
@@ -904,15 +845,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/rmap/" target="_self">
-          R语言绘制地图
+        <a href="/article/mlhdys/" target="_self">
+          命令行的艺术
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/rmap/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/mlhdys/" target="_self">
         <div>
-          12345678910111213141516171819library(geoviz)library(tidyverse)library(sf)library(terra)library(rasterVis)library(ggspatial)library(rgdal)library(rnaturalearth)library(rnaturalearthdata)library(raster)
+          以下内容来自：https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md 命令行的艺术  前言 基础 日常使用 文件及数据处理 系统调试 单行脚本 冷门但有用 仅限 OS X 系统 仅限 Windows 系统 更多资源 免责声明   熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高你作
         </div>
       </a>
 
@@ -920,8 +861,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-07-23 08:54" pubdate>
-              2023-07-23
+            <time datetime="2022-01-05 19:29" pubdate>
+              2022-01-05
             </time>
           </div>
         
@@ -952,6 +893,67 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/5d1ec1f/" target="_self">
+          土壤化学遗产激发后茬植物品种特异性及背景依赖性的根系响应
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/5d1ec1f/" target="_self">
+        <div>
+          摘要土壤遗产在优先效应的形成过程中有着重要的作用。然而我们还不知道
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-22 10:27" pubdate>
+              2021-01-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE/" class="category-chain-item">文献</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%96%87%E7%8C%AE/">#文献</a>
             
           </div>
         
