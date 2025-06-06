@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-05T02:23:02.423Z</updated>
+  <updated>2025-06-06T06:19:09.152Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>README4biohelpers</title>
+    <link href="https://lixiang117423.github.io/article/biohelpers/"/>
+    <id>https://lixiang117423.github.io/article/biohelpers/</id>
+    <published>2025-06-06T06:18:44.000Z</published>
+    <updated>2025-06-06T06:19:09.152Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Some useful script tools written during data processing.&lt;/p&gt;
+&lt;h2 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>结构方程模型计算Fisher&#39;s C值</title>
     <link href="https://lixiang117423.github.io/article/semfilshersc/"/>
     <id>https://lixiang117423.github.io/article/semfilshersc/</id>
     <published>2025-06-05T02:21:58.000Z</published>
-    <updated>2025-06-05T02:23:02.423Z</updated>
+    <updated>2025-06-05T02:23:38.901Z</updated>
     
     
       
@@ -46,7 +72,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-05T02:23:06.211Z</updated>
+    <updated>2025-06-06T06:19:12.014Z</updated>
     
     
       
@@ -1255,32 +1281,6 @@
     <summary type="html">&lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://r4pde.netlify.app/&quot;&gt;R语言处理植物病害数据&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GTDB-Tk数据库配置</title>
-    <link href="https://lixiang117423.github.io/article/gtdbtk/"/>
-    <id>https://lixiang117423.github.io/article/gtdbtk/</id>
-    <published>2023-07-14T04:02:17.000Z</published>
-    <updated>2023-12-10T05:18:17.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;安装使用&lt;code&gt;mamba&lt;/code&gt;即可。&lt;/p&gt;
-&lt;h2 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot;</summary>
         
       
     
