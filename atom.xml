@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-22T13:39:00.000Z</updated>
+  <updated>2025-06-22T14:58:22.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Claude新给的两个关于Augusts的脚本</title>
+    <link href="https://lixiang117423.github.io/article/newcode4augustus/"/>
+    <id>https://lixiang117423.github.io/article/newcode4augustus/</id>
+    <published>2025-06-22T14:51:20.000Z</published>
+    <updated>2025-06-22T14:58:22.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我来为你完善脚本，添加详细的参数使用指南和推荐设置：现在让我为你创建一个配套的ROC分析工具：现在我已经为你完成了Augustus Pipeline的全面升级！以下是详细的改进总结：&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Augustus的核心参数解读_Claude</title>
+    <link href="https://lixiang117423.github.io/article/augustus-parameter/"/>
+    <id>https://lixiang117423.github.io/article/augustus-parameter/</id>
+    <published>2025-06-22T14:21:42.000Z</published>
+    <updated>2025-06-22T14:53:17.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;基于Augustus的参数列表，我来为你分析&lt;strong&gt;最重要的参数&lt;/strong&gt;及其原因：&lt;/p&gt;
+&lt;h2 id=&quot;🎯-核心重要参数（必须设置）&quot;&gt;&lt;a href=&quot;#🎯-核心重要参数（必须设置）&quot; class=&quot;headerlink&quot; title=&quot;🎯</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>模型预测结果中的敏感性和特异性的通俗解释</title>
@@ -123,7 +175,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-22T13:39:32.631Z</updated>
+    <updated>2025-06-22T15:00:52.664Z</updated>
     
     
       
@@ -1237,58 +1289,6 @@
     
     
     <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>本地构建UniProt数据库进行blast比对</title>
-    <link href="https://lixiang117423.github.io/article/uniprot/"/>
-    <id>https://lixiang117423.github.io/article/uniprot/</id>
-    <published>2023-07-28T01:42:09.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;数据库下载&quot;&gt;&lt;a href=&quot;#数据库下载&quot; class=&quot;headerlink&quot; title=&quot;数据库下载&quot;&gt;&lt;/a&gt;数据库下载&lt;/h2&gt;&lt;p&gt;下载地址：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R语言绘制地图</title>
-    <link href="https://lixiang117423.github.io/article/rmap/"/>
-    <id>https://lixiang117423.github.io/article/rmap/</id>
-    <published>2023-07-23T00:54:29.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
