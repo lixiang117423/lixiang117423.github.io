@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="Augustus Gene Prediction Pipeline - Usage GuideScript OverviewThis Python script implements a complete automated Augustus gene prediction pipeline with bilingual (English&#x2F;Chinese) report generation. Q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Augustu训练的自动化脚本">
+<meta property="og:url" content="https://lixiang117423.github.io/article/augustus-train/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="Augustus Gene Prediction Pipeline - Usage GuideScript OverviewThis Python script implements a complete automated Augustus gene prediction pipeline with bilingual (English&#x2F;Chinese) report generation. Q">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-22T06:49:09.000Z">
+<meta property="article:modified_time" content="2025-06-22T06:53:10.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Augustu训练的自动化脚本 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Augustu训练的自动化脚本"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-22 14:49" pubdate>
+          2025年6月22日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Augustu训练的自动化脚本</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Augustus-Gene-Prediction-Pipeline-Usage-Guide"><a href="#Augustus-Gene-Prediction-Pipeline-Usage-Guide" class="headerlink" title="Augustus Gene Prediction Pipeline - Usage Guide"></a>Augustus Gene Prediction Pipeline - Usage Guide</h1><h2 id="Script-Overview"><a href="#Script-Overview" class="headerlink" title="Script Overview"></a>Script Overview</h2><p>This Python script implements a complete automated Augustus gene prediction pipeline with bilingual (English/Chinese) report generation.</p>
+<h2 id="Quick-Fix-for-Help-Display-Issue"><a href="#Quick-Fix-for-Help-Display-Issue" class="headerlink" title="Quick Fix for Help Display Issue"></a>Quick Fix for Help Display Issue</h2><p>If you’re not seeing help information when running <code>python script_name.py -h</code>, please check:</p>
+<ol>
+<li><strong>File naming</strong>: Make sure the script file is named correctly (e.g., <code>augustus_pipeline.py</code>)</li>
+<li><strong>Syntax errors</strong>: Ensure the script file is saved properly without any encoding issues</li>
+</ol>
+<h3 id="Correct-Usage-Examples"><a href="#Correct-Usage-Examples" class="headerlink" title="Correct Usage Examples:"></a>Correct Usage Examples:</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Display help information</span><br>python augustus_pipeline.py -h<br>python augustus_pipeline.py --<span class="hljs-built_in">help</span><br><br><span class="hljs-comment"># Basic usage</span><br>python augustus_pipeline.py --species_name Rice_NLR --genome_file genome.fa --gff_file annotations.gff3<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="New-Features-in-Updated-Version"><a href="#New-Features-in-Updated-Version" class="headerlink" title="New Features in Updated Version"></a>New Features in Updated Version</h2><p>✅ <strong>Fully English codebase</strong> - All comments, variables, and logs in English<br> ✅ <strong>Bilingual reports</strong> - Generates both English and Chinese Excel reports<br> ✅ <strong>Improved error handling</strong> - Better validation and debugging information<br> ✅ <strong>Professional logging</strong> - Comprehensive execution logs in English</p>
+<h2 id="Installation-Requirements"><a href="#Installation-Requirements" class="headerlink" title="Installation Requirements"></a>Installation Requirements</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Required Python packages</span><br>pip install pandas openpyxl<br><br><span class="hljs-comment"># Optional: for GFF3 conversion (if gffread not available)</span><br><span class="hljs-comment"># The script includes fallback conversion method</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Basic-Usage"><a href="#Basic-Usage" class="headerlink" title="Basic Usage"></a>Basic Usage</h2><h3 id="Minimal-Command-Required-Parameters-Only"><a href="#Minimal-Command-Required-Parameters-Only" class="headerlink" title="Minimal Command (Required Parameters Only)"></a>Minimal Command (Required Parameters Only)</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">python augustus_pipeline.py \<br>  --species_name <span class="hljs-string">"Rice_NLR_Model"</span> \<br>  --genome_file <span class="hljs-string">"path/to/genome.fa"</span> \<br>  --gff_file <span class="hljs-string">"path/to/annotations.gff3"</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Full-Command-All-Parameters"><a href="#Full-Command-All-Parameters" class="headerlink" title="Full Command (All Parameters)"></a>Full Command (All Parameters)</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">python augustus_pipeline.py \<br>  --species_name <span class="hljs-string">"Rice_35minicore_NLR"</span> \<br>  --genome_file <span class="hljs-string">"/path/to/genome.fa"</span> \<br>  --gff_file <span class="hljs-string">"/path/to/annotations.gff3"</span> \<br>  --output_dir <span class="hljs-string">"./augustus_results"</span> \<br>  --augustus_path <span class="hljs-string">"/share/org/YZWL/yzwl_lixg/miniforge3/envs/Augustus_v.3.5.0/bin"</span> \<br>  --train_ratio 0.8 \<br>  --flank_length 1000<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Parameter-Reference"><a href="#Parameter-Reference" class="headerlink" title="Parameter Reference"></a>Parameter Reference</h2><h3 id="Required-Parameters"><a href="#Required-Parameters" class="headerlink" title="Required Parameters"></a>Required Parameters</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--species_name</code></td>
+<td>New species model name</td>
+<td><code>"Rice_NLR_Model"</code></td>
+</tr>
+<tr>
+<td><code>--genome_file</code></td>
+<td>Genome FASTA file path</td>
+<td><code>"genome.fa"</code></td>
+</tr>
+<tr>
+<td><code>--gff_file</code></td>
+<td>Gene annotation GFF3 file path</td>
+<td><code>"annotations.gff3"</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Optional-Parameters"><a href="#Optional-Parameters" class="headerlink" title="Optional Parameters"></a>Optional Parameters</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--output_dir</code></td>
+<td><code>"./augustus_output"</code></td>
+<td>Output directory path</td>
+</tr>
+<tr>
+<td><code>--augustus_path</code></td>
+<td><code>/share/org/YZWL/.../bin</code></td>
+<td>Augustus installation path</td>
+</tr>
+<tr>
+<td><code>--train_ratio</code></td>
+<td><code>0.8</code></td>
+<td>Training set ratio (0.0-1.0)</td>
+</tr>
+<tr>
+<td><code>--flank_length</code></td>
+<td><code>1000</code></td>
+<td>Gene flanking length (bp)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Output-Files-Description"><a href="#Output-Files-Description" class="headerlink" title="Output Files Description"></a>Output Files Description</h2><p>The script generates bilingual reports and comprehensive output files:</p>
+<h3 id="Main-Output-Files"><a href="#Main-Output-Files" class="headerlink" title="Main Output Files"></a>Main Output Files</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>File Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>training_set.gb</code></td>
+<td>Augustus-specific training data</td>
+</tr>
+<tr>
+<td><code>training_set.gb.train</code></td>
+<td>Training subset</td>
+</tr>
+<tr>
+<td><code>training_set.gb.test</code></td>
+<td>Test subset</td>
+</tr>
+<tr>
+<td><code>prediction_result.gff</code></td>
+<td>Prediction results (original format)</td>
+</tr>
+<tr>
+<td><code>prediction_result.gff3</code></td>
+<td>Prediction results (GFF3 format)</td>
+</tr>
+<tr>
+<td><code>augustus_evaluation_report_EN.xlsx</code></td>
+<td><strong>English evaluation report</strong></td>
+</tr>
+<tr>
+<td><code>augustus_evaluation_report_ZH.xlsx</code></td>
+<td><strong>Chinese evaluation report</strong></td>
+</tr>
+<tr>
+<td><code>augustus_pipeline.log</code></td>
+<td>Execution log (English)</td>
+</tr>
+<tr>
+<td><code>optimize_[species_name].log</code></td>
+<td>Optimization log</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Excel-Report-Contents"><a href="#Excel-Report-Contents" class="headerlink" title="Excel Report Contents"></a>Excel Report Contents</h3><p>Both English and Chinese versions contain:</p>
+<ol>
+<li><strong>Configuration Sheet</strong> - Runtime parameters and settings</li>
+<li><strong>Evaluation Results Sheet</strong> - Detailed performance metrics</li>
+<li><strong>Term Explanations Sheet</strong> - Professional terminology explanations</li>
+</ol>
+<h4 id="English-Report-Structure"><a href="#English-Report-Structure" class="headerlink" title="English Report Structure:"></a>English Report Structure:</h4><ul>
+<li><strong>Configuration</strong>: Parameter, Value</li>
+<li><strong>Evaluation Results</strong>: Evaluation Level, Metric, Value, Description</li>
+<li><strong>Term Explanations</strong>: Term, Explanation</li>
+</ul>
+<h4 id="Chinese-Report-Structure"><a href="#Chinese-Report-Structure" class="headerlink" title="Chinese Report Structure:"></a>Chinese Report Structure:</h4><ul>
+<li><strong>配置信息</strong>: 参数, 值</li>
+<li><strong>评估结果</strong>: 评估级别, 评估指标, 数值, 说明</li>
+<li><strong>术语解释</strong>: 术语, 解释</li>
+</ul>
+<h2 id="Evaluation-Metrics-Interpretation"><a href="#Evaluation-Metrics-Interpretation" class="headerlink" title="Evaluation Metrics Interpretation"></a>Evaluation Metrics Interpretation</h2><h3 id="Key-Metrics"><a href="#Key-Metrics" class="headerlink" title="Key Metrics"></a>Key Metrics</h3><ul>
+<li><strong>Sensitivity</strong>: Model’s ability to find true genes<ul>
+<li>Formula: TP/(TP+FN)</li>
+<li>Good threshold: &gt; 0.8</li>
+</ul>
+</li>
+<li><strong>Specificity</strong>: Model’s prediction accuracy<ul>
+<li>Formula: TP/(TP+FP)</li>
+<li>Good threshold: &gt; 0.8</li>
+</ul>
+</li>
+</ul>
+<h3 id="Evaluation-Levels"><a href="#Evaluation-Levels" class="headerlink" title="Evaluation Levels"></a>Evaluation Levels</h3><ol>
+<li><strong>Nucleotide Level</strong>: Accuracy at DNA sequence base level</li>
+<li><strong>Exon Level</strong>: Accuracy at exon structure level</li>
+<li><strong>Gene Level</strong>: Accuracy at complete gene level</li>
+</ol>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h3 id="Common-Issues-and-Solutions"><a href="#Common-Issues-and-Solutions" class="headerlink" title="Common Issues and Solutions"></a>Common Issues and Solutions</h3><h4 id="1-Help-Information-Not-Displaying"><a href="#1-Help-Information-Not-Displaying" class="headerlink" title="1. Help Information Not Displaying"></a>1. Help Information Not Displaying</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Issue: python rrun_augustu_train.py -h shows nothing</span><br><span class="hljs-comment"># Solution: Check file name and syntax</span><br>python augustus_pipeline.py --<span class="hljs-built_in">help</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="2-Augustus-Path-Not-Found"><a href="#2-Augustus-Path-Not-Found" class="headerlink" title="2. Augustus Path Not Found"></a>2. Augustus Path Not Found</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Error: Augustus path does not exist</span><br><span class="hljs-comment"># Solution: Verify Augustus installation path</span><br>python augustus_pipeline.py --augustus_path /correct/path/to/augustus/bin [other args]<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="3-Input-File-Not-Found"><a href="#3-Input-File-Not-Found" class="headerlink" title="3. Input File Not Found"></a>3. Input File Not Found</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Error: Input file does not exist</span><br><span class="hljs-comment"># Solution: Use absolute paths and verify file existence</span><br>python augustus_pipeline.py --genome_file /absolute/path/to/genome.fa [other args]<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="4-Insufficient-Gene-Count"><a href="#4-Insufficient-Gene-Count" class="headerlink" title="4. Insufficient Gene Count"></a>4. Insufficient Gene Count</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Error: Total genes less than 100</span><br><span class="hljs-comment"># Solution: Use annotation file with more genes (recommended &gt;200)</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="5-Permission-Issues"><a href="#5-Permission-Issues" class="headerlink" title="5. Permission Issues"></a>5. Permission Issues</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Error: Permission denied</span><br><span class="hljs-comment"># Solution: Ensure write permissions for output directory</span><br><span class="hljs-built_in">chmod</span> 755 /path/to/output/directory<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Debugging-Tips"><a href="#Debugging-Tips" class="headerlink" title="Debugging Tips"></a>Debugging Tips</h3><ol>
+<li><strong>Check Log Files</strong>: Always examine <code>augustus_pipeline.log</code> for detailed error information</li>
+<li><strong>Validate Input Files</strong>: Ensure GFF3 files are properly formatted</li>
+<li><strong>Test Augustus</strong>: Verify Augustus tools work independently</li>
+<li><strong>Monitor Resources</strong>: Training may require significant time and memory</li>
+</ol>
+<h2 id="Performance-Optimization"><a href="#Performance-Optimization" class="headerlink" title="Performance Optimization"></a>Performance Optimization</h2><h3 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h3><ul>
+<li>Use high-quality genome assemblies</li>
+<li>Ensure GFF3 files are properly formatted</li>
+<li>Recommend at least 200 genes for training</li>
+</ul>
+<h3 id="Parameter-Tuning"><a href="#Parameter-Tuning" class="headerlink" title="Parameter Tuning"></a>Parameter Tuning</h3><ul>
+<li><strong>train_ratio</strong>: 0.8-0.85 for large datasets</li>
+<li><strong>flank_length</strong>: 1000-2000 bp depending on gene density</li>
+</ul>
+<h3 id="System-Resources"><a href="#System-Resources" class="headerlink" title="System Resources"></a>System Resources</h3><ul>
+<li>Training time: Several hours to days</li>
+<li>Memory: Varies with genome size</li>
+<li>Recommend running on compute servers</li>
+</ul>
+<h2 id="Advanced-Usage"><a href="#Advanced-Usage" class="headerlink" title="Advanced Usage"></a>Advanced Usage</h2><h3 id="Batch-Processing-Multiple-Species"><a href="#Batch-Processing-Multiple-Species" class="headerlink" title="Batch Processing Multiple Species"></a>Batch Processing Multiple Species</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br>species_list=(<span class="hljs-string">"species1"</span> <span class="hljs-string">"species2"</span> <span class="hljs-string">"species3"</span>)<br><br><span class="hljs-keyword">for</span> species <span class="hljs-keyword">in</span> <span class="hljs-string">"<span class="hljs-variable">${species_list[@]}</span>"</span>; <span class="hljs-keyword">do</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"Processing <span class="hljs-variable">$species</span>..."</span><br>    python augustus_pipeline.py \<br>        --species_name <span class="hljs-string">"<span class="hljs-variable">${species}</span>_model"</span> \<br>        --genome_file <span class="hljs-string">"data/<span class="hljs-variable">${species}</span>_genome.fa"</span> \<br>        --gff_file <span class="hljs-string">"data/<span class="hljs-variable">${species}</span>_annotations.gff3"</span> \<br>        --output_dir <span class="hljs-string">"results/<span class="hljs-variable">${species}</span>"</span><br><span class="hljs-keyword">done</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Cluster-Job-Submission-SLURM"><a href="#Cluster-Job-Submission-SLURM" class="headerlink" title="Cluster Job Submission (SLURM)"></a>Cluster Job Submission (SLURM)</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><span class="hljs-comment">#SBATCH --job-name=augustus_training</span><br><span class="hljs-comment">#SBATCH --time=24:00:00</span><br><span class="hljs-comment">#SBATCH --cpus-per-task=8</span><br><span class="hljs-comment">#SBATCH --mem=32G</span><br><span class="hljs-comment">#SBATCH --output=augustus_%j.out</span><br><span class="hljs-comment">#SBATCH --error=augustus_%j.err</span><br><br>module load python/3.8<br>module load augustus<br><br>python augustus_pipeline.py \<br>    --species_name <span class="hljs-string">"Rice_NLR_Model"</span> \<br>    --genome_file <span class="hljs-string">"genome.fa"</span> \<br>    --gff_file <span class="hljs-string">"annotations.gff3"</span> \<br>    --output_dir <span class="hljs-string">"./results"</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="File-Naming-Convention"><a href="#File-Naming-Convention" class="headerlink" title="File Naming Convention"></a>File Naming Convention</h2><p>To avoid confusion with help display:</p>
+<ol>
+<li>Save the script as: <code>augustus_pipeline.py</code></li>
+<li>Make it executable: <code>chmod +x augustus_pipeline.py</code></li>
+<li>Run with: <code>python augustus_pipeline.py -h</code></li>
+</ol>
+<h2 id="Quality-Assessment-Guidelines"><a href="#Quality-Assessment-Guidelines" class="headerlink" title="Quality Assessment Guidelines"></a>Quality Assessment Guidelines</h2><h3 id="Good-Model-Indicators"><a href="#Good-Model-Indicators" class="headerlink" title="Good Model Indicators:"></a>Good Model Indicators:</h3><ul>
+<li>Nucleotide sensitivity &gt; 0.8</li>
+<li>Nucleotide specificity &gt; 0.8</li>
+<li>Gene sensitivity &gt; 0.5</li>
+<li>Gene specificity &gt; 0.5</li>
+</ul>
+<h3 id="Report-Interpretation"><a href="#Report-Interpretation" class="headerlink" title="Report Interpretation:"></a>Report Interpretation:</h3><ul>
+<li><strong>High sensitivity, low specificity</strong>: Model finds genes but with many false positives</li>
+<li><strong>Low sensitivity, high specificity</strong>: Model is precise but misses many genes</li>
+<li><strong>Balanced metrics</strong>: Indicates good overall performance</li>
+</ul>
+<h2 id="Support-and-Troubleshooting"><a href="#Support-and-Troubleshooting" class="headerlink" title="Support and Troubleshooting"></a>Support and Troubleshooting</h2><p>For technical issues:</p>
+<ol>
+<li>Check execution logs in <code>augustus_pipeline.log</code></li>
+<li>Verify Augustus installation and paths</li>
+<li>Validate input file formats</li>
+<li>Monitor system resources during execution</li>
+</ol>
+<hr>
+<p><strong>Note</strong>: This updated script provides comprehensive English/Chinese bilingual support while maintaining full compatibility with your Augustus workflow.</p>
+<hr>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/env python3</span><br><span class="hljs-comment"># -*- coding: utf-8 -*-</span><br><span class="hljs-string">"""</span><br><span class="hljs-string">Augustus Gene Prediction Complete Pipeline</span><br><span class="hljs-string">Author: Automated Augustus Training and Prediction Pipeline</span><br><span class="hljs-string">Date: 2025</span><br><span class="hljs-string"></span><br><span class="hljs-string">This script implements a complete Augustus gene prediction pipeline including:</span><br><span class="hljs-string">1. Create new species model</span><br><span class="hljs-string">2. Prepare training data</span><br><span class="hljs-string">3. Model training and optimization</span><br><span class="hljs-string">4. Test set prediction</span><br><span class="hljs-string">5. Result evaluation and Excel report generation</span><br><span class="hljs-string">6. Format conversion</span><br><span class="hljs-string">"""</span><br><br><span class="hljs-keyword">import</span> argparse<br><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> sys<br><span class="hljs-keyword">import</span> subprocess<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> logging<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br><span class="hljs-keyword">from</span> pathlib <span class="hljs-keyword">import</span> Path<br><span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime<br><br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">AugustusTrainer</span>:<br>    <span class="hljs-string">"""Augustus training and prediction pipeline manager"""</span><br>    <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, config</span>):<br>        <span class="hljs-string">"""Initialize configuration"""</span><br>        self.config = config<br>        self.setup_logging()<br>        self.validate_inputs()<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">setup_logging</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Setup logging configuration"""</span><br>        log_file = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">'augustus_pipeline.log'</span>)<br>        os.makedirs(self.config[<span class="hljs-string">'output_dir'</span>], exist_ok=<span class="hljs-literal">True</span>)<br>        <br>        logging.basicConfig(<br>            level=logging.INFO,<br>            <span class="hljs-built_in">format</span>=<span class="hljs-string">'%(asctime)s - %(levelname)s - %(message)s'</span>,<br>            handlers=[<br>                logging.FileHandler(log_file, encoding=<span class="hljs-string">'utf-8'</span>),<br>                logging.StreamHandler()<br>            ]<br>        )<br>        self.logger = logging.getLogger(__name__)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">validate_inputs</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Validate input files and paths"""</span><br>        self.logger.info(<span class="hljs-string">"Validating input parameters..."</span>)<br>        <br>        <span class="hljs-comment"># Check Augustus path</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(self.config[<span class="hljs-string">'augustus_path'</span>]):<br>            <span class="hljs-keyword">raise</span> FileNotFoundError(<span class="hljs-string">f"Augustus path does not exist: <span class="hljs-subst">{self.config[<span class="hljs-string">'augustus_path'</span>]}</span>"</span>)<br>            <br>        <span class="hljs-comment"># Check input files</span><br>        <span class="hljs-keyword">for</span> file_key <span class="hljs-keyword">in</span> [<span class="hljs-string">'genome_file'</span>, <span class="hljs-string">'gff_file'</span>]:<br>            <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(self.config[file_key]):<br>                <span class="hljs-keyword">raise</span> FileNotFoundError(<span class="hljs-string">f"Input file does not exist: <span class="hljs-subst">{self.config[file_key]}</span>"</span>)<br>                <br>        <span class="hljs-comment"># Create output directory</span><br>        os.makedirs(self.config[<span class="hljs-string">'output_dir'</span>], exist_ok=<span class="hljs-literal">True</span>)<br>        <br>        self.logger.info(<span class="hljs-string">"Input validation completed"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run_command</span>(<span class="hljs-params">self, command, description=<span class="hljs-string">""</span></span>):<br>        <span class="hljs-string">"""Execute shell command"""</span><br>        self.logger.info(<span class="hljs-string">f"Executing: <span class="hljs-subst">{description}</span>"</span>)<br>        self.logger.debug(<span class="hljs-string">f"Command: <span class="hljs-subst">{command}</span>"</span>)<br>        <br>        <span class="hljs-keyword">try</span>:<br>            result = subprocess.run(<br>                command, <br>                shell=<span class="hljs-literal">True</span>, <br>                check=<span class="hljs-literal">True</span>, <br>                capture_output=<span class="hljs-literal">True</span>, <br>                text=<span class="hljs-literal">True</span>,<br>                encoding=<span class="hljs-string">'utf-8'</span><br>            )<br>            <span class="hljs-keyword">if</span> result.stdout:<br>                self.logger.debug(<span class="hljs-string">f"Output: <span class="hljs-subst">{result.stdout}</span>"</span>)<br>            <span class="hljs-keyword">return</span> result<br>        <span class="hljs-keyword">except</span> subprocess.CalledProcessError <span class="hljs-keyword">as</span> e:<br>            self.logger.error(<span class="hljs-string">f"Command execution failed: <span class="hljs-subst">{e}</span>"</span>)<br>            self.logger.error(<span class="hljs-string">f"Error output: <span class="hljs-subst">{e.stderr}</span>"</span>)<br>            <span class="hljs-keyword">raise</span><br>            <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step1_create_species</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 1: Create new species model"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 1: Creating new species model"</span>)<br>        <br>        new_species_script = os.path.join(self.config[<span class="hljs-string">'augustus_path'</span>], <span class="hljs-string">'new_species.pl'</span>)<br>        command = <span class="hljs-string">f"perl <span class="hljs-subst">{new_species_script}</span> --species=<span class="hljs-subst">{self.config[<span class="hljs-string">'species_name'</span>]}</span>"</span><br>        <br>        <span class="hljs-keyword">try</span>:<br>            self.run_command(command, <span class="hljs-string">"Create new species model"</span>)<br>            self.logger.info(<span class="hljs-string">f"Successfully created species model: <span class="hljs-subst">{self.config[<span class="hljs-string">'species_name'</span>]}</span>"</span>)<br>        <span class="hljs-keyword">except</span> subprocess.CalledProcessError:<br>            self.logger.warning(<span class="hljs-string">"Species model may already exist, continuing..."</span>)<br>            <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step2_prepare_training_data</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 2: Prepare training data"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 2: Preparing training data"</span>)<br>        <br>        gff2gb_script = os.path.join(self.config[<span class="hljs-string">'augustus_path'</span>], <span class="hljs-string">'gff2gbSmallDNA.pl'</span>)<br>        output_file = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">'training_set.gb'</span>)<br>        <br>        command = (<span class="hljs-string">f"perl <span class="hljs-subst">{gff2gb_script}</span> "</span><br>                  <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'gff_file'</span>]}</span> "</span><br>                  <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'genome_file'</span>]}</span> "</span><br>                  <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'flank_length'</span>]}</span> "</span><br>                  <span class="hljs-string">f"<span class="hljs-subst">{output_file}</span>"</span>)<br>        <br>        self.run_command(command, <span class="hljs-string">"Generate Augustus training data"</span>)<br>        <br>        self.config[<span class="hljs-string">'training_file'</span>] = output_file<br>        self.logger.info(<span class="hljs-string">f"Training data generated: <span class="hljs-subst">{output_file}</span>"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step3_split_dataset</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 3: Split dataset"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 3: Splitting training and test sets"</span>)<br>        <br>        <span class="hljs-comment"># Count total genes</span><br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(self.config[<span class="hljs-string">'training_file'</span>], <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:<br>            content = f.read()<br>            total_genes = content.count(<span class="hljs-string">'LOCUS'</span>)<br>            <br>        self.logger.info(<span class="hljs-string">f"Detected total genes: <span class="hljs-subst">{total_genes}</span>"</span>)<br>        <br>        <span class="hljs-keyword">if</span> total_genes &lt; <span class="hljs-number">100</span>:<br>            <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"Total genes less than 100, insufficient for splitting and evaluation"</span>)<br>            <br>        <span class="hljs-comment"># Calculate training set size</span><br>        train_count = <span class="hljs-built_in">int</span>(total_genes * self.config[<span class="hljs-string">'train_ratio'</span>])<br>        self.logger.info(<span class="hljs-string">f"Using <span class="hljs-subst">{train_count}</span> genes for training, <span class="hljs-subst">{total_genes - train_count}</span> for testing"</span>)<br>        <br>        <span class="hljs-comment"># Split dataset</span><br>        random_split_script = os.path.join(self.config[<span class="hljs-string">'augustus_path'</span>], <span class="hljs-string">'randomSplit.pl'</span>)<br>        command = <span class="hljs-string">f"perl <span class="hljs-subst">{random_split_script}</span> <span class="hljs-subst">{self.config[<span class="hljs-string">'training_file'</span>]}</span> <span class="hljs-subst">{train_count}</span>"</span><br>        <br>        self.run_command(command, <span class="hljs-string">"Split dataset"</span>)<br>        <br>        self.config[<span class="hljs-string">'train_file'</span>] = self.config[<span class="hljs-string">'training_file'</span>] + <span class="hljs-string">'.train'</span><br>        self.config[<span class="hljs-string">'test_file'</span>] = self.config[<span class="hljs-string">'training_file'</span>] + <span class="hljs-string">'.test'</span><br>        <br>        self.logger.info(<span class="hljs-string">"Dataset splitting completed"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step4_train_model</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 4: Train model"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 4: Training model"</span>)<br>        <br>        <span class="hljs-comment"># etraining</span><br>        etraining_bin = os.path.join(self.config[<span class="hljs-string">'augustus_path'</span>], <span class="hljs-string">'etraining'</span>)<br>        command = <span class="hljs-string">f"<span class="hljs-subst">{etraining_bin}</span> --species=<span class="hljs-subst">{self.config[<span class="hljs-string">'species_name'</span>]}</span> <span class="hljs-subst">{self.config[<span class="hljs-string">'train_file'</span>]}</span>"</span><br>        <br>        self.run_command(command, <span class="hljs-string">"etraining parameter training"</span>)<br>        self.logger.info(<span class="hljs-string">"etraining completed"</span>)<br>        <br>        <span class="hljs-comment"># optimize_augustus</span><br>        optimize_script = os.path.join(self.config[<span class="hljs-string">'augustus_path'</span>], <span class="hljs-string">'optimize_augustus.pl'</span>)<br>        optimize_log = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">f'optimize_<span class="hljs-subst">{self.config[<span class="hljs-string">"species_name"</span>]}</span>.log'</span>)<br>        <br>        command = <span class="hljs-string">f"perl <span class="hljs-subst">{optimize_script}</span> --species=<span class="hljs-subst">{self.config[<span class="hljs-string">'species_name'</span>]}</span> <span class="hljs-subst">{self.config[<span class="hljs-string">'test_file'</span>]}</span> &gt; <span class="hljs-subst">{optimize_log}</span> 2&gt;&amp;1"</span><br>        <br>        self.run_command(command, <span class="hljs-string">"Model parameter optimization"</span>)<br>        self.logger.info(<span class="hljs-string">"Model optimization completed"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step5_predict_test_set</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 5: Predict test set"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 5: Predicting test set"</span>)<br>        <br>        augustus_bin = os.path.join(self.config[<span class="hljs-string">'augustus_path'</span>], <span class="hljs-string">'augustus'</span>)<br>        prediction_file = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">'prediction_result.gff'</span>)<br>        <br>        command = <span class="hljs-string">f"<span class="hljs-subst">{augustus_bin}</span> --species=<span class="hljs-subst">{self.config[<span class="hljs-string">'species_name'</span>]}</span> <span class="hljs-subst">{self.config[<span class="hljs-string">'test_file'</span>]}</span> &gt; <span class="hljs-subst">{prediction_file}</span>"</span><br>        <br>        self.run_command(command, <span class="hljs-string">"Predict test set"</span>)<br>        <br>        self.config[<span class="hljs-string">'prediction_file'</span>] = prediction_file<br>        self.logger.info(<span class="hljs-string">f"Prediction results saved: <span class="hljs-subst">{prediction_file}</span>"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step6_parse_evaluation_results</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 6: Parse evaluation results"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 6: Parsing evaluation results"</span>)<br>        <br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(self.config[<span class="hljs-string">'prediction_file'</span>], <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:<br>            content = f.read()<br>            <br>        <span class="hljs-comment"># Extract evaluation data</span><br>        evaluation_data = self.extract_evaluation_metrics(content)<br>        <br>        <span class="hljs-comment"># Generate Excel report</span><br>        self.generate_excel_report(evaluation_data)<br>        <br>        <span class="hljs-keyword">return</span> evaluation_data<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">extract_evaluation_metrics</span>(<span class="hljs-params">self, content</span>):<br>        <span class="hljs-string">"""Extract evaluation metrics"""</span><br>        evaluation = {}<br>        <br>        <span class="hljs-comment"># Extract nucleotide level sensitivity and specificity</span><br>        nucleotide_pattern = <span class="hljs-string">r'nucleotide level\s*\|\s*([\d.]+)\s*\|\s*([\d.]+)\s*\|'</span><br>        nucleotide_match = re.search(nucleotide_pattern, content)<br>        <span class="hljs-keyword">if</span> nucleotide_match:<br>            evaluation[<span class="hljs-string">'nucleotide_sensitivity'</span>] = <span class="hljs-built_in">float</span>(nucleotide_match.group(<span class="hljs-number">1</span>))<br>            evaluation[<span class="hljs-string">'nucleotide_specificity'</span>] = <span class="hljs-built_in">float</span>(nucleotide_match.group(<span class="hljs-number">2</span>))<br>            <br>        <span class="hljs-comment"># Extract exon level data</span><br>        exon_pattern = <span class="hljs-string">r'exon level\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|.*?\|\s*([\d.]+)\s*\|\s*([\d.]+)\s*\|'</span><br>        exon_match = re.search(exon_pattern, content, re.DOTALL)<br>        <span class="hljs-keyword">if</span> exon_match:<br>            evaluation[<span class="hljs-string">'exon_pred_total'</span>] = <span class="hljs-built_in">int</span>(exon_match.group(<span class="hljs-number">1</span>))<br>            evaluation[<span class="hljs-string">'exon_anno_total'</span>] = <span class="hljs-built_in">int</span>(exon_match.group(<span class="hljs-number">2</span>))<br>            evaluation[<span class="hljs-string">'exon_tp'</span>] = <span class="hljs-built_in">int</span>(exon_match.group(<span class="hljs-number">3</span>))<br>            evaluation[<span class="hljs-string">'exon_sensitivity'</span>] = <span class="hljs-built_in">float</span>(exon_match.group(<span class="hljs-number">4</span>))<br>            evaluation[<span class="hljs-string">'exon_specificity'</span>] = <span class="hljs-built_in">float</span>(exon_match.group(<span class="hljs-number">5</span>))<br>            <br>        <span class="hljs-comment"># Extract gene level data</span><br>        gene_pattern = <span class="hljs-string">r'gene level\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*(\d+)\s*\|\s*([\d.]+)\s*\|\s*([\d.]+)\s*\|'</span><br>        gene_match = re.search(gene_pattern, content)<br>        <span class="hljs-keyword">if</span> gene_match:<br>            evaluation[<span class="hljs-string">'gene_pred'</span>] = <span class="hljs-built_in">int</span>(gene_match.group(<span class="hljs-number">1</span>))<br>            evaluation[<span class="hljs-string">'gene_anno'</span>] = <span class="hljs-built_in">int</span>(gene_match.group(<span class="hljs-number">2</span>))<br>            evaluation[<span class="hljs-string">'gene_tp'</span>] = <span class="hljs-built_in">int</span>(gene_match.group(<span class="hljs-number">3</span>))<br>            evaluation[<span class="hljs-string">'gene_fp'</span>] = <span class="hljs-built_in">int</span>(gene_match.group(<span class="hljs-number">4</span>))<br>            evaluation[<span class="hljs-string">'gene_fn'</span>] = <span class="hljs-built_in">int</span>(gene_match.group(<span class="hljs-number">5</span>))<br>            evaluation[<span class="hljs-string">'gene_sensitivity'</span>] = <span class="hljs-built_in">float</span>(gene_match.group(<span class="hljs-number">6</span>))<br>            evaluation[<span class="hljs-string">'gene_specificity'</span>] = <span class="hljs-built_in">float</span>(gene_match.group(<span class="hljs-number">7</span>))<br>            <br>        <span class="hljs-keyword">return</span> evaluation<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">generate_excel_report</span>(<span class="hljs-params">self, evaluation_data</span>):<br>        <span class="hljs-string">"""Generate Excel evaluation report with bilingual support"""</span><br>        self.logger.info(<span class="hljs-string">"Generating Excel evaluation report"</span>)<br>        <br>        <span class="hljs-comment"># Create evaluation results data</span><br>        results_data_en = []<br>        results_data_zh = []<br>        <br>        <span class="hljs-comment"># Nucleotide level</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-string">'nucleotide_sensitivity'</span> <span class="hljs-keyword">in</span> evaluation_data:<br>            results_data_en.extend([<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Nucleotide Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Sensitivity'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'nucleotide_sensitivity'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Proportion of correctly predicted nucleotides, reflects model ability to find true genes'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Nucleotide Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Specificity'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'nucleotide_specificity'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Proportion of accurately predicted nucleotides, reflects model prediction precision'</span><br>                }<br>            ])<br>            <br>            results_data_zh.extend([<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'核苷酸水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'敏感性'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'nucleotide_sensitivity'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'正确预测的核苷酸比例，反映模型找到真实基因的能力'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'核苷酸水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'特异性'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'nucleotide_specificity'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'预测准确的核苷酸比例，反映模型预测精度'</span><br>                }<br>            ])<br>            <br>        <span class="hljs-comment"># Exon level</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-string">'exon_sensitivity'</span> <span class="hljs-keyword">in</span> evaluation_data:<br>            results_data_en.extend([<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Exon Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Total Predicted Exons'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'exon_pred_total'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Total number of exons predicted by the model'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Exon Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Total Annotated Exons'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'exon_anno_total'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Total number of exons in reference annotation'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Exon Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'True Positives'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'exon_tp'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Number of correctly predicted exons (True Positive)'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Exon Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Sensitivity'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'exon_sensitivity'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Proportion of correctly predicted exons among true exons'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Exon Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Specificity'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'exon_specificity'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Proportion of correct exons among predicted exons'</span><br>                }<br>            ])<br>            <br>            results_data_zh.extend([<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'外显子水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'预测外显子总数'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'exon_pred_total'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'模型预测的外显子总数量'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'外显子水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'注释外显子总数'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'exon_anno_total'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'参考注释中的外显子总数量'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'外显子水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'正确预测数'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'exon_tp'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'预测正确的外显子数量(True Positive)'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'外显子水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'敏感性'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'exon_sensitivity'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'正确预测的外显子占真实外显子的比例'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'外显子水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'特异性'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'exon_specificity'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'预测的外显子中正确的比例'</span><br>                }<br>            ])<br>            <br>        <span class="hljs-comment"># Gene level</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-string">'gene_sensitivity'</span> <span class="hljs-keyword">in</span> evaluation_data:<br>            results_data_en.extend([<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Predicted Genes'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_pred'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Total number of genes predicted by the model'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Annotated Genes'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_anno'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Total number of genes in reference annotation'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'True Positives (TP)'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_tp'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Number of completely correctly predicted genes'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'False Positives (FP)'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_fp'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Number of incorrectly predicted genes'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'False Negatives (FN)'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_fn'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Number of missed true genes'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Sensitivity'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_sensitivity'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Proportion of correctly predicted genes among true genes'</span><br>                },<br>                {<br>                    <span class="hljs-string">'Evaluation Level'</span>: <span class="hljs-string">'Gene Level'</span>,<br>                    <span class="hljs-string">'Metric'</span>: <span class="hljs-string">'Specificity'</span>,<br>                    <span class="hljs-string">'Value'</span>: evaluation_data[<span class="hljs-string">'gene_specificity'</span>],<br>                    <span class="hljs-string">'Description'</span>: <span class="hljs-string">'Proportion of correct genes among predicted genes'</span><br>                }<br>            ])<br>            <br>            results_data_zh.extend([<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'预测基因数'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_pred'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'模型预测的基因总数'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'注释基因数'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_anno'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'参考注释中的基因总数'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'真阳性(TP)'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_tp'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'完全正确预测的基因数量'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'假阳性(FP)'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_fp'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'错误预测的基因数量'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'假阴性(FN)'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_fn'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'漏掉的真实基因数量'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'敏感性'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_sensitivity'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'正确预测的基因占真实基因的比例'</span><br>                },<br>                {<br>                    <span class="hljs-string">'评估级别'</span>: <span class="hljs-string">'基因水平'</span>,<br>                    <span class="hljs-string">'评估指标'</span>: <span class="hljs-string">'特异性'</span>,<br>                    <span class="hljs-string">'数值'</span>: evaluation_data[<span class="hljs-string">'gene_specificity'</span>],<br>                    <span class="hljs-string">'说明'</span>: <span class="hljs-string">'预测基因中正确的比例'</span><br>                }<br>            ])<br>            <br>        <span class="hljs-comment"># Create DataFrames</span><br>        df_results_en = pd.DataFrame(results_data_en)<br>        df_results_zh = pd.DataFrame(results_data_zh)<br>        <br>        <span class="hljs-comment"># Create configuration DataFrames</span><br>        config_data_en = [<br>            [<span class="hljs-string">'Species Name'</span>, self.config[<span class="hljs-string">'species_name'</span>]],<br>            [<span class="hljs-string">'Genome File'</span>, self.config[<span class="hljs-string">'genome_file'</span>]],<br>            [<span class="hljs-string">'Annotation File'</span>, self.config[<span class="hljs-string">'gff_file'</span>]],<br>            [<span class="hljs-string">'Training Ratio'</span>, <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'train_ratio'</span>]*<span class="hljs-number">100</span>}</span>%"</span>],<br>            [<span class="hljs-string">'Flank Length'</span>, <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'flank_length'</span>]}</span> bp"</span>],<br>            [<span class="hljs-string">'Output Directory'</span>, self.config[<span class="hljs-string">'output_dir'</span>]],<br>            [<span class="hljs-string">'Generation Time'</span>, datetime.now().strftime(<span class="hljs-string">'%Y-%m-%d %H:%M:%S'</span>)]<br>        ]<br>        df_config_en = pd.DataFrame(config_data_en, columns=[<span class="hljs-string">'Parameter'</span>, <span class="hljs-string">'Value'</span>])<br>        <br>        config_data_zh = [<br>            [<span class="hljs-string">'物种名称'</span>, self.config[<span class="hljs-string">'species_name'</span>]],<br>            [<span class="hljs-string">'基因组文件'</span>, self.config[<span class="hljs-string">'genome_file'</span>]],<br>            [<span class="hljs-string">'注释文件'</span>, self.config[<span class="hljs-string">'gff_file'</span>]],<br>            [<span class="hljs-string">'训练集比例'</span>, <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'train_ratio'</span>]*<span class="hljs-number">100</span>}</span>%"</span>],<br>            [<span class="hljs-string">'侧翼长度'</span>, <span class="hljs-string">f"<span class="hljs-subst">{self.config[<span class="hljs-string">'flank_length'</span>]}</span> bp"</span>],<br>            [<span class="hljs-string">'输出目录'</span>, self.config[<span class="hljs-string">'output_dir'</span>]],<br>            [<span class="hljs-string">'生成时间'</span>, datetime.now().strftime(<span class="hljs-string">'%Y-%m-%d %H:%M:%S'</span>)]<br>        ]<br>        df_config_zh = pd.DataFrame(config_data_zh, columns=[<span class="hljs-string">'参数'</span>, <span class="hljs-string">'值'</span>])<br>        <br>        <span class="hljs-comment"># Save Excel files (English and Chinese versions)</span><br>        excel_file_en = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">'augustus_evaluation_report_EN.xlsx'</span>)<br>        excel_file_zh = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">'augustus_evaluation_report_ZH.xlsx'</span>)<br>        <br>        <span class="hljs-comment"># English version</span><br>        <span class="hljs-keyword">with</span> pd.ExcelWriter(excel_file_en, engine=<span class="hljs-string">'openpyxl'</span>) <span class="hljs-keyword">as</span> writer:<br>            df_config_en.to_excel(writer, sheet_name=<span class="hljs-string">'Configuration'</span>, index=<span class="hljs-literal">False</span>)<br>            df_results_en.to_excel(writer, sheet_name=<span class="hljs-string">'Evaluation Results'</span>, index=<span class="hljs-literal">False</span>)<br>            <br>            <span class="hljs-comment"># Add explanation sheet</span><br>            explanation_data_en = [<br>                [<span class="hljs-string">'Term'</span>, <span class="hljs-string">'Explanation'</span>],<br>                [<span class="hljs-string">'Sensitivity'</span>, <span class="hljs-string">'Also called recall, represents model ability to correctly identify true genes. Formula: TP/(TP+FN)'</span>],<br>                [<span class="hljs-string">'Specificity'</span>, <span class="hljs-string">'Represents model prediction accuracy. Formula: TP/(TP+FP)'</span>],<br>                [<span class="hljs-string">'TP (True Positive)'</span>, <span class="hljs-string">'Number of correctly predicted genes'</span>],<br>                [<span class="hljs-string">'FP (False Positive)'</span>, <span class="hljs-string">'Number of incorrectly predicted genes'</span>],<br>                [<span class="hljs-string">'FN (False Negative)'</span>, <span class="hljs-string">'Number of missed true genes'</span>],<br>                [<span class="hljs-string">'Nucleotide Level'</span>, <span class="hljs-string">'Prediction accuracy at DNA sequence base level'</span>],<br>                [<span class="hljs-string">'Exon Level'</span>, <span class="hljs-string">'Prediction accuracy at exon structure level'</span>],<br>                [<span class="hljs-string">'Gene Level'</span>, <span class="hljs-string">'Prediction accuracy at complete gene level'</span>],<br>                [<span class="hljs-string">'Evaluation Suggestion'</span>, <span class="hljs-string">'Generally, models with sensitivity&gt;0.8 and specificity&gt;0.8 are considered excellent'</span>]<br>            ]<br>            df_explanation_en = pd.DataFrame(explanation_data_en[<span class="hljs-number">1</span>:], columns=explanation_data_en[<span class="hljs-number">0</span>])<br>            df_explanation_en.to_excel(writer, sheet_name=<span class="hljs-string">'Term Explanations'</span>, index=<span class="hljs-literal">False</span>)<br>            <br>        <span class="hljs-comment"># Chinese version</span><br>        <span class="hljs-keyword">with</span> pd.ExcelWriter(excel_file_zh, engine=<span class="hljs-string">'openpyxl'</span>) <span class="hljs-keyword">as</span> writer:<br>            df_config_zh.to_excel(writer, sheet_name=<span class="hljs-string">'配置信息'</span>, index=<span class="hljs-literal">False</span>)<br>            df_results_zh.to_excel(writer, sheet_name=<span class="hljs-string">'评估结果'</span>, index=<span class="hljs-literal">False</span>)<br>            <br>            <span class="hljs-comment"># Add explanation sheet</span><br>            explanation_data_zh = [<br>                [<span class="hljs-string">'术语'</span>, <span class="hljs-string">'解释'</span>],<br>                [<span class="hljs-string">'敏感性(Sensitivity)'</span>, <span class="hljs-string">'也称召回率，表示模型正确识别真实基因的能力，计算公式: TP/(TP+FN)'</span>],<br>                [<span class="hljs-string">'特异性(Specificity)'</span>, <span class="hljs-string">'表示模型预测准确度，计算公式: TP/(TP+FP)'</span>],<br>                [<span class="hljs-string">'TP (True Positive)'</span>, <span class="hljs-string">'真阳性，正确预测的基因数量'</span>],<br>                [<span class="hljs-string">'FP (False Positive)'</span>, <span class="hljs-string">'假阳性，错误预测的基因数量'</span>],<br>                [<span class="hljs-string">'FN (False Negative)'</span>, <span class="hljs-string">'假阴性，漏掉的真实基因数量'</span>],<br>                [<span class="hljs-string">'核苷酸水平'</span>, <span class="hljs-string">'在DNA序列碱基层面的预测准确性'</span>],<br>                [<span class="hljs-string">'外显子水平'</span>, <span class="hljs-string">'在外显子结构层面的预测准确性'</span>],<br>                [<span class="hljs-string">'基因水平'</span>, <span class="hljs-string">'在完整基因层面的预测准确性'</span>],<br>                [<span class="hljs-string">'评估建议'</span>, <span class="hljs-string">'一般认为敏感性&gt;0.8、特异性&gt;0.8的模型较为优秀'</span>]<br>            ]<br>            df_explanation_zh = pd.DataFrame(explanation_data_zh[<span class="hljs-number">1</span>:], columns=explanation_data_zh[<span class="hljs-number">0</span>])<br>            df_explanation_zh.to_excel(writer, sheet_name=<span class="hljs-string">'术语解释'</span>, index=<span class="hljs-literal">False</span>)<br>            <br>        self.logger.info(<span class="hljs-string">f"Excel evaluation reports generated:"</span>)<br>        self.logger.info(<span class="hljs-string">f"  English version: <span class="hljs-subst">{excel_file_en}</span>"</span>)<br>        self.logger.info(<span class="hljs-string">f"  Chinese version: <span class="hljs-subst">{excel_file_zh}</span>"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">step7_convert_to_gff3</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Step 7: Convert to GFF3 format"""</span><br>        self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>        self.logger.info(<span class="hljs-string">"Step 7: Converting to GFF3 format"</span>)<br>        <br>        gff3_file = os.path.join(self.config[<span class="hljs-string">'output_dir'</span>], <span class="hljs-string">'prediction_result.gff3'</span>)<br>        <br>        <span class="hljs-comment"># Use gffread to convert format</span><br>        command = <span class="hljs-string">f"gffread <span class="hljs-subst">{self.config[<span class="hljs-string">'prediction_file'</span>]}</span> -o <span class="hljs-subst">{gff3_file}</span>"</span><br>        <br>        <span class="hljs-keyword">try</span>:<br>            self.run_command(command, <span class="hljs-string">"Convert to GFF3 format"</span>)<br>            self.logger.info(<span class="hljs-string">f"GFF3 file generated: <span class="hljs-subst">{gff3_file}</span>"</span>)<br>        <span class="hljs-keyword">except</span> subprocess.CalledProcessError:<br>            self.logger.warning(<span class="hljs-string">"gffread conversion failed, attempting simple format conversion..."</span>)<br>            self.simple_gff_to_gff3_conversion(gff3_file)<br>            <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">simple_gff_to_gff3_conversion</span>(<span class="hljs-params">self, output_file</span>):<br>        <span class="hljs-string">"""Simple GFF to GFF3 conversion"""</span><br>        <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(self.config[<span class="hljs-string">'prediction_file'</span>], <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> infile, \<br>             <span class="hljs-built_in">open</span>(output_file, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> outfile:<br>            <br>            outfile.write(<span class="hljs-string">"##gff-version 3\n"</span>)<br>            <br>            <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> infile:<br>                <span class="hljs-keyword">if</span> line.startswith(<span class="hljs-string">'#'</span>) <span class="hljs-keyword">or</span> line.strip() == <span class="hljs-string">''</span>:<br>                    <span class="hljs-keyword">continue</span><br>                    <br>                fields = line.strip().split(<span class="hljs-string">'\t'</span>)<br>                <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(fields) &gt;= <span class="hljs-number">9</span>:<br>                    <span class="hljs-comment"># Simple processing of attribute field to ensure GFF3 format compliance</span><br>                    attributes = fields[<span class="hljs-number">8</span>]<br>                    <span class="hljs-keyword">if</span> <span class="hljs-string">'transcript_id'</span> <span class="hljs-keyword">in</span> attributes <span class="hljs-keyword">and</span> <span class="hljs-string">'gene_id'</span> <span class="hljs-keyword">in</span> attributes:<br>                        outfile.write(line)<br>                        <br>        self.logger.info(<span class="hljs-string">f"Simple format conversion completed: <span class="hljs-subst">{output_file}</span>"</span>)<br>        <br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">run_complete_pipeline</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-string">"""Run complete pipeline"""</span><br>        <span class="hljs-keyword">try</span>:<br>            self.logger.info(<span class="hljs-string">"Starting Augustus complete training and prediction pipeline"</span>)<br>            self.logger.info(<span class="hljs-string">f"Species name: <span class="hljs-subst">{self.config[<span class="hljs-string">'species_name'</span>]}</span>"</span>)<br>            <br>            <span class="hljs-comment"># Execute all steps</span><br>            self.step1_create_species()<br>            self.step2_prepare_training_data()<br>            self.step3_split_dataset()<br>            self.step4_train_model()<br>            self.step5_predict_test_set()<br>            evaluation_data = self.step6_parse_evaluation_results()<br>            self.step7_convert_to_gff3()<br>            <br>            self.logger.info(<span class="hljs-string">"="</span> * <span class="hljs-number">50</span>)<br>            self.logger.info(<span class="hljs-string">"🎉 Augustus pipeline execution completed!"</span>)<br>            self.logger.info(<span class="hljs-string">f"Result files saved in: <span class="hljs-subst">{self.config[<span class="hljs-string">'output_dir'</span>]}</span>"</span>)<br>            <br>            <span class="hljs-comment"># Print key evaluation results</span><br>            <span class="hljs-keyword">if</span> evaluation_data:<br>                self.logger.info(<span class="hljs-string">"\nKey evaluation results:"</span>)<br>                <span class="hljs-keyword">if</span> <span class="hljs-string">'nucleotide_sensitivity'</span> <span class="hljs-keyword">in</span> evaluation_data:<br>                    self.logger.info(<span class="hljs-string">f"  Nucleotide sensitivity: <span class="hljs-subst">{evaluation_data[<span class="hljs-string">'nucleotide_sensitivity'</span>]:<span class="hljs-number">.3</span>f}</span>"</span>)<br>                    self.logger.info(<span class="hljs-string">f"  Nucleotide specificity: <span class="hljs-subst">{evaluation_data[<span class="hljs-string">'nucleotide_specificity'</span>]:<span class="hljs-number">.3</span>f}</span>"</span>)<br>                <span class="hljs-keyword">if</span> <span class="hljs-string">'gene_sensitivity'</span> <span class="hljs-keyword">in</span> evaluation_data:<br>                    self.logger.info(<span class="hljs-string">f"  Gene sensitivity: <span class="hljs-subst">{evaluation_data[<span class="hljs-string">'gene_sensitivity'</span>]:<span class="hljs-number">.3</span>f}</span>"</span>)<br>                    self.logger.info(<span class="hljs-string">f"  Gene specificity: <span class="hljs-subst">{evaluation_data[<span class="hljs-string">'gene_specificity'</span>]:<span class="hljs-number">.3</span>f}</span>"</span>)<br>                    <br>        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>            self.logger.error(<span class="hljs-string">f"Pipeline execution failed: <span class="hljs-subst">{e}</span>"</span>)<br>            <span class="hljs-keyword">raise</span><br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">main</span>():<br>    <span class="hljs-string">"""Main function"""</span><br>    parser = argparse.ArgumentParser(<br>        description=<span class="hljs-string">'Augustus Gene Prediction Complete Pipeline'</span>,<br>        formatter_class=argparse.RawDescriptionHelpFormatter,<br>        epilog=<span class="hljs-string">"""</span><br><span class="hljs-string">Usage Examples:</span><br><span class="hljs-string">  python augustus_pipeline.py \\</span><br><span class="hljs-string">    --species_name Rice_NLR_Model \\</span><br><span class="hljs-string">    --genome_file genome.fa \\</span><br><span class="hljs-string">    --gff_file annotations.gff3 \\</span><br><span class="hljs-string">    --output_dir ./augustus_results \\</span><br><span class="hljs-string">    --train_ratio 0.8 \\</span><br><span class="hljs-string">    --flank_length 1000 \\</span><br><span class="hljs-string">    --augustus_path /path/to/augustus/bin</span><br><span class="hljs-string"></span><br><span class="hljs-string">Detailed Description:</span><br><span class="hljs-string">  This script automatically executes the complete Augustus training and </span><br><span class="hljs-string">  prediction pipeline, including model training, parameter optimization, </span><br><span class="hljs-string">  prediction evaluation, and result report generation.</span><br><span class="hljs-string">        """</span><br>    )<br>    <br>    <span class="hljs-comment"># Required parameters</span><br>    parser.add_argument(<span class="hljs-string">'--species_name'</span>, required=<span class="hljs-literal">True</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'New species model name (e.g., Rice_NLR_Model)'</span>)<br>    parser.add_argument(<span class="hljs-string">'--genome_file'</span>, required=<span class="hljs-literal">True</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'Genome FASTA file path'</span>)<br>    parser.add_argument(<span class="hljs-string">'--gff_file'</span>, required=<span class="hljs-literal">True</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'Gene annotation GFF3 file path'</span>)<br>    <br>    <span class="hljs-comment"># Optional parameters</span><br>    parser.add_argument(<span class="hljs-string">'--output_dir'</span>, default=<span class="hljs-string">'./augustus_output'</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'Output directory path (default: ./augustus_output)'</span>)<br>    parser.add_argument(<span class="hljs-string">'--augustus_path'</span>, <br>                       default=<span class="hljs-string">'/share/org/YZWL/yzwl_lixg/miniforge3/envs/Augustus_v.3.5.0/bin'</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'Augustus installation path'</span>)<br>    parser.add_argument(<span class="hljs-string">'--train_ratio'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">float</span>, default=<span class="hljs-number">0.8</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'Training set ratio (default: 0.8)'</span>)<br>    parser.add_argument(<span class="hljs-string">'--flank_length'</span>, <span class="hljs-built_in">type</span>=<span class="hljs-built_in">int</span>, default=<span class="hljs-number">1000</span>,<br>                       <span class="hljs-built_in">help</span>=<span class="hljs-string">'Gene flanking length (default: 1000)'</span>)<br>    <br>    args = parser.parse_args()<br>    <br>    <span class="hljs-comment"># Build configuration dictionary</span><br>    config = {<br>        <span class="hljs-string">'species_name'</span>: args.species_name,<br>        <span class="hljs-string">'genome_file'</span>: os.path.abspath(args.genome_file),<br>        <span class="hljs-string">'gff_file'</span>: os.path.abspath(args.gff_file),<br>        <span class="hljs-string">'output_dir'</span>: os.path.abspath(args.output_dir),<br>        <span class="hljs-string">'augustus_path'</span>: args.augustus_path,<br>        <span class="hljs-string">'train_ratio'</span>: args.train_ratio,<br>        <span class="hljs-string">'flank_length'</span>: args.flank_length<br>    }<br>    <br>    <span class="hljs-comment"># Execute pipeline</span><br>    trainer = AugustusTrainer(config)<br>    trainer.run_complete_pipeline()<br><br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:<br>    main()<br></code></pre></td></tr></tbody></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Augustu训练的自动化脚本</div>
+      <div>https://lixiang117423.github.io/article/augustus-train/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月22日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/biohelpers-python/" title="README4biohelpers">
+                        <span class="hidden-mobile">README4biohelpers</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
