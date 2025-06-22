@@ -233,67 +233,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/condainstallesger/" target="_self">
-          Ubuntu折腾edgeR的安装
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/condainstallesger/" target="_self">
-        <div>
-          首先是conda报错： 12345Collecting package metadata (current_repodata.json): doneSolving environment: failed with initial frozen solve. Retrying with flexible solve.Solving environment: failed with repodata
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-28 14:18" pubdate>
-              2022-03-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
         <a href="/article/ubunturjava/" target="_self">
           Ubuntu安装rJava
         </a>
@@ -357,15 +296,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/ubuntushiny/" target="_self">
-          Ubuntu搭建shiny-server
+        <a href="/article/ubuntudisk/" target="_self">
+          Ubuntu将home目录挂载到新硬盘上
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntushiny/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntudisk/" target="_self">
         <div>
-          从这里开始写正文 1234567891011121314151617181920212223#root 权限进入sudo suuseradd shiny # 添加shiny用户passwd shiny # 修改shiny用户的密码chmod +w /etc/sudoers # 修改权限sudo vim /etc/sudoers # 编辑# root ALL=(ALL) ALL 该行，在下面添加 s
+          创建硬盘分区：按提示操作即可（容量大于2T的硬盘用parted命令）  12sudo parted /dev/sdb# 需要改成gtp格式的分区  创建文件系统  1mkfs.ext4 /dev/sdb1  查看UUID  1blkid  同步保存原来/home目录下的所有文件  12sudo mount /dev/sdb1 /mnt/old.home.220111sudo rsync -avx
         </div>
       </a>
 
@@ -373,12 +312,103 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 19:50" pubdate>
-              2021-11-25
+            <time datetime="2022-01-11 13:32" pubdate>
+              2022-01-11
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+              <a href="/tags/Ubuntu/">#Ubuntu</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/condainstallesger/" target="_self">
+          Ubuntu折腾edgeR的安装
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/condainstallesger/" target="_self">
+        <div>
+          首先是conda报错： 12345Collecting package metadata (current_repodata.json): doneSolving environment: failed with initial frozen solve. Retrying with flexible solve.Solving environment: failed with repodata
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-03-28 14:18" pubdate>
+              2022-03-28
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
         
       </div>
     </article>
@@ -451,6 +481,39 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/article/ubuntushiny/" target="_self">
+          Ubuntu搭建shiny-server
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntushiny/" target="_self">
+        <div>
+          从这里开始写正文 1234567891011121314151617181920212223#root 权限进入sudo suuseradd shiny # 添加shiny用户passwd shiny # 修改shiny用户的密码chmod +w /etc/sudoers # 修改权限sudo vim /etc/sudoers # 编辑# root ALL=(ALL) ALL 该行，在下面添加 s
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-25 19:50" pubdate>
+              2021-11-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/article/ubuntuupdaterstudioserver/" target="_self">
           Ubuntu更新RStudioServer
         </a>
@@ -469,67 +532,6 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2023-01-03 15:32" pubdate>
               2023-01-03
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/ubuntuinstallmlr3verse/" target="_self">
-          Ubuntu服务器安装R包mlr3verse
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuinstallmlr3verse/" target="_self">
-        <div>
-          mlr3verse是R里面机器学习中的集大成者。但是我死活安装不上。把交换内存搞到了120G还是报错。真的是要炸了。突然想到，可以用conda安装啊。 12conda install -c conda-forge r-mlr3versesudo ln -s /home/lixiang/miniconda3/lib/R/library/R62S3 /usr/local/lib/R/site-libr
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-22 17:38" pubdate>
-              2022-03-22
             </time>
           </div>
         
@@ -634,15 +636,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/ubuntuip/" target="_self">
-          Ubuntu服务器配置静态IP
+        <a href="/article/ubuntuinstallmlr3verse/" target="_self">
+          Ubuntu服务器安装R包mlr3verse
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuip/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuinstallmlr3verse/" target="_self">
         <div>
-          实验室的服务器需要配置静态IP，折腾了一天都没有搞定。今早上在去实验室的路上突然想到，“我没有重启网络管理器啊😂”  配置IP  123456789auto loiface lo inet loopbackauto eno1np0 # 需要设定的网络端口address x.x.x.x # 固定IP地址netmask x.x.x.x # 掩码gateway x.x.x.x # 网关dns-name
+          mlr3verse是R里面机器学习中的集大成者。但是我死活安装不上。把交换内存搞到了120G还是报错。真的是要炸了。突然想到，可以用conda安装啊。 12conda install -c conda-forge r-mlr3versesudo ln -s /home/lixiang/miniconda3/lib/R/library/R62S3 /usr/local/lib/R/site-libr
         </div>
       </a>
 
@@ -650,8 +652,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-04 09:34" pubdate>
-              2022-01-04
+            <time datetime="2022-03-22 17:38" pubdate>
+              2022-03-22
             </time>
           </div>
         
@@ -666,7 +668,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/swxxx/" class="category-chain-item">swxxx</a>
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
   
   
 
@@ -683,44 +685,7 @@
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
-            
-              <a href="/tags/Linux/">#Linux</a>
-            
           </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/594585ty/" target="_self">
-          Ubuntu部署Hexo
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/594585ty/" target="_self">
-        <div>
-          123456789101112131415161718192021222324252627282930313233# 添加用户adduser hexo# 切回用户目录su hexo# 新建目录存放blogmkdir blog# 初始化裸gitgit init --bare hexo.git# vim hexo.git/hooks/post-receive#!/bin/shgit --work-tr
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-23 16:25" pubdate>
-              2021-11-23
-            </time>
-          </div>
-        
-        
         
       </div>
     </article>
@@ -862,15 +827,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/41af5d00/" target="_self">
-          UniProt数据库爬虫获取相关信息
+        <a href="/article/594585ty/" target="_self">
+          Ubuntu部署Hexo
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/594585ty/" target="_self">
         <div>
-          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
+          123456789101112131415161718192021222324252627282930313233# 添加用户adduser hexo# 切回用户目录su hexo# 新建目录存放blogmkdir blog# 初始化裸gitgit init --bare hexo.git# vim hexo.git/hooks/post-receive#!/bin/shgit --work-tr
         </div>
       </a>
 
@@ -878,8 +843,41 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-18 22:02" pubdate>
-              2021-04-18
+            <time datetime="2021-11-23 16:25" pubdate>
+              2021-11-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/vscodeline/" target="_self">
+          VSCode取消波浪线
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
+        <div>
+          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-04-05 11:35" pubdate>
+              2023-04-05
             </time>
           </div>
         
@@ -894,7 +892,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
   
   
 
@@ -909,7 +907,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/Python/">#Python</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
             
           </div>
         

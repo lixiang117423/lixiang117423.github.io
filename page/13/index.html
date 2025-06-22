@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/vscodeline/" target="_self">
-          VSCode取消波浪线
+        <a href="/article/ubuntuip/" target="_self">
+          Ubuntu服务器配置静态IP
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuip/" target="_self">
         <div>
-          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
+          实验室的服务器需要配置静态IP，折腾了一天都没有搞定。今早上在去实验室的路上突然想到，“我没有重启网络管理器啊😂”  配置IP  123456789auto loiface lo inet loopbackauto eno1np0 # 需要设定的网络端口address x.x.x.x # 固定IP地址netmask x.x.x.x # 掩码gateway x.x.x.x # 网关dns-name
         </div>
       </a>
 
@@ -249,8 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 11:35" pubdate>
-              2023-04-05
+            <time datetime="2022-01-04 09:34" pubdate>
+              2022-01-04
             </time>
           </div>
         
@@ -265,7 +265,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  <a href="/categories/swxxx/" class="category-chain-item">swxxx</a>
   
   
 
@@ -280,7 +280,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
               <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
+            
+              <a href="/tags/Linux/">#Linux</a>
             
           </div>
         
@@ -342,6 +346,67 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/41af5d00/" target="_self">
+          UniProt数据库爬虫获取相关信息
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
+        <div>
+          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-18 22:02" pubdate>
+              2021-04-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">#Python</a>
             
           </div>
         
@@ -875,67 +940,6 @@
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
               <a href="/tags/Python/">#Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/pythonargs/" target="_self">
-          python传参示例
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/pythonargs/" target="_self">
-        <div>
-          12345678910111213141516171819202122232425262728293031323334353637383940414243import osimport reimport argparseparser = argparse.ArgumentParser(description="You should add those parameters")parser.add_
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-24 09:47" pubdate>
-              2022-03-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
         
