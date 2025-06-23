@@ -538,15 +538,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/coremicrobiome/" target="_self">
-          一种核心微生物的鉴定方法
+        <a href="/article/sra2fastq/" target="_self">
+          一行linux命令实现批量sra转fastq
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/coremicrobiome/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/sra2fastq/" target="_self">
         <div>
-          12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210
+          123ls data/sra/ | while read id; do parallel-fastq-dump -s ./data/sra/$id --o ./data/fastq --split-files -t 30; donenohup ls data/sra | while read id; do hisat2 -p 30 -x index/genome.index -1 data/fas
         </div>
       </a>
 
@@ -554,8 +554,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-08 09:22" pubdate>
-              2023-06-08
+            <time datetime="2022-12-12 21:13" pubdate>
+              2022-12-12
             </time>
           </div>
         
@@ -599,15 +599,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/sra2fastq/" target="_self">
-          一行linux命令实现批量sra转fastq
+        <a href="/article/coremicrobiome/" target="_self">
+          一种核心微生物的鉴定方法
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/sra2fastq/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/coremicrobiome/" target="_self">
         <div>
-          123ls data/sra/ | while read id; do parallel-fastq-dump -s ./data/sra/$id --o ./data/fastq --split-files -t 30; donenohup ls data/sra | while read id; do hisat2 -p 30 -x index/genome.index -1 data/fas
+          12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210
         </div>
       </a>
 
@@ -615,8 +615,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-12-12 21:13" pubdate>
-              2022-12-12
+            <time datetime="2023-06-08 09:22" pubdate>
+              2023-06-08
             </time>
           </div>
         

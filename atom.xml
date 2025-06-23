@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-23T11:19:33.000Z</updated>
+  <updated>2025-06-23T11:33:46.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -21,14 +21,14 @@
     <link href="https://lixiang117423.github.io/article/kmer-gwas/"/>
     <id>https://lixiang117423.github.io/article/kmer-gwas/</id>
     <published>2025-06-23T11:04:53.000Z</published>
-    <updated>2025-06-23T11:19:33.000Z</updated>
+    <updated>2025-06-23T11:33:46.000Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源&quot;&gt;&lt;a href=&quot;#基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;📋-研究概述&quot;&gt;&lt;a href=&quot;#📋-研究概述&quot; class=&quot;headerlink&quot; title=&quot;📋 研究概述&quot;&gt;&lt;/a&gt;📋 研究概述&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;期刊&lt;/strong&gt;: Genome Biology (2025)&lt;br&gt;</summary>
         
       
     
@@ -200,7 +200,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-23T11:20:46.407Z</updated>
+    <updated>2025-06-23T13:11:35.239Z</updated>
     
     
       
@@ -462,13 +462,7 @@
       
         
         
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
         
       
     
@@ -489,7 +483,13 @@
       
         
         
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
         
       
     
