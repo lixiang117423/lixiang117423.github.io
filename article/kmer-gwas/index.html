@@ -1,0 +1,802 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源📋 研究概述期刊: Genome Biology (2025) 作者: Benjamin Jaegle等 DOI: 10.1186&#x2F;s13059-025-03645-z  🎯 研究背景与目标背景问题 小麦重要性: 小麦产量占全球卡路里摄入的18%，但每年因病虫害减产20% 白粉病威胁: 由专性寄生真菌Blumeria graminis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于k-mer的GWAS揭示小麦白粉病抗性的多样化来源">
+<meta property="og:url" content="https://lixiang117423.github.io/article/kmer-gwas/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源📋 研究概述期刊: Genome Biology (2025) 作者: Benjamin Jaegle等 DOI: 10.1186&#x2F;s13059-025-03645-z  🎯 研究背景与目标背景问题 小麦重要性: 小麦产量占全球卡路里摄入的18%，但每年因病虫害减产20% 白粉病威胁: 由专性寄生真菌Blumeria graminis">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-23T11:04:53.000Z">
+<meta property="article:modified_time" content="2025-06-23T11:19:33.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="文献阅读">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>基于k-mer的GWAS揭示小麦白粉病抗性的多样化来源 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="基于k-mer的GWAS揭示小麦白粉病抗性的多样化来源"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-23 19:04" pubdate>
+          2025年6月23日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">基于k-mer的GWAS揭示小麦白粉病抗性的多样化来源</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源"><a href="#基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源" class="headerlink" title="基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源"></a>基于k-mer的GWAS揭示小麦白粉病抗性的新颖多样化来源</h1><h2 id="📋-研究概述"><a href="#📋-研究概述" class="headerlink" title="📋 研究概述"></a>📋 研究概述</h2><p><strong>期刊</strong>: Genome Biology (2025)<br> <strong>作者</strong>: Benjamin Jaegle等<br> <strong>DOI</strong>: 10.1186/s13059-025-03645-z</p>
+<hr>
+<h2 id="🎯-研究背景与目标"><a href="#🎯-研究背景与目标" class="headerlink" title="🎯 研究背景与目标"></a>🎯 研究背景与目标</h2><h3 id="背景问题"><a href="#背景问题" class="headerlink" title="背景问题"></a>背景问题</h3><ul>
+<li><strong>小麦重要性</strong>: 小麦产量占全球卡路里摄入的18%，但每年因病虫害减产20%</li>
+<li><strong>白粉病威胁</strong>: 由专性寄生真菌<em>Blumeria graminis</em> f. sp. tritici引起，可使谷物产量减少7.6-19.9%</li>
+<li><strong>抗性基因匮乏</strong>: 虽然已报道100多个白粉病抗性基因(Pm)，但只有少数在主要种植区有效</li>
+<li><strong>方法局限</strong>: 传统SNP-based GWAS依赖单一参考基因组，限制了遗传变异的检测</li>
+</ul>
+<h3 id="研究目标"><a href="#研究目标" class="headerlink" title="研究目标"></a>研究目标</h3><p>开发基于k-mer的GWAS方法，利用多个参考基因组发掘小麦种质资源中的白粉病抗性新基因</p>
+<hr>
+<h2 id="🔬-研究方法"><a href="#🔬-研究方法" class="headerlink" title="🔬 研究方法"></a>🔬 研究方法</h2><h3 id="材料与表型分析"><a href="#材料与表型分析" class="headerlink" title="材料与表型分析"></a>材料与表型分析</h3><ul>
+<li><p><strong>种质资源</strong>: 461个瑞士小麦品种(139个春小麦，276个冬小麦)</p>
+</li>
+<li><p><strong>病原菌株</strong>: 10个来自不同地理区域、具有对比毒力谱的白粉病菌株</p>
+</li>
+<li><p>表型评价</p>
+<p>:</p>
+<ul>
+<li>苗期抗性：叶段接种，8-10天后评价</li>
+<li>成株抗性：田间自然发病，连续2年评价</li>
+</ul>
+</li>
+</ul>
+<h3 id="基因型分析"><a href="#基因型分析" class="headerlink" title="基因型分析"></a>基因型分析</h3><ul>
+<li><strong>DArTseq测序</strong>: 限制性酶介导的基因组复杂性降低测序</li>
+<li><strong>SNP芯片</strong>: Illumina Infinium 15K小麦SNP阵列</li>
+<li><strong>k-mer生成</strong>: 从DArTseq原始数据生成31bp长度的k-mers</li>
+</ul>
+<h3 id="创新的k-mer-GWAS流程"><a href="#创新的k-mer-GWAS流程" class="headerlink" title="创新的k-mer GWAS流程"></a>创新的k-mer GWAS流程</h3><pre><code class=" mermaid">graph TD
+    A[DArTseq原始数据] --&gt; B[k-mer矩阵生成]
+    B --&gt; C[GWAS分析]
+    C --&gt; D[显著k-mers筛选]
+    D --&gt; E[多参考基因组定位]
+    E --&gt; F[候选基因挖掘]
+    
+    G[10个小麦参考基因组] --&gt; E
+    H[4个祖先基因组] --&gt; E
+</code></pre>
+<hr>
+<h2 id="📊-主要结果"><a href="#📊-主要结果" class="headerlink" title="📊 主要结果"></a>📊 主要结果</h2><h3 id="1-表型多样性丰富"><a href="#1-表型多样性丰富" class="headerlink" title="1. 表型多样性丰富"></a>1. 表型多样性丰富</h3><ul>
+<li><strong>抗性分布</strong>: 平均80个品种对单个菌株表现抗性，354个品种易感</li>
+<li><strong>广谱抗性</strong>: 28个品种对所有10个菌株均表现抗性</li>
+<li><strong>基因确认</strong>: 通过分子标记确认50个品种含Pm2基因，31个含Pm4b基因</li>
+</ul>
+<h3 id="2-k-mer-GWAS优势显著"><a href="#2-k-mer-GWAS优势显著" class="headerlink" title="2. k-mer GWAS优势显著"></a>2. k-mer GWAS优势显著</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>方法比较</th>
+<th>SNP芯片</th>
+<th>DArTseq SNPs</th>
+<th>k-mer GWAS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>检测到的显著标记数</td>
+<td>53</td>
+<td>241</td>
+<td>16,895</td>
+</tr>
+<tr>
+<td>关联区域数</td>
+<td>7</td>
+<td>7</td>
+<td>34</td>
+</tr>
+<tr>
+<td>新发现区域</td>
+<td>0</td>
+<td>0</td>
+<td>27</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-多参考基因组提升检测能力"><a href="#3-多参考基因组提升检测能力" class="headerlink" title="3. 多参考基因组提升检测能力"></a>3. 多参考基因组提升检测能力</h3><ul>
+<li><strong>单一参考(Chinese Spring)</strong>: 68%的显著k-mers可定位</li>
+<li><strong>10个小麦基因组</strong>: 83%的显著k-mers可定位</li>
+<li><strong>加入祖先基因组</strong>: 93%的显著k-mers可定位</li>
+<li><strong>检测提升</strong>: 比单一参考基因组多检测25%的抗性相关k-mers</li>
+</ul>
+<h3 id="4-新候选基因发现"><a href="#4-新候选基因发现" class="headerlink" title="4. 新候选基因发现"></a>4. 新候选基因发现</h3><h4 id="Werner样核酸外切酶基因"><a href="#Werner样核酸外切酶基因" class="headerlink" title="Werner样核酸外切酶基因"></a>Werner样核酸外切酶基因</h4><ul>
+<li><strong>位置</strong>: 染色体2B</li>
+<li><strong>特征</strong>: 在易感品种中存在，抗性品种中缺失</li>
+<li><strong>功能</strong>: 可能为易感因子，类似大麦Mlo基因</li>
+</ul>
+<h4 id="蜡酯合成酶相关基因"><a href="#蜡酯合成酶相关基因" class="headerlink" title="蜡酯合成酶相关基因"></a>蜡酯合成酶相关基因</h4><ul>
+<li><strong>位置</strong>: 染色体3D</li>
+<li><strong>特征</strong>: 仅在部分抗性品种中存在</li>
+<li><strong>功能</strong>: 参与角质层蜡质合成，形成物理屏障</li>
+</ul>
+<hr>
+<h2 id="🚀-技术创新点"><a href="#🚀-技术创新点" class="headerlink" title="🚀 技术创新点"></a>🚀 技术创新点</h2><h3 id="1-方法学突破"><a href="#1-方法学突破" class="headerlink" title="1. 方法学突破"></a>1. 方法学突破</h3><ul>
+<li><strong>k-mer vs SNP</strong>: k-mers能检测所有类型的遗传变异(SNPs、InDels、结构变异)</li>
+<li><strong>多基因组策略</strong>: 整合10个小麦基因组和4个祖先基因组</li>
+<li><strong>无参考偏向</strong>: 避免单一参考基因组的局限性</li>
+</ul>
+<h3 id="2-检测能力提升"><a href="#2-检测能力提升" class="headerlink" title="2. 检测能力提升"></a>2. 检测能力提升</h3><ul>
+<li><strong>标记密度</strong>: k-mer方法在Pm4区域检测到1,627个标记 vs SNP方法的165个</li>
+<li><strong>精确定位</strong>: 在SY Mattis基因组上，关联信号精确定位到Pm4基因位置</li>
+<li><strong>新变异发现</strong>: 32%的显著k-mers无法在Chinese Spring上定位，提示存在引入片段</li>
+</ul>
+<h3 id="3-数据可视化工具"><a href="#3-数据可视化工具" class="headerlink" title="3. 数据可视化工具"></a>3. 数据可视化工具</h3><p>开发了3个在线Shiny应用：</p>
+<ul>
+<li><strong>曼哈顿图可视化</strong>: 多基因组、多菌株的关联结果展示</li>
+<li><strong>表型分布图</strong>: 不同菌株的抗性分布</li>
+<li><strong>连锁不平衡图</strong>: 目标区域的LD模式分析</li>
+</ul>
+<hr>
+<h2 id="🔍-生物学意义"><a href="#🔍-生物学意义" class="headerlink" title="🔍 生物学意义"></a>🔍 生物学意义</h2><h3 id="1-抗性基因挖掘"><a href="#1-抗性基因挖掘" class="headerlink" title="1. 抗性基因挖掘"></a>1. 抗性基因挖掘</h3><ul>
+<li><strong>已知基因确认</strong>: 成功检测到Pm1、Pm2、Pm4b、Pm60等已知基因</li>
+<li><strong>新基因发现</strong>: 27个潜在新的抗性基因座</li>
+<li><strong>广谱抗性</strong>: 28个品种的全菌株抗性可能涉及Pm13或Pm36基因</li>
+</ul>
+<h3 id="2-进化与育种启示"><a href="#2-进化与育种启示" class="headerlink" title="2. 进化与育种启示"></a>2. 进化与育种启示</h3><ul>
+<li><strong>引入片段</strong>: 许多抗性基因位于引入片段中，来源于野生近缘种</li>
+<li><strong>遗传多样性</strong>: 地方品种和古老品种是宝贵的遗传资源</li>
+<li><strong>育种应用</strong>: 新发现的基因可直接用于现代品种改良</li>
+</ul>
+<h3 id="3-抗性机制多样性"><a href="#3-抗性机制多样性" class="headerlink" title="3. 抗性机制多样性"></a>3. 抗性机制多样性</h3><ul>
+<li><strong>主效基因</strong>: 传统的R基因介导的抗性</li>
+<li><strong>数量抗性</strong>: 成株期的多基因控制抗性</li>
+<li><strong>易感因子</strong>: Werner样核酸外切酶可能为新的易感靶点</li>
+</ul>
+<hr>
+<h2 id="📈-田间验证结果"><a href="#📈-田间验证结果" class="headerlink" title="📈 田间验证结果"></a>📈 田间验证结果</h2><h3 id="成株抗性GWAS"><a href="#成株抗性GWAS" class="headerlink" title="成株抗性GWAS"></a>成株抗性GWAS</h3><ul>
+<li><strong>表型相关性</strong>: 春小麦2年间相关性r=0.87，冬小麦r=0.68</li>
+<li><strong>检测优势</strong>: k-mer方法在田间条件下检测到多个关联区域</li>
+<li><strong>SNP方法局限</strong>: 传统SNP方法未检测到显著关联</li>
+</ul>
+<hr>
+<h2 id="🎯-研究局限与展望"><a href="#🎯-研究局限与展望" class="headerlink" title="🎯 研究局限与展望"></a>🎯 研究局限与展望</h2><h3 id="局限性"><a href="#局限性" class="headerlink" title="局限性"></a>局限性</h3><ul>
+<li><strong>功能验证</strong>: 候选基因需要进一步的功能验证</li>
+<li><strong>计算复杂性</strong>: k-mer方法计算量大，需要更多计算资源</li>
+<li><strong>标准化需求</strong>: 缺乏标准化的k-mer GWAS分析流程</li>
+</ul>
+<h3 id="未来方向"><a href="#未来方向" class="headerlink" title="未来方向"></a>未来方向</h3><ul>
+<li><strong>泛基因组GWAS</strong>: 随着更多基因组测序，方法将更加强大</li>
+<li><strong>基因编辑验证</strong>: 利用CRISPR/Cas9验证候选基因功能</li>
+<li><strong>分子育种应用</strong>: 将发现的基因用于标记辅助选择</li>
+</ul>
+<hr>
+<h2 id="📝-结论"><a href="#📝-结论" class="headerlink" title="📝 结论"></a>📝 结论</h2><p>本研究成功开发了基于k-mer的多参考基因组GWAS方法，在小麦白粉病抗性基因挖掘方面取得重要突破：</p>
+<p>✅ <strong>方法创新</strong>: k-mer方法比传统SNP方法检测能力提升25%<br> ✅ <strong>新基因发现</strong>: 鉴定出27个潜在新的抗性基因座<br> ✅ <strong>技术平台</strong>: 建立了可扩展的泛基因组GWAS分析流程<br> ✅ <strong>应用价值</strong>: 为小麦抗病育种提供了丰富的基因资源</p>
+<p>该研究为复杂植物基因组的性状解析提供了新的技术路径，对作物改良具有重要的理论和实践意义。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="print-no-link">#文献阅读</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>基于k-mer的GWAS揭示小麦白粉病抗性的多样化来源</div>
+      <div>https://lixiang117423.github.io/article/kmer-gwas/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月23日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/newcode4augustus/" title="Claude新给的两个关于Augusts的脚本">
+                        <span class="hidden-mobile">Claude新给的两个关于Augusts的脚本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
