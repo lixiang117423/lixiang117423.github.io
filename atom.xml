@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-24T02:04:33.000Z</updated>
+  <updated>2025-06-25T05:42:08.759Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AI时代的植物边缘效应子生物学</title>
+    <link href="https://lixiang117423.github.io/article/null/"/>
+    <id>https://lixiang117423.github.io/article/null/</id>
+    <published>2025-06-25T05:42:08.000Z</published>
+    <updated>2025-06-25T05:42:08.759Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mumemto给的构建线性泛基因组的方法</title>
+    <link href="https://lixiang117423.github.io/article/null/"/>
+    <id>https://lixiang117423.github.io/article/null/</id>
+    <published>2025-06-24T08:15:09.000Z</published>
+    <updated>2025-06-24T08:15:09.462Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>博后期间文献阅读记录</title>
@@ -200,7 +226,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-24T07:36:38.064Z</updated>
+    <updated>2025-06-26T01:30:56.336Z</updated>
     
     
       
@@ -462,7 +488,13 @@
       
         
         
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
         
       
     
@@ -483,13 +515,7 @@
       
         
         
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
         
       
     
@@ -1235,59 +1261,6 @@
     
     
     <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>调控植物-植物互作的地下部分信号</title>
-    <link href="https://lixiang117423.github.io/article/ppiunderground/"/>
-    <id>https://lixiang117423.github.io/article/ppiunderground/</id>
-    <published>2023-10-01T01:42:36.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;文献信息&quot;&gt;&lt;a href=&quot;#文献信息&quot; class=&quot;headerlink&quot; title=&quot;文献信息&quot;&gt;&lt;/a&gt;文献信息&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-    
-    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Word交叉引用设置颜色为蓝色</title>
-    <link href="https://lixiang117423.github.io/article/wordjcyy/"/>
-    <id>https://lixiang117423.github.io/article/wordjcyy/</id>
-    <published>2023-09-11T03:20:34.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;参考&lt;a href=&quot;https://zhuanlan.zhihu.com/p/533318295&quot;&gt;知乎文章&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;编辑一个新的宏：&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-    
-    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
