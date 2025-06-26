@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-26T01:05:13.000Z</updated>
+  <updated>2025-06-26T07:33:55.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>超算集群配置NCBI真核生物基因组注释流程EGAPx</title>
+    <link href="https://lixiang117423.github.io/article/install-egapx/"/>
+    <id>https://lixiang117423.github.io/article/install-egapx/</id>
+    <published>2025-06-26T03:04:33.000Z</published>
+    <updated>2025-06-26T07:33:55.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;以下流程是在数据中心的超算上的配置过程。&lt;/p&gt;
+&lt;h1 id=&quot;创建环境&quot;&gt;&lt;a href=&quot;#创建环境&quot; class=&quot;headerlink&quot; title=&quot;创建环境&quot;&gt;&lt;/a&gt;创建环境&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+    
+    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>AI时代的植物病原效应子生物学</title>
@@ -238,7 +264,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-26T01:40:55.182Z</updated>
+    <updated>2025-06-26T07:34:26.452Z</updated>
     
     
       
@@ -1238,32 +1264,6 @@
         
     <summary type="html">&lt;h2 id=&quot;基因组下载&quot;&gt;&lt;a href=&quot;#基因组下载&quot; class=&quot;headerlink&quot; title=&quot;基因组下载&quot;&gt;&lt;/a&gt;基因组下载&lt;/h2&gt;&lt;p&gt;下载参考基因组数据。&lt;/p&gt;
 &lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>结构变异检测软件SVDSS使用</title>
-    <link href="https://lixiang117423.github.io/article/svdss/"/>
-    <id>https://lixiang117423.github.io/article/svdss/</id>
-    <published>2023-10-03T07:52:27.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;a</summary>
         
       
     
