@@ -20,16 +20,17 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="活在当下，正向提升！">
+    <meta name="description" content="完整工作流程步骤1：找到所有基因组共有的序列（核心序列）12# 找所有30个基因组都有的唯一匹配序列mumemto mum -o core_sequences -l 100 rice_genome_*.fa 参数说明：  默认：匹配必须在所有序列中出现，且每个序列中只出现一次 -l 100：设置最小匹配长度为100bp  步骤2：找到每个基因组特有的序列12# 找每个基因组独有的序列（只在1个基因">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Mumemto给的构建线性泛基因组的方法">
-<meta property="og:url" content="https://lixiang117423.github.io/article/null/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/mumemto/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="活在当下，正向提升！">
+<meta property="og:description" content="完整工作流程步骤1：找到所有基因组共有的序列（核心序列）12# 找所有30个基因组都有的唯一匹配序列mumemto mum -o core_sequences -l 100 rice_genome_*.fa 参数说明：  默认：匹配必须在所有序列中出现，且每个序列中只出现一次 -l 100：设置最小匹配长度为100bp  步骤2：找到每个基因组特有的序列12# 找每个基因组独有的序列（只在1个基因">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-24T08:15:09.000Z">
-<meta property="article:modified_time" content="2025-06-24T08:15:09.462Z">
+<meta property="article:modified_time" content="2025-06-26T14:33:08.000Z">
 <meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary_large_image">
   
   
@@ -226,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.2k 字
         
       </span>
     
@@ -237,7 +238,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -279,7 +280,94 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="完整工作流程"><a href="#完整工作流程" class="headerlink" title="完整工作流程"></a>完整工作流程</h2><h3 id="步骤1：找到所有基因组共有的序列（核心序列）"><a href="#步骤1：找到所有基因组共有的序列（核心序列）" class="headerlink" title="步骤1：找到所有基因组共有的序列（核心序列）"></a>步骤1：找到所有基因组共有的序列（核心序列）</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 找所有30个基因组都有的唯一匹配序列</span><br>mumemto mum -o core_sequences -l 100 rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li>默认：匹配必须在所有序列中出现，且每个序列中只出现一次</li>
+<li><code>-l 100</code>：设置最小匹配长度为100bp</li>
+</ul>
+<h3 id="步骤2：找到每个基因组特有的序列"><a href="#步骤2：找到每个基因组特有的序列" class="headerlink" title="步骤2：找到每个基因组特有的序列"></a>步骤2：找到每个基因组特有的序列</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 找每个基因组独有的序列（只在1个基因组中存在）</span><br>mumemto mum -k 1 -f 1 -o unique_sequences -l 100 rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><code>-k 1</code>：匹配只需要在1个序列中出现</li>
+<li><code>-f 1</code>：每个序列中最多出现1次</li>
+<li><code>-l 100</code>：保持相同的最小长度标准</li>
+</ul>
+<h3 id="步骤3：合并序列构建代表基因组"><a href="#步骤3：合并序列构建代表基因组" class="headerlink" title="步骤3：合并序列构建代表基因组"></a>步骤3：合并序列构建代表基因组</h3><h4 id="方法A：直接拼接（简单方法）"><a href="#方法A：直接拼接（简单方法）" class="headerlink" title="方法A：直接拼接（简单方法）"></a>方法A：直接拼接（简单方法）</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 提取核心序列</span><br><span class="hljs-comment"># （需要根据mumemto输出格式编写脚本提取实际序列）</span><br><br><span class="hljs-comment"># 提取特有序列</span><br><span class="hljs-comment"># （需要根据mumemto输出格式编写脚本提取实际序列）</span><br><br><span class="hljs-comment"># 合并序列</span><br><span class="hljs-built_in">cat</span> core_sequences.fa unique_sequences.fa &gt; pangenome_representative.fa<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="方法B：更精细的合并策略"><a href="#方法B：更精细的合并策略" class="headerlink" title="方法B：更精细的合并策略"></a>方法B：更精细的合并策略</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建一个更完整的分析流程</span><br><br><span class="hljs-comment"># 1. 生成详细的匹配报告</span><br>mumemto mum -M -o core_detailed -l 100 rice_genome_*.fa<br>mumemto mum -M -k 1 -f 1 -o unique_detailed -l 100 rice_genome_*.fa<br><br><span class="hljs-comment"># 2. 保存中间数组以便后续分析</span><br>mumemto mum -A -K -o rice_analysis -l 100 rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="优化的完整命令序列"><a href="#优化的完整命令序列" class="headerlink" title="优化的完整命令序列"></a>优化的完整命令序列</h2><h3 id="第一步：准备和核心序列分析"><a href="#第一步：准备和核心序列分析" class="headerlink" title="第一步：准备和核心序列分析"></a>第一步：准备和核心序列分析</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建输出目录</span><br><span class="hljs-built_in">mkdir</span> -p rice_pangenome_analysis/{core,unique,merged}<br><br><span class="hljs-comment"># 找核心序列（所有基因组共有）</span><br>mumemto mum \<br>  -o rice_pangenome_analysis/core/core_seqs \<br>  -l 200 \<br>  -M \<br>  -A \<br>  rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="第二步：特有序列分析"><a href="#第二步：特有序列分析" class="headerlink" title="第二步：特有序列分析"></a>第二步：特有序列分析</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 找每个基因组特有序列</span><br>mumemto mum \<br>  -k 1 \<br>  -f 1 \<br>  -o rice_pangenome_analysis/unique/unique_seqs \<br>  -l 200 \<br>  -M \<br>  rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="第三步：可选的中间分析"><a href="#第三步：可选的中间分析" class="headerlink" title="第三步：可选的中间分析"></a>第三步：可选的中间分析</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 可选：找在少数基因组中共享的序列（2-5个基因组）</span><br>mumemto mum \<br>  -k 2 \<br>  -F 5 \<br>  -o rice_pangenome_analysis/accessory/accessory_seqs \<br>  -l 200 \<br>  rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="后续处理建议"><a href="#后续处理建议" class="headerlink" title="后续处理建议"></a>后续处理建议</h2><h3 id="1-序列提取和质量控制"><a href="#1-序列提取和质量控制" class="headerlink" title="1. 序列提取和质量控制"></a>1. 序列提取和质量控制</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 建议编写脚本来：</span><br><span class="hljs-comment"># - 解析mumemto输出格式</span><br><span class="hljs-comment"># - 提取实际的DNA序列</span><br><span class="hljs-comment"># - 去除重复和重叠</span><br><span class="hljs-comment"># - 按基因组来源标注序列</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-构建最终代表序列的策略"><a href="#2-构建最终代表序列的策略" class="headerlink" title="2. 构建最终代表序列的策略"></a>2. 构建最终代表序列的策略</h3><p><strong>方案A：简单拼接</strong></p>
+<ul>
+<li>核心序列 + 所有特有序列</li>
+</ul>
+<p><strong>方案B：分层组织</strong></p>
+<ul>
+<li>主体：核心序列</li>
+<li>附录：按基因组分组的特有序列</li>
+</ul>
+<p><strong>方案C：基于参考基因组的插入</strong></p>
+<ul>
+<li>选择一个参考基因组作为骨架</li>
+<li>在适当位置插入其他基因组的特有序列</li>
+</ul>
+<h3 id="3-参数调整建议"><a href="#3-参数调整建议" class="headerlink" title="3. 参数调整建议"></a>3. 参数调整建议</h3><p>针对水稻基因组的特点：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 对于较大的基因组，可能需要调整参数</span><br>mumemto mum \<br>  -o core_sequences \<br>  -l 500 \          <span class="hljs-comment"># 更长的匹配长度</span><br>  -w 20 \           <span class="hljs-comment"># 增加窗口大小</span><br>  -m 200 \          <span class="hljs-comment"># 调整哈希参数</span><br>  rice_genome_*.fa<br><br>mumemto mum \<br>  -k 1 -f 1 \<br>  -o unique_sequences \<br>  -l 300 \          <span class="hljs-comment"># 特有序列可以稍短</span><br>  rice_genome_*.fa<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="验证和质量检查"><a href="#验证和质量检查" class="headerlink" title="验证和质量检查"></a>验证和质量检查</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 验证结果的一致性</span><br><span class="hljs-comment"># 1. 检查核心序列确实在所有基因组中存在</span><br><span class="hljs-comment"># 2. 检查特有序列确实只在对应基因组中存在</span><br><span class="hljs-comment"># 3. 统计各类序列的数量和长度分布</span><br></code></pre></td></tr></tbody></table></figure>
+<p>这样您就能获得一个包含所有30个水稻基因组信息的代表性序列集，既包含保守的核心成分，也包含每个基因组的独特贡献。</p>
+<hr>
+<p>输出文件：</p>
+<p>Mumemto软件的输出文件格式总结如下：</p>
+<h2 id="主要输出文件类型"><a href="#主要输出文件类型" class="headerlink" title="主要输出文件类型"></a>主要输出文件类型</h2><h3 id="1-mums-文件"><a href="#1-mums-文件" class="headerlink" title="1. *.mums 文件"></a>1. <code>*.mums</code> 文件</h3><ul>
+<li><p><strong>生成条件</strong>：当最大出现次数参数（<code>-f</code>）设置为1时生成（默认）</p>
+</li>
+<li><p>格式：</p>
+<figure class="highlight scheme"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-name">MUM长度</span>] [<span class="hljs-name">各序列中偏移量的逗号分隔列表</span>] [<span class="hljs-name">链方向指示符的逗号分隔列表</span>(<span class="hljs-name">+/-</span>)]<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>每行代表一个multi-MUM（多重最大唯一匹配）</li>
+<li>在每个序列中最多出现一次</li>
+<li>偏移量和链信息按<code>*.lengths</code>文件中的序列顺序排列</li>
+<li>如果某个序列中不存在该MUM，对应字段留空</li>
+<li>按匹配序列的字典序排序</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-lengths-文件"><a href="#2-lengths-文件" class="headerlink" title="2. *.lengths 文件"></a>2. <code>*.lengths</code> 文件</h3><ul>
+<li><strong>功能</strong>：定义输出中序列的顺序，包含每个输入序列的长度信息</li>
+</ul>
+<h3 id="3-bumbl-文件（v1-2新增）"><a href="#3-bumbl-文件（v1-2新增）" class="headerlink" title="3. *.bumbl 文件（v1.2新增）"></a>3. <code>*.bumbl</code> 文件（v1.2新增）</h3><ul>
+<li><strong>性质</strong>：<code>*.mum</code>文件的二进制版本</li>
+<li>优势：<ul>
+<li>文件更小</li>
+<li>处理速度显著更快（对于大型数据集可快几个数量级）</li>
+<li>特别适用于包含数百万个multi-MUM的大数据集</li>
+</ul>
+</li>
+<li><strong>转换</strong>：可通过<code>mumemto convert -b &lt;prefix&gt;.bumbl &gt; out.mums</code>转换为人类可读格式</li>
+</ul>
+<h3 id="4-mems-文件"><a href="#4-mems-文件" class="headerlink" title="4. *.mems 文件"></a>4. <code>*.mems</code> 文件</h3><ul>
+<li><p><strong>生成条件</strong>：当允许每个序列中出现多于一次匹配时（<code>-f</code> &gt; 1）</p>
+</li>
+<li><p>格式：</p>
+<figure class="highlight scheme"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scheme">[<span class="hljs-name">MEM长度</span>] [<span class="hljs-name">每次出现的偏移量逗号分隔列表</span>] [<span class="hljs-name">序列ID逗号分隔列表</span>] [<span class="hljs-name">链方向指示符逗号分隔列表</span>(<span class="hljs-name">+/-</span>)]<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>特点：</p>
+<ul>
+<li>偏移量顺序不固定</li>
+<li>增加了序列ID字段来标识每个偏移量的来源序列</li>
+<li>同样按字典序排序</li>
+</ul>
+</li>
+</ul>
+<h2 id="重要说明"><a href="#重要说明" class="headerlink" title="重要说明"></a>重要说明</h2><ul>
+<li>所有输出文件中的序列顺序都遵循<code>*.lengths</code>文件中定义的顺序</li>
+<li>使用<code>convert</code>模块转换时，multi-MUM会按第一个序列中的位置排序，这对共线性分析很有用</li>
+</ul>
+
                 
               </div>
             
@@ -287,6 +375,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
   
 </div>
 
@@ -297,7 +413,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Mumemto给的构建线性泛基因组的方法</div>
-      <div>https://lixiang117423.github.io/article/null/</div>
+      <div>https://lixiang117423.github.io/article/mumemto/</div>
     </div>
     <div class="license-meta">
       

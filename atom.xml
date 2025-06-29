@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-26T07:33:55.000Z</updated>
+  <updated>2025-06-26T11:32:29.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://lixiang117423.github.io/article/install-egapx/"/>
     <id>https://lixiang117423.github.io/article/install-egapx/</id>
     <published>2025-06-26T03:04:33.000Z</published>
-    <updated>2025-06-26T07:33:55.000Z</updated>
+    <updated>2025-06-26T11:32:29.000Z</updated>
     
     
       
@@ -69,14 +69,26 @@
   
   <entry>
     <title>Mumemto给的构建线性泛基因组的方法</title>
-    <link href="https://lixiang117423.github.io/article/null/"/>
-    <id>https://lixiang117423.github.io/article/null/</id>
+    <link href="https://lixiang117423.github.io/article/mumemto/"/>
+    <id>https://lixiang117423.github.io/article/mumemto/</id>
     <published>2025-06-24T08:15:09.000Z</published>
-    <updated>2025-06-24T08:15:09.462Z</updated>
+    <updated>2025-06-26T14:33:08.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;完整工作流程&quot;&gt;&lt;a href=&quot;#完整工作流程&quot; class=&quot;headerlink&quot; title=&quot;完整工作流程&quot;&gt;&lt;/a&gt;完整工作流程&lt;/h2&gt;&lt;h3 id=&quot;步骤1：找到所有基因组共有的序列（核心序列）&quot;&gt;&lt;a</summary>
+        
+      
     
     
     
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   
@@ -264,7 +276,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-26T07:34:26.452Z</updated>
+    <updated>2025-06-29T03:11:13.636Z</updated>
     
     
       
