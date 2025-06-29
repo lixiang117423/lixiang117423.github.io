@@ -1,0 +1,699 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="AlphaGenome 使用指南AlphaGenome 是一个强大的 DNA 序列预测模型，可以从 DNA 序列中预测多种基因组功能输出。本指南总结了其主要功能和使用方法。 安装和导入12345678910111213# 安装! pip install alphagenome# 主要导入from alphagenome.data import gene_annotationfrom alphage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AlphaGenome的简单使用方法">
+<meta property="og:url" content="https://lixiang117423.github.io/article/alphagenome/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="AlphaGenome 使用指南AlphaGenome 是一个强大的 DNA 序列预测模型，可以从 DNA 序列中预测多种基因组功能输出。本指南总结了其主要功能和使用方法。 安装和导入12345678910111213# 安装! pip install alphagenome# 主要导入from alphagenome.data import gene_annotationfrom alphage">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-06-29T07:46:24.000Z">
+<meta property="article:modified_time" content="2025-06-29T08:45:49.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>AlphaGenome的简单使用方法 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="AlphaGenome的简单使用方法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-06-29 15:46" pubdate>
+          2025年6月29日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          954 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">AlphaGenome的简单使用方法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="AlphaGenome-使用指南"><a href="#AlphaGenome-使用指南" class="headerlink" title="AlphaGenome 使用指南"></a>AlphaGenome 使用指南</h1><p>AlphaGenome 是一个强大的 DNA 序列预测模型，可以从 DNA 序列中预测多种基因组功能输出。本指南总结了其主要功能和使用方法。</p>
+<h2 id="安装和导入"><a href="#安装和导入" class="headerlink" title="安装和导入"></a>安装和导入</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 安装</span><br>! pip install alphagenome<br><br><span class="hljs-comment"># 主要导入</span><br><span class="hljs-keyword">from</span> alphagenome.data <span class="hljs-keyword">import</span> gene_annotation<br><span class="hljs-keyword">from</span> alphagenome.data <span class="hljs-keyword">import</span> genome<br><span class="hljs-keyword">from</span> alphagenome.data <span class="hljs-keyword">import</span> transcript <span class="hljs-keyword">as</span> transcript_utils<br><span class="hljs-keyword">from</span> alphagenome.interpretation <span class="hljs-keyword">import</span> ism<br><span class="hljs-keyword">from</span> alphagenome.models <span class="hljs-keyword">import</span> dna_client<br><span class="hljs-keyword">from</span> alphagenome.models <span class="hljs-keyword">import</span> variant_scorers<br><span class="hljs-keyword">from</span> alphagenome.visualization <span class="hljs-keyword">import</span> plot_components<br><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt<br><span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="模型初始化"><a href="#模型初始化" class="headerlink" title="模型初始化"></a>模型初始化</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 创建DNA模型客户端</span><br>dna_model = dna_client.create(<span class="hljs-string">'YOUR_API_KEY'</span>)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="支持的输出类型"><a href="#支持的输出类型" class="headerlink" title="支持的输出类型"></a>支持的输出类型</h2><p>AlphaGenome 支持多种基因组功能预测：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 查看所有支持的输出类型</span><br>[output.name <span class="hljs-keyword">for</span> output <span class="hljs-keyword">in</span> dna_client.OutputType]<br><span class="hljs-comment"># 包括：DNASE, RNA_SEQ, CAGE, H3K4ME3, H3K27AC 等</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="支持的序列长度"><a href="#支持的序列长度" class="headerlink" title="支持的序列长度"></a>支持的序列长度</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 查看支持的序列长度</span><br>dna_client.SUPPORTED_SEQUENCE_LENGTHS.keys()<br><span class="hljs-comment"># 包括：2KB, 8KB, 32KB, 128KB, 1MB 等</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><h3 id="1-DNA-序列预测"><a href="#1-DNA-序列预测" class="headerlink" title="1. DNA 序列预测"></a>1. DNA 序列预测</h3><p>对给定的 DNA 序列进行功能预测：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python">output = dna_model.predict_sequence(<br>    sequence=<span class="hljs-string">'GATTACA'</span>.center(<span class="hljs-number">2048</span>, <span class="hljs-string">'N'</span>),  <span class="hljs-comment"># 填充到有效长度</span><br>    requested_outputs=[dna_client.OutputType.DNASE],<br>    ontology_terms=[<span class="hljs-string">'UBERON:0002048'</span>],  <span class="hljs-comment"># 肺组织</span><br>)<br><br><span class="hljs-comment"># 获取预测结果</span><br>dnase = output.dnase<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"预测形状: <span class="hljs-subst">{dnase.values.shape}</span>"</span>)  <span class="hljs-comment"># (序列长度, 轨道数)</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-基因组区间预测"><a href="#2-基因组区间预测" class="headerlink" title="2. 基因组区间预测"></a>2. 基因组区间预测</h3><p>直接对人类参考基因组的特定区间进行预测：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 根据基因符号获取基因组区间</span><br>interval = gene_annotation.get_gene_interval(gtf, gene_symbol=<span class="hljs-string">'CYP2B6'</span>)<br>interval = interval.resize(dna_client.SEQUENCE_LENGTH_1MB)<br><br><span class="hljs-comment"># 进行预测</span><br>output = dna_model.predict_interval(<br>    interval=interval,<br>    requested_outputs=[dna_client.OutputType.RNA_SEQ],<br>    ontology_terms=[<span class="hljs-string">'UBERON:0001114'</span>],  <span class="hljs-comment"># 右肝叶</span><br>)<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="3-变异效应预测"><a href="#3-变异效应预测" class="headerlink" title="3. 变异效应预测"></a>3. 变异效应预测</h3><p>预测基因变异对基因表达的影响：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定义变异</span><br>variant = genome.Variant(<br>    chromosome=<span class="hljs-string">'chr22'</span>,<br>    position=<span class="hljs-number">36201698</span>,<br>    reference_bases=<span class="hljs-string">'A'</span>,<br>    alternate_bases=<span class="hljs-string">'C'</span>,<br>)<br><br><span class="hljs-comment"># 预测变异效应</span><br>variant_output = dna_model.predict_variant(<br>    interval=interval,<br>    variant=variant,<br>    requested_outputs=[dna_client.OutputType.RNA_SEQ],<br>    ontology_terms=[<span class="hljs-string">'UBERON:0001157'</span>],  <span class="hljs-comment"># 结肠横部</span><br>)<br><br><span class="hljs-comment"># 比较REF和ALT预测</span><br>ref_predictions = variant_output.reference.rna_seq<br>alt_predictions = variant_output.alternate.rna_seq<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="4-变异评分"><a href="#4-变异评分" class="headerlink" title="4. 变异评分"></a>4. 变异评分</h3><p>使用预定义的评分器对变异进行评分：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 使用推荐的变异评分器</span><br>variant_scorer = variant_scorers.RECOMMENDED_VARIANT_SCORERS[<span class="hljs-string">'RNA_SEQ'</span>]<br><br>variant_scores = dna_model.score_variant(<br>    interval=interval, <br>    variant=variant, <br>    variant_scorers=[variant_scorer]<br>)<br><br><span class="hljs-comment"># 获取整理后的评分</span><br>tidy_scores = variant_scorers.tidy_scores([variant_scores[<span class="hljs-number">0</span>]], match_gene_strand=<span class="hljs-literal">True</span>)<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="5-In-Silico-突变分析-ISM"><a href="#5-In-Silico-突变分析-ISM" class="headerlink" title="5. In Silico 突变分析 (ISM)"></a>5. In Silico 突变分析 (ISM)</h3><p>系统性突变特定区域以识别功能重要位点：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 定义突变区间</span><br>sequence_interval = genome.Interval(<span class="hljs-string">'chr20'</span>, <span class="hljs-number">3_753_000</span>, <span class="hljs-number">3_753_400</span>)<br>sequence_interval = sequence_interval.resize(dna_client.SEQUENCE_LENGTH_2KB)<br>ism_interval = sequence_interval.resize(<span class="hljs-number">256</span>)<br><br><span class="hljs-comment"># 定义评分器</span><br>dnase_variant_scorer = variant_scorers.CenterMaskScorer(<br>    requested_output=dna_client.OutputType.DNASE,<br>    width=<span class="hljs-number">501</span>,<br>    aggregation_type=variant_scorers.AggregationType.DIFF_MEAN,<br>)<br><br><span class="hljs-comment"># 执行ISM分析</span><br>variant_scores = dna_model.score_ism_variants(<br>    interval=sequence_interval,<br>    ism_interval=ism_interval,<br>    variant_scorers=[dnase_variant_scorer],<br>)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="TrackData-对象"><a href="#TrackData-对象" class="headerlink" title="TrackData 对象"></a>TrackData 对象</h3><p>预测结果存储在 <code>TrackData</code> 对象中：</p>
+<ul>
+<li><code>.values</code>: 预测值数组，形状为 <code>(序列长度, 轨道数)</code></li>
+<li><code>.metadata</code>: 轨道元数据，描述每个轨道的组织/细胞类型</li>
+<li><code>.interval</code>: 基因组区间信息</li>
+</ul>
+<h3 id="AnnData-对象"><a href="#AnnData-对象" class="headerlink" title="AnnData 对象"></a>AnnData 对象</h3><p>变异评分结果存储在 <code>AnnData</code> 对象中：</p>
+<ul>
+<li><code>.X</code>: 评分矩阵</li>
+<li><code>.obs</code>: 行（基因）注释</li>
+<li><code>.var</code>: 列（轨道）注释</li>
+<li><code>.uns</code>: 额外元数据</li>
+</ul>
+<h2 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h2><p>使用内置可视化工具绘制预测结果：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 绘制轨道和转录本注释</span><br>plot_components.plot(<br>    components=[<br>        plot_components.TranscriptAnnotation(longest_transcripts),<br>        plot_components.Tracks(output.rna_seq),<br>    ],<br>    interval=output.rna_seq.interval,<br>)<br>plt.show()<br><br><span class="hljs-comment"># 绘制变异效应对比</span><br>plot_components.plot(<br>    [<br>        plot_components.TranscriptAnnotation(longest_transcripts),<br>        plot_components.OverlaidTracks(<br>            tdata={<span class="hljs-string">'REF'</span>: variant_output.reference.rna_seq,<br>                   <span class="hljs-string">'ALT'</span>: variant_output.alternate.rna_seq},<br>            colors={<span class="hljs-string">'REF'</span>: <span class="hljs-string">'dimgrey'</span>, <span class="hljs-string">'ALT'</span>: <span class="hljs-string">'red'</span>},<br>        ),<br>    ],<br>    interval=variant_output.reference.rna_seq.interval.resize(<span class="hljs-number">2</span>**<span class="hljs-number">15</span>),<br>    annotations=[plot_components.VariantAnnotation([variant], alpha=<span class="hljs-number">0.8</span>)],<br>)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="小鼠预测"><a href="#小鼠预测" class="headerlink" title="小鼠预测"></a>小鼠预测</h2><p>AlphaGenome 也支持小鼠基因组预测：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 小鼠序列预测</span><br>output = dna_model.predict_sequence(<br>    sequence=<span class="hljs-string">'GATTACA'</span>.center(<span class="hljs-number">2048</span>, <span class="hljs-string">'N'</span>),<br>    organism=dna_client.Organism.MUS_MUSCULUS,<br>    requested_outputs=[dna_client.OutputType.DNASE],<br>    ontology_terms=[<span class="hljs-string">'UBERON:0002048'</span>],  <span class="hljs-comment"># 肺</span><br>)<br><br><span class="hljs-comment"># 小鼠基因组区间预测</span><br>interval = genome.Interval(<span class="hljs-string">'chr1'</span>, <span class="hljs-number">3_000_000</span>, <span class="hljs-number">3_000_001</span>).resize(<br>    dna_client.SEQUENCE_LENGTH_1MB<br>)<br><br>output = dna_model.predict_interval(<br>    interval=interval,<br>    organism=dna_client.Organism.MUS_MUSCULUS,<br>    requested_outputs=[dna_client.OutputType.RNA_SEQ],<br>    ontology_terms=[<span class="hljs-string">'UBERON:0002048'</span>],  <span class="hljs-comment"># 肺</span><br>)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="关键特性"><a href="#关键特性" class="headerlink" title="关键特性"></a>关键特性</h2><ol>
+<li><strong>多模态预测</strong>: 支持 DNase-seq、RNA-seq、CAGE、组蛋白修饰等多种基因组功能</li>
+<li><strong>组织特异性</strong>: 通过本体术语指定特定组织和细胞类型</li>
+<li><strong>多尺度分析</strong>: 支持从 2KB 到 1MB 的多种序列长度</li>
+<li><strong>变异影响评估</strong>: 系统评估基因变异的功能后果</li>
+<li><strong>功能重要性映射</strong>: 通过 ISM 分析识别功能关键区域</li>
+<li><strong>跨物种支持</strong>: 同时支持人类和小鼠基因组预测</li>
+<li><strong>丰富的可视化</strong>: 内置专业的基因组数据可视化工具</li>
+</ol>
+<p>AlphaGenome 为基因组功能预测、变异效应分析和转录调控研究提供了强大而全面的工具集。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>AlphaGenome的简单使用方法</div>
+      <div>https://lixiang117423.github.io/article/alphagenome/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年6月29日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/install-egapx/" title="超算集群配置NCBI真核生物基因组注释流程EGAPx">
+                        <span class="hidden-mobile">超算集群配置NCBI真核生物基因组注释流程EGAPx</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
