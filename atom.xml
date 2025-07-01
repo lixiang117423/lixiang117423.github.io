@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-07-01T01:17:21.000Z</updated>
+  <updated>2025-07-01T09:01:44.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,81 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于拷贝数变异CNVs</title>
+    <link href="https://lixiang117423.github.io/article/cnvs/"/>
+    <id>https://lixiang117423.github.io/article/cnvs/</id>
+    <published>2025-07-01T08:53:47.000Z</published>
+    <updated>2025-07-01T09:01:44.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;🧬-CNV分析全攻略：从传统方法到泛基因组时代&quot;&gt;&lt;a href=&quot;#🧬-CNV分析全攻略：从传统方法到泛基因组时代&quot; class=&quot;headerlink&quot; title=&quot;🧬 CNV分析全攻略：从传统方法到泛基因组时代&quot;&gt;&lt;/a&gt;🧬</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>自动备份conda环境信息和配置文件</title>
+    <link href="https://lixiang117423.github.io/article/backup-conda/"/>
+    <id>https://lixiang117423.github.io/article/backup-conda/</id>
+    <published>2025-07-01T07:38:36.000Z</published>
+    <updated>2025-07-01T08:03:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于FPKM和TPM</title>
+    <link href="https://lixiang117423.github.io/article/fpkm-tpm/"/>
+    <id>https://lixiang117423.github.io/article/fpkm-tpm/</id>
+    <published>2025-07-01T04:23:55.000Z</published>
+    <updated>2025-07-01T08:04:31.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;FPKM（Fragments Per Kilobase of transcript per Million mapped reads）和TPM（Transcripts Per</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>小豆的单起源与进化</title>
@@ -147,7 +222,7 @@
     <link href="https://lixiang117423.github.io/article/paper-reading-postdoc/"/>
     <id>https://lixiang117423.github.io/article/paper-reading-postdoc/</id>
     <published>2025-06-23T11:04:53.000Z</published>
-    <updated>2025-06-24T02:04:33.000Z</updated>
+    <updated>2025-07-01T01:39:23.000Z</updated>
     
     
       
@@ -326,7 +401,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-07-01T01:35:30.155Z</updated>
+    <updated>2025-07-01T09:13:38.385Z</updated>
     
     
       
@@ -1195,84 +1270,6 @@
         
     <summary type="html">&lt;p&gt;准备在NAS上折腾的，各种端口开放不方便，直接就用腾讯云服务器折腾吧。。。。。。&lt;/p&gt;
 &lt;h2 id=&quot;安装并运行数据库&quot;&gt;&lt;a href=&quot;#安装并运行数据库&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记一次Docker使用的坑</title>
-    <link href="https://lixiang117423.github.io/article/dockererror/"/>
-    <id>https://lixiang117423.github.io/article/dockererror/</id>
-    <published>2023-11-11T11:50:41.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;最近在使用谷歌的&lt;code&gt;DeepVariant&lt;/code&gt;处理三代数据，然后发现某个文件系统爆满了。。。。。。&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RstudioServer报错解决</title>
-    <link href="https://lixiang117423.github.io/article/rstudioservererror/"/>
-    <id>https://lixiang117423.github.io/article/rstudioservererror/</id>
-    <published>2023-11-11T09:37:38.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;突然的报错。。。。。。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311111738324.png&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>崩溃的一天-配置Minigraph-Cactus</title>
-    <link href="https://lixiang117423.github.io/article/minigraph-cactus/"/>
-    <id>https://lixiang117423.github.io/article/minigraph-cactus/</id>
-    <published>2023-11-02T02:02:49.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;看到这篇文章：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311021005647.png&quot;</summary>
         
       
     

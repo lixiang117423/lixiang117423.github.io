@@ -1,0 +1,855 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="🧬 CNV分析全攻略：从传统方法到泛基因组时代 📖 拷贝数变异（Copy Number Variants, CNVs）是基因组学中的重要研究内容。本文将从基础概念开始，详细介绍各种CNV检测方法，特别是最新的泛基因组分析策略。  📋 目录 🔍 什么是CNV？ 🛠️ 传统CNV检测方法 💻 基于测序数据的计算方法 🌟 泛基因组时代的CNV分析 📊 实用工具推荐 🎯 实战建议   �">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于拷贝数变异CNVs">
+<meta property="og:url" content="https://lixiang117423.github.io/article/cnvs/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="🧬 CNV分析全攻略：从传统方法到泛基因组时代 📖 拷贝数变异（Copy Number Variants, CNVs）是基因组学中的重要研究内容。本文将从基础概念开始，详细介绍各种CNV检测方法，特别是最新的泛基因组分析策略。  📋 目录 🔍 什么是CNV？ 🛠️ 传统CNV检测方法 💻 基于测序数据的计算方法 🌟 泛基因组时代的CNV分析 📊 实用工具推荐 🎯 实战建议   �">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-01T08:53:47.000Z">
+<meta property="article:modified_time" content="2025-07-01T09:01:44.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>关于拷贝数变异CNVs - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="关于拷贝数变异CNVs"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-01 16:53" pubdate>
+          2025年7月1日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          13 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">关于拷贝数变异CNVs</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="🧬-CNV分析全攻略：从传统方法到泛基因组时代"><a href="#🧬-CNV分析全攻略：从传统方法到泛基因组时代" class="headerlink" title="🧬 CNV分析全攻略：从传统方法到泛基因组时代"></a>🧬 CNV分析全攻略：从传统方法到泛基因组时代</h1><blockquote>
+<p>📖 拷贝数变异（Copy Number Variants, CNVs）是基因组学中的重要研究内容。本文将从基础概念开始，详细介绍各种CNV检测方法，特别是最新的泛基因组分析策略。</p>
+</blockquote>
+<h2 id="📋-目录"><a href="#📋-目录" class="headerlink" title="📋 目录"></a>📋 目录</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://claude.ai/chat/3fba4e4c-1cce-465b-a4f2-f2f38c26b280#-什么是cnv">🔍 什么是CNV？</a></li>
+<li><a target="_blank" rel="noopener" href="https://claude.ai/chat/3fba4e4c-1cce-465b-a4f2-f2f38c26b280#️-传统cnv检测方法">🛠️ 传统CNV检测方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://claude.ai/chat/3fba4e4c-1cce-465b-a4f2-f2f38c26b280#-基于测序数据的计算方法">💻 基于测序数据的计算方法</a></li>
+<li><a target="_blank" rel="noopener" href="https://claude.ai/chat/3fba4e4c-1cce-465b-a4f2-f2f38c26b280#-泛基因组时代的cnv分析">🌟 泛基因组时代的CNV分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://claude.ai/chat/3fba4e4c-1cce-465b-a4f2-f2f38c26b280#-实用工具推荐">📊 实用工具推荐</a></li>
+<li><a target="_blank" rel="noopener" href="https://claude.ai/chat/3fba4e4c-1cce-465b-a4f2-f2f38c26b280#-实战建议">🎯 实战建议</a></li>
+</ul>
+<hr>
+<h2 id="🔍-什么是CNV？"><a href="#🔍-什么是CNV？" class="headerlink" title="🔍 什么是CNV？"></a>🔍 什么是CNV？</h2><h3 id="📚-基本概念"><a href="#📚-基本概念" class="headerlink" title="📚 基本概念"></a>📚 基本概念</h3><p><strong>CNV (Copy Number Variants)</strong> = <strong>拷贝数变异</strong></p>
+<p>想象DNA就像一本书：</p>
+<ul>
+<li>🔸 <strong>正常情况</strong>：每一页（基因片段）都有标准份数（通常是2份）</li>
+<li>🔸 <strong>CNV情况</strong>：某些”页面”被额外复印或者丢失了</li>
+</ul>
+<figure class="highlight scss"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs scss">正常：  <span class="hljs-selector-attr">[基因A]</span> <span class="hljs-selector-attr">[基因A]</span>     (<span class="hljs-number">2</span>个拷贝)<br>CNV：   <span class="hljs-selector-attr">[基因A]</span>            (<span class="hljs-number">1</span>个拷贝 - 缺失)<br>       <span class="hljs-selector-attr">[基因A]</span> <span class="hljs-selector-attr">[基因A]</span> <span class="hljs-selector-attr">[基因A]</span> (<span class="hljs-number">3</span>个拷贝 - 重复)<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="❓-基因组-vs-转录组"><a href="#❓-基因组-vs-转录组" class="headerlink" title="❓ 基因组 vs 转录组"></a>❓ 基因组 vs 转录组</h3><p>很多人容易混淆这个概念：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>🧬 基因组CNV</th>
+<th>📝 转录组表达差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DNA本身物理拷贝数不同</td>
+<td>同一基因转录出不同数量mRNA</td>
+</tr>
+<tr>
+<td>结构性变异</td>
+<td>表达水平调控</td>
+</tr>
+<tr>
+<td>用DNA-seq检测</td>
+<td>用RNA-seq检测</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🛠️-传统CNV检测方法"><a href="#🛠️-传统CNV检测方法" class="headerlink" title="🛠️ 传统CNV检测方法"></a>🛠️ 传统CNV检测方法</h2><h3 id="🔬-实验检测方法"><a href="#🔬-实验检测方法" class="headerlink" title="🔬 实验检测方法"></a>🔬 实验检测方法</h3><h4 id="1️⃣-数组CGH-Array-CGH"><a href="#1️⃣-数组CGH-Array-CGH" class="headerlink" title="1️⃣ 数组CGH (Array-CGH)"></a>1️⃣ 数组CGH (Array-CGH)</h4><figure class="highlight"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs">💡 原理：比较样本和参考DNA的杂交信号<br>✅ 优点：成本低，操作简单<br>❌ 缺点：分辨率有限，需要预设探针<br>💰 适用：预算有限的初步筛查<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="2️⃣-qPCR验证"><a href="#2️⃣-qPCR验证" class="headerlink" title="2️⃣ qPCR验证"></a>2️⃣ qPCR验证</h4><figure class="highlight objectivec"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs objectivec">💡 原理：实时定量PCR检测特定区域拷贝数<br>✅ 优点：快速、准确、便宜  <br>❌ 缺点：只能检测已知区域，通量低<br>🎯 适用：验证候选<span class="hljs-built_in">CNV</span>区域<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="💻-基于测序数据的计算方法"><a href="#💻-基于测序数据的计算方法" class="headerlink" title="💻 基于测序数据的计算方法"></a>💻 基于测序数据的计算方法</h2><h3 id="📈-基于覆盖深度-Read-Depth"><a href="#📈-基于覆盖深度-Read-Depth" class="headerlink" title="📈 基于覆盖深度 (Read Depth)"></a>📈 基于覆盖深度 (Read Depth)</h3><p><strong>🔧 代表工具</strong>: <code>CNVnator</code>, <code>FREEC</code>, <code>cn.MOPS</code></p>
+<p><strong>💭 检测原理</strong>:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">正常区域：覆盖深度 ≈ 30x<br>缺失区域：覆盖深度 ≈ 15x  (1个拷贝)<br>重复区域：覆盖深度 ≈ 45x  (3个拷贝)<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>🚀 使用示例</strong>:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># CNVnator分析流程</span><br>cnvnator -root file.root -chrom 1 2 3 -tree sample.bam<br>cnvnator -root file.root -d reference_dir -his 100<br>cnvnator -root file.root -<span class="hljs-built_in">stat</span> 100<br>cnvnator -root file.root -partition 100<br>cnvnator -root file.root -call 100 &gt; cnv_results.txt<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="🔗-基于配对末端-Paired-end"><a href="#🔗-基于配对末端-Paired-end" class="headerlink" title="🔗 基于配对末端 (Paired-end)"></a>🔗 基于配对末端 (Paired-end)</h3><p><strong>🔧 代表工具</strong>: <code>BreakDancer</code>, <code>DELLY</code></p>
+<p><strong>💭 检测原理</strong>: 检测插入片段大小异常的reads pair</p>
+<h3 id="✂️-基于分裂reads-Split-read"><a href="#✂️-基于分裂reads-Split-read" class="headerlink" title="✂️ 基于分裂reads (Split-read)"></a>✂️ 基于分裂reads (Split-read)</h3><p><strong>🔧 代表工具</strong>: <code>Pindel</code>, <code>SoftSV</code></p>
+<p><strong>💭 检测原理</strong>: 检测跨越断点的reads</p>
+<h3 id="📦-综合性工具包"><a href="#📦-综合性工具包" class="headerlink" title="📦 综合性工具包"></a>📦 综合性工具包</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>🛠️ 工具</th>
+<th>🎯 特点</th>
+<th>📊 适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Manta</strong></td>
+<td>快速SV/CNV检测</td>
+<td>🌟 日常分析推荐</td>
+</tr>
+<tr>
+<td><strong>Lumpy</strong></td>
+<td>整合多种信号</td>
+<td>🔍 高精度需求</td>
+</tr>
+<tr>
+<td><strong>GRIDSS</strong></td>
+<td>高精度断点检测</td>
+<td>🎯 复杂变异分析</td>
+</tr>
+<tr>
+<td><strong>Sniffles</strong></td>
+<td>长读长专用</td>
+<td>📏 PacBio/Nanopore数据</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🌟-泛基因组时代的CNV分析"><a href="#🌟-泛基因组时代的CNV分析" class="headerlink" title="🌟 泛基因组时代的CNV分析"></a>🌟 泛基因组时代的CNV分析</h2><h3 id="🚫-传统方法的局限性"><a href="#🚫-传统方法的局限性" class="headerlink" title="🚫 传统方法的局限性"></a>🚫 传统方法的局限性</h3><p><strong>单一参考基因组的问题</strong>:</p>
+<figure class="highlight brainfuck"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs brainfuck"><span class="hljs-comment">参考基因组：</span>  <span class="hljs-literal">---</span><span class="hljs-title">[</span><span class="hljs-comment">基因A</span><span class="hljs-title">]</span><span class="hljs-literal">---</span><span class="hljs-title">[</span><span class="hljs-comment">基因B</span><span class="hljs-title">]</span><span class="hljs-literal">---</span><br><span class="hljs-comment">样本实际：</span>    <span class="hljs-literal">---</span><span class="hljs-title">[</span><span class="hljs-comment">基因A</span><span class="hljs-title">]</span><span class="hljs-literal">---</span><span class="hljs-title">[</span><span class="hljs-comment">基因A</span><span class="hljs-title">]</span><span class="hljs-literal">---</span><span class="hljs-title">[</span><span class="hljs-comment">基因B</span><span class="hljs-title">]</span><span class="hljs-literal">---</span><br><span class="hljs-comment">结果：        ❌ 漏检了基因A的重复！</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="📏-线性泛基因组-Linear-Pangenome"><a href="#📏-线性泛基因组-Linear-Pangenome" class="headerlink" title="📏 线性泛基因组 (Linear Pangenome)"></a>📏 线性泛基因组 (Linear Pangenome)</h3><h4 id="🏗️-构建流程"><a href="#🏗️-构建流程" class="headerlink" title="🏗️ 构建流程"></a>🏗️ 构建流程</h4><pre><code class=" mermaid">graph LR
+    A[多个基因组] --&gt; B[序列整合]
+    B --&gt; C[去重复]
+    C --&gt; D[线性泛基因组]
+</code></pre>
+<h4 id="💻-实现代码"><a href="#💻-实现代码" class="headerlink" title="💻 实现代码"></a>💻 实现代码</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 构建线性泛基因组</span><br><span class="hljs-built_in">cat</span> genome1.fa genome2.fa genome3.fa &gt; pangenome_linear.fa<br><br><span class="hljs-comment"># 2. 建立索引</span><br>bwa index pangenome_linear.fa<br><br><span class="hljs-comment"># 3. CNV检测</span><br>bwa mem pangenome_linear.fa sample.fq | \<br>  samtools view -Sb | \<br>  cnvnator -root sample.root -tree<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="🕸️-Graph泛基因组-Graph-Pangenome"><a href="#🕸️-Graph泛基因组-Graph-Pangenome" class="headerlink" title="🕸️ Graph泛基因组 (Graph Pangenome)"></a>🕸️ Graph泛基因组 (Graph Pangenome)</h3><h4 id="🎨-核心概念"><a href="#🎨-核心概念" class="headerlink" title="🎨 核心概念"></a>🎨 核心概念</h4><p>将基因组表示为<strong>图结构</strong>：</p>
+<figure class="highlight mathematica"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mathematica">传统线性：  <span class="hljs-variable">A</span> ——— <span class="hljs-variable">B</span> ——— <span class="hljs-built_in">C</span> ——— <span class="hljs-built_in">D</span><br><br><span class="hljs-built_in">Graph</span>结构：        <span class="hljs-variable">B1</span><br>            <span class="hljs-variable">A</span> ———  ┴  ——— <span class="hljs-built_in">D</span>  <br>                  <span class="hljs-variable">B2</span> — <span class="hljs-built_in">C</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="🔧-主要工具"><a href="#🔧-主要工具" class="headerlink" title="🔧 主要工具"></a>🔧 主要工具</h4><p><strong>1️⃣ vg (Variation Graph)</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 构建变异图</span><br>vg construct -r reference.fa -v variants.vcf &gt; graph.vg<br><br><span class="hljs-comment"># 建立索引  </span><br>vg index -x graph.xg graph.vg<br>vg index -g graph.gcsa graph.vg<br><br><span class="hljs-comment"># 比对到图</span><br>vg map -x graph.xg -g graph.gcsa -f reads.fq &gt; aligned.gam<br><br><span class="hljs-comment"># CNV检测</span><br>vg pack -x graph.xg -g aligned.gam -o packed.pack<br>vg call -k packed.pack graph.vg &gt; cnv_calls.vcf<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>2️⃣ Minigraph</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 构建minigraph</span><br>minigraph -cxggs -t8 genome1.fa genome2.fa genome3.fa &gt; pangenome.gfa<br><br><span class="hljs-comment"># 变异检测</span><br>minimap2 -ax sr pangenome.gfa reads.fq | \<br>  samtools view -Sb | \<br>  cnv_detection_tool<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="📊-方法对比"><a href="#📊-方法对比" class="headerlink" title="📊 方法对比"></a>📊 方法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>🏷️ 特征</th>
+<th>📏 线性泛基因组</th>
+<th>🕸️ Graph泛基因组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔨 构建复杂度</strong></td>
+<td>🟢 简单</td>
+<td>🔴 复杂</td>
+</tr>
+<tr>
+<td><strong>💻 计算资源</strong></td>
+<td>🟡 中等</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>🎯 检测精度</strong></td>
+<td>🟡 中等</td>
+<td>🟢 高</td>
+</tr>
+<tr>
+<td><strong>🔀 复杂变异处理</strong></td>
+<td>🔴 有限</td>
+<td>🟢 优秀</td>
+</tr>
+<tr>
+<td><strong>🛠️ 工具成熟度</strong></td>
+<td>🟢 较成熟</td>
+<td>🟡 发展中</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="📊-实用工具推荐"><a href="#📊-实用工具推荐" class="headerlink" title="📊 实用工具推荐"></a>📊 实用工具推荐</h2><h3 id="🌟-新手推荐"><a href="#🌟-新手推荐" class="headerlink" title="🌟 新手推荐"></a>🌟 新手推荐</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">🎯 推荐流程：<br>1. 质控     → FastQC 检查数据质量<br>2. 比对     → BWA-MEM 或 minimap2  <br>3. CNV检测  → CNVnator (简单) 或 Manta (全面)<br>4. 过滤     → 移除低质量calls<br>5. 注释     → AnnotSV 或 VEP<br>6. 可视化   → IGV 查看结果<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="🎛️-工具选择指南"><a href="#🎛️-工具选择指南" class="headerlink" title="🎛️ 工具选择指南"></a>🎛️ 工具选择指南</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>👤 用户类型</th>
+<th>🛠️ 推荐工具</th>
+<th>💡 理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>🔰 新手</strong></td>
+<td>CNVnator</td>
+<td>简单易用，文档完善</td>
+</tr>
+<tr>
+<td><strong>🔬 全面分析</strong></td>
+<td>Manta + DELLY</td>
+<td>功能强大，结果可靠</td>
+</tr>
+<tr>
+<td><strong>📏 长读长</strong></td>
+<td>Sniffles</td>
+<td>专为长读长优化</td>
+</tr>
+<tr>
+<td><strong>👥 群体分析</strong></td>
+<td>SURVIVOR</td>
+<td>多样本整合分析</td>
+</tr>
+<tr>
+<td><strong>🚀 高级用户</strong></td>
+<td>vg + Graph genome</td>
+<td>最前沿技术</td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="🎯-实战建议"><a href="#🎯-实战建议" class="headerlink" title="🎯 实战建议"></a>🎯 实战建议</h2><h3 id="✅-最佳实践"><a href="#✅-最佳实践" class="headerlink" title="✅ 最佳实践"></a>✅ 最佳实践</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs markdown">🔸 <span class="hljs-strong">**数据质控是关键**</span><br><span class="hljs-bullet">   -</span> 确保测序深度足够（≥30X）<br><span class="hljs-bullet">   -</span> 检查mapping质量<br><br>🔸 <span class="hljs-strong">**多工具验证**</span>  <br><span class="hljs-bullet">   -</span> CNV检测比SNP更具挑战性<br><span class="hljs-bullet">   -</span> 推荐至少使用2种不同算法<br><br>🔸 <span class="hljs-strong">**合理过滤**</span><br><span class="hljs-bullet">   -</span> 设置合适的size和质量阈值<br><span class="hljs-bullet">   -</span> 关注重复序列区域的结果<br><br>🔸 <span class="hljs-strong">**实验验证**</span><br><span class="hljs-bullet">   -</span> 对重要CNV进行qPCR验证<br><span class="hljs-bullet">   -</span> 特别是与表型相关的变异<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="⚠️-常见陷阱"><a href="#⚠️-常见陷阱" class="headerlink" title="⚠️ 常见陷阱"></a>⚠️ 常见陷阱</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">❌ <span class="hljs-strong">**避免这些错误**</span>：<br><br><span class="hljs-bullet">1.</span> 忽略重复序列区域的检测困难<br><span class="hljs-bullet">2.</span> 没有考虑测序深度的影响  <br><span class="hljs-bullet">3.</span> 过度依赖单一工具的结果<br><span class="hljs-bullet">4.</span> 忽略CNV的功能注释<br><span class="hljs-bullet">5.</span> 没有进行实验验证<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="🔮-未来趋势"><a href="#🔮-未来趋势" class="headerlink" title="🔮 未来趋势"></a>🔮 未来趋势</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs markdown">🚀 <span class="hljs-strong">**技术发展方向**</span>：<br><br>📏 长读长技术：PacBio HiFi, Oxford Nanopore<br>🕸️ 图算法优化：更好的图构建和遍历算法  <br>📐 标准化：统一的图基因组格式和标准<br>☁️ 云计算：处理大规模泛基因组数据的解决方案<br>🤖 AI集成：机器学习辅助的CNV检测和注释<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="🎯-总结"><a href="#🎯-总结" class="headerlink" title="🎯 总结"></a>🎯 总结</h2><p>CNV分析正在从传统的单参考基因组方法向泛基因组方法转变。虽然新方法在计算复杂度上更具挑战性，但能够提供更全面和准确的变异检测结果。</p>
+<p><strong>📝 关键要点</strong>：</p>
+<ul>
+<li>🔸 选择合适的工具和方法</li>
+<li>🔸 重视数据质量和验证</li>
+<li>🔸 关注新技术发展趋势</li>
+<li>🔸 结合生物学背景解释结果</li>
+</ul>
+<hr>
+<p><em>📧 如果你在CNV分析中遇到问题，欢迎在评论区讨论交流！</em></p>
+<p><em>🏷️ 标签：#生物信息学 #CNV #泛基因组 #基因组学 #变异检测</em></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>关于拷贝数变异CNVs</div>
+      <div>https://lixiang117423.github.io/article/cnvs/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月1日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/backup-conda/" title="自动备份conda环境信息和配置文件">
+                        <span class="hidden-mobile">自动备份conda环境信息和配置文件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
