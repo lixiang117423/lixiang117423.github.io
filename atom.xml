@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-06-29T08:45:49.000Z</updated>
+  <updated>2025-07-01T01:13:24.253Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,19 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小豆的单起源与进化</title>
+    <link href="https://lixiang117423.github.io/article/null/"/>
+    <id>https://lixiang117423.github.io/article/null/</id>
+    <published>2025-07-01T01:13:24.000Z</published>
+    <updated>2025-07-01T01:13:24.253Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AlphaGenome的简单使用方法</title>
@@ -301,7 +314,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-06-29T08:49:17.753Z</updated>
+    <updated>2025-07-01T01:20:34.654Z</updated>
     
     
       
@@ -563,13 +576,7 @@
       
         
         
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
         
       
     
@@ -590,7 +597,13 @@
       
         
         
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
         
       
     
@@ -1248,33 +1261,6 @@
         
     <summary type="html">&lt;p&gt;看到这篇文章：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202311021005647.png&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>加速服务器访问GitHub</title>
-    <link href="https://lixiang117423.github.io/article/jiasugithub/"/>
-    <id>https://lixiang117423.github.io/article/jiasugithub/</id>
-    <published>2023-11-02T01:44:43.000Z</published>
-    <updated>2023-12-10T05:18:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;访问&lt;code&gt;GitHub&lt;/code&gt;的速度真的是一言难尽啊，加速吧。。。。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;下载个&lt;a</summary>
         
       
     
