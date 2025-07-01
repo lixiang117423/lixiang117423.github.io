@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/wslncs25/" target="_self">
-          WSL设置内存和线程数
+        <a href="/article/gitbash.jpg/" target="_self">
+          Windows下Git-bash配置zsh主题
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wslncs25/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/gitbash.jpg/" target="_self">
         <div>
-          从这里开始写正文  Windows + R 键，输入 %UserProfile% 并运行进入用户文件夹； 新建一个 {%  label .wslconfig purple %} 文件，写入下面的内容：  1234[wsl2]memory=30Gswap=12Gprocessors=12  先关闭WSL：  1wsl --shutdown  再开启即可：  1wsl  💌lixiang117423
+          下载zsh安装包https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zsh即
         </div>
       </a>
 
@@ -249,41 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 10:57" pubdate>
-              2021-11-25
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/asperainwindows/" target="_self">
-          Windows下使用Aspera上传数据到NCBI
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/asperainwindows/" target="_self">
-        <div>
-          1C:\Users\Administrator\AppData\Local\Programs\Aspera\Aspera Connect\bin&gt; .\ascp.exe -i .\temp\chhf.openssh   -QT -l1000m -k1 -d 'F:\Raw Data\Figure 6 Raw data for RNA-seq\RNA-seq raw data\Os75a-1r
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-25 17:13" pubdate>
-              2022-03-25
+            <time datetime="2023-05-11 09:27" pubdate>
+              2023-05-11
             </time>
           </div>
         
@@ -316,6 +283,100 @@
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/41af5d00/" target="_self">
+          UniProt数据库爬虫获取相关信息
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
+        <div>
+          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-04-18 22:02" pubdate>
+              2021-04-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/wslncs25/" target="_self">
+          WSL设置内存和线程数
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/wslncs25/" target="_self">
+        <div>
+          从这里开始写正文  Windows + R 键，输入 %UserProfile% 并运行进入用户文件夹； 新建一个 {%  label .wslconfig purple %} 文件，写入下面的内容：  1234[wsl2]memory=30Gswap=12Gprocessors=12  先关闭WSL：  1wsl --shutdown  再开启即可：  1wsl  💌lixiang117423
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-25 10:57" pubdate>
+              2021-11-25
+            </time>
+          </div>
+        
+        
         
       </div>
     </article>
@@ -375,67 +436,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/gitbash.jpg/" target="_self">
-          Windows下Git-bash配置zsh主题
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/gitbash.jpg/" target="_self">
-        <div>
-          下载zsh安装包https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zsh即
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-11 09:27" pubdate>
-              2023-05-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
         
@@ -510,15 +510,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/ubunturjava/" target="_self">
-          Ubuntu安装rJava
+        <a href="/article/condainstallesger/" target="_self">
+          Ubuntu折腾edgeR的安装
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubunturjava/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/condainstallesger/" target="_self">
         <div>
-          1234sudo apt-get install -y default-jresudo apt-get install -y default-jdksudo R CMD javareconfinstall.packages("rJava")  💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
+          首先是conda报错： 12345Collecting package metadata (current_repodata.json): doneSolving environment: failed with initial frozen solve. Retrying with flexible solve.Solving environment: failed with repodata
         </div>
       </a>
 
@@ -526,8 +526,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-16 12:23" pubdate>
-              2022-01-16
+            <time datetime="2022-03-28 14:18" pubdate>
+              2022-03-28
             </time>
           </div>
         
@@ -558,8 +558,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-              <a href="/tags/R/">#R</a>
             
           </div>
         
@@ -762,6 +760,69 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/article/shellmeihua/" target="_self">
+          shell终端美化配置
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/shellmeihua/" target="_self">
+        <div>
+          安装官方版本  1234567891011wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh sh install.shsudo apt install powerline fonts-powerline #安装字体sudo apt install zsh-syntax-highlighti
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-02 18:37" pubdate>
+              2022-01-02
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+              <a href="/tags/shell/">#shell</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/article/qpcrzysx/" target="_self">
           qPCR注意事项
         </a>
@@ -827,15 +888,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/qpcrfromsample2expression/" target="_self">
-          qPCR:从样品采集到表达量计算
+        <a href="/article/4de9add/" target="_self">
+          tidyHeatmap学习笔记
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/qpcrfromsample2expression/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/4de9add/" target="_self">
         <div>
-          参考文献 Taylor S C, Nadeau K, Abbasi M, et al. The ultimate qPCR experiment: producing publication quality, reproducible data the first time[J]. Trends in Biotechnology, 2019, 37(7): 761-774.  采样计划 有多少个处
+          相当惊艳的一个包，简单学习了下。
         </div>
       </a>
 
@@ -843,8 +904,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-24 11:14" pubdate>
-              2022-10-24
+            <time datetime="2021-02-04 19:49" pubdate>
+              2021-02-04
             </time>
           </div>
         
@@ -859,7 +920,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
   
   
 
@@ -874,70 +935,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/shellmeihua/" target="_self">
-          shell终端美化配置
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/shellmeihua/" target="_self">
-        <div>
-          安装官方版本  1234567891011wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh sh install.shsudo apt install powerline fonts-powerline #安装字体sudo apt install zsh-syntax-highlighti
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-02 18:37" pubdate>
-              2022-01-02
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-              <a href="/tags/shell/">#shell</a>
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/">#R语言</a>
             
           </div>
         
