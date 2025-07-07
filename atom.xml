@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-07-01T09:01:44.000Z</updated>
+  <updated>2025-07-07T06:58:19.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>超算上使用Parabriks</title>
+    <link href="https://lixiang117423.github.io/article/parabricks/"/>
+    <id>https://lixiang117423.github.io/article/parabricks/</id>
+    <published>2025-07-07T06:06:17.000Z</published>
+    <updated>2025-07-07T06:58:19.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;功能概述&quot;&gt;&lt;a href=&quot;#功能概述&quot; class=&quot;headerlink&quot; title=&quot;功能概述&quot;&gt;&lt;/a&gt;功能概述&lt;/h1&gt;&lt;p&gt;自动识别样品信息，批量运行Parabricks.&lt;/p&gt;
+&lt;h1 id=&quot;Python脚本&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>关于拷贝数变异CNVs</title>
@@ -401,7 +427,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-07-01T09:13:38.385Z</updated>
+    <updated>2025-07-07T07:10:08.340Z</updated>
     
     
       
@@ -1244,32 +1270,6 @@
         
     <summary type="html">&lt;p&gt;我安装的是&lt;code&gt;zsh&lt;/code&gt;，安装&lt;code&gt;Mambaforge&lt;/code&gt;的时候始终无法使用，运行&lt;code&gt;mamba init&lt;/code&gt;显示下面的内容：&lt;/p&gt;
 &lt;figure class=&quot;highlight</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Blossom配置</title>
-    <link href="https://lixiang117423.github.io/article/blossom/"/>
-    <id>https://lixiang117423.github.io/article/blossom/</id>
-    <published>2023-12-10T02:38:43.000Z</published>
-    <updated>2023-12-10T05:18:17.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;准备在NAS上折腾的，各种端口开放不方便，直接就用腾讯云服务器折腾吧。。。。。。&lt;/p&gt;
-&lt;h2 id=&quot;安装并运行数据库&quot;&gt;&lt;a href=&quot;#安装并运行数据库&quot; class=&quot;headerlink&quot;</summary>
         
       
     
