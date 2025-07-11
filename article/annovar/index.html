@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="ANNOVAR 自动化注释流程脚本目录 简介 主要功能 环境要求 安装与准备 使用方法 基本用法 参数详解 分步执行   工作流程详解 输出文件 注意事项  简介本项目是一个功能强大的Python脚本，旨在自动化执行ANNOVAR对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。 脚本将从原始的GFF3注释文件和基因组序列文件开始，自动生成ANNO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Annovar自动化脚本">
+<meta property="og:url" content="https://lixiang117423.github.io/article/annovar/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="ANNOVAR 自动化注释流程脚本目录 简介 主要功能 环境要求 安装与准备 使用方法 基本用法 参数详解 分步执行   工作流程详解 输出文件 注意事项  简介本项目是一个功能强大的Python脚本，旨在自动化执行ANNOVAR对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。 脚本将从原始的GFF3注释文件和基因组序列文件开始，自动生成ANNO">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-11T00:47:18.000Z">
+<meta property="article:modified_time" content="2025-07-11T00:50:50.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Annovar自动化脚本 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Annovar自动化脚本"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-11 08:47" pubdate>
+          2025年7月11日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Annovar自动化脚本</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="ANNOVAR-自动化注释流程脚本"><a href="#ANNOVAR-自动化注释流程脚本" class="headerlink" title="ANNOVAR 自动化注释流程脚本"></a>ANNOVAR 自动化注释流程脚本</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#主要功能">主要功能</a></li>
+<li><a href="#环境要求">环境要求</a></li>
+<li><a href="#安装与准备">安装与准备</a></li>
+<li><a href="#使用方法">使用方法</a><ul>
+<li><a href="#基本用法">基本用法</a></li>
+<li><a href="#参数详解">参数详解</a></li>
+<li><a href="#分步执行">分步执行</a></li>
+</ul>
+</li>
+<li><a href="#工作流程详解">工作流程详解</a></li>
+<li><a href="#输出文件">输出文件</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本项目是一个功能强大的Python脚本，旨在自动化执行<strong>ANNOVAR</strong>对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。</p>
+<p>脚本将从原始的GFF3注释文件和基因组序列文件开始，自动生成ANNOVAR所需的数据库文件，处理输入的VCF文件，并执行最终的变异注释，极大地简化了繁琐的手动操作。</p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
+<li><strong>自动化数据库构建</strong>:<ul>
+<li>将GFF3文件自动转换为ANNOVAR所需的GenePred格式（<code>refGene.txt</code>）。</li>
+<li>从基因组Fasta文件自动提取转录本序列（<code>refGeneMrna.fa</code>）。</li>
+</ul>
+</li>
+<li><strong>智能GFF3文件预处理</strong>:<ul>
+<li>自动检查并修复GFF3文件，确保其包含<code>##gff-version 3</code>头部。</li>
+<li>自动修复CDS条目中缺失或无效的<code>phase</code>（相位）信息，解决<code>gff3ToGenePred</code>转换失败的常见问题。</li>
+</ul>
+</li>
+<li><strong>VCF文件处理</strong>:<ul>
+<li>（可选）使用<code>bcftools</code>对VCF文件进行质量过滤。默认跳过此步骤。</li>
+<li>将VCF文件转换为ANNOVAR的标准输入格式。</li>
+</ul>
+</li>
+<li><strong>一键式注释</strong>:<ul>
+<li>调用ANNOVAR核心脚本，使用生成的自定义数据库对变异进行注释。</li>
+</ul>
+</li>
+<li><strong>详细日志与报告</strong>:<ul>
+<li>记录每个步骤的详细命令和执行状态到日志文件 (<code>annovar_annotation.log</code>)，方便调试。</li>
+<li>流程结束后生成一份简洁的总结报告 (<code>annotation_summary.txt</code>)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><p>在运行此脚本之前，请确保您的系统中已安装并配置好以下软件：</p>
+<ol>
+<li><strong>Python 3</strong>: 脚本本身需要Python 3环境。</li>
+<li><strong>ANNOVAR</strong>: 核心注释工具。脚本需要能调用其目录下的Perl脚本，如 <code>annotate_variation.pl</code>, <code>convert2annovar.pl</code>, <code>retrieve_seq_from_fasta.pl</code>。</li>
+<li><strong>UCSC Kent Utilities</strong>: 至少需要<code>gff3ToGenePred</code>工具，用于将GFF3转换为GenePred格式。请确保该工具在系统的<code>PATH</code>环境变量中。</li>
+<li><strong>bcftools</strong> (可选): 如果您需要启用VCF质量过滤功能（通过<code>--enable-vcf-filter</code>参数），则需要安装<code>bcftools</code>并确保其在<code>PATH</code>中。</li>
+</ol>
+<h2 id="安装与准备"><a href="#安装与准备" class="headerlink" title="安装与准备"></a>安装与准备</h2><ol>
+<li><p><strong>下载脚本</strong>: 将此项目的脚本文件（例如 <code>annovar_pipeline.py</code>）下载到您的工作目录。</p>
+</li>
+<li><p><strong>准备输入文件</strong>:</p>
+<ul>
+<li><strong>GFF3文件</strong>: 您的物种的基因注释文件 (<code>.gff3</code>)。</li>
+<li><strong>基因组文件</strong>: 您的物种的基因组序列文件 (<code>.fa</code> 或 <code>.fasta</code>)。</li>
+<li><strong>VCF文件</strong>: 待注释的变异位点文件 (<code>.vcf</code>)。</li>
+</ul>
+</li>
+<li><p><strong>准备ANNOVAR数据库目录</strong>:<br>脚本会生成物种特异性的数据库文件（如 <code>build-ver_refGene.txt</code> 和 <code>build-ver_refGeneMrna.fa</code>）。您需要为这些文件指定一个存放位置。ANNOVAR将从这个位置读取它们。</p>
+<ul>
+<li><strong>推荐做法</strong>: 在输出目录（<code>--output-dir</code>）下创建一个子目录（如 <code>database</code>），并将<code>--database-path</code>指向它。</li>
+</ul>
+</li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>以下是一个完整的运行示例。假设您的ANNOVAR安装在 <code>/path/to/annovar</code>，并且您希望将所有输出文件和数据库文件都放在 <code>./annovar_results</code> 目录下。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行完整注释流程</span><br>python annovar_pipeline.py \<br>  --gff3 my_species.gff3 \<br>  --genome my_species.fasta \<br>  --vcf my_variants.vcf \<br>  --build-ver my_species_v1 \<br>  --annovar-path /opt/annovar \<br>  --output-dir ./annovar_results \<br>  --database-path ./annovar_results<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>命令解释</strong>:</p>
+<ul>
+<li>使用 <code>my_species.gff3</code> 和 <code>my_species.fasta</code> 作为注释和参考序列。</li>
+<li>对 <code>my_variants.vcf</code> 文件进行注释。</li>
+<li>定义基因组构建版本为 <code>my_species_v1</code>，这将用作生成数据库文件的前缀。</li>
+<li>ANNOVAR的安装路径为 <code>/opt/annovar</code>。</li>
+<li>所有输出（包括中间文件和最终结果）都将保存在 <code>./annovar_results</code> 目录。</li>
+<li>脚本将在 <code>./annovar_results</code> 目录中生成数据库文件，并告知ANNOVAR也从该目录加载它们。</li>
+</ul>
+<h3 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必需</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--gff3</code></td>
+<td><strong>是</strong></td>
+<td>输入的GFF3注释文件路径。</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--genome</code></td>
+<td><strong>是</strong></td>
+<td>输入的基因组序列Fasta文件路径。</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--vcf</code></td>
+<td><strong>是</strong></td>
+<td>输入的VCF变异文件路径。</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--build-ver</code></td>
+<td><strong>是</strong></td>
+<td>基因组构建版本的唯一标识符（例如: <code>my_species_v1</code>, <code>ASM123v2</code>）。<strong>不应包含路径分隔符 (<code>/</code> 或 <code>\</code>)</strong>。</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>--annovar-path</code></td>
+<td>否</td>
+<td>ANNOVAR软件的安装目录路径。</td>
+<td><code>/share/org/YZWL/yzwl_lixg/software/annovar/annovar</code></td>
+</tr>
+<tr>
+<td><code>--database-path</code></td>
+<td>否</td>
+<td>ANNOVAR数据库文件所在的目录。脚本将在此处生成<code>_refGene.txt</code>和<code>_refGeneMrna.fa</code>文件。</td>
+<td><code>./database</code></td>
+</tr>
+<tr>
+<td><code>--output-dir</code></td>
+<td>否</td>
+<td>所有输出文件（日志、报告、注释结果等）的存放目录。</td>
+<td><code>./annovar_output</code></td>
+</tr>
+<tr>
+<td><code>--qual-threshold</code></td>
+<td>否</td>
+<td>VCF质量过滤阈值（QUAL值）。仅在启用VCF过滤时生效。</td>
+<td><code>20</code></td>
+</tr>
+<tr>
+<td><code>--skip-gff-fix</code></td>
+<td>否</td>
+<td>一个标志，如果设置，将跳过对GFF3文件的自动修复（如添加头部、修复CDS phase）。</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>--skip-vcf-filter</code></td>
+<td>否</td>
+<td>一个标志，跳过VCF过滤步骤。<strong>此为默认行为</strong>。</td>
+<td><code>True</code></td>
+</tr>
+<tr>
+<td><code>--enable-vcf-filter</code></td>
+<td>否</td>
+<td>一个标志，强制启用<code>bcftools</code>进行VCF过滤。如果设置此项，<code>--skip-vcf-filter</code>将失效。</td>
+<td><code>False</code></td>
+</tr>
+<tr>
+<td><code>--step</code></td>
+<td>否</td>
+<td>只运行指定的单个步骤 (1:gff3转换, 2:提取序列, 3:VCF处理, 4:注释)。</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="分步执行"><a href="#分步执行" class="headerlink" title="分步执行"></a>分步执行</h3><p>如果您只想执行流程中的特定步骤，可以使用 <code>--step</code> 参数。例如，只生成ANNOVAR数据库文件（步骤1和2）：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 步骤1: GFF3转GenePred</span><br>python annovar_pipeline.py --step 1 --gff3 ... --build-ver ... --output-dir ...<br><br><span class="hljs-comment"># 步骤2: 提取转录本序列</span><br>python annovar_pipeline.py --step 2 --genome ... --build-ver ... --output-dir ... --annovar-path ...<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>注意</strong>: 运行后续步骤通常依赖于前面步骤的输出。</p>
+<h2 id="工作流程详解"><a href="#工作流程详解" class="headerlink" title="工作流程详解"></a>工作流程详解</h2><p>脚本按以下顺序执行任务：</p>
+<ol>
+<li><p><strong>步骤 1: GFF3转GenePred</strong></p>
+<ul>
+<li>检查并修复GFF3文件（除非使用<code>--skip-gff-fix</code>）。</li>
+<li>使用 <code>gff3ToGenePred</code> 将 GFF3 文件转换为 <code>[build-ver]_refGene.txt</code> 文件，并存放在 <code>--database-path</code> 指定的目录中。</li>
+</ul>
+</li>
+<li><p><strong>步骤 2: 提取转录本序列</strong></p>
+<ul>
+<li>使用 ANNOVAR 的 <code>retrieve_seq_from_fasta.pl</code> 脚本。</li>
+<li>根据上一步生成的 <code>_refGene.txt</code> 文件，从基因组Fasta文件中提取所有转录本的mRNA序列。</li>
+<li>生成 <code>[build-ver]_refGeneMrna.fa</code> 文件，并存放在 <code>--database-path</code> 指定的目录中。</li>
+</ul>
+</li>
+<li><p><strong>步骤 3: VCF处理与转换</strong></p>
+<ul>
+<li><strong>过滤 (默认跳过)</strong>: 如果启用了 <code>--enable-vcf-filter</code>，使用 <code>bcftools filter</code> 根据 <code>QUAL</code> 值过滤VCF文件。</li>
+<li><strong>转换</strong>: 使用 ANNOVAR 的 <code>convert2annovar.pl</code> 脚本将VCF文件（原始或过滤后的）转换为ANNOVAR的输入格式 (<code>.annovar.vcf</code>)。</li>
+</ul>
+</li>
+<li><p><strong>步骤 4: 变异注释</strong></p>
+<ul>
+<li>使用 ANNOVAR 的 <code>annotate_variation.pl</code> 核心脚本。</li>
+<li>利用步骤1和2生成的自定义数据库对 <code>.annovar.vcf</code> 文件进行注释。</li>
+<li>生成最终的注释结果文件。</li>
+</ul>
+</li>
+</ol>
+<h2 id="输出文件"><a href="#输出文件" class="headerlink" title="输出文件"></a>输出文件</h2><p>在指定的 <code>--output-dir</code> 目录下，您会找到以下主要文件：</p>
+<ul>
+<li><p><strong>最终注释结果</strong>:</p>
+<ul>
+<li><code>[vcf_basename].exonic_variant_function</code>: 外显子区域变异的功能注释（如同义/非同义突变）。</li>
+<li><code>[vcf_basename].variant_function</code>: 所有变异的区域注释（如外显子、内含子、基因间区等）。</li>
+</ul>
+</li>
+<li><p><strong>日志与报告</strong>:</p>
+<ul>
+<li><code>annovar_annotation.log</code>: 详细的运行日志，记录了每一步执行的命令、输出和错误信息。</li>
+<li><code>annotation_summary.txt</code>: 流程运行的总结报告，包含输入输出文件和关键配置信息。</li>
+</ul>
+</li>
+<li><p><strong>中间文件</strong>:</p>
+<ul>
+<li><code>[vcf_basename].annovar.vcf</code>: 转换后的ANNOVAR格式输入文件。</li>
+<li><code>[vcf_basename].filtered.gz</code> (如果启用了过滤): 过滤后的VCF文件。</li>
+<li><strong>数据库文件</strong> (位于 <code>--database-path</code> 目录):<ul>
+<li><code>[build-ver]_refGene.txt</code></li>
+<li><code>[build-ver]_refGeneMrna.fa</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li><strong>路径问题</strong>: 请确保所有输入文件的路径以及 <code>--annovar-path</code> 都是正确的。脚本会进行存在性检查，但正确的路径是成功运行的前提。</li>
+<li><strong><code>build-ver</code>的重要性</strong>: <code>--build-ver</code> 参数是连接所有步骤的关键。它作为ANNOVAR数据库文件的前缀，必须保持一致。请使用一个简洁且唯一的标识符。</li>
+<li><strong>GFF3文件质量</strong>: 虽然脚本包含自动修复功能，但过于混乱或格式不标准的GFF3文件仍可能导致<code>gff3ToGenePred</code>失败。如果遇到问题，请首先检查GFF3文件的格式。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Annovar自动化脚本</div>
+      <div>https://lixiang117423.github.io/article/annovar/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/gemma/" title="Gemma自动化脚本">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Gemma自动化脚本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/parabricks/" title="超算上使用Parabricks">
+                        <span class="hidden-mobile">超算上使用Parabricks</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

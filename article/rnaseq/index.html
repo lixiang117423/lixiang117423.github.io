@@ -1,0 +1,869 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)目录 简介 核心功能 环境与依赖 系统软件 Python库   输入文件准备 参考文件 测序数据 (FASTQ)   使用方法 快速开始 参数详解   工作流程详解 输出文件说明 注意事项  简介本项目是一个自动化的RNA-seq数据处理流程脚本，它整合了从原始测序数据(FASTQ)到基因表达定量矩阵的完整分析步骤。该">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RNA-Seq自动化脚本">
+<meta property="og:url" content="https://lixiang117423.github.io/article/rnaseq/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)目录 简介 核心功能 环境与依赖 系统软件 Python库   输入文件准备 参考文件 测序数据 (FASTQ)   使用方法 快速开始 参数详解   工作流程详解 输出文件说明 注意事项  简介本项目是一个自动化的RNA-seq数据处理流程脚本，它整合了从原始测序数据(FASTQ)到基因表达定量矩阵的完整分析步骤。该">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-11T00:47:44.000Z">
+<meta property="article:modified_time" content="2025-07-11T00:51:59.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>RNA-Seq自动化脚本 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="RNA-Seq自动化脚本"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-11 08:47" pubdate>
+          2025年7月11日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          17 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">RNA-Seq自动化脚本</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="RNA-seq-自动化分析流程-HISAT2-amp-StringTie"><a href="#RNA-seq-自动化分析流程-HISAT2-amp-StringTie" class="headerlink" title="RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)"></a>RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#简介">简介</a></li>
+<li><a href="#核心功能">核心功能</a></li>
+<li><a href="#环境与依赖">环境与依赖</a><ul>
+<li><a href="#系统软件">系统软件</a></li>
+<li><a href="#python库">Python库</a></li>
+</ul>
+</li>
+<li><a href="#输入文件准备">输入文件准备</a><ul>
+<li><a href="#参考文件">参考文件</a></li>
+<li><a href="#测序数据-fastq">测序数据 (FASTQ)</a></li>
+</ul>
+</li>
+<li><a href="#使用方法">使用方法</a><ul>
+<li><a href="#快速开始">快速开始</a></li>
+<li><a href="#参数详解">参数详解</a></li>
+</ul>
+</li>
+<li><a href="#工作流程详解">工作流程详解</a></li>
+<li><a href="#输出文件说明">输出文件说明</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+</ul>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本项目是一个自动化的RNA-seq数据处理流程脚本，它整合了从原始测序数据(FASTQ)到基因表达定量矩阵的完整分析步骤。该流程基于广泛使用的<strong>HISAT2</strong>进行序列比对和<strong>StringTie</strong>进行转录本组装与表达量计算，旨在为生物信息学分析提供一个标准、可重复且易于使用的起点。</p>
+<p>脚本能够自动处理多个样本，从索引构建、序列比对、定量分析到最终合并生成一个包含所有样本表达量（FPKM、TPM）的汇总文件。</p>
+<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><ul>
+<li><strong>一站式流程</strong>: 实现从基因组索引构建到最终表达矩阵生成的端到端自动化。</li>
+<li><strong>批量处理</strong>: 能够自动发现并处理指定目录下的所有双端测序样本。</li>
+<li><strong>智能样本发现</strong>:<ul>
+<li><strong>自动模式</strong>: 自动识别多种常见的FASTQ文件命名规则（如 <code>_1/_2</code>, <code>_R1/_R2</code>）。</li>
+<li><strong>模式匹配</strong>: 支持用户通过通配符（<code>*</code>）自定义FASTQ文件命名格式。</li>
+<li><strong>样本列表</strong>: 支持通过提供一个样本信息文件来指定输入。</li>
+</ul>
+</li>
+<li><strong>高效比对与定量</strong>: 利用HISAT2进行快速、精准的序列比对，并使用StringTie进行表达量计算。</li>
+<li><strong>标准化输出</strong>: 提取每个样本的FPKM和TPM值，并最终合并成一个易于下游分析（如差异表达分析）的表格文件。</li>
+<li><strong>资源管理</strong>: 支持多线程并行处理以加速分析，并提供选项在流程结束后自动删除占用大量磁盘空间的中间文件（BAM文件）。</li>
+</ul>
+<h2 id="环境与依赖"><a href="#环境与依赖" class="headerlink" title="环境与依赖"></a>环境与依赖</h2><p>在运行此脚本前，请确保您的系统环境中已安装并配置好以下软件和库：</p>
+<h3 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h3><p>以下工具必须已安装，并且其可执行文件路径已添加到系统的<code>PATH</code>环境变量中，以便脚本能直接调用：</p>
+<ol>
+<li><strong>HISAT2</strong>: 用于序列比对。</li>
+<li><strong>Samtools</strong>: 用于处理SAM/BAM文件（流程中主要用于排序）。</li>
+<li><strong>StringTie</strong>: 用于转录本组装和表达定量。</li>
+</ol>
+<h3 id="Python库"><a href="#Python库" class="headerlink" title="Python库"></a>Python库</h3><p>脚本需要以下Python库。您可以使用<code>pip</code>进行安装：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install pandas<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="输入文件准备"><a href="#输入文件准备" class="headerlink" title="输入文件准备"></a>输入文件准备</h2><h3 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h3><p>您需要准备两个标准的参考文件：</p>
+<ol>
+<li><strong>基因组文件 (<code>--genome</code>)</strong>: Fasta格式的参考基因组序列文件（例如 <code>genome.fa</code>）。</li>
+<li><strong>基因注释文件 (<code>--gtf</code>)</strong>: GTF或GFF3格式的基因注释文件（例如 <code>annotation.gtf</code>）。</li>
+</ol>
+<h3 id="测序数据-FASTQ"><a href="#测序数据-FASTQ" class="headerlink" title="测序数据 (FASTQ)"></a>测序数据 (FASTQ)</h3><p>脚本通过<code>--input</code>参数接收测序数据，支持三种模式：</p>
+<ol>
+<li><p><strong>自动发现模式 (推荐)</strong>:</p>
+<ul>
+<li>将所有双端测序的FASTQ文件（<code>.fq.gz</code>, <code>.fastq.gz</code>等）放在一个目录下。</li>
+<li>确保成对的Read 1和Read 2文件有可识别的配对标识，例如：<ul>
+<li><code>sampleA_1.fq.gz</code> 和 <code>sampleA_2.fq.gz</code></li>
+<li><code>sampleB_R1.fastq.gz</code> 和 <code>sampleB_R2.fastq.gz</code></li>
+</ul>
+</li>
+<li>运行时将<code>--input</code>指向此目录即可。</li>
+</ul>
+</li>
+<li><p><strong>模式匹配模式</strong>:</p>
+<ul>
+<li>如果您的文件名不符合常见规则，可以使用<code>--pattern</code>参数指定。</li>
+<li>使用 <code>*</code>作为样本名的通配符。</li>
+<li><strong>示例</strong>: 如果文件名为 <code>project_sampleA_read1.fq.gz</code>，则设置 <code>--pattern "project_*_read1.fq.gz"</code>。脚本会自动寻找匹配的<code>read2</code>文件。</li>
+</ul>
+</li>
+<li><p><strong>样本信息文件模式</strong>:</p>
+<ul>
+<li><p>创建一个<strong>制表符分隔</strong>的文本文件，每行代表一个样本。</p>
+</li>
+<li><p>文件格式为：<code>样本名\tRead1文件路径\tRead2文件路径</code></p>
+</li>
+<li><p><strong>示例 (<code>samples.txt</code>)</strong>:</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsv">Sample1	/path/to/data/s1_R1.fq.gz	/path/to/data/s1_R2.fq.gz<br>Sample2	/path/to/data/s2_R1.fq.gz	/path/to/data/s2_R2.fq.gz<br></code></pre></td></tr></tbody></table></figure>
+</li>
+<li><p>运行时将<code>--input</code>指向此文件路径。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p>以下是一个典型的运行示例，假设所有FASTQ文件都存放在<code>./fastq_data</code>目录中。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">python rnaseq_pipeline.py \<br>  -g /path/to/reference/genome.fa \<br>  -f /path/to/reference/annotation.gtf \<br>  -i ./fastq_data \<br>  -o ./rnaseq_results \<br>  -t 16 \<br>  -r <span class="hljs-built_in">yes</span><br></code></pre></td></tr></tbody></table></figure>
+<p><strong>命令解释</strong>:</p>
+<ul>
+<li>使用<code>genome.fa</code>和<code>annotation.gtf</code>作为参考文件。</li>
+<li>从<code>./fastq_data</code>目录中自动寻找样本。</li>
+<li>将所有输出文件保存到<code>./rnaseq_results</code>目录。</li>
+<li>使用16个线程进行计算。</li>
+<li>在每个样本处理完成后，删除中间生成的BAM文件 (<code>-r yes</code>)。</li>
+</ul>
+<h3 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">是否必需</th>
+<th style="text-align:left">描述</th>
+<th style="text-align:left">默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-g</code>, <code>--genome</code></td>
+<td style="text-align:left"><strong>是</strong></td>
+<td style="text-align:left">参考基因组Fasta文件路径。</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-f</code>, <code>--gtf</code></td>
+<td style="text-align:left"><strong>是</strong></td>
+<td style="text-align:left">基因注释GTF文件路径。</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-i</code>, <code>--input</code></td>
+<td style="text-align:left"><strong>是</strong></td>
+<td style="text-align:left">输入路径。可以是存放FASTQ文件的目录，或是一个样本信息文件。</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-o</code>, <code>--output</code></td>
+<td style="text-align:left"><strong>是</strong></td>
+<td style="text-align:left">所有输出文件的存放目录。</td>
+<td style="text-align:left">-</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-p</code>, <code>--pattern</code></td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">当输入为目录时，用于匹配FASTQ文件的命名模式。使用<code>*</code>代表样本名。</td>
+<td style="text-align:left"><code>None</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-r</code>, <code>--remove</code></td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是否在处理完成后删除中间的BAM文件。可选值: <code>yes</code>/<code>y</code> 或 <code>no</code>/<code>n</code>。</td>
+<td style="text-align:left"><code>no</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-t</code>, <code>--threads</code></td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">用于分析的CPU线程数。</td>
+<td style="text-align:left"><code>8</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="工作流程详解"><a href="#工作流程详解" class="headerlink" title="工作流程详解"></a>工作流程详解</h2><p>脚本将严格按照以下步骤执行：</p>
+<ol>
+<li><p><strong>构建HISAT2索引</strong>:</p>
+<ul>
+<li>检查指定的基因组文件是否已有HISAT2索引。如果不存在，则使用<code>hisat2-build</code>命令自动构建。索引文件将与基因组文件存放在同一目录下。</li>
+</ul>
+</li>
+<li><p><strong>解析输入样本</strong>:</p>
+<ul>
+<li>根据<code>--input</code>参数的类型（目录或文件）和<code>--pattern</code>（如果提供），解析出所有待处理样本的名称及其对应的R1和R2文件路径。</li>
+</ul>
+</li>
+<li><p><strong>循环处理每个样本</strong>:<br>a.  <strong>序列比对</strong>: 使用<code>hisat2</code>将样本的FASTQ文件比对到基因组索引上。<br>b.  <strong>排序和格式转换</strong>: 比对结果通过管道（pipe）直接传递给<code>samtools sort</code>进行排序，并保存为BAM格式 (<code>.sorted.bam</code>)。<br>c.  <strong>表达定量</strong>: 使用<code>stringtie</code>基于BAM文件和参考GTF文件，计算每个转录本的表达量，并输出为GTF格式。<br>d.  <strong>提取表达量</strong>: 从StringTie输出的GTF文件中解析出每个基因和转录本的<code>FPKM</code>和<code>TPM</code>值，并保存为一个临时的文本文件。<br>e.  <strong>(可选) 清理</strong>: 如果设置了<code>--remove yes</code>，则删除该样本的比对结果BAM文件以节省磁盘空间。</p>
+</li>
+<li><p><strong>合并表达矩阵</strong>:</p>
+<ul>
+<li>读取所有样本的临时表达量文件。</li>
+<li>将它们合并成一个大的表格文件<code>all.fpkm.tpm.txt</code>，其中包含了所有样本、所有转录本的<code>FPKM</code>和<code>TPM</code>值。</li>
+</ul>
+</li>
+</ol>
+<h2 id="输出文件说明"><a href="#输出文件说明" class="headerlink" title="输出文件说明"></a>输出文件说明</h2><p>所有输出文件都将保存在您通过<code>-o</code>/<code>--output</code>指定的目录中。</p>
+<ul>
+<li><p><strong>最终结果文件</strong>:</p>
+<ul>
+<li><code>all.fpkm.tpm.txt</code>: <strong>最重要的结果文件</strong>。这是一个制表符分隔的表格，包含了所有样本中每个基因/转录本的表达量信息。列包括：<code>gene_id</code>, <code>transcript_id</code>, <code>cov</code>, <code>FPKM</code>, <code>TPM</code>, <code>sample</code>。</li>
+</ul>
+</li>
+<li><p><strong>中间文件目录</strong>:</p>
+<ul>
+<li><code>stringtie_output/</code>: 存放每个样本由StringTie生成的原始GTF定量结果。<ul>
+<li><code>[sample_name].gtf</code></li>
+</ul>
+</li>
+<li><code>fpkm_output/</code>: 存放从StringTie结果中提取并格式化后的每个样本的表达量文件。<ul>
+<li><code>[sample_name].fpkm.txt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>比对文件</strong> (在输出根目录):</p>
+<ul>
+<li><code>[sample_name].sorted.bam</code>: 每个样本比对和排序后的BAM文件。如果设置了<code>-r yes</code>，此文件将在处理完成后被删除。</li>
+</ul>
+</li>
+<li><p><strong>索引文件</strong> (在基因组文件所在目录):</p>
+<ul>
+<li><code>[genome_name].hisat2.index.*.ht2</code>: HISAT2构建的基因组索引文件。</li>
+</ul>
+</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li><strong><code>PATH</code>环境变量</strong>: 请务必确保<code>hisat2</code>, <code>samtools</code>, 和 <code>stringtie</code>命令能在系统的任何路径下被调用。这是脚本成功运行的<strong>关键前提</strong>。</li>
+<li><strong>计算资源</strong>: RNA-seq分析是计算密集型任务。比对步骤（特别是大基因组）会占用较多内存和CPU时间。BAM文件会占用大量磁盘空间，建议在流程测试成功后使用<code>-r yes</code>选项。</li>
+<li><strong>文件命名</strong>: 为确保自动样本发现功能正常工作，请保持FASTQ文件命名的一致性。</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>RNA-Seq自动化脚本</div>
+      <div>https://lixiang117423.github.io/article/rnaseq/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月11日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/null/" title="从VCF文件提取单倍型信息都脚本">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">从VCF文件提取单倍型信息都脚本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/gemma/" title="Gemma自动化脚本">
+                        <span class="hidden-mobile">Gemma自动化脚本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

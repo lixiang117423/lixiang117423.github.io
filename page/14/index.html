@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/vscodeline/" target="_self">
-          VSCode取消波浪线
+        <a href="/article/594585ty/" target="_self">
+          Ubuntu部署Hexo
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/594585ty/" target="_self">
         <div>
-          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
+          123456789101112131415161718192021222324252627282930313233# 添加用户adduser hexo# 切回用户目录su hexo# 新建目录存放blogmkdir blog# 初始化裸gitgit init --bare hexo.git# vim hexo.git/hooks/post-receive#!/bin/shgit --work-tr
         </div>
       </a>
 
@@ -249,8 +249,106 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 11:35" pubdate>
-              2023-04-05
+            <time datetime="2021-11-23 16:25" pubdate>
+              2021-11-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/ubuntuip/" target="_self">
+          Ubuntu服务器配置静态IP
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuip/" target="_self">
+        <div>
+          实验室的服务器需要配置静态IP，折腾了一天都没有搞定。今早上在去实验室的路上突然想到，“我没有重启网络管理器啊😂”  配置IP  123456789auto loiface lo inet loopbackauto eno1np0 # 需要设定的网络端口address x.x.x.x # 固定IP地址netmask x.x.x.x # 掩码gateway x.x.x.x # 网关dns-name
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-04 09:34" pubdate>
+              2022-01-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/swxxx/" class="category-chain-item">swxxx</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/ubuntuzsh/" target="_self">
+          Ubuntu配置zsh和主题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuzsh/" target="_self">
+        <div>
+          总代码1234sudo apt-get updatesudo apt install zshchsh -s /bin/zshsh -c "$(curl -fsSL https://gitee.com/Devkings/oh_my_zsh_install/raw/master/install.sh)" 安装zsh12sudo apt install zshchsh -s /bin/zsh 安装Oh
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-09 20:27" pubdate>
+              2023-03-09
             </time>
           </div>
         
@@ -280,7 +378,170 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/85985tgy/" target="_self">
+          Ubuntu部署bookdown
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/85985tgy/" target="_self">
+        <div>
+          安装Nginx：  1sudo apt-get install nginx  找个位置存放{% label bookdown purple %}编译好的文件夹，里面包含了整个的静态文件，如我的是{% label book4xiang purple %}。  修改配置文件：   12345678910111213cd /etc/nginx/conf.d/# 创建一个bookdown.conf,输入
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-24 13:15" pubdate>
+              2021-11-24
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+              <a href="/tags/R/">#R</a>
+            
+              <a href="/tags/Nginx/">#Nginx</a>
+            
+              <a href="/tags/Ubuntu/">#Ubuntu</a>
+            
+              <a href="/tags/bookdown/">#bookdown</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/ubuntushiny/" target="_self">
+          Ubuntu搭建shiny-server
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntushiny/" target="_self">
+        <div>
+          从这里开始写正文 1234567891011121314151617181920212223#root 权限进入sudo suuseradd shiny # 添加shiny用户passwd shiny # 修改shiny用户的密码chmod +w /etc/sudoers # 修改权限sudo vim /etc/sudoers # 编辑# root ALL=(ALL) ALL 该行，在下面添加 s
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-25 19:50" pubdate>
+              2021-11-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/258e55c8/" target="_self">
+          WGS学习笔记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/258e55c8/" target="_self">
+        <div>
+          FASTA和FASTQ文件格式FASTAFASTA是已知序列的存储文件，以&gt;开头，
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-01 09:01" pubdate>
+              2021-03-01
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
         
@@ -355,15 +616,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/258e55c8/" target="_self">
-          WGS学习笔记
+        <a href="/article/41af5d00/" target="_self">
+          UniProt数据库爬虫获取相关信息
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/258e55c8/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
         <div>
-          FASTA和FASTQ文件格式FASTAFASTA是已知序列的存储文件，以&gt;开头，
+          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
         </div>
       </a>
 
@@ -371,8 +632,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-01 09:01" pubdate>
-              2021-03-01
+            <time datetime="2021-04-18 22:02" pubdate>
+              2021-04-18
             </time>
           </div>
         
@@ -387,7 +648,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
   
   
 
@@ -402,7 +663,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+              <a href="/tags/Python/">#Python</a>
             
           </div>
         
@@ -605,15 +866,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/wslncs25/" target="_self">
-          WSL设置内存和线程数
+        <a href="/article/vscodeline/" target="_self">
+          VSCode取消波浪线
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wslncs25/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
         <div>
-          从这里开始写正文  Windows + R 键，输入 %UserProfile% 并运行进入用户文件夹； 新建一个 {%  label .wslconfig purple %} 文件，写入下面的内容：  1234[wsl2]memory=30Gswap=12Gprocessors=12  先关闭WSL：  1wsl --shutdown  再开启即可：  1wsl  💌lixiang117423
+          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
         </div>
       </a>
 
@@ -621,224 +882,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 10:57" pubdate>
-              2021-11-25
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/41af5d00/" target="_self">
-          UniProt数据库爬虫获取相关信息
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
-        <div>
-          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-18 22:02" pubdate>
-              2021-04-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/wordjcyy/" target="_self">
-          Word交叉引用设置颜色为蓝色
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wordjcyy/" target="_self">
-        <div>
-          参考知乎文章。 编辑一个新的宏： 12345678Sub CitingColor()    For i = 1 To ActiveDocument.Fields.Count '遍历文档所有域        If Left(ActiveDocument.Fields(i).Code, 4) = " REF" Or Left(ActiveDocument.Fields(i).Code, 14) = "
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-11 11:20" pubdate>
-              2023-09-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/zoteroqc/" target="_self">
-          Zotero删除重复文献条目
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/zoteroqc/" target="_self">
-        <div>
-          在左侧的{% label 重复条目 purple %}里面选中所有重复的文献条目，以此点击Tools-Developer-Run JavaScript，复制粘贴下方的代码运行： 123456var DupPane = Zotero.getZoteroPanes();for(var i = 0; i &lt; 1000; i++) {await new Promise(r =&gt; setTime
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-09 09:14" pubdate>
-              2021-12-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/pipacce/" target="_self">
-          pip加速
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/pipacce/" target="_self">
-        <div>
-          1-i https://pypi.tuna.tsinghua.edu.cn/simple  💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-19 11:04" pubdate>
-              2022-01-19
+            <time datetime="2023-04-05 11:35" pubdate>
+              2023-04-05
             </time>
           </div>
         
@@ -868,70 +913,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/qpcrfromsample2expression/" target="_self">
-          qPCR:从样品采集到表达量计算
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/qpcrfromsample2expression/" target="_self">
-        <div>
-          参考文献 Taylor S C, Nadeau K, Abbasi M, et al. The ultimate qPCR experiment: producing publication quality, reproducible data the first time[J]. Trends in Biotechnology, 2019, 37(7): 761-774.  采样计划 有多少个处
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-10-24 11:14" pubdate>
-              2022-10-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
             
           </div>
         
@@ -943,7 +925,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/13/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#board">12</a><a class="page-number" href="/page/13/#board">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/#board">15</a><a class="page-number" href="/page/16/#board">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/#board">25</a><a class="extend next" rel="next" href="/page/15/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/13/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/#board">12</a><a class="page-number" href="/page/13/#board">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/#board">15</a><a class="page-number" href="/page/16/#board">16</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/#board">26</a><a class="extend next" rel="next" href="/page/15/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

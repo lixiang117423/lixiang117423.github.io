@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-07-07T07:19:52.261Z</updated>
+  <updated>2025-07-11T00:48:35.077Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -17,11 +17,112 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>从gff文件提取基因信息都脚本</title>
+    <link href="https://lixiang117423.github.io/article/null/"/>
+    <id>https://lixiang117423.github.io/article/null/</id>
+    <published>2025-07-11T00:48:35.000Z</published>
+    <updated>2025-07-11T00:48:35.077Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从VCF文件提取单倍型信息都脚本</title>
+    <link href="https://lixiang117423.github.io/article/null/"/>
+    <id>https://lixiang117423.github.io/article/null/</id>
+    <published>2025-07-11T00:48:16.000Z</published>
+    <updated>2025-07-11T00:48:16.798Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>RNA-Seq自动化脚本</title>
+    <link href="https://lixiang117423.github.io/article/rnaseq/"/>
+    <id>https://lixiang117423.github.io/article/rnaseq/</id>
+    <published>2025-07-11T00:47:44.000Z</published>
+    <updated>2025-07-11T00:51:59.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;RNA-seq-自动化分析流程-HISAT2-amp-StringTie&quot;&gt;&lt;a href=&quot;#RNA-seq-自动化分析流程-HISAT2-amp-StringTie&quot; class=&quot;headerlink&quot; title=&quot;RNA-seq 自动化分析流程</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Gemma自动化脚本</title>
+    <link href="https://lixiang117423.github.io/article/gemma/"/>
+    <id>https://lixiang117423.github.io/article/gemma/</id>
+    <published>2025-07-11T00:47:30.000Z</published>
+    <updated>2025-07-11T00:51:26.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;GEMMA-自动化-GWAS-分析流程&quot;&gt;&lt;a href=&quot;#GEMMA-自动化-GWAS-分析流程&quot; class=&quot;headerlink&quot; title=&quot;GEMMA 自动化 GWAS 分析流程&quot;&gt;&lt;/a&gt;GEMMA 自动化 GWAS 分析流程&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Annovar自动化脚本</title>
+    <link href="https://lixiang117423.github.io/article/annovar/"/>
+    <id>https://lixiang117423.github.io/article/annovar/</id>
+    <published>2025-07-11T00:47:18.000Z</published>
+    <updated>2025-07-11T00:50:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;ANNOVAR-自动化注释流程脚本&quot;&gt;&lt;a href=&quot;#ANNOVAR-自动化注释流程脚本&quot; class=&quot;headerlink&quot; title=&quot;ANNOVAR 自动化注释流程脚本&quot;&gt;&lt;/a&gt;ANNOVAR 自动化注释流程脚本&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>超算上使用Parabricks</title>
     <link href="https://lixiang117423.github.io/article/parabricks/"/>
     <id>https://lixiang117423.github.io/article/parabricks/</id>
     <published>2025-07-07T06:06:17.000Z</published>
-    <updated>2025-07-07T07:19:52.261Z</updated>
+    <updated>2025-07-09T03:56:01.000Z</updated>
     
     
       
@@ -427,7 +528,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-07-07T07:21:00.507Z</updated>
+    <updated>2025-07-11T08:34:21.503Z</updated>
     
     
       
@@ -689,13 +790,7 @@
       
         
         
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
         
       
     
@@ -716,7 +811,13 @@
       
         
         
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
         
       
     
@@ -1140,136 +1241,6 @@
         
     <summary type="html">&lt;p&gt;加载&lt;code&gt;igraph&lt;/code&gt;时报错：&lt;/p&gt;
 &lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>混合效应模型学习笔记</title>
-    <link href="https://lixiang117423.github.io/article/mixefflearning/"/>
-    <id>https://lixiang117423.github.io/article/mixefflearning/</id>
-    <published>2024-02-27T12:42:13.000Z</published>
-    <updated>2024-02-27T13:01:09.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;线性回归模型的局限性&quot;&gt;&lt;a href=&quot;#线性回归模型的局限性&quot; class=&quot;headerlink&quot; title=&quot;线性回归模型的局限性&quot;&gt;&lt;/a&gt;线性回归模型的局限性&lt;/h2&gt;&lt;h3 id=&quot;正态性判断&quot;&gt;&lt;a href=&quot;#正态性判断&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微生物组VSEARCH学习笔记</title>
-    <link href="https://lixiang117423.github.io/article/vsearch/"/>
-    <id>https://lixiang117423.github.io/article/vsearch/</id>
-    <published>2024-02-20T10:40:15.000Z</published>
-    <updated>2024-02-20T10:42:43.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;文献&quot;&gt;&lt;a href=&quot;#文献&quot; class=&quot;headerlink&quot; title=&quot;文献&quot;&gt;&lt;/a&gt;文献&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://peerj.com/articles/2584/#fig-7&quot;&gt;Rognes</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TASSEL进行GWAS分析</title>
-    <link href="https://lixiang117423.github.io/article/tasselgwas/"/>
-    <id>https://lixiang117423.github.io/article/tasselgwas/</id>
-    <published>2024-01-04T05:45:42.000Z</published>
-    <updated>2024-09-18T08:44:11.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;一开始折腾的是GAPIT，可是老是报错，实在是没办法了，就折腾TASSEL.&lt;/p&gt;
-&lt;h2 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ggplot2绘制GWAS曼哈顿图</title>
-    <link href="https://lixiang117423.github.io/article/manhattan/"/>
-    <id>https://lixiang117423.github.io/article/manhattan/</id>
-    <published>2023-12-21T11:13:34.000Z</published>
-    <updated>2023-12-21T11:18:32.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;数据长这样：&lt;/p&gt;
-&lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>记录安装Mambaforge遇到的坑</title>
-    <link href="https://lixiang117423.github.io/article/mambaerror/"/>
-    <id>https://lixiang117423.github.io/article/mambaerror/</id>
-    <published>2023-12-12T11:24:55.000Z</published>
-    <updated>2023-12-12T11:29:19.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;我安装的是&lt;code&gt;zsh&lt;/code&gt;，安装&lt;code&gt;Mambaforge&lt;/code&gt;的时候始终无法使用，运行&lt;code&gt;mamba init&lt;/code&gt;显示下面的内容：&lt;/p&gt;
-&lt;figure class=&quot;highlight</summary>
         
       
     
