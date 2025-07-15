@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-07-11T00:48:35.077Z</updated>
+  <updated>2025-07-15T06:44:53.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>运行fastp的脚本</title>
+    <link href="https://lixiang117423.github.io/article/run-fastp/"/>
+    <id>https://lixiang117423.github.io/article/run-fastp/</id>
+    <published>2025-07-15T06:41:20.000Z</published>
+    <updated>2025-07-15T06:44:53.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://www.python.org/downloads/&quot;&gt;&lt;img src=&quot;https://img.shields.io/badge/python-3.7+-blue.svg&quot; alt=&quot;Python Version&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>从gff文件提取基因信息都脚本</title>
@@ -528,7 +553,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-07-11T08:34:21.503Z</updated>
+    <updated>2025-07-15T07:24:46.782Z</updated>
     
     
       
@@ -1215,32 +1240,6 @@
         
         
     <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Rstudio-Server安装igraph报错解决</title>
-    <link href="https://lixiang117423.github.io/article/rstudioerror/"/>
-    <id>https://lixiang117423.github.io/article/rstudioerror/</id>
-    <published>2024-03-07T01:38:30.000Z</published>
-    <updated>2024-03-07T01:42:18.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;加载&lt;code&gt;igraph&lt;/code&gt;时报错：&lt;/p&gt;
-&lt;figure class=&quot;highlight r&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
