@@ -20,15 +20,15 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)目录 简介 核心功能 环境与依赖 系统软件 Python库   输入文件准备 参考文件 测序数据 (FASTQ)   使用方法 快速开始 参数详解   工作流程详解 输出文件说明 注意事项  简介本项目是一个自动化的RNA-seq数据处理流程脚本，它整合了从原始测序数据(FASTQ)到基因表达定量矩阵的完整分析步骤。该">
+    <meta name="description" content="好的，遵命。这里是拆分后的中文和英文两个独立的 README.md 文件。  中文版本1234567891011121314151617181920212223242526272829# RNA-seq 分析流程这是一个基于 HISAT2 和 StringTie 的自动化 RNA-seq 分析流程。它封装了从原始 FASTQ 文件到最终表达矩阵生成的完整步骤，旨在提供一个简单、高效且可重复的分析体">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RNA-Seq自动化脚本">
 <meta property="og:url" content="https://lixiang117423.github.io/article/rnaseq/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)目录 简介 核心功能 环境与依赖 系统软件 Python库   输入文件准备 参考文件 测序数据 (FASTQ)   使用方法 快速开始 参数详解   工作流程详解 输出文件说明 注意事项  简介本项目是一个自动化的RNA-seq数据处理流程脚本，它整合了从原始测序数据(FASTQ)到基因表达定量矩阵的完整分析步骤。该">
+<meta property="og:description" content="好的，遵命。这里是拆分后的中文和英文两个独立的 README.md 文件。  中文版本1234567891011121314151617181920212223242526272829# RNA-seq 分析流程这是一个基于 HISAT2 和 StringTie 的自动化 RNA-seq 分析流程。它封装了从原始 FASTQ 文件到最终表达矩阵生成的完整步骤，旨在提供一个简单、高效且可重复的分析体">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-11T00:47:44.000Z">
-<meta property="article:modified_time" content="2025-07-11T00:51:59.000Z">
+<meta property="article:modified_time" content="2025-07-15T09:38:42.000Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          1.5k 字
         
       </span>
     
@@ -238,7 +238,7 @@
         
         
         
-          17 分钟
+          13 分钟
         
       </span>
     
@@ -280,213 +280,161 @@
             
               <div class="markdown-body">
                 
-                <h1 id="RNA-seq-自动化分析流程-HISAT2-amp-StringTie"><a href="#RNA-seq-自动化分析流程-HISAT2-amp-StringTie" class="headerlink" title="RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)"></a>RNA-seq 自动化分析流程 (HISAT2 &amp; StringTie)</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#简介">简介</a></li>
-<li><a href="#核心功能">核心功能</a></li>
-<li><a href="#环境与依赖">环境与依赖</a><ul>
-<li><a href="#系统软件">系统软件</a></li>
-<li><a href="#python库">Python库</a></li>
-</ul>
-</li>
-<li><a href="#输入文件准备">输入文件准备</a><ul>
-<li><a href="#参考文件">参考文件</a></li>
-<li><a href="#测序数据-fastq">测序数据 (FASTQ)</a></li>
-</ul>
-</li>
-<li><a href="#使用方法">使用方法</a><ul>
-<li><a href="#快速开始">快速开始</a></li>
-<li><a href="#参数详解">参数详解</a></li>
-</ul>
-</li>
-<li><a href="#工作流程详解">工作流程详解</a></li>
-<li><a href="#输出文件说明">输出文件说明</a></li>
-<li><a href="#注意事项">注意事项</a></li>
-</ul>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本项目是一个自动化的RNA-seq数据处理流程脚本，它整合了从原始测序数据(FASTQ)到基因表达定量矩阵的完整分析步骤。该流程基于广泛使用的<strong>HISAT2</strong>进行序列比对和<strong>StringTie</strong>进行转录本组装与表达量计算，旨在为生物信息学分析提供一个标准、可重复且易于使用的起点。</p>
-<p>脚本能够自动处理多个样本，从索引构建、序列比对、定量分析到最终合并生成一个包含所有样本表达量（FPKM、TPM）的汇总文件。</p>
-<h2 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h2><ul>
-<li><strong>一站式流程</strong>: 实现从基因组索引构建到最终表达矩阵生成的端到端自动化。</li>
-<li><strong>批量处理</strong>: 能够自动发现并处理指定目录下的所有双端测序样本。</li>
-<li><strong>智能样本发现</strong>:<ul>
-<li><strong>自动模式</strong>: 自动识别多种常见的FASTQ文件命名规则（如 <code>_1/_2</code>, <code>_R1/_R2</code>）。</li>
-<li><strong>模式匹配</strong>: 支持用户通过通配符（<code>*</code>）自定义FASTQ文件命名格式。</li>
-<li><strong>样本列表</strong>: 支持通过提供一个样本信息文件来指定输入。</li>
-</ul>
-</li>
-<li><strong>高效比对与定量</strong>: 利用HISAT2进行快速、精准的序列比对，并使用StringTie进行表达量计算。</li>
-<li><strong>标准化输出</strong>: 提取每个样本的FPKM和TPM值，并最终合并成一个易于下游分析（如差异表达分析）的表格文件。</li>
-<li><strong>资源管理</strong>: 支持多线程并行处理以加速分析，并提供选项在流程结束后自动删除占用大量磁盘空间的中间文件（BAM文件）。</li>
-</ul>
-<h2 id="环境与依赖"><a href="#环境与依赖" class="headerlink" title="环境与依赖"></a>环境与依赖</h2><p>在运行此脚本前，请确保您的系统环境中已安装并配置好以下软件和库：</p>
-<h3 id="系统软件"><a href="#系统软件" class="headerlink" title="系统软件"></a>系统软件</h3><p>以下工具必须已安装，并且其可执行文件路径已添加到系统的<code>PATH</code>环境变量中，以便脚本能直接调用：</p>
-<ol>
-<li><strong>HISAT2</strong>: 用于序列比对。</li>
-<li><strong>Samtools</strong>: 用于处理SAM/BAM文件（流程中主要用于排序）。</li>
-<li><strong>StringTie</strong>: 用于转录本组装和表达定量。</li>
-</ol>
-<h3 id="Python库"><a href="#Python库" class="headerlink" title="Python库"></a>Python库</h3><p>脚本需要以下Python库。您可以使用<code>pip</code>进行安装：</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install pandas<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="输入文件准备"><a href="#输入文件准备" class="headerlink" title="输入文件准备"></a>输入文件准备</h2><h3 id="参考文件"><a href="#参考文件" class="headerlink" title="参考文件"></a>参考文件</h3><p>您需要准备两个标准的参考文件：</p>
-<ol>
-<li><strong>基因组文件 (<code>--genome</code>)</strong>: Fasta格式的参考基因组序列文件（例如 <code>genome.fa</code>）。</li>
-<li><strong>基因注释文件 (<code>--gtf</code>)</strong>: GTF或GFF3格式的基因注释文件（例如 <code>annotation.gtf</code>）。</li>
-</ol>
-<h3 id="测序数据-FASTQ"><a href="#测序数据-FASTQ" class="headerlink" title="测序数据 (FASTQ)"></a>测序数据 (FASTQ)</h3><p>脚本通过<code>--input</code>参数接收测序数据，支持三种模式：</p>
-<ol>
-<li><p><strong>自动发现模式 (推荐)</strong>:</p>
-<ul>
-<li>将所有双端测序的FASTQ文件（<code>.fq.gz</code>, <code>.fastq.gz</code>等）放在一个目录下。</li>
-<li>确保成对的Read 1和Read 2文件有可识别的配对标识，例如：<ul>
-<li><code>sampleA_1.fq.gz</code> 和 <code>sampleA_2.fq.gz</code></li>
-<li><code>sampleB_R1.fastq.gz</code> 和 <code>sampleB_R2.fastq.gz</code></li>
-</ul>
-</li>
-<li>运行时将<code>--input</code>指向此目录即可。</li>
-</ul>
-</li>
-<li><p><strong>模式匹配模式</strong>:</p>
-<ul>
-<li>如果您的文件名不符合常见规则，可以使用<code>--pattern</code>参数指定。</li>
-<li>使用 <code>*</code>作为样本名的通配符。</li>
-<li><strong>示例</strong>: 如果文件名为 <code>project_sampleA_read1.fq.gz</code>，则设置 <code>--pattern "project_*_read1.fq.gz"</code>。脚本会自动寻找匹配的<code>read2</code>文件。</li>
-</ul>
-</li>
-<li><p><strong>样本信息文件模式</strong>:</p>
-<ul>
-<li><p>创建一个<strong>制表符分隔</strong>的文本文件，每行代表一个样本。</p>
-</li>
-<li><p>文件格式为：<code>样本名\tRead1文件路径\tRead2文件路径</code></p>
-</li>
-<li><p><strong>示例 (<code>samples.txt</code>)</strong>:</p>
-<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs tsv">Sample1	/path/to/data/s1_R1.fq.gz	/path/to/data/s1_R2.fq.gz<br>Sample2	/path/to/data/s2_R1.fq.gz	/path/to/data/s2_R2.fq.gz<br></code></pre></td></tr></tbody></table></figure>
-</li>
-<li><p>运行时将<code>--input</code>指向此文件路径。</p>
-</li>
-</ul>
-</li>
-</ol>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h3><p>以下是一个典型的运行示例，假设所有FASTQ文件都存放在<code>./fastq_data</code>目录中。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">python rnaseq_pipeline.py \<br>  -g /path/to/reference/genome.fa \<br>  -f /path/to/reference/annotation.gtf \<br>  -i ./fastq_data \<br>  -o ./rnaseq_results \<br>  -t 16 \<br>  -r <span class="hljs-built_in">yes</span><br></code></pre></td></tr></tbody></table></figure>
-<p><strong>命令解释</strong>:</p>
-<ul>
-<li>使用<code>genome.fa</code>和<code>annotation.gtf</code>作为参考文件。</li>
-<li>从<code>./fastq_data</code>目录中自动寻找样本。</li>
-<li>将所有输出文件保存到<code>./rnaseq_results</code>目录。</li>
-<li>使用16个线程进行计算。</li>
-<li>在每个样本处理完成后，删除中间生成的BAM文件 (<code>-r yes</code>)。</li>
-</ul>
-<h3 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h3><div class="table-container">
+                <p>好的，遵命。这里是拆分后的中文和英文两个独立的 <code>README.md</code> 文件。</p>
+<hr>
+<h3 id="中文版本"><a href="#中文版本" class="headerlink" title="中文版本"></a>中文版本</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># RNA-seq 分析流程</span><br><br>这是一个基于 HISAT2 和 StringTie 的自动化 RNA-seq 分析流程。它封装了从原始 FASTQ 文件到最终表达矩阵生成的完整步骤，旨在提供一个简单、高效且可重复的分析体验。<br><br><span class="hljs-section">## 功能特性</span><br><br><span class="hljs-bullet">-</span> <span class="hljs-strong">**🚀 自动化流程**</span>: 一键运行从索引构建、序列比对、转录本定量到表达矩阵合并的完整流程。<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**🧩 模块化设计**</span>: 代码结构清晰，易于理解、维护和扩展。<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**🎯 灵活的输入**</span>: 支持两种输入模式：<br><span class="hljs-bullet">    1.</span>  自动扫描 FASTQ 目录并识别样本对。<br><span class="hljs-bullet">    2.</span>  通过样本信息表（sample sheet）精确指定每个样本的文件。<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**🔧 参数可配置**</span>: 支持自定义线程数、FASTQ 文件命名模式以及是否保留中间 BAM 文件。<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**📊 清晰的输出**</span>: 生成统一格式的表达矩阵（<span class="hljs-code">`all.fpkm.tpm.txt`</span>）、详细的运行日志和总结报告。<br><span class="hljs-bullet">-</span> <span class="hljs-strong">**🐍 Python API**</span>: 提供 <span class="hljs-code">`RNASeqAnalyzer`</span> 类，方便集成到其他 Python 项目中。<br><br><span class="hljs-section">## 系统依赖</span><br><br>在运行此流程之前，请确保您的系统中已安装以下软件，并且它们的路径已添加到 <span class="hljs-code">`PATH`</span> 环境变量中。<br><br><span class="hljs-bullet">1.</span>  <span class="hljs-strong">**HISAT2**</span>: 用于序列比对。<br><span class="hljs-bullet">2.</span>  <span class="hljs-strong">**StringTie**</span>: 用于转录本组装和定量。<br><span class="hljs-bullet">3.</span>  <span class="hljs-strong">**Samtools**</span>: 用于处理 SAM/BAM 文件。<br><span class="hljs-bullet">4.</span>  <span class="hljs-strong">**Python 3.x**</span>:<br><span class="hljs-bullet">    -</span> <span class="hljs-strong">**pandas**</span>: 用于数据处理和矩阵合并。<br><br>您可以使用 Conda 方便地安装这些依赖：<br><span class="hljs-code">```bash</span><br><span class="hljs-code">conda create -n rnaseq-env -c bioconda hisat2 stringtie samtools pandas</span><br><span class="hljs-code">conda activate rnaseq-env</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py -g &lt;genome.fa&gt; -f &lt;genes.gtf&gt; -i &lt;input_path&gt; -o &lt;output_dir&gt; [OPTIONS]<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><div class="table-container">
 <table>
 <thead>
 <tr>
 <th style="text-align:left">参数</th>
+<th style="text-align:left">简写</th>
+<th style="text-align:left">说明</th>
 <th style="text-align:left">是否必需</th>
-<th style="text-align:left">描述</th>
-<th style="text-align:left">默认值</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><code>-g</code>, <code>--genome</code></td>
-<td style="text-align:left"><strong>是</strong></td>
-<td style="text-align:left">参考基因组Fasta文件路径。</td>
-<td style="text-align:left">-</td>
+<td style="text-align:left"><code>--genome</code></td>
+<td style="text-align:left"><code>-g</code></td>
+<td style="text-align:left">基因组参考序列 FASTA 文件路径。</td>
+<td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-f</code>, <code>--gtf</code></td>
-<td style="text-align:left"><strong>是</strong></td>
-<td style="text-align:left">基因注释GTF文件路径。</td>
-<td style="text-align:left">-</td>
+<td style="text-align:left"><code>--gtf</code></td>
+<td style="text-align:left"><code>-f</code></td>
+<td style="text-align:left">基因注释 GTF 文件路径。</td>
+<td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-i</code>, <code>--input</code></td>
-<td style="text-align:left"><strong>是</strong></td>
-<td style="text-align:left">输入路径。可以是存放FASTQ文件的目录，或是一个样本信息文件。</td>
-<td style="text-align:left">-</td>
+<td style="text-align:left"><code>--input</code></td>
+<td style="text-align:left"><code>-i</code></td>
+<td style="text-align:left">输入路径。可以是包含 FASTQ 文件的目录，或是一个样本信息文件。</td>
+<td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-o</code>, <code>--output</code></td>
-<td style="text-align:left"><strong>是</strong></td>
-<td style="text-align:left">所有输出文件的存放目录。</td>
-<td style="text-align:left">-</td>
+<td style="text-align:left"><code>--output</code></td>
+<td style="text-align:left"><code>-o</code></td>
+<td style="text-align:left">输出结果的目录。</td>
+<td style="text-align:left">是</td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-p</code>, <code>--pattern</code></td>
+<td style="text-align:left"><code>--pattern</code></td>
+<td style="text-align:left"><code>-p</code></td>
+<td style="text-align:left"><strong>[可选]</strong> FASTQ 文件命名模式，<code>*</code> 代表样本名。例如 <code>"*_R1.fq.gz"</code>。如果未提供，脚本会自动识别常见模式。</td>
 <td style="text-align:left">否</td>
-<td style="text-align:left">当输入为目录时，用于匹配FASTQ文件的命名模式。使用<code>*</code>代表样本名。</td>
-<td style="text-align:left"><code>None</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-r</code>, <code>--remove</code></td>
+<td style="text-align:left"><code>--remove</code></td>
+<td style="text-align:left"><code>-r</code></td>
+<td style="text-align:left"><strong>[可选]</strong> 是否在处理完成后删除中间的 BAM 文件以节省空间。可选值为 <code>yes</code> 或 <code>no</code>。默认为 <code>no</code>。</td>
 <td style="text-align:left">否</td>
-<td style="text-align:left">是否在处理完成后删除中间的BAM文件。可选值: <code>yes</code>/<code>y</code> 或 <code>no</code>/<code>n</code>。</td>
-<td style="text-align:left"><code>no</code></td>
 </tr>
 <tr>
-<td style="text-align:left"><code>-t</code>, <code>--threads</code></td>
+<td style="text-align:left"><code>--threads</code></td>
+<td style="text-align:left"><code>-t</code></td>
+<td style="text-align:left"><strong>[可选]</strong> 使用的线程数。默认为 <code>8</code>。</td>
 <td style="text-align:left">否</td>
-<td style="text-align:left">用于分析的CPU线程数。</td>
-<td style="text-align:left"><code>8</code></td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="工作流程详解"><a href="#工作流程详解" class="headerlink" title="工作流程详解"></a>工作流程详解</h2><p>脚本将严格按照以下步骤执行：</p>
-<ol>
-<li><p><strong>构建HISAT2索引</strong>:</p>
-<ul>
-<li>检查指定的基因组文件是否已有HISAT2索引。如果不存在，则使用<code>hisat2-build</code>命令自动构建。索引文件将与基因组文件存放在同一目录下。</li>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><h3 id="1-FASTQ-目录模式"><a href="#1-FASTQ-目录模式" class="headerlink" title="1. FASTQ 目录模式"></a>1. FASTQ 目录模式</h3><p>当 <code>-i</code> 参数提供的是一个目录时，脚本会自动扫描该目录以查找配对的 FASTQ 文件。</p>
+<p><strong>目录结构示例:</strong></p>
+<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus">fastq_data/<br>├── sampleA_1<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>├── sampleA_2<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>├── sampleB_1<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>└── sampleB_2<span class="hljs-selector-class">.fq</span>.gz<br></code></pre></td></tr></tbody></table></figure>
+<p>脚本默认会识别 <code>_1/_2</code>, <code>_R1/_R2</code> 等常见后缀。如果您的文件名不符合这些模式，请使用 <code>--pattern</code> 参数。</p>
+<h3 id="2-样本信息文件模式"><a href="#2-样本信息文件模式" class="headerlink" title="2. 样本信息文件模式"></a>2. 样本信息文件模式</h3><p>当 <code>-i</code> 参数提供的是一个文件时，脚本会将其解析为样本信息表。这对于文件分布在不同位置或命名复杂的情况非常有用。</p>
+<p><strong>文件格式 (制表符分隔):</strong></p>
+<p><code>sample_name&lt;TAB&gt;path/to/read1.fq.gz&lt;TAB&gt;path/to/read2.fq.gz</code></p>
+<p><strong><code>samples.txt</code> 示例:</strong></p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">sample_A	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data1/</span>A_read1.fastq.gz	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data1/</span>A_read2.fastq.gz<br>sample_B	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data2/</span>B.R1.fq.gz	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data2/</span>B.R2.fq.gz<br>control_C	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data3/</span>C-<span class="hljs-number">1</span>.fq.gz	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data3/</span>C-<span class="hljs-number">2</span>.fq.gz<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="示例-1-基本用法-自动扫描目录"><a href="#示例-1-基本用法-自动扫描目录" class="headerlink" title="示例 1: 基本用法 (自动扫描目录)"></a>示例 1: 基本用法 (自动扫描目录)</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py \<br>    -g /data/genomes/human/hg38.fa \<br>    -f /data/annotations/human/gencode.v40.annotation.gtf \<br>    -i ./raw_fastq \<br>    -o ./rnaseq_results<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="示例-2-指定线程数和文件模式"><a href="#示例-2-指定线程数和文件模式" class="headerlink" title="示例 2: 指定线程数和文件模式"></a>示例 2: 指定线程数和文件模式</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py \<br>    -g hg38.fa \<br>    -f gencode.gtf \<br>    -i ./fastq_files \<br>    -o ./results \<br>    -t 16 \<br>    -p <span class="hljs-string">"*_R1.fastq.gz"</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="示例-3-使用样本信息文件并删除BAM文件"><a href="#示例-3-使用样本信息文件并删除BAM文件" class="headerlink" title="示例 3: 使用样本信息文件并删除BAM文件"></a>示例 3: 使用样本信息文件并删除BAM文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py \<br>    -g hg38.fa \<br>    -f gencode.gtf \<br>    -i samples.txt \<br>    -o ./results_from_sheet \<br>    -r <span class="hljs-built_in">yes</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="输出文件结构"><a href="#输出文件结构" class="headerlink" title="输出文件结构"></a>输出文件结构</h2><p>分析完成后，输出目录的结构如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">rnaseq_results/<br>├── sampleA.<span class="hljs-built_in">sorted</span>.bam         <span class="hljs-comment"># (如果--remove=no) 比对后的BAM文件</span><br>├── sampleB.<span class="hljs-built_in">sorted</span>.bam         <span class="hljs-comment"># ...</span><br>│<br>├── stringtie_output/<br>│   ├── sampleA.gtf            <span class="hljs-comment"># StringTie为每个样本生成的GTF</span><br>│   └── sampleB.gtf<br>│<br>├── fpkm_output/<br>│   ├── sampleA.fpkm.txt       <span class="hljs-comment"># 每个样本提取的FPKM/TPM值</span><br>│   └── sampleB.fpkm.txt<br>│<br>├── <span class="hljs-built_in">all</span>.fpkm.tpm.txt           <span class="hljs-comment"># **[主要结果]** 合并所有样本的表达矩阵</span><br>├── rnaseq_analysis.log        <span class="hljs-comment"># 详细的运行日志文件</span><br>└── rnaseq_summary.txt         <span class="hljs-comment"># 分析总结报告</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="主要结果文件"><a href="#主要结果文件" class="headerlink" title="主要结果文件"></a>主要结果文件</h3><ul>
+<li><code>all.fpkm.tpm.txt</code>: 一个制表符分隔的文件，包含了所有样本中每个转录本的 FPKM 和 TPM 值，格式清晰，可直接用于下游差异表达分析。</li>
+<li><code>rnaseq_summary.txt</code>: 一个简明的文本报告，总结了本次分析使用的输入文件、参数和样本信息。</li>
 </ul>
-</li>
-<li><p><strong>解析输入样本</strong>:</p>
-<ul>
-<li>根据<code>--input</code>参数的类型（目录或文件）和<code>--pattern</code>（如果提供），解析出所有待处理样本的名称及其对应的R1和R2文件路径。</li>
+<h2 id="Python-API-用法"><a href="#Python-API-用法" class="headerlink" title="Python API 用法"></a>Python API 用法</h2><p>您也可以将此流程作为库导入到您自己的 Python 脚本中。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rnaseq <span class="hljs-keyword">import</span> RNASeqAnalyzer, RNASeqConfig<br><br><span class="hljs-comment"># 运行分析</span><br><span class="hljs-keyword">try</span>:<br>    analyzer = RNASeqAnalyzer(<br>        genome_file=<span class="hljs-string">"/path/to/genome.fa"</span>,<br>        gtf_file=<span class="hljs-string">"/path/to/genes.gtf"</span>,<br>        input_path=<span class="hljs-string">"/path/to/fastq_dir"</span>,<br>        output_dir=<span class="hljs-string">"./api_results"</span>,<br>        threads=<span class="hljs-number">12</span>,<br>        remove_bam=<span class="hljs-string">"yes"</span><br>    )<br>    <br>    analyzer.run_analysis()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"RNA-seq分析成功完成！"</span>)<br><br><span class="hljs-keyword">except</span> ValueError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"配置错误: <span class="hljs-subst">{e}</span>"</span>)<br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"发生意外错误: <span class="hljs-subst">{e}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h3 id="English-Version"><a href="#English-Version" class="headerlink" title="English Version"></a>English Version</h3><figure class="highlight markdown"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># RNA-seq Analysis Pipeline</span><br><br>This is an automated RNA-seq analysis pipeline based on HISAT2 and StringTie. It encapsulates the complete workflow from raw FASTQ files to the final expression matrix, designed to provide a simple, efficient, and reproducible analysis experience.<br><br><span class="hljs-section">## Features</span><br><br><span class="hljs-bullet">-</span>   <span class="hljs-strong">**🚀 Automated Pipeline**</span>: Executes the entire workflow—from index building, sequence alignment, and transcript quantification to expression matrix merging—with a single command.<br><span class="hljs-bullet">-</span>   <span class="hljs-strong">**🧩 Modular Design**</span>: The code is well-structured, making it easy to understand, maintain, and extend.<br><span class="hljs-bullet">-</span>   <span class="hljs-strong">**🎯 Flexible Input**</span>: Supports two input modes:<br><span class="hljs-bullet">    1.</span>  Automatically scans a directory for FASTQ files and identifies paired-end reads.<br><span class="hljs-bullet">    2.</span>  Uses a sample sheet to precisely specify files for each sample.<br><span class="hljs-bullet">-</span>   <span class="hljs-strong">**🔧 Configurable Parameters**</span>: Allows customization of thread count, FASTQ file naming patterns, and whether to retain intermediate BAM files.<br><span class="hljs-bullet">-</span>   <span class="hljs-strong">**📊 Clear Output**</span>: Generates a consistently formatted expression matrix (<span class="hljs-code">`all.fpkm.tpm.txt`</span>), a detailed run log, and a summary report.<br><span class="hljs-bullet">-</span>   <span class="hljs-strong">**🐍 Python API**</span>: Provides an <span class="hljs-code">`RNASeqAnalyzer`</span> class for easy integration into other Python projects.<br><br><span class="hljs-section">## Dependencies</span><br><br>Before running this pipeline, please ensure the following software is installed and accessible from your system's <span class="hljs-code">`PATH`</span>.<br><br><span class="hljs-bullet">1.</span>  <span class="hljs-strong">**HISAT2**</span>: For sequence alignment.<br><span class="hljs-bullet">2.</span>  <span class="hljs-strong">**StringTie**</span>: For transcript assembly and quantification.<br><span class="hljs-bullet">3.</span>  <span class="hljs-strong">**Samtools**</span>: For processing SAM/BAM files.<br><span class="hljs-bullet">4.</span>  <span class="hljs-strong">**Python 3.x**</span>:<br><span class="hljs-bullet">    -</span>   <span class="hljs-strong">**pandas**</span>: For data manipulation and matrix merging.<br><br>You can easily install these dependencies using Conda:<br><span class="hljs-code">```bash</span><br><span class="hljs-code">conda create -n rnaseq-env -c bioconda hisat2 stringtie samtools pandas</span><br><span class="hljs-code">conda activate rnaseq-env</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Basic-Command"><a href="#Basic-Command" class="headerlink" title="Basic Command"></a>Basic Command</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py -g &lt;genome.fa&gt; -f &lt;genes.gtf&gt; -i &lt;input_path&gt; -o &lt;output_dir&gt; [OPTIONS]<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Short</th>
+<th style="text-align:left">Description</th>
+<th style="text-align:left">Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>--genome</code></td>
+<td style="text-align:left"><code>-g</code></td>
+<td style="text-align:left">Path to the reference genome FASTA file.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--gtf</code></td>
+<td style="text-align:left"><code>-f</code></td>
+<td style="text-align:left">Path to the gene annotation GTF file.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--input</code></td>
+<td style="text-align:left"><code>-i</code></td>
+<td style="text-align:left">Input path. Can be a directory containing FASTQ files or a sample information file.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--output</code></td>
+<td style="text-align:left"><code>-o</code></td>
+<td style="text-align:left">Directory for output results.</td>
+<td style="text-align:left">Yes</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--pattern</code></td>
+<td style="text-align:left"><code>-p</code></td>
+<td style="text-align:left"><strong>[Optional]</strong> FASTQ file naming pattern, where <code>*</code> is a wildcard for the sample name. E.g., <code>"*_R1.fq.gz"</code>. If not provided, common patterns are auto-detected.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--remove</code></td>
+<td style="text-align:left"><code>-r</code></td>
+<td style="text-align:left"><strong>[Optional]</strong> Whether to remove intermediate BAM files after processing to save space. Choices: <code>yes</code> or <code>no</code>. Default: <code>no</code>.</td>
+<td style="text-align:left">No</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>--threads</code></td>
+<td style="text-align:left"><code>-t</code></td>
+<td style="text-align:left"><strong>[Optional]</strong> Number of threads to use. Default: <code>8</code>.</td>
+<td style="text-align:left">No</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Input-Formats"><a href="#Input-Formats" class="headerlink" title="Input Formats"></a>Input Formats</h2><h3 id="1-FASTQ-Directory-Mode"><a href="#1-FASTQ-Directory-Mode" class="headerlink" title="1. FASTQ Directory Mode"></a>1. FASTQ Directory Mode</h3><p>When the <code>-i</code> argument is a directory, the script automatically scans it for paired FASTQ files.</p>
+<p><strong>Example Directory Structure:</strong><br></p><figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs stylus">fastq_data/<br>├── sampleA_1<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>├── sampleA_2<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>├── sampleB_1<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>└── sampleB_2<span class="hljs-selector-class">.fq</span>.gz<br></code></pre></td></tr></tbody></table></figure><br>The script recognizes common suffixes like <code>_1/_2</code>, <code>_R1/_R2</code>, etc., by default. If your filenames do not follow these patterns, use the <code>--pattern</code> argument.<p></p>
+<h3 id="2-Sample-Sheet-Mode"><a href="#2-Sample-Sheet-Mode" class="headerlink" title="2. Sample Sheet Mode"></a>2. Sample Sheet Mode</h3><p>When the <code>-i</code> argument is a file, it is parsed as a sample sheet. This is useful when files are in different locations or have complex names.</p>
+<p><strong>File Format (Tab-separated):</strong><br><code>sample_name&lt;TAB&gt;path/to/read1.fq.gz&lt;TAB&gt;path/to/read2.fq.gz</code></p>
+<p><strong>Example <code>samples.txt</code>:</strong><br></p><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">sample_A	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data1/</span>A_read1.fastq.gz	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data1/</span>A_read2.fastq.gz<br>sample_B	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data2/</span>B.R1.fq.gz	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data2/</span>B.R2.fq.gz<br>control_C	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data3/</span>C-<span class="hljs-number">1</span>.fq.gz	<span class="hljs-regexp">/path/</span>to<span class="hljs-regexp">/data3/</span>C-<span class="hljs-number">2</span>.fq.gz<br></code></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Example-1-Basic-Usage-Auto-scan-Directory"><a href="#Example-1-Basic-Usage-Auto-scan-Directory" class="headerlink" title="Example 1: Basic Usage (Auto-scan Directory)"></a>Example 1: Basic Usage (Auto-scan Directory)</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py \<br>    -g /data/genomes/human/hg38.fa \<br>    -f /data/annotations/human/gencode.v40.annotation.gtf \<br>    -i ./raw_fastq \<br>    -o ./rnaseq_results<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Example-2-Specify-Threads-and-File-Pattern"><a href="#Example-2-Specify-Threads-and-File-Pattern" class="headerlink" title="Example 2: Specify Threads and File Pattern"></a>Example 2: Specify Threads and File Pattern</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py \<br>    -g hg38.fa \<br>    -f gencode.gtf \<br>    -i ./fastq_files \<br>    -o ./results \<br>    -t 16 \<br>    -p <span class="hljs-string">"*_R1.fastq.gz"</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Example-3-Use-Sample-Sheet-and-Remove-BAM-files"><a href="#Example-3-Use-Sample-Sheet-and-Remove-BAM-files" class="headerlink" title="Example 3: Use Sample Sheet and Remove BAM files"></a>Example 3: Use Sample Sheet and Remove BAM files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_rnaseq.py \<br>    -g hg38.fa \<br>    -f gencode.gtf \<br>    -i samples.txt \<br>    -o ./results_from_sheet \<br>    -r <span class="hljs-built_in">yes</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Output-File-Structure"><a href="#Output-File-Structure" class="headerlink" title="Output File Structure"></a>Output File Structure</h2><p>After the analysis is complete, the output directory will be structured as follows:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python">rnaseq_results/<br>├── sampleA.<span class="hljs-built_in">sorted</span>.bam         <span class="hljs-comment"># Aligned BAM file (if --remove=no)</span><br>├── sampleB.<span class="hljs-built_in">sorted</span>.bam         <span class="hljs-comment"># ...</span><br>│<br>├── stringtie_output/<br>│   ├── sampleA.gtf            <span class="hljs-comment"># StringTie's GTF output for each sample</span><br>│   └── sampleB.gtf<br>│<br>├── fpkm_output/<br>│   ├── sampleA.fpkm.txt       <span class="hljs-comment"># Extracted FPKM/TPM values for each sample</span><br>│   └── sampleB.fpkm.txt<br>│<br>├── <span class="hljs-built_in">all</span>.fpkm.tpm.txt           <span class="hljs-comment"># **[MAIN RESULT]** Merged expression matrix</span><br>├── rnaseq_analysis.log        <span class="hljs-comment"># Detailed run log file</span><br>└── rnaseq_summary.txt         <span class="hljs-comment"># Analysis summary report</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Key-Result-Files"><a href="#Key-Result-Files" class="headerlink" title="Key Result Files"></a>Key Result Files</h3><ul>
+<li><code>all.fpkm.tpm.txt</code>: A tab-separated file containing FPKM and TPM values for every transcript across all samples, ready for downstream differential expression analysis.</li>
+<li><code>rnaseq_summary.txt</code>: A concise text report summarizing the input files, parameters, and sample information used in the analysis.</li>
 </ul>
-</li>
-<li><p><strong>循环处理每个样本</strong>:<br>a.  <strong>序列比对</strong>: 使用<code>hisat2</code>将样本的FASTQ文件比对到基因组索引上。<br>b.  <strong>排序和格式转换</strong>: 比对结果通过管道（pipe）直接传递给<code>samtools sort</code>进行排序，并保存为BAM格式 (<code>.sorted.bam</code>)。<br>c.  <strong>表达定量</strong>: 使用<code>stringtie</code>基于BAM文件和参考GTF文件，计算每个转录本的表达量，并输出为GTF格式。<br>d.  <strong>提取表达量</strong>: 从StringTie输出的GTF文件中解析出每个基因和转录本的<code>FPKM</code>和<code>TPM</code>值，并保存为一个临时的文本文件。<br>e.  <strong>(可选) 清理</strong>: 如果设置了<code>--remove yes</code>，则删除该样本的比对结果BAM文件以节省磁盘空间。</p>
-</li>
-<li><p><strong>合并表达矩阵</strong>:</p>
-<ul>
-<li>读取所有样本的临时表达量文件。</li>
-<li>将它们合并成一个大的表格文件<code>all.fpkm.tpm.txt</code>，其中包含了所有样本、所有转录本的<code>FPKM</code>和<code>TPM</code>值。</li>
-</ul>
-</li>
-</ol>
-<h2 id="输出文件说明"><a href="#输出文件说明" class="headerlink" title="输出文件说明"></a>输出文件说明</h2><p>所有输出文件都将保存在您通过<code>-o</code>/<code>--output</code>指定的目录中。</p>
-<ul>
-<li><p><strong>最终结果文件</strong>:</p>
-<ul>
-<li><code>all.fpkm.tpm.txt</code>: <strong>最重要的结果文件</strong>。这是一个制表符分隔的表格，包含了所有样本中每个基因/转录本的表达量信息。列包括：<code>gene_id</code>, <code>transcript_id</code>, <code>cov</code>, <code>FPKM</code>, <code>TPM</code>, <code>sample</code>。</li>
-</ul>
-</li>
-<li><p><strong>中间文件目录</strong>:</p>
-<ul>
-<li><code>stringtie_output/</code>: 存放每个样本由StringTie生成的原始GTF定量结果。<ul>
-<li><code>[sample_name].gtf</code></li>
-</ul>
-</li>
-<li><code>fpkm_output/</code>: 存放从StringTie结果中提取并格式化后的每个样本的表达量文件。<ul>
-<li><code>[sample_name].fpkm.txt</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>比对文件</strong> (在输出根目录):</p>
-<ul>
-<li><code>[sample_name].sorted.bam</code>: 每个样本比对和排序后的BAM文件。如果设置了<code>-r yes</code>，此文件将在处理完成后被删除。</li>
-</ul>
-</li>
-<li><p><strong>索引文件</strong> (在基因组文件所在目录):</p>
-<ul>
-<li><code>[genome_name].hisat2.index.*.ht2</code>: HISAT2构建的基因组索引文件。</li>
-</ul>
-</li>
-</ul>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
-<li><strong><code>PATH</code>环境变量</strong>: 请务必确保<code>hisat2</code>, <code>samtools</code>, 和 <code>stringtie</code>命令能在系统的任何路径下被调用。这是脚本成功运行的<strong>关键前提</strong>。</li>
-<li><strong>计算资源</strong>: RNA-seq分析是计算密集型任务。比对步骤（特别是大基因组）会占用较多内存和CPU时间。BAM文件会占用大量磁盘空间，建议在流程测试成功后使用<code>-r yes</code>选项。</li>
-<li><strong>文件命名</strong>: 为确保自动样本发现功能正常工作，请保持FASTQ文件命名的一致性。</li>
-</ul>
+<h2 id="Python-API-Usage"><a href="#Python-API-Usage" class="headerlink" title="Python API Usage"></a>Python API Usage</h2><p>You can also import this pipeline as a library into your own Python scripts.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> rnaseq <span class="hljs-keyword">import</span> RNASeqAnalyzer, RNASeqConfig<br><br><span class="hljs-comment"># Run the analysis</span><br><span class="hljs-keyword">try</span>:<br>    analyzer = RNASeqAnalyzer(<br>        genome_file=<span class="hljs-string">"/path/to/genome.fa"</span>,<br>        gtf_file=<span class="hljs-string">"/path/to/genes.gtf"</span>,<br>        input_path=<span class="hljs-string">"/path/to/fastq_dir"</span>,<br>        output_dir=<span class="hljs-string">"./api_results"</span>,<br>        threads=<span class="hljs-number">12</span>,<br>        remove_bam=<span class="hljs-string">"yes"</span><br>    )<br>    <br>    analyzer.run_analysis()<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"RNA-seq analysis completed successfully!"</span>)<br><br><span class="hljs-keyword">except</span> ValueError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"Configuration error: <span class="hljs-subst">{e}</span>"</span>)<br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"An unexpected error occurred: <span class="hljs-subst">{e}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>

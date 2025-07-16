@@ -20,21 +20,18 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="一个高效、自动化的 FASTQ 文件批量质控工具包，基于强大的 fastp 工具。An efficient and automated toolkit for batch quality control of FASTQ files, built upon the powerful fastp tool. 概览 | Overviewfastp_toolkit 是一个 Python 脚本工具包，旨">
+    <meta name="description" content="中文功能概述fastp 质控模块是 biopytools 工具包中的高效 FASTQ 数据质量控制工具，支持单端和双端测序数据的批量处理。该模块封装了 fastp 工具，提供了便捷的批处理功能和灵活的参数配置。 主要特性 🚀 高效批处理：自动识别和处理整个目录下的 FASTQ 文件 🔧 灵活配置：支持多种质控参数的自定义设置 📊 质量报告：自动生成 HTML 和 JSON 格式的质控报告 �">
 <meta property="og:type" content="article">
 <meta property="og:title" content="运行fastp的脚本">
 <meta property="og:url" content="https://lixiang117423.github.io/article/run-fastp/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="一个高效、自动化的 FASTQ 文件批量质控工具包，基于强大的 fastp 工具。An efficient and automated toolkit for batch quality control of FASTQ files, built upon the powerful fastp tool. 概览 | Overviewfastp_toolkit 是一个 Python 脚本工具包，旨">
+<meta property="og:description" content="中文功能概述fastp 质控模块是 biopytools 工具包中的高效 FASTQ 数据质量控制工具，支持单端和双端测序数据的批量处理。该模块封装了 fastp 工具，提供了便捷的批处理功能和灵活的参数配置。 主要特性 🚀 高效批处理：自动识别和处理整个目录下的 FASTQ 文件 🔧 灵活配置：支持多种质控参数的自定义设置 📊 质量报告：自动生成 HTML 和 JSON 格式的质控报告 �">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img.shields.io/badge/python-3.7+-blue.svg">
-<meta property="og:image" content="https://img.shields.io/badge/License-MIT-yellow.svg">
 <meta property="article:published_time" content="2025-07-15T06:41:20.000Z">
-<meta property="article:modified_time" content="2025-07-15T06:44:53.000Z">
+<meta property="article:modified_time" content="2025-07-15T08:30:16.000Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img.shields.io/badge/python-3.7+-blue.svg">
   
   
   
@@ -230,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.7k 字
         
       </span>
     
@@ -241,7 +238,7 @@
         
         
         
-          12 分钟
+          14 分钟
         
       </span>
     
@@ -283,135 +280,387 @@
             
               <div class="markdown-body">
                 
-                <p><a target="_blank" rel="noopener" href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.7+-blue.svg" srcset="/img/loading.gif" lazyload alt="Python Version"></a><br><a target="_blank" rel="noopener" href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" srcset="/img/loading.gif" lazyload alt="License: MIT"></a></p>
-<p>一个高效、自动化的 FASTQ 文件批量质控工具包，基于强大的 <code>fastp</code> 工具。<br>An efficient and automated toolkit for batch quality control of FASTQ files, built upon the powerful <code>fastp</code> tool.</p>
-<h2 id="概览-Overview"><a href="#概览-Overview" class="headerlink" title="概览 | Overview"></a>概览 | Overview</h2><p><code>fastp_toolkit</code> 是一个 Python 脚本工具包，旨在简化和自动化使用 <code>fastp</code> 对双端测序（Paired-End）的 FASTQ 数据进行质量控制的流程。它能够自动发现指定目录下的样本对，并行处理，并生成清晰的日志和总结报告，极大地提高了生物信息分析流程的效率和可重复性。</p>
-<p><code>fastp_toolkit</code> is a Python script package designed to simplify and automate the quality control workflow for paired-end FASTQ data using <code>fastp</code>. It automatically discovers sample pairs in a specified directory, processes them in parallel, and generates clean logs and summary reports, significantly improving the efficiency and reproducibility of bioinformatics analysis pipelines.</p>
-<h2 id="✨-特性-Features"><a href="#✨-特性-Features" class="headerlink" title="✨ 特性 | Features"></a>✨ 特性 | Features</h2><ul>
-<li><strong>🚀 批量处理 (Batch Processing)</strong>: 自动查找并处理输入目录下的所有 FASTQ 样本对。</li>
-<li><strong>⚙️ 高度可配 (Highly Configurable)</strong>: 通过命令行参数或配置文件轻松调整 <code>fastp</code> 的所有核心质控参数。</li>
-<li><strong>📑 自动报告 (Automated Reporting)</strong>: 为每个样本生成详细的 HTML 和 JSON 质控报告，并在处理结束后生成一份总的总结报告。</li>
-<li><strong>📄 详细日志 (Detailed Logging)</strong>: 记录详细的运行日志，包括执行的命令、处理状态和错误信息，方便追踪和调试。</li>
-<li><strong>🧩 模块化设计 (Modular Design)</strong>: 代码结构清晰，易于维护和扩展。既可以作为命令行工具使用，也可以作为库集成到其他 Python 项目中。</li>
-<li><strong>✔️ 智能检查 (Smart Checks)</strong>: 自动检查 <code>fastp</code> 可执行文件是否存在，并跳过已处理完成的样本，支持任务中断和续跑。</li>
-<li><strong>🌐 双语支持 (Bilingual Support)</strong>: 代码注释和输出信息均提供中英双语，便于不同语言背景的用户使用。</li>
+                <h1 id="中文"><a href="#中文" class="headerlink" title="中文"></a>中文</h1><h2 id="功能概述"><a href="#功能概述" class="headerlink" title="功能概述"></a>功能概述</h2><p>fastp 质控模块是 biopytools 工具包中的高效 FASTQ 数据质量控制工具，支持单端和双端测序数据的批量处理。该模块封装了 fastp 工具，提供了便捷的批处理功能和灵活的参数配置。</p>
+<h3 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h3><ul>
+<li>🚀 <strong>高效批处理</strong>：自动识别和处理整个目录下的 FASTQ 文件</li>
+<li>🔧 <strong>灵活配置</strong>：支持多种质控参数的自定义设置</li>
+<li>📊 <strong>质量报告</strong>：自动生成 HTML 和 JSON 格式的质控报告</li>
+<li>💾 <strong>双端支持</strong>：完整支持双端测序数据（Paired-end）处理</li>
+<li>🎯 <strong>智能识别</strong>：自动识别文件配对关系</li>
 </ul>
-<h2 id="📋-依赖与环境-Prerequisites"><a href="#📋-依赖与环境-Prerequisites" class="headerlink" title="📋 依赖与环境 | Prerequisites"></a>📋 依赖与环境 | Prerequisites</h2><ul>
-<li><strong>Python</strong>: Python 3.7+</li>
-<li><strong>fastp</strong>: 需要预先安装 <code>fastp</code> 工具，并确保其在系统的 <code>PATH</code> 环境变量中，或者通过 <code>--fastp-path</code> 参数指定其可执行文件路径。<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/OpenGene/fastp">fastp GitHub 仓库</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="🛠️-安装-Installation"><a href="#🛠️-安装-Installation" class="headerlink" title="🛠️ 安装 | Installation"></a>🛠️ 安装 | Installation</h2><ol>
-<li><p><strong>准备文件</strong>:<br>该工具包以打包文件的形式提供。您需要一个 <code>extract_modules.py</code> 脚本（或手动操作）来将代码提取到正确的目录结构中。</p>
-</li>
-<li><p><strong>创建项目结构</strong>:<br>请按照以下结构组织您的文件：</p>
-<figure class="highlight stylus"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stylus">your_project_directory/<br>├── fastp_toolkit/<br>│   ├── __init__<span class="hljs-selector-class">.py</span><br>│   ├── config<span class="hljs-selector-class">.py</span><br>│   ├── data_processing<span class="hljs-selector-class">.py</span><br>│   ├── <span class="hljs-selector-tag">main</span><span class="hljs-selector-class">.py</span><br>│   ├── processing<span class="hljs-selector-class">.py</span><br>│   ├── results<span class="hljs-selector-class">.py</span><br>│   └── utils<span class="hljs-selector-class">.py</span><br>│<br>├── run_fastp<span class="hljs-selector-class">.py</span><br>│<br>└── raw_data/          &lt;-- 存放您的原始 <span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span> 文件<br>    ├── sampleA_1<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>    ├── sampleA_2<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>    ├── sampleB_1<span class="hljs-selector-class">.fq</span><span class="hljs-selector-class">.gz</span><br>    └── sampleB_2<span class="hljs-selector-class">.fq</span>.gz<br></code></pre></td></tr></tbody></table></figure>
-<ul>
-<li>将打包文件中 <code>FILE: fastp_toolkit/....</code> 的内容分别保存到 <code>fastp_toolkit</code> 目录下的对应文件中。</li>
-<li>将 <code>FILE: run_fastp.py</code> 的内容保存为 <code>run_fastp.py</code>。</li>
-<li>创建一个 <code>raw_data</code> 目录来存放您的原始测序数据。</li>
-</ul>
-</li>
-</ol>
-<h2 id="🚀-使用方法-Usage"><a href="#🚀-使用方法-Usage" class="headerlink" title="🚀 使用方法 | Usage"></a>🚀 使用方法 | Usage</h2><p>您可以通过两种方式使用此工具包：作为命令行工具或作为 Python 库。</p>
-<h3 id="1-命令行使用-As-a-Command-Line-Tool"><a href="#1-命令行使用-As-a-Command-Line-Tool" class="headerlink" title="1. 命令行使用 | As a Command-Line Tool"></a>1. 命令行使用 | As a Command-Line Tool</h3><p>这是最推荐和最简单的使用方式。直接运行 <code>run_fastp.py</code> 脚本。</p>
-<p><strong>基本用法</strong>:<br>指定输入目录 (<code>-i</code>) 和输出目录 (<code>-o</code>)。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_fastp.py -i ./raw_data -o ./clean_data<br></code></pre></td></tr></tbody></table></figure>
-<p><strong>自定义参数</strong>:<br>您可以自定义线程数、质量阈值等参数。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_fastp.py -i ./raw_data -o ./clean_data \<br>    --threads 16 \<br>    --quality-threshold 25 \<br>    --min-length 75<br></code></pre></td></tr></tbody></table></figure>
-<p><strong>指定 <code>fastp</code> 路径</strong>:<br>如果 <code>fastp</code> 不在您的系统 <code>PATH</code> 中。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_fastp.py -i ./raw_data -o ./clean_data --fastp-path /path/to/your/fastp<br></code></pre></td></tr></tbody></table></figure>
-<p><strong>使用不同的文件后缀</strong>:<br>如果您的文件名格式不是 <code>_1.fq.gz</code> / <code>_2.fq.gz</code>。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_fastp.py -i ./raw_data -o ./clean_data \<br>    --read1-suffix <span class="hljs-string">"_R1.fastq.gz"</span> \<br>    --read2-suffix <span class="hljs-string">"_R2.fastq.gz"</span><br></code></pre></td></tr></tbody></table></figure>
-<p><strong>查看帮助</strong>:<br>获取所有可用参数的详细列表。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_fastp.py --<span class="hljs-built_in">help</span><br></code></pre></td></tr></tbody></table></figure>
-<h3 id="2-作为库使用-As-a-Python-Library"><a href="#2-作为库使用-As-a-Python-Library" class="headerlink" title="2. 作为库使用 | As a Python Library"></a>2. 作为库使用 | As a Python Library</h3><p>您也可以将 <code>FastpProcessor</code> 导入到您自己的 Python 脚本中，以实现更复杂的自动化流程。</p>
-<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> fastp_toolkit <span class="hljs-keyword">import</span> FastpProcessor, FastpConfig<br><br><span class="hljs-comment"># 准备参数字典</span><br>params = {<br>    <span class="hljs-string">"input_dir"</span>: <span class="hljs-string">"./raw_data"</span>,<br>    <span class="hljs-string">"output_dir"</span>: <span class="hljs-string">"./clean_data"</span>,<br>    <span class="hljs-string">"fastp_path"</span>: <span class="hljs-string">"/path/to/fastp"</span>, <span class="hljs-comment"># 或 "fastp" 如果在PATH中</span><br>    <span class="hljs-string">"threads"</span>: <span class="hljs-number">12</span>,<br>    <span class="hljs-string">"quality_threshold"</span>: <span class="hljs-number">30</span>,<br>    <span class="hljs-string">"min_length"</span>: <span class="hljs-number">50</span><br>}<br><br><span class="hljs-keyword">try</span>:<br>    <span class="hljs-comment"># 1. 创建处理器实例</span><br>    <span class="hljs-comment"># FastpProcessor 会自动使用 FastpConfig 验证参数</span><br>    processor = FastpProcessor(**params)<br>    <br>    <span class="hljs-comment"># 2. 运行批处理</span><br>    processor.run_batch_processing()<br>    <br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">"批处理成功完成！ | Batch processing completed successfully!"</span>)<br><br><span class="hljs-keyword">except</span> ValueError <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"配置错误 | Configuration Error: <span class="hljs-subst">{e}</span>"</span>)<br><span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">f"发生未知错误 | An unexpected error occurred: <span class="hljs-subst">{e}</span>"</span>)<br><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="⚙️-配置参数-Configuration-Parameters"><a href="#⚙️-配置参数-Configuration-Parameters" class="headerlink" title="⚙️ 配置参数 | Configuration Parameters"></a>⚙️ 配置参数 | Configuration Parameters</h2><p>以下是所有可配置的参数及其说明。</p>
-<div class="table-container">
+<h2 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h2><h3 id="系统依赖"><a href="#系统依赖" class="headerlink" title="系统依赖"></a>系统依赖</h3><p>确保系统已安装 fastp：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Ubuntu/Debian</span><br>sudo apt-get install fastp<br><br><span class="hljs-comment"># CentOS/RHEL</span><br>sudo yum install fastp<br><br><span class="hljs-comment"># macOS (使用 Homebrew)</span><br>brew install fastp<br><br><span class="hljs-comment"># 或者使用 conda</span><br>conda install -c bioconda fastp<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="安装-biopytools"><a href="#安装-biopytools" class="headerlink" title="安装 biopytools"></a>安装 biopytools</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 克隆项目</span><br>git <span class="hljs-built_in">clone</span> https://github.com/yourusername/biopytools.git<br><span class="hljs-built_in">cd</span> biopytools<br><br><span class="hljs-comment"># 安装包</span><br>pip install -e .<br><br><span class="hljs-comment"># 验证安装</span><br>run_fastp --<span class="hljs-built_in">help</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_fastp -i INPUT_DIR -o OUTPUT_DIR [OPTIONS]<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="必需参数"><a href="#必需参数" class="headerlink" title="必需参数"></a>必需参数</h3><div class="table-container">
 <table>
 <thead>
 <tr>
-<th>命令行参数 (CLI)</th>
-<th>库参数 (Library)</th>
-<th>默认值 (Default)</th>
-<th>描述 (Description)</th>
+<th>参数</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>-i</code>, <code>--input-dir</code></td>
-<td><code>input_dir</code></td>
-<td><strong>必需</strong> (Required)</td>
-<td>存放原始 FASTQ 文件的输入目录 (Input directory for raw FASTQ files)</td>
+<td><code>-i, --input-dir</code></td>
+<td>输入原始 FASTQ 数据目录</td>
 </tr>
 <tr>
-<td><code>-o</code>, <code>--output-dir</code></td>
-<td><code>output_dir</code></td>
-<td><strong>必需</strong> (Required)</td>
-<td>存放质控后清洁数据的输出目录 (Output directory for clean FASTQ data)</td>
-</tr>
-<tr>
-<td><code>--fastp-path</code></td>
-<td><code>fastp_path</code></td>
-<td><code>fastp</code></td>
-<td><code>fastp</code> 可执行文件的路径 (Path to the <code>fastp</code> executable)</td>
-</tr>
-<tr>
-<td><code>-t</code>, <code>--threads</code></td>
-<td><code>threads</code></td>
-<td><code>12</code></td>
-<td><code>fastp</code> 运行时使用的线程数 (Number of threads for <code>fastp</code>)</td>
-</tr>
-<tr>
-<td><code>-q</code>, <code>--quality-threshold</code></td>
-<td><code>quality_threshold</code></td>
-<td><code>30</code></td>
-<td>碱基质量值的阈值 (Quality score threshold for bases)</td>
-</tr>
-<tr>
-<td><code>-l</code>, <code>--min-length</code></td>
-<td><code>min_length</code></td>
-<td><code>50</code></td>
-<td>质控后允许的最短 read 长度 (Minimum read length allowed after trimming)</td>
-</tr>
-<tr>
-<td><code>-u</code>, <code>--unqualified-percent</code></td>
-<td><code>unqualified_percent</code></td>
-<td><code>40</code></td>
-<td>一条 read 中低质量碱基所占的最大百分比 (Max percentage of low-quality bases in a read)</td>
-</tr>
-<tr>
-<td><code>-n</code>, <code>--n-base-limit</code></td>
-<td><code>n_base_limit</code></td>
-<td><code>10</code></td>
-<td>一条 read 中允许的 N 碱基的最大数量 (Max number of N bases allowed in a read)</td>
-</tr>
-<tr>
-<td><code>--read1-suffix</code></td>
-<td><code>read1_suffix</code></td>
-<td><code>_1.fq.gz</code></td>
-<td>Read1 文件的后缀名 (Suffix for Read1 files)</td>
-</tr>
-<tr>
-<td><code>--read2-suffix</code></td>
-<td><code>read2_suffix</code></td>
-<td><code>_2.fq.gz</code></td>
-<td>Read2 文件的后缀名 (Suffix for Read2 files)</td>
+<td><code>-o, --output-dir</code></td>
+<td>输出清洁 FASTQ 数据目录</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="📂-输出文件结构-Output-File-Structure"><a href="#📂-输出文件结构-Output-File-Structure" class="headerlink" title="📂 输出文件结构 | Output File Structure"></a>📂 输出文件结构 | Output File Structure</h2><p>处理完成后，输出目录 (<code>output_dir</code>) 将包含以下内容：</p>
-<figure class="highlight 1c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs 1c">clean_data/<br>├── sampleA_1.clean.fq.gz       <span class="hljs-meta"># 质控后的 Read 1 文件</span><br>├── sampleA_2.clean.fq.gz       <span class="hljs-meta"># 质控后的 Read 2 文件</span><br>├── sampleB_1.clean.fq.gz<br>├── sampleB_2.clean.fq.gz<br>│<br>├── fastp_reports/              <span class="hljs-meta"># 存放所有报告的子目录</span><br>│   ├── sampleA.html            <span class="hljs-meta"># sampleA 的 HTML 格式质控报告</span><br>│   ├── sampleA.json            <span class="hljs-meta"># sampleA 的 JSON 格式质控报告</span><br>│   ├── sampleB.html<br>│   └── sampleB.json<br>│<br>├── fastp_processing.<span class="hljs-built_in">log</span>        <span class="hljs-meta"># 本次运行的详细日志文件</span><br>└── fastp_processing_summary.txt <span class="hljs-meta"># 本次运行的总结报告</span><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="📦-项目文件说明-Project-File-Description"><a href="#📦-项目文件说明-Project-File-Description" class="headerlink" title="📦 项目文件说明 | Project File Description"></a>📦 项目文件说明 | Project File Description</h2><figure class="highlight elm"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">fastp_toolkit</span>/<br>├── __init__.py          # 包初始化文件，暴露主接口 (<span class="hljs-type">Package</span> initializer, exposes main interfaces)<br>├── config.py            # 配置管理模块，定义 <span class="hljs-type">FastpConfig</span> 类 (<span class="hljs-type">Configuration</span> management <span class="hljs-keyword">module</span>)<br>├── data_processing.py   # 数据处理模块，负责查找和验证样本 (<span class="hljs-type">Sample</span> finding and validation module)<br>├── main.py              # 主逻辑模块，包含 FastpProcessor 类和命令行解析 (<span class="hljs-type">Main</span> logic with <span class="hljs-type">FastpProcessor</span> and <span class="hljs-type">CLI</span>)<br>├── processing.py        # 核心处理模块，负责调用 fastp (<span class="hljs-type">Core</span> processing module for calling fastp)<br>├── results.py           # 结果处理模块，负责生成总结报告 (<span class="hljs-type">Results</span> processing and summary generation)<br>└── utils.py             # 工具模块，提供日志和命令执行功能 (<span class="hljs-type">Utility</span> functions for logging and command running)<br>run_fastp.py             # 命令行入口脚本 (<span class="hljs-type">Command</span>-line entry script)<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="📜-许可证-License"><a href="#📜-许可证-License" class="headerlink" title="📜 许可证 | License"></a>📜 许可证 | License</h2><p>本项目采用 MIT 许可证。详情请见 <code>LICENSE</code> 文件。<br>This project is licensed under the MIT License.</p>
-<h2 id="👤-作者-Author"><a href="#👤-作者-Author" class="headerlink" title="👤 作者 | Author"></a>👤 作者 | Author</h2><ul>
-<li>Claude</li>
+<h3 id="可选参数"><a href="#可选参数" class="headerlink" title="可选参数"></a>可选参数</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--fastp-path</code></td>
+<td><code>fastp</code></td>
+<td>fastp 可执行文件路径</td>
+</tr>
+<tr>
+<td><code>-t, --threads</code></td>
+<td><code>12</code></td>
+<td>线程数</td>
+</tr>
+<tr>
+<td><code>-q, --quality-threshold</code></td>
+<td><code>30</code></td>
+<td>质量阈值</td>
+</tr>
+<tr>
+<td><code>-l, --min-length</code></td>
+<td><code>50</code></td>
+<td>最小长度</td>
+</tr>
+<tr>
+<td><code>-u, --unqualified-percent</code></td>
+<td><code>40</code></td>
+<td>不合格碱基百分比阈值</td>
+</tr>
+<tr>
+<td><code>-n, --n-base-limit</code></td>
+<td><code>10</code></td>
+<td>N 碱基数量限制</td>
+</tr>
+<tr>
+<td><code>--read1-suffix</code></td>
+<td><code>_1.fq.gz</code></td>
+<td>Read1 文件后缀</td>
+</tr>
+<tr>
+<td><code>--read2-suffix</code></td>
+<td><code>_2.fq.gz</code></td>
+<td>Read2 文件后缀</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><h3 id="1-基本用法"><a href="#1-基本用法" class="headerlink" title="1. 基本用法"></a>1. 基本用法</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 处理目录下的所有 FASTQ 文件</span><br>run_fastp -i ./raw_data -o ./clean_data<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-自定义参数"><a href="#2-自定义参数" class="headerlink" title="2. 自定义参数"></a>2. 自定义参数</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用更严格的质控标准</span><br>run_fastp -i ./raw_data -o ./clean_data \<br>    -q 35 \<br>    -l 75 \<br>    -u 30 \<br>    -t 16<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="3-不同文件后缀"><a href="#3-不同文件后缀" class="headerlink" title="3. 不同文件后缀"></a>3. 不同文件后缀</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 处理以 .R1.fastq.gz 和 .R2.fastq.gz 结尾的文件</span><br>run_fastp -i ./raw_data -o ./clean_data \<br>    --read1-suffix .R1.fastq.gz \<br>    --read2-suffix .R2.fastq.gz<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="4-指定-fastp-路径"><a href="#4-指定-fastp-路径" class="headerlink" title="4. 指定 fastp 路径"></a>4. 指定 fastp 路径</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 使用自定义路径的 fastp</span><br>run_fastp -i ./raw_data -o ./clean_data \<br>    --fastp-path /usr/local/bin/fastp<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="5-完整参数示例"><a href="#5-完整参数示例" class="headerlink" title="5. 完整参数示例"></a>5. 完整参数示例</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_fastp \<br>    -i /path/to/raw_data \<br>    -o /path/to/clean_data \<br>    --fastp-path /usr/local/bin/fastp \<br>    -t 20 \<br>    -q 25 \<br>    -l 40 \<br>    -u 50 \<br>    -n 5 \<br>    --read1-suffix _R1.fq.gz \<br>    --read2-suffix _R2.fq.gz<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="输入文件格式"><a href="#输入文件格式" class="headerlink" title="输入文件格式"></a>输入文件格式</h2><h3 id="目录结构要求"><a href="#目录结构要求" class="headerlink" title="目录结构要求"></a>目录结构要求</h3><figure class="highlight jboss-cli"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">raw_data/<br>├── sample1_1.fq.gz    <span class="hljs-comment"># Read1</span><br>├── sample1_2.fq.gz    <span class="hljs-comment"># Read2  </span><br>├── sample2_1.fq.gz<br>├── sample2_2.fq.gz<br>└── <span class="hljs-string">...</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="支持的文件格式"><a href="#支持的文件格式" class="headerlink" title="支持的文件格式"></a>支持的文件格式</h3><ul>
+<li><strong>.fq.gz</strong> / <strong>.fastq.gz</strong>：压缩的 FASTQ 文件</li>
+<li><strong>.fq</strong> / <strong>.fastq</strong>：未压缩的 FASTQ 文件</li>
 </ul>
+<h3 id="文件命名规则"><a href="#文件命名规则" class="headerlink" title="文件命名规则"></a>文件命名规则</h3><p>程序会根据 <code>--read1-suffix</code> 和 <code>--read2-suffix</code> 参数自动识别配对文件：</p>
+<ul>
+<li><code>sample_1.fq.gz</code> ↔ <code>sample_2.fq.gz</code></li>
+<li><code>sample_R1.fastq.gz</code> ↔ <code>sample_R2.fastq.gz</code></li>
+<li><code>sample.R1.fq.gz</code> ↔ <code>sample.R2.fq.gz</code></li>
+</ul>
+<h2 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h2><h3 id="输出目录结构"><a href="#输出目录结构" class="headerlink" title="输出目录结构"></a>输出目录结构</h3><figure class="highlight jboss-cli"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">clean_data/<br>├── sample1_1.clean.fq.gz     <span class="hljs-comment"># 清洁的 Read1 文件</span><br>├── sample1_2.clean.fq.gz     <span class="hljs-comment"># 清洁的 Read2 文件</span><br>├── sample1.fastp.html        <span class="hljs-comment"># HTML 质控报告</span><br>├── sample1.fastp.json        <span class="hljs-comment"># JSON 质控报告</span><br>├── sample2_1.clean.fq.gz<br>├── sample2_2.clean.fq.gz<br>├── sample2.fastp.html<br>├── sample2.fastp.json<br>└── <span class="hljs-keyword">batch</span>_summary.txt         <span class="hljs-comment"># 批处理总结报告</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="质控报告说明"><a href="#质控报告说明" class="headerlink" title="质控报告说明"></a>质控报告说明</h3><ul>
+<li><strong>HTML 报告</strong>：可视化的质控结果，包含质量分布图、GC含量等</li>
+<li><strong>JSON 报告</strong>：机器可读的质控统计数据</li>
+<li><strong>批处理总结</strong>：所有样本的处理状态和统计信息</li>
+</ul>
+<h2 id="质控参数说明"><a href="#质控参数说明" class="headerlink" title="质控参数说明"></a>质控参数说明</h2><h3 id="质量阈值-q-—quality-threshold"><a href="#质量阈值-q-—quality-threshold" class="headerlink" title="质量阈值 (-q, —quality-threshold)"></a>质量阈值 (-q, —quality-threshold)</h3><ul>
+<li><strong>默认值</strong>：30</li>
+<li><strong>说明</strong>：Phred 质量值阈值，低于此值的碱基被认为是低质量碱基</li>
+<li><strong>建议值</strong>：<ul>
+<li>严格：35+</li>
+<li>标准：30</li>
+<li>宽松：20-25</li>
+</ul>
+</li>
+</ul>
+<h3 id="最小长度-l-—min-length"><a href="#最小长度-l-—min-length" class="headerlink" title="最小长度 (-l, —min-length)"></a>最小长度 (-l, —min-length)</h3><ul>
+<li><strong>默认值</strong>：50</li>
+<li><strong>说明</strong>：过滤后序列的最小长度，短于此长度的序列将被丢弃</li>
+<li><strong>建议值</strong>：<ul>
+<li>RNA-seq：50-75</li>
+<li>DNA-seq：30-50</li>
+<li>16S rRNA：200+</li>
+</ul>
+</li>
+</ul>
+<h3 id="不合格碱基百分比-u-—unqualified-percent"><a href="#不合格碱基百分比-u-—unqualified-percent" class="headerlink" title="不合格碱基百分比 (-u, —unqualified-percent)"></a>不合格碱基百分比 (-u, —unqualified-percent)</h3><ul>
+<li><strong>默认值</strong>：40</li>
+<li><strong>说明</strong>：如果序列中低质量碱基的百分比超过此阈值，整条序列将被丢弃</li>
+<li><strong>建议值</strong>：30-50%</li>
+</ul>
+<h3 id="N-碱基限制-n-—n-base-limit"><a href="#N-碱基限制-n-—n-base-limit" class="headerlink" title="N 碱基限制 (-n, —n-base-limit)"></a>N 碱基限制 (-n, —n-base-limit)</h3><ul>
+<li><strong>默认值</strong>：10</li>
+<li><strong>说明</strong>：序列中允许的最大 N 碱基数量</li>
+<li><strong>建议值</strong>：5-15</li>
+</ul>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><h3 id="线程设置"><a href="#线程设置" class="headerlink" title="线程设置"></a>线程设置</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 根据 CPU 核心数设置线程</span><br>run_fastp -i input -o output -t $(<span class="hljs-built_in">nproc</span>)<br><br><span class="hljs-comment"># 或者设置为核心数的 80%</span><br>run_fastp -i input -o output -t $(($(nproc) * <span class="hljs-number">4</span> / <span class="hljs-number">5</span>))<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="内存使用"><a href="#内存使用" class="headerlink" title="内存使用"></a>内存使用</h3><ul>
+<li>每个线程大约使用 500MB-1GB 内存</li>
+<li>建议总内存使用量不超过系统内存的 80%</li>
+</ul>
+<h2 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h2><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><p><strong>1. 找不到 fastp 命令</strong><br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查 fastp 是否安装</span><br><span class="hljs-built_in">which</span> fastp<br><br><span class="hljs-comment"># 如果未安装，使用 conda 安装</span><br>conda install -c bioconda fastp<br></code></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>2. 权限错误</strong><br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 确保输出目录有写入权限</span><br><span class="hljs-built_in">chmod</span> 755 /path/to/output_dir<br></code></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>3. 文件未找到</strong><br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查输入目录是否存在</span><br><span class="hljs-built_in">ls</span> -la /path/to/input_dir<br><br><span class="hljs-comment"># 检查文件后缀是否正确</span><br><span class="hljs-built_in">ls</span> /path/to/input_dir/*_1.fq.gz<br></code></pre></td></tr></tbody></table></figure><p></p>
+<p><strong>4. 内存不足</strong><br></p><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 减少线程数</span><br>run_fastp -i input -o output -t 4<br></code></pre></td></tr></tbody></table></figure><p></p>
+<h3 id="调试模式"><a href="#调试模式" class="headerlink" title="调试模式"></a>调试模式</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 查看详细输出</span><br>run_fastp -i input -o output --verbose<br><br><span class="hljs-comment"># 检查 fastp 版本</span><br>fastp --version<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h2><h3 id="1-质控前检查"><a href="#1-质控前检查" class="headerlink" title="1. 质控前检查"></a>1. 质控前检查</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查原始数据质量</span><br>fastqc raw_data/*.fq.gz -o qc_reports/<br><br><span class="hljs-comment"># 统计文件数量</span><br>find raw_data -name <span class="hljs-string">"*_1.fq.gz"</span> | <span class="hljs-built_in">wc</span> -l<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-参数选择建议"><a href="#2-参数选择建议" class="headerlink" title="2. 参数选择建议"></a>2. 参数选择建议</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>应用场景</th>
+<th>质量阈值</th>
+<th>最小长度</th>
+<th>不合格碱基%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNA-seq</td>
+<td>25-30</td>
+<td>50-75</td>
+<td>40-50</td>
+</tr>
+<tr>
+<td>WGS</td>
+<td>30-35</td>
+<td>50-100</td>
+<td>30-40</td>
+</tr>
+<tr>
+<td>16S rRNA</td>
+<td>25</td>
+<td>200+</td>
+<td>50</td>
+</tr>
+<tr>
+<td>ChIP-seq</td>
+<td>20-25</td>
+<td>30-50</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-质控后验证"><a href="#3-质控后验证" class="headerlink" title="3. 质控后验证"></a>3. 质控后验证</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查处理结果</span><br>fastqc clean_data/*.clean.fq.gz -o qc_reports_after/<br><br><span class="hljs-comment"># 比较处理前后的统计</span><br>multiqc qc_reports/ qc_reports_after/<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Python-API-使用"><a href="#Python-API-使用" class="headerlink" title="Python API 使用"></a>Python API 使用</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> biopytools.fastp <span class="hljs-keyword">import</span> FastpProcessor, FastpConfig<br><br><span class="hljs-comment"># 创建配置</span><br>config = FastpConfig(<br>    input_dir=<span class="hljs-string">"./raw_data"</span>,<br>    output_dir=<span class="hljs-string">"./clean_data"</span>,<br>    threads=<span class="hljs-number">16</span>,<br>    quality_threshold=<span class="hljs-number">30</span>,<br>    min_length=<span class="hljs-number">50</span><br>)<br><br><span class="hljs-comment"># 运行处理</span><br>processor = FastpProcessor(config)<br>results = processor.run_batch_processing()<br><br><span class="hljs-comment"># 查看结果</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"处理了 <span class="hljs-subst">{results[<span class="hljs-string">'total_samples'</span>]}</span> 个样本"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"成功：<span class="hljs-subst">{results[<span class="hljs-string">'success_count'</span>]}</span>"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"失败：<span class="hljs-subst">{results[<span class="hljs-string">'failed_count'</span>]}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
 <hr>
+<h1 id="English"><a href="#English" class="headerlink" title="English"></a>English</h1><h2 id="Feature-Overview"><a href="#Feature-Overview" class="headerlink" title="Feature Overview"></a>Feature Overview</h2><p>The <code>fastp</code> QC module is an efficient FASTQ data quality control tool within the <code>biopytools</code> toolkit, supporting batch processing for both single-end and paired-end sequencing data. This module wraps the <code>fastp</code> tool, providing convenient batch processing capabilities and flexible parameter configuration.</p>
+<h3 id="Key-Features"><a href="#Key-Features" class="headerlink" title="Key Features"></a>Key Features</h3><ul>
+<li>🚀 <strong>Efficient Batch Processing</strong>: Automatically discovers and processes all FASTQ files in a directory.</li>
+<li>🔧 <strong>Flexible Configuration</strong>: Supports customization of various quality control parameters.</li>
+<li>📊 <strong>Quality Reports</strong>: Automatically generates quality control reports in HTML and JSON formats.</li>
+<li>💾 <strong>Paired-End Support</strong>: Full support for processing paired-end sequencing data.</li>
+<li>🎯 <strong>Smart Pairing</strong>: Automatically identifies paired-end file relationships.</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="System-Dependencies"><a href="#System-Dependencies" class="headerlink" title="System Dependencies"></a>System Dependencies</h3><p>Ensure that <code>fastp</code> is installed on your system:</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># For Ubuntu/Debian</span><br>sudo apt-get install fastp<br><br><span class="hljs-comment"># For CentOS/RHEL</span><br>sudo yum install fastp<br><br><span class="hljs-comment"># For macOS (with Homebrew)</span><br>brew install fastp<br><br><span class="hljs-comment"># Alternatively, using conda</span><br>conda install -c bioconda fastp<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Install-biopytools"><a href="#Install-biopytools" class="headerlink" title="Install biopytools"></a>Install biopytools</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Clone the repository</span><br>git <span class="hljs-built_in">clone</span> https://github.com/yourusername/biopytools.git<br><span class="hljs-built_in">cd</span> biopytools<br><br><span class="hljs-comment"># Install the package</span><br>pip install -e .<br><br><span class="hljs-comment"># Verify the installation</span><br>run_fastp --<span class="hljs-built_in">help</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><h3 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_fastp -i INPUT_DIR -o OUTPUT_DIR [OPTIONS]<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Required-Arguments"><a href="#Required-Arguments" class="headerlink" title="Required Arguments"></a>Required Arguments</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-i, --input-dir</code></td>
+<td>Input directory containing raw FASTQ files.</td>
+</tr>
+<tr>
+<td><code>-o, --output-dir</code></td>
+<td>Output directory for cleaned FASTQ files.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Optional-Arguments"><a href="#Optional-Arguments" class="headerlink" title="Optional Arguments"></a>Optional Arguments</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--fastp-path</code></td>
+<td><code>fastp</code></td>
+<td>Path to the fastp executable.</td>
+</tr>
+<tr>
+<td><code>-t, --threads</code></td>
+<td><code>12</code></td>
+<td>Number of threads to use.</td>
+</tr>
+<tr>
+<td><code>-q, --quality-threshold</code></td>
+<td><code>30</code></td>
+<td>Quality threshold (Phred score).</td>
+</tr>
+<tr>
+<td><code>-l, --min-length</code></td>
+<td><code>50</code></td>
+<td>Minimum length required for a read.</td>
+</tr>
+<tr>
+<td><code>-u, --unqualified-percent</code></td>
+<td><code>40</code></td>
+<td>Percentage threshold of unqualified bases.</td>
+</tr>
+<tr>
+<td><code>-n, --n-base-limit</code></td>
+<td><code>10</code></td>
+<td>Maximum number of N bases allowed.</td>
+</tr>
+<tr>
+<td><code>--read1-suffix</code></td>
+<td><code>_1.fq.gz</code></td>
+<td>Suffix for Read1 files.</td>
+</tr>
+<tr>
+<td><code>--read2-suffix</code></td>
+<td><code>_2.fq.gz</code></td>
+<td>Suffix for Read2 files.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="1-Basic-Usage"><a href="#1-Basic-Usage" class="headerlink" title="1. Basic Usage"></a>1. Basic Usage</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Process all FASTQ files in a directory</span><br>run_fastp -i ./raw_data -o ./clean_data<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-Custom-Parameters"><a href="#2-Custom-Parameters" class="headerlink" title="2. Custom Parameters"></a>2. Custom Parameters</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Use stricter quality control standards</span><br>run_fastp -i ./raw_data -o ./clean_data \<br>    -q 35 \<br>    -l 75 \<br>    -u 30 \<br>    -t 16<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="3-Different-File-Suffixes"><a href="#3-Different-File-Suffixes" class="headerlink" title="3. Different File Suffixes"></a>3. Different File Suffixes</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Process files ending with .R1.fastq.gz and .R2.fastq.gz</span><br>run_fastp -i ./raw_data -o ./clean_data \<br>    --read1-suffix .R1.fastq.gz \<br>    --read2-suffix .R2.fastq.gz<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="4-Specify-fastp-Path"><a href="#4-Specify-fastp-Path" class="headerlink" title="4. Specify fastp Path"></a>4. Specify fastp Path</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Use a custom path for the fastp executable</span><br>run_fastp -i ./raw_data -o ./clean_data \<br>    --fastp-path /usr/local/bin/fastp<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="5-Full-Parameter-Example"><a href="#5-Full-Parameter-Example" class="headerlink" title="5. Full Parameter Example"></a>5. Full Parameter Example</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_fastp \<br>    -i /path/to/raw_data \<br>    -o /path/to/clean_data \<br>    --fastp-path /usr/local/bin/fastp \<br>    -t 20 \<br>    -q 25 \<br>    -l 40 \<br>    -u 50 \<br>    -n 5 \<br>    --read1-suffix _R1.fq.gz \<br>    --read2-suffix _R2.fq.gz<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Input-File-Format"><a href="#Input-File-Format" class="headerlink" title="Input File Format"></a>Input File Format</h2><h3 id="Directory-Structure-Requirement"><a href="#Directory-Structure-Requirement" class="headerlink" title="Directory Structure Requirement"></a>Directory Structure Requirement</h3><figure class="highlight jboss-cli"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">raw_data/<br>├── sample1_1.fq.gz    <span class="hljs-comment"># Read1</span><br>├── sample1_2.fq.gz    <span class="hljs-comment"># Read2  </span><br>├── sample2_1.fq.gz<br>├── sample2_2.fq.gz<br>└── <span class="hljs-string">...</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Supported-File-Formats"><a href="#Supported-File-Formats" class="headerlink" title="Supported File Formats"></a>Supported File Formats</h3><ul>
+<li><strong>.fq.gz</strong> / <strong>.fastq.gz</strong>: Compressed FASTQ files</li>
+<li><strong>.fq</strong> / <strong>.fastq</strong>: Uncompressed FASTQ files</li>
+</ul>
+<h3 id="File-Naming-Convention"><a href="#File-Naming-Convention" class="headerlink" title="File Naming Convention"></a>File Naming Convention</h3><p>The program automatically identifies paired files based on the <code>--read1-suffix</code> and <code>--read2-suffix</code> arguments:</p>
+<ul>
+<li><code>sample_1.fq.gz</code> ↔ <code>sample_2.fq.gz</code></li>
+<li><code>sample_R1.fastq.gz</code> ↔ <code>sample_R2.fastq.gz</code></li>
+<li><code>sample.R1.fq.gz</code> ↔ <code>sample.R2.fq.gz</code></li>
+</ul>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><h3 id="Output-Directory-Structure"><a href="#Output-Directory-Structure" class="headerlink" title="Output Directory Structure"></a>Output Directory Structure</h3><figure class="highlight cmake"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs cmake">clean_data/<br>├── sample1_1.clean.fq.gz     <span class="hljs-comment"># Cleaned Read1 file</span><br>├── sample1_2.clean.fq.gz     <span class="hljs-comment"># Cleaned Read2 file</span><br>├── sample1.fastp.html        <span class="hljs-comment"># HTML quality control report</span><br>├── sample1.fastp.json        <span class="hljs-comment"># JSON quality control report</span><br>├── sample2_1.clean.fq.gz<br>├── sample2_2.clean.fq.gz<br>├── sample2.fastp.html<br>├── sample2.fastp.json<br>└── batch_summary.txt         <span class="hljs-comment"># Batch processing summary report</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Description-of-QC-Reports"><a href="#Description-of-QC-Reports" class="headerlink" title="Description of QC Reports"></a>Description of QC Reports</h3><ul>
+<li><strong>HTML Report</strong>: Visualized quality control results, including quality distribution plots, GC content, etc.</li>
+<li><strong>JSON Report</strong>: Machine-readable quality control statistics.</li>
+<li><strong>Batch Summary</strong>: Processing status and statistics for all samples.</li>
+</ul>
+<h2 id="Explanation-of-QC-Parameters"><a href="#Explanation-of-QC-Parameters" class="headerlink" title="Explanation of QC Parameters"></a>Explanation of QC Parameters</h2><h3 id="Quality-Threshold-q-quality-threshold"><a href="#Quality-Threshold-q-quality-threshold" class="headerlink" title="Quality Threshold (-q, --quality-threshold)"></a>Quality Threshold (<code>-q</code>, <code>--quality-threshold</code>)</h3><ul>
+<li><strong>Default</strong>: <code>30</code></li>
+<li><strong>Description</strong>: The Phred quality score threshold. Bases with a quality score below this value are considered low-quality.</li>
+<li><strong>Recommended Values</strong>:<ul>
+<li>Strict: <code>35+</code></li>
+<li>Standard: <code>30</code></li>
+<li>Lenient: <code>20-25</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Minimum-Length-l-min-length"><a href="#Minimum-Length-l-min-length" class="headerlink" title="Minimum Length (-l, --min-length)"></a>Minimum Length (<code>-l</code>, <code>--min-length</code>)</h3><ul>
+<li><strong>Default</strong>: <code>50</code></li>
+<li><strong>Description</strong>: The minimum length of a read after trimming. Reads shorter than this length will be discarded.</li>
+<li><strong>Recommended Values</strong>:<ul>
+<li>RNA-seq: <code>50-75</code></li>
+<li>DNA-seq: <code>30-50</code></li>
+<li>16S rRNA: <code>200+</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Unqualified-Base-Percentage-u-unqualified-percent"><a href="#Unqualified-Base-Percentage-u-unqualified-percent" class="headerlink" title="Unqualified Base Percentage (-u, --unqualified-percent)"></a>Unqualified Base Percentage (<code>-u</code>, <code>--unqualified-percent</code>)</h3><ul>
+<li><strong>Default</strong>: <code>40</code></li>
+<li><strong>Description</strong>: If the percentage of low-quality bases in a read exceeds this threshold, the entire read will be discarded.</li>
+<li><strong>Recommended Values</strong>: <code>30-50%</code></li>
+</ul>
+<h3 id="N-Base-Limit-n-n-base-limit"><a href="#N-Base-Limit-n-n-base-limit" class="headerlink" title="N Base Limit (-n, --n-base-limit)"></a>N Base Limit (<code>-n</code>, <code>--n-base-limit</code>)</h3><ul>
+<li><strong>Default</strong>: <code>10</code></li>
+<li><strong>Description</strong>: The maximum number of N bases allowed in a read.</li>
+<li><strong>Recommended Values</strong>: <code>5-15</code></li>
+</ul>
+<h2 id="Performance-Optimization"><a href="#Performance-Optimization" class="headerlink" title="Performance Optimization"></a>Performance Optimization</h2><h3 id="Thread-Settings"><a href="#Thread-Settings" class="headerlink" title="Thread Settings"></a>Thread Settings</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Set threads based on the number of CPU cores</span><br>run_fastp -i input -o output -t $(<span class="hljs-built_in">nproc</span>)<br><br><span class="hljs-comment"># Or set it to 80% of the core count</span><br>run_fastp -i input -o output -t $(($(nproc) * <span class="hljs-number">4</span> / <span class="hljs-number">5</span>))<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Memory-Usage"><a href="#Memory-Usage" class="headerlink" title="Memory Usage"></a>Memory Usage</h3><ul>
+<li>Each thread uses approximately 500MB-1GB of memory.</li>
+<li>It is recommended that total memory usage does not exceed 80% of the system’s available memory.</li>
+</ul>
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h3 id="Common-Issues"><a href="#Common-Issues" class="headerlink" title="Common Issues"></a>Common Issues</h3><p><strong>1. <code>fastp</code> command not found</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Check if fastp is installed and in your PATH</span><br><span class="hljs-built_in">which</span> fastp<br><br><span class="hljs-comment"># If not installed, use conda to install it</span><br>conda install -c bioconda fastp<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>2. Permission error</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Ensure you have write permissions for the output directory</span><br><span class="hljs-built_in">chmod</span> 755 /path/to/output_dir<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>3. File not found</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Check if the input directory exists</span><br><span class="hljs-built_in">ls</span> -la /path/to/input_dir<br><br><span class="hljs-comment"># Check if the file suffixes are correct</span><br><span class="hljs-built_in">ls</span> /path/to/input_dir/*_1.fq.gz<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>4. Insufficient memory</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Reduce the number of threads</span><br>run_fastp -i input -o output -t 4<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="Debug-Mode"><a href="#Debug-Mode" class="headerlink" title="Debug Mode"></a>Debug Mode</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># View detailed (verbose) output</span><br>run_fastp -i input -o output --verbose<br><br><span class="hljs-comment"># Check the fastp version</span><br>fastp --version<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Best-Practices"><a href="#Best-Practices" class="headerlink" title="Best Practices"></a>Best Practices</h2><h3 id="1-Pre-QC-Check"><a href="#1-Pre-QC-Check" class="headerlink" title="1. Pre-QC Check"></a>1. Pre-QC Check</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Check the quality of the raw data</span><br>fastqc raw_data/*.fq.gz -o qc_reports/<br><br><span class="hljs-comment"># Count the number of file pairs</span><br>find raw_data -name <span class="hljs-string">"*_1.fq.gz"</span> | <span class="hljs-built_in">wc</span> -l<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="2-Parameter-Selection-Recommendations"><a href="#2-Parameter-Selection-Recommendations" class="headerlink" title="2. Parameter Selection Recommendations"></a>2. Parameter Selection Recommendations</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Application</th>
+<th>Quality Threshold</th>
+<th>Min Length</th>
+<th>Unqualified Base %</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RNA-seq</td>
+<td>25-30</td>
+<td>50-75</td>
+<td>40-50</td>
+</tr>
+<tr>
+<td>WGS</td>
+<td>30-35</td>
+<td>50-100</td>
+<td>30-40</td>
+</tr>
+<tr>
+<td>16S rRNA</td>
+<td>25</td>
+<td>200+</td>
+<td>50</td>
+</tr>
+<tr>
+<td>ChIP-seq</td>
+<td>20-25</td>
+<td>30-50</td>
+<td>50</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="3-Post-QC-Validation"><a href="#3-Post-QC-Validation" class="headerlink" title="3. Post-QC Validation"></a>3. Post-QC Validation</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Check the quality of the cleaned data</span><br>fastqc clean_data/*.clean.fq.gz -o qc_reports_after/<br><br><span class="hljs-comment"># Compare statistics before and after QC using MultiQC</span><br>multiqc qc_reports/ qc_reports_after/<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="Using-the-Python-API"><a href="#Using-the-Python-API" class="headerlink" title="Using the Python API"></a>Using the Python API</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> biopytools.fastp <span class="hljs-keyword">import</span> FastpProcessor, FastpConfig<br><br><span class="hljs-comment"># Create a configuration object</span><br>config = FastpConfig(<br>    input_dir=<span class="hljs-string">"./raw_data"</span>,<br>    output_dir=<span class="hljs-string">"./clean_data"</span>,<br>    threads=<span class="hljs-number">16</span>,<br>    quality_threshold=<span class="hljs-number">30</span>,<br>    min_length=<span class="hljs-number">50</span><br>)<br><br><span class="hljs-comment"># Initialize and run the processor</span><br>processor = FastpProcessor(config)<br>results = processor.run_batch_processing()<br><br><span class="hljs-comment"># View the results</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"Processed <span class="hljs-subst">{results[<span class="hljs-string">'total_samples'</span>]}</span> samples"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"Succeeded: <span class="hljs-subst">{results[<span class="hljs-string">'success_count'</span>]}</span>"</span>)<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f"Failed: <span class="hljs-subst">{results[<span class="hljs-string">'failed_count'</span>]}</span>"</span>)<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
@@ -501,6 +750,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/article/null/" title="biopytools的用法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">biopytools的用法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
