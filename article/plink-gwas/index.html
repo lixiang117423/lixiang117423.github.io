@@ -1,0 +1,910 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="完整的PLINK质量性状GWAS分析流程，支持非标准染色体编号和群体分层控制 Complete PLINK qualitative trait GWAS analysis pipeline with support for non-standard chromosome naming and population stratification control 🌟 主要特点 | Key Featu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="plink做GWAS的脚本">
+<meta property="og:url" content="https://lixiang117423.github.io/article/plink-gwas/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="完整的PLINK质量性状GWAS分析流程，支持非标准染色体编号和群体分层控制 Complete PLINK qualitative trait GWAS analysis pipeline with support for non-standard chromosome naming and population stratification control 🌟 主要特点 | Key Featu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-14T11:48:16.000Z">
+<meta property="article:modified_time" content="2025-07-16T13:27:57.013Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>plink做GWAS的脚本 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="plink做GWAS的脚本"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-14 19:48" pubdate>
+          2025年7月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">plink做GWAS的脚本</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>完整的PLINK质量性状GWAS分析流程，支持非标准染色体编号和群体分层控制<br> Complete PLINK qualitative trait GWAS analysis pipeline with support for non-standard chromosome naming and population stratification control</p>
+<h2 id="🌟-主要特点-Key-Features"><a href="#🌟-主要特点-Key-Features" class="headerlink" title="🌟 主要特点 | Key Features"></a>🌟 主要特点 | Key Features</h2><ul>
+<li><strong>🧬 支持非标准染色体编号</strong> - 兼容OV、KY等非人类物种的染色体命名方式</li>
+<li><strong>📊 完整的质量控制流程</strong> - 个体缺失率、SNP缺失率、MAF、HWE检验</li>
+<li><strong>🔬 群体分层控制</strong> - LD剪枝 + 主成分分析校正群体结构</li>
+<li><strong>⚡ 自动化流程</strong> - 从VCF文件到可视化结果的一站式分析</li>
+<li><strong>📈 内置可视化</strong> - 自动生成Manhattan图和QQ图</li>
+<li><strong>📋 详细报告</strong> - 生成包含统计信息和结果解释的分析报告</li>
+<li><strong>🔧 模块化设计</strong> - 清晰的代码结构，易于维护和扩展</li>
+</ul>
+<hr>
+<h2 id="📋-依赖要求-Requirements"><a href="#📋-依赖要求-Requirements" class="headerlink" title="📋 依赖要求 | Requirements"></a>📋 依赖要求 | Requirements</h2><h3 id="必需软件-Required-Software"><a href="#必需软件-Required-Software" class="headerlink" title="必需软件 | Required Software"></a>必需软件 | Required Software</h3><ul>
+<li><strong>Python 3.7+</strong></li>
+<li><strong>PLINK 1.9/2.0</strong> - 遗传数据分析工具</li>
+<li><strong>R 4.0+</strong> - 用于生成可视化图形</li>
+<li><strong>R包</strong>: qqman - 用于Manhattan图和QQ图</li>
+</ul>
+<h3 id="Python包-Python-Packages"><a href="#Python包-Python-Packages" class="headerlink" title="Python包 | Python Packages"></a>Python包 | Python Packages</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install pandas numpy<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="安装PLINK-Install-PLINK"><a href="#安装PLINK-Install-PLINK" class="headerlink" title="安装PLINK | Install PLINK"></a>安装PLINK | Install PLINK</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Ubuntu/Debian</span><br>sudo apt-get install plink1.9<br><br><span class="hljs-comment"># macOS (使用Homebrew)</span><br>brew install plink<br><br><span class="hljs-comment"># 或从官网下载</span><br><span class="hljs-comment"># https://www.cog-genomics.org/plink/</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="安装R和qqman包-Install-R-and-qqman-package"><a href="#安装R和qqman包-Install-R-and-qqman-package" class="headerlink" title="安装R和qqman包 | Install R and qqman package"></a>安装R和qqman包 | Install R and qqman package</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Ubuntu/Debian</span><br>sudo apt-get install r-base<br><br><span class="hljs-comment"># 在R中安装qqman包</span><br>R -e <span class="hljs-string">"install.packages('qqman')"</span><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="🚀-快速开始-Quick-Start"><a href="#🚀-快速开始-Quick-Start" class="headerlink" title="🚀 快速开始 | Quick Start"></a>🚀 快速开始 | Quick Start</h2><h3 id="1-准备数据文件-Prepare-Data-Files"><a href="#1-准备数据文件-Prepare-Data-Files" class="headerlink" title="1. 准备数据文件 | Prepare Data Files"></a>1. 准备数据文件 | Prepare Data Files</h3><p><strong>VCF文件格式</strong> (支持.gz压缩):</p>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-comment">##fileformat=VCFv4.2</span><br><span class="hljs-comment">#CHROM  POS     ID      REF ALT QUAL    FILTER  INFO    FORMAT  Sample1 Sample2</span><br><span class="hljs-attribute">OV01</span>    <span class="hljs-number">1234</span>    SNP1    A   T   <span class="hljs-number">60</span>      PASS    .       GT      <span class="hljs-number">0</span>/<span class="hljs-number">0</span>     <span class="hljs-number">0</span>/<span class="hljs-number">1</span><br><span class="hljs-attribute">OV01</span>    <span class="hljs-number">5678</span>    SNP2    G   C   <span class="hljs-number">55</span>      PASS    .       GT      <span class="hljs-number">1</span>/<span class="hljs-number">1</span>     <span class="hljs-number">0</span>/<span class="hljs-number">0</span><br></code></pre></td></tr></tbody></table></figure>
+<p><strong>表型文件格式</strong> (制表符或空格分隔):</p>
+<figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Sample1</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">Sample2</span>  <span class="hljs-number">1</span><br><span class="hljs-attribute">Sample3</span>  <span class="hljs-number">0</span><br><span class="hljs-attribute">Sample4</span>  <span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>注意：0=抗病(对照)，1=感病(病例)</p>
+</blockquote>
+<h3 id="2-基本运行-Basic-Usage"><a href="#2-基本运行-Basic-Usage" class="headerlink" title="2. 基本运行 | Basic Usage"></a>2. 基本运行 | Basic Usage</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 最简单的运行方式</span><br>python run_plink_gwas.py -v my_data.vcf.gz -p phenotype.txt -o results<br><br><span class="hljs-comment"># 查看所有参数选项</span><br>python run_plink_gwas.py --<span class="hljs-built_in">help</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="3-检查结果-Check-Results"><a href="#3-检查结果-Check-Results" class="headerlink" title="3. 检查结果 | Check Results"></a>3. 检查结果 | Check Results</h3><p>分析完成后，查看主要输出文件：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> results/<br><span class="hljs-built_in">cat</span> analysis_report.txt           <span class="hljs-comment"># 分析报告</span><br><span class="hljs-built_in">head</span> gwas_results_ADD.txt         <span class="hljs-comment"># 主要关联结果</span><br><span class="hljs-built_in">head</span> significant_hits.txt         <span class="hljs-comment"># 显著关联位点</span><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="📖-详细使用说明-Detailed-Usage"><a href="#📖-详细使用说明-Detailed-Usage" class="headerlink" title="📖 详细使用说明 | Detailed Usage"></a>📖 详细使用说明 | Detailed Usage</h2><h3 id="命令行参数-Command-Line-Arguments"><a href="#命令行参数-Command-Line-Arguments" class="headerlink" title="命令行参数 | Command Line Arguments"></a>命令行参数 | Command Line Arguments</h3><h4 id="必需参数-Required-Arguments"><a href="#必需参数-Required-Arguments" class="headerlink" title="必需参数 | Required Arguments"></a>必需参数 | Required Arguments</h4><ul>
+<li><code>-v, --vcf-file</code> - VCF文件路径 (支持.gz压缩)</li>
+<li><code>-p, --phenotype-file</code> - 表型文件路径</li>
+</ul>
+<h4 id="可选参数-Optional-Arguments"><a href="#可选参数-Optional-Arguments" class="headerlink" title="可选参数 | Optional Arguments"></a>可选参数 | Optional Arguments</h4><p><strong>输出设置 | Output Settings</strong></p>
+<ul>
+<li><code>-o, --output-dir</code> - 输出目录 (默认: <code>plink_gwas_results</code>)</li>
+</ul>
+<p><strong>质量控制 | Quality Control</strong></p>
+<ul>
+<li><code>--mind</code> - 个体缺失率阈值 (默认: 0.05)</li>
+<li><code>--geno</code> - SNP缺失率阈值 (默认: 0.05)</li>
+<li><code>--maf</code> - 最小等位基因频率 (默认: 0.01)</li>
+<li><code>--hwe</code> - Hardy-Weinberg平衡P值阈值 (默认: 1e-6)</li>
+</ul>
+<p><strong>LD剪枝 | LD Pruning</strong></p>
+<ul>
+<li><code>--ld-window-size</code> - LD窗口大小，kb (默认: 50)</li>
+<li><code>--ld-step-size</code> - LD步长，SNP数 (默认: 5)</li>
+<li><code>--ld-r2-threshold</code> - LD r²阈值 (默认: 0.2)</li>
+</ul>
+<p><strong>主成分分析 | Principal Component Analysis</strong></p>
+<ul>
+<li><code>--pca-components</code> - 计算的主成分数 (默认: 10)</li>
+<li><code>--pca-use</code> - 关联分析中使用的主成分数 (默认: 5)</li>
+</ul>
+<p><strong>显著性阈值 | Significance Thresholds</strong></p>
+<ul>
+<li><code>--significance-threshold</code> - 全基因组显著性阈值 (默认: “5e-8”)</li>
+<li><code>--suggestive-threshold</code> - 提示性关联阈值 (默认: “1e-5”)</li>
+</ul>
+<p><strong>计算资源 | Computing Resources</strong></p>
+<ul>
+<li><code>--threads</code> - 线程数 (默认: 1)</li>
+</ul>
+<h3 id="使用示例-Usage-Examples"><a href="#使用示例-Usage-Examples" class="headerlink" title="使用示例 | Usage Examples"></a>使用示例 | Usage Examples</h3><h4 id="1-标准分析流程-Standard-Analysis"><a href="#1-标准分析流程-Standard-Analysis" class="headerlink" title="1. 标准分析流程 | Standard Analysis"></a>1. 标准分析流程 | Standard Analysis</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_plink_gwas.py \<br>    -v disease_resistance.vcf.gz \<br>    -p resistance_phenotype.txt \<br>    -o gwas_resistance_results<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="2-严格质控参数-Strict-QC-Parameters"><a href="#2-严格质控参数-Strict-QC-Parameters" class="headerlink" title="2. 严格质控参数 | Strict QC Parameters"></a>2. 严格质控参数 | Strict QC Parameters</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_plink_gwas.py \<br>    -v data.vcf.gz \<br>    -p pheno.txt \<br>    -o strict_qc_results \<br>    --mind 0.02 \<br>    --geno 0.02 \<br>    --maf 0.05 \<br>    --hwe 1e-7<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="3-增强群体分层控制-Enhanced-Population-Stratification-Control"><a href="#3-增强群体分层控制-Enhanced-Population-Stratification-Control" class="headerlink" title="3. 增强群体分层控制 | Enhanced Population Stratification Control"></a>3. 增强群体分层控制 | Enhanced Population Stratification Control</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_plink_gwas.py \<br>    -v data.vcf.gz \<br>    -p pheno.txt \<br>    -o enhanced_pca_results \<br>    --pca-components 20 \<br>    --pca-use 10 \<br>    --ld-r2-threshold 0.1<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="4-高性能计算-High-Performance-Computing"><a href="#4-高性能计算-High-Performance-Computing" class="headerlink" title="4. 高性能计算 | High Performance Computing"></a>4. 高性能计算 | High Performance Computing</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_plink_gwas.py \<br>    -v large_dataset.vcf.gz \<br>    -p phenotype.txt \<br>    -o hpc_results \<br>    --threads 16 \<br>    --mind 0.1 \<br>    --geno 0.1<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="5-敏感性分析-Sensitivity-Analysis"><a href="#5-敏感性分析-Sensitivity-Analysis" class="headerlink" title="5. 敏感性分析 | Sensitivity Analysis"></a>5. 敏感性分析 | Sensitivity Analysis</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">python run_plink_gwas.py \<br>    -v data.vcf.gz \<br>    -p pheno.txt \<br>    -o sensitive_results \<br>    --significance-threshold <span class="hljs-string">"1e-7"</span> \<br>    --suggestive-threshold <span class="hljs-string">"1e-6"</span><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="📁-输出文件说明-Output-Files-Description"><a href="#📁-输出文件说明-Output-Files-Description" class="headerlink" title="📁 输出文件说明 | Output Files Description"></a>📁 输出文件说明 | Output Files Description</h2><h3 id="主要结果文件-Main-Result-Files"><a href="#主要结果文件-Main-Result-Files" class="headerlink" title="主要结果文件 | Main Result Files"></a>主要结果文件 | Main Result Files</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>描述</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>analysis_report.txt</code></td>
+<td>分析总结报告</td>
+<td>样本统计、参数设置、结果汇总</td>
+</tr>
+<tr>
+<td><code>gwas_results_ADD.txt</code></td>
+<td>主要关联分析结果</td>
+<td>所有SNP的关联分析统计量</td>
+</tr>
+<tr>
+<td><code>significant_hits.txt</code></td>
+<td>显著关联位点</td>
+<td>P &lt; 5e-8的SNP</td>
+</tr>
+<tr>
+<td><code>suggestive_hits.txt</code></td>
+<td>提示性关联位点</td>
+<td>P &lt; 1e-5的SNP</td>
+</tr>
+<tr>
+<td><code>manhattan_plot.png</code></td>
+<td>Manhattan图</td>
+<td>全基因组关联信号可视化</td>
+</tr>
+<tr>
+<td><code>qq_plot.png</code></td>
+<td>QQ图</td>
+<td>P值分布和质量评估</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="中间文件-Intermediate-Files"><a href="#中间文件-Intermediate-Files" class="headerlink" title="中间文件 | Intermediate Files"></a>中间文件 | Intermediate Files</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data_qc1.*</code></td>
+<td>质控后的PLINK格式数据</td>
+</tr>
+<tr>
+<td><code>pca_with_header.txt</code></td>
+<td>主成分分析结果</td>
+</tr>
+<tr>
+<td><code>chromosome_mapping.txt</code></td>
+<td>染色体编号映射关系</td>
+</tr>
+<tr>
+<td><code>plink_gwas_analysis.log</code></td>
+<td>详细运行日志</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="结果文件详解-Detailed-Results-Description"><a href="#结果文件详解-Detailed-Results-Description" class="headerlink" title="结果文件详解 | Detailed Results Description"></a>结果文件详解 | Detailed Results Description</h3><h4 id="gwas-results-ADD-txt-主要列说明："><a href="#gwas-results-ADD-txt-主要列说明：" class="headerlink" title="gwas_results_ADD.txt 主要列说明："></a><code>gwas_results_ADD.txt</code> 主要列说明：</h4><ul>
+<li><strong>CHR</strong>: 染色体</li>
+<li><strong>SNP</strong>: SNP标识符</li>
+<li><strong>BP</strong>: 碱基对位置</li>
+<li><strong>A1</strong>: 效应等位基因</li>
+<li><strong>OR</strong>: 优势比 (Odds Ratio)</li>
+<li><strong>P</strong>: P值</li>
+<li><strong>L95/U95</strong>: 95%置信区间</li>
+</ul>
+<h4 id="结果解释-Results-Interpretation："><a href="#结果解释-Results-Interpretation：" class="headerlink" title="结果解释 | Results Interpretation："></a>结果解释 | Results Interpretation：</h4><ul>
+<li><strong>OR &gt; 1</strong>: 该等位基因增加感病风险</li>
+<li><strong>OR &lt; 1</strong>: 该等位基因具有保护作用（促进抗病）</li>
+<li><strong>P &lt; 5e-8</strong>: 达到全基因组显著性水平</li>
+<li><strong>P &lt; 1e-5</strong>: 达到提示性关联水平</li>
+</ul>
+<hr>
+<h2 id="🔧-高级配置-Advanced-Configuration"><a href="#🔧-高级配置-Advanced-Configuration" class="headerlink" title="🔧 高级配置 | Advanced Configuration"></a>🔧 高级配置 | Advanced Configuration</h2><h3 id="Python-API使用-Python-API-Usage"><a href="#Python-API使用-Python-API-Usage" class="headerlink" title="Python API使用 | Python API Usage"></a>Python API使用 | Python API Usage</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> plink_gwas <span class="hljs-keyword">import</span> PlinkGWAS<br><br><span class="hljs-comment"># 创建分析器</span><br>gwas = PlinkGWAS(<br>    vcf_file=<span class="hljs-string">"data.vcf.gz"</span>,<br>    phenotype_file=<span class="hljs-string">"pheno.txt"</span>,<br>    output_dir=<span class="hljs-string">"results"</span>,<br>    mind=<span class="hljs-number">0.05</span>,<br>    geno=<span class="hljs-number">0.05</span>,<br>    maf=<span class="hljs-number">0.01</span>,<br>    pca_use=<span class="hljs-number">5</span>,<br>    threads=<span class="hljs-number">8</span><br>)<br><br><span class="hljs-comment"># 运行分析</span><br>gwas.run_analysis()<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="自定义分析流程-Custom-Analysis-Pipeline"><a href="#自定义分析流程-Custom-Analysis-Pipeline" class="headerlink" title="自定义分析流程 | Custom Analysis Pipeline"></a>自定义分析流程 | Custom Analysis Pipeline</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> plink_gwas.config <span class="hljs-keyword">import</span> PlinkGWASConfig<br><span class="hljs-keyword">from</span> plink_gwas.main <span class="hljs-keyword">import</span> PlinkGWAS<br><br><span class="hljs-comment"># 自定义配置</span><br>config = PlinkGWASConfig(<br>    vcf_file=<span class="hljs-string">"custom_data.vcf.gz"</span>,<br>    phenotype_file=<span class="hljs-string">"custom_pheno.txt"</span>,<br>    output_dir=<span class="hljs-string">"custom_results"</span>,<br>    mind=<span class="hljs-number">0.02</span>,           <span class="hljs-comment"># 更严格的个体缺失率</span><br>    geno=<span class="hljs-number">0.02</span>,           <span class="hljs-comment"># 更严格的SNP缺失率</span><br>    maf=<span class="hljs-number">0.05</span>,            <span class="hljs-comment"># 更高的MAF阈值</span><br>    hwe=<span class="hljs-number">1e-7</span>,            <span class="hljs-comment"># 更严格的HWE检验</span><br>    pca_components=<span class="hljs-number">15</span>,   <span class="hljs-comment"># 更多主成分</span><br>    pca_use=<span class="hljs-number">8</span>,           <span class="hljs-comment"># 使用更多主成分校正</span><br>    threads=<span class="hljs-number">16</span>           <span class="hljs-comment"># 更多线程</span><br>)<br><br><span class="hljs-comment"># 运行分析</span><br>gwas = PlinkGWAS(**config.__dict__)<br>gwas.run_analysis()<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="⚠️-注意事项-Important-Notes"><a href="#⚠️-注意事项-Important-Notes" class="headerlink" title="⚠️ 注意事项 | Important Notes"></a>⚠️ 注意事项 | Important Notes</h2><h3 id="数据要求-Data-Requirements"><a href="#数据要求-Data-Requirements" class="headerlink" title="数据要求 | Data Requirements"></a>数据要求 | Data Requirements</h3><ol>
+<li><strong>VCF文件格式</strong>: 必须符合VCF 4.0+标准</li>
+<li><strong>表型编码</strong>: 0=对照/抗病，1=病例/感病，缺失值用NA表示</li>
+<li><strong>样本匹配</strong>: VCF和表型文件中的样本ID必须一致</li>
+<li><strong>染色体命名</strong>: 支持标准编号(1,2,3…)和非标准编号(OV01,KY_chr1等)</li>
+</ol>
+<h3 id="质量控制建议-QC-Recommendations"><a href="#质量控制建议-QC-Recommendations" class="headerlink" title="质量控制建议 | QC Recommendations"></a>质量控制建议 | QC Recommendations</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>推荐值</th>
+<th>严格值</th>
+<th>宽松值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--mind</code></td>
+<td>0.05</td>
+<td>0.02</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td><code>--geno</code></td>
+<td>0.05</td>
+<td>0.02</td>
+<td>0.10</td>
+</tr>
+<tr>
+<td><code>--maf</code></td>
+<td>0.01</td>
+<td>0.05</td>
+<td>0.005</td>
+</tr>
+<tr>
+<td><code>--hwe</code></td>
+<td>1e-6</td>
+<td>1e-8</td>
+<td>1e-4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="样本量建议-Sample-Size-Recommendations"><a href="#样本量建议-Sample-Size-Recommendations" class="headerlink" title="样本量建议 | Sample Size Recommendations"></a>样本量建议 | Sample Size Recommendations</h3><ul>
+<li><strong>最小样本量</strong>: 100个个体 (50病例 + 50对照)</li>
+<li><strong>推荐样本量</strong>: 500+个个体 (250病例 + 250对照)</li>
+<li><strong>理想样本量</strong>: 1000+个个体 (500病例 + 500对照)</li>
+</ul>
+<hr>
+<h2 id="🛠️-故障排除-Troubleshooting"><a href="#🛠️-故障排除-Troubleshooting" class="headerlink" title="🛠️ 故障排除 | Troubleshooting"></a>🛠️ 故障排除 | Troubleshooting</h2><h3 id="常见错误及解决方案-Common-Errors-and-Solutions"><a href="#常见错误及解决方案-Common-Errors-and-Solutions" class="headerlink" title="常见错误及解决方案 | Common Errors and Solutions"></a>常见错误及解决方案 | Common Errors and Solutions</h3><h4 id="1-PLINK未找到-PLINK-Not-Found"><a href="#1-PLINK未找到-PLINK-Not-Found" class="headerlink" title="1. PLINK未找到 | PLINK Not Found"></a>1. PLINK未找到 | PLINK Not Found</h4><figure class="highlight pgsql"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">错误: command <span class="hljs-string">'plink'</span> <span class="hljs-keyword">not</span> <span class="hljs-built_in">found</span><br>解决: 确保PLINK已安装并在<span class="hljs-type">PATH</span>中<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="2-内存不足-Out-of-Memory"><a href="#2-内存不足-Out-of-Memory" class="headerlink" title="2. 内存不足 | Out of Memory"></a>2. 内存不足 | Out of Memory</h4><figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">错误: Error: Out of memory</span><br><span class="hljs-section">解决: 减少样本量或使用更大内存的机器</span><br><span class="hljs-section">参数: --threads 1 (减少并行度)</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="3-R包缺失-Missing-R-Packages"><a href="#3-R包缺失-Missing-R-Packages" class="headerlink" title="3. R包缺失 | Missing R Packages"></a>3. R包缺失 | Missing R Packages</h4><figure class="highlight vhdl"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">错误: <span class="hljs-literal">Error</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">library</span>(qqman): there <span class="hljs-keyword">is</span> no <span class="hljs-keyword">package</span> called <span class="hljs-symbol">'qqman</span>'<br>解决: R -e <span class="hljs-string">"install.packages('qqman')"</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="4-染色体编号问题-Chromosome-Naming-Issues"><a href="#4-染色体编号问题-Chromosome-Naming-Issues" class="headerlink" title="4. 染色体编号问题 | Chromosome Naming Issues"></a>4. 染色体编号问题 | Chromosome Naming Issues</h4><figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">错误: Invalid chromosome code</span><br><span class="hljs-section">解决: 使用 --allow-extra-chr 参数 (已自动包含)</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="5-表型文件格式错误-Phenotype-File-Format-Error"><a href="#5-表型文件格式错误-Phenotype-File-Format-Error" class="headerlink" title="5. 表型文件格式错误 | Phenotype File Format Error"></a>5. 表型文件格式错误 | Phenotype File Format Error</h4><figure class="highlight makefile"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs makefile"><span class="hljs-section">错误: 表型文件至少需要2列</span><br><span class="hljs-section">解决: 检查文件格式，确保有样本ID和表型值两列</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="性能优化建议-Performance-Optimization"><a href="#性能优化建议-Performance-Optimization" class="headerlink" title="性能优化建议 | Performance Optimization"></a>性能优化建议 | Performance Optimization</h3><ol>
+<li><strong>使用多线程</strong>: <code>--threads 8</code> (根据CPU核心数调整)</li>
+<li><strong>压缩VCF文件</strong>: 使用.gz压缩减少I/O时间</li>
+<li><strong>调整内存</strong>: 大数据集考虑使用PLINK2.0</li>
+<li><strong>分块分析</strong>: 超大数据集可按染色体分块处理</li>
+</ol>
+<hr>
+<h2 id="📊-输出示例-Output-Examples"><a href="#📊-输出示例-Output-Examples" class="headerlink" title="📊 输出示例 | Output Examples"></a>📊 输出示例 | Output Examples</h2><h3 id="分析报告示例-Analysis-Report-Example"><a href="#分析报告示例-Analysis-Report-Example" class="headerlink" title="分析报告示例 | Analysis Report Example"></a>分析报告示例 | Analysis Report Example</h3><figure class="highlight asciidoc"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc"><span class="hljs-section">=== PLINK GWAS分析完成报告 ===</span><br>分析时间: 2024-07-14 15:30:25<br>主要分析: gwas_adjusted<br><br><span class="hljs-section">=== 样本统计 ===</span><br>质控后总样本数: 847<br>病例数 (感病): 423<br>对照数 (抗病): 424<br><br><span class="hljs-section">=== SNP统计 ===</span><br>质控后总SNP数: 125,847<br>染色体数: 12<br><br><span class="hljs-section">=== 关联分析结果 ===</span><br>全基因组显著位点数 (P&lt;5e-8): 3<br>提示性关联位点数 (P&lt;1e-5): 27<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="显著位点示例-Significant-Hits-Example"><a href="#显著位点示例-Significant-Hits-Example" class="headerlink" title="显著位点示例 | Significant Hits Example"></a>显著位点示例 | Significant Hits Example</h3><figure class="highlight apache"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">CHR</span>    SNP           BP        A1   OR     P<br><span class="hljs-attribute">OV01</span>   SNP_123456   <span class="hljs-number">1234567</span>   T    <span class="hljs-number">2</span>.<span class="hljs-number">45</span>   <span class="hljs-number">1</span>.<span class="hljs-number">2</span>e-<span class="hljs-number">8</span><br><span class="hljs-attribute">OV03</span>   SNP_789012   <span class="hljs-number">7890123</span>   C    <span class="hljs-number">0</span>.<span class="hljs-number">42</span>   <span class="hljs-number">3</span>.<span class="hljs-number">4</span>e-<span class="hljs-number">8</span>  <br><span class="hljs-attribute">OV07</span>   SNP_345678   <span class="hljs-number">3456789</span>   G    <span class="hljs-number">1</span>.<span class="hljs-number">89</span>   <span class="hljs-number">4</span>.<span class="hljs-number">7</span>e-<span class="hljs-number">8</span><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="🤝-贡献指南-Contributing"><a href="#🤝-贡献指南-Contributing" class="headerlink" title="🤝 贡献指南 | Contributing"></a>🤝 贡献指南 | Contributing</h2><p>欢迎提交问题报告和功能请求！Please submit bug reports and feature requests!</p>
+<h3 id="开发环境设置-Development-Setup"><a href="#开发环境设置-Development-Setup" class="headerlink" title="开发环境设置 | Development Setup"></a>开发环境设置 | Development Setup</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> &lt;repository&gt;<br><span class="hljs-built_in">cd</span> plink_gwas<br>pip install -e .<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="测试-Testing"><a href="#测试-Testing" class="headerlink" title="测试 | Testing"></a>测试 | Testing</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">python -m pytest tests/<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="📄-许可证-License"><a href="#📄-许可证-License" class="headerlink" title="📄 许可证 | License"></a>📄 许可证 | License</h2><p>MIT License - 详见LICENSE文件</p>
+<hr>
+<h2 id="📞-支持与联系-Support-and-Contact"><a href="#📞-支持与联系-Support-and-Contact" class="headerlink" title="📞 支持与联系 | Support and Contact"></a>📞 支持与联系 | Support and Contact</h2><ul>
+<li><strong>文档</strong>: 详见项目Wiki</li>
+<li><strong>问题报告</strong>: 请使用GitHub Issues</li>
+<li><strong>功能请求</strong>: 请使用GitHub Discussions</li>
+</ul>
+<hr>
+<h2 id="🔗-相关资源-Related-Resources"><a href="#🔗-相关资源-Related-Resources" class="headerlink" title="🔗 相关资源 | Related Resources"></a>🔗 相关资源 | Related Resources</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.cog-genomics.org/plink/">PLINK官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://cran.r-project.org/package=qqman">qqman包文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://samtools.github.io/hts-specs/VCFv4.2.pdf">VCF格式规范</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41576-018-0071-9">GWAS最佳实践</a></li>
+</ul>
+<hr>
+<p><em>最后更新: 2024-07-14</em></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>plink做GWAS的脚本</div>
+      <div>https://lixiang117423.github.io/article/plink-gwas/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/run-fastp/" title="运行fastp的脚本">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">运行fastp的脚本</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/null/" title="从gff文件提取基因信息都脚本">
+                        <span class="hidden-mobile">从gff文件提取基因信息都脚本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
