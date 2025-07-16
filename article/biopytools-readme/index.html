@@ -1,0 +1,687 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="安装12345git clone https:&#x2F;&#x2F;github.com&#x2F;lixiang117423&#x2F;biopytools.gitcd biopytoolspip install -e .pip install -e &quot;.[dev]&quot; run_annovar主要功能是实现使用Annovar对VCF文件进行注释。 帮助文档1234567891011121314151617181920212223242">
+<meta property="og:type" content="article">
+<meta property="og:title" content="biopytools的用法">
+<meta property="og:url" content="https://lixiang117423.github.io/article/biopytools-readme/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="安装12345git clone https:&#x2F;&#x2F;github.com&#x2F;lixiang117423&#x2F;biopytools.gitcd biopytoolspip install -e .pip install -e &quot;.[dev]&quot; run_annovar主要功能是实现使用Annovar对VCF文件进行注释。 帮助文档1234567891011121314151617181920212223242">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-07-15T13:34:23.000Z">
+<meta property="article:modified_time" content="2025-07-16T13:32:53.088Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>biopytools的用法 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="biopytools的用法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-07-15 21:34" pubdate>
+          2025年7月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">biopytools的用法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/lixiang117423/biopytools.git<br><span class="hljs-built_in">cd</span> biopytools<br>pip install -e .<br><br>pip install -e <span class="hljs-string">".[dev]"</span><br></code></pre></td></tr></tbody></table></figure>
+<h1 id="run-annovar"><a href="#run-annovar" class="headerlink" title="run_annovar"></a>run_annovar</h1><p>主要功能是实现使用Annovar对VCF文件进行注释。</p>
+<h2 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs bash"> run_annovar -h<br>usage: run_annovar [-h] -g GFF3 -f GENOME -v VCF -b BUILD_VER [-a ANNOVAR_PATH] [-d DATABASE_PATH] [-o OUTPUT_DIR] [-q QUAL_THRESHOLD] [-s {1,2,3,4}]<br>                   [--skip-gff-fix] [--skip-vcf-filter] [--enable-vcf-filter]<br><br>ANNOVAR VCF注释自动化脚本 (模块化版本) | ANNOVAR VCF Annotation Automation Script (Modular Version)<br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br>  -g, --gff3 GFF3       GFF3注释文件路径 | GFF3 annotation file path (default: None)<br>  -f, --genome GENOME   基因组序列文件路径 | Genome sequence file path (default: None)<br>  -v, --vcf VCF         VCF变异文件路径 | VCF variant file path (default: None)<br>  -b, --build-ver BUILD_VER<br>                        基因组构建版本标识符 (如: OV, KY131) - 不应包含路径分隔符 | Genome build version identifier (e.g., OV, KY131) - should not contain path separators<br>                        (default: None)<br>  -a, --annovar-path ANNOVAR_PATH<br>                        ANNOVAR软件安装路径 | ANNOVAR software installation path (default: /share/org/YZWL/yzwl_lixg/software/annovar/annovar)<br>  -d, --database-path DATABASE_PATH<br>                        ANNOVAR数据库路径 | ANNOVAR database path (default: ./database)<br>  -o, --output-dir OUTPUT_DIR<br>                        输出目录 | Output directory (default: ./annovar_output)<br>  -q, --qual-threshold QUAL_THRESHOLD<br>                        VCF质量过滤阈值 (仅在启用VCF过滤时生效) | VCF quality filtering threshold (only effective when VCF filtering is enabled) (default: 20)<br>  -s, --step {1,2,3,4}  只运行指定步骤 | Run only specified step (1:gff3转换 | gff3 conversion, 2:提取序列 | extract sequences, 3:VCF处理 | VCF processing, 4:注释 |<br>                        annotation) (default: None)<br>  --skip-gff-fix        跳过GFF3文件的自动修复（CDS phase等问题） | Skip automatic GFF3 file fixes (CDS phase and other issues) (default: False)<br>  --skip-vcf-filter     跳过VCF过滤步骤，直接使用输入的VCF文件（默认启用） | Skip VCF filtering step, use input VCF file directly (enabled by default) (default: True)<br>  --enable-vcf-filter   启用VCF过滤步骤（使用bcftools） | Enable VCF filtering step (using bcftools) (default: False)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="运行示例"><a href="#运行示例" class="headerlink" title="运行示例"></a>运行示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_annovar --gff3 genome.gff --genome genome.fa --vcf final_filtered.recode.chr.vcf.gz --build-ver <span class="hljs-built_in">test</span> --annovar-path /share/org/YZWL/yzwl_lixg/software/annovar/annovar --database-path ./ --output-dir ./<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="run-fastp"><a href="#run-fastp" class="headerlink" title="run_fastp"></a>run_fastp</h1><p>执行fastp对fastq文件进行过滤。自动识别fastq文件的样品信息，批量过滤。</p>
+<h2 id="帮助文档-1"><a href="#帮助文档-1" class="headerlink" title="帮助文档"></a>帮助文档</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_fastp -h                                                                                                                                           <br>usage: run_fastp [-h] -i INPUT_DIR -o OUTPUT_DIR [--fastp-path FASTP_PATH] [-t THREADS] [-q QUALITY_THRESHOLD] [-l MIN_LENGTH] [-u UNQUALIFIED_PERCENT]<br>                 [-n N_BASE_LIMIT] [--read1-suffix READ1_SUFFIX] [--read2-suffix READ2_SUFFIX]<br><br>FASTQ数据质控批处理脚本 | FASTQ Data Quality Control Batch Processing Script<br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br>  -i, --input-dir INPUT_DIR<br>                        输入原始FASTQ数据目录 | Input raw FASTQ data directory (default: None)<br>  -o, --output-dir OUTPUT_DIR<br>                        输出清洁FASTQ数据目录 | Output clean FASTQ data directory (default: None)<br>  --fastp-path FASTP_PATH<br>                        fastp可执行文件路径 | fastp executable path (default: fastp)<br>  -t, --threads THREADS<br>                        线程数 | Number of threads (default: 12)<br>  -q, --quality-threshold QUALITY_THRESHOLD<br>                        质量阈值 | Quality threshold (default: 30)<br>  -l, --min-length MIN_LENGTH<br>                        最小长度 | Minimum length (default: 50)<br>  -u, --unqualified-percent UNQUALIFIED_PERCENT<br>                        不合格碱基百分比阈值 | Unqualified base percentage threshold (default: 40)<br>  -n, --n-base-limit N_BASE_LIMIT<br>                        N碱基数量限制 | N base count <span class="hljs-built_in">limit</span> (default: 10)<br>  --read1-suffix READ1_SUFFIX<br>                        Read1文件后缀 | Read1 file suffix (default: _1.fq.gz)<br>  --read2-suffix READ2_SUFFIX<br>                        Read2文件后缀 | Read2 file suffix (default: _2.fq.gz)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="运行示例-1"><a href="#运行示例-1" class="headerlink" title="运行示例"></a>运行示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_fastp -i raw -o clean --read1-suffix _1.clean.fq.gz --read2-suffix _2.clean.fq.gz --fastp-path /home/lixiang/miniforge3/envs/RNA_Seq/bin/fastp<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="run-rnaseq"><a href="#run-rnaseq" class="headerlink" title="run_rnaseq"></a>run_rnaseq</h1><p>自动执行HISAT2+StringTie流程，最终输出TPM和FPKM表达矩阵。不包含fastq文件过滤步骤，需要先对fastq文件进行过滤；程序能够自动创建索引。</p>
+<h2 id="帮助文档-2"><a href="#帮助文档-2" class="headerlink" title="帮助文档"></a>帮助文档</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_rnaseq -h<br>usage: run_rnaseq [-h] -g GENOME -f GTF -i INPUT -o OUTPUT [-p PATTERN] [-r {<span class="hljs-built_in">yes</span>,y,no,n}] [-t THREADS]<br><br>RNA-<span class="hljs-built_in">seq</span>分析流程：HISAT2 + StringTie (模块化版本) | RNA-<span class="hljs-built_in">seq</span> analysis pipeline: HISAT2 + StringTie (Modular Version)<br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br>  -g, --genome GENOME   基因组fasta文件路径 | Genome fasta file path (default: None)<br>  -f, --gtf GTF         基因注释GTF文件路径 | Gene annotation GTF file path (default: None)<br>  -i, --input INPUT     输入fastq文件目录或样本信息文件 | Input fastq file directory or sample information file (default: None)<br>  -o, --output OUTPUT   输出目录 | Output directory (default: None)<br>  -p, --pattern PATTERN<br>                        Fastq文件命名模式，例如 <span class="hljs-string">"*.R1.fastq.gz"</span> 或 <span class="hljs-string">"*_1.fq.gz"</span>，*代表样本名 | Fastq file naming pattern, e.g., <span class="hljs-string">"*.R1.fastq.gz"</span> or <span class="hljs-string">"*_1.fq.gz"</span>, *<br>                        represents sample name (default: None)<br>  -r, --remove {<span class="hljs-built_in">yes</span>,y,no,n}<br>                        处理后删除BAM文件 | Remove BAM files after processing (default: no)<br>  -t, --threads THREADS<br>                        线程数 | Number of threads (default: 8)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="运行示例-2"><a href="#运行示例-2" class="headerlink" title="运行示例"></a>运行示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_rnaseq -g genome/T2T70-15_chr.fa -f genome/T2T70-15_chr.gtf -i clean -o output -p <span class="hljs-string">"*_1.clean.fq.gz"</span>       <br></code></pre></td></tr></tbody></table></figure>
+<h1 id="run-vcf-extractor"><a href="#run-vcf-extractor" class="headerlink" title="run_vcf_extractor"></a>run_vcf_extractor</h1><p>从vcf文件中提取genotype信息。</p>
+<p><strong>建议安装<code>cyvcf2</code>，但是在Python 3.13版本中无法安装，建议创建环境的时候选择适合<code>cyvcf2</code>的版本。</strong></p>
+<h2 id="帮助文档-3"><a href="#帮助文档-3" class="headerlink" title="帮助文档"></a>帮助文档</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_vcf_extractor -h<br>usage: run_vcf_extractor [-h] [-o OUTPUT] [-s SAMPLES] [--biallelic-only] [-e {<span class="hljs-built_in">yes</span>,y,no,n}] [-t {txt,csv,excel}] [--output-dir OUTPUT_DIR] vcf_file<br><br>VCF基因型提取工具 | VCF Genotype Extraction Tool<br><br>positional arguments:<br>  vcf_file              VCF文件路径（支持.gz压缩格式） | VCF file path (supports .gz compressed format)<br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br>  -o, --output OUTPUT   输出文件前缀 | Output file prefix (default: vcf_genotype)<br>  -s, --samples SAMPLES<br>                        样本选择：all（所有样本）或逗号分隔的样本名称 | Sample selection: all (all samples) or comma-separated sample names (default: all)  <br>  --biallelic-only      只保留双等位位点 | Keep only biallelic sites (default: False)<br>  -e, --each {<span class="hljs-built_in">yes</span>,y,no,n}<br>                        按染色体拆分输出文件：<span class="hljs-built_in">yes</span>/y（是）或no/n（否） | Split output files by chromosome: <span class="hljs-built_in">yes</span>/y or no/n (default: n)<br>  -t, --output-type {txt,csv,excel}<br>                        输出文件格式 | Output file format (default: txt)<br>  --output-dir OUTPUT_DIR<br>                        输出目录 | Output directory (default: ./)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_vcf_extractor final_filtered.recode.chr.vcf.gz -o OV_snp -e y -t csv <br></code></pre></td></tr></tbody></table></figure>
+<p>日志信息：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs bash">2025-07-16 10:01:38,146 - INFO - 依赖检查 | Dependency check:<br>2025-07-16 10:01:38,147 - INFO -   cyvcf2: 不可用 | Not available<br>2025-07-16 10:01:38,147 - INFO -   pandas: 可用 | Available<br>2025-07-16 10:01:38,147 - INFO - 使用原生Python解析VCF文件 | Using native Python <span class="hljs-keyword">for</span> VCF parsing<br>2025-07-16 10:01:38,148 - INFO - 开始VCF基因型提取 | Starting VCF genotype extraction<br>2025-07-16 10:01:38,148 - INFO - 输入文件 | Input file: /mnt/f/project/04.诸葛菜/genotype/final_filtered.recode.chr.vcf.gz<br>2025-07-16 10:01:38,148 - INFO - 输出前缀 | Output prefix: OV_snp<br>2025-07-16 10:01:38,149 - INFO - 输出格式 | Output format: csv<br>2025-07-16 10:01:38,159 - INFO - 目标样本数 | Number of target samples: 100<br>2025-07-16 10:01:39,282 - INFO - 已处理 | Processed 10000 variants<br>2025-07-16 10:01:40,303 - INFO - 已处理 | Processed 20000 variants<br>2025-07-16 10:01:41,251 - INFO - 已处理 | Processed 30000 variants<br>2025-07-16 10:01:42,229 - INFO - 已处理 | Processed 40000 variants<br>2025-07-16 10:01:43,171 - INFO - 已处理 | Processed 50000 variants<br>2025-07-16 10:01:44,109 - INFO - 已处理 | Processed 60000 variants<br>2025-07-16 10:01:44,990 - INFO - 已处理 | Processed 70000 variants<br>2025-07-16 10:01:45,863 - INFO - 已处理 | Processed 80000 variants<br>2025-07-16 10:01:46,727 - INFO - 已处理 | Processed 90000 variants<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="parse-gene-info"><a href="#parse-gene-info" class="headerlink" title="parse_gene_info"></a>parse_gene_info</h1><p>从gff文件中提取基因和染色体的信息。</p>
+<h2 id="帮助文档-4"><a href="#帮助文档-4" class="headerlink" title="帮助文档"></a>帮助文档</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">parse_gene_info -h<br>usage: parse_gene_info [-h] --gff3 GFF3 --output OUTPUT [--gene-type GENE_TYPE] [--transcript-types TRANSCRIPT_TYPES [TRANSCRIPT_TYPES ...]]<br><br>从GFF3文件中为每个转录本提取整合的基因和转录本信息 | Extract integrated gene and transcript information <span class="hljs-keyword">for</span> each transcript from GFF3 files<br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br>  --gff3, -g GFF3       输入的GFF3文件路径 | Input GFF3 file path (default: None)<br>  --output, -o OUTPUT   输出的TSV文件路径 | Output TSV file path (default: None)<br>  --gene-type GENE_TYPE<br>                        基因特征类型 | Gene feature <span class="hljs-built_in">type</span> (default: gene)<br>  --transcript-types TRANSCRIPT_TYPES [TRANSCRIPT_TYPES ...]<br>                        转录本特征类型列表 | Transcript feature types list (default: [<span class="hljs-string">'mRNA'</span>, <span class="hljs-string">'transcript'</span>])<br><br>示例 | Example: parse_gene_info -g input.gff3 -o gene_transcript_info.tsv<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用示例-1"><a href="#使用示例-1" class="headerlink" title="使用示例"></a>使用示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">parse_gene_info -g genome.gff -o gene_info.txt<br></code></pre></td></tr></tbody></table></figure>
+<p>日志信息：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">2025-07-16 14:10:44,332 - INFO - 开始GFF3基因转录本提取分析 | Starting GFF3 gene transcript extraction analysis<br>2025-07-16 14:10:44,333 - INFO - 输入文件 | Input file: /mnt/f/biopytools_test/geneinfo/genome.gff<br>2025-07-16 14:10:44,333 - INFO - 输出文件 | Output file: /mnt/f/biopytools_test/geneinfo/gene_info.txt<br>2025-07-16 14:10:44,333 - INFO - 开始提取基因和转录本信息 | Starting to extract gene and transcript information<br>2025-07-16 14:10:44,334 - INFO - 输入文件 | Input file: /mnt/f/biopytools_test/geneinfo/genome.gff<br>2025-07-16 14:10:44,334 - INFO - 基因类型 | Gene <span class="hljs-built_in">type</span>: gene<br>2025-07-16 14:10:44,334 - INFO - 转录本类型 | Transcript types: transcript, mRNA<br>2025-07-16 14:10:44,334 - INFO - 开始收集基因信息 | Starting to collect gene information<br>2025-07-16 14:10:47,572 - INFO - 收集完成，共发现 51840 个基因 | Collection completed, found 51840 genes<br>2025-07-16 14:10:47,572 - INFO - 开始处理转录本信息 | Starting to process transcript information<br>2025-07-16 14:10:49,882 - INFO - 处理完成，共处理 51840 个转录本 | Processing completed, processed 51840 transcripts<br>2025-07-16 14:10:49,882 - INFO - 提取完成 | Extraction completed<br>2025-07-16 14:10:49,886 - INFO - 写入结果文件 | Writing results file: /mnt/f/biopytools_test/geneinfo/gene_info.txt<br>2025-07-16 14:10:50,270 - INFO - 结果已保存 | Results saved: /mnt/f/biopytools_test/geneinfo/gene_info.txt<br>2025-07-16 14:10:50,280 - INFO - 总结报告已生成 | Summary report generated: /mnt/f/biopytools_test/geneinfo/gff_extraction_summary.txt<br><br>基因转录本提取统计摘要 | Gene Transcript Extraction Summary:<br>============================================================<br>总转录本数 | Total transcripts: 51840<br>涉及基因数 | Genes involved: 51840<br>染色体数 | Chromosomes: 147<br>链方向 | Strands: +, -<br>孤儿转录本数 | Orphan transcripts: 0<br>染色体列表 | Chromosome list: OV01, OV02, OV03, OV04, OV05, OV06, OV07, OV08, OV09, OV10, OV11, OV12, ctg000030, ctg000040, ctg000070, ctg000080, ctg000090, ctg000100, ctg000160, ctg000180, ctg000190, ctg000210, ctg000220, ctg000240, ctg000260, ctg000270, ctg000310, ctg000330, ctg000360, ctg000400, ctg000410, ctg000420, ctg000430, ctg000440, ctg000450, ctg000470, ctg000510, ctg000520, ctg000530, ctg000550, ctg000590, ctg000610, ctg000640, ctg000650, ctg000680, ctg000720, ctg000740, ctg000760, ctg000850, ctg000890, ctg000910, ctg000920, ctg000930, ctg000940, ctg000960, ctg000980, ctg000990, ctg001060, ctg001070, ctg001100, ctg001110, ctg001120, ctg001140, ctg001150, ctg001200, ctg001210, ctg001220, ctg001250, ctg001270, ctg001300, ctg001320, ctg001330, ctg001350, ctg001390, ctg001400, ctg001440, ctg001450, ctg001470, ctg001510, ctg001560, ctg001750, ctg001770, ctg001810, ctg001820, ctg001830, ctg001860, ctg001870, ctg001880, ctg001900, ctg001910, ctg001930, ctg001940, ctg001950, ctg001960, ctg001970, ctg002000, ctg002010, ctg002020, ctg002030, ctg002080, ctg002090, ctg002110, ctg002130, ctg002180, ctg002210, ctg002230, ctg002240, ctg002260, ctg002310, ctg002350, ctg002370, ctg002380, ctg002390, ctg002400, ctg002410, ctg002420, ctg002480, ctg002530, ctg002580, ctg002590, ctg002630, ctg002640, ctg002650, ctg002670, ctg002680, ctg002760, ctg002780, ctg002840, ctg002870, ctg002900, ctg003030, ctg003110, ctg003180, ctg003220, ctg003230, ctg003240, ctg003250, ctg003260, ctg003270, ctg003330, ctg003340, ctg003350, ctg003380, ctg003390, ctg003400, ctg003410, ctg003490<br>============================================================<br>2025-07-16 14:10:50,289 - INFO - 提取完成 | Extraction completed successfully<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="run-plink-gwas"><a href="#run-plink-gwas" class="headerlink" title="run_plink_gwas"></a>run_plink_gwas</h1><p>使用PLINK进行GWAS分析。</p>
+<h2 id="帮助信息"><a href="#帮助信息" class="headerlink" title="帮助信息"></a>帮助信息</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_plink_gwas -h<br>usage: run_plink_gwas [-h] -v VCF_FILE -p PHENOTYPE_FILE [-t {qualitative,quantitative}] [-o OUTPUT_DIR] [--mind MIND] [--geno GENO] [--maf MAF]<br>                      [--hwe HWE] [--ld-window-size LD_WINDOW_SIZE] [--ld-step-size LD_STEP_SIZE] [--ld-r2-threshold LD_R2_THRESHOLD]<br>                      [--pca-components PCA_COMPONENTS] [--pca-use PCA_USE] [--correction-method {bonferroni,suggestive,fdr,all}]<br>                      [--bonferroni-alpha BONFERRONI_ALPHA] [--suggestive-threshold SUGGESTIVE_THRESHOLD] [--fdr-alpha FDR_ALPHA] [--threads THREADS]       <br><br>完整的PLINK GWAS分析流程 (模块化版本) - 支持质量性状和数量性状，多种显著性校正方法 | Complete PLINK GWAS Analysis Pipeline (Modular Version) - Supporting both qualitative and quantitative<br>traits, multiple significance correction methods<br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br>  -v, --vcf-file VCF_FILE<br>                        输入VCF文件路径（支持.gz压缩） | Input VCF file path (supports .gz compression) (default: None)<br>  -p, --phenotype-file PHENOTYPE_FILE<br>                        表型文件路径（样本ID和表型值，以空格或制表符分隔） | Phenotype file path (sample ID and phenotype value, space or tab separated) (default: None)<br>  -t, --trait-type {qualitative,quantitative}<br>                        表型类型 | Trait <span class="hljs-built_in">type</span>: <span class="hljs-string">'qualitative'</span> <span class="hljs-keyword">for</span> binary traits (0/1 -&gt; 1/2), <span class="hljs-string">'quantitative'</span> <span class="hljs-keyword">for</span> continuous traits (keep original values)    <br>                        (default: qualitative)<br>  -o, --output-dir OUTPUT_DIR<br>                        输出目录 | Output directory (default: plink_results)<br>  --mind MIND           个体缺失率阈值（移除缺失率大于此值的个体） | Individual missing rate threshold (default: 0.05)<br>  --geno GENO           SNP缺失率阈值（移除缺失率大于此值的SNP） | SNP missing rate threshold (default: 0.05)<br>  --maf MAF             最小等位基因频率阈值 | Minor allele frequency threshold (default: 0.01)<br>  --hwe HWE             Hardy-Weinberg平衡检验P值阈值 | Hardy-Weinberg equilibrium p-value threshold (default: 1e-06)<br>  --ld-window-size LD_WINDOW_SIZE<br>                        LD剪枝窗口大小（kb） | LD pruning window size (kb) (default: 50)<br>  --ld-step-size LD_STEP_SIZE<br>                        LD剪枝步长（SNP数） | LD pruning step size (number of SNPs) (default: 5)<br>  --ld-r2-threshold LD_R2_THRESHOLD<br>                        LD剪枝r²阈值 | LD pruning r² threshold (default: 0.2)<br>  --pca-components PCA_COMPONENTS<br>                        计算的主成分数量 | Number of principal components to compute (default: 10)<br>  --pca-use PCA_USE     关联分析中使用的主成分数量 | Number of PCs to use <span class="hljs-keyword">in</span> association analysis (default: 5)<br>  --correction-method {bonferroni,suggestive,fdr,all}<br>                        显著性校正方法 | Significance correction method: <span class="hljs-string">'bonferroni'</span> <span class="hljs-keyword">for</span> Bonferroni correction, <span class="hljs-string">'suggestive'</span> <span class="hljs-keyword">for</span> suggestive threshold, <span class="hljs-string">'fdr'</span> <span class="hljs-keyword">for</span><br>                        <span class="hljs-literal">false</span> discovery rate, <span class="hljs-string">'all'</span> <span class="hljs-keyword">for</span> all methods (default: all)<br>  --bonferroni-alpha BONFERRONI_ALPHA<br>                        Bonferroni校正的alpha水平 | Alpha level <span class="hljs-keyword">for</span> Bonferroni correction (default: 0.05)<br>  --suggestive-threshold SUGGESTIVE_THRESHOLD<br>                        提示性关联阈值 | Suggestive association threshold (default: 1e-05)<br>  --fdr-alpha FDR_ALPHA<br>                        FDR校正的q值阈值 | q-value threshold <span class="hljs-keyword">for</span> FDR correction (default: 0.05)<br>  --threads THREADS     使用的线程数 | Number of threads to use (default: 1)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用示例-2"><a href="#使用示例-2" class="headerlink" title="使用示例"></a>使用示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_plink_gwas -v final_filtered.recode.chr.vcf.gz -p phe.txt -o ./<br></code></pre></td></tr></tbody></table></figure>
+<p>日志信息：</p>
+<figure class="highlight routeros"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><code class="hljs routeros">2025-07-16 15:10:34,967 - <span class="hljs-built_in">INFO</span> - 开始PLINK GWAS分析流程 | Starting PLINK GWAS analysis pipeline<span class="hljs-built_in">..</span>.<br>2025-07-16 15:10:34,967 - <span class="hljs-built_in">INFO</span> - 表型类型 | Trait type: qualitative<br>2025-07-16 15:10:34,968 - <span class="hljs-built_in">INFO</span> - 显著性校正方法 | Correction method: all<br>2025-07-16 15:10:34,970 - <span class="hljs-built_in">INFO</span> - ==================================================<br>2025-07-16 15:10:34,973 - <span class="hljs-built_in">INFO</span> - 步骤1: 检查输入文件 | <span class="hljs-keyword">Step</span> 1: Checking input files<br>2025-07-16 15:10:34,973 - <span class="hljs-built_in">INFO</span> - 复制输入文件到工作目录 | Copying input files <span class="hljs-keyword">to</span> working directory<span class="hljs-built_in">..</span>.<br>2025-07-16 15:12:09,104 - <span class="hljs-built_in">INFO</span> - VCF文件已复制 | VCF file copied: input.vcf.gz<br>2025-07-16 15:12:09,135 - <span class="hljs-built_in">INFO</span> - 表型文件已复制 | Phenotype file copied: phenotype.txt<br>2025-07-16 15:12:09,137 - <span class="hljs-built_in">INFO</span> - 步骤2: 转换表型文件 | <span class="hljs-keyword">Step</span> 2: Converting phenotype file<br>2025-07-16 15:12:09,138 - <span class="hljs-built_in">INFO</span> - 转换表型文件格式 | Converting phenotype file format<span class="hljs-built_in">..</span>.<br>2025-07-16 15:12:09,141 - <span class="hljs-built_in">INFO</span> - 表型类型 | Trait type: qualitative<br>2025-07-16 15:12:09,157 - <span class="hljs-built_in">INFO</span> - 原始表型文件形状 | Original phenotype file shape: (100, 2)<br>2025-07-16 15:12:09,162 - <span class="hljs-built_in">INFO</span> - 原始表型分布 | Original phenotype distribution: {1: np.int64(50), 0: np.int64(50)}<br>2025-07-16 15:12:09,165 - <span class="hljs-built_in">INFO</span> - 处理质量性状：将0转换为1（对照），1转换为2（病例） | Processing qualitative trait: converting 0 <span class="hljs-keyword">to</span> 1 (control), 1 <span class="hljs-keyword">to</span> 2 (case)<br>2025-07-16 15:12:09,166 - <span class="hljs-built_in">INFO</span> - 转换后表型分布 | Converted phenotype distribution: {2: np.int64(50), 1: np.int64(50)}<br>2025-07-16 15:12:09,168 - <span class="hljs-built_in">INFO</span> - 对照数 (抗病, 原值0) | Controls (resistant, original 0): 50<br>2025-07-16 15:12:09,168 - <span class="hljs-built_in">INFO</span> - 病例数 (感病, 原值1) | Cases (susceptible, original 1): 50<br>2025-07-16 15:12:09,180 - <span class="hljs-built_in">INFO</span> - 表型文件转换完成 | Phenotype file conversion completed<br>2025-07-16 15:12:09,181 - <span class="hljs-built_in">INFO</span> - 步骤3: 转换VCF文件 | <span class="hljs-keyword">Step</span> 3: Converting VCF file<br>2025-07-16 15:12:09,181 - <span class="hljs-built_in">INFO</span> - 转换VCF文件为PLINK格式 | Converting VCF file <span class="hljs-keyword">to</span> PLINK format<span class="hljs-built_in">..</span>.<br>2025-07-16 15:12:09,181 - <span class="hljs-built_in">INFO</span> - 执行步骤 | Executing <span class="hljs-keyword">step</span>: VCF转换为PLINK格式 | Converting VCF <span class="hljs-keyword">to</span> PLINK format<br>2025-07-16 15:12:09,182 - <span class="hljs-built_in">INFO</span> - 命令 | Command: plink --vcf input.vcf.gz --make-bed --out raw_data --allow-extra-chr --set-missing-var-ids @:# --keep-allele-order<br><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><span class="hljs-built_in">..</span><br>2025-07-16 15:40:34,137 - <span class="hljs-built_in">INFO</span> - PLINK GWAS分析流程完成！ | PLINK GWAS analysis pipeline completed!<br>2025-07-16 15:40:34,138 - <span class="hljs-built_in">INFO</span> - 表型类型 | Trait type: qualitative<br>2025-07-16 15:40:34,139 - <span class="hljs-built_in">INFO</span> - 显著性校正方法 | Correction method: all<br>2025-07-16 15:40:34,139 - <span class="hljs-built_in">INFO</span> - 所有结果保存在 | All results saved <span class="hljs-keyword">in</span>: /mnt/f/biopytools_test/gwas<br>2025-07-16 15:40:34,141 - <span class="hljs-built_in">INFO</span> - 主要输出文件 | Main output files:<br>2025-07-16 15:40:34,143 - <span class="hljs-built_in">INFO</span> - - analysis_report.txt: 分析报告 | Analysis report<br>2025-07-16 15:40:34,144 - <span class="hljs-built_in">INFO</span> - - gwas_results_ADD.txt: 主要关联结果 | Main association results<br>2025-07-16 15:40:34,144 - <span class="hljs-built_in">INFO</span> - - significant_bonferroni.txt: Bonferroni校正显著位点 | Bonferroni significant loci<br>2025-07-16 15:40:34,144 - <span class="hljs-built_in">INFO</span> - - bonferroni_info.txt: Bonferroni校正信息 | Bonferroni correction information<br>2025-07-16 15:40:34,144 - <span class="hljs-built_in">INFO</span> - - significant_suggestive.txt: 提示性关联位点 | Suggestive association loci<br>2025-07-16 15:40:34,145 - <span class="hljs-built_in">INFO</span> - - suggestive_info.txt: 提示性关联信息 | Suggestive association information<br>2025-07-16 15:40:34,145 - <span class="hljs-built_in">INFO</span> - - significant_fdr.txt: FDR校正显著位点 | FDR significant loci<br>2025-07-16 15:40:34,146 - <span class="hljs-built_in">INFO</span> - - fdr_info.txt: FDR校正信息 | FDR correction information<br>2025-07-16 15:40:34,147 - <span class="hljs-built_in">INFO</span> - - manhattan_plot.png: Manhattan图 | Manhattan plot<br>2025-07-16 15:40:34,148 - <span class="hljs-built_in">INFO</span> - - qq_plot.png: QQ图 | QQ plot<br></code></pre></td></tr></tbody></table></figure>
+<h1 id="run-kmer-analysis"><a href="#run-kmer-analysis" class="headerlink" title="run_kmer_analysis"></a>run_kmer_analysis</h1><p>从fastq文件中找特定序列的k-mer存在/缺失矩阵。</p>
+<h2 id="帮助信息-1"><a href="#帮助信息-1" class="headerlink" title="帮助信息"></a>帮助信息</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_kmer_analysis -h<br>usage: run_kmer_analysis [-h] -g GENE_FASTA -f FASTQ_DIR -o OUTPUT_DIR [-k KMER_SIZE] [-t THREADS] [-m HARD_MIN] [-p PROJECT_NAME] [--skip-build]<br>                         [--run-haplotype] [-n N_COMPONENTS]<br><br>高性能k-mer数据库查询流水线 | High-Performance K-mer Database Query Pipeline<br>基于kmtricks + RocksDB的大规模k-mer分析系统 | Large-scale k-mer analysis system based on kmtricks + RocksDB<br><br>专为大规模数据集设计 (支持数千个样本) | Designed <span class="hljs-keyword">for</span> large-scale datasets (supporting thousands of samples):<br>1. 一次构建全基因组k-mer数据库 | Build genome-wide k-mer database once<br>2. 支持快速查询任意基因的k-mer模式 | Support fast queries of k-mer patterns <span class="hljs-keyword">for</span> any genes<br>3. 查询速度: 秒级到分钟级 (vs 小时级的暴力搜索) | Query speed: seconds to minutes (vs hours of brute force)<br><br>适用场景 | Use Cases:<br>- 大规模群体基因组学研究 | Large-scale population genomics studies<br>- 需要重复查询不同基因的场景 | Scenarios requiring repeated queries of different genes<br>- 对查询速度有高要求的项目 | Projects with high query speed requirements<br><br>性能对比 (5000个样本) | Performance Comparison (5000 samples):<br>- 传统方法 | Traditional method: 每次查询数周 | weeks per query<br>- 本方法 | This method: 构建一次(1-2天) + 查询(1-5分钟) | build once (1-2 days) + query (1-5 minutes)<br><br><br>options:<br>  -h, --<span class="hljs-built_in">help</span>            show this <span class="hljs-built_in">help</span> message and <span class="hljs-built_in">exit</span><br><br>必需参数 | Required Arguments:<br>  -g GENE_FASTA, --gene-fasta GENE_FASTA<br>                        目标基因FASTA文件路径 | Target gene FASTA file path<br>  -f FASTQ_DIR, --fastq-dir FASTQ_DIR<br>                        FASTQ文件目录路径 | FASTQ file directory path<br>  -o OUTPUT_DIR, --output-dir OUTPUT_DIR<br>                        输出目录路径 | Output directory path<br><br>k-mer分析参数 | K-mer Analysis Parameters:<br>  -k KMER_SIZE, --kmer-size KMER_SIZE<br>                        k-mer大小 (默认: 51) | k-mer size (default: 51)<br>  -t THREADS, --threads THREADS<br>                        线程数 (默认: 32，建议使用较多线程) | Thread count (default: 32, recommend using more threads)<br>  -m HARD_MIN, --hard-min HARD_MIN<br>                        最小k-mer频次阈值 (默认: 2) | Minimum k-mer frequency threshold (default: 2)<br><br>流程控制参数 | Process Control Parameters:<br>  -p PROJECT_NAME, --project-name PROJECT_NAME<br>                        项目名称 (默认: 从输出目录名获取) | Project name (default: derived from output directory name)<br>  --skip-build          跳过数据库构建步骤 (用于已有数据库的查询) | Skip database build step (<span class="hljs-keyword">for</span> querying existing database)<br>  --run-haplotype       运行单倍型聚类分析 | Run haplotype clustering analysis<br>  -n N_COMPONENTS, --n-components N_COMPONENTS<br>                        BGMM最大聚类数 (默认: 5) | Maximum number of BGMM clusters (default: 5)<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="使用示例-3"><a href="#使用示例-3" class="headerlink" title="使用示例"></a>使用示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">run_kmer_analysis -g gene/gene.fa -f fastq -o output<br></code></pre></td></tr></tbody></table></figure>
+<p>日志信息：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs bash">2025-07-16 17:17:51,743 - INFO - 开始高性能k-mer数据库分析流水线 | Starting high-performance k-mer database analysis pipeline...<br>2025-07-16 17:17:51,744 - INFO - <br>============================================================<br>2025-07-16 17:17:51,744 - INFO - 步骤1: 创建FOF文件 | Step 1: Create FOF file<br>2025-07-16 17:17:51,744 - INFO - ============================================================<br>2025-07-16 17:17:51,744 - INFO - 创建FOF文件 | Creating FOF file...<br>2025-07-16 17:17:51,746 - INFO - 自动检测FASTQ文件 | Auto detecting FASTQ files...<br>2025-07-16 17:17:51,787 - INFO - 找到8个FASTQ文件 | Found 8 FASTQ files<br>2025-07-16 17:17:51,787 - INFO - 检测到4个样本 | Detected 4 samples<br>2025-07-16 17:17:51,805 - INFO - FOF文件已创建 | FOF file created: output/samples.fof<br>2025-07-16 17:17:51,807 - INFO - 包含 4 个样本 | Contains 4 samples<br>2025-07-16 17:17:51,808 - INFO -<br>============================================================<br>2025-07-16 17:17:51,808 - INFO - 步骤2: 构建kmtricks数据库 | Step 2: Build kmtricks database<br>2025-07-16 17:17:51,810 - INFO - ============================================================<br>2025-07-16 17:17:51,810 - INFO - 开始运行kmtricks k-mer构建流水线 | Starting kmtricks k-mer construction pipeline...<br>2025-07-16 17:17:51,811 - INFO - 警告: 这一步可能需要数小时到一天时间，但只需要执行一次 | Warning: This step may take hours to a day, but only needs to be run once<br>2025-07-16 17:17:51,835 - INFO - FOF文件路径 | FOF file path: /mnt/f/biopytools_test/kmer/output/samples.fof<br>2025-07-16 17:17:51,836 - INFO - kmtricks运行目录 | kmtricks run directory: /mnt/f/biopytools_test/kmer/output/output.k51<br>2025-07-16 17:17:51,837 - INFO - 这可能需要很长时间，请耐心等待 | This may take a long time, please be patient...<br>2025-07-16 17:17:51,840 - INFO - 执行步骤 | Executing step: kmtricks k-mer构建 | kmtricks k-mer construction<br>2025-07-16 17:17:51,842 - INFO - 命令 | Command: kmtricks pipeline -t 32 --file /mnt/f/biopytools_test/kmer/output/samples.fof --run-dir /mnt/f/biopytools_test/kmer/output/output.k51 --mode kmer:pa:bin --hard-min 2 --kmer-size 51 --cpr<br>2025-07-16 17:17:51,856 - INFO - ✓ FOF文件存在 | FOF file exists: /mnt/f/biopytools_test/kmer/output/samples.fof<br>2025-07-16 17:17:51,864 - INFO - 输出 | Output: [2025-07-16 17:17:51.864] [info] Run with Kmer&lt;64&gt; - __uint128_t implementation<br>2025-07-16 17:17:51,925 - INFO - 输出 | Output: [2025-07-16 17:17:51.925] [info] Compute configuration...<br>2025-07-16 17:17:51,927 - INFO - 输出 | Output: [2025-07-16 17:17:51.925] [info] 4 samples found (8 <span class="hljs-built_in">read</span> files).<br>2025-07-16 17:17:53,371 - INFO - 输出 | Output: [2025-07-16 17:17:53.371] [info] Use 46 partitions.<br>2025-07-16 17:17:53,728 - INFO - 输出 | Output: [2025-07-16 17:17:53.728] [info] Compute minimizer repartition...<br>2025-07-16 17:18:02,168 - INFO - 输出 | Output: <br>2025-07-16 17:18:02,169 - INFO - 输出 | Output: Compute SuperK   [&gt;                                                 ] [00:00s]<br>2025-07-16 17:18:02,169 - INFO - 输出 | Output: Compute SuperK   [&gt;                                                 ] [00m:00s]<br>2025-07-16 17:18:02,169 - INFO - 输出 | Output:<br>......<br><br></code></pre></td></tr></tbody></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>biopytools的用法</div>
+      <div>https://lixiang117423.github.io/article/biopytools-readme/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年7月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/run-fastp/" title="运行fastp的脚本">
+                        <span class="hidden-mobile">运行fastp的脚本</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
