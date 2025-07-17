@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/ubuntuinstallmlr3verse/" target="_self">
-          Ubuntu服务器安装R包mlr3verse
+        <a href="/article/ubuntushiny/" target="_self">
+          Ubuntu搭建shiny-server
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuinstallmlr3verse/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntushiny/" target="_self">
         <div>
-          mlr3verse是R里面机器学习中的集大成者。但是我死活安装不上。把交换内存搞到了120G还是报错。真的是要炸了。突然想到，可以用conda安装啊。 12conda install -c conda-forge r-mlr3versesudo ln -s /home/lixiang/miniconda3/lib/R/library/R62S3 /usr/local/lib/R/site-libr
+          从这里开始写正文 1234567891011121314151617181920212223#root 权限进入sudo suuseradd shiny # 添加shiny用户passwd shiny # 修改shiny用户的密码chmod +w /etc/sudoers # 修改权限sudo vim /etc/sudoers # 编辑# root ALL=(ALL) ALL 该行，在下面添加 s
         </div>
       </a>
 
@@ -249,8 +249,41 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-22 17:38" pubdate>
-              2022-03-22
+            <time datetime="2021-11-25 19:50" pubdate>
+              2021-11-25
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/ubuntuupdaterstudioserver/" target="_self">
+          Ubuntu更新RStudioServer
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuupdaterstudioserver/" target="_self">
+        <div>
+          暂停当前任务 1sudo rstudio-server suspend-all  下线旧版本 1sudo rstudio-server offline  下载新版本点击链接下载最新版。  安装新版本 1sudo gdebi &lt;rstudio-server-package.deb&gt;  重启服务 1sudo rstudio-server restart  上线新版本 1sudo rstu
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-01-03 15:32" pubdate>
+              2023-01-03
             </time>
           </div>
         
@@ -355,15 +388,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/594585ty/" target="_self">
-          Ubuntu部署Hexo
+        <a href="/article/ubuntuinstallmlr3verse/" target="_self">
+          Ubuntu服务器安装R包mlr3verse
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/594585ty/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuinstallmlr3verse/" target="_self">
         <div>
-          123456789101112131415161718192021222324252627282930313233# 添加用户adduser hexo# 切回用户目录su hexo# 新建目录存放blogmkdir blog# 初始化裸gitgit init --bare hexo.git# vim hexo.git/hooks/post-receive#!/bin/shgit --work-tr
+          mlr3verse是R里面机器学习中的集大成者。但是我死活安装不上。把交换内存搞到了120G还是报错。真的是要炸了。突然想到，可以用conda安装啊。 12conda install -c conda-forge r-mlr3versesudo ln -s /home/lixiang/miniconda3/lib/R/library/R62S3 /usr/local/lib/R/site-libr
         </div>
       </a>
 
@@ -371,41 +404,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-23 16:25" pubdate>
-              2021-11-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/ubuntuupdaterstudioserver/" target="_self">
-          Ubuntu更新RStudioServer
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuupdaterstudioserver/" target="_self">
-        <div>
-          暂停当前任务 1sudo rstudio-server suspend-all  下线旧版本 1sudo rstudio-server offline  下载新版本点击链接下载最新版。  安装新版本 1sudo gdebi &lt;rstudio-server-package.deb&gt;  重启服务 1sudo rstudio-server restart  上线新版本 1sudo rstu
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-01-03 15:32" pubdate>
-              2023-01-03
+            <time datetime="2022-03-22 17:38" pubdate>
+              2022-03-22
             </time>
           </div>
         
@@ -514,6 +514,100 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/article/ubuntuzsh/" target="_self">
+          Ubuntu配置zsh和主题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuzsh/" target="_self">
+        <div>
+          总代码1234sudo apt-get updatesudo apt install zshchsh -s /bin/zshsh -c "$(curl -fsSL https://gitee.com/Devkings/oh_my_zsh_install/raw/master/install.sh)" 安装zsh12sudo apt install zshchsh -s /bin/zsh 安装Oh
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-03-09 20:27" pubdate>
+              2023-03-09
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/594585ty/" target="_self">
+          Ubuntu部署Hexo
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/594585ty/" target="_self">
+        <div>
+          123456789101112131415161718192021222324252627282930313233# 添加用户adduser hexo# 切回用户目录su hexo# 新建目录存放blogmkdir blog# 初始化裸gitgit init --bare hexo.git# vim hexo.git/hooks/post-receive#!/bin/shgit --work-tr
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-11-23 16:25" pubdate>
+              2021-11-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/article/85985tgy/" target="_self">
           Ubuntu部署bookdown
         </a>
@@ -570,189 +664,6 @@
               <a href="/tags/Ubuntu/">#Ubuntu</a>
             
               <a href="/tags/bookdown/">#bookdown</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/41af5d00/" target="_self">
-          UniProt数据库爬虫获取相关信息
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
-        <div>
-          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-18 22:02" pubdate>
-              2021-04-18
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Python/" class="category-chain-item">Python</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Python/">#Python</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/vscodeline/" target="_self">
-          VSCode取消波浪线
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
-        <div>
-          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 11:35" pubdate>
-              2023-04-05
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/vscoderemoteserver/" target="_self">
-          VScode远程连接服务器并使用R
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscoderemoteserver/" target="_self">
-        <div>
-          实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 服务器端使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装langu
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-13 19:12" pubdate>
-              2023-03-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
         
@@ -827,15 +738,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/wsl4docker/" target="_self">
-          WSL安装运行docker
+        <a href="/article/vscoderemoteserver/" target="_self">
+          VScode远程连接服务器并使用R
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wsl4docker/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/vscoderemoteserver/" target="_self">
         <div>
-          Docker的安装参考的安装教程：Docker-从入门到实践。关键的代码如下： 1234curl -fsSL test.docker.com -o get-docker.shcurl -fsSL get.docker.com -o get-docker.shsudo sh get-docker.sh --mirror Aliyunsudo sh get-docker.sh --mirror Azu
+          实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 服务器端使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装langu
         </div>
       </a>
 
@@ -843,8 +754,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-06 14:40" pubdate>
-              2021-12-06
+            <time datetime="2023-03-13 19:12" pubdate>
+              2023-03-13
             </time>
           </div>
         
@@ -876,11 +787,66 @@
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">#软件安装</a>
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/vscodeline/" target="_self">
+          VSCode取消波浪线
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
+        <div>
+          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-04-05 11:35" pubdate>
+              2023-04-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
             
-              <a href="/tags/WSL/">#WSL</a>
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/docker/">#docker</a>
+              <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
             
           </div>
         
@@ -894,15 +860,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/wslncs25/" target="_self">
-          WSL设置内存和线程数
+        <a href="/article/41af5d00/" target="_self">
+          UniProt数据库爬虫获取相关信息
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wslncs25/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
         <div>
-          从这里开始写正文  Windows + R 键，输入 %UserProfile% 并运行进入用户文件夹； 新建一个 {%  label .wslconfig purple %} 文件，写入下面的内容：  1234[wsl2]memory=30Gswap=12Gprocessors=12  先关闭WSL：  1wsl --shutdown  再开启即可：  1wsl  💌lixiang117423
+          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
         </div>
       </a>
 
@@ -910,12 +876,40 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 10:57" pubdate>
-              2021-11-25
+            <time datetime="2021-04-18 22:02" pubdate>
+              2021-04-18
             </time>
           </div>
         
         
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Python/" class="category-chain-item">Python</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Python/">#Python</a>
+            
+          </div>
         
       </div>
     </article>
