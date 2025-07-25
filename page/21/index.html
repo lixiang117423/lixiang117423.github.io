@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/condainstallr/" target="_self">
-          Conda安装最新版R
+        <a href="/article/nextcloud/" target="_self">
+          Docker部署nextcloud修改配置文件
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/condainstallr/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/nextcloud/" target="_self">
         <div>
-          1234conda config --add channels conda-forgeconda config --set channel_priority strictconda search r-baseconda install -c conda-forge r-base=4.1.2  💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
+          找到对应的文件修改即可： 1find /var -name "config.php"  💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
         </div>
       </a>
 
@@ -249,69 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-03-28 13:07" pubdate>
-              2022-03-28
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/dockeraly/" target="_self">
-          Docker配置阿里云镜像
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/dockeraly/" target="_self">
-        <div>
-          登录阿里云获取专用镜像链接：https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors  修改配置文件 1sudo vi  /etc/docker/daemon.json  加入下面的内容：   123{  "registry-mirrors": ["https://xxxxxxx.mirror.aliyuncs.com"]}  💌l
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-19 16:55" pubdate>
-              2022-06-19
+            <time datetime="2022-01-17 15:40" pubdate>
+              2022-01-17
             </time>
           </div>
         
@@ -373,6 +312,67 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2022-04-21 10:41" pubdate>
               2022-04-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/dualrnaseq/" target="_self">
+          DualRNA-Seq分析流程
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/dualrnaseq/" target="_self">
+        <div>
+          参考流程：https://nf-co.re/dualrnaseq/1.0.0/usage  Ewels P A, Peltzer A, Fillinger S, et al. The nf-core framework for community-curated bioinformatics pipelines[J]. Nature biotechnology, 2020, 38(3): 276-
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-29 20:18" pubdate>
+              2021-12-29
             </time>
           </div>
         
@@ -538,67 +538,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/hrptofindnb-lrr/" target="_self">
-          HRP鉴定NB-LRR基因所有代码
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/hrptofindnb-lrr/" target="_self">
-        <div>
-          123456789101112131415161718bash /usr/bin/interproscan.sh -f TSV -app Pfam -i data/proteins.fa -b results/1-interproscangrep NB-ARC results/1-interproscan.tsv | cut -f1,7,8 &gt; results/2-interproscan.
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-08 13:56" pubdate>
-              2022-04-08
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
         <a href="/article/hexoall/" target="_self">
           Hexo博客搭建中遇到的问题及解决方法
         </a>
@@ -662,15 +601,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/keggrest/" target="_self">
-          KEGGREST用法
+        <a href="/article/hrptofindnb-lrr/" target="_self">
+          HRP鉴定NB-LRR基因所有代码
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/keggrest/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/hrptofindnb-lrr/" target="_self">
         <div>
-          12library(KEGGREST) kegg &lt;- keggGet("ko01120")   💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
+          123456789101112131415161718bash /usr/bin/interproscan.sh -f TSV -app Pfam -i data/proteins.fa -b results/1-interproscangrep NB-ARC results/1-interproscan.tsv | cut -f1,7,8 &gt; results/2-interproscan.
         </div>
       </a>
 
@@ -678,8 +617,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-01-18 13:53" pubdate>
-              2022-01-18
+            <time datetime="2022-04-08 13:56" pubdate>
+              2022-04-08
             </time>
           </div>
         
@@ -849,6 +788,128 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/article/keggrest/" target="_self">
+          KEGGREST用法
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/keggrest/" target="_self">
+        <div>
+          12library(KEGGREST) kegg &lt;- keggGet("ko01120")   💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-18 13:53" pubdate>
+              2022-01-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/ubuntunote/" target="_self">
+          Linux运维笔记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntunote/" target="_self">
+        <div>
+          系统相关 强制重启报错，重启后无法进入系统。解决方法：重启后按上下键，选择第三个内核进入系统。   软件安装用户相关Docker相关 暂停并移除所有的容器和镜像 123456docker ps -aqdocker stop $(docker ps -aq)docker rm $(docker ps -aq)docker rmi $(docker ps -aq)docker rmi $(docker
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-12-07 13:28" pubdate>
+              2022-12-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/article/2f176420/" target="_self">
           Linux Tips
         </a>
@@ -897,67 +958,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/Linux/">#Linux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/magpurify2/" target="_self">
-          MAGpurify2配置
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/magpurify2/" target="_self">
-        <div>
-          安装123mamba create -n magpurify2    mamba activate magpurify2     pip install magpurify2        数据库下载数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。 12345fileId="1ooWiR3LplBy5GsY5wZ7o6dwswiCWVvmi"fileName="
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-06-30 10:00" pubdate>
-              2023-06-30
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
         

@@ -361,6 +361,67 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
+        <a href="/article/wikijsinstall/" target="_self">
+          wiki.js部署
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/wikijsinstall/" target="_self">
+        <div>
+          安装PostgreSQL1234567891011121314151617181920212223242526sudo apt update &amp;&amp; sudo apt upgradesudo apt-cache search postgresql | grep postgresqlsudo sh -c 'echo "deb http://apt.postgresql.org/pub/
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-11-21 09:30" pubdate>
+              2022-11-21
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
         <a href="/article/rshinyuploadfile/" target="_self">
           shiny上传文件报错
         </a>
@@ -411,67 +472,6 @@
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
               <a href="/tags/R/">#R</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/wikijsinstall/" target="_self">
-          wiki.js部署
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wikijsinstall/" target="_self">
-        <div>
-          安装PostgreSQL1234567891011121314151617181920212223242526sudo apt update &amp;&amp; sudo apt upgradesudo apt-cache search postgresql | grep postgresqlsudo sh -c 'echo "deb http://apt.postgresql.org/pub/
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-11-21 09:30" pubdate>
-              2022-11-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
           </div>
         
@@ -564,6 +564,67 @@
             <i class="iconfont icon-date"></i>
             <time datetime="2021-12-29 21:17" pubdate>
               2021-12-29
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/gff3genelength/" target="_self">
+          从gff3文件提取基因长度
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/gff3genelength/" target="_self">
+        <div>
+          123456library(GenomicFeatures)txdb &lt;- makeTxDbFromGFF("../genome/me.gff3",format="auto")exons_gene &lt;- exonsBy(txdb, by = "gene")exons_gene_lens &lt;- lapply(exons_gene,function(x){sum(width(redu
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-12-13 21:17" pubdate>
+              2021-12-13
             </time>
           </div>
         
@@ -729,67 +790,6 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/gff3genelength/" target="_self">
-          从gff3文件提取基因长度
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/gff3genelength/" target="_self">
-        <div>
-          123456library(GenomicFeatures)txdb &lt;- makeTxDbFromGFF("../genome/me.gff3",format="auto")exons_gene &lt;- exonsBy(txdb, by = "gene")exons_gene_lens &lt;- lapply(exons_gene,function(x){sum(width(redu
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-13 21:17" pubdate>
-              2021-12-13
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
         <a href="/article/a1ccb979/" target="_self">
           代谢组S-plot
         </a>
@@ -912,15 +912,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/heritability/" target="_self">
-          关于广义遗传力
+        <a href="/article/ttest123/" target="_self">
+          关于t检验-正态性和方差齐性
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/heritability/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/ttest123/" target="_self">
         <div>
-          广义遗传力（broad-sense heritability）是一个用于描述性状在总体中遗传成分所占比例的统计量。它是指由所有基因效应和环境因素共同决定的某个性状的遗传变异部分与总变异部分之间的比例。 广义遗传力包括了所有遗传因素的影响，包括加性、显性、上位和互作效应等。它通常用 H^2 表示，其取值范围为 0 到 1 之间。当 H^2=0 时，表明该性状完全由环境因素决定；当 H^2=1 时，表
+          在公众号看到的推文里面的图：   💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
         </div>
       </a>
 
@@ -928,8 +928,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 16:18" pubdate>
-              2023-04-05
+            <time datetime="2021-11-27 11:42" pubdate>
+              2021-11-27
             </time>
           </div>
         
@@ -944,7 +944,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  <a href="/categories/%E7%BB%9F%E8%AE%A1%E5%AD%A6/" class="category-chain-item">统计学</a>
   
   
 
@@ -959,7 +959,11 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E6%98%AF%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#是生物信息学</a>
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+              <a href="/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6/">#统计学</a>
+            
+              <a href="/tags/T%E6%A3%80%E9%AA%8C/">#T检验</a>
             
           </div>
         
