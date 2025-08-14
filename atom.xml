@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-07-25T02:36:13.000Z</updated>
+  <updated>2025-08-14T05:25:13.556Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -17,11 +17,62 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>关于VCF和gVCF</title>
+    <link href="https://lixiang117423.github.io/article/gvcfvsvcf/"/>
+    <id>https://lixiang117423.github.io/article/gvcfvsvcf/</id>
+    <published>2025-08-14T05:22:06.000Z</published>
+    <updated>2025-08-14T05:25:13.556Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;gVCF联合分型-vs-VCF文件合并：深度解析变异检测的两种策略&quot;&gt;&lt;a href=&quot;#gVCF联合分型-vs-VCF文件合并：深度解析变异检测的两种策略&quot; class=&quot;headerlink&quot; title=&quot;gVCF联合分型 vs</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置methylKit环境</title>
+    <link href="https://lixiang117423.github.io/article/methylkit/"/>
+    <id>https://lixiang117423.github.io/article/methylkit/</id>
+    <published>2025-08-01T11:14:26.000Z</published>
+    <updated>2025-08-01T11:16:34.447Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;各种折腾， 终于安装成功：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>biopytools的用法</title>
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-25T02:36:13.000Z</updated>
+    <updated>2025-07-16T13:32:53.088Z</updated>
     
     
       
@@ -46,7 +97,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-16T13:32:53.088Z</updated>
+    <updated>2025-07-25T02:36:13.000Z</updated>
     
     
       
@@ -605,7 +656,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-07-30T05:38:57.796Z</updated>
+    <updated>2025-08-14T05:25:25.044Z</updated>
     
     
       
@@ -867,13 +918,7 @@
       
         
         
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
         
       
     
@@ -894,7 +939,13 @@
       
         
         
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
         
       
     
@@ -1191,57 +1242,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;为何要计算-BLUE-值？&quot;&gt;&lt;a href=&quot;#为何要计算-BLUE-值？&quot; class=&quot;headerlink&quot; title=&quot;为何要计算 BLUE 值？&quot;&gt;&lt;/a&gt;为何要计算 BLUE</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Positron设置快捷键</title>
-    <link href="https://lixiang117423.github.io/article/positronshortcuts/"/>
-    <id>https://lixiang117423.github.io/article/positronshortcuts/</id>
-    <published>2024-07-10T12:27:31.000Z</published>
-    <updated>2024-07-10T12:32:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;毫无疑问，&lt;code&gt;Positron&lt;/code&gt;是非常好用的，可是一些快捷键无法设置，那就直接编辑快捷键吧。&lt;/p&gt;
-&lt;p&gt;找到&lt;code&gt;Positron&lt;/code&gt;的安装路径下的这个文件&lt;code&gt;keybindings.json&lt;/code&gt;，我的路径是：&lt;/p</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>NCBI数据库BioProject中的Description</title>
-    <link href="https://lixiang117423.github.io/article/ncbi.bioproject/"/>
-    <id>https://lixiang117423.github.io/article/ncbi.bioproject/</id>
-    <published>2024-06-16T03:58:38.000Z</published>
-    <updated>2024-06-16T04:02:22.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
