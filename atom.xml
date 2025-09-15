@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-08-14T05:25:13.556Z</updated>
+  <updated>2025-09-15T01:24:57.974Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>macBook安装igraph的崎岖之路</title>
+    <link href="https://lixiang117423.github.io/article/igraph/"/>
+    <id>https://lixiang117423.github.io/article/igraph/</id>
+    <published>2025-09-15T01:20:58.000Z</published>
+    <updated>2025-09-15T01:24:57.974Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;先是疯狂报错：&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>biopytools中blast的用法</title>
+    <link href="https://lixiang117423.github.io/article/biopytools-blast/"/>
+    <id>https://lixiang117423.github.io/article/biopytools-blast/</id>
+    <published>2025-09-10T05:49:16.000Z</published>
+    <updated>2025-09-10T06:02:07.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;高效的序列比对和相似性搜索工具 | Efficient Sequence Alignment and Similarity Search Tool&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id=&quot;📖-功能概述-Overview&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>关于VCF和gVCF</title>
@@ -72,7 +124,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-25T02:36:13.000Z</updated>
+    <updated>2025-07-16T13:32:53.088Z</updated>
     
     
       
@@ -97,7 +149,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-16T13:32:53.088Z</updated>
+    <updated>2025-07-25T02:36:13.000Z</updated>
     
     
       
@@ -656,7 +708,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-09-10T06:16:00.911Z</updated>
+    <updated>2025-09-15T01:25:05.597Z</updated>
     
     
       
@@ -1191,57 +1243,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自动下载校验fastq文件</title>
-    <link href="https://lixiang117423.github.io/article/downloadfastq/"/>
-    <id>https://lixiang117423.github.io/article/downloadfastq/</id>
-    <published>2024-08-21T07:16:21.000Z</published>
-    <updated>2024-08-21T07:32:00.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;首先，直接在&lt;a href=&quot;https://www.ebi.ac.uk/ena/browser/view/&quot;&gt;ENA&lt;/a&gt;上检索想要下载的数据，如：&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BLUP和BLUE</title>
-    <link href="https://lixiang117423.github.io/article/blueandblup/"/>
-    <id>https://lixiang117423.github.io/article/blueandblup/</id>
-    <published>2024-08-07T03:01:06.000Z</published>
-    <updated>2024-08-07T03:02:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;为何要计算-BLUE-值？&quot;&gt;&lt;a href=&quot;#为何要计算-BLUE-值？&quot; class=&quot;headerlink&quot; title=&quot;为何要计算 BLUE 值？&quot;&gt;&lt;/a&gt;为何要计算 BLUE</summary>
         
       
     
