@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-09-15T01:24:57.974Z</updated>
+  <updated>2025-09-20T11:18:27.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生物信息学常用的分析方法和相应的软件及代码</title>
+    <link href="https://lixiang117423.github.io/article/bioinfinone/"/>
+    <id>https://lixiang117423.github.io/article/bioinfinone/</id>
+    <published>2025-09-20T10:20:54.000Z</published>
+    <updated>2025-09-20T11:18:27.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;基因组&quot;&gt;&lt;a href=&quot;#基因组&quot; class=&quot;headerlink&quot; title=&quot;基因组&quot;&gt;&lt;/a&gt;基因组&lt;/h1&gt;&lt;h2 id=&quot;序列质控&quot;&gt;&lt;a href=&quot;#序列质控&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>macBook安装igraph的崎岖之路</title>
@@ -124,7 +149,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-16T13:32:53.088Z</updated>
+    <updated>2025-07-25T02:36:13.000Z</updated>
     
     
       
@@ -149,7 +174,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-25T02:36:13.000Z</updated>
+    <updated>2025-07-16T13:32:53.088Z</updated>
     
     
       
@@ -708,7 +733,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-09-15T01:25:05.597Z</updated>
+    <updated>2025-09-21T14:11:22.670Z</updated>
     
     
       
@@ -1218,31 +1243,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;软件配置&quot;&gt;&lt;a href=&quot;#软件配置&quot; class=&quot;headerlink&quot; title=&quot;软件配置&quot;&gt;&lt;/a&gt;软件配置&lt;/h1&gt;&lt;h2 id=&quot;DeepLoc-2-0&quot;&gt;&lt;a href=&quot;#DeepLoc-2-0&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>遗传力的概念和计算</title>
-    <link href="https://lixiang117423.github.io/article/heritability01/"/>
-    <id>https://lixiang117423.github.io/article/heritability01/</id>
-    <published>2024-08-27T01:28:57.000Z</published>
-    <updated>2024-08-27T03:41:46.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment</summary>
         
       
     
