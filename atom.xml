@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-09-20T11:18:27.000Z</updated>
+  <updated>2025-10-30T02:25:34.000Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nature文章的NLR分析方法</title>
+    <link href="https://lixiang117423.github.io/article/naturenlr/"/>
+    <id>https://lixiang117423.github.io/article/naturenlr/</id>
+    <published>2025-10-30T02:21:46.000Z</published>
+    <updated>2025-10-30T02:25:34.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;《Nature》论文NLR基因分析方法深度解析&quot;&gt;&lt;a href=&quot;#《Nature》论文NLR基因分析方法深度解析&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WSL部署JBrowse</title>
+    <link href="https://lixiang117423.github.io/article/wsljbrowse/"/>
+    <id>https://lixiang117423.github.io/article/wsljbrowse/</id>
+    <published>2025-10-28T03:27:47.000Z</published>
+    <updated>2025-10-28T04:14:50.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;更新软件列表&quot;&gt;&lt;a href=&quot;#更新软件列表&quot; class=&quot;headerlink&quot; title=&quot;更新软件列表&quot;&gt;&lt;/a&gt;更新软件列表&lt;/h1&gt;&lt;figure class=&quot;highlight ebnf&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>生物信息学常用的分析方法和相应的软件及代码</title>
@@ -733,7 +783,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-09-21T14:11:22.670Z</updated>
+    <updated>2025-10-31T01:52:13.859Z</updated>
     
     
       
@@ -1197,52 +1247,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;测序原理&quot;&gt;&lt;a href=&quot;#测序原理&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>bismark过程中的一个小细节</title>
-    <link href="https://lixiang117423.github.io/article/bismarkbug/"/>
-    <id>https://lixiang117423.github.io/article/bismarkbug/</id>
-    <published>2024-09-24T03:37:16.000Z</published>
-    <updated>2024-09-24T03:44:40.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;在最后一步&lt;code&gt;bismark_methylation_extractor&lt;/code&gt;的时候，输出的&lt;code&gt;.bedGraph&lt;/code&gt; 和</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>真菌分泌蛋白预测流程</title>
-    <link href="https://lixiang117423.github.io/article/secretome4fungi/"/>
-    <id>https://lixiang117423.github.io/article/secretome4fungi/</id>
-    <published>2024-08-29T01:40:57.000Z</published>
-    <updated>2024-08-29T08:32:52.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;软件配置&quot;&gt;&lt;a href=&quot;#软件配置&quot; class=&quot;headerlink&quot; title=&quot;软件配置&quot;&gt;&lt;/a&gt;软件配置&lt;/h1&gt;&lt;h2 id=&quot;DeepLoc-2-0&quot;&gt;&lt;a href=&quot;#DeepLoc-2-0&quot; class=&quot;headerlink&quot;</summary>
         
       
     

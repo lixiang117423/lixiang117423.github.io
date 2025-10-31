@@ -1,0 +1,838 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="《Nature》论文NLR基因分析方法深度解析核心目标本研究的核心生物信息学目标是，在52个马铃薯基因组（代表Solanum section Petota）中，进行全面且高度精确的NLR基因重新注释，构建一个综合性的“NLRome”，并基于此进行深入的比较基因组学和进化分析，最终指导功能基因的克隆和抗性工程。  分析模块一：NLR基因的重新注释 (Reannotation of Nucleotid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nature文章的NLR分析方法">
+<meta property="og:url" content="https://lixiang117423.github.io/article/naturenlr/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="《Nature》论文NLR基因分析方法深度解析核心目标本研究的核心生物信息学目标是，在52个马铃薯基因组（代表Solanum section Petota）中，进行全面且高度精确的NLR基因重新注释，构建一个综合性的“NLRome”，并基于此进行深入的比较基因组学和进化分析，最终指导功能基因的克隆和抗性工程。  分析模块一：NLR基因的重新注释 (Reannotation of Nucleotid">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-30T02:21:46.000Z">
+<meta property="article:modified_time" content="2025-10-30T02:25:34.000Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Nature文章的NLR分析方法 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Nature文章的NLR分析方法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-30 10:21" pubdate>
+          2025年10月30日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Nature文章的NLR分析方法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="《Nature》论文NLR基因分析方法深度解析"><a href="#《Nature》论文NLR基因分析方法深度解析" class="headerlink" title="《Nature》论文NLR基因分析方法深度解析"></a><strong>《Nature》论文NLR基因分析方法深度解析</strong></h1><h2 id="核心目标"><a href="#核心目标" class="headerlink" title="核心目标"></a><strong>核心目标</strong></h2><p>本研究的核心生物信息学目标是，在52个马铃薯基因组（代表<em>Solanum</em> section <em>Petota</em>）中，进行全面且高度精确的NLR基因重新注释，构建一个综合性的“NLRome”，并基于此进行深入的比较基因组学和进化分析，最终指导功能基因的克隆和抗性工程。</p>
+<hr>
+<h1 id="分析模块一：NLR基因的重新注释-Reannotation-of-Nucleotide-binding-Resistance-Genes"><a href="#分析模块一：NLR基因的重新注释-Reannotation-of-Nucleotide-binding-Resistance-Genes" class="headerlink" title="分析模块一：NLR基因的重新注释 (Reannotation of Nucleotide-binding Resistance Genes)"></a><strong>分析模块一：NLR基因的重新注释 (Reannotation of Nucleotide-binding Resistance Genes)</strong></h1><p><strong>分析目的</strong>：<br>解决NLR基因因聚集分布（gene clusters）和高序列相似性导致的常规注释不准确问题。此流程旨在对特定基因组区域进行精细化的基因预测，以获得高质量的NLR基因模型。</p>
+<p><strong>1. 筛选包含NLR的基因组区域</strong></p>
+<ul>
+<li><strong>方法/软件</strong>: <code>NLR-Annotator</code> (v.0.7)</li>
+<li><strong>参数</strong>: 默认参数 (<code>default parameters</code>)</li>
+<li><strong>输入</strong>:<ul>
+<li>基因组序列文件 (<code>genome.fasta</code>)</li>
+</ul>
+</li>
+<li><strong>输出</strong>:<ul>
+<li>一个GFF3文件，标记了所有推定的NLR基因及其保守基序的位置。</li>
+</ul>
+</li>
+<li><strong>注意事项</strong>:<ul>
+<li>此步骤是一个<strong>初步筛选</strong>，目的是缩小后续精细注释的范围，提高效率和准确性。</li>
+<li>原文指出，<code>NLR-Annotator</code> 倾向于<strong>漏掉RNL (RPW8–NB-ARC–LRR) 亚家族</strong>的NLRs，这是一个已知的软件局限性，需要在后续步骤中手动弥补。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 准备精细注释的输入证据</strong></p>
+<ul>
+<li><strong>目的</strong>: 为核心注释工具 <code>MAKER</code> 提供三种不同类型的证据，以确保预测的准确性。</li>
+<li><strong>输入准备</strong>:<ul>
+<li><strong>基因组片段</strong>:<ol>
+<li>从第一步 <code>NLR-Annotator</code> 输出的GFF3文件中提取坐标。</li>
+<li>在每个坐标的<strong>左右两侧各延伸2 kb</strong> (<code>2-kb left and right flanking sequences</code>)。</li>
+<li>使用<code>bedtools getfasta</code>或类似工具，从全基因组中提取这些加长后的片段序列。</li>
+</ol>
+</li>
+<li><strong>同源蛋白证据 (Homology Evidence)</strong>:<ol>
+<li>构建一个非冗余的NLR蛋白同源数据库。来源包括：<ul>
+<li>先前研究中获得的7,007个氨基酸序列。</li>
+<li>拟南芥（Arabidopsis）的所有已知NLR基因（Araport11注释版本）。</li>
+<li>实验验证过的NLR基因数据库：<code>PRGdb 3.0</code> 和 <code>RefPlantNLR</code>。</li>
+</ul>
+</li>
+<li>将以上所有蛋白序列合并成一个FASTA文件。</li>
+</ol>
+</li>
+<li><strong>从头预测证据 (<em>De Novo</em> Gene Prediction)</strong>:<ol>
+<li><code>MAKER</code>需要物种特异性的训练集。这些训练集来自于全基因组注释流程中为<code>SNAP</code>, <code>AUGUSTUS</code>, <code>GeneMark-ET</code>准备的模型。</li>
+</ol>
+</li>
+<li><strong>表达证据 (Expression Evidence)</strong>:<ol>
+<li>使用全基因组的RNA-seq数据组装出的转录本序列 (<code>assembled transcripts</code>)。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. 使用MAKER进行NLR基因模型注释</strong></p>
+<ul>
+<li><strong>方法/软件</strong>: <code>MAKER</code></li>
+<li><strong>输入</strong>:<ul>
+<li>上述准备好的<strong>基因组片段</strong>、<strong>同源蛋白证据</strong>、<strong>从头预测证据</strong>和<strong>表达证据</strong>。</li>
+</ul>
+</li>
+<li><strong>输出</strong>:<ul>
+<li>一个GFF3文件，包含了在输入片段上预测出的NLR基因的精确结构（外显子、内含子等）。</li>
+<li>对应的蛋白质序列和CDS序列FASTA文件。</li>
+</ul>
+</li>
+<li><strong>注意事项</strong>:<ul>
+<li>这一步是整个注释流程的<strong>核心</strong>，通过整合多源证据，<code>MAKER</code>能够比常规注释流程更准确地界定NLR基因的边界和结构。</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. NLR基因的分类</strong></p>
+<ul>
+<li><strong>方法/软件</strong>: <code>NLRtracker</code> (v.1.01)</li>
+<li><strong>输入</strong>:<ul>
+<li><code>MAKER</code>输出的NLR蛋白质序列文件。</li>
+</ul>
+</li>
+<li><strong>输出</strong>:<ul>
+<li>一个分类结果文件，将每个NLR基因根据其结构域（TIR, CC, NB-ARC, LRR）分为三大类和八个亚类。<ul>
+<li><strong>主要类别</strong>: <code>TIR-NLR (TNL)</code>, <code>CNL</code>, <code>NL</code></li>
+<li><strong>次要类别</strong>: <code>CNL</code>, <code>CN</code>, <code>CCX</code>, <code>TIR-NLR (TNL)</code>, <code>TN</code>, <code>TX</code>, <code>NL</code>, <code>NBS</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. 手动补全RNL亚家族</strong></p>
+<ul>
+<li><strong>目的</strong>: 修正<code>NLR-Annotator</code>的系统性偏差。</li>
+<li><strong>方法</strong>:<ol>
+<li>在<strong>全基因组</strong>的蛋白质预测结果（而非仅在MAKER注释的NLR区域）中，通过关键词搜索或结构域鉴定（如HMMER搜索RPW8结构域）来识别RNL基因。</li>
+<li>将手动识别出的RNL基因<strong>整合</strong> (<code>manually integrated</code>) 到<code>NLR-annotator</code>-based的NLR预测集中。</li>
+</ol>
+</li>
+<li><strong>注意事项</strong>:<ul>
+<li>这一步是确保NLRome<strong>完整性</strong>的关键补充。</li>
+</ul>
+</li>
+</ul>
+<p><strong>6. 最终整合</strong></p>
+<ul>
+<li><strong>方法</strong>: 将最终得到的、高质量的NLR基因注释结果，整合回原始的全基因组基因注释文件中。</li>
+</ul>
+<hr>
+<h1 id="分析模块二：NLRome的构建与分析-Construction-and-Analyses-of-the-NLRome"><a href="#分析模块二：NLRome的构建与分析-Construction-and-Analyses-of-the-NLRome" class="headerlink" title="分析模块二：NLRome的构建与分析 (Construction and Analyses of the NLRome)"></a><strong>分析模块二：NLRome的构建与分析 (Construction and Analyses of the NLRome)</strong></h1><p><strong>分析目的</strong>:<br>基于高质量的NLR注释，构建一个系统发育框架，对所有NLR基因进行分类、聚类，并研究它们的进化动态。</p>
+<p><strong>1. 构建NLR系统发育树</strong></p>
+<ul>
+<li><strong>方法/软件</strong>:<ul>
+<li><strong>序列提取</strong>: 使用<code>HMMER</code> (v.3.3.2) 提取所有NLR蛋白的<strong>NB-ARC结构域</strong>氨基酸序列，E-value阈值设为<code>0.001</code>。</li>
+<li><strong>多序列比对</strong>: <code>MAFFT</code> (v.7.490) 使用<code>--auto</code>参数。</li>
+<li><strong>建树</strong>: <code>RAxML</code> (v.8.2.12)<ul>
+<li><strong>参数</strong>: <code>-f a -x 5 -p 5 -# 100 -m PROTGAMMAJTT</code></li>
+<li><strong>Bootstrap</strong>: 100次。</li>
+<li><strong>模型</strong>: 使用<code>IQ-TREE</code> (v.2.0.6) 的<code>-m MF</code>参数选择最佳氨基酸替换模型，结果为JTT模型。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>输入</strong>:<ul>
+<li>所有预测出的NLR蛋白序列。</li>
+</ul>
+</li>
+<li><strong>输出</strong>:<ul>
+<li>一个基于NB-ARC结构域的最大似然法系统发育树。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. NLRome的聚类与分类</strong></p>
+<ul>
+<li><strong>方法</strong>:<ol>
+<li><strong>手动聚类</strong>: 基于上述构建的系统发育树，手动将所有NLRs划分为<strong>489个clade</strong>。划分标准是“一个clade内的成员共享一个共同的祖先”。</li>
+<li><strong>超级家族分类</strong>: 依据系统发育树中的位置以及已报道的NLRs，将所有clade进一步归入<strong>6个超级家族 (super clades)</strong>: <code>RNLs</code>, <code>TIR-NLRs</code>, <code>CCG10-NLRs</code>, <code>CC-NLR-others</code>, <code>CC-NRC-helpers</code>, <code>CC-NRC-sensors</code>。</li>
+<li><strong>Clade类型定义</strong>: 根据一个clade内最主要的NLR类型（CNL, TNL等），为该clade指定类型。</li>
+<li><strong>识别成对/成簇的NLRs</strong>: 如果一个clade中超过50%的成员是成对或成簇排列的，则该clade被定义为<code>paired</code>或<code>clustered clade</code>。</li>
+</ol>
+</li>
+</ul>
+<p><strong>3. 区分Type I 和 Type II NLRs</strong></p>
+<ul>
+<li><strong>方法</strong>:<ul>
+<li>依据先前研究的标准（Kuang et al., 2004），基于系统发育树的<strong>分支长度 (branch length)</strong> 和物种间的<strong>等位/直系同源关系 (allelic/orthologous relationships)</strong> 来区分。</li>
+<li><strong>Type I</strong>: 分支长，拷贝数变化大，物种间呈旁系同源关系。</li>
+<li><strong>Type II</strong>: 分支短，拷贝数稳定，物种间呈直系同源关系。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="分析模块三：非经典结构域-ID-的鉴定与进化分析"><a href="#分析模块三：非经典结构域-ID-的鉴定与进化分析" class="headerlink" title="分析模块三：非经典结构域(ID)的鉴定与进化分析"></a><strong>分析模块三：非经典结构域(ID)的鉴定与进化分析</strong></h1><p><strong>分析目的</strong>:<br>在NLRome中鉴定所有携带非经典整合结构域（Integrated Domains, IDs）的NLRs，并研究这些ID的进化起源和选择压力。</p>
+<p><strong>1. ID的鉴定</strong></p>
+<ul>
+<li><strong>方法/软件</strong>:<ul>
+<li>使用<code>pfam_scan.pl</code>脚本对所有NLR蛋白进行结构域预测。</li>
+<li>过滤掉已知的NLR经典结构域（如NB-ARC, LRR, TIR, CC, RPW8等）。</li>
+<li>E-value阈值设为<code>0.05</code>。</li>
+<li>为避免注释错误，排除了那些只在<strong>一个NLR</strong>和<strong>一个物种</strong>中出现的ID。</li>
+</ul>
+</li>
+<li><strong>输出</strong>:<ul>
+<li>一个包含所有ID-NLRs及其携带的非经典结构域的列表。</li>
+</ul>
+</li>
+</ul>
+<p><strong>2. 进化压力分析 (Ka/Ks 和 Tajima’s D)</strong></p>
+<ul>
+<li><strong>目的</strong>: 比较ID在NLR基因和非NLR基因中的进化选择压力。</li>
+<li><strong>方法/软件</strong>:<ul>
+<li><strong>序列比对</strong>: <code>MAFFT</code>进行密码子比对 (<code>ParaAT v.2.0</code>)。</li>
+<li><strong>Ka/Ks计算</strong>: <code>PAML</code> (v.4.9) 中的<code>codeml</code>程序，使用<code>one model</code>。</li>
+<li><strong>Tajima’s D计算</strong>: <code>VCFtools</code> (v.0.1.16) 使用<code>--TajimaD 1</code>参数。</li>
+</ul>
+</li>
+<li><strong>输入</strong>:<ul>
+<li>NLR和非NLR基因中相同ID的编码序列。</li>
+</ul>
+</li>
+<li><strong>注意事项</strong>:<ul>
+<li>该分析要求一个ID在至少四个物种中存在，以保证统计的稳健性。</li>
+<li>更高的Ka/Ks值和更低的Tajima’s D值通常表明受到了更强的正选择或更弱的纯化选择。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>通过以上三个模块的系统性分析，该研究构建了一个高质量的马铃薯NLRome，并从中获得了关于NLR进化、功能分化以及抗性工程的重要洞见。这套流程为其他物种的NLR基因研究提供了极佳的范本。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Nature文章的NLR分析方法</div>
+      <div>https://lixiang117423.github.io/article/naturenlr/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月30日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/wsljbrowse/" title="WSL部署JBrowse">
+                        <span class="hidden-mobile">WSL部署JBrowse</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
