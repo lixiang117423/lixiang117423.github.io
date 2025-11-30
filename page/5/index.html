@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/dnamethylation/" target="_self">
-          全基因组DNA甲基化分析流程
+        <a href="/article/3f4f7ea1/" target="_self">
+          OPLS-DA在R语言中的实现
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/dnamethylation/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/3f4f7ea1/" target="_self">
         <div>
-          测序原理甲基化的C在Bisulfite处理后不会发生变化；未发生甲基化的C在处理后会变为U，PCR扩增后会变为T. 因此甲基化比对时需要特定的基因组，所以需要对基因组进行转换：C-&gt;T 和 G-&gt;A.  上游分析DNA甲基化比对使用最广泛的比对软件是Bowtie2，因此选择Bowtie2作为比对器（不同的比对软件需要不同的index文件）。 基因组准备需要基因组序列文件，把gff3文件
+          主成分分析（Principal Component Analysis，PCA）是一种无监督降维方法，能够有效对高维数据进行处理。但PCA对相关性较小的变量不敏感，而PLS-DA（Partial Least Squares-Discriminant Analysis，偏最小二乘判别分析）能够有效解决这个问题。而OPLS-DA（正交偏最小二乘判别分析）结合了正交信号和PLS-DA来筛选差异变量。
         </div>
       </a>
 
@@ -249,8 +249,69 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-10-10 09:29" pubdate>
-              2024-10-10
+            <time datetime="2020-12-13 16:23" pubdate>
+              2020-12-13
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/">#R语言</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/pipacce/" target="_self">
+          pip加速
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/pipacce/" target="_self">
+        <div>
+          1-i https://pypi.tuna.tsinghua.edu.cn/simple  💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-01-19 11:04" pubdate>
+              2022-01-19
             </time>
           </div>
         
@@ -282,6 +343,8 @@
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
+              <a href="/tags/Python/">#Python</a>
+            
           </div>
         
       </div>
@@ -294,15 +357,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/bismarkbug/" target="_self">
-          bismark过程中的一个小细节
+        <a href="/article/5e42ca27/" target="_self">
+          酚酸是不是水稻中的化感物质
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/bismarkbug/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/5e42ca27/" target="_self">
         <div>
-          在最后一步bismark_methylation_extractor的时候，输出的.bedGraph 和 .bismark.cov是空文件，在目标目录下有一大堆的.temp文件。看了mapping这一步的结果的report和summary，是没有问题的。那肯定是哪里有问题了。 各种检索，终于是发现了问题所在，参考no bedGraph output #180:  Your genome of in
+          酚酸是不是水稻中的化感物质？ 为什么会有这个问题呢？
         </div>
       </a>
 
@@ -310,41 +373,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-09-24 11:37" pubdate>
-              2024-09-24
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/tasselgwas/" target="_self">
-          TASSEL进行GWAS分析
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/tasselgwas/" target="_self">
-        <div>
-          一开始折腾的是GAPIT，可是老是报错，实在是没办法了，就折腾TASSEL. 参考文献 Bradbury P J, Zhang Z, Kroon D E, et al. TASSEL: software for association mapping of complex traits in diverse samples[J]. Bioinformatics, 2007, 23(19): 263
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-01-04 13:45" pubdate>
-              2024-01-04
+            <time datetime="2021-03-07 15:56" pubdate>
+              2021-03-07
             </time>
           </div>
         
@@ -359,7 +389,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  <a href="/categories/%E6%96%87%E7%8C%AE/" class="category-chain-item">文献</a>
   
   
 
@@ -374,251 +404,7 @@
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
             
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/secretome4fungi/" target="_self">
-          真菌分泌蛋白预测流程
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/secretome4fungi/" target="_self">
-        <div>
-          软件配置DeepLoc 2.0参考文献：  Thumuluri V, Almagro Armenteros J J, Johansen A R, et al. DeepLoc 2.0: multi-label subcellular localization prediction using protein language models[J]. Nucleic acids research, 2
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-08-29 09:40" pubdate>
-              2024-08-29
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/heritability01/" target="_self">
-          遗传力的概念和计算
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/heritability01/" target="_self">
-        <div>
-          前言在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：  说清楚遗传力的概念； 展示使用合适的方法计算遗传力； 提供稳定的方法计算和比较田间试验的准确信。  遗传力的定义下图A中的公式表示表型可以用
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-08-27 09:28" pubdate>
-              2024-08-27
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/downloadfastq/" target="_self">
-          自动下载校验fastq文件
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/downloadfastq/" target="_self">
-        <div>
-          首先，直接在ENA上检索想要下载的数据，如：  有两个信息很重要，MD5值和Aspera链接。 选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下： 1234567891011121314151617181920212223rm(list = ls())dir("data/生信挖掘/水稻多效基因/data/ENA下载信息/") %&gt;%   as.data.
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-08-21 15:16" pubdate>
-              2024-08-21
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/blueandblup/" target="_self">
-          BLUP和BLUE
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/blueandblup/" target="_self">
-        <div>
-          为何要计算 BLUE 值？一年多点或者多年多点的植物数据中，一个基因型（品种）往往有多个表型数据，但只有一个基因型，在 GWAS 关联分析中，就需要一个基因型对应一个表型数据。 之所以有多个表型数据的原因：  或者是多个重复 或者是多个地点的数据 或者是多个年份的数据  问题：如何计算得到一个表型数据呢？ 解答：可以使用多个表型值的平均值，作为品种的表型值，现在有更好的方法：BLUE 值。 为何使
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-08-07 11:01" pubdate>
-              2024-08-07
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+              <a href="/tags/%E6%96%87%E7%8C%AE/">#文献</a>
             
           </div>
         
@@ -693,15 +479,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/ncbi.bioproject/" target="_self">
-          NCBI数据库BioProject中的Description
+        <a href="/article/fb57811f/" target="_self">
+          ggtree学习笔记
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ncbi.bioproject/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/fb57811f/" target="_self">
         <div>
-          1234567891011121314151617181920212223242526272829303132333435363738394041424344import requestsfrom bs4 import BeautifulSoupfile_path = "D:/OneDrive/NAS/科研相关/PhData/data/生信挖掘/水稻多效基因/data/NCBI.BioProjec
+          写在前面Y叔的ggtree $^{[1]}$ 毫无疑问是当前绘制美化系统发育树（下文简称进化树）的最佳工具，一直想学习，但是都没有真真正正学习过，一是因为网上关于gtree的中文资源较少，另外一个原因是感觉到自己用不上，就没认真学习。春节在家，实在无聊，下定决心学一遍ggtree。下面的内容来自Y叔的博客$^{[2]}$ ，若有不当之处，恳请批评指正。 关于进化树进化树怎么看进化树展示的是进化关系
         </div>
       </a>
 
@@ -709,8 +495,69 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-16 11:58" pubdate>
-              2024-06-16
+            <time datetime="2021-02-15 10:35" pubdate>
+              2021-02-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/">#R语言</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/rnaseq/" target="_self">
+          RNA-Seq自动化脚本
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/rnaseq/" target="_self">
+        <div>
+          好的，遵命。这里是拆分后的中文和英文两个独立的 README.md 文件。  中文版本1234567891011121314151617181920212223242526272829# RNA-seq 分析流程这是一个基于 HISAT2 和 StringTie 的自动化 RNA-seq 分析流程。它封装了从原始 FASTQ 文件到最终表达矩阵生成的完整步骤，旨在提供一个简单、高效且可重复的分析体
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-07-11 08:47" pubdate>
+              2025-07-11
             </time>
           </div>
         
@@ -754,15 +601,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/calldams/" target="_self">
-          代谢物鉴定函数
+        <a href="/article/braker3/" target="_self">
+          BRAKER学习笔记
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/calldams/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/braker3/" target="_self">
         <div>
-          123456callDAMs(metabolites.table = metabolites.table,         phenotype.table = phenotype.table,         group.table = group.table,         use.lm = TRUE,         use.cor = TRUE,         lm.R2 = 0.5)
+          1 BRAKER3的优势 可以使用转录组和蛋白数据2 基因预测成功的关键 高质量的基因组：short scaffolds太多的话不会得到很准确的结果。 简单的序列名称：如Chr1这种是最好的。 要标记重复序列：the genome should be masked for repeats，避免对重复序列和低复杂度区域预测到基因结构；转录组数据比对是重复序列也会影响；在GeneMark-ES/ET/
         </div>
       </a>
 
@@ -770,8 +617,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-06-12 21:36" pubdate>
-              2024-06-12
+            <time datetime="2025-04-25 10:40" pubdate>
+              2025-04-25
             </time>
           </div>
         
@@ -815,15 +662,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/jaspar/" target="_self">
-          JASPAR爬取Class信息
+        <a href="/article/nextcloud/" target="_self">
+          Docker部署nextcloud修改配置文件
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/jaspar/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/nextcloud/" target="_self">
         <div>
-          12345678910111213141516171819202122232425262728import requestsfrom bs4 import BeautifulSoupfile_out = open("D:/群晖NAS/Desktop/MEME网站结果/JASPAR.爬虫结果.txt", "w")with open("D:/群晖NAS/Desktop/MEME网站结果/JASPAR.
+          找到对应的文件修改即可： 1find /var -name "config.php"  💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
         </div>
       </a>
 
@@ -831,8 +678,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-22 13:18" pubdate>
-              2024-03-22
+            <time datetime="2022-01-17 15:40" pubdate>
+              2022-01-17
             </time>
           </div>
         
@@ -876,15 +723,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/rstudioerror/" target="_self">
-          Rstudio-Server安装igraph报错解决
+        <a href="/article/pcacontribution/" target="_self">
+          PCA提取变量的贡献度
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/rstudioerror/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/pcacontribution/" target="_self">
         <div>
-          加载igraph时报错： 123错误: package or namespace load failed for ‘phyloseq’ in dyn.load(file, DLLpath = DLLpath, ...): 无法载入共享目标对象‘/usr/local/lib/R/site-library/igraph/libs/igraph.so’：:  libglpk.so.40: 无法打开共享对
+          1234567891011121314151617181920212223rm(list = ls())library(vegan)library(ggplot2)library(ggprism)library(FactoMineR)library(factoextra)data("iris")res.pca &lt;- PCA(iris[, 1:4], graph = FALSE)contrib
         </div>
       </a>
 
@@ -892,8 +739,191 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2024-03-07 09:38" pubdate>
-              2024-03-07
+            <time datetime="2022-04-03 14:30" pubdate>
+              2022-04-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/genomecode/" target="_self">
+          葡萄Science文章基因组学和群体遗传学代码
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/genomecode/" target="_self">
+        <div>
+          参考文献 Dong Y, Duan S, Xia Q, et al. Dual domestications and origin of traits in grapevine evolution[J]. Science, 2023, 379(6635): 892-901.  基因组组装和注释12345678910111213141516171819202122232425262728293031
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-01-07 09:01" pubdate>
+              2025-01-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/metagenomelearning/" target="_self">
+          宏基因组学习笔记
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/metagenomelearning/" target="_self">
+        <div>
+          分析策略以下三个图来自微信公众号[希研未来]。  基于reads    基于组装    基于Bin   软件安装常用的这些软件用Conda或者是mamba都很好处理，但是metaWRAP这个软件是真的难安装啊。踩坑多次终于安装上了： 1mamba create -y --name metawrap-env --channel ursky metawrap-mg=1.3.2      数据配置Che
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-06-15 11:07" pubdate>
+              2023-06-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/bioinfinone/" target="_self">
+          生物信息学常用的分析方法和相应的软件及代码
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/bioinfinone/" target="_self">
+        <div>
+          基因组序列质控 trimmomatic：过滤低质量的reads  基因组大小估计基于k-mer的方法 KAT：k-mer提取和计数 GenomeScope：评估基因组大小 estimate_genome_size.pl：估计基因组大小  基因组组装Hi-Fi数据 Hifiasm：Hi-Fi数据组装  ONT数据 Canu：基因组组装 SMARTdenovo：将reads组装为contig  染色体
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2025-09-20 18:20" pubdate>
+              2025-09-20
             </time>
           </div>
         
@@ -935,7 +965,7 @@
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/#board">26</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/#board">27</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

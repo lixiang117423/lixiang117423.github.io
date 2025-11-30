@@ -233,15 +233,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/85985tgy/" target="_self">
-          Ubuntu部署bookdown
+        <a href="/article/braker/" target="_self">
+          基因注释软件BRAKER学习笔记
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/85985tgy/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/braker/" target="_self">
         <div>
-          安装Nginx：  1sudo apt-get install nginx  找个位置存放{% label bookdown purple %}编译好的文件夹，里面包含了整个的静态文件，如我的是{% label book4xiang purple %}。  修改配置文件：   12345678910111213cd /etc/nginx/conf.d/# 创建一个bookdown.conf,输入
+          1 BRAKER3的优势 可以使用转录组和蛋白数据2 基因预测成功的关键 高质量的基因组：short scaffolds太多的话不会得到很准确的结果。 简单的序列名称：如Chr1这种是最好的。 要标记重复序列：the genome should be masked for repeats，避免对重复序列和低复杂度区域预测到基因结构；转录组数据比对是重复序列也会影响；在GeneMark-ES/ET/
         </div>
       </a>
 
@@ -249,110 +249,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-24 13:15" pubdate>
-              2021-11-24
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-              <a href="/tags/R/">#R</a>
-            
-              <a href="/tags/Nginx/">#Nginx</a>
-            
-              <a href="/tags/Ubuntu/">#Ubuntu</a>
-            
-              <a href="/tags/bookdown/">#bookdown</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/594585ty/" target="_self">
-          Ubuntu部署Hexo
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/594585ty/" target="_self">
-        <div>
-          123456789101112131415161718192021222324252627282930313233# 添加用户adduser hexo# 切回用户目录su hexo# 新建目录存放blogmkdir blog# 初始化裸gitgit init --bare hexo.git# vim hexo.git/hooks/post-receive#!/bin/shgit --work-tr
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-23 16:25" pubdate>
-              2021-11-23
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/ubuntuzsh/" target="_self">
-          Ubuntu配置zsh和主题
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/ubuntuzsh/" target="_self">
-        <div>
-          总代码1234sudo apt-get updatesudo apt install zshchsh -s /bin/zshsh -c "$(curl -fsSL https://gitee.com/Devkings/oh_my_zsh_install/raw/master/install.sh)" 安装zsh12sudo apt install zshchsh -s /bin/zsh 安装Oh
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-09 20:27" pubdate>
-              2023-03-09
+            <time datetime="2025-05-09 14:25" pubdate>
+              2025-05-09
             </time>
           </div>
         
@@ -396,15 +294,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/41af5d00/" target="_self">
-          UniProt数据库爬虫获取相关信息
+        <a href="/article/6a3c6c2a/" target="_self">
+          合并基因组文件
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/41af5d00/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/6a3c6c2a/" target="_self">
         <div>
-          最近在分析转录组，基因组是自己组装的，好多基因注释不到KEGG和GO这两个数据库，就索性先把基因蛋白blast到SwissProt数据库，然后得到比对的蛋白的ID，再经过筛选后再去看蛋白相关的GO term。但是，这么多基因我也不可能一个一个查啊，那就Python爬虫吧。
+          将基因组fasta文件合并成一行：
         </div>
       </a>
 
@@ -412,8 +310,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-04-18 22:02" pubdate>
-              2021-04-18
+            <time datetime="2021-04-07 12:49" pubdate>
+              2021-04-07
             </time>
           </div>
         
@@ -457,15 +355,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/vscodeline/" target="_self">
-          VSCode取消波浪线
+        <a href="/article/6f22d8f6/" target="_self">
+          开发一个R包
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscodeline/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/6f22d8f6/" target="_self">
         <div>
-          取消前是这样的（强迫症患者表示受不了啊。。。。。。）：  取消方法： 在设置文件settings.json文件中加入下面的内容即可： 12345"workbench.colorCustomizations": {        "editorError.foreground":   "#00000000",        "editorWarning.foreground": "#00000000
+          R最强大的莫过于统计分析和可视化，关键是完全的开源免费啊。有时候使用多了以后，会积累一些函数或者是数据库，而这些函数和数据库通常能够帮助到别人，这时候就可以把这些函数或者是数据库打包成R包，上传到CRAN、Bioconductor或者是GitHub，让 其他的使用者使用自己的包。
         </div>
       </a>
 
@@ -473,8 +371,69 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-04-05 11:35" pubdate>
-              2023-04-05
+            <time datetime="2020-01-10 16:26" pubdate>
+              2020-01-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/">#R语言</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/leaftool/" target="_self">
+          LeAFtool计算病斑面积
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/leaftool/" target="_self">
+        <div>
+          网页版地址： https://shiny.web4xiang.top/LeAFtool/ 分析流程数据准备将图片存储在三个文件夹内，压缩成.zip后上传就能进行分析：  learning：存放用于训练的图片（直接截图即可），包括三个子文件夹： background：背景图片。如叶片是贴在A4纸上的，那么背景就截图A4纸。 limb：没有被病原菌侵染的健康叶片。 lesion：病斑截图。   res
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-02-26 21:17" pubdate>
+              2022-02-26
             </time>
           </div>
         
@@ -503,6 +462,8 @@
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
             
               <a href="/tags/%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8/">#软件使用</a>
             
@@ -518,15 +479,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/vscoderemoteserver/" target="_self">
-          VScode远程连接服务器并使用R
+        <a href="/article/5d41879e/" target="_self">
+          ggprism学习笔记
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/vscoderemoteserver/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/5d41879e/" target="_self">
         <div>
-          实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 服务器端使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装langu
+          这个包简直就是完美啊！！！
         </div>
       </a>
 
@@ -534,8 +495,69 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2023-03-13 19:12" pubdate>
-              2023-03-13
+            <time datetime="2021-02-08 18:18" pubdate>
+              2021-02-08
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/">#R语言</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/abug4tidyverse/" target="_self">
+          使用tidyverse遇到的一个问题
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/abug4tidyverse/" target="_self">
+        <div>
+          1234567library(tidyverse)iris %&gt;%   dplyr::mutate(temp = case_when(    Species == "setosa" ~ "lp",    TRUE ~ Species  )) 报错： 123456Error in `dplyr::mutate()`:! Problem while computing `temp = case_
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-11-23 14:17" pubdate>
+              2022-11-23
             </time>
           </div>
         
@@ -579,15 +601,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/258e55c8/" target="_self">
-          WGS学习笔记
+        <a href="/article/fileformat/" target="_self">
+          生物信息学中的文件格式
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/258e55c8/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/fileformat/" target="_self">
         <div>
-          FASTA和FASTQ文件格式FASTAFASTA是已知序列的存储文件，以&gt;开头，
+          bam文件 第一列：QNAME: 比对序列的名称。 第二列：FLAG: 比对的类型。paring、strand、 mate strand 等等。不同的数值代表不一样的比对类型。 第三列：RNAME：表示 read 比对的那条序列的序列名称。如果第三列是”*“，则说明这条 read 没有比对上。 第四列：POS。表示 read 比对到 RNAME 这条序列最左边的位置。 第五列：mapping 的质
         </div>
       </a>
 
@@ -595,8 +617,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-03-01 09:01" pubdate>
-              2021-03-01
+            <time datetime="2021-12-29 21:30" pubdate>
+              2021-12-29
             </time>
           </div>
         
@@ -640,15 +662,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h2 class="index-header">
         
-        <a href="/article/wslncs25/" target="_self">
-          WSL设置内存和线程数
+        <a href="/article/glmm/" target="_self">
+          广义线性混合模型操作指南
         </a>
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wslncs25/" target="_self">
+      <a class="index-excerpt index-excerpt__noimg" href="/article/glmm/" target="_self">
         <div>
-          从这里开始写正文  Windows + R 键，输入 %UserProfile% 并运行进入用户文件夹； 新建一个 {%  label .wslconfig purple %} 文件，写入下面的内容：  1234[wsl2]memory=30Gswap=12Gprocessors=12  先关闭WSL：  1wsl --shutdown  再开启即可：  1wsl  💌lixiang117423
+          更新版本: 推荐的资料 https://bookdown.org/roback/bookdown-BeyondMLR/ch-GLMM.html https://m-clark.github.io/mixed-models-with-R/  文献信息 Harrison X A, Donaldson L, Correa-Cano M E, et al. A brief introduction to
         </div>
       </a>
 
@@ -656,41 +678,8 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-11-25 10:57" pubdate>
-              2021-11-25
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/gitbash.jpg/" target="_self">
-          Windows下Git-bash配置zsh主题
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/gitbash.jpg/" target="_self">
-        <div>
-          下载zsh安装包https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zsh即
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-05-11 09:27" pubdate>
-              2023-05-11
+            <time datetime="2023-01-25 12:24" pubdate>
+              2023-01-25
             </time>
           </div>
         
@@ -721,6 +710,189 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/plantr/" target="_self">
+          植物R基因分类
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/plantr/" target="_self">
+        <div>
+          💌lixiang117423@foxmail.com💌lixiang117423@gmail.com
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-08-14 09:40" pubdate>
+              2022-08-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%88%86%E5%AD%90%E7%94%9F%E7%89%A9%E5%AD%A6/">#分子生物学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/csslearning/" target="_self">
+          CSS基础学习
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/csslearning/" target="_self">
+        <div>
+          12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-05-14 09:43" pubdate>
+              2023-05-14
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/article/15541358/" target="_self">
+          R语言常用Tips
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/article/15541358/" target="_self">
+        <div>
+          经常要用到R，有些小技巧每次都要去查，比较麻烦，干脆记录一下。 软件安装 安装Rtools：  安装 Rtools4.0，安装包：https://cran.r-project.org/bin/windows/Rtools/  配置环境  在 RStudio 里面运行以下脚本： 1writeLines('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', con
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-01-18 17:17" pubdate>
+              2021-01-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/R%E8%AF%AD%E8%A8%80/" class="category-chain-item">R语言</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/R%E8%AF%AD%E8%A8%80/">#R语言</a>
             
           </div>
         
@@ -789,139 +961,11 @@
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/wsl4docker/" target="_self">
-          WSL安装运行docker
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wsl4docker/" target="_self">
-        <div>
-          Docker的安装参考的安装教程：Docker-从入门到实践。关键的代码如下： 1234curl -fsSL test.docker.com -o get-docker.shcurl -fsSL get.docker.com -o get-docker.shsudo sh get-docker.sh --mirror Aliyunsudo sh get-docker.sh --mirror Azu
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-12-06 14:40" pubdate>
-              2021-12-06
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/">#生物信息学</a>
-            
-              <a href="/tags/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">#软件安装</a>
-            
-              <a href="/tags/WSL/">#WSL</a>
-            
-              <a href="/tags/docker/">#docker</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/article/wordjcyy/" target="_self">
-          Word交叉引用设置颜色为蓝色
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/article/wordjcyy/" target="_self">
-        <div>
-          参考知乎文章。 编辑一个新的宏： 12345678Sub CitingColor()    For i = 1 To ActiveDocument.Fields.Count '遍历文档所有域        If Left(ActiveDocument.Fields(i).Code, 4) = " REF" Or Left(ActiveDocument.Fields(i).Code, 14) = "
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2023-09-11 11:20" pubdate>
-              2023-09-11
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3 d-flex align-items-center">
-            <i class="iconfont icon-category"></i>
-            
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/" class="category-chain-item">文献阅读</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/">#文献阅读</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
 
 
   <nav aria-label="navigation">
     <span class="pagination" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/14/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#board">13</a><a class="page-number" href="/page/14/#board">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/#board">16</a><a class="page-number" href="/page/17/#board">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/26/#board">26</a><a class="extend next" rel="next" href="/page/16/#board"><i class="iconfont icon-arrowright"></i></a>
+      <a class="extend prev" rel="prev" href="/page/14/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/#board">13</a><a class="page-number" href="/page/14/#board">14</a><span class="page-number current">15</span><a class="page-number" href="/page/16/#board">16</a><a class="page-number" href="/page/17/#board">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/27/#board">27</a><a class="extend next" rel="next" href="/page/16/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
   </nav>
 

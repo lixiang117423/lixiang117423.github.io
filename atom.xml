@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-10-30T02:25:34.000Z</updated>
+  <updated>2025-11-30T13:17:37.291Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -17,11 +17,84 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一些Hi-C的脚本</title>
+    <link href="https://lixiang117423.github.io/article/hic-scripts/"/>
+    <id>https://lixiang117423.github.io/article/hic-scripts/</id>
+    <published>2025-11-30T13:12:51.000Z</published>
+    <updated>2025-11-30T13:17:37.291Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Puzzle-Hi-C&quot;&gt;&lt;a href=&quot;#Puzzle-Hi-C&quot; class=&quot;headerlink&quot; title=&quot;Puzzle-Hi-C&quot;&gt;&lt;/a&gt;Puzzle-Hi-C&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://lixiang117423.github.io/article/undefined/"/>
+    <id>https://lixiang117423.github.io/article/undefined/</id>
+    <published>2025-11-14T08:27:55.295Z</published>
+    <updated>2025-11-14T08:27:55.295Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">
+&lt;div class=&quot;pretoc&quot;&gt;
+  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
+
+  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
+
+ </summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://lixiang117423.github.io/article/undefined/"/>
+    <id>https://lixiang117423.github.io/article/undefined/</id>
+    <published>2025-11-14T08:27:55.236Z</published>
+    <updated>2025-11-14T08:27:55.236Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Nature文章的NLR分析方法</title>
     <link href="https://lixiang117423.github.io/article/naturenlr/"/>
     <id>https://lixiang117423.github.io/article/naturenlr/</id>
     <published>2025-10-30T02:21:46.000Z</published>
-    <updated>2025-10-30T02:25:34.000Z</updated>
+    <updated>2025-11-14T08:27:55.227Z</updated>
     
     
       
@@ -46,7 +119,7 @@
     <link href="https://lixiang117423.github.io/article/wsljbrowse/"/>
     <id>https://lixiang117423.github.io/article/wsljbrowse/</id>
     <published>2025-10-28T03:27:47.000Z</published>
-    <updated>2025-10-28T04:14:50.000Z</updated>
+    <updated>2025-11-14T08:27:55.244Z</updated>
     
     
       
@@ -71,7 +144,7 @@
     <link href="https://lixiang117423.github.io/article/bioinfinone/"/>
     <id>https://lixiang117423.github.io/article/bioinfinone/</id>
     <published>2025-09-20T10:20:54.000Z</published>
-    <updated>2025-09-20T11:18:27.000Z</updated>
+    <updated>2025-11-14T08:27:55.587Z</updated>
     
     
       
@@ -96,7 +169,7 @@
     <link href="https://lixiang117423.github.io/article/igraph/"/>
     <id>https://lixiang117423.github.io/article/igraph/</id>
     <published>2025-09-15T01:20:58.000Z</published>
-    <updated>2025-09-15T01:24:57.974Z</updated>
+    <updated>2025-11-14T08:27:55.328Z</updated>
     
     
       
@@ -122,7 +195,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-blast/"/>
     <id>https://lixiang117423.github.io/article/biopytools-blast/</id>
     <published>2025-09-10T05:49:16.000Z</published>
-    <updated>2025-09-10T06:02:07.000Z</updated>
+    <updated>2025-11-14T08:27:55.238Z</updated>
     
     
       
@@ -148,7 +221,7 @@
     <link href="https://lixiang117423.github.io/article/gvcfvsvcf/"/>
     <id>https://lixiang117423.github.io/article/gvcfvsvcf/</id>
     <published>2025-08-14T05:22:06.000Z</published>
-    <updated>2025-08-14T05:25:13.556Z</updated>
+    <updated>2025-11-14T08:27:55.527Z</updated>
     
     
       
@@ -173,7 +246,7 @@
     <link href="https://lixiang117423.github.io/article/methylkit/"/>
     <id>https://lixiang117423.github.io/article/methylkit/</id>
     <published>2025-08-01T11:14:26.000Z</published>
-    <updated>2025-08-01T11:16:34.447Z</updated>
+    <updated>2025-11-14T08:27:55.632Z</updated>
     
     
       
@@ -199,7 +272,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-25T02:36:13.000Z</updated>
+    <updated>2025-11-14T08:27:55.711Z</updated>
     
     
       
@@ -224,7 +297,7 @@
     <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
     <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
-    <updated>2025-07-16T13:32:53.088Z</updated>
+    <updated>2025-11-14T08:27:55.581Z</updated>
     
     
       
@@ -249,7 +322,7 @@
     <link href="https://lixiang117423.github.io/article/run-fastp/"/>
     <id>https://lixiang117423.github.io/article/run-fastp/</id>
     <published>2025-07-15T06:41:20.000Z</published>
-    <updated>2025-07-15T08:30:16.000Z</updated>
+    <updated>2025-11-14T08:27:55.327Z</updated>
     
     
       
@@ -274,7 +347,7 @@
     <link href="https://lixiang117423.github.io/article/null/"/>
     <id>https://lixiang117423.github.io/article/null/</id>
     <published>2025-07-11T00:48:35.000Z</published>
-    <updated>2025-07-11T00:48:35.077Z</updated>
+    <updated>2025-11-14T08:27:55.441Z</updated>
     
     
     
@@ -287,7 +360,7 @@
     <link href="https://lixiang117423.github.io/article/null/"/>
     <id>https://lixiang117423.github.io/article/null/</id>
     <published>2025-07-11T00:48:16.000Z</published>
-    <updated>2025-07-11T00:48:16.798Z</updated>
+    <updated>2025-11-14T08:27:55.703Z</updated>
     
     
     
@@ -300,7 +373,7 @@
     <link href="https://lixiang117423.github.io/article/rnaseq/"/>
     <id>https://lixiang117423.github.io/article/rnaseq/</id>
     <published>2025-07-11T00:47:44.000Z</published>
-    <updated>2025-07-15T09:38:42.000Z</updated>
+    <updated>2025-11-14T08:27:55.592Z</updated>
     
     
       
@@ -327,7 +400,7 @@
     <link href="https://lixiang117423.github.io/article/gemma/"/>
     <id>https://lixiang117423.github.io/article/gemma/</id>
     <published>2025-07-11T00:47:30.000Z</published>
-    <updated>2025-07-11T00:51:26.000Z</updated>
+    <updated>2025-11-14T08:27:55.148Z</updated>
     
     
       
@@ -352,7 +425,7 @@
     <link href="https://lixiang117423.github.io/article/annovar/"/>
     <id>https://lixiang117423.github.io/article/annovar/</id>
     <published>2025-07-11T00:47:18.000Z</published>
-    <updated>2025-07-11T00:50:50.000Z</updated>
+    <updated>2025-11-14T08:27:55.326Z</updated>
     
     
       
@@ -377,7 +450,7 @@
     <link href="https://lixiang117423.github.io/article/parabricks/"/>
     <id>https://lixiang117423.github.io/article/parabricks/</id>
     <published>2025-07-07T06:06:17.000Z</published>
-    <updated>2025-07-09T03:56:01.000Z</updated>
+    <updated>2025-11-14T08:27:55.565Z</updated>
     
     
       
@@ -403,7 +476,7 @@
     <link href="https://lixiang117423.github.io/article/cnvs/"/>
     <id>https://lixiang117423.github.io/article/cnvs/</id>
     <published>2025-07-01T08:53:47.000Z</published>
-    <updated>2025-07-01T09:01:44.000Z</updated>
+    <updated>2025-11-14T08:27:55.242Z</updated>
     
     
       
@@ -428,7 +501,7 @@
     <link href="https://lixiang117423.github.io/article/backup-conda/"/>
     <id>https://lixiang117423.github.io/article/backup-conda/</id>
     <published>2025-07-01T07:38:36.000Z</published>
-    <updated>2025-07-01T08:03:50.000Z</updated>
+    <updated>2025-11-14T08:27:55.183Z</updated>
     
     
       
@@ -453,7 +526,7 @@
     <link href="https://lixiang117423.github.io/article/fpkm-tpm/"/>
     <id>https://lixiang117423.github.io/article/fpkm-tpm/</id>
     <published>2025-07-01T04:23:55.000Z</published>
-    <updated>2025-07-01T08:04:31.000Z</updated>
+    <updated>2025-11-14T08:27:55.710Z</updated>
     
     
       
@@ -478,7 +551,7 @@
     <link href="https://lixiang117423.github.io/article/xiaodou/"/>
     <id>https://lixiang117423.github.io/article/xiaodou/</id>
     <published>2025-07-01T01:13:24.000Z</published>
-    <updated>2025-07-01T01:17:21.000Z</updated>
+    <updated>2025-11-14T08:27:55.225Z</updated>
     
     
       
@@ -503,7 +576,7 @@
     <link href="https://lixiang117423.github.io/article/alphagenome/"/>
     <id>https://lixiang117423.github.io/article/alphagenome/</id>
     <published>2025-06-29T07:46:24.000Z</published>
-    <updated>2025-06-29T08:45:49.000Z</updated>
+    <updated>2025-11-14T08:27:55.223Z</updated>
     
     
       
@@ -528,7 +601,7 @@
     <link href="https://lixiang117423.github.io/article/install-egapx/"/>
     <id>https://lixiang117423.github.io/article/install-egapx/</id>
     <published>2025-06-26T03:04:33.000Z</published>
-    <updated>2025-08-27T05:41:57.000Z</updated>
+    <updated>2025-11-14T08:27:55.434Z</updated>
     
     
       
@@ -554,7 +627,7 @@
     <link href="https://lixiang117423.github.io/article/ai4effector/"/>
     <id>https://lixiang117423.github.io/article/ai4effector/</id>
     <published>2025-06-25T05:42:08.000Z</published>
-    <updated>2025-06-26T01:05:13.000Z</updated>
+    <updated>2025-11-14T08:27:55.516Z</updated>
     
     
       
@@ -579,7 +652,7 @@
     <link href="https://lixiang117423.github.io/article/mumemto/"/>
     <id>https://lixiang117423.github.io/article/mumemto/</id>
     <published>2025-06-24T08:15:09.000Z</published>
-    <updated>2025-06-26T14:33:08.000Z</updated>
+    <updated>2025-11-14T08:27:55.233Z</updated>
     
     
       
@@ -604,7 +677,7 @@
     <link href="https://lixiang117423.github.io/article/paper-reading-postdoc/"/>
     <id>https://lixiang117423.github.io/article/paper-reading-postdoc/</id>
     <published>2025-06-23T11:04:53.000Z</published>
-    <updated>2025-07-01T01:39:23.000Z</updated>
+    <updated>2025-11-14T08:27:55.152Z</updated>
     
     
       
@@ -629,7 +702,7 @@
     <link href="https://lixiang117423.github.io/article/newcode4augustus/"/>
     <id>https://lixiang117423.github.io/article/newcode4augustus/</id>
     <published>2025-06-22T14:51:20.000Z</published>
-    <updated>2025-06-22T14:58:22.000Z</updated>
+    <updated>2025-11-14T08:27:55.596Z</updated>
     
     
       
@@ -655,7 +728,7 @@
     <link href="https://lixiang117423.github.io/article/augustus-parameter/"/>
     <id>https://lixiang117423.github.io/article/augustus-parameter/</id>
     <published>2025-06-22T14:21:42.000Z</published>
-    <updated>2025-06-22T14:53:17.000Z</updated>
+    <updated>2025-11-14T08:27:55.714Z</updated>
     
     
       
@@ -681,7 +754,7 @@
     <link href="https://lixiang117423.github.io/article/model-train/"/>
     <id>https://lixiang117423.github.io/article/model-train/</id>
     <published>2025-06-22T13:37:49.000Z</published>
-    <updated>2025-06-22T13:39:00.000Z</updated>
+    <updated>2025-11-14T08:27:55.433Z</updated>
     
     
       
@@ -707,7 +780,7 @@
     <link href="https://lixiang117423.github.io/article/augustus-train/"/>
     <id>https://lixiang117423.github.io/article/augustus-train/</id>
     <published>2025-06-22T06:49:09.000Z</published>
-    <updated>2025-06-22T06:53:10.000Z</updated>
+    <updated>2025-11-14T08:27:55.437Z</updated>
     
     
       
@@ -732,7 +805,7 @@
     <link href="https://lixiang117423.github.io/article/biohelpers-python/"/>
     <id>https://lixiang117423.github.io/article/biohelpers-python/</id>
     <published>2025-06-06T06:18:44.000Z</published>
-    <updated>2025-06-06T06:22:27.660Z</updated>
+    <updated>2025-11-14T08:27:55.321Z</updated>
     
     
       
@@ -758,7 +831,7 @@
     <link href="https://lixiang117423.github.io/article/semfilshersc/"/>
     <id>https://lixiang117423.github.io/article/semfilshersc/</id>
     <published>2025-06-05T02:21:58.000Z</published>
-    <updated>2025-06-05T02:23:38.901Z</updated>
+    <updated>2025-11-14T08:27:55.150Z</updated>
     
     
       
@@ -783,7 +856,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-10-31T01:52:13.859Z</updated>
+    <updated>2025-11-30T13:20:52.658Z</updated>
     
     
       
@@ -809,7 +882,7 @@
     <link href="https://lixiang117423.github.io/article/genomeann/"/>
     <id>https://lixiang117423.github.io/article/genomeann/</id>
     <published>2025-05-27T12:27:35.000Z</published>
-    <updated>2025-05-27T12:28:47.433Z</updated>
+    <updated>2025-11-14T08:27:55.257Z</updated>
     
     
       
@@ -834,7 +907,7 @@
     <link href="https://lixiang117423.github.io/article/bsa/"/>
     <id>https://lixiang117423.github.io/article/bsa/</id>
     <published>2025-05-27T06:38:11.000Z</published>
-    <updated>2025-05-27T06:39:00.222Z</updated>
+    <updated>2025-11-14T08:27:55.620Z</updated>
     
     
       
@@ -860,7 +933,7 @@
     <link href="https://lixiang117423.github.io/article/seq2graph/"/>
     <id>https://lixiang117423.github.io/article/seq2graph/</id>
     <published>2025-05-26T08:08:07.000Z</published>
-    <updated>2025-05-26T08:09:18.757Z</updated>
+    <updated>2025-11-14T08:27:55.232Z</updated>
     
     
       
@@ -885,7 +958,7 @@
     <link href="https://lixiang117423.github.io/article/braker/"/>
     <id>https://lixiang117423.github.io/article/braker/</id>
     <published>2025-05-09T06:25:58.000Z</published>
-    <updated>2025-05-09T06:26:47.466Z</updated>
+    <updated>2025-11-14T08:27:55.348Z</updated>
     
     
       
@@ -911,7 +984,7 @@
     <link href="https://lixiang117423.github.io/article/svbyeye/"/>
     <id>https://lixiang117423.github.io/article/svbyeye/</id>
     <published>2025-05-09T06:19:08.000Z</published>
-    <updated>2025-05-09T06:20:04.459Z</updated>
+    <updated>2025-11-14T08:27:55.543Z</updated>
     
     
       
@@ -936,7 +1009,7 @@
     <link href="https://lixiang117423.github.io/article/pangenome-vg/"/>
     <id>https://lixiang117423.github.io/article/pangenome-vg/</id>
     <published>2025-05-09T06:16:15.000Z</published>
-    <updated>2025-05-09T06:17:16.665Z</updated>
+    <updated>2025-11-14T08:27:55.453Z</updated>
     
     
       
@@ -962,7 +1035,7 @@
     <link href="https://lixiang117423.github.io/article/pggb/"/>
     <id>https://lixiang117423.github.io/article/pggb/</id>
     <published>2025-05-09T00:56:07.000Z</published>
-    <updated>2025-05-09T00:56:47.000Z</updated>
+    <updated>2025-11-14T08:27:55.256Z</updated>
     
     
       
@@ -987,7 +1060,7 @@
     <link href="https://lixiang117423.github.io/article/braker3/"/>
     <id>https://lixiang117423.github.io/article/braker3/</id>
     <published>2025-04-25T02:40:11.000Z</published>
-    <updated>2025-04-25T06:27:53.381Z</updated>
+    <updated>2025-11-14T08:27:55.591Z</updated>
     
     
       
@@ -1013,7 +1086,7 @@
     <link href="https://lixiang117423.github.io/article/riceroot/"/>
     <id>https://lixiang117423.github.io/article/riceroot/</id>
     <published>2025-04-24T08:02:35.000Z</published>
-    <updated>2025-04-24T08:04:17.958Z</updated>
+    <updated>2025-11-14T08:27:55.636Z</updated>
     
     
       
@@ -1034,59 +1107,11 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="https://lixiang117423.github.io/article/undefined/"/>
-    <id>https://lixiang117423.github.io/article/undefined/</id>
-    <published>2025-03-22T04:52:56.000Z</published>
-    <updated>2023-11-30T13:03:22.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">{&quot;$schema&quot;:&quot;http://json-schema.org/draft-07/schema#&quot;,&quot;title&quot;:&quot;FullConfig&quot;,&quot;type&quot;:&quot;object&quot;,&quot;properties&quot;:{&quot;$schema&quot;:{&quot;default&quot;:&quot;https://starsh</summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title></title>
-    <link href="https://lixiang117423.github.io/article/undefined/"/>
-    <id>https://lixiang117423.github.io/article/undefined/</id>
-    <published>2025-03-22T04:52:56.000Z</published>
-    <updated>2023-11-30T13:03:22.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">
-&lt;div class=&quot;pretoc&quot;&gt;
-  &lt;p class=&quot;title&quot;&gt;Kraken taxonomic sequence classification system&lt;/p&gt;
-
-  &lt;p class=&quot;version&quot;&gt;Version 2.1.3&lt;/p&gt;
-
- </summary>
-        
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>泛基因组工具PGGB文档学习</title>
     <link href="https://lixiang117423.github.io/article/pggb/"/>
     <id>https://lixiang117423.github.io/article/pggb/</id>
     <published>2025-02-25T08:54:36.000Z</published>
-    <updated>2025-02-25T13:03:03.000Z</updated>
+    <updated>2025-11-14T08:27:55.184Z</updated>
     
     
       
@@ -1111,7 +1136,7 @@
     <link href="https://lixiang117423.github.io/article/deploygrobidandbiobert/"/>
     <id>https://lixiang117423.github.io/article/deploygrobidandbiobert/</id>
     <published>2025-02-17T03:17:08.000Z</published>
-    <updated>2025-02-17T11:52:06.000Z</updated>
+    <updated>2025-11-14T08:27:55.428Z</updated>
     
     
       
@@ -1136,7 +1161,7 @@
     <link href="https://lixiang117423.github.io/article/autorun/"/>
     <id>https://lixiang117423.github.io/article/autorun/</id>
     <published>2025-01-21T08:15:15.000Z</published>
-    <updated>2025-01-22T01:48:49.000Z</updated>
+    <updated>2025-11-14T08:27:55.280Z</updated>
     
     
       
@@ -1163,7 +1188,7 @@
     <link href="https://lixiang117423.github.io/article/genomecode/"/>
     <id>https://lixiang117423.github.io/article/genomecode/</id>
     <published>2025-01-07T01:01:24.000Z</published>
-    <updated>2025-01-07T01:26:51.000Z</updated>
+    <updated>2025-11-14T08:27:55.588Z</updated>
     
     
       
@@ -1189,7 +1214,7 @@
     <link href="https://lixiang117423.github.io/article/biohelpers/"/>
     <id>https://lixiang117423.github.io/article/biohelpers/</id>
     <published>2024-12-26T05:22:33.000Z</published>
-    <updated>2025-01-03T06:02:34.000Z</updated>
+    <updated>2025-11-14T08:27:55.567Z</updated>
     
     
       
@@ -1214,7 +1239,7 @@
     <link href="https://lixiang117423.github.io/article/gettaxonomy/"/>
     <id>https://lixiang117423.github.io/article/gettaxonomy/</id>
     <published>2024-11-25T02:36:54.000Z</published>
-    <updated>2024-11-25T02:41:59.000Z</updated>
+    <updated>2025-11-14T08:27:55.231Z</updated>
     
     
       
@@ -1222,31 +1247,6 @@
         
         
     <summary type="html">&lt;h2 id=&quot;软件下载&quot;&gt;&lt;a href=&quot;#软件下载&quot; class=&quot;headerlink&quot; title=&quot;软件下载&quot;&gt;&lt;/a&gt;软件下载&lt;/h2&gt;&lt;p&gt;从&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>全基因组DNA甲基化分析流程</title>
-    <link href="https://lixiang117423.github.io/article/dnamethylation/"/>
-    <id>https://lixiang117423.github.io/article/dnamethylation/</id>
-    <published>2024-10-10T01:29:14.000Z</published>
-    <updated>2024-10-11T01:27:58.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;测序原理&quot;&gt;&lt;a href=&quot;#测序原理&quot; class=&quot;headerlink&quot;</summary>
         
       
     
