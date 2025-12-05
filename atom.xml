@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2025-12-03T00:48:44.569Z</updated>
+  <updated>2025-12-05T02:46:45.047Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>生物信息学脚本合集</title>
+    <link href="https://lixiang117423.github.io/article/bioinf-scripts/"/>
+    <id>https://lixiang117423.github.io/article/bioinf-scripts/</id>
+    <published>2025-12-05T02:43:35.000Z</published>
+    <updated>2025-12-05T02:46:45.047Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;一些在AI协助下写的生物信息学脚本，自用。&lt;/p&gt;
+&lt;h1 id=&quot;基因组&quot;&gt;&lt;a href=&quot;#基因组&quot; class=&quot;headerlink&quot; title=&quot;基因组&quot;&gt;&lt;/a&gt;基因组&lt;/h1&gt;&lt;h2 id=&quot;hifiasm使用HiFi和Hi-C数据进行基因组组装&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>linux运行tassel做GWAS的脚本</title>
@@ -881,7 +907,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2025-12-03T00:48:48.143Z</updated>
+    <updated>2025-12-05T02:46:59.369Z</updated>
     
     
       
@@ -1222,31 +1248,6 @@
         
     <summary type="html">&lt;h1 id=&quot;参考文献&quot;&gt;&lt;a href=&quot;#参考文献&quot; class=&quot;headerlink&quot; title=&quot;参考文献&quot;&gt;&lt;/a&gt;参考文献&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;Dong Y, Duan S, Xia Q, et al. Dual</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>R包biohelpers使用说明</title>
-    <link href="https://lixiang117423.github.io/article/biohelpers/"/>
-    <id>https://lixiang117423.github.io/article/biohelpers/</id>
-    <published>2024-12-26T05:22:33.000Z</published>
-    <updated>2025-11-14T08:27:55.567Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;p&gt;从&lt;a</summary>
         
       
     
