@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2026-01-19T04:31:38.366Z</updated>
+  <updated>2026-01-19T04:36:30.849Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -18,18 +18,17 @@
   
   <entry>
     <title>生信小工具biopytools的使用方法</title>
-    <link href="https://lixiang117423.github.io/article/undefined/"/>
-    <id>https://lixiang117423.github.io/article/undefined/</id>
-    <published>2026-01-19T04:29:47.000Z</published>
-    <updated>2026-01-19T04:31:38.366Z</updated>
+    <link href="https://lixiang117423.github.io/article/biopytools/"/>
+    <id>https://lixiang117423.github.io/article/biopytools/</id>
+    <published>2026-01-19T04:35:02.000Z</published>
+    <updated>2026-01-19T04:36:30.849Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;一些可以节省时间的小工具。&lt;!-- more --&gt; &lt;/p&gt;
-&lt;h1 id=&quot;如何安装&quot;&gt;&lt;a href=&quot;#如何安装&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;如何安装&quot;&gt;&lt;a href=&quot;#如何安装&quot; class=&quot;headerlink&quot; title=&quot;如何安装&quot;&gt;&lt;/a&gt;如何安装&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -960,7 +959,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2026-01-19T04:31:46.561Z</updated>
+    <updated>2026-01-19T04:36:37.770Z</updated>
     
     
       
