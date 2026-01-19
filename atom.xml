@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2026-01-19T04:36:30.849Z</updated>
+  <updated>2026-01-19T04:41:04.288Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>8000份大豆重测序数据文章的流程</title>
+    <link href="https://lixiang117423.github.io/article/soybean8000/"/>
+    <id>https://lixiang117423.github.io/article/soybean8000/</id>
+    <published>2026-01-19T04:40:12.000Z</published>
+    <updated>2026-01-19T04:41:04.288Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;8000份大豆重测序数据文章的流程&quot;&gt;&lt;a href=&quot;#8000份大豆重测序数据文章的流程&quot; class=&quot;headerlink&quot; title=&quot;8000份大豆重测序数据文章的流程&quot;&gt;&lt;/a&gt;8000份大豆重测序数据文章的流程&lt;/h1&gt;&lt;h2</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>生信小工具biopytools的使用方法</title>
@@ -959,7 +984,7 @@
     <link href="https://lixiang117423.github.io/article/bioinftools/"/>
     <id>https://lixiang117423.github.io/article/bioinftools/</id>
     <published>2025-05-29T10:23:19.000Z</published>
-    <updated>2026-01-19T04:38:00.171Z</updated>
+    <updated>2026-01-19T04:41:13.931Z</updated>
     
     
       
@@ -1222,31 +1247,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;文献笔记&quot;&gt;&lt;a href=&quot;#文献笔记&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>部署GROBID和BioBERT</title>
-    <link href="https://lixiang117423.github.io/article/deploygrobidandbiobert/"/>
-    <id>https://lixiang117423.github.io/article/deploygrobidandbiobert/</id>
-    <published>2025-02-17T03:17:08.000Z</published>
-    <updated>2025-11-14T08:27:55.428Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;GROBID&quot;&gt;&lt;a href=&quot;#GROBID&quot; class=&quot;headerlink&quot; title=&quot;GROBID&quot;&gt;&lt;/a&gt;GROBID&lt;/h2&gt;&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot;</summary>
         
       
     
