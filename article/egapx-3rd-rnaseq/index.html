@@ -28,7 +28,7 @@
 <meta property="og:description" content="软件版本：v.0.4.1-alpha 报错信息： 1[0a&#x2F;15eb38] NOTE: Process egapx:rnaseq_long_plane:rename_fasta_ids (1) terminated with an error exit status (1) -- Execution is retried (1) 报错信息的大概意思是在处理三代转录组的时候讲fastq文件转换为fa">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-12-11T01:08:58.000Z">
-<meta property="article:modified_time" content="2025-12-11T01:15:25.522Z">
+<meta property="article:modified_time" content="2025-12-11T02:47:47.133Z">
 <meta property="article:author" content="小蓝哥">
 <meta property="article:tag" content="生物信息学">
 <meta name="twitter:card" content="summary_large_image">
@@ -73,7 +73,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":3},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -175,6 +175,18 @@
             </li>
           
         
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
@@ -227,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          387 字
+          475 字
         
       </span>
     
@@ -289,6 +301,11 @@
 <p>这个脚本只能处理未压缩的文件，但是我输入的是压缩后的格式。</p>
 <p><strong>解决方法：</strong>把上面这段代码替换为下面的代码，能够自动识别是压缩的还是为压缩的文件。</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><code class="hljs python">process rename_fasta_ids {<br>    <span class="hljs-built_in">input</span>:<br>        <span class="hljs-built_in">tuple</span> val(sampleID), path(fastx, stageAs: <span class="hljs-string">"reads/*"</span>)<br>        val  srr_id<br>    output:<br>        <span class="hljs-built_in">tuple</span> val(sampleID),  path (<span class="hljs-string">'output/*'</span>)  , emit: <span class="hljs-string">'fasta_pair_list'</span><br>    script:<br>        file_name = fastx.getBaseName() + <span class="hljs-string">'.fasta'</span><br>    <span class="hljs-string">"""</span><br><span class="hljs-string">    #!/usr/bin/env python3</span><br><span class="hljs-string">    import os</span><br><span class="hljs-string">    import gzip  # &lt;--- [新增] 引入 gzip 模块</span><br><span class="hljs-string"></span><br><span class="hljs-string">    os.makedirs('output', exist_ok=True)</span><br><span class="hljs-string"></span><br><span class="hljs-string">    input_path = '${fastx}'</span><br><span class="hljs-string">    </span><br><span class="hljs-string">    # &lt;--- [新增] 判断文件后缀并选择打开方式</span><br><span class="hljs-string">    if input_path.endswith('.gz'):</span><br><span class="hljs-string">        open_func = gzip.open</span><br><span class="hljs-string">        mode = 'rt' # read text mode</span><br><span class="hljs-string">    else:</span><br><span class="hljs-string">        open_func = open</span><br><span class="hljs-string">        mode = 'r'</span><br><span class="hljs-string"></span><br><span class="hljs-string">    # &lt;--- [修改] 使用 open_func 替代 open</span><br><span class="hljs-string">    with open_func(input_path, mode) as infile, open('output/${file_name}', 'w') as outfile:</span><br><span class="hljs-string">        rec_cnt = 1</span><br><span class="hljs-string">        skip_next = False</span><br><span class="hljs-string">        for line in infile:</span><br><span class="hljs-string">            line = line.lstrip()</span><br><span class="hljs-string">            if not line:</span><br><span class="hljs-string">                continue</span><br><span class="hljs-string">            if line[0] in {'&gt;', '@', '+'}:</span><br><span class="hljs-string">                # 注意：这里 ${srr_id} 是 Nextflow 变量插值，保留原样</span><br><span class="hljs-string">                new_id = f"gnl|SRA|SRR{${srr_id}:08d}.{rec_cnt}.1"</span><br><span class="hljs-string">                if line[0] in {'&gt;', '@'}:</span><br><span class="hljs-string">                    outfile.write(f"&gt;{new_id}{os.linesep}")</span><br><span class="hljs-string">                if line[0] in {'&gt;', '+'}:</span><br><span class="hljs-string">                    rec_cnt += 1</span><br><span class="hljs-string">                if line[0] == '+':</span><br><span class="hljs-string">                    skip_next = True</span><br><span class="hljs-string">            elif skip_next:</span><br><span class="hljs-string">                skip_next = False</span><br><span class="hljs-string">            else:</span><br><span class="hljs-string">                outfile.write(line)</span><br><span class="hljs-string">    """</span><br>    stub:<br>        file_name = fastx.getBaseName() + <span class="hljs-string">'.fasta'</span><br>    <span class="hljs-string">"""</span><br><span class="hljs-string">    mkdir -p output</span><br><span class="hljs-string">    echo $srr_id &gt; output/$file_name</span><br><span class="hljs-string">    """</span><br>}<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<p>后续的<code>minimap2</code>还是会报错：</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">NOTE: Process `egapx:rnaseq_long_plane:minimap2:minimap2_wnode (50)` terminated with an error <span class="hljs-built_in">exit</span> status (3) -- Execution is retried (3)<br></code></pre></td></tr></tbody></table></figure>
+<p>找到一个解决方案：<a target="_blank" rel="noopener" href="https://github.com/ncbi/egapx/issues/166">https://github.com/ncbi/egapx/issues/166</a></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs bash">process rename_fasta_ids {<br>    input:<br>        tuple val(sampleID), path(fastx, stageAs: <span class="hljs-string">"reads/*"</span>)<br>        val  srr_id<br>    output:<br>        tuple val(sampleID),  path (<span class="hljs-string">'output/*'</span>)  , emit: <span class="hljs-string">'fasta_pair_list'</span><br>    script:<br>        file_name = fastx.getBaseName() + <span class="hljs-string">'.fasta'</span><br>        def srrFmt = String.format(<span class="hljs-string">'SRR%08d'</span>, (srr_id as int))<br>    <span class="hljs-string">""</span><span class="hljs-string">"</span><br><span class="hljs-string">    mkdir -p output</span><br><span class="hljs-string">    seqkit fq2fa -j 32 '<span class="hljs-variable">${fastx}</span>' | seqkit replace -j 32 -w 0 -p '.*' -r 'gnl|SRA|<span class="hljs-variable">${srrFmt}</span>.{nr}.1' &gt; output/<span class="hljs-variable">${file_name}</span></span><br><span class="hljs-string">    "</span><span class="hljs-string">""</span><br>    stub:<br>        file_name = fastx.getBaseName() + <span class="hljs-string">'.fasta'</span><br>    <span class="hljs-string">""</span><span class="hljs-string">"</span><br><span class="hljs-string">    mkdir -p output</span><br><span class="hljs-string">    echo <span class="hljs-variable">$srr_id</span> &gt; output/<span class="hljs-variable">$file_name</span></span><br><span class="hljs-string">    "</span><span class="hljs-string">""</span><br>}<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
@@ -378,6 +395,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/article/undefined/" title="生信小工具biopytools的使用方法">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">生信小工具biopytools的使用方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -546,7 +569,9 @@
 
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
   
 
 
