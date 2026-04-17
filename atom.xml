@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2026-01-19T04:41:04.288Z</updated>
+  <updated>2026-04-17T01:14:42.687Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EGAPx文档中文版-AI生成</title>
+    <link href="https://lixiang117423.github.io/article/egxpa-cn/"/>
+    <id>https://lixiang117423.github.io/article/egxpa-cn/</id>
+    <published>2026-04-17T01:14:09.000Z</published>
+    <updated>2026-04-17T01:14:42.687Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;EGAPx-真核生物基因组注释流程-中文使用指南&quot;&gt;&lt;a href=&quot;#EGAPx-真核生物基因组注释流程-中文使用指南&quot; class=&quot;headerlink&quot; title=&quot;EGAPx 真核生物基因组注释流程 - 中文使用指南&quot;&gt;&lt;/a&gt;EGAPx</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>8000份大豆重测序数据文章的流程</title>
@@ -1231,31 +1256,6 @@
     
     
     <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>泛基因组工具PGGB文档学习</title>
-    <link href="https://lixiang117423.github.io/article/pggb/"/>
-    <id>https://lixiang117423.github.io/article/pggb/</id>
-    <published>2025-02-25T08:54:36.000Z</published>
-    <updated>2025-11-14T08:27:55.184Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;文献笔记&quot;&gt;&lt;a href=&quot;#文献笔记&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-    
-    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
     
   </entry>
   

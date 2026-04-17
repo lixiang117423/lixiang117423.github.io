@@ -1,0 +1,931 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="EGAPx 真核生物基因组注释流程 - 中文使用指南一、EGAPx 是什么？EGAPx（Eukaryotic Genome Annotation Pipeline - External）是 NCBI（美国国立生物技术信息中心）官方开源的真核生物基因组自动化注释工具。 简单来说，EGAPx 能做什么？给你一个基因组的 DNA 序列 + 物种信息 + 转录组数据，它就能自动预测出：  哪里是基因 基因">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EGAPx文档中文版-AI生成">
+<meta property="og:url" content="https://lixiang117423.github.io/article/egxpa-cn/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="EGAPx 真核生物基因组注释流程 - 中文使用指南一、EGAPx 是什么？EGAPx（Eukaryotic Genome Annotation Pipeline - External）是 NCBI（美国国立生物技术信息中心）官方开源的真核生物基因组自动化注释工具。 简单来说，EGAPx 能做什么？给你一个基因组的 DNA 序列 + 物种信息 + 转录组数据，它就能自动预测出：  哪里是基因 基因">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-17T01:14:09.000Z">
+<meta property="article:modified_time" content="2026-04-17T01:14:42.687Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>EGAPx文档中文版-AI生成 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":3},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="EGAPx文档中文版-AI生成"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-04-17 09:14" pubdate>
+          2026年4月17日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          15 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">EGAPx文档中文版-AI生成</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="EGAPx-真核生物基因组注释流程-中文使用指南"><a href="#EGAPx-真核生物基因组注释流程-中文使用指南" class="headerlink" title="EGAPx 真核生物基因组注释流程 - 中文使用指南"></a>EGAPx 真核生物基因组注释流程 - 中文使用指南</h1><h2 id="一、EGAPx-是什么？"><a href="#一、EGAPx-是什么？" class="headerlink" title="一、EGAPx 是什么？"></a>一、EGAPx 是什么？</h2><p>EGAPx（Eukaryotic Genome Annotation Pipeline - External）是 NCBI（美国国立生物技术信息中心）官方开源的真核生物基因组自动化注释工具。</p>
+<h3 id="简单来说，EGAPx-能做什么？"><a href="#简单来说，EGAPx-能做什么？" class="headerlink" title="简单来说，EGAPx 能做什么？"></a>简单来说，EGAPx 能做什么？</h3><p>给你一个基因组的 DNA 序列 + 物种信息 + 转录组数据，它就能自动预测出：</p>
+<ul>
+<li>哪里是基因</li>
+<li>基因分几个外显子</li>
+<li>基因表达什么蛋白</li>
+<li>蛋白有什么功能</li>
+</ul>
+<h3 id="它的工作原理"><a href="#它的工作原理" class="headerlink" title="它的工作原理"></a>它的工作原理</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">输入文件 → 比对蛋白和RNA-<span class="hljs-built_in">seq</span>数据 → Gnomon预测基因结构 → 功能注释 → 输出结果<br></code></pre></td></tr></tbody></table></figure>
+<ol>
+<li><strong>蛋白比对</strong>：用 <code>miniprot</code> 或 <code>prosplign</code> 把已知物种的蛋白序列比对到你的基因组</li>
+<li><strong>短RNA-seq比对</strong>：用 <code>STAR</code> 比对短reads（如Illumina数据）</li>
+<li><strong>长RNA-seq比对</strong>：用 <code>minimap2</code> 比对长reads（如PacBio、Nanopore数据）</li>
+<li><strong>基因预测</strong>：基于这些证据，用 Gnomon 预测基因结构</li>
+<li><strong>功能注释</strong>：给预测的基因加上功能描述</li>
+</ol>
+<hr>
+<h2 id="二、支持的物种"><a href="#二、支持的物种" class="headerlink" title="二、支持的物种"></a>二、支持的物种</h2><h3 id="✅-支持的物种（按分类群）"><a href="#✅-支持的物种（按分类群）" class="headerlink" title="✅ 支持的物种（按分类群）"></a>✅ 支持的物种（按分类群）</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>分类群</th>
+<th>包含范围</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>脊索动物</td>
+<td>哺乳动物、鸟类、鱼类、其他脊椎动物</td>
+</tr>
+<tr>
+<td>节肢动物</td>
+<td>膜翅目、双翅目、鳞翅目、鞘翅目、半翅目等</td>
+</tr>
+<tr>
+<td>棘皮动物</td>
+<td>海星、海胆等</td>
+</tr>
+<tr>
+<td>腔肠动物</td>
+<td>珊瑚、水母等</td>
+</tr>
+<tr>
+<td>单子叶植物</td>
+<td>水稻、玉米等</td>
+</tr>
+<tr>
+<td>双子叶植物</td>
+<td>菊类、蔷薇类、豆类、石竹目等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="❌-不支持的物种"><a href="#❌-不支持的物种" class="headerlink" title="❌ 不支持的物种"></a>❌ 不支持的物种</h3><ul>
+<li><strong>真菌</strong>、<strong>原生生物</strong>、<strong>线虫</strong> - 这三类不在支持范围内，建议用其他工具</li>
+</ul>
+<blockquote>
+<p>⚠️ 如果你用了不支持的物种TaxID，流程会报错失败。</p>
+</blockquote>
+<hr>
+<h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a>三、安装</h2><h3 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h3><ul>
+<li><strong>容器</strong>：Docker 或 Singularity</li>
+<li><strong>集群</strong>：AWS Batch、SLURM/UGE，或单机（推荐 32核CPU + 256GB内存）</li>
+<li><strong>Nextflow</strong>：v23.10.1 或更高</li>
+<li><strong>Python</strong>：v3.11+</li>
+</ul>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 克隆仓库</span><br>git <span class="hljs-built_in">clone</span> https://github.com/ncbi/egapx.git<br><span class="hljs-built_in">cd</span> egapx<br><br><span class="hljs-comment"># 2. 创建Python虚拟环境</span><br>python3 -m venv venv<br><span class="hljs-built_in">source</span> venv/bin/activate<br><br><span class="hljs-comment"># 3. 安装依赖</span><br>pip install -r requirements.txt<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="四、准备输入数据"><a href="#四、准备输入数据" class="headerlink" title="四、准备输入数据"></a>四、准备输入数据</h2><h3 id="1-必需输入"><a href="#1-必需输入" class="headerlink" title="1. 必需输入"></a>1. 必需输入</h3><p>EGAPx 使用 YAML 格式的配置文件，至少需要两个参数：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">genome:</span> <span class="hljs-string">/path/to/your_genome.fasta</span>    <span class="hljs-comment"># 基因组文件路径</span><br><span class="hljs-attr">taxid:</span> <span class="hljs-number">6954</span>                          <span class="hljs-comment"># NCBI Taxonomy ID（物种ID）</span><br></code></pre></td></tr></tbody></table></figure>
+<p><strong>如何获取 taxid？</strong></p>
+<ul>
+<li>去 <a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/taxonomy">https://www.ncbi.nlm.nih.gov/taxonomy</a> 搜索你的物种名称</li>
+<li>或搜索 “Homo sapiens taxid”</li>
+</ul>
+<h3 id="2-基因组文件要求"><a href="#2-基因组文件要求" class="headerlink" title="2. 基因组文件要求"></a>2. 基因组文件要求</h3><ul>
+<li><strong>格式</strong>：标准 FASTA 格式（<code>.fasta</code> 或 <code>.fa</code>）</li>
+<li><strong>命名</strong>：序列名尽量简短、简单，避免特殊字符</li>
+<li><strong>重复序列</strong>：<strong>不需要提前软屏蔽（softmask）</strong>，流程会自动处理</li>
+<li><strong>细胞器序列</strong>：建议保留在基因组中，避免reads错误比对</li>
+<li><strong>污染筛查</strong>：<strong>强烈建议在运行前用 <a target="_blank" rel="noopener" href="https://github.com/ncbi/fcs">FCS</a> 筛查污染</strong></li>
+</ul>
+<h3 id="3-转录组数据（强烈推荐）"><a href="#3-转录组数据（强烈推荐）" class="headerlink" title="3. 转录组数据（强烈推荐）"></a>3. 转录组数据（强烈推荐）</h3><h4 id="短RNA-seq数据（Illumina）"><a href="#短RNA-seq数据（Illumina）" class="headerlink" title="短RNA-seq数据（Illumina）"></a>短RNA-seq数据（Illumina）</h4><p><strong>方式一：从SRA数据库下载</strong></p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">short_reads:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">SRR8506572</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">SRR9005248</span><br></code></pre></td></tr></tbody></table></figure>
+<p><strong>方式二：使用本地文件</strong></p>
+<figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">short_reads:</span><br>  <span class="hljs-comment"># 单端测序</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-bullet">-</span> <span class="hljs-string">sample1</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/sample1.fastq</span><br><br>  <span class="hljs-comment"># 双端测序（注意两个文件顺序：R1在前，R2在后）</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-bullet">-</span> <span class="hljs-string">sample2</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/sample2_R1.fastq</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/sample2_R2.fastq</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="长RNA-seq数据（PacBio-Nanopore）"><a href="#长RNA-seq数据（PacBio-Nanopore）" class="headerlink" title="长RNA-seq数据（PacBio / Nanopore）"></a>长RNA-seq数据（PacBio / Nanopore）</h4><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">long_reads:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-bullet">-</span> <span class="hljs-string">sample_nanopore</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/nanopore.fastq</span><br></code></pre></td></tr></tbody></table></figure>
+<h4 id="同时使用短reads和长reads"><a href="#同时使用短reads和长reads" class="headerlink" title="同时使用短reads和长reads"></a>同时使用短reads和长reads</h4><figure class="highlight yaml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">genome:</span> <span class="hljs-string">/path/to/genome.fasta</span><br><span class="hljs-attr">taxid:</span> <span class="hljs-number">6954</span><br><span class="hljs-attr">short_reads:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-bullet">-</span> <span class="hljs-string">sample1</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/sample1_R1.fastq</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/sample1_R2.fastq</span><br><span class="hljs-attr">long_reads:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-bullet">-</span> <span class="hljs-string">sample_pacbio</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-string">/path/to/pacbio.fastq</span><br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="五、运行-EGAPx"><a href="#五、运行-EGAPx" class="headerlink" title="五、运行 EGAPx"></a>五、运行 EGAPx</h2><h3 id="1-首次运行-生成配置文件"><a href="#1-首次运行-生成配置文件" class="headerlink" title="1. 首次运行 - 生成配置文件"></a>1. 首次运行 - 生成配置文件</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">python3 ui/egapx.py ./examples/input_D_farinae_small.yaml \<br>  -e &lt;执行器&gt; \<br>  -w &lt;工作目录&gt; \<br>  -o &lt;输出目录&gt;<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>执行器选项：</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-e local</code></td>
+<td>本地单机运行</td>
+</tr>
+<tr>
+<td><code>-e docker</code></td>
+<td>使用 Docker</td>
+</tr>
+<tr>
+<td><code>-e singularity</code></td>
+<td>使用 Singularity</td>
+</tr>
+<tr>
+<td><code>-e slurm</code></td>
+<td>SLURM集群（需编辑配置文件）</td>
+</tr>
+<tr>
+<td><code>-e aws</code></td>
+<td>AWS云平台</td>
+</tr>
+<tr>
+<td><code>-e biowulf</code></td>
+<td>NIH Biowulf集群</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>首次运行后，会在 <code>./egapx_config/</code> 目录生成配置文件，可按需修改。</p>
+<h3 id="2-资源配置调整"><a href="#2-资源配置调整" class="headerlink" title="2. 资源配置调整"></a>2. 资源配置调整</h3><p>如果基因组很大（如 &gt; 3Gb）或数据量很大，可能需要调整内存：</p>
+<p>编辑 <code>egapx_config/process_resources.config</code>：</p>
+<figure class="highlight clean"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs clean">withLabel: <span class="hljs-string">'small_mem'</span> {<br>    memory = <span class="hljs-number">8.</span>GB<br>}<br>withLabel: <span class="hljs-string">'med_mem'</span> {<br>    memory = <span class="hljs-number">64.</span>GB --&gt; <span class="hljs-number">128.</span>GB  # 改大<br>}<br>withLabel: <span class="hljs-string">'large_mem'</span> {<br>    memory = <span class="hljs-number">128.</span>GB --&gt; <span class="hljs-number">200.</span>GB  # 改大<br>}<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="3-离线模式（无网络或需可重复运行）"><a href="#3-离线模式（无网络或需可重复运行）" class="headerlink" title="3. 离线模式（无网络或需可重复运行）"></a>3. 离线模式（无网络或需可重复运行）</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 下载所有支持文件</span><br>python3 ui/egapx.py input.yaml -dl -lc local_cache<br><br><span class="hljs-comment"># 运行</span><br>python3 ui/egapx.py input.yaml -e &lt;executor&gt; -w work -o output -lc local_cache<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="六、输出文件解读"><a href="#六、输出文件解读" class="headerlink" title="六、输出文件解读"></a>六、输出文件解读</h2><h3 id="主要输出文件"><a href="#主要输出文件" class="headerlink" title="主要输出文件"></a>主要输出文件</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文件名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>annotated_genome.asn</code></td>
+<td>最终注释结果（ASN格式，用于提交NCBI）</td>
+</tr>
+<tr>
+<td><code>complete.genomic.gff</code></td>
+<td>GFF3格式注释（最常用，推荐）</td>
+</tr>
+<tr>
+<td><code>complete.genomic.gtf</code></td>
+<td>GTF格式注释</td>
+</tr>
+<tr>
+<td><code>complete.genomic.fna</code></td>
+<td>基因组序列（FASTA）</td>
+</tr>
+<tr>
+<td><code>complete.cds.fna</code></td>
+<td>编码区序列</td>
+</tr>
+<tr>
+<td><code>complete.transcripts.fna</code></td>
+<td>转录本序列</td>
+</tr>
+<tr>
+<td><code>complete.proteins.faa</code></td>
+<td>蛋白序列</td>
+</tr>
+<tr>
+<td><code>annotation_data.cmt</code></td>
+<td>注释元数据（用于提交）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="质量评估文件"><a href="#质量评估文件" class="headerlink" title="质量评估文件"></a>质量评估文件</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>文件/目录</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GNOMON/contam_rpt.tsv</code></td>
+<td>污染报告，检查是否有原核生物污染</td>
+</tr>
+<tr>
+<td><code>GNOMON/new.gnomon_report.txt</code></td>
+<td>每个基因的证据支持详情</td>
+</tr>
+<tr>
+<td><code>busco/</code></td>
+<td>BUSCO完整性评估结果</td>
+</tr>
+<tr>
+<td><code>stats/feature_counts.xml</code></td>
+<td>特征数量统计</td>
+</tr>
+<tr>
+<td><code>stats/feature_stats.xml</code></td>
+<td>特征详细统计</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="输出统计示例"><a href="#输出统计示例" class="headerlink" title="输出统计示例"></a>输出统计示例</h3><figure class="highlight tap"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs tap">Overall Counts:<br>  genes:<span class="hljs-number"> 12650 </span>             <span class="hljs-comment"># 总基因数</span><br>    genes (protein coding):<span class="hljs-number"> 11549 </span>  <span class="hljs-comment"># 蛋白编码基因</span><br>    genes (non coding):<span class="hljs-number"> 886 </span>       <span class="hljs-comment"># 非编码RNA基因</span><br>  mRNAs:<span class="hljs-number"> 23281 </span>            <span class="hljs-comment"># 总转录本数</span><br>    mRNAs (fully supported):<span class="hljs-number"> 21577 </span> <span class="hljs-comment"># 完整支持</span><br>  non-coding RNAs:<span class="hljs-number"> 1963 </span>   <span class="hljs-comment"># 非编码RNA</span><br></code></pre></td></tr></tbody></table></figure>
+<h3 id="关键质量指标"><a href="#关键质量指标" class="headerlink" title="关键质量指标"></a>关键质量指标</h3><ul>
+<li><strong>fully supported</strong>：该转录本有完整的实验证据支持（蛋白或RNA-seq）</li>
+<li><strong>ab initio &gt; 5%</strong>：超过5%的序列是ab initio预测（仅靠HMM模型），可能质量较低</li>
+<li><strong>major correction</strong>：存在移码突变或内部终止密码子，可能是低质量蛋白，标记为”LOW QUALITY PROTEIN”</li>
+</ul>
+<blockquote>
+<p>⚠️ 如果超过10%的蛋白编码基因有”major correction”，建议先优化基因组组装质量再注释。</p>
+</blockquote>
+<hr>
+<h2 id="七、常见问题"><a href="#七、常见问题" class="headerlink" title="七、常见问题"></a>七、常见问题</h2><h3 id="Q1-运行时间多久？"><a href="#Q1-运行时间多久？" class="headerlink" title="Q1: 运行时间多久？"></a>Q1: 运行时间多久？</h3><p>取决于基因组大小和数据量：</p>
+<ul>
+<li>果蝇（144Mb）+ 1个Illumina数据：约 <strong>3小时</strong></li>
+<li>鸡（1.1Gb）+ 20个RNA-seq数据：约 <strong>5.5小时</strong></li>
+</ul>
+<h3 id="Q2-BUSCO分数低怎么办？"><a href="#Q2-BUSCO分数低怎么办？" class="headerlink" title="Q2: BUSCO分数低怎么办？"></a>Q2: BUSCO分数低怎么办？</h3><ul>
+<li>可能原因：组装质量差、基因组特殊、物种与BUSCO模型距离远</li>
+<li>检查 <code>busco/short_summary.txt</code> 了解具体情况</li>
+<li>用 <a target="_blank" rel="noopener" href="https://busco.ezlab.org/">https://busco.ezlab.org/</a> 查看同物种的预期分数</li>
+</ul>
+<h3 id="Q3-污染怎么办？"><a href="#Q3-污染怎么办？" class="headerlink" title="Q3: 污染怎么办？"></a>Q3: 污染怎么办？</h3><p>EGAPx 会在蛋白质比对阶段检测污染。如果超过5%的基因模型比对到原核生物，会报错停止。</p>
+<p>建议：</p>
+<ol>
+<li>运行前用 <a target="_blank" rel="noopener" href="https://github.com/ncbi/fcs">FCS</a> 筛查污染</li>
+<li>检查 <code>GNOMON/contam_rpt.tsv</code> 中的可疑序列</li>
+</ol>
+<h3 id="Q4-单染色体基因组出问题？"><a href="#Q4-单染色体基因组出问题？" class="headerlink" title="Q4: 单染色体基因组出问题？"></a>Q4: 单染色体基因组出问题？</h3><p>某些步骤（如 <code>bam_bin</code>）在单染色体基因组上可能失败。临时解决方案：添加一个假的scaffold或线粒体序列。</p>
+<hr>
+<h2 id="八、提交到NCBI"><a href="#八、提交到NCBI" class="headerlink" title="八、提交到NCBI"></a>八、提交到NCBI</h2><h3 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h3><ol>
+<li><strong>BioProject</strong> 和 <strong>BioSample</strong>：在 <a target="_blank" rel="noopener" href="https://submit.ncbi.nlm.nih.gov/subs/bioproject/">https://submit.ncbi.nlm.nih.gov/subs/bioproject/</a> 注册</li>
+<li><strong>locus_tag前缀</strong>：提交时会分配</li>
+<li><strong>source table</strong>：序列来源信息表</li>
+<li><strong>assembly structured comment</strong>：从 <a target="_blank" rel="noopener" href="https://submit.ncbi.nlm.nih.gov/structcomment/genomes/">https://submit.ncbi.nlm.nih.gov/structcomment/genomes/</a> 生成</li>
+</ol>
+<h3 id="使用-prepare-submission-工具"><a href="#使用-prepare-submission-工具" class="headerlink" title="使用 prepare_submission 工具"></a>使用 prepare_submission 工具</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Docker</span><br>docker run --<span class="hljs-built_in">rm</span> -i -v <span class="hljs-string">"<span class="hljs-variable">$PWD</span>:<span class="hljs-variable">$PWD</span>"</span> -w <span class="hljs-string">"<span class="hljs-variable">$PWD</span>"</span> \<br>  ncbi/egapx:0.5.1 prepare_submission \<br>  --egapx-annotated-genome-asn annotated_genome.asn \<br>  --submission-template-file template.sbt \<br>  --bioproject-id PRJNAxxxxx \<br>  --locus-tag-prefix xxxx \<br>  --src-file source_table.txt \<br>  --assembly-data-structured-comment-file genome.asm \<br>  --linkage-evidence paired-ends \<br>  --out-dir submission_output<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="检查输出"><a href="#检查输出" class="headerlink" title="检查输出"></a>检查输出</h3><ul>
+<li><code>.sqn</code> 文件：最终提交文件</li>
+<li><code>.val</code> 文件：验证报告（检查是否有ERROR/FATAL）</li>
+<li><code>.dr</code> 文件：差异报告</li>
+</ul>
+<blockquote>
+<p>⚠️ BACTERIAL_* 相关的FATAL可以忽略。</p>
+</blockquote>
+<hr>
+<h2 id="九、快速开始示例"><a href="#九、快速开始示例" class="headerlink" title="九、快速开始示例"></a>九、快速开始示例</h2><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 1. 安装</span><br>git <span class="hljs-built_in">clone</span> https://github.com/ncbi/egapx.git<br><span class="hljs-built_in">cd</span> egapx<br>python3 -m venv venv &amp;&amp; <span class="hljs-built_in">source</span> venv/bin/activate<br>pip install -r requirements.txt<br><br><span class="hljs-comment"># 2. 创建输入文件 input.yaml</span><br><span class="hljs-built_in">cat</span> &gt; input.yaml &lt;&lt; <span class="hljs-string">'EOF'</span><br>genome: /path/to/your_genome.fasta<br>taxid: 6954  <span class="hljs-comment"># 示例：尘螨</span><br>short_reads:<br>  - - SRR8506572<br>    - https://example.com/sample_R1.fastq<br>    - https://example.com/sample_R2.fastq<br>EOF<br><br><span class="hljs-comment"># 3. 运行（单机）</span><br>python3 ui/egapx.py input.yaml -e <span class="hljs-built_in">local</span> -w work -o output<br><br><span class="hljs-comment"># 4. 查看结果</span><br><span class="hljs-built_in">ls</span> output/<br></code></pre></td></tr></tbody></table></figure>
+<hr>
+<h2 id="十、获取帮助"><a href="#十、获取帮助" class="headerlink" title="十、获取帮助"></a>十、获取帮助</h2><ul>
+<li><strong>GitHub Issues</strong>：<a target="_blank" rel="noopener" href="https://github.com/ncbi/egapx/issues">https://github.com/ncbi/egapx/issues</a></li>
+<li><strong>邮箱</strong>：cgr@nlm.nih.gov</li>
+</ul>
+<hr>
+<p><em>文档版本：基于 EGAPx v0.4.1-alpha</em></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>EGAPx文档中文版-AI生成</div>
+      <div>https://lixiang117423.github.io/article/egxpa-cn/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年4月17日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/soybean8000/" title="8000份大豆重测序数据文章的流程">
+                        <span class="hidden-mobile">8000份大豆重测序数据文章的流程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      滇ICP备2021000708号-4
+    </a>
+  </span>
+  
+</div>
+
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
