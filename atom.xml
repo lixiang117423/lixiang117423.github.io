@@ -6,7 +6,7 @@
   <link href="https://lixiang117423.github.io/atom.xml" rel="self"/>
   
   <link href="https://lixiang117423.github.io/"/>
-  <updated>2026-04-17T01:14:42.687Z</updated>
+  <updated>2026-04-22T03:00:34.931Z</updated>
   <id>https://lixiang117423.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>月季泛基因组文章的代码</title>
+    <link href="https://lixiang117423.github.io/article/yuejipangenomecode/"/>
+    <id>https://lixiang117423.github.io/article/yuejipangenomecode/</id>
+    <published>2026-04-22T02:55:54.000Z</published>
+    <updated>2026-04-22T03:00:34.931Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Rose-Pangenome-Analysis-Scripts-详细说明&quot;&gt;&lt;a href=&quot;#Rose-Pangenome-Analysis-Scripts-详细说明&quot; class=&quot;headerlink&quot; title=&quot;Rose Pangenome</summary>
+        
+      
+    
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+    
+    <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>EGAPx文档中文版-AI生成</title>
@@ -1231,31 +1256,6 @@
     
     
     <category term="生物信息学" scheme="https://lixiang117423.github.io/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>根际微生物调控水稻分蘖</title>
-    <link href="https://lixiang117423.github.io/article/riceroot/"/>
-    <id>https://lixiang117423.github.io/article/riceroot/</id>
-    <published>2025-04-24T08:02:35.000Z</published>
-    <updated>2025-11-14T08:27:55.636Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-材料方法&quot;&gt;&lt;a href=&quot;#1-材料方法&quot; class=&quot;headerlink&quot; title=&quot;1 材料方法&quot;&gt;&lt;/a&gt;1</summary>
-        
-      
-    
-    
-    
-    <category term="文献阅读" scheme="https://lixiang117423.github.io/categories/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
-    
-    
-    <category term="文献阅读" scheme="https://lixiang117423.github.io/tags/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/"/>
     
   </entry>
   
