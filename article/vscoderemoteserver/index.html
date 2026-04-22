@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 服务器端使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装langu">
+    <meta name="description" content="实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 ¶服务器端 使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装lan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VScode远程连接服务器并使用R">
-<meta property="og:url" content="https://lixiang117423.github.io/article/vscoderemoteserver/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/VScoderemoteServer/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 服务器端使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装langu">
+<meta property="og:description" content="实验室服务器重装系统后RStudio无法登录，没法解决，索性使用VScode解决。 ¶服务器端 使用mamba管理R包。只需要安装如下几个包即可： 1234mamba create --name r # 新建环境mamba install -c conda-forge r-base # 安装Rmamba install -c conda-forge r-languageserver # 安装lan">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131921225.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131922752.png">
@@ -94,9 +94,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -247,7 +247,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          377 字
+          378 字
         
       </span>
     
@@ -301,30 +301,42 @@
               <div class="markdown-body">
                 
                 <p>实验室服务器重装系统后<code>RStudio</code>无法登录，没法解决，索性使用<code>VScode</code>解决。</p>
-<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>使用<code>mamba</code>管理R包。只需要安装如下几个包即可：</p>
+<h2 id="服务器端"><a class="header-anchor" href="#服务器端">¶</a>服务器端</h2>
+<p>使用<code>mamba</code>管理R包。只需要安装如下几个包即可：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create --name r <span class="hljs-comment"># 新建环境</span><br>mamba install -c conda-forge r-base <span class="hljs-comment"># 安装R</span><br>mamba install -c conda-forge r-languageserver <span class="hljs-comment"># 安装languageserver包</span><br>mamba install -c conda-forge r-httpgd <span class="hljs-comment"># 展示图片</span><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><h3 id="安装VScode"><a href="#安装VScode" class="headerlink" title="安装VScode"></a>安装VScode</h3><p>根据电脑系统下载安装<code>VScode</code>（<a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">点击下载</a>），一路默认安装即可。</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><p>第一个需要安装的插件是<code>R</code>：</p>
+<h2 id="本地操作"><a class="header-anchor" href="#本地操作">¶</a>本地操作</h2>
+<h3 id="安装VScode"><a class="header-anchor" href="#安装VScode">¶</a>安装VScode</h3>
+<p>根据电脑系统下载安装<code>VScode</code>（<a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">点击下载</a>），一路默认安装即可。</p>
+<h3 id="安装插件"><a class="header-anchor" href="#安装插件">¶</a>安装插件</h3>
+<p>第一个需要安装的插件是<code>R</code>：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131921225.png" srcset="/img/loading.gif" lazyload alt="image-20230313192143592"></p>
 <p>第二个需要安装的插件是<code>Remote-SSH</code>:</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131922752.png" srcset="/img/loading.gif" lazyload alt="image-20230313192225615"></p>
-<h3 id="配置远程访问"><a href="#配置远程访问" class="headerlink" title="配置远程访问"></a>配置远程访问</h3><p>首次使用需要先配置<code>ssh</code>访问：</p>
+<h3 id="配置远程访问"><a class="header-anchor" href="#配置远程访问">¶</a>配置远程访问</h3>
+<p>首次使用需要先配置<code>ssh</code>访问：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131924048.png" srcset="/img/loading.gif" lazyload alt="image-20230313192422314"></p>
 <p>具体配置信息如下：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131925803.png" srcset="/img/loading.gif" lazyload alt="image-20230313192553415"></p>
 <p>点击连接：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131926856.png" srcset="/img/loading.gif" lazyload alt="image-20230313192653264"></p>
 <p>首次登录会询问服务器操作系统类型，选择操作系统后输入密码即可。</p>
-<h3 id="关键设置"><a href="#关键设置" class="headerlink" title="关键设置"></a>关键设置</h3><p>需要指定服务器上<code>R</code>的路径：</p>
+<h3 id="关键设置"><a class="header-anchor" href="#关键设置">¶</a>关键设置</h3>
+<p>需要指定服务器上<code>R</code>的路径：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131939899.png" srcset="/img/loading.gif" lazyload alt="image-20230313193953973"></p>
-<h2 id="使用R"><a href="#使用R" class="headerlink" title="使用R"></a>使用R</h2><h3 id="创建R脚本"><a href="#创建R脚本" class="headerlink" title="创建R脚本"></a>创建R脚本</h3><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131929729.png" srcset="/img/loading.gif" lazyload alt="image-20230313192911142"></p>
-<h3 id="运行脚本"><a href="#运行脚本" class="headerlink" title="运行脚本"></a>运行脚本</h3><p>直接点击打开脚本即可。</p>
-<h2 id="报错问题"><a href="#报错问题" class="headerlink" title="报错问题"></a>报错问题</h2><h3 id="库的问题"><a href="#库的问题" class="headerlink" title="库的问题"></a>库的问题</h3><p>遇到这个报错：</p>
+<h2 id="使用R"><a class="header-anchor" href="#使用R">¶</a>使用R</h2>
+<h3 id="创建R脚本"><a class="header-anchor" href="#创建R脚本">¶</a>创建R脚本</h3>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202303131929729.png" srcset="/img/loading.gif" lazyload alt="image-20230313192911142"></p>
+<h3 id="运行脚本"><a class="header-anchor" href="#运行脚本">¶</a>运行脚本</h3>
+<p>直接点击打开脚本即可。</p>
+<h2 id="报错问题"><a class="header-anchor" href="#报错问题">¶</a>报错问题</h2>
+<h3 id="库的问题"><a class="header-anchor" href="#库的问题">¶</a>库的问题</h3>
+<p>遇到这个报错：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">libicui18n.so.58: 无法打开共享对象文件: 没有那个文件或目录<br></code></pre></td></tr></tbody></table></figure>
 <p>一开始始终无法解决这个问题，后来是这样解决的（<a target="_blank" rel="noopener" href="https://github.com/igraph/rigraph/issues/274#issuecomment-726552461">参考连接</a>）：</p>
 <figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/unicode-org/i</span>cu<span class="hljs-regexp">/archive/</span>release-<span class="hljs-number">58</span>-<span class="hljs-number">3</span>.tar.gz<br>tar xvzf release-<span class="hljs-number">58</span>-<span class="hljs-number">3</span>.tar.gz<br>cd icu-release-<span class="hljs-number">58</span>-<span class="hljs-number">3</span><span class="hljs-regexp">/icu4c/</span>source<br>./configure<br>make<br>make install<br></code></pre></td></tr></tbody></table></figure>
 <p>然后再重新创建环境，再安装<code>R</code>和相关的包材解决这个问题。</p>
-<h3 id="闪退的问题"><a href="#闪退的问题" class="headerlink" title="闪退的问题"></a>闪退的问题</h3><p>报错如下：</p>
+<h3 id="闪退的问题"><a class="header-anchor" href="#闪退的问题">¶</a>闪退的问题</h3>
+<p>报错如下：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">R Language Server <span class="hljs-punctuation">(</span><span class="hljs-number">3829732</span><span class="hljs-punctuation">)</span> exited with exit code <span class="hljs-number">10</span><br></code></pre></td></tr></tbody></table></figure>
 <p>忘记是怎么解决的了，好像是重新创建环境和安装R包解决的的。</p>
 
@@ -373,7 +385,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>VScode远程连接服务器并使用R</div>
-      <div>https://lixiang117423.github.io/article/vscoderemoteserver/</div>
+      <div>https://lixiang117423.github.io/article/VScoderemoteServer/</div>
     </div>
     <div class="license-meta">
       
@@ -530,22 +542,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

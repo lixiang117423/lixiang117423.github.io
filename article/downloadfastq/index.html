@@ -89,9 +89,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -296,7 +296,7 @@
               <div class="markdown-body">
                 
                 <p>首先，直接在<a target="_blank" rel="noopener" href="https://www.ebi.ac.uk/ena/browser/view/">ENA</a>上检索想要下载的数据，如：</p>
-<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408211518146.png" srcset="/img/loading.gif" lazyload alt="image-20240821151842690" style="zoom: 67%;"></p>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408211518146.png" srcset="/img/loading.gif" lazyload alt="image-20240821151842690" style="zoom: 67%;">
 <p>有两个信息很重要，MD5值和Aspera链接。</p>
 <p>选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs R">rm<span class="hljs-punctuation">(</span><span class="hljs-built_in">list</span> <span class="hljs-operator">=</span> ls<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>dir<span class="hljs-punctuation">(</span><span class="hljs-string">"data/生信挖掘/水稻多效基因/data/ENA下载信息/"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  as.data.frame<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span><span class="hljs-string">"file"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> df.file<br><br>all.ena <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><br><br><span class="hljs-keyword">for</span> <span class="hljs-punctuation">(</span>i <span class="hljs-keyword">in</span> unique<span class="hljs-punctuation">(</span>df.file<span class="hljs-operator">$</span>file<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-punctuation">{</span><br>  sprintf<span class="hljs-punctuation">(</span><span class="hljs-string">"data/生信挖掘/水稻多效基因/data/ENA下载信息/%s"</span><span class="hljs-punctuation">,</span> i<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    readr<span class="hljs-operator">::</span>read_delim<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    magrittr<span class="hljs-operator">::</span>set_names<span class="hljs-punctuation">(</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"Run"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"md5"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"link"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>md5 <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>md5<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>                  link <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>link<span class="hljs-punctuation">,</span> <span class="hljs-string">";"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    tidyr<span class="hljs-operator">::</span>unnest<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>file <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_split<span class="hljs-punctuation">(</span>link<span class="hljs-punctuation">,</span> <span class="hljs-string">"/"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> sapply<span class="hljs-punctuation">(</span><span class="hljs-string">"["</span><span class="hljs-punctuation">,</span> <span class="hljs-number">7</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span>Run<span class="hljs-punctuation">,</span> file<span class="hljs-punctuation">,</span> md5<span class="hljs-punctuation">,</span> link<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>    dplyr<span class="hljs-operator">::</span>bind_rows<span class="hljs-punctuation">(</span>all.ena<span class="hljs-punctuation">)</span> <span class="hljs-operator">-&gt;</span> all.ena <br><span class="hljs-punctuation">}</span><br><br>all.ena  <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span>file<span class="hljs-punctuation">,</span> md5<span class="hljs-punctuation">,</span> link<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  readr<span class="hljs-operator">::</span>write_delim<span class="hljs-punctuation">(</span><span class="hljs-string">"data/生信挖掘/水稻多效基因/data/ena.info.txt"</span><span class="hljs-punctuation">,</span> delim <span class="hljs-operator">=</span> <span class="hljs-string">"\t"</span><span class="hljs-punctuation">,</span> col_names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
@@ -498,22 +498,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

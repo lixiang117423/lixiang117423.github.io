@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="起因需要大量使用CDD-Search检索结构域，但是网页版有限制，单次序列不能超过1000条（我单次就近条啊），索性直接在服务器上搭建CDD本地版。 数据下载1ascp -v -k 1 -T -l 1000m -i ~&#x2F;mambaforge&#x2F;envs&#x2F;tools4bioinf&#x2F;etc&#x2F;asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:&#x2F;pub&#x2F;m">
+    <meta name="description" content="¶起因 需要大量使用CDD-Search检索结构域，但是网页版有限制，单次序列不能超过1000条（我单次就近条啊），索性直接在服务器上搭建CDD本地版。 ¶数据下载 1ascp -v -k 1 -T -l 1000m -i ~&#x2F;mambaforge&#x2F;envs&#x2F;tools4bioinf&#x2F;etc&#x2F;asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:&#x2F;p">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NCBI-CDD本地搭建">
 <meta property="og:url" content="https://lixiang117423.github.io/article/ncbicdd/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="起因需要大量使用CDD-Search检索结构域，但是网页版有限制，单次序列不能超过1000条（我单次就近条啊），索性直接在服务器上搭建CDD本地版。 数据下载1ascp -v -k 1 -T -l 1000m -i ~&#x2F;mambaforge&#x2F;envs&#x2F;tools4bioinf&#x2F;etc&#x2F;asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:&#x2F;pub&#x2F;m">
+<meta property="og:description" content="¶起因 需要大量使用CDD-Search检索结构域，但是网页版有限制，单次序列不能超过1000条（我单次就近条啊），索性直接在服务器上搭建CDD本地版。 ¶数据下载 1ascp -v -k 1 -T -l 1000m -i ~&#x2F;mambaforge&#x2F;envs&#x2F;tools4bioinf&#x2F;etc&#x2F;asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:&#x2F;p">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-15T12:44:44.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.136Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          221 字
+          222 字
         
       </span>
     
@@ -292,14 +292,20 @@
             
               <div class="markdown-body">
                 
-                <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>需要大量使用CDD-Search检索结构域，但是网页版有限制，单次序列不能超过1000条（我单次就近条啊），索性直接在服务器上搭建CDD本地版。</p>
-<h2 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ascp -v -k 1 -T -l 1000m -i ~/mambaforge/envs/tools4bioinf/etc/asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:/pub/mmdb/cdd/cdd.tar.gz ./<br></code></pre></td></tr></tbody></table></figure>
+                <h2 id="起因"><a class="header-anchor" href="#起因">¶</a>起因</h2>
+<p>需要大量使用CDD-Search检索结构域，但是网页版有限制，单次序列不能超过1000条（我单次就近条啊），索性直接在服务器上搭建CDD本地版。</p>
+<h2 id="数据下载"><a class="header-anchor" href="#数据下载">¶</a>数据下载</h2>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ascp -v -k 1 -T -l 1000m -i ~/mambaforge/envs/tools4bioinf/etc/asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:/pub/mmdb/cdd/cdd.tar.gz ./<br></code></pre></td></tr></tbody></table></figure>
 <p>然后直接解压即可。</p>
-<h2 id="数据库构建"><a href="#数据库构建" class="headerlink" title="数据库构建"></a>数据库构建</h2><p>新建了一个<code>blast+</code>的环境才运行成功。</p>
+<h2 id="数据库构建"><a class="header-anchor" href="#数据库构建">¶</a>数据库构建</h2>
+<p>新建了一个<code>blast+</code>的环境才运行成功。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">makeprofiledb -<span class="hljs-keyword">in</span> Cdd.pn -out ../db/ncbi.cdd -dbtype rps<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="比对"><a href="#比对" class="headerlink" title="比对"></a>比对</h2><p>同样需要进入新的环境进行操作。</p>
+<h2 id="比对"><a class="header-anchor" href="#比对">¶</a>比对</h2>
+<p>同样需要进入新的环境进行操作。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">rpsblast -query results/oryza.1/6.all.wrky.pep.fa -outfmt 6 -evalue 0.01 -db ~/database/ncbi.cdd/db/ncbi.cdd -out results/oryza.1/7.ncbi.cdd.res.txt -num_threads 60<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="结构域匹配"><a href="#结构域匹配" class="headerlink" title="结构域匹配"></a>结构域匹配</h2><h3 id="下载分类信息"><a href="#下载分类信息" class="headerlink" title="下载分类信息"></a>下载分类信息</h3><figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">ascp -v -k <span class="hljs-number">1</span> -T -l <span class="hljs-number">1000</span>m -i ~<span class="hljs-regexp">/mambaforge/</span>envs<span class="hljs-regexp">/tools4bioinf/</span>etc<span class="hljs-regexp">/asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:/</span>pub<span class="hljs-regexp">/mmdb/</span>cdd<span class="hljs-regexp">/cddid.tbl.gz ./</span>     <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="结构域匹配"><a class="header-anchor" href="#结构域匹配">¶</a>结构域匹配</h2>
+<h3 id="下载分类信息"><a class="header-anchor" href="#下载分类信息">¶</a>下载分类信息</h3>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">ascp -v -k <span class="hljs-number">1</span> -T -l <span class="hljs-number">1000</span>m -i ~<span class="hljs-regexp">/mambaforge/</span>envs<span class="hljs-regexp">/tools4bioinf/</span>etc<span class="hljs-regexp">/asperaweb_id_dsa.openssh  anonftp@ftp.ncbi.nih.gov:/</span>pub<span class="hljs-regexp">/mmdb/</span>cdd<span class="hljs-regexp">/cddid.tbl.gz ./</span>     <br></code></pre></td></tr></tbody></table></figure>
 <p>解压后如下：</p>
 <figure class="highlight basic"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">427140 </span> pfam03106       WRKY    WRKY DNA -binding domain.       <span class="hljs-number">57</span><br></code></pre></td></tr></tbody></table></figure>
 <p>剩下的就是将比对的结果和这个表进行关联即可。</p>
@@ -506,22 +512,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

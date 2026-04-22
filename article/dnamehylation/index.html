@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="参考文献 Wilkinson S W, Hannan Parker A, Muench A, et al. Long-lasting memory of jasmonic acid-dependent immunity requires DNA demethylation and ARGONAUTE1[J]. Nature Plants, 2023: 1-15.  原始数据：点击查看 参考基因组E">
+    <meta name="description" content="¶参考文献  Wilkinson S W, Hannan Parker A, Muench A, et al. Long-lasting memory of jasmonic acid-dependent immunity requires DNA demethylation and ARGONAUTE1[J]. Nature Plants, 2023: 1-15.  原始数据：点击查看 ¶参考基">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DNA甲基化数据分析流程">
 <meta property="og:url" content="https://lixiang117423.github.io/article/dnamehylation/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="参考文献 Wilkinson S W, Hannan Parker A, Muench A, et al. Long-lasting memory of jasmonic acid-dependent immunity requires DNA demethylation and ARGONAUTE1[J]. Nature Plants, 2023: 1-15.  原始数据：点击查看 参考基因组E">
+<meta property="og:description" content="¶参考文献  Wilkinson S W, Hannan Parker A, Muench A, et al. Long-lasting memory of jasmonic acid-dependent immunity requires DNA demethylation and ARGONAUTE1[J]. Nature Plants, 2023: 1-15.  原始数据：点击查看 ¶参考基">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301301916249.png">
 <meta property="article:published_time" content="2023-01-30T05:39:46.000Z">
@@ -88,9 +88,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -241,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          329 字
+          334 字
         
       </span>
     
@@ -294,12 +294,15 @@
             
               <div class="markdown-body">
                 
-                <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+                <h2 id="参考文献"><a class="header-anchor" href="#参考文献">¶</a>参考文献</h2>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41477-022-01313-9">Wilkinson S W, Hannan Parker A, Muench A, et al. Long-lasting memory of jasmonic acid-dependent immunity requires DNA demethylation and ARGONAUTE1[J]. Nature Plants, 2023: 1-15.</a></p>
 </blockquote>
 <p>原始数据：<a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP366380&amp;o=acc_s%3Aa">点击查看</a></p>
-<h2 id="参考基因组"><a href="#参考基因组" class="headerlink" title="参考基因组"></a>参考基因组</h2><p><a target="_blank" rel="noopener" href="https://plants.ensembl.org/Arabidopsis_thaliana/Info/Index">Ensembl Plants TAIR10.55</a></p>
-<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><ul>
+<h2 id="参考基因组"><a class="header-anchor" href="#参考基因组">¶</a>参考基因组</h2>
+<p><a target="_blank" rel="noopener" href="https://plants.ensembl.org/Arabidopsis_thaliana/Info/Index">Ensembl Plants TAIR10.55</a></p>
+<h2 id="软件安装"><a class="header-anchor" href="#软件安装">¶</a>软件安装</h2>
+<ul>
 <li>Bismark</li>
 </ul>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">mamba install -c bioconda bismark<br></code></pre></td></tr></tbody></table></figure>
@@ -307,15 +310,19 @@
 <li>Bowtie2</li>
 </ul>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget -c https://nchc.dl.sourceforge.net/project/bowtie-bio/bowtie2/2.5.1/bowtie2-2.5.1-linux-x86_64.zip<br>unzip bowtie2-2.5.1-linux-x86_64.zip<br>cd bowtie2-2.5.1-linux-x86_64<br>make<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="基因组准备"><a href="#基因组准备" class="headerlink" title="基因组准备"></a>基因组准备</h2><p>甲基化的<code>C</code>在<code>Bisulfite</code>处理后不会发生变化；未发生甲基化的<code>C</code>在处理后会变为<code>U</code>，PCR扩增后会变为<code>T</code>. 因此甲基化比对时需要特定的基因组，所以需要对基因组进行转换：<code>C-&gt;T</code> 和 <code>G-&gt;A</code>.</p>
-<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301301916249.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:33%;"></p>
+<h2 id="基因组准备"><a class="header-anchor" href="#基因组准备">¶</a>基因组准备</h2>
+<p>甲基化的<code>C</code>在<code>Bisulfite</code>处理后不会发生变化；未发生甲基化的<code>C</code>在处理后会变为<code>U</code>，PCR扩增后会变为<code>T</code>. 因此甲基化比对时需要特定的基因组，所以需要对基因组进行转换：<code>C-&gt;T</code> 和 <code>G-&gt;A</code>.</p>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202301301916249.png" srcset="/img/loading.gif" lazyload alt="img" style="zoom:33%;">
 <p>DNA甲基化比对使用最广泛的比对软件是<code>Bowtie2</code>，因此选择<code>Bowtie2</code>作为比对器（不同的比对软件需要不同的index文件）：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bismark_genome_preparation --path_to_aligner ~/mambaforge/envs/tools4bioinf/bin/ --bowtie2 --parallel 60 --verbose data/genome <br></code></pre></td></tr></tbody></table></figure>
 <p>完成转换后会在基因组数据路径下生成新的文件，分别是<code>C-&gt;T</code> 和 <code>G-&gt;A</code>的转换版：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs shell">./data/genome<br>├── Bisulfite_Genome<br>│   ├── CT_conversion<br>│   │   ├── BS_CT.1.bt2<br>│   │   ├── BS_CT.2.bt2<br>│   │   ├── BS_CT.3.bt2<br>│   │   ├── BS_CT.4.bt2<br>│   │   ├── BS_CT.rev.1.bt2<br>│   │   ├── BS_CT.rev.2.bt2<br>│   │   └── genome_mfa.CT_conversion.fa<br>│   └── GA_conversion<br>│       ├── BS_GA.1.bt2<br>│       ├── BS_GA.2.bt2<br>│       ├── BS_GA.3.bt2<br>│       ├── BS_GA.4.bt2<br>│       ├── BS_GA.rev.1.bt2<br>│       ├── BS_GA.rev.2.bt2<br>│       └── genome_mfa.GA_conversion.fa<br>├── genome.fa<br>└── genome.gff3<br><br>3 directories, 16 files<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="比对"><a href="#比对" class="headerlink" title="比对"></a>比对</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">bismark -p 60 --bowtie2 --genome ./data/genome/ -1 ./data/fastq/SRR18508333_1.fastq.gz -2 ./data/fastq/SRR18508333_2.fastq.gz -o ./results/2.mapping<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="去重"><a href="#去重" class="headerlink" title="去重"></a>去重</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">deduplicate_bismark --bam results/2.mapping/SRR18508333_1_bismark_bt2_pe.bam  <br></code></pre></td></tr></tbody></table></figure>
-<h2 id="甲基化提取"><a href="#甲基化提取" class="headerlink" title="甲基化提取"></a>甲基化提取</h2><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bismark_methylation_extractor --gzip --bedGraph results/2.mapping/SRR18508333_1_bismark_bt2_pe.deduplicated.bam -o results/2.mapping <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="比对"><a class="header-anchor" href="#比对">¶</a>比对</h2>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">bismark -p 60 --bowtie2 --genome ./data/genome/ -1 ./data/fastq/SRR18508333_1.fastq.gz -2 ./data/fastq/SRR18508333_2.fastq.gz -o ./results/2.mapping<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="去重"><a class="header-anchor" href="#去重">¶</a>去重</h2>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">deduplicate_bismark --bam results/2.mapping/SRR18508333_1_bismark_bt2_pe.bam  <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="甲基化提取"><a class="header-anchor" href="#甲基化提取">¶</a>甲基化提取</h2>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">bismark_methylation_extractor --gzip --bedGraph results/2.mapping/SRR18508333_1_bismark_bt2_pe.deduplicated.bam -o results/2.mapping <br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
@@ -519,22 +526,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

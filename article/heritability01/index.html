@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="前言在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：  说清楚遗传力的概念； 展示使用合适的方法计算遗传力； 提供稳定的方法计算和比较田间试验的准确信。  遗传力的定义下图A中的公式表示表型可以用">
+    <meta name="description" content="前言 在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：  说清楚遗传力的概念； 展示使用合适的方法计算遗传力； 提供稳定的方法计算和比较田间试验的准确信。  遗传力的定义 下图A中的公式表示表型可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="遗传力的概念和计算">
 <meta property="og:url" content="https://lixiang117423.github.io/article/heritability01/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="前言在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：  说清楚遗传力的概念； 展示使用合适的方法计算遗传力； 提供稳定的方法计算和比较田间试验的准确信。  遗传力的定义下图A中的公式表示表型可以用">
+<meta property="og:description" content="前言 在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：  说清楚遗传力的概念； 展示使用合适的方法计算遗传力； 提供稳定的方法计算和比较田间试验的准确信。  遗传力的定义 下图A中的公式表示表型可">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408270951619.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271004638.png">
@@ -98,9 +98,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -304,24 +304,27 @@
             
               <div class="markdown-body">
                 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：</p>
+                <h1>前言</h1>
+<p>在作物育种过程中，通常会有多年多点的试验，这种试验通常叫做多环境试验（multi-environment trial，MET）。为了对MET进行准确的测量、最终实现实现MET的准确比较，育种学家通常会计算广义遗传力和狭义遗传力。这个文档主要有三个目的：</p>
 <ul>
 <li>说清楚遗传力的概念；</li>
 <li>展示使用合适的方法计算遗传力；</li>
 <li>提供稳定的方法计算和比较田间试验的准确信。</li>
 </ul>
-<h1 id="遗传力的定义"><a href="#遗传力的定义" class="headerlink" title="遗传力的定义"></a>遗传力的定义</h1><p>下图A中的公式表示表型可以用截距$\mu<em>i$加上第<em>i</em> 种基因型的效应加上其他的非基因型效应$e</em>{ij}$，非基因型效应会影响基因型效应对表型的解释。</p>
+<h1>遗传力的定义</h1>
+<p>下图A中的公式表示表型可以用截距$\mu_i$加上第<em>i</em> 种基因型的效应加上其他的非基因型效应$e_{ij}$，非基因型效应会影响基因型效应对表型的解释。</p>
 <p>下图B就解释了什么什么是遗传力：</p>
 <p>1）表型和基因型之间的回归关系；</p>
 <p>2）表型和基因型之间的平方相关性；</p>
 <p>3）被描述为选择差异中能够实现的选择反应的比例。</p>
-<p>个人理解：基因型在表型决定过程中占了多大比例，也就是$g<em>i$对$y</em>{ij}$的大小的影响程度。</p>
-<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408270951619.png" srcset="/img/loading.gif" lazyload alt="image-20240827095155028" style="zoom:67%;"></p>
+<p>个人理解：基因型在表型决定过程中占了多大比例，也就是$g_i$对$y_{ij}$的大小的影响程度。</p>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408270951619.png" srcset="/img/loading.gif" lazyload alt="image-20240827095155028" style="zoom:67%;">
 <p>表型的方差可以分为两部分：</p>
 <p>1）遗传方差：由遗传差异引起的表型方差；</p>
 <p>2）误差方差：非遗传因素引起的表型方差，如环境引起的。</p>
-<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271004638.png" srcset="/img/loading.gif" lazyload alt="image-20240827100435457" style="zoom:67%;"></p>
-<h1 id="遗传力的误解"><a href="#遗传力的误解" class="headerlink" title="遗传力的误解"></a>遗传力的误解</h1><ul>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271004638.png" srcset="/img/loading.gif" lazyload alt="image-20240827100435457" style="zoom:67%;">
+<h1>遗传力的误解</h1>
+<ul>
 <li><strong>A heritability of x indicates that x% of the trait is determined by genetics</strong>. 遗传力为0.4表示这个性状的表型变异中，有40%是由基因型的变异引起的；但是不能认为每个植株的性状表现有40%是基因决定了，其余部分是由其他因素影响决定的。</li>
 <li><strong>A low heritability means that traits are not determined by genes</strong>. 只要遗传力的值大于0，就说明基因对表型有影响。遗传力是由遗传方差个表型方差的比例决定的。一个很低的遗传力只能说明遗传变异比表型变异更小。（例如，玉米的分枝在很大程度上是由遗传决定的，但由于现代玉米育种项目中使用的大多数基因型只有一个主茎，因此分枝的遗传方差非常低。）</li>
 <li><strong>A low heritability means that genetic differences are small</strong>. 遗传力很低时并不能<strong>直接</strong>说是遗传变异很小，还有可能是误差变异很大，比如环境的影响巨大，遗传的影响较小。（例如，对某种感染的抵抗力将取决于抵御该感染的遗传潜力；问题在于如何测量这种潜力。如果仅对甜菜植物中的线虫感染进行一次田间测量，它只会记录当时感染的植物，但这可能会因选择的环境而影响感染水平的记录。）</li>
@@ -330,8 +333,12 @@
 </ul>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271035039.png" srcset="/img/loading.gif" lazyload alt="Common misconceptions of heritability."></p>
 <p>In 1), a misunderstanding of the concept results in the conclusion that a percentage of the phenotype is due to genes. In 2), the lack of variation resulting in low heritability is misunderstood to be consequence of no genetics contributing to the expression of the trait. In 3), a low heritability is misunderstood to reflect a small difference between genotypes when it could also be attributed to a large error variance. In 4), heritability is wrongly thought to be the always the same across time or populations. In 5), heritability is wrongly interpreted to be correlated to the number of large QTLs. In 6), the correct interpretation of heritability is provided.</p>
-<h1 id="遗传力的计算"><a href="#遗传力的计算" class="headerlink" title="遗传力的计算"></a>遗传力的计算</h1><h2 id="Cullis等提出的广义遗传力计算方法"><a href="#Cullis等提出的广义遗传力计算方法" class="headerlink" title="Cullis等提出的广义遗传力计算方法"></a>Cullis等提出的广义遗传力计算方法</h2><script type="math/tex; mode=display">
-H_{Cullis}^2 = 1 - \frac{\bar{\nu}_{\triangle}^{BLUP}}{2 * \sigma_g^2}</script><p>在这个公式中：</p>
+<h1>遗传力的计算</h1>
+<h2 id="Cullis等提出的广义遗传力计算方法"><a class="header-anchor" href="#Cullis等提出的广义遗传力计算方法">¶</a>Cullis等提出的广义遗传力计算方法</h2>
+<p>$$<br>
+H_{Cullis}^2 = 1 - \frac{\bar{\nu}_{\triangle}^{BLUP}}{2 * \sigma_g^2}<br>
+$$</p>
+<p>在这个公式中：</p>
 <ul>
 <li>$\sigma^2$表示方差；</li>
 <li><em>g</em>表示基因型；</li>
@@ -340,9 +347,12 @@ H_{Cullis}^2 = 1 - \frac{\bar{\nu}_{\triangle}^{BLUP}}{2 * \sigma_g^2}</script><
 <p>这个公式的优点在于，它可以作为常规田间试验分析的一部分进行计算，能够处理不平衡的数据集，并利用随机变量的特性，例如方差成分的估计。</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271055890.png" srcset="/img/loading.gif" lazyload alt="image-20240827105507402"></p>
 <p>计算比较直接简单，<strong>但是需要每个个体都有2个及以上的重复，不然没法计算标准误</strong>。最后的结果0.43说明有43%的表型变异是由遗传差异引起的。</p>
-<h2 id="标准的广义遗传力计算方法"><a href="#标准的广义遗传力计算方法" class="headerlink" title="标准的广义遗传力计算方法"></a>标准的广义遗传力计算方法</h2><p>这种方法的优点在于计算简单且参数选择直观。缺点包括在数据不平衡时（在单一或多环境设置中，每个基因型的重复次数不同）可能会倾向于高估值，因为<strong>它假设数据集是平衡的</strong>。</p>
-<script type="math/tex; mode=display">
-H_{Standard}^2 = \frac{\sigma_g^2}{\sigma_p^2}</script><p>其中${\sigma<em>p^2 = \sigma_g^2 + \frac{\sigma</em>{ga}^2}{\sigma<em>{n_a}^2} + \frac{\sigma</em>{gl}^2}{\sigma<em>{n_l}^2} + \frac{\sigma</em>{gal}^2}{\sigma<em>{n_an_l}^2} + \frac{\sigma</em>{plot}^2}{\sigma_{n_an_ln_r}^2}}$</p>
+<h2 id="标准的广义遗传力计算方法"><a class="header-anchor" href="#标准的广义遗传力计算方法">¶</a>标准的广义遗传力计算方法</h2>
+<p>这种方法的优点在于计算简单且参数选择直观。缺点包括在数据不平衡时（在单一或多环境设置中，每个基因型的重复次数不同）可能会倾向于高估值，因为<strong>它假设数据集是平衡的</strong>。<br>
+$$<br>
+H_{Standard}^2 = \frac{\sigma_g<sup>2}{\sigma_p</sup>2}<br>
+$$<br>
+其中${\sigma_p^2 = \sigma_g^2 + \frac{\sigma_{ga}<sup>2}{\sigma_{n_a}</sup>2} + \frac{\sigma_{gl}<sup>2}{\sigma_{n_l}</sup>2} + \frac{\sigma_{gal}<sup>2}{\sigma_{n_an_l}</sup>2} + \frac{\sigma_{plot}<sup>2}{\sigma_{n_an_ln_r}</sup>2}}$</p>
 <p>在这个公式中：</p>
 <ul>
 <li>$\sigma^2$表示方差；</li>
@@ -353,14 +363,18 @@ H_{Standard}^2 = \frac{\sigma_g^2}{\sigma_p^2}</script><p>其中${\sigma<em>p^2 
 <li><em>plot</em>表示plot error.</li>
 </ul>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271134731.png" srcset="/img/loading.gif" lazyload alt="image-20240827113423300"></p>
-<h2 id="Ad-hoc-Holland广义遗传力计算方法"><a href="#Ad-hoc-Holland广义遗传力计算方法" class="headerlink" title="Ad hoc Holland广义遗传力计算方法"></a>Ad hoc Holland广义遗传力计算方法</h2><p>这个方法主要是解决重复数量不一样等问题。</p>
+<h2 id="Ad-hoc-Holland广义遗传力计算方法"><a class="header-anchor" href="#Ad-hoc-Holland广义遗传力计算方法">¶</a>Ad hoc Holland广义遗传力计算方法</h2>
+<p>这个方法主要是解决重复数量不一样等问题。</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271138833.png" srcset="/img/loading.gif" lazyload alt="image-20240827113845810"></p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271139207.png" srcset="/img/loading.gif" lazyload alt="image-20240827113906587"></p>
-<h2 id="Piepho’s广义遗传力计算"><a href="#Piepho’s广义遗传力计算" class="headerlink" title="Piepho’s广义遗传力计算"></a>Piepho’s广义遗传力计算</h2><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271140989.png" srcset="/img/loading.gif" lazyload alt="image-20240827114000715"></p>
+<h2 id="Piepho’s广义遗传力计算"><a class="header-anchor" href="#Piepho’s广义遗传力计算">¶</a>Piepho’s广义遗传力计算</h2>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271140989.png" srcset="/img/loading.gif" lazyload alt="image-20240827114000715"></p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271140896.png" srcset="/img/loading.gif" lazyload alt="image-20240827114013592"></p>
-<h2 id="Walsh-and-Lynch广义遗传力计算"><a href="#Walsh-and-Lynch广义遗传力计算" class="headerlink" title="Walsh and Lynch广义遗传力计算"></a>Walsh and Lynch广义遗传力计算</h2><p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271141408.png" srcset="/img/loading.gif" lazyload alt="image-20240827114102152"></p>
+<h2 id="Walsh-and-Lynch广义遗传力计算"><a class="header-anchor" href="#Walsh-and-Lynch广义遗传力计算">¶</a>Walsh and Lynch广义遗传力计算</h2>
+<p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271141408.png" srcset="/img/loading.gif" lazyload alt="image-20240827114102152"></p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202408271141662.png" srcset="/img/loading.gif" lazyload alt="image-20240827114122002"></p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<h1>总结</h1>
+<blockquote>
 <p>This manual has set out the correct interpretation of heritability alongside some common misconceptions to be avoided. Additionally, an overview was provided of the features, advantages and disadvantages of some of the more robust heritability calculation methods in order to promote the adoption of common and transparent methods among breeding programs. Among those, the Cullis method (Cullis et al., 2006) was recommended as a robust method to account for unbalanced datasets. In addition, the Piepho and Walsh &amp; Lynch methods are also considered robust but require additional considerations.</p>
 </blockquote>
 
@@ -566,22 +580,7 @@ H_{Standard}^2 = \frac{\sigma_g^2}{\sigma_p^2}</script><p>其中${\sigma<em>p^2 
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

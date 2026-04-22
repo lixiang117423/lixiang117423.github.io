@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="FASTA和FASTQ文件格式FASTAFASTA是已知序列的存储文件，以&gt;开头，">
+    <meta name="description" content="FASTA和FASTQ文件格式 ¶FASTA FASTA是已知序列的存储文件，以&gt;开头，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WGS学习笔记">
 <meta property="og:url" content="https://lixiang117423.github.io/article/258e55c8/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="FASTA和FASTQ文件格式FASTAFASTA是已知序列的存储文件，以&gt;开头，">
+<meta property="og:description" content="FASTA和FASTQ文件格式 ¶FASTA FASTA是已知序列的存储文件，以&gt;开头，">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-01T01:01:06.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.165Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          880 字
+          882 字
         
       </span>
     
@@ -292,14 +292,37 @@
             
               <div class="markdown-body">
                 
-                <h1 id="FASTA和FASTQ文件格式"><a href="#FASTA和FASTQ文件格式" class="headerlink" title="FASTA和FASTQ文件格式"></a>FASTA和FASTQ文件格式</h1><h2 id="FASTA"><a href="#FASTA" class="headerlink" title="FASTA"></a>FASTA</h2><p><code>FASTA</code>是已知序列的存储文件，以<code>&gt;</code>开头，<span id="more"></span>紧接着<code>&gt;</code>的是该序列的名称，如果是基因名称，那通常是统一的。后面是其他附加信息。第二行才是真真正正的序列，可以是一行，也可以是多行，软件识别<code>FASTA</code>文件的时候默认将两个<code>&gt;</code>之间的内容识别为一条序列。<code>FASTA</code>文件的缩写可以是<code>.fa</code>或者<code>.fa.gz</code>，前一种是没有压缩的格式，后面一种是压缩格式。</p>
+                <h1>FASTA和FASTQ文件格式</h1>
+<h2 id="FASTA"><a class="header-anchor" href="#FASTA">¶</a>FASTA</h2>
+<p><code>FASTA</code>是已知序列的存储文件，以<code>&gt;</code>开头，<span id="more"></span>紧接着<code>&gt;</code>的是该序列的名称，如果是基因名称，那通常是统一的。后面是其他附加信息。第二行才是真真正正的序列，可以是一行，也可以是多行，软件识别<code>FASTA</code>文件的时候默认将两个<code>&gt;</code>之间的内容识别为一条序列。<code>FASTA</code>文件的缩写可以是<code>.fa</code>或者<code>.fa.gz</code>，前一种是没有压缩的格式，后面一种是压缩格式。</p>
 <blockquote>
-<p>&gt;ENSMUSG00000020122|ENSMUST00000138518<br>CCCTCCTATCATGCTGTCAGTGTATCTCTAAATAGCACTCTCAACCCCCGTGAACTTGGT<br>TATTAAAAACATGCCCAAAGTCTGGGAGCCAGGGCTGCAGGGAAATACCACAGCCTCAGT<br>TCATCAAAACAGTTCATTGCCCAAAATGTTCTCAGCTGCAGCTTTCATGAGGTAACTCCA<br>GGGCCCACCTGTTCTCTGGT<br>&gt;ENSMUSG00000020122|ENSMUST00000125984<br>GAGTCAGGTTGAAGCTGCCCTGAACACTACAGAGAAGAGAGGCCTTGGTGTCCTGTTGTC<br>TCCAGAACCCCAATATGTCTTGTGAAGGGCACACAACCCCTCAAAGGGGTGTCACTTCTT<br>CTGATCACTTTTGTTACTGTTTACTAACTGATCCTATGAATCACTGTGTCTTCTCAGAGG<br>CCGTGAACCACGTCTGCAAT</p>
-<p>&gt;gene_00284728 length=231;type=dna<br>GAGAACTGATTCTGTTACCGCAGGGCATTCGGATGTGCTAAGGTAGTAATCCATTATAAGTAACATG<br>CGCGGAATATCCGGGAGGTCATAGTCGTAATGCATAATTATTCCCTCCCTCAGAAGGACTCCCTTGC<br>GAGACGCCAATACCAAAGACTTTCGTAAGCTGGAACGATTGGACGGCCCAACCGGGGGGAGTCGGCT<br>ATACGTCTGATTGCTACGCCTGGACTTCTCTT</p>
+<p>&gt;ENSMUSG00000020122|ENSMUST00000138518<br>
+CCCTCCTATCATGCTGTCAGTGTATCTCTAAATAGCACTCTCAACCCCCGTGAACTTGGT<br>
+TATTAAAAACATGCCCAAAGTCTGGGAGCCAGGGCTGCAGGGAAATACCACAGCCTCAGT<br>
+TCATCAAAACAGTTCATTGCCCAAAATGTTCTCAGCTGCAGCTTTCATGAGGTAACTCCA<br>
+GGGCCCACCTGTTCTCTGGT<br>
+&gt;ENSMUSG00000020122|ENSMUST00000125984<br>
+GAGTCAGGTTGAAGCTGCCCTGAACACTACAGAGAAGAGAGGCCTTGGTGTCCTGTTGTC<br>
+TCCAGAACCCCAATATGTCTTGTGAAGGGCACACAACCCCTCAAAGGGGTGTCACTTCTT<br>
+CTGATCACTTTTGTTACTGTTTACTAACTGATCCTATGAATCACTGTGTCTTCTCAGAGG<br>
+CCGTGAACCACGTCTGCAAT</p>
+<p>&gt;gene_00284728 length=231;type=dna<br>
+GAGAACTGATTCTGTTACCGCAGGGCATTCGGATGTGCTAAGGTAGTAATCCATTATAAGTAACATG<br>
+CGCGGAATATCCGGGAGGTCATAGTCGTAATGCATAATTATTCCCTCCCTCAGAAGGACTCCCTTGC<br>
+GAGACGCCAATACCAAAGACTTTCGTAAGCTGGAACGATTGGACGGCCCAACCGGGGGGAGTCGGCT<br>
+ATACGTCTGATTGCTACGCCTGGACTTCTCTT</p>
 </blockquote>
-<h2 id="FASTQ"><a href="#FASTQ" class="headerlink" title="FASTQ"></a>FASTQ</h2><p><code>FASTQ</code>则是我们常说的下机数据，长得像这样：</p>
+<h2 id="FASTQ"><a class="header-anchor" href="#FASTQ">¶</a>FASTQ</h2>
+<p><code>FASTQ</code>则是我们常说的下机数据，长得像这样：</p>
 <blockquote>
-<p>@DJB775P1:248:D0MDGACXX:7:1202:12362:49613<br>TGCTTACTCTGCGTTGATACCACTGCTTAGATCGGAAGAGCACACGTCTGAA<br>+<br>JJJJJIIJJJJJJHIHHHGHFFFFFFCEEEEEDBD?DDDDDDBDDDABDDCA<br>@DJB775P1:248:D0MDGACXX:7:1202:12782:49716<br>CTCTGCGTTGATACCACTGCTTACTCTGCGTTGATACCACTGCTTAGATCGG<br>+<br>IIIIIIIIIIIIIIIHHHHHHFFFFFFEECCCCBCECCCCCCCCCCCCCCCC</p>
+<p>@DJB775P1:248:D0MDGACXX:7:1202:12362:49613<br>
+TGCTTACTCTGCGTTGATACCACTGCTTAGATCGGAAGAGCACACGTCTGAA<br>
++<br>
+JJJJJIIJJJJJJHIHHHGHFFFFFFCEEEEEDBD?DDDDDDBDDDABDDCA<br>
+@DJB775P1:248:D0MDGACXX:7:1202:12782:49716<br>
+CTCTGCGTTGATACCACTGCTTACTCTGCGTTGATACCACTGCTTAGATCGG<br>
++<br>
+IIIIIIIIIIIIIIIHHHHHHFFFFFFEECCCCBCECCCCCCCCCCCCCCCC</p>
 </blockquote>
 <p>以<code>@</code>开头的每4行就是我们常说的<code>read</code>。</p>
 <p>第一行是每条<code>read</code>的标识符，在一个<code>FASTQ</code>文件中是不可能重复的，甚至在多个<code>FASTQ</code>文件中也是不可能出现重复的。</p>
@@ -308,10 +331,14 @@
 <p>第四行是每个剑戟对应的质量值，用<code>ASCII</code>进行编码，计算公式为：</p>
 <p>$Q = -10log(p_error)$</p>
 <p>现在常用的衡量指标是Q20和Q30，分别表示的是100个碱基中出现一个碱基测错的概率和1000个碱基中出现一个碱基测错的概率，对应的正确率分别是99%和99.9%，以此类推，Q40下的正确率应该是99.99%。</p>
-<h2 id="查看测序所用的质量体系"><a href="#查看测序所用的质量体系" class="headerlink" title="查看测序所用的质量体系"></a>查看测序所用的质量体系</h2><h3 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a><code>shell</code>脚本</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">less $1 | head -n 1000 | awk '{if(NR%4==0) printf("%s",$0);}' \<br>| od -A n -t u1 -v \<br>| awk 'BEGIN{min=100;max=0;} \<br>{for(i=1;i&lt;=NF;i++) {if($i&gt;max) max=$i; if($i&lt;min) min=$i;}}END \<br>{if(max&lt;=126 &amp;&amp; min&lt;59) print "Phred33"; \<br>else if(max&gt;73 &amp;&amp; min&gt;=64) print "Phred64"; \<br>else if(min&gt;=59 &amp;&amp; min&lt;64 &amp;&amp; max&gt;73) print "Solexa64"; \<br>else print "Unknown score encoding"; \<br>print "( " min ", " max, ")";}'<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="python"><a href="#python" class="headerlink" title="python"></a><code>python</code></h3><p><code>ord ()</code>函数会将字符转换为 <code>ASCII</code> 对应的数字，减掉 33 后就得到了该碱基最后的质量值（即，<code>Phred quality score</code>）</p>
+<h2 id="查看测序所用的质量体系"><a class="header-anchor" href="#查看测序所用的质量体系">¶</a>查看测序所用的质量体系</h2>
+<h3 id="shell脚本"><a class="header-anchor" href="#shell脚本">¶</a><code>shell</code>脚本</h3>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">less $1 | head -n 1000 | awk '{if(NR%4==0) printf("%s",$0);}' \<br>| od -A n -t u1 -v \<br>| awk 'BEGIN{min=100;max=0;} \<br>{for(i=1;i&lt;=NF;i++) {if($i&gt;max) max=$i; if($i&lt;min) min=$i;}}END \<br>{if(max&lt;=126 &amp;&amp; min&lt;59) print "Phred33"; \<br>else if(max&gt;73 &amp;&amp; min&gt;=64) print "Phred64"; \<br>else if(min&gt;=59 &amp;&amp; min&lt;64 &amp;&amp; max&gt;73) print "Solexa64"; \<br>else print "Unknown score encoding"; \<br>print "( " min ", " max, ")";}'<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="python"><a class="header-anchor" href="#python">¶</a><code>python</code></h3>
+<p><code>ord () </code>函数会将字符转换为 <code>ASCII</code> 对应的数字，减掉 33 后就得到了该碱基最后的质量值（即，<code>Phred quality score</code>）</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python">In [<span class="hljs-number">1</span>]: qual=<span class="hljs-string">'JJJJJIIJJJJJJHIHHHGHFFFFFFCEEEEEDBD'</span><br>In [<span class="hljs-number">2</span>]: [<span class="hljs-built_in">ord</span>(q)-<span class="hljs-number">33</span> <span class="hljs-keyword">for</span> q <span class="hljs-keyword">in</span> qual]<br>Out[<span class="hljs-number">2</span>]:<br>[<span class="hljs-number">35</span>, <span class="hljs-number">20</span>, <span class="hljs-number">17</span>, <span class="hljs-number">18</span>, <span class="hljs-number">24</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">29</span>, <span class="hljs-number">29</span>, <span class="hljs-number">32</span>, <span class="hljs-number">32</span>, <span class="hljs-number">34</span>, <span class="hljs-number">34</span>, <span class="hljs-number">33</span>, <br><span class="hljs-number">29</span>, <span class="hljs-number">33</span>, <span class="hljs-number">33</span>, <span class="hljs-number">32</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">34</span>, <span class="hljs-number">34</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <br><span class="hljs-number">34</span>, <span class="hljs-number">34</span>, <span class="hljs-number">34</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34</span>, <span class="hljs-number">33</span>, <span class="hljs-number">33</span>, <span class="hljs-number">30</span>, <span class="hljs-number">33</span>, <span class="hljs-number">24</span>, <span class="hljs-number">27</span>]<br></code></pre></td></tr></tbody></table></figure>
-<h1 id="WGS分析流程"><a href="#WGS分析流程" class="headerlink" title="WGS分析流程"></a>WGS分析流程</h1><p>可以将WGS分成一下及部分：</p>
+<h1>WGS分析流程</h1>
+<p>可以将WGS分成一下及部分：</p>
 <ol>
 <li>原始测序数据的质控</li>
 <li>read 比对，排序和去除重复序列</li>
@@ -320,7 +347,8 @@
 <li>变异检测</li>
 <li>变异结果质控和过滤</li>
 </ol>
-<h1 id="数据质控"><a href="#数据质控" class="headerlink" title="数据质控"></a>数据质控</h1><p>为什么要进行数据质控呢？illumina测序的策略是“边合成边测序”，在合成的过程中随着链的增长，DNA聚合酶的效率会降低，于是越到后面的碱基的错误率就会越高。下机数据的质量严重影响着后续的下游分析的结果。</p>
+<h1>数据质控</h1>
+<p>为什么要进行数据质控呢？illumina测序的策略是“边合成边测序”，在合成的过程中随着链的增长，DNA聚合酶的效率会降低，于是越到后面的碱基的错误率就会越高。下机数据的质量严重影响着后续的下游分析的结果。</p>
 <p>软件是<code>fastqc</code>，利用<code>conda</code>安装简单：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">conda install fastqc<br></code></pre></td></tr></tbody></table></figure>
 <p>软件的使用也很简单：</p>
@@ -330,7 +358,8 @@
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">fastqc /path_to_fq/*.fq -o fastqc_out_dir/<br></code></pre></td></tr></tbody></table></figure>
 <p>质控后数据不好的话需要对数据进行处理，如切除低质量的<code>reads</code>及接头序列等。</p>
 <blockquote>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 </blockquote>
 
                 
@@ -535,22 +564,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

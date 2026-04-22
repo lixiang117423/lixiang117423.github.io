@@ -23,7 +23,7 @@
     <meta name="description" content="安装  服务器编译失败，转用腾讯云安装，然后将对应的R包拷贝到服务器上。  示例  12345678910111213library(GAPIT3)myY &lt;- read.table(&quot;~&#x2F;temp_file&#x2F;GAPIT3-master&#x2F;inst&#x2F;extdata&#x2F;mdp_traits.txt&quot;, head &#x3D; TRUE)myGD&#x3D;read.table(file&#x3D;&quot;~&#x2F;temp_file&#x2F;G">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GAPIT3笔记">
-<meta property="og:url" content="https://lixiang117423.github.io/article/gapit3/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/GAPIT3/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="安装  服务器编译失败，转用腾讯云安装，然后将对应的R包拷贝到服务器上。  示例  12345678910111213library(GAPIT3)myY &lt;- read.table(&quot;~&#x2F;temp_file&#x2F;GAPIT3-master&#x2F;inst&#x2F;extdata&#x2F;mdp_traits.txt&quot;, head &#x3D; TRUE)myGD&#x3D;read.table(file&#x3D;&quot;~&#x2F;temp_file&#x2F;G">
 <meta property="og:locale" content="zh_CN">
@@ -88,9 +88,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -304,7 +304,8 @@
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>GAPIT3<span class="hljs-punctuation">)</span><br><br>myY <span class="hljs-operator">&lt;-</span> read.table<span class="hljs-punctuation">(</span><span class="hljs-string">"~/temp_file/GAPIT3-master/inst/extdata/mdp_traits.txt"</span><span class="hljs-punctuation">,</span> head <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><br>myGD<span class="hljs-operator">=</span>read.table<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"~/temp_file/GAPIT3-master/inst/extdata/mdp_numeric.txt"</span><span class="hljs-punctuation">,</span>head<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><br>myGM<span class="hljs-operator">=</span>read.table<span class="hljs-punctuation">(</span>file<span class="hljs-operator">=</span><span class="hljs-string">"~/temp_file/GAPIT3-master/inst/extdata/mdp_SNP_information.txt"</span><span class="hljs-punctuation">,</span>head<span class="hljs-operator">=</span><span class="hljs-built_in">T</span><span class="hljs-punctuation">)</span><br><br>myGAPIT_MLM <span class="hljs-operator">&lt;-</span> GAPIT<span class="hljs-punctuation">(</span><br>  Y<span class="hljs-operator">=</span>myY<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-punctuation">,</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <span class="hljs-comment">#fist column is individual ID, the third columns is days to pollination</span><br>  GD<span class="hljs-operator">=</span>myGD<span class="hljs-punctuation">,</span><br>  GM<span class="hljs-operator">=</span>myGM<span class="hljs-punctuation">,</span><br>  PCA.total<span class="hljs-operator">=</span><span class="hljs-number">3</span><span class="hljs-punctuation">,</span><br>  model<span class="hljs-operator">=</span><span class="hljs-built_in">c</span><span class="hljs-punctuation">(</span><span class="hljs-string">"GLM"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"MLM"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"CMLM"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"FarmCPU"</span><span class="hljs-punctuation">,</span> <span class="hljs-string">"Blink"</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span><br>  Multiple_analysis<span class="hljs-operator">=</span><span class="hljs-literal">TRUE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/v2-2f2237fd6320754735d519eb50c4a633_720w.jpg" srcset="/img/loading.gif" lazyload alt="img"></p>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -351,7 +352,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>GAPIT3笔记</div>
-      <div>https://lixiang117423.github.io/article/gapit3/</div>
+      <div>https://lixiang117423.github.io/article/GAPIT3/</div>
     </div>
     <div class="license-meta">
       
@@ -395,7 +396,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/rparameters/" title="R语言传参示例">
+                      <a href="/article/Rparameters/" title="R语言传参示例">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">R语言传参示例</span>
                         <span class="visible-mobile">上一篇</span>
@@ -508,22 +509,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

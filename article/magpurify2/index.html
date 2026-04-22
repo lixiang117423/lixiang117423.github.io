@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="安装123mamba create -n magpurify2    mamba activate magpurify2     pip install magpurify2        数据库下载数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。 12345fileId&#x3D;&quot;1ooWiR3LplBy5GsY5wZ7o6dwswiCWVvmi&quot;fileName&#x3D;&quot;">
+    <meta name="description" content="¶安装 123mamba create -n magpurify2    mamba activate magpurify2     pip install magpurify2        ¶数据库下载 数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。 12345fileId&#x3D;&quot;1ooWiR3LplBy5GsY5wZ7o6dwswiCWVvmi&quot;fileNa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MAGpurify2配置">
-<meta property="og:url" content="https://lixiang117423.github.io/article/magpurify2/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/MAGpurify2/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="安装123mamba create -n magpurify2    mamba activate magpurify2     pip install magpurify2        数据库下载数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。 12345fileId&#x3D;&quot;1ooWiR3LplBy5GsY5wZ7o6dwswiCWVvmi&quot;fileName&#x3D;&quot;">
+<meta property="og:description" content="¶安装 123mamba create -n magpurify2    mamba activate magpurify2     pip install magpurify2        ¶数据库下载 数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。 12345fileId&#x3D;&quot;1ooWiR3LplBy5GsY5wZ7o6dwswiCWVvmi&quot;fileNa">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-06-30T02:00:08.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.167Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -292,11 +292,14 @@
             
               <div class="markdown-body">
                 
-                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create -n magpurify2    <br>mamba activate magpurify2     <br>pip install magpurify2       <br></code></pre></td></tr></tbody></table></figure>
-<h2 id="数据库下载"><a href="#数据库下载" class="headerlink" title="数据库下载"></a>数据库下载</h2><p>数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。</p>
+                <h2 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h2>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create -n magpurify2    <br>mamba activate magpurify2     <br>pip install magpurify2       <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="数据库下载"><a class="header-anchor" href="#数据库下载">¶</a>数据库下载</h2>
+<p>数据库存放在谷歌云盘上，有15G，我选择临时租个阿里云新加坡的服务器下载了再传回来。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">fileId=<span class="hljs-string">"1ooWiR3LplBy5GsY5wZ7o6dwswiCWVvmi"</span><br>fileName=<span class="hljs-string">"magpurify2DB.v1.0.tar.gz"</span><br>curl -sc /tmp/cookie <span class="hljs-string">"https://drive.google.com/uc?export=download&amp;id=<span class="hljs-variable">${fileId}</span>"</span> &gt; /dev/null<br>code=<span class="hljs-string">"<span class="hljs-subst">$(awk '/_warning_/ {print $NF}' /tmp/cookie)</span>"</span><br>curl -Lb /tmp/cookie <span class="hljs-string">"https://drive.google.com/uc?export=download&amp;confirm=<span class="hljs-variable">${code}</span>&amp;id=<span class="hljs-variable">${fileId}</span>"</span> -o <span class="hljs-variable">${fileName}</span><br></code></pre></td></tr></tbody></table></figure>
 <p>传输完成后解压即可。</p>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">magpurify2 taxonomy -t 60 final_assembly.fasta mapurify2.taxonomy ~/database/magpurify2<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="运行"><a class="header-anchor" href="#运行">¶</a>运行</h2>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">magpurify2 taxonomy -t 60 final_assembly.fasta mapurify2.taxonomy ~/database/magpurify2<br></code></pre></td></tr></tbody></table></figure>
 <p>结果：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">genome  contig  genome_taxonomy contig_taxonomy<br>final_assembly  k141_419989     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae<br>final_assembly  k141_296469     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Gammaproteobacteria;Xanthomonadales;Xanthomonadaceae<br>final_assembly  k141_160589     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Alphaproteobacteria;Rhizobiales;Rhizobiaceae;Allorhizobium<br>final_assembly  k141_432342     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Alphaproteobacteria;Sphingomonadales;Sphingomonadaceae;Sphingopyxis<br>final_assembly  k141_716437     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Gammaproteobacteria;Burkholderiales;Burkholderiaceae;Acidovorax_E<br>final_assembly  k141_580566     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Enterobacter<br>final_assembly  k141_24707      root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Gammaproteobacteria;Burkholderiales;Burkholderiaceae<br>final_assembly  k141_12355      root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Bacteroidota;Bacteroidia;Flavobacteriales;Flavobacteriaceae;Flavobacterium<br>final_assembly  k141_370583     root;Bacteria;Proteobacteria;Gammaproteobacteria        root;Bacteria;Proteobacteria;Gammaproteobacteria;Pseudomonadales;Pseudomonadaceae<br></code></pre></td></tr></tbody></table></figure>
 
@@ -345,7 +348,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>MAGpurify2配置</div>
-      <div>https://lixiang117423.github.io/article/magpurify2/</div>
+      <div>https://lixiang117423.github.io/article/MAGpurify2/</div>
     </div>
     <div class="license-meta">
       
@@ -389,7 +392,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/sheng-wu-xin-xi-xue/" title="如何批量从NCBI下载基因组数据">
+                      <a href="/article/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" title="如何批量从NCBI下载基因组数据">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">如何批量从NCBI下载基因组数据</span>
                         <span class="visible-mobile">上一篇</span>
@@ -502,22 +505,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

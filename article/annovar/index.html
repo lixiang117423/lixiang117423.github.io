@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="ANNOVAR 自动化注释流程脚本目录 简介 主要功能 环境要求 安装与准备 使用方法 基本用法 参数详解 分步执行   工作流程详解 输出文件 注意事项  简介本项目是一个功能强大的Python脚本，旨在自动化执行ANNOVAR对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。 脚本将从原始的GFF3注释文件和基因组序列文件开始，自动生成ANNO">
+    <meta name="description" content="ANNOVAR 自动化注释流程脚本 ¶目录  简介 主要功能 环境要求 安装与准备 使用方法  基本用法 参数详解 分步执行   工作流程详解 输出文件 注意事项  ¶简介 本项目是一个功能强大的Python脚本，旨在自动化执行ANNOVAR对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。 脚本将从原始的GFF3注释文件和基因组序列文件开始，自动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Annovar自动化脚本">
 <meta property="og:url" content="https://lixiang117423.github.io/article/annovar/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="ANNOVAR 自动化注释流程脚本目录 简介 主要功能 环境要求 安装与准备 使用方法 基本用法 参数详解 分步执行   工作流程详解 输出文件 注意事项  简介本项目是一个功能强大的Python脚本，旨在自动化执行ANNOVAR对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。 脚本将从原始的GFF3注释文件和基因组序列文件开始，自动生成ANNO">
+<meta property="og:description" content="ANNOVAR 自动化注释流程脚本 ¶目录  简介 主要功能 环境要求 安装与准备 使用方法  基本用法 参数详解 分步执行   工作流程详解 输出文件 注意事项  ¶简介 本项目是一个功能强大的Python脚本，旨在自动化执行ANNOVAR对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。 脚本将从原始的GFF3注释文件和基因组序列文件开始，自动">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-11T00:47:18.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.326Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -292,73 +292,91 @@
             
               <div class="markdown-body">
                 
-                <h1 id="ANNOVAR-自动化注释流程脚本"><a href="#ANNOVAR-自动化注释流程脚本" class="headerlink" title="ANNOVAR 自动化注释流程脚本"></a>ANNOVAR 自动化注释流程脚本</h1><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li><a href="#简介">简介</a></li>
-<li><a href="#主要功能">主要功能</a></li>
-<li><a href="#环境要求">环境要求</a></li>
-<li><a href="#安装与准备">安装与准备</a></li>
-<li><a href="#使用方法">使用方法</a><ul>
-<li><a href="#基本用法">基本用法</a></li>
-<li><a href="#参数详解">参数详解</a></li>
-<li><a href="#分步执行">分步执行</a></li>
+                <h1>ANNOVAR 自动化注释流程脚本</h1>
+<h2 id="目录"><a class="header-anchor" href="#目录">¶</a>目录</h2>
+<ul>
+<li><a href="#%E7%AE%80%E4%BB%8B">简介</a></li>
+<li><a href="#%E4%B8%BB%E8%A6%81%E5%8A%9F%E8%83%BD">主要功能</a></li>
+<li><a href="#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82">环境要求</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E5%87%86%E5%A4%87">安装与准备</a></li>
+<li><a href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95">使用方法</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95">基本用法</a></li>
+<li><a href="#%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3">参数详解</a></li>
+<li><a href="#%E5%88%86%E6%AD%A5%E6%89%A7%E8%A1%8C">分步执行</a></li>
 </ul>
 </li>
-<li><a href="#工作流程详解">工作流程详解</a></li>
-<li><a href="#输出文件">输出文件</a></li>
-<li><a href="#注意事项">注意事项</a></li>
+<li><a href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E8%AF%A6%E8%A7%A3">工作流程详解</a></li>
+<li><a href="#%E8%BE%93%E5%87%BA%E6%96%87%E4%BB%B6">输出文件</a></li>
+<li><a href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">注意事项</a></li>
 </ul>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本项目是一个功能强大的Python脚本，旨在自动化执行<strong>ANNOVAR</strong>对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。</p>
+<h2 id="简介"><a class="header-anchor" href="#简介">¶</a>简介</h2>
+<p>本项目是一个功能强大的Python脚本，旨在自动化执行<strong>ANNOVAR</strong>对VCF文件的完整注释流程。它特别适用于非模式生物或使用自定义基因组注释（GFF3文件）的研究场景。</p>
 <p>脚本将从原始的GFF3注释文件和基因组序列文件开始，自动生成ANNOVAR所需的数据库文件，处理输入的VCF文件，并执行最终的变异注释，极大地简化了繁琐的手动操作。</p>
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
-<li><strong>自动化数据库构建</strong>:<ul>
+<h2 id="主要功能"><a class="header-anchor" href="#主要功能">¶</a>主要功能</h2>
+<ul>
+<li><strong>自动化数据库构建</strong>:
+<ul>
 <li>将GFF3文件自动转换为ANNOVAR所需的GenePred格式（<code>refGene.txt</code>）。</li>
 <li>从基因组Fasta文件自动提取转录本序列（<code>refGeneMrna.fa</code>）。</li>
 </ul>
 </li>
-<li><strong>智能GFF3文件预处理</strong>:<ul>
+<li><strong>智能GFF3文件预处理</strong>:
+<ul>
 <li>自动检查并修复GFF3文件，确保其包含<code>##gff-version 3</code>头部。</li>
 <li>自动修复CDS条目中缺失或无效的<code>phase</code>（相位）信息，解决<code>gff3ToGenePred</code>转换失败的常见问题。</li>
 </ul>
 </li>
-<li><strong>VCF文件处理</strong>:<ul>
+<li><strong>VCF文件处理</strong>:
+<ul>
 <li>（可选）使用<code>bcftools</code>对VCF文件进行质量过滤。默认跳过此步骤。</li>
 <li>将VCF文件转换为ANNOVAR的标准输入格式。</li>
 </ul>
 </li>
-<li><strong>一键式注释</strong>:<ul>
+<li><strong>一键式注释</strong>:
+<ul>
 <li>调用ANNOVAR核心脚本，使用生成的自定义数据库对变异进行注释。</li>
 </ul>
 </li>
-<li><strong>详细日志与报告</strong>:<ul>
+<li><strong>详细日志与报告</strong>:
+<ul>
 <li>记录每个步骤的详细命令和执行状态到日志文件 (<code>annovar_annotation.log</code>)，方便调试。</li>
 <li>流程结束后生成一份简洁的总结报告 (<code>annotation_summary.txt</code>)。</li>
 </ul>
 </li>
 </ul>
-<h2 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h2><p>在运行此脚本之前，请确保您的系统中已安装并配置好以下软件：</p>
+<h2 id="环境要求"><a class="header-anchor" href="#环境要求">¶</a>环境要求</h2>
+<p>在运行此脚本之前，请确保您的系统中已安装并配置好以下软件：</p>
 <ol>
 <li><strong>Python 3</strong>: 脚本本身需要Python 3环境。</li>
 <li><strong>ANNOVAR</strong>: 核心注释工具。脚本需要能调用其目录下的Perl脚本，如 <code>annotate_variation.pl</code>, <code>convert2annovar.pl</code>, <code>retrieve_seq_from_fasta.pl</code>。</li>
 <li><strong>UCSC Kent Utilities</strong>: 至少需要<code>gff3ToGenePred</code>工具，用于将GFF3转换为GenePred格式。请确保该工具在系统的<code>PATH</code>环境变量中。</li>
 <li><strong>bcftools</strong> (可选): 如果您需要启用VCF质量过滤功能（通过<code>--enable-vcf-filter</code>参数），则需要安装<code>bcftools</code>并确保其在<code>PATH</code>中。</li>
 </ol>
-<h2 id="安装与准备"><a href="#安装与准备" class="headerlink" title="安装与准备"></a>安装与准备</h2><ol>
-<li><p><strong>下载脚本</strong>: 将此项目的脚本文件（例如 <code>annovar_pipeline.py</code>）下载到您的工作目录。</p>
+<h2 id="安装与准备"><a class="header-anchor" href="#安装与准备">¶</a>安装与准备</h2>
+<ol>
+<li>
+<p><strong>下载脚本</strong>: 将此项目的脚本文件（例如 <code>annovar_pipeline.py</code>）下载到您的工作目录。</p>
 </li>
-<li><p><strong>准备输入文件</strong>:</p>
+<li>
+<p><strong>准备输入文件</strong>:</p>
 <ul>
 <li><strong>GFF3文件</strong>: 您的物种的基因注释文件 (<code>.gff3</code>)。</li>
 <li><strong>基因组文件</strong>: 您的物种的基因组序列文件 (<code>.fa</code> 或 <code>.fasta</code>)。</li>
 <li><strong>VCF文件</strong>: 待注释的变异位点文件 (<code>.vcf</code>)。</li>
 </ul>
 </li>
-<li><p><strong>准备ANNOVAR数据库目录</strong>:<br>脚本会生成物种特异性的数据库文件（如 <code>build-ver_refGene.txt</code> 和 <code>build-ver_refGeneMrna.fa</code>）。您需要为这些文件指定一个存放位置。ANNOVAR将从这个位置读取它们。</p>
+<li>
+<p><strong>准备ANNOVAR数据库目录</strong>:<br>
+脚本会生成物种特异性的数据库文件（如 <code>build-ver_refGene.txt</code> 和 <code>build-ver_refGeneMrna.fa</code>）。您需要为这些文件指定一个存放位置。ANNOVAR将从这个位置读取它们。</p>
 <ul>
 <li><strong>推荐做法</strong>: 在输出目录（<code>--output-dir</code>）下创建一个子目录（如 <code>database</code>），并将<code>--database-path</code>指向它。</li>
 </ul>
 </li>
 </ol>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>以下是一个完整的运行示例。假设您的ANNOVAR安装在 <code>/path/to/annovar</code>，并且您希望将所有输出文件和数据库文件都放在 <code>./annovar_results</code> 目录下。</p>
+<h2 id="使用方法"><a class="header-anchor" href="#使用方法">¶</a>使用方法</h2>
+<h3 id="基本用法"><a class="header-anchor" href="#基本用法">¶</a>基本用法</h3>
+<p>以下是一个完整的运行示例。假设您的ANNOVAR安装在 <code>/path/to/annovar</code>，并且您希望将所有输出文件和数据库文件都放在 <code>./annovar_results</code> 目录下。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 运行完整注释流程</span><br>python annovar_pipeline.py \<br>  --gff3 my_species.gff3 \<br>  --genome my_species.fasta \<br>  --vcf my_variants.vcf \<br>  --build-ver my_species_v1 \<br>  --annovar-path /opt/annovar \<br>  --output-dir ./annovar_results \<br>  --database-path ./annovar_results<br></code></pre></td></tr></tbody></table></figure>
 <p><strong>命令解释</strong>:</p>
 <ul>
@@ -369,7 +387,7 @@
 <li>所有输出（包括中间文件和最终结果）都将保存在 <code>./annovar_results</code> 目录。</li>
 <li>脚本将在 <code>./annovar_results</code> 目录中生成数据库文件，并告知ANNOVAR也从该目录加载它们。</li>
 </ul>
-<h3 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h3><div class="table-container">
+<h3 id="参数详解"><a class="header-anchor" href="#参数详解">¶</a>参数详解</h3>
 <table>
 <thead>
 <tr>
@@ -454,32 +472,37 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h3 id="分步执行"><a href="#分步执行" class="headerlink" title="分步执行"></a>分步执行</h3><p>如果您只想执行流程中的特定步骤，可以使用 <code>--step</code> 参数。例如，只生成ANNOVAR数据库文件（步骤1和2）：</p>
+<h3 id="分步执行"><a class="header-anchor" href="#分步执行">¶</a>分步执行</h3>
+<p>如果您只想执行流程中的特定步骤，可以使用 <code>--step</code> 参数。例如，只生成ANNOVAR数据库文件（步骤1和2）：</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 步骤1: GFF3转GenePred</span><br>python annovar_pipeline.py --step 1 --gff3 ... --build-ver ... --output-dir ...<br><br><span class="hljs-comment"># 步骤2: 提取转录本序列</span><br>python annovar_pipeline.py --step 2 --genome ... --build-ver ... --output-dir ... --annovar-path ...<br></code></pre></td></tr></tbody></table></figure>
 <p><strong>注意</strong>: 运行后续步骤通常依赖于前面步骤的输出。</p>
-<h2 id="工作流程详解"><a href="#工作流程详解" class="headerlink" title="工作流程详解"></a>工作流程详解</h2><p>脚本按以下顺序执行任务：</p>
+<h2 id="工作流程详解"><a class="header-anchor" href="#工作流程详解">¶</a>工作流程详解</h2>
+<p>脚本按以下顺序执行任务：</p>
 <ol>
-<li><p><strong>步骤 1: GFF3转GenePred</strong></p>
+<li>
+<p><strong>步骤 1: GFF3转GenePred</strong></p>
 <ul>
 <li>检查并修复GFF3文件（除非使用<code>--skip-gff-fix</code>）。</li>
 <li>使用 <code>gff3ToGenePred</code> 将 GFF3 文件转换为 <code>[build-ver]_refGene.txt</code> 文件，并存放在 <code>--database-path</code> 指定的目录中。</li>
 </ul>
 </li>
-<li><p><strong>步骤 2: 提取转录本序列</strong></p>
+<li>
+<p><strong>步骤 2: 提取转录本序列</strong></p>
 <ul>
 <li>使用 ANNOVAR 的 <code>retrieve_seq_from_fasta.pl</code> 脚本。</li>
 <li>根据上一步生成的 <code>_refGene.txt</code> 文件，从基因组Fasta文件中提取所有转录本的mRNA序列。</li>
 <li>生成 <code>[build-ver]_refGeneMrna.fa</code> 文件，并存放在 <code>--database-path</code> 指定的目录中。</li>
 </ul>
 </li>
-<li><p><strong>步骤 3: VCF处理与转换</strong></p>
+<li>
+<p><strong>步骤 3: VCF处理与转换</strong></p>
 <ul>
 <li><strong>过滤 (默认跳过)</strong>: 如果启用了 <code>--enable-vcf-filter</code>，使用 <code>bcftools filter</code> 根据 <code>QUAL</code> 值过滤VCF文件。</li>
 <li><strong>转换</strong>: 使用 ANNOVAR 的 <code>convert2annovar.pl</code> 脚本将VCF文件（原始或过滤后的）转换为ANNOVAR的输入格式 (<code>.annovar.vcf</code>)。</li>
 </ul>
 </li>
-<li><p><strong>步骤 4: 变异注释</strong></p>
+<li>
+<p><strong>步骤 4: 变异注释</strong></p>
 <ul>
 <li>使用 ANNOVAR 的 <code>annotate_variation.pl</code> 核心脚本。</li>
 <li>利用步骤1和2生成的自定义数据库对 <code>.annovar.vcf</code> 文件进行注释。</li>
@@ -487,25 +510,30 @@
 </ul>
 </li>
 </ol>
-<h2 id="输出文件"><a href="#输出文件" class="headerlink" title="输出文件"></a>输出文件</h2><p>在指定的 <code>--output-dir</code> 目录下，您会找到以下主要文件：</p>
+<h2 id="输出文件"><a class="header-anchor" href="#输出文件">¶</a>输出文件</h2>
+<p>在指定的 <code>--output-dir</code> 目录下，您会找到以下主要文件：</p>
 <ul>
-<li><p><strong>最终注释结果</strong>:</p>
+<li>
+<p><strong>最终注释结果</strong>:</p>
 <ul>
 <li><code>[vcf_basename].exonic_variant_function</code>: 外显子区域变异的功能注释（如同义/非同义突变）。</li>
 <li><code>[vcf_basename].variant_function</code>: 所有变异的区域注释（如外显子、内含子、基因间区等）。</li>
 </ul>
 </li>
-<li><p><strong>日志与报告</strong>:</p>
+<li>
+<p><strong>日志与报告</strong>:</p>
 <ul>
 <li><code>annovar_annotation.log</code>: 详细的运行日志，记录了每一步执行的命令、输出和错误信息。</li>
 <li><code>annotation_summary.txt</code>: 流程运行的总结报告，包含输入输出文件和关键配置信息。</li>
 </ul>
 </li>
-<li><p><strong>中间文件</strong>:</p>
+<li>
+<p><strong>中间文件</strong>:</p>
 <ul>
 <li><code>[vcf_basename].annovar.vcf</code>: 转换后的ANNOVAR格式输入文件。</li>
 <li><code>[vcf_basename].filtered.gz</code> (如果启用了过滤): 过滤后的VCF文件。</li>
-<li><strong>数据库文件</strong> (位于 <code>--database-path</code> 目录):<ul>
+<li><strong>数据库文件</strong> (位于 <code>--database-path</code> 目录):
+<ul>
 <li><code>[build-ver]_refGene.txt</code></li>
 <li><code>[build-ver]_refGeneMrna.fa</code></li>
 </ul>
@@ -513,7 +541,8 @@
 </ul>
 </li>
 </ul>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<h2 id="注意事项"><a class="header-anchor" href="#注意事项">¶</a>注意事项</h2>
+<ul>
 <li><strong>路径问题</strong>: 请确保所有输入文件的路径以及 <code>--annovar-path</code> 都是正确的。脚本会进行存在性检查，但正确的路径是成功运行的前提。</li>
 <li><strong><code>build-ver</code>的重要性</strong>: <code>--build-ver</code> 参数是连接所有步骤的关键。它作为ANNOVAR数据库文件的前缀，必须保持一致。请使用一个简洁且唯一的标识符。</li>
 <li><strong>GFF3文件质量</strong>: 虽然脚本包含自动修复功能，但过于混乱或格式不标准的GFF3文件仍可能导致<code>gff3ToGenePred</code>失败。如果遇到问题，请首先检查GFF3文件的格式。</li>
@@ -721,22 +750,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

@@ -1,0 +1,933 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="李详【Xiang LI】">
+  <meta name="keywords" content="">
+  <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
+  
+    <meta name="description" content="高效的序列比对和相似性搜索工具 | Efficient Sequence Alignment and Similarity Search Tool 📖 功能概述 | Overview BLAST比对分析模块是一个强大的序列比对工具，支持多种BLAST算法，提供灵活的输入方式和丰富的参数配置，适用于各种生物信息学序列分析需求。 ✨ 主要特性 | Key Features  🔬 多种BLAST算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="biopytools中blast的用法">
+<meta property="og:url" content="https://lixiang117423.github.io/article/biopytools_blast/index.html">
+<meta property="og:site_name" content="小蓝哥的知识荒原">
+<meta property="og:description" content="高效的序列比对和相似性搜索工具 | Efficient Sequence Alignment and Similarity Search Tool 📖 功能概述 | Overview BLAST比对分析模块是一个强大的序列比对工具，支持多种BLAST算法，提供灵活的输入方式和丰富的参数配置，适用于各种生物信息学序列分析需求。 ✨ 主要特性 | Key Features  🔬 多种BLAST算法">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-09-10T05:49:16.000Z">
+<meta property="article:modified_time" content="2025-11-14T08:27:55.238Z">
+<meta property="article:author" content="小蓝哥">
+<meta property="article:tag" content="生物信息学">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>biopytools中blast的用法 - 小蓝哥的知识荒原</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lixiang117423.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":3},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>小蓝哥的知识荒原</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://bing.biturl.top/?resolution=1920&format=image&index=0&mkt=zh-CN') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="biopytools中blast的用法"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-09-10 13:49" pubdate>
+          2025年9月10日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">biopytools中blast的用法</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><strong>高效的序列比对和相似性搜索工具 | Efficient Sequence Alignment and Similarity Search Tool</strong></p>
+<h1>📖 功能概述 | Overview</h1>
+<p>BLAST比对分析模块是一个强大的序列比对工具，支持多种BLAST算法，提供灵活的输入方式和丰富的参数配置，适用于各种生物信息学序列分析需求。</p>
+<h1>✨ 主要特性 | Key Features</h1>
+<ul>
+<li><strong>🔬 多种BLAST算法</strong>: 支持 blastn, blastp, blastx, tblastn, tblastx</li>
+<li><strong>📁 灵活输入</strong>: 支持单文件、目录批处理、样品映射文件</li>
+<li><strong>⚡ 高性能</strong>: 多线程并行处理，最大化计算效率</li>
+<li><strong>🎯 智能过滤</strong>: 基于E-value、相似度、覆盖度的质量控制</li>
+<li><strong>🤖 自动化</strong>: 自动样品检测和数据库构建</li>
+<li><strong>📊 结果分析</strong>: 详细的比对结果统计和质量评估</li>
+</ul>
+<h1>🚀 快速开始 | Quick Start</h1>
+<h2 id="基本用法-Basic-Usage"><a class="header-anchor" href="#基本用法-Basic-Usage">¶</a>基本用法 | Basic Usage</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 基本BLAST比对</span><br>biopytools blast -i input.fa -t target.fa -o blast_results<br><br><span class="hljs-comment"># 批量处理多个文件</span><br>biopytools blast -i /path/to/sequences/ -t target.fa -o batch_results<br><br><span class="hljs-comment"># 使用样品映射文件</span><br>biopytools blast -s sample_map.txt -t target.fa -o mapped_results<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="高级用法-Advanced-Usage"><a class="header-anchor" href="#高级用法-Advanced-Usage">¶</a>高级用法 | Advanced Usage</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 蛋白质序列比对</span><br>biopytools blast -i proteins.fa -t target_proteins.fa \<br>    --blast-type blastp --target-db-type prot \<br>    -e 1e-10 --min-identity 80 -o protein_results<br><br><span class="hljs-comment"># 高通量分析</span><br>biopytools blast -i sequences/ -t targets.fa \<br>    --threads 32 --max-target-seqs 20 \<br>    --min-coverage 70 --high-quality-evalue 1e-15 \<br>    -o htp_results<br></code></pre></td></tr></tbody></table></figure>
+<h1>📋 参数说明 | Parameters</h1>
+<h2 id="必需参数-Required-Parameters"><a class="header-anchor" href="#必需参数-Required-Parameters">¶</a>必需参数 | Required Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-t, --target-file</code></td>
+<td>目标基因序列文件</td>
+<td><code>-t reference.fa</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="输入选项-Input-Options"><a class="header-anchor" href="#输入选项-Input-Options">¶</a>输入选项 | Input Options</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-i, --input</code></td>
+<td>-</td>
+<td>输入文件或目录路径</td>
+</tr>
+<tr>
+<td><code>-s, --sample-map-file</code></td>
+<td>-</td>
+<td>样品映射文件（格式：文件路径<tab>样品名称）</tab></td>
+</tr>
+<tr>
+<td><code>--input-suffix</code></td>
+<td><code>*.fa</code></td>
+<td>输入文件后缀模式（目录输入时使用）</td>
+</tr>
+<tr>
+<td><code>--auto-detect-samples</code></td>
+<td><code>True</code></td>
+<td>自动检测样品名称</td>
+</tr>
+<tr>
+<td><code>--sample-name-pattern</code></td>
+<td><code>([^/]+?)(?:\.fa|\.fasta|\.fna)?$</code></td>
+<td>样品名称提取正则表达式</td>
+</tr>
+</tbody>
+</table>
+<h2 id="BLAST配置-BLAST-Configuration"><a class="header-anchor" href="#BLAST配置-BLAST-Configuration">¶</a>BLAST配置 | BLAST Configuration</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--blast-type</code></td>
+<td><code>blastn</code></td>
+<td>BLAST程序类型 (blastn/blastp/blastx/tblastn/tblastx)</td>
+</tr>
+<tr>
+<td><code>--target-db-type</code></td>
+<td><code>nucl</code></td>
+<td>目标数据库类型 (nucl/prot)</td>
+</tr>
+<tr>
+<td><code>-e, --evalue</code></td>
+<td><code>1e-5</code></td>
+<td>E-value阈值</td>
+</tr>
+<tr>
+<td><code>--max-target-seqs</code></td>
+<td><code>10</code></td>
+<td>最大目标序列数</td>
+</tr>
+<tr>
+<td><code>--word-size</code></td>
+<td><code>11</code></td>
+<td>词大小（适用于blastn/tblastx）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="质量控制-Quality-Control"><a class="header-anchor" href="#质量控制-Quality-Control">¶</a>质量控制 | Quality Control</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--min-identity</code></td>
+<td><code>70.0</code></td>
+<td>最小序列相似度 (%)</td>
+</tr>
+<tr>
+<td><code>--min-coverage</code></td>
+<td><code>50.0</code></td>
+<td>最小覆盖度 (%)</td>
+</tr>
+<tr>
+<td><code>--high-quality-evalue</code></td>
+<td><code>1e-10</code></td>
+<td>高质量比对E-value阈值</td>
+</tr>
+</tbody>
+</table>
+<h2 id="性能配置-Performance-Configuration"><a class="header-anchor" href="#性能配置-Performance-Configuration">¶</a>性能配置 | Performance Configuration</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-j, --threads</code></td>
+<td><code>88</code></td>
+<td>线程数</td>
+</tr>
+</tbody>
+</table>
+<h2 id="工具路径-Tool-Paths"><a class="header-anchor" href="#工具路径-Tool-Paths">¶</a>工具路径 | Tool Paths</h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>默认值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--makeblastdb-path</code></td>
+<td><code>makeblastdb</code></td>
+<td>makeblastdb程序路径</td>
+</tr>
+<tr>
+<td><code>--blastn-path</code></td>
+<td><code>blastn</code></td>
+<td>blastn程序路径</td>
+</tr>
+<tr>
+<td><code>--blastp-path</code></td>
+<td><code>blastp</code></td>
+<td>blastp程序路径</td>
+</tr>
+<tr>
+<td><code>--blastx-path</code></td>
+<td><code>blastx</code></td>
+<td>blastx程序路径</td>
+</tr>
+<tr>
+<td><code>--tblastn-path</code></td>
+<td><code>tblastn</code></td>
+<td>tblastn程序路径</td>
+</tr>
+<tr>
+<td><code>--tblastx-path</code></td>
+<td><code>tblastx</code></td>
+<td>tblastx程序路径</td>
+</tr>
+</tbody>
+</table>
+<h1>📁 输入文件格式 | Input File Formats</h1>
+<h2 id="序列文件-Sequence-Files"><a class="header-anchor" href="#序列文件-Sequence-Files">¶</a>序列文件 | Sequence Files</h2>
+<p>支持标准FASTA格式文件：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fasta">&gt;sequence_1<br>ATCGATCGATCGATCGATCG<br>&gt;sequence_2<br>GCTAGCTAGCTAGCTAGCTA<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>支持的文件扩展名</strong>: <code>.fa</code>, <code>.fasta</code>, <code>.fna</code>, <code>.fas</code></p>
+<h2 id="样品映射文件-Sample-Mapping-File"><a class="header-anchor" href="#样品映射文件-Sample-Mapping-File">¶</a>样品映射文件 | Sample Mapping File</h2>
+<p>制表符分隔的文本文件，格式：</p>
+<figure class="highlight awk"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/path/</span>to/sample1.fa    Sample_001<br><span class="hljs-regexp">/path/</span>to/sample2.fa    Sample_002<br><span class="hljs-regexp">/path/</span>to/sample3.fa    Sample_003<br></code></pre></td></tr></tbody></table></figure>
+<h1>💡 使用示例 | Usage Examples</h1>
+<h2 id="示例1：基本核酸序列比对-Example-1-Basic-Nucleotide-Alignment"><a class="header-anchor" href="#示例1：基本核酸序列比对-Example-1-Basic-Nucleotide-Alignment">¶</a>示例1：基本核酸序列比对 | Example 1: Basic Nucleotide Alignment</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 将查询序列与参考基因组比对</span><br>biopytools blast \<br>    -i query_sequences.fa \<br>    -t reference_genome.fa \<br>    -o nucleotide_blast_results \<br>    --blast-type blastn \<br>    -e 1e-6 \<br>    --min-identity 85 \<br>    --threads 16<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="示例2：蛋白质序列比对-Example-2-Protein-Sequence-Alignment"><a class="header-anchor" href="#示例2：蛋白质序列比对-Example-2-Protein-Sequence-Alignment">¶</a>示例2：蛋白质序列比对 | Example 2: Protein Sequence Alignment</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 蛋白质序列数据库搜索</span><br>biopytools blast \<br>    -i protein_queries.fa \<br>    -t protein_database.fa \<br>    -o protein_blast_results \<br>    --blast-type blastp \<br>    --target-db-type prot \<br>    -e 1e-8 \<br>    --min-identity 50 \<br>    --min-coverage 60 \<br>    --max-target-seqs 20<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="示例3：批量处理-Example-3-Batch-Processing"><a class="header-anchor" href="#示例3：批量处理-Example-3-Batch-Processing">¶</a>示例3：批量处理 | Example 3: Batch Processing</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 处理目录中的所有FASTA文件</span><br>biopytools blast \<br>    -i /data/sequences/ \<br>    -t targets.fa \<br>    -o batch_results \<br>    --input-suffix <span class="hljs-string">"*.fasta"</span> \<br>    --threads 32 \<br>    --auto-detect-samples<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="示例4：使用样品映射-Example-4-Using-Sample-Mapping"><a class="header-anchor" href="#示例4：使用样品映射-Example-4-Using-Sample-Mapping">¶</a>示例4：使用样品映射 | Example 4: Using Sample Mapping</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 创建样品映射文件</span><br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"/data/sample1.fa\tPatient_A"</span> &gt; samples.map<br><span class="hljs-built_in">echo</span> -e <span class="hljs-string">"/data/sample2.fa\tPatient_B"</span> &gt;&gt; samples.map<br><br><span class="hljs-comment"># 运行分析</span><br>biopytools blast \<br>    -s samples.map \<br>    -t disease_genes.fa \<br>    -o patient_analysis \<br>    --blast-type blastn \<br>    -e 1e-10 \<br>    --high-quality-evalue 1e-15<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="示例5：跨物种比对-Example-5-Cross-species-Alignment"><a class="header-anchor" href="#示例5：跨物种比对-Example-5-Cross-species-Alignment">¶</a>示例5：跨物种比对 | Example 5: Cross-species Alignment</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 翻译搜索（核酸vs蛋白质）</span><br>biopytools blast \<br>    -i genomic_sequences.fa \<br>    -t protein_families.fa \<br>    -o cross_species_results \<br>    --blast-type blastx \<br>    --target-db-type prot \<br>    -e 1e-5 \<br>    --min-identity 40 \<br>    --min-coverage 30<br></code></pre></td></tr></tbody></table></figure>
+<h1>📊 输出结果 | Output Results</h1>
+<h2 id="输出目录结构-Output-Directory-Structure"><a class="header-anchor" href="#输出目录结构-Output-Directory-Structure">¶</a>输出目录结构 | Output Directory Structure</h2>
+<figure class="highlight stan"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stan">blast_results/<br>├── blast_database/          <span class="hljs-comment"># BLAST数据库文件</span><br>│   ├── <span class="hljs-built_in">target</span>.fa<br>│   ├── <span class="hljs-built_in">target</span>.fa.nhr<br>│   ├── <span class="hljs-built_in">target</span>.fa.nin<br>│   └── <span class="hljs-built_in">target</span>.fa.nsq<br>├── blast_results/           <span class="hljs-comment"># 原始BLAST结果</span><br>│   ├── sample1_blast.txt<br>│   ├── sample2_blast.txt<br>│   └── ...<br>├── summary/                 <span class="hljs-comment"># 汇总分析结果</span><br>│   ├── blast_summary.txt<br>│   ├── quality_statistics.txt<br>│   └── best_hits_summary.txt<br>└── logs/                   <span class="hljs-comment"># 运行日志</span><br>    ├── blast_analysis.<span class="hljs-built_in">log</span><br>    └── sample_processing.<span class="hljs-built_in">log</span><br></code></pre></td></tr></tbody></table></figure>
+<h2 id="结果文件说明-Result-Files-Description"><a class="header-anchor" href="#结果文件说明-Result-Files-Description">¶</a>结果文件说明 | Result Files Description</h2>
+<ul>
+<li><strong>blast_results/</strong>: 每个样品的详细BLAST比对结果</li>
+<li><strong>summary/blast_summary.txt</strong>: 所有样品的比对结果汇总</li>
+<li><strong>summary/quality_statistics.txt</strong>: 比对质量统计信息</li>
+<li><strong>summary/best_hits_summary.txt</strong>: 最佳匹配结果汇总</li>
+<li><strong>logs/</strong>: 详细的分析日志和错误信息</li>
+</ul>
+<h1>🔧 系统要求 | System Requirements</h1>
+<h2 id="依赖软件-Dependencies"><a class="header-anchor" href="#依赖软件-Dependencies">¶</a>依赖软件 | Dependencies</h2>
+<ul>
+<li><strong>NCBI BLAST+</strong> (版本 2.10.0+)
+<ul>
+<li><code>makeblastdb</code></li>
+<li><code>blastn</code>, <code>blastp</code>, <code>blastx</code>, <code>tblastn</code>, <code>tblastx</code></li>
+</ul>
+</li>
+<li><strong>Python</strong> (版本 3.7+)</li>
+<li><strong>Click</strong> (命令行界面)</li>
+</ul>
+<h2 id="安装BLAST-Installing-BLAST"><a class="header-anchor" href="#安装BLAST-Installing-BLAST">¶</a>安装BLAST+ | Installing BLAST+</h2>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Ubuntu/Debian</span><br>sudo apt-get install ncbi-blast+<br><br><span class="hljs-comment"># CentOS/RHEL</span><br>sudo yum install ncbi-blast+<br><br><span class="hljs-comment"># macOS (使用Homebrew)</span><br>brew install blast<br><br><span class="hljs-comment"># Conda</span><br>conda install -c bioconda blast<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="硬件建议-Hardware-Recommendations"><a class="header-anchor" href="#硬件建议-Hardware-Recommendations">¶</a>硬件建议 | Hardware Recommendations</h2>
+<ul>
+<li><strong>CPU</strong>: 多核处理器（推荐16核以上）</li>
+<li><strong>RAM</strong>: 最少8GB（大数据集推荐32GB以上）</li>
+<li><strong>存储</strong>: SSD硬盘（提升I/O性能）</li>
+<li><strong>网络</strong>: 如需下载数据库，建议高速网络连接</li>
+</ul>
+<h1>⚠️ 注意事项 | Important Notes</h1>
+<ol>
+<li><strong>内存使用</strong>: 大型数据库和查询文件可能需要大量内存</li>
+<li><strong>磁盘空间</strong>: 确保有足够空间存储中间文件和结果</li>
+<li><strong>参数调优</strong>: 根据具体应用场景调整E-value和相似度阈值</li>
+<li><strong>数据质量</strong>: 输入序列质量直接影响比对结果准确性</li>
+<li><strong>版本兼容</strong>: 确保BLAST+版本与工具兼容</li>
+</ol>
+<h1>🐛 故障排除 | Troubleshooting</h1>
+<h2 id="常见问题-Common-Issues"><a class="header-anchor" href="#常见问题-Common-Issues">¶</a>常见问题 | Common Issues</h2>
+<p><strong>Q: "makeblastdb not found" 错误</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 检查BLAST+安装</span><br><span class="hljs-built_in">which</span> makeblastdb<br><span class="hljs-comment"># 如未安装，请按上述方法安装BLAST+</span><br></code></pre></td></tr></tbody></table></figure>
+<p><strong>Q: 内存不足错误</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 减少线程数或处理较小的数据集</span><br>biopytools blast -i input.fa -t target.fa --threads 4<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>Q: 没有找到匹配结果</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 放宽筛选条件</span><br>biopytools blast -i input.fa -t target.fa \<br>    -e 1e-3 --min-identity 50 --min-coverage 30<br></code></pre></td></tr></tbody></table></figure>
+<p><strong>Q: 处理速度过慢</strong></p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 增加线程数，减少最大目标序列数</span><br>biopytools blast -i input.fa -t target.fa \<br>    --threads 32 --max-target-seqs 5<br></code></pre></td></tr></tbody></table></figure>
+<h1>📚 相关资源 | Related Resources</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK279690/">NCBI BLAST+ 用户手册</a></li>
+<li><a target="_blank" rel="noopener" href="https://blast.ncbi.nlm.nih.gov/Blast.cgi?CMD=Web&amp;PAGE_TYPE=BlastDocs">BLAST算法原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ncbi.nlm.nih.gov/books/NBK279684/">序列比对最佳实践</a></li>
+</ul>
+<h1>📄 许可证 | License</h1>
+<p>本项目采用MIT许可证 - 详见 <a href="LICENSE">LICENSE</a> 文件</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="category-chain-item">生物信息学</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" class="print-no-link">#生物信息学</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>biopytools中blast的用法</div>
+      <div>https://lixiang117423.github.io/article/biopytools_blast/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>李详【Xiang LI】</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年9月10日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/article/igraph/" title="macBook安装igraph的崎岖之路">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">macBook安装igraph的崎岖之路</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/article/gvcfVSvcf/" title="关于VCF和gVCF">
+                        <span class="hidden-mobile">关于VCF和gVCF</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    
+      <script  src="/js/img-lazyload.js" ></script>
+    
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

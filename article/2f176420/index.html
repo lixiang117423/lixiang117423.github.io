@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="统计某个特定字符串出现的次数： 1grep -c &#39;&gt;&#39; filename  查看某个特定字符出现的行数： 1grep -n &#39;&gt;&#39; filename  根据gff文件提取基因序列： 12awk &#39;{if ($3&#x3D;&#x3D;&quot;gene&quot;) print}&#39; ylg.gff3 &gt; ylg.gene.gff3bedtools getfasta -fi your_fasta.file -bed">
+    <meta name="description" content="统计某个特定字符串出现的次数： 1grep -c &#39;&gt;&#39; filename   查看某个特定字符出现的行数： 1grep -n &#39;&gt;&#39; filename   根据gff文件提取基因序列： 12awk &#39;{if ($3&#x3D;&#x3D;&quot;gene&quot;) print}&#39; ylg.gff3 &gt; ylg.gene.gff3bedtools getfasta -fi your_fasta.file -">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux Tips">
 <meta property="og:url" content="https://lixiang117423.github.io/article/2f176420/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="统计某个特定字符串出现的次数： 1grep -c &#39;&gt;&#39; filename  查看某个特定字符出现的行数： 1grep -n &#39;&gt;&#39; filename  根据gff文件提取基因序列： 12awk &#39;{if ($3&#x3D;&#x3D;&quot;gene&quot;) print}&#39; ylg.gff3 &gt; ylg.gene.gff3bedtools getfasta -fi your_fasta.file -bed">
+<meta property="og:description" content="统计某个特定字符串出现的次数： 1grep -c &#39;&gt;&#39; filename   查看某个特定字符出现的行数： 1grep -n &#39;&gt;&#39; filename   根据gff文件提取基因序列： 12awk &#39;{if ($3&#x3D;&#x3D;&quot;gene&quot;) print}&#39; ylg.gff3 &gt; ylg.gene.gff3bedtools getfasta -fi your_fasta.file -">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-05T08:56:33.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.701Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -293,60 +293,74 @@
               <div class="markdown-body">
                 
                 <ol>
-<li><p>统计某个特定字符串出现的次数：</p>
+<li>
+<p>统计某个特定字符串出现的次数：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep -c '&gt;' filename<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>查看某个特定字符出现的行数：</p>
+<li>
+<p>查看某个特定字符出现的行数：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">grep <span class="hljs-operator">-</span>n <span class="hljs-string">'&gt;'</span> filename<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>根据<code>gff</code>文件提取基因序列：</p>
+<li>
+<p>根据<code>gff</code>文件提取基因序列：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">awk '{if ($3=="gene") print}' ylg.gff3 &gt; ylg.gene.gff3<br>bedtools getfasta -fi your_fasta.file -bed your_gff3.file &gt; your_output.name<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>统计文件行数：</p>
+<li>
+<p>统计文件行数：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wc -l your_file<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>修改<code>atp</code>源：</p>
+<li>
+<p>修改<code>atp</code>源：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">备份源</span><br>sudo cp /etc/apt/sources.list  /etc/apt/sources.list_backup<br><span class="hljs-meta prompt_"># </span><span class="language-bash">编辑源</span><br>sudo vi /etc/apt/sources.list<br><br>deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse<br>deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse<br>deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p><code>conda</code>安装：</p>
+<li>
+<p><code>conda</code>安装：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh<br><br>bash Miniconda2-latest-Linux-x86_64.sh<br><br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/<br>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/<br>conda config --set show_channel_urls yes<br><br>conda create -n rna<br><span class="hljs-meta prompt_"># </span><span class="language-bash">创建一个小环境名为rna</span><br><br>conda install python=2<br><span class="hljs-meta prompt_"># </span><span class="language-bash">安装python 2版本</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">以上两句话可以等同于一句命令：conda create -n rna python=2</span><br><br>conda info -e<br>conda info --envs<br>conda env list<br><span class="hljs-meta prompt_"># </span><span class="language-bash">都是来查看已经存在小环境名的</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">运行后如下：rna即为刚刚建立成功的小环境名</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda info -e</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">conda environments:</span><br><span class="hljs-meta prompt_">#</span><span class="language-bash"></span><br><span class="language-bash">base                  *  /home/you/miniconda2</span><br>rna                      /home/you/miniconda2/envs/rna<br><br>source activate rna<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>安装<code>htop</code>：</p>
+<li>
+<p>安装<code>htop</code>：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo apt install htop<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p><code>wget</code>后台运行+断点续传：</p>
+<li>
+<p><code>wget</code>后台运行+断点续传：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget -b -c your_link<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>查看某个文件夹的大小：</p>
+<li>
+<p>查看某个文件夹的大小：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">du -h youdir<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p><code>wegt</code>批量下载：</p>
+<li>
+<p><code>wegt</code>批量下载：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget -c -b -t 0 -T 6000 -i yourlinkesfiles<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>服务器之间传输文件：</p>
+<li>
+<p>服务器之间传输文件：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">scp -r ./thisfolder username@192.168.212.212:/home/user $ 目标服务器<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>md5值检验：</p>
+<li>
+<p>md5值检验：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">md5sum yourfile<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>添加用户</p>
+<li>
+<p>添加用户</p>
 </li>
 </ol>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo adduser username<br><br><span class="hljs-comment"># 赋予用户管权限</span><br>sudo usermod -aG sudo username<br><br><span class="hljs-comment"># 删除用户但是保留文件</span><br>sudo deluser username<br><br><span class="hljs-comment"># 删除用户和文件</span><br>sudo deluser --remove-home username<br></code></pre></td></tr></tbody></table></figure>
-<ol>
+<ol start="14">
 <li>所有用户都可以使用的软件</li>
 </ol>
 <p>把软件的环境变量写到/etc/profile里面。</p>
-<ol>
+<ol start="15">
 <li>Ubuntu修改R镜像</li>
 </ol>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">sudo vi /etc/R/Rprofile.site<br></code></pre></td></tr></tbody></table></figure>
-<ol>
+<ol start="16">
 <li>lb报错</li>
 </ol>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">/usr/bin/ld: 找不到 -lblas<br>sudo apt-get install libblas-dev<br></code></pre></td></tr></tbody></table></figure>
 <blockquote>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 </blockquote>
 
                 
@@ -551,22 +565,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

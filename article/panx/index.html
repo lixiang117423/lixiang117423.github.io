@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="下载安装 Ding W, Baumdicker F, Neher R A. panX: pan-genome analysis and exploration[J]. Nucleic acids research, 2018, 46(1): e5-e5.  我是用mamba安装的： 123mamba create --name panXmamba activate panXmamba insta">
+    <meta name="description" content="¶下载安装  Ding W, Baumdicker F, Neher R A. panX: pan-genome analysis and exploration[J]. Nucleic acids research, 2018, 46(1): e5-e5.  我是用mamba安装的： 123mamba create --name panXmamba activate panXmamba ins">
 <meta property="og:type" content="article">
 <meta property="og:title" content="细菌泛基因组分析工具panX">
-<meta property="og:url" content="https://lixiang117423.github.io/article/panx/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/panX/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="下载安装 Ding W, Baumdicker F, Neher R A. panX: pan-genome analysis and exploration[J]. Nucleic acids research, 2018, 46(1): e5-e5.  我是用mamba安装的： 123mamba create --name panXmamba activate panXmamba insta">
+<meta property="og:description" content="¶下载安装  Ding W, Baumdicker F, Neher R A. panX: pan-genome analysis and exploration[J]. Nucleic acids research, 2018, 46(1): e5-e5.  我是用mamba安装的： 123mamba create --name panXmamba activate panXmamba ins">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082143458.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082158552.png">
@@ -89,9 +89,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -296,7 +296,8 @@
               <div class="markdown-body">
                 
                 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082143458.png" srcset="/img/loading.gif" lazyload alt=""></p>
-<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><blockquote>
+<h2 id="下载安装"><a class="header-anchor" href="#下载安装">¶</a>下载安装</h2>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://academic.oup.com/nar/article-abstract/46/1/e5/4564799?login=false">Ding W, Baumdicker F, Neher R A. panX: pan-genome analysis and exploration[J]. Nucleic acids research, 2018, 46(1): e5-e5.</a></p>
 </blockquote>
 <p>我是用<code>mamba</code>安装的：</p>
@@ -304,12 +305,14 @@
 <p>然后依次安装这些软件就好：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs sh">- python==2.7.*<br>- python-dateutil&gt;=2.5.0<br>- biopython<br>- numpy<br>- scipy<br>- pandas<br>- diamond<br>- fasttree<br>- mafft<br>- mcl<br>- raxml<br>- treetime==0.6.*【mm install -c bioconda treetime==0.6.\*】<br>- pip<br>- pip: ete2<br></code></pre></td></tr></tbody></table></figure>
 <p>然后从<a target="_blank" rel="noopener" href="https://github.com/neherlab/pan-genome-analysis">官方地址</a>把项目克隆或者下载下来就好。</p>
-<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><p>官方的示例数据是NCBI的<code>gbk</code>格式，可是通常都是没有这种格式的，就在我要放弃的时候发现一个参数：<code>`-ngbk</code>，当没有<code>gbk</code>文件的时候加上这个参数即可。</p>
-<p>需要的数据有基因核酸序列和蛋白序列，<strong>而且两个文件的文件名称以及序列的ID必须完全一致，不然会报错！</strong>核酸序列后缀是<code>fna</code>，蛋白序列的后缀是<code>faa</code>.</p>
+<h2 id="数据准备"><a class="header-anchor" href="#数据准备">¶</a>数据准备</h2>
+<p>官方的示例数据是NCBI的<code>gbk</code>格式，可是通常都是没有这种格式的，就在我要放弃的时候发现一个参数：``-ngbk<code>，当没有</code>gbk`文件的时候加上这个参数即可。</p>
+<p>需要的数据有基因核酸序列和蛋白序列，**而且两个文件的文件名称以及序列的ID必须完全一致，不然会报错！**核酸序列后缀是<code>fna</code>，蛋白序列的后缀是<code>faa</code>.</p>
 <p>由于是使用<code>DIAMOND</code>进行序列比对，因此在蛋白序列中不能出现<code>.</code>，ChatGPT帮忙写了个脚本去除蛋白序列中的<code>.</code>：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Bio <span class="hljs-keyword">import</span> SeqIO<br><span class="hljs-keyword">import</span> sys<br><br>input_file = sys.argv[<span class="hljs-number">1</span>] <span class="hljs-comment"># 第一个参数为输入fasta文件名</span><br>output_file = sys.argv[<span class="hljs-number">2</span>] <span class="hljs-comment"># 第二个参数为输出fasta文件名</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(output_file, <span class="hljs-string">"w"</span>) <span class="hljs-keyword">as</span> output_handle:<br>    input_sequences = SeqIO.parse(input_file, <span class="hljs-string">"fasta"</span>)<br>    <span class="hljs-keyword">for</span> seq <span class="hljs-keyword">in</span> input_sequences:<br>        <span class="hljs-keyword">if</span> <span class="hljs-string">"."</span> <span class="hljs-keyword">in</span> seq.seq:<br>            <span class="hljs-keyword">if</span> seq.seq.index(<span class="hljs-string">"."</span>) == <span class="hljs-built_in">len</span>(seq.seq)-<span class="hljs-number">1</span>:<br>                seq.seq = seq.seq[:-<span class="hljs-number">1</span>]<br>                SeqIO.write(seq, output_handle, <span class="hljs-string">"fasta"</span>)<br>            <span class="hljs-keyword">elif</span> <span class="hljs-string">"."</span> <span class="hljs-keyword">in</span> seq.seq[<span class="hljs-number">1</span>:-<span class="hljs-number">1</span>]:<br>                <span class="hljs-keyword">continue</span><br>            <span class="hljs-keyword">else</span>:<br>                SeqIO.write(seq, output_handle, <span class="hljs-string">"fasta"</span>)<br>        <span class="hljs-keyword">else</span>:<br>            SeqIO.write(seq, output_handle, <span class="hljs-string">"fasta"</span>)<br></code></pre></td></tr></tbody></table></figure>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">python3 上述脚本 输入文件 输出文件<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="开始运行"><a href="#开始运行" class="headerlink" title="开始运行"></a>开始运行</h2><p>将核酸序列和蛋白序列放在一个文件夹下，加入我的文件名叫<code>project</code>，那就将核酸序列和蛋白序列全部放在这个文件夹下，然后进入这个文件夹，然后运行：</p>
+<h2 id="开始运行"><a class="header-anchor" href="#开始运行">¶</a>开始运行</h2>
+<p>将核酸序列和蛋白序列放在一个文件夹下，加入我的文件名叫<code>project</code>，那就将核酸序列和蛋白序列全部放在这个文件夹下，然后进入这个文件夹，然后运行：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">/path/to/panX/panX.py  -fn ./ -sl bin.2 -ngbk -t 65<br></code></pre></td></tr></tbody></table></figure>
 <ul>
 <li><code>fn</code>表示文件夹路径，如果和核酸蛋白文件在一个目录就用<code>./</code>；</li>
@@ -319,7 +322,8 @@
 </ul>
 <p>运行后就会有这些文件和文件夹：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202307082158552.png" srcset="/img/loading.gif" lazyload alt="image-20230708215842946"></p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>部分运行日志：</p>
+<h2 id="其他"><a class="header-anchor" href="#其他">¶</a>其他</h2>
+<p>部分运行日志：</p>
 <figure class="highlight gradle"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs gradle">Running panX in main folder: <span class="hljs-regexp">/home/u</span>ser<span class="hljs-regexp">/project/</span>sanqi.metagenomics<span class="hljs-regexp">/14.bins.pangenome/</span>bin.<span class="hljs-number">2</span>/<br>mv: 对 <span class="hljs-string">'/home/user/project/sanqi.metagenomics/14.bins.pangenome/bin.2/*.faa'</span> 调用 stat 失败: 没有那个文件或目录<br>======  step01: strain list successfully loaded<br>======  starting step03: extract sequences <span class="hljs-keyword">from</span> GenBank <span class="hljs-keyword">file</span><br>======  time <span class="hljs-keyword">for</span> step03:<br> <span class="hljs-number">0.36</span> minutes (<span class="hljs-number">21.55</span> seconds) <br><br>======  starting step04: extract metadata <span class="hljs-keyword">from</span> GenBank <span class="hljs-keyword">file</span><br>======  time <span class="hljs-keyword">for</span> step04:<br> <span class="hljs-number">0.00</span> minutes (<span class="hljs-number">0.00</span> seconds) <br><br>======  starting step05: cluster proteins<br>diamond inputfile: reference.faa<br>diamond build index (makedb):  <span class="hljs-number">0.03</span> minutes (<span class="hljs-number">1.67</span> seconds)<br>command line record: <span class="hljs-regexp">/home/u</span>ser<span class="hljs-regexp">/mambaforge/</span>envs<span class="hljs-regexp">/panX/</span>bin<span class="hljs-regexp">/diamond makedb -p 65 --in /</span>home<span class="hljs-regexp">/user/</span><span class="hljs-keyword">project</span><span class="hljs-regexp">/sanqi.metagenomics/</span><span class="hljs-number">14</span>.bins.pangenome<span class="hljs-regexp">/bin.2/</span>protein_faa<span class="hljs-regexp">/diamond_matches/</span>reference.faa -d <span class="hljs-regexp">/home/u</span>ser<span class="hljs-regexp">/project/</span>sanqi.metagenomics<span class="hljs-regexp">/14.bins.pangenome/</span>bin.<span class="hljs-number">2</span><span class="hljs-regexp">/protein_faa/</span>diamond_matches<span class="hljs-regexp">/nr_reference&gt; /</span>home<span class="hljs-regexp">/user/</span><span class="hljs-keyword">project</span><span class="hljs-regexp">/sanqi.metagenomics/</span><span class="hljs-number">14</span>.bins.pangenome<span class="hljs-regexp">/bin.2/</span>protein_faa<span class="hljs-regexp">/diamond_matches/</span>diamond_makedb_reference.log <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span><br>diamond alignment (blastp):  <span class="hljs-number">20.64</span> minutes (<span class="hljs-number">1238.37</span> seconds)<br>diamond_max_target_seqs used: <span class="hljs-number">600</span><br>command line record: <span class="hljs-regexp">/home/u</span>ser<span class="hljs-regexp">/mambaforge/</span>envs<span class="hljs-regexp">/panX/</span>bin<span class="hljs-regexp">/diamond blastp --sensitive -p 65 -e 0.001 --id 0 --query-cover 0 --subject-cover 0 -k 600 -d /</span>home<span class="hljs-regexp">/user/</span><span class="hljs-keyword">project</span><span class="hljs-regexp">/sanqi.metagenomics/</span><span class="hljs-number">14</span>.bins.pangenome<span class="hljs-regexp">/bin.2/</span>protein_faa<span class="hljs-regexp">/diamond_matches/</span>nr_reference -f <span class="hljs-number">6</span> qseqid sseqid bitscore -q <span class="hljs-regexp">/home/u</span>ser<span class="hljs-regexp">/project/</span>sanqi.metagenomics<span class="hljs-regexp">/14.bins.pangenome/</span>bin.<span class="hljs-number">2</span><span class="hljs-regexp">/protein_faa/</span>diamond_matches<span class="hljs-regexp">/reference.faa -o /</span>home<span class="hljs-regexp">/user/</span><span class="hljs-keyword">project</span><span class="hljs-regexp">/sanqi.metagenomics/</span><span class="hljs-number">14</span>.bins.pangenome<span class="hljs-regexp">/bin.2/</span>protein_faa<span class="hljs-regexp">/diamond_matches/</span>query_matches.m8 -t .<span class="hljs-regexp">/  &gt; /</span>home<span class="hljs-regexp">/user/</span><span class="hljs-keyword">project</span><span class="hljs-regexp">/sanqi.metagenomics/</span><span class="hljs-number">14</span>.bins.pangenome<span class="hljs-regexp">/bin.2/</span>protein_faa<span class="hljs-regexp">/diamond_matches/</span>diamond_blastp_reference.log  <span class="hljs-number">2</span>&gt;&amp;<span class="hljs-number">1</span><br></code></pre></td></tr></tbody></table></figure>
 
                 
@@ -367,7 +371,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>细菌泛基因组分析工具panX</div>
-      <div>https://lixiang117423.github.io/article/panx/</div>
+      <div>https://lixiang117423.github.io/article/panX/</div>
     </div>
     <div class="license-meta">
       
@@ -421,7 +425,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/sheng-wu-xin-xi-xue/" title="如何批量从NCBI下载基因组数据">
+                      <a href="/article/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6/" title="如何批量从NCBI下载基因组数据">
                         <span class="hidden-mobile">如何批量从NCBI下载基因组数据</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -524,22 +528,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

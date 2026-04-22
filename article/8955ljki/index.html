@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="安装 Blast +将下载的安装包解压缩后安装对应的.exe文件即可，安装完成后将安装目录下的bin文件夹的路径添加到环境变量中的Path中。 ftp:&#x2F;&#x2F;ftp.ncbi.nlm.nih.gov&#x2F;blast&#x2F;db&#x2F; 构建比对数据库可以利用自带的函数下载数据库： 1nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log &amp;">
+    <meta name="description" content="安装 Blast + 将下载的安装包解压缩后安装对应的.exe文件即可，安装完成后将安装目录下的bin文件夹的路径添加到环境变量中的Path中。 ftp:&#x2F;&#x2F;ftp.ncbi.nlm.nih.gov&#x2F;blast&#x2F;db&#x2F; 构建比对数据库 可以利用自带的函数下载数据库： 1nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NCBI-blast-本地比对">
 <meta property="og:url" content="https://lixiang117423.github.io/article/8955ljki/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="安装 Blast +将下载的安装包解压缩后安装对应的.exe文件即可，安装完成后将安装目录下的bin文件夹的路径添加到环境变量中的Path中。 ftp:&#x2F;&#x2F;ftp.ncbi.nlm.nih.gov&#x2F;blast&#x2F;db&#x2F; 构建比对数据库可以利用自带的函数下载数据库： 1nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log &amp;">
+<meta property="og:description" content="安装 Blast + 将下载的安装包解压缩后安装对应的.exe文件即可，安装完成后将安装目录下的bin文件夹的路径添加到环境变量中的Path中。 ftp:&#x2F;&#x2F;ftp.ncbi.nlm.nih.gov&#x2F;blast&#x2F;db&#x2F; 构建比对数据库 可以利用自带的函数下载数据库： 1nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-23T06:41:53.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.517Z">
@@ -85,9 +85,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -291,19 +291,22 @@
             
               <div class="markdown-body">
                 
-                <h1 id="安装-Blast"><a href="#安装-Blast" class="headerlink" title="安装 Blast +"></a>安装 Blast +</h1><p>将下载的<a target="_blank" rel="noopener" href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/">安装包</a>解压缩后安装对应的<code>.exe</code>文件即可，安装完成后将安装目录下的<code>bin</code>文件夹的路径添加到环境变量中的<code>Path</code>中。</p>
+                <h1>安装 Blast +</h1>
+<p>将下载的<a target="_blank" rel="noopener" href="https://ftp.ncbi.nlm.nih.gov/blast/executables/LATEST/">安装包</a>解压缩后安装对应的<code>.exe</code>文件即可，安装完成后将安装目录下的<code>bin</code>文件夹的路径添加到环境变量中的<code>Path</code>中。</p>
 <p><a href="ftp://ftp.ncbi.nlm.nih.gov/blast/db/">ftp://ftp.ncbi.nlm.nih.gov/blast/db/</a></p>
-<h1 id="构建比对数据库"><a href="#构建比对数据库" class="headerlink" title="构建比对数据库"></a>构建比对数据库</h1><p>可以利用自带的函数下载数据库：</p>
+<h1>构建比对数据库</h1>
+<p>可以利用自带的函数下载数据库：</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">nohup perl update_blastdb.pl --decompress nt &amp;&gt; update.log &amp;<br></code></pre></td></tr></tbody></table></figure>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">makeblastdb -in swissprot -dbtype prot -out swissprot.blast<br></code></pre></td></tr></tbody></table></figure>
 <blockquote>
 <ul>
-<li>-in: 待格式化的序列文件     </li>
-<li>-dbtype: 数据库类型，nucl 为核酸，prot 为蛋白  </li>
+<li>-in: 待格式化的序列文件</li>
+<li>-dbtype: 数据库类型，nucl 为核酸，prot 为蛋白</li>
 <li>-out: 输出数据库名，可用于后续 -db 参数设置</li>
 </ul>
 </blockquote>
-<h1 id="比对"><a href="#比对" class="headerlink" title="比对"></a>比对</h1><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">blastn -query AE014075.fasta -db /e/Blast+/database/test/res_genome.blast -out 20210421test.txt -evalue 1e-5 -outfmt 6<br></code></pre></td></tr></tbody></table></figure>
+<h1>比对</h1>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">blastn -query AE014075.fasta -db /e/Blast+/database/test/res_genome.blast -out 20210421test.txt -evalue 1e-5 -outfmt 6<br></code></pre></td></tr></tbody></table></figure>
 <blockquote>
 <ul>
 <li>-query: 输入文件路径及文件名</li>
@@ -313,7 +316,8 @@
 <li>-evalue: 设置输出结果的 e-value 值，e 值越小最后结果可信度越</li>
 </ul>
 </blockquote>
-<h1 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h1><p>[1] Query id：已知的序列 ID</p>
+<h1>结果解读</h1>
+<p>[1] Query id：已知的序列 ID</p>
 <p>[2] Subject id: 比对到数据库中的序列 ID</p>
 <p>[3] % identity : 相似度(在氨基酸水平上，相似度可以设置为 30，严格一些可以设置为 70；在核苷酸水上，可以设置 70 或 90。没有统一的标准，还是以特定研究的参考文献为准。)</p>
 <p>[4] alignment length：比对长度</p>
@@ -335,9 +339,9 @@
 <p>时，表明两序列有较高的同源性，而不是因为计算错误。当 E 值小于 10-6 时，表时两序列的同源性非常高，几乎没有必要再做确认。</p>
 <p><strong>一致性 (Identities)</strong>：或相似性。匹配上的碱基数占总序列长的百分数。</p>
 <p><strong>Score</strong> 得分值越高说明同源性越好；Expect 期望值越小比对结果越好，说明因某些原因而引起的误差越小；Identities 是同源性（相似性），例中所示比对的 1299 个碱基中只有 35 个不配，其他 97％相同；</p>
-<p><strong>Gaps</strong> 是指多出或少的碱基或缺失的碱基数；缺失或插入（Gaps）：插入或缺失。用 “—“ 来表示。</p>
+<p><strong>Gaps</strong> 是指多出或少的碱基或缺失的碱基数；缺失或插入（Gaps）：插入或缺失。用 "—" 来表示。</p>
 <p>此外比对的 <strong>Strand</strong> 则通 s. Start：和 s. End 判断，如上述结果的第三行. Star 值大于 s. End，则表示负链。</p>
-<h1 id="Blast与Blast-的差异"><a href="#Blast与Blast-的差异" class="headerlink" title="Blast与Blast+的差异"></a>Blast与Blast+的差异</h1><div class="table-container">
+<h1>Blast与Blast+的差异</h1>
 <table>
 <thead>
 <tr>
@@ -379,9 +383,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <blockquote>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 </blockquote>
 
                 
@@ -558,22 +562,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

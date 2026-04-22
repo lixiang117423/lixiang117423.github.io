@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="部署到服务器服务器端服务器端主要是构建目录接受和存放博客内容。 eval1234567mkdir myblogcd mybloggit init --bare myblog.gitvi myblog.git&#x2F;hooks&#x2F;post-receive## 输入下面一行内容，目录换成自己的git --work-tree&#x3D;&#x2F;home&#x2F;hexo&#x2F;blog --git-dir&#x3D;&#x2F;home&#x2F;hexo&#x2F;hexo.g">
+    <meta name="description" content="¶部署到服务器 ¶服务器端 服务器端主要是构建目录接受和存放博客内容。 eval1234567mkdir myblogcd mybloggit init --bare myblog.gitvi myblog.git&#x2F;hooks&#x2F;post-receive## 输入下面一行内容，目录换成自己的git --work-tree&#x3D;&#x2F;home&#x2F;hexo&#x2F;blog --git-dir&#x3D;&#x2F;home&#x2F;hexo&#x2F;he">
 <meta property="og:type" content="article">
 <meta property="og:title" content="blogdown部署到云服务器">
 <meta property="og:url" content="https://lixiang117423.github.io/article/blogdown2cloud/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="部署到服务器服务器端服务器端主要是构建目录接受和存放博客内容。 eval1234567mkdir myblogcd mybloggit init --bare myblog.gitvi myblog.git&#x2F;hooks&#x2F;post-receive## 输入下面一行内容，目录换成自己的git --work-tree&#x3D;&#x2F;home&#x2F;hexo&#x2F;blog --git-dir&#x3D;&#x2F;home&#x2F;hexo&#x2F;hexo.g">
+<meta property="og:description" content="¶部署到服务器 ¶服务器端 服务器端主要是构建目录接受和存放博客内容。 eval1234567mkdir myblogcd mybloggit init --bare myblog.gitvi myblog.git&#x2F;hooks&#x2F;post-receive## 输入下面一行内容，目录换成自己的git --work-tree&#x3D;&#x2F;home&#x2F;hexo&#x2F;blog --git-dir&#x3D;&#x2F;home&#x2F;hexo&#x2F;he">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-05T13:19:15.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.513Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -292,15 +292,23 @@
             
               <div class="markdown-body">
                 
-                <h2 id="部署到服务器"><a href="#部署到服务器" class="headerlink" title="部署到服务器"></a>部署到服务器</h2><h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><p>服务器端主要是构建目录接受和存放博客内容。</p>
+                <h2 id="部署到服务器"><a class="header-anchor" href="#部署到服务器">¶</a>部署到服务器</h2>
+<h3 id="服务器端"><a class="header-anchor" href="#服务器端">¶</a>服务器端</h3>
+<p>服务器端主要是构建目录接受和存放博客内容。</p>
 <figure class="highlight plaintext"><figcaption><span>eval</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs {bash">mkdir myblog<br>cd myblog<br>git init --bare myblog.git<br>vi myblog.git/hooks/post-receive<br>## 输入下面一行内容，目录换成自己的<br>git --work-tree=/home/hexo/blog --git-dir=/home/hexo/hexo.git checkout -f<br>chmod +x myblog.git/hooks/post-receive<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="本地端"><a href="#本地端" class="headerlink" title="本地端"></a>本地端</h3><p>本地端就是本地的博客目录。</p>
+<h3 id="本地端"><a class="header-anchor" href="#本地端">¶</a>本地端</h3>
+<p>本地端就是本地的博客目录。</p>
 <figure class="highlight plaintext"><figcaption><span>eval</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs {bash">gti init<br>git remote add txyfwq root@106.xx.xx.xx:/root/myblog/myblog.git<br>git add .<br>git commit -m "20220627 upload"<br>git push --set-upstream txyfwq master<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h3><p>请参考<a target="_blank" rel="noopener" href="https://blog.web4xiang.top/posts/ssldkzf/">博客</a>。</p>
-<h2 id="修改网站图片"><a href="#修改网站图片" class="headerlink" title="修改网站图片"></a>修改网站图片</h2><p>只需要将下面路径的文件替换成想要的图片即可。</p>
+<h3 id="端口转发"><a class="header-anchor" href="#端口转发">¶</a>端口转发</h3>
+<p>请参考<a target="_blank" rel="noopener" href="https://blog.web4xiang.top/posts/ssldkzf/">博客</a>。</p>
+<h2 id="修改网站图片"><a class="header-anchor" href="#修改网站图片">¶</a>修改网站图片</h2>
+<p>只需要将下面路径的文件替换成想要的图片即可。</p>
 <figure class="highlight plaintext"><figcaption><span>eval</span></figcaption><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs {bash">themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\assets\media\icon.png<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="修改页面宽度"><a href="#修改页面宽度" class="headerlink" title="修改页面宽度"></a>修改页面宽度</h2><p>找到这个文件：<br></p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs {css}">themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\assets\scss\custom.scss<br></code></pre></td></tr></tbody></table></figure><p></p>
-<p>添加下面一行内容(85%是比例)：<br></p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs {css}">.article-container{<br>    max-width: 85%<br>}<br></code></pre></td></tr></tbody></table></figure><p></p>
+<h2 id="修改页面宽度"><a class="header-anchor" href="#修改页面宽度">¶</a>修改页面宽度</h2>
+<p>找到这个文件：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs {css}">themes\github.com\wowchemy\wowchemy-hugo-modules\wowchemy\v5\assets\scss\custom.scss<br></code></pre></td></tr></tbody></table></figure>
+<p>添加下面一行内容(85%是比例)：</p>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs {css}">.article-container{<br>    max-width: 85%<br>}<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
@@ -504,22 +512,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

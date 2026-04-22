@@ -28,7 +28,11 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Rose-Pangenome-Analysis-Scripts-详细说明&quot;&gt;&lt;a href=&quot;#Rose-Pangenome-Analysis-Scripts-详细说明&quot; class=&quot;headerlink&quot; title=&quot;Rose Pangenome</summary>
+    <summary type="html">&lt;h1&gt;Rose Pangenome Analysis Scripts 详细说明&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#目录&quot;&gt;¶&lt;/a&gt;目录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -53,7 +57,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;EGAPx-真核生物基因组注释流程-中文使用指南&quot;&gt;&lt;a href=&quot;#EGAPx-真核生物基因组注释流程-中文使用指南&quot; class=&quot;headerlink&quot; title=&quot;EGAPx 真核生物基因组注释流程 - 中文使用指南&quot;&gt;&lt;/a&gt;EGAPx</summary>
+    <summary type="html">&lt;h1&gt;EGAPx 真核生物基因组注释流程 - 中文使用指南&lt;/h1&gt;
+&lt;h2 id=&quot;一、EGAPx-是什么？&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#一、EGAPx-是什么？&quot;&gt;¶&lt;/a&gt;一、EGAPx</summary>
         
       
     
@@ -78,7 +83,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;8000份大豆重测序数据文章的流程&quot;&gt;&lt;a href=&quot;#8000份大豆重测序数据文章的流程&quot; class=&quot;headerlink&quot; title=&quot;8000份大豆重测序数据文章的流程&quot;&gt;&lt;/a&gt;8000份大豆重测序数据文章的流程&lt;/h1&gt;&lt;h2</summary>
+    <summary type="html">&lt;h1&gt;8000份大豆重测序数据文章的流程&lt;/h1&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#目录&quot;&gt;¶&lt;/a&gt;目录&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -103,7 +111,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;如何安装&quot;&gt;&lt;a href=&quot;#如何安装&quot; class=&quot;headerlink&quot; title=&quot;如何安装&quot;&gt;&lt;/a&gt;如何安装&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;h1&gt;如何安装&lt;/h1&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -118,8 +127,8 @@
   
   <entry>
     <title>NCBI基因组注释流程使用三代转录组数据报错解决方法</title>
-    <link href="https://lixiang117423.github.io/article/egapx-3rd-rnaseq/"/>
-    <id>https://lixiang117423.github.io/article/egapx-3rd-rnaseq/</id>
+    <link href="https://lixiang117423.github.io/article/egapx_3rd_rnaseq/"/>
+    <id>https://lixiang117423.github.io/article/egapx_3rd_rnaseq/</id>
     <published>2025-12-11T01:08:58.000Z</published>
     <updated>2025-12-11T02:47:47.133Z</updated>
     
@@ -145,8 +154,8 @@
   
   <entry>
     <title>生物信息学脚本合集</title>
-    <link href="https://lixiang117423.github.io/article/bioinf-scripts/"/>
-    <id>https://lixiang117423.github.io/article/bioinf-scripts/</id>
+    <link href="https://lixiang117423.github.io/article/bioinf_scripts/"/>
+    <id>https://lixiang117423.github.io/article/bioinf_scripts/</id>
     <published>2025-12-05T02:43:35.000Z</published>
     <updated>2025-12-05T03:19:26.091Z</updated>
     
@@ -156,7 +165,8 @@
         
         
     <summary type="html">&lt;p&gt;一些在AI协助下写的生物信息学脚本，自用。&lt;/p&gt;
-&lt;h1 id=&quot;基因组&quot;&gt;&lt;a href=&quot;#基因组&quot; class=&quot;headerlink&quot; title=&quot;基因组&quot;&gt;&lt;/a&gt;基因组&lt;/h1&gt;&lt;h2 id=&quot;hifiasm使用HiFi和Hi-C数据进行基因组组装&quot;&gt;&lt;a</summary>
+&lt;h1&gt;基因组&lt;/h1&gt;
+&lt;h2 id=&quot;hifiasm使用HiFi和Hi-C数据进行基因组组装&quot;&gt;&lt;a class=&quot;header-anchor&quot;</summary>
         
       
     
@@ -171,8 +181,8 @@
   
   <entry>
     <title>linux运行tassel做GWAS的脚本</title>
-    <link href="https://lixiang117423.github.io/article/linux-tassel/"/>
-    <id>https://lixiang117423.github.io/article/linux-tassel/</id>
+    <link href="https://lixiang117423.github.io/article/linux_tassel/"/>
+    <id>https://lixiang117423.github.io/article/linux_tassel/</id>
     <published>2025-12-03T00:34:23.000Z</published>
     <updated>2025-12-03T00:48:44.569Z</updated>
     
@@ -181,7 +191,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;下载软件&quot;&gt;&lt;a href=&quot;#下载软件&quot; class=&quot;headerlink&quot; title=&quot;下载软件&quot;&gt;&lt;/a&gt;下载软件&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;h1&gt;下载软件&lt;/h1&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td</summary>
         
       
     
@@ -196,8 +207,8 @@
   
   <entry>
     <title>一些Hi-C的脚本</title>
-    <link href="https://lixiang117423.github.io/article/hic-scripts/"/>
-    <id>https://lixiang117423.github.io/article/hic-scripts/</id>
+    <link href="https://lixiang117423.github.io/article/hic_scripts/"/>
+    <id>https://lixiang117423.github.io/article/hic_scripts/</id>
     <published>2025-11-30T13:12:51.000Z</published>
     <updated>2025-11-30T13:17:37.291Z</updated>
     
@@ -206,7 +217,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Puzzle-Hi-C&quot;&gt;&lt;a href=&quot;#Puzzle-Hi-C&quot; class=&quot;headerlink&quot; title=&quot;Puzzle-Hi-C&quot;&gt;&lt;/a&gt;Puzzle-Hi-C&lt;/h1&gt;&lt;figure class=&quot;highlight</summary>
+    <summary type="html">&lt;h1&gt;Puzzle-Hi-C&lt;/h1&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -269,8 +281,8 @@
   
   <entry>
     <title>Nature文章的NLR分析方法</title>
-    <link href="https://lixiang117423.github.io/article/naturenlr/"/>
-    <id>https://lixiang117423.github.io/article/naturenlr/</id>
+    <link href="https://lixiang117423.github.io/article/natureNLR/"/>
+    <id>https://lixiang117423.github.io/article/natureNLR/</id>
     <published>2025-10-30T02:21:46.000Z</published>
     <updated>2025-11-14T08:27:55.227Z</updated>
     
@@ -279,7 +291,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;《Nature》论文NLR基因分析方法深度解析&quot;&gt;&lt;a href=&quot;#《Nature》论文NLR基因分析方法深度解析&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;&lt;strong&gt;《Nature》论文NLR基因分析方法深度解析&lt;/strong&gt;&lt;/h1&gt;
+&lt;h2 id=&quot;核心目标&quot;&gt;&lt;a class=&quot;header-anchor&quot;</summary>
         
       
     
@@ -304,7 +317,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;更新软件列表&quot;&gt;&lt;a href=&quot;#更新软件列表&quot; class=&quot;headerlink&quot; title=&quot;更新软件列表&quot;&gt;&lt;/a&gt;更新软件列表&lt;/h1&gt;&lt;figure class=&quot;highlight ebnf&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;h1&gt;更新软件列表&lt;/h1&gt;
+&lt;figure class=&quot;highlight ebnf&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -329,7 +343,12 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;基因组&quot;&gt;&lt;a href=&quot;#基因组&quot; class=&quot;headerlink&quot; title=&quot;基因组&quot;&gt;&lt;/a&gt;基因组&lt;/h1&gt;&lt;h2 id=&quot;序列质控&quot;&gt;&lt;a href=&quot;#序列质控&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;基因组&lt;/h1&gt;
+&lt;h2 id=&quot;序列质控&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#序列质控&quot;&gt;¶&lt;/a&gt;序列质控&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;trimmomatic：过滤低质量的reads&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2</summary>
         
       
     
@@ -370,8 +389,8 @@
   
   <entry>
     <title>biopytools中blast的用法</title>
-    <link href="https://lixiang117423.github.io/article/biopytools-blast/"/>
-    <id>https://lixiang117423.github.io/article/biopytools-blast/</id>
+    <link href="https://lixiang117423.github.io/article/biopytools_blast/"/>
+    <id>https://lixiang117423.github.io/article/biopytools_blast/</id>
     <published>2025-09-10T05:49:16.000Z</published>
     <updated>2025-11-14T08:27:55.238Z</updated>
     
@@ -381,7 +400,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;strong&gt;高效的序列比对和相似性搜索工具 | Efficient Sequence Alignment and Similarity Search Tool&lt;/strong&gt;&lt;/p&gt;
-&lt;h1 id=&quot;📖-功能概述-Overview&quot;&gt;&lt;a</summary>
+&lt;h1&gt;📖 功能概述 |</summary>
         
       
     
@@ -396,8 +415,8 @@
   
   <entry>
     <title>关于VCF和gVCF</title>
-    <link href="https://lixiang117423.github.io/article/gvcfvsvcf/"/>
-    <id>https://lixiang117423.github.io/article/gvcfvsvcf/</id>
+    <link href="https://lixiang117423.github.io/article/gvcfVSvcf/"/>
+    <id>https://lixiang117423.github.io/article/gvcfVSvcf/</id>
     <published>2025-08-14T05:22:06.000Z</published>
     <updated>2025-11-14T08:27:55.527Z</updated>
     
@@ -406,7 +425,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;gVCF联合分型-vs-VCF文件合并：深度解析变异检测的两种策略&quot;&gt;&lt;a href=&quot;#gVCF联合分型-vs-VCF文件合并：深度解析变异检测的两种策略&quot; class=&quot;headerlink&quot; title=&quot;gVCF联合分型 vs</summary>
+    <summary type="html">&lt;h1&gt;gVCF联合分型 vs</summary>
         
       
     
@@ -447,8 +466,8 @@
   
   <entry>
     <title>biopytools的用法</title>
-    <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
-    <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
+    <link href="https://lixiang117423.github.io/article/biopytools_readme/"/>
+    <id>https://lixiang117423.github.io/article/biopytools_readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
     <updated>2025-11-14T08:27:55.711Z</updated>
     
@@ -457,7 +476,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;h1&gt;安装&lt;/h1&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -472,8 +492,8 @@
   
   <entry>
     <title>biopytools的用法</title>
-    <link href="https://lixiang117423.github.io/article/biopytools-readme/"/>
-    <id>https://lixiang117423.github.io/article/biopytools-readme/</id>
+    <link href="https://lixiang117423.github.io/article/biopytools_readme/"/>
+    <id>https://lixiang117423.github.io/article/biopytools_readme/</id>
     <published>2025-07-15T13:34:23.000Z</published>
     <updated>2025-11-14T08:27:55.581Z</updated>
     
@@ -482,7 +502,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
+    <summary type="html">&lt;h1&gt;安装&lt;/h1&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span</summary>
         
       
     
@@ -497,8 +518,8 @@
   
   <entry>
     <title>运行fastp的脚本</title>
-    <link href="https://lixiang117423.github.io/article/run-fastp/"/>
-    <id>https://lixiang117423.github.io/article/run-fastp/</id>
+    <link href="https://lixiang117423.github.io/article/run_fastp/"/>
+    <id>https://lixiang117423.github.io/article/run_fastp/</id>
     <published>2025-07-15T06:41:20.000Z</published>
     <updated>2025-11-14T08:27:55.327Z</updated>
     
@@ -507,7 +528,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;中文&quot;&gt;&lt;a href=&quot;#中文&quot; class=&quot;headerlink&quot; title=&quot;中文&quot;&gt;&lt;/a&gt;中文&lt;/h1&gt;&lt;h2 id=&quot;功能概述&quot;&gt;&lt;a href=&quot;#功能概述&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;中文&lt;/h1&gt;
+&lt;h2 id=&quot;功能概述&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#功能概述&quot;&gt;¶&lt;/a&gt;功能概述&lt;/h2&gt;
+&lt;p&gt;fastp 质控模块是 biopytools 工具包中的高效 FASTQ</summary>
         
       
     
@@ -560,7 +583,8 @@
         
     <summary type="html">&lt;p&gt;好的，遵命。这里是拆分后的中文和英文两个独立的 &lt;code&gt;README.md&lt;/code&gt; 文件。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&quot;中文版本&quot;&gt;&lt;a href=&quot;#中文版本&quot; class=&quot;headerlink&quot;</summary>
+&lt;h3 id=&quot;中文版本&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#中文版本&quot;&gt;¶&lt;/a&gt;中文版本&lt;/h3&gt;
+&lt;figure</summary>
         
       
     
@@ -585,7 +609,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;GEMMA-自动化-GWAS-分析流程&quot;&gt;&lt;a href=&quot;#GEMMA-自动化-GWAS-分析流程&quot; class=&quot;headerlink&quot; title=&quot;GEMMA 自动化 GWAS 分析流程&quot;&gt;&lt;/a&gt;GEMMA 自动化 GWAS 分析流程&lt;/h1&gt;&lt;h2</summary>
+    <summary type="html">&lt;h1&gt;GEMMA 自动化 GWAS 分析流程&lt;/h1&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#目录&quot;&gt;¶&lt;/a&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -610,7 +637,10 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;ANNOVAR-自动化注释流程脚本&quot;&gt;&lt;a href=&quot;#ANNOVAR-自动化注释流程脚本&quot; class=&quot;headerlink&quot; title=&quot;ANNOVAR 自动化注释流程脚本&quot;&gt;&lt;/a&gt;ANNOVAR 自动化注释流程脚本&lt;/h1&gt;&lt;h2</summary>
+    <summary type="html">&lt;h1&gt;ANNOVAR 自动化注释流程脚本&lt;/h1&gt;
+&lt;h2 id=&quot;目录&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#目录&quot;&gt;¶&lt;/a&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a</summary>
         
       
     
@@ -635,8 +665,11 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;功能概述&quot;&gt;&lt;a href=&quot;#功能概述&quot; class=&quot;headerlink&quot; title=&quot;功能概述&quot;&gt;&lt;/a&gt;功能概述&lt;/h1&gt;&lt;p&gt;自动识别样品信息，批量运行Parabricks.&lt;/p&gt;
-&lt;h1 id=&quot;Python脚本&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;功能概述&lt;/h1&gt;
+&lt;p&gt;自动识别样品信息，批量运行Parabricks.&lt;/p&gt;
+&lt;h1&gt;Python脚本&lt;/h1&gt;
+&lt;p&gt;可以命名为&lt;code&gt;05.run_parabricks.py&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight</summary>
         
       
     
@@ -661,7 +694,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;🧬-CNV分析全攻略：从传统方法到泛基因组时代&quot;&gt;&lt;a href=&quot;#🧬-CNV分析全攻略：从传统方法到泛基因组时代&quot; class=&quot;headerlink&quot; title=&quot;🧬 CNV分析全攻略：从传统方法到泛基因组时代&quot;&gt;&lt;/a&gt;🧬</summary>
+    <summary type="html">&lt;h1&gt;🧬 CNV分析全攻略：从传统方法到泛基因组时代&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;📖 拷贝数变异（Copy Number Variants,</summary>
         
       
     
@@ -676,8 +711,8 @@
   
   <entry>
     <title>自动备份conda环境信息和配置文件</title>
-    <link href="https://lixiang117423.github.io/article/backup-conda/"/>
-    <id>https://lixiang117423.github.io/article/backup-conda/</id>
+    <link href="https://lixiang117423.github.io/article/backup_conda/"/>
+    <id>https://lixiang117423.github.io/article/backup_conda/</id>
     <published>2025-07-01T07:38:36.000Z</published>
     <updated>2025-11-14T08:27:55.183Z</updated>
     
@@ -701,8 +736,8 @@
   
   <entry>
     <title>关于FPKM和TPM</title>
-    <link href="https://lixiang117423.github.io/article/fpkm-tpm/"/>
-    <id>https://lixiang117423.github.io/article/fpkm-tpm/</id>
+    <link href="https://lixiang117423.github.io/article/fpkm_tpm/"/>
+    <id>https://lixiang117423.github.io/article/fpkm_tpm/</id>
     <published>2025-07-01T04:23:55.000Z</published>
     <updated>2025-11-14T08:27:55.710Z</updated>
     
@@ -736,7 +771,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;红豆单一驯化起源研究：重大发现与科学突破&quot;&gt;&lt;a href=&quot;#红豆单一驯化起源研究：重大发现与科学突破&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;红豆单一驯化起源研究：重大发现与科学突破&lt;/h1&gt;
+&lt;p&gt;这项发表在《Science》上的研究通过多学科整合方法，解决了红豆驯化起源的长期争议，揭示了作物驯化的复杂演化过程。&lt;/p&gt;
+&lt;h2 id=&quot;研究背景：考古学与遗传学的矛盾&quot;&gt;&lt;a</summary>
         
       
     
@@ -761,7 +798,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;AlphaGenome-使用指南&quot;&gt;&lt;a href=&quot;#AlphaGenome-使用指南&quot; class=&quot;headerlink&quot; title=&quot;AlphaGenome 使用指南&quot;&gt;&lt;/a&gt;AlphaGenome 使用指南&lt;/h1&gt;&lt;p&gt;AlphaGenome</summary>
+    <summary type="html">&lt;h1&gt;AlphaGenome 使用指南&lt;/h1&gt;
+&lt;p&gt;AlphaGenome 是一个强大的 DNA 序列预测模型，可以从 DNA 序列中预测多种基因组功能输出。本指南总结了其主要功能和使用方法。&lt;/p&gt;
+&lt;h2 id=&quot;安装和导入&quot;&gt;&lt;a</summary>
         
       
     
@@ -776,8 +815,8 @@
   
   <entry>
     <title>超算集群配置NCBI真核生物基因组注释流程EGAPx</title>
-    <link href="https://lixiang117423.github.io/article/install-egapx/"/>
-    <id>https://lixiang117423.github.io/article/install-egapx/</id>
+    <link href="https://lixiang117423.github.io/article/install_egapx/"/>
+    <id>https://lixiang117423.github.io/article/install_egapx/</id>
     <published>2025-06-26T03:04:33.000Z</published>
     <updated>2025-11-14T08:27:55.434Z</updated>
     
@@ -787,7 +826,9 @@
         
         
     <summary type="html">&lt;p&gt;以下流程是在数据中心的超算上的配置过程。&lt;/p&gt;
-&lt;h1 id=&quot;创建环境&quot;&gt;&lt;a href=&quot;#创建环境&quot; class=&quot;headerlink&quot;</summary>
+&lt;h1&gt;创建环境&lt;/h1&gt;
+&lt;p&gt;主要是安装依赖的软件。PS：推荐使用&lt;code&gt;mamba&lt;/code&gt;.&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td</summary>
         
       
     
@@ -812,7 +853,9 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;🧬-AI驱动的植物病原菌效应蛋白生物学研究综述&quot;&gt;&lt;a href=&quot;#🧬-AI驱动的植物病原菌效应蛋白生物学研究综述&quot; class=&quot;headerlink&quot; title=&quot;🧬 AI驱动的植物病原菌效应蛋白生物学研究综述&quot;&gt;&lt;/a&gt;🧬</summary>
+    <summary type="html">&lt;h1&gt;🧬 AI驱动的植物病原菌效应蛋白生物学研究综述&lt;/h1&gt;
+&lt;h2 id=&quot;🎯-研究背景与意义&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#🎯-研究背景与意义&quot;&gt;¶&lt;/a&gt;🎯 研究背景与意义&lt;/h2&gt;
+&lt;h3 id=&quot;💥-核心挑战&quot;&gt;&lt;a</summary>
         
       
     
@@ -837,7 +880,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;完整工作流程&quot;&gt;&lt;a href=&quot;#完整工作流程&quot; class=&quot;headerlink&quot; title=&quot;完整工作流程&quot;&gt;&lt;/a&gt;完整工作流程&lt;/h2&gt;&lt;h3 id=&quot;步骤1：找到所有基因组共有的序列（核心序列）&quot;&gt;&lt;a</summary>
+    <summary type="html">&lt;h2 id=&quot;完整工作流程&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#完整工作流程&quot;&gt;¶&lt;/a&gt;完整工作流程&lt;/h2&gt;
+&lt;h3 id=&quot;步骤1：找到所有基因组共有的序列（核心序列）&quot;&gt;&lt;a class=&quot;header-anchor&quot;</summary>
         
       
     
@@ -852,8 +896,8 @@
   
   <entry>
     <title>博后期间文献阅读记录</title>
-    <link href="https://lixiang117423.github.io/article/paper-reading-postdoc/"/>
-    <id>https://lixiang117423.github.io/article/paper-reading-postdoc/</id>
+    <link href="https://lixiang117423.github.io/article/paper_reading_postdoc/"/>
+    <id>https://lixiang117423.github.io/article/paper_reading_postdoc/</id>
     <published>2025-06-23T11:04:53.000Z</published>
     <updated>2025-11-14T08:27:55.152Z</updated>
     
@@ -862,7 +906,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;🧬-k-mer：生物信息学中的”文字片段”&quot;&gt;&lt;a href=&quot;#🧬-k-mer：生物信息学中的”文字片段”&quot; class=&quot;headerlink&quot; title=&quot;🧬 k-mer：生物信息学中的”文字片段”&quot;&gt;&lt;/a&gt;🧬</summary>
+    <summary type="html">&lt;h1&gt;🧬 k-mer：生物信息学中的&quot;文字片段&quot;&lt;/h1&gt;
+&lt;h2 id=&quot;🔤-什么是k-mer？&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#🔤-什么是k-mer？&quot;&gt;¶&lt;/a&gt;🔤</summary>
         
       
     
@@ -877,8 +922,8 @@
   
   <entry>
     <title>Claude新给的两个关于Augusts的脚本</title>
-    <link href="https://lixiang117423.github.io/article/newcode4augustus/"/>
-    <id>https://lixiang117423.github.io/article/newcode4augustus/</id>
+    <link href="https://lixiang117423.github.io/article/Newcode4Augustus/"/>
+    <id>https://lixiang117423.github.io/article/Newcode4Augustus/</id>
     <published>2025-06-22T14:51:20.000Z</published>
     <updated>2025-11-14T08:27:55.596Z</updated>
     
@@ -903,8 +948,8 @@
   
   <entry>
     <title>Augustus的核心参数解读_Claude</title>
-    <link href="https://lixiang117423.github.io/article/augustus-parameter/"/>
-    <id>https://lixiang117423.github.io/article/augustus-parameter/</id>
+    <link href="https://lixiang117423.github.io/article/Augustus_parameter/"/>
+    <id>https://lixiang117423.github.io/article/Augustus_parameter/</id>
     <published>2025-06-22T14:21:42.000Z</published>
     <updated>2025-11-14T08:27:55.714Z</updated>
     
@@ -914,7 +959,7 @@
         
         
     <summary type="html">&lt;p&gt;基于Augustus的参数列表，我来为你分析&lt;strong&gt;最重要的参数&lt;/strong&gt;及其原因：&lt;/p&gt;
-&lt;h2 id=&quot;🎯-核心重要参数（必须设置）&quot;&gt;&lt;a href=&quot;#🎯-核心重要参数（必须设置）&quot; class=&quot;headerlink&quot; title=&quot;🎯</summary>
+&lt;h2 id=&quot;🎯-核心重要参数（必须设置）&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#🎯-核心重要参数（必须设置）&quot;&gt;¶&lt;/a&gt;🎯</summary>
         
       
     
@@ -929,8 +974,8 @@
   
   <entry>
     <title>模型预测结果中的敏感性和特异性的通俗解释</title>
-    <link href="https://lixiang117423.github.io/article/model-train/"/>
-    <id>https://lixiang117423.github.io/article/model-train/</id>
+    <link href="https://lixiang117423.github.io/article/model_train/"/>
+    <id>https://lixiang117423.github.io/article/model_train/</id>
     <published>2025-06-22T13:37:49.000Z</published>
     <updated>2025-11-14T08:27:55.433Z</updated>
     
@@ -940,7 +985,7 @@
         
         
     <summary type="html">&lt;p&gt;&lt;strong&gt;Claude给的解释：&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&quot;🍎-生活化例子：找苹果&quot;&gt;&lt;a href=&quot;#🍎-生活化例子：找苹果&quot; class=&quot;headerlink&quot; title=&quot;🍎 生活化例子：找苹果&quot;&gt;&lt;/a&gt;🍎</summary>
+&lt;h2 id=&quot;🍎-生活化例子：找苹果&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#🍎-生活化例子：找苹果&quot;&gt;¶&lt;/a&gt;🍎</summary>
         
       
     
@@ -955,8 +1000,8 @@
   
   <entry>
     <title>Augustu训练的自动化脚本</title>
-    <link href="https://lixiang117423.github.io/article/augustus-train/"/>
-    <id>https://lixiang117423.github.io/article/augustus-train/</id>
+    <link href="https://lixiang117423.github.io/article/augustus_train/"/>
+    <id>https://lixiang117423.github.io/article/augustus_train/</id>
     <published>2025-06-22T06:49:09.000Z</published>
     <updated>2025-11-14T08:27:55.437Z</updated>
     
@@ -965,7 +1010,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Augustus-Gene-Prediction-Pipeline-Usage-Guide&quot;&gt;&lt;a href=&quot;#Augustus-Gene-Prediction-Pipeline-Usage-Guide&quot; class=&quot;headerlink&quot;</summary>
+    <summary type="html">&lt;h1&gt;Augustus Gene Prediction Pipeline - Usage Guide&lt;/h1&gt;
+&lt;h2 id=&quot;Script-Overview&quot;&gt;&lt;a class=&quot;header-anchor&quot;</summary>
         
       
     
@@ -980,8 +1026,8 @@
   
   <entry>
     <title>README4biohelpers</title>
-    <link href="https://lixiang117423.github.io/article/biohelpers-python/"/>
-    <id>https://lixiang117423.github.io/article/biohelpers-python/</id>
+    <link href="https://lixiang117423.github.io/article/biohelpers_python/"/>
+    <id>https://lixiang117423.github.io/article/biohelpers_python/</id>
     <published>2025-06-06T06:18:44.000Z</published>
     <updated>2025-11-14T08:27:55.321Z</updated>
     
@@ -991,7 +1037,7 @@
         
         
     <summary type="html">&lt;p&gt;Some useful script tools written during data processing.&lt;/p&gt;
-&lt;h2 id=&quot;Installation&quot;&gt;&lt;a href=&quot;#Installation&quot; class=&quot;headerlink&quot;</summary>
+&lt;h2 id=&quot;Installation&quot;&gt;&lt;a class=&quot;header-anchor&quot;</summary>
         
       
     
@@ -1042,7 +1088,9 @@
         
         
     <summary type="html">&lt;p&gt;持续输出中。。。。。。&lt;/p&gt;
-&lt;h1 id=&quot;1-Annovar&quot;&gt;&lt;a href=&quot;#1-Annovar&quot; class=&quot;headerlink&quot; title=&quot;1 Annovar&quot;&gt;&lt;/a&gt;1 Annovar&lt;/h1&gt;&lt;h2 id=&quot;1-1-参考文献&quot;&gt;&lt;a</summary>
+&lt;h1&gt;1 Annovar&lt;/h1&gt;
+&lt;h2 id=&quot;1-1-参考文献&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#1-1-参考文献&quot;&gt;¶&lt;/a&gt;1.1 参考文献&lt;/h2&gt;
+&lt;p&gt;&lt;a</summary>
         
       
     
@@ -1067,7 +1115,8 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;数据准备和质控&quot;&gt;&lt;a href=&quot;#数据准备和质控&quot; class=&quot;headerlink&quot; title=&quot;数据准备和质控&quot;&gt;&lt;/a&gt;数据准备和质控&lt;/h2&gt;&lt;h3 id=&quot;1-数据质量评估&quot;&gt;&lt;a href=&quot;#1-数据质量评估&quot;</summary>
+    <summary type="html">&lt;h2 id=&quot;数据准备和质控&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#数据准备和质控&quot;&gt;¶&lt;/a&gt;数据准备和质控&lt;/h2&gt;
+&lt;h3 id=&quot;1-数据质量评估&quot;&gt;&lt;a class=&quot;header-anchor&quot;</summary>
         
       
     
@@ -1082,8 +1131,8 @@
   
   <entry>
     <title>BSA测序的原理和分析</title>
-    <link href="https://lixiang117423.github.io/article/bsa/"/>
-    <id>https://lixiang117423.github.io/article/bsa/</id>
+    <link href="https://lixiang117423.github.io/article/BSA/"/>
+    <id>https://lixiang117423.github.io/article/BSA/</id>
     <published>2025-05-27T06:38:11.000Z</published>
     <updated>2025-11-14T08:27:55.620Z</updated>
     
@@ -1093,7 +1142,7 @@
         
         
     <summary type="html">&lt;p&gt;BSA（Bulk Segregant Analysis，混合分离分析）是一种分子标记辅助的基因定位技术。我将从原理、方法、分析和代码实现等方面详细阐述。&lt;/p&gt;
-&lt;h1 id=&quot;1-BSA原理&quot;&gt;&lt;a href=&quot;#1-BSA原理&quot; class=&quot;headerlink&quot;</summary>
+&lt;h1&gt;1</summary>
         
       
     
@@ -1118,7 +1167,7 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-背景与意义&quot;&gt;&lt;a href=&quot;#1-背景与意义&quot; class=&quot;headerlink&quot; title=&quot;1 背景与意义&quot;&gt;&lt;/a&gt;1</summary>
+    <summary type="html">&lt;h1&gt;1</summary>
         
       
     
@@ -1143,8 +1192,13 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-BRAKER3的优势&quot;&gt;&lt;a href=&quot;#1-BRAKER3的优势&quot; class=&quot;headerlink&quot; title=&quot;1 BRAKER3的优势&quot;&gt;&lt;/a&gt;1 BRAKER3的优势&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;可以使用转录组和蛋白数据&lt;h1</summary>
+    <summary type="html">&lt;h1&gt;1 BRAKER3的优势&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;可以使用转录组和蛋白数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;2 基因预测成功的关键&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;高质量的基因组：&lt;code&gt;short</summary>
         
       
     
@@ -1169,7 +1223,8 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-Introduction&quot;&gt;&lt;a href=&quot;#1-Introduction&quot; class=&quot;headerlink&quot; title=&quot;1 Introduction&quot;&gt;&lt;/a&gt;1 Introduction&lt;/h1&gt;&lt;p&gt;&lt;a</summary>
+    <summary type="html">&lt;h1&gt;1 Introduction&lt;/h1&gt;
+&lt;h2 id=&quot;GitHub地址文章链接使用手册&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#GitHub地址文章链接使用手册&quot;&gt;¶&lt;/a&gt;&lt;a</summary>
         
       
     
@@ -1220,7 +1275,7 @@
       
         
         
-    <summary type="html">&lt;h2 id=&quot;0-1-文献笔记&quot;&gt;&lt;a href=&quot;#0-1-文献笔记&quot; class=&quot;headerlink&quot; title=&quot;0.1 文献笔记&quot;&gt;&lt;/a&gt;0.1</summary>
+    <summary type="html">&lt;h2 id=&quot;0-1-文献笔记&quot;&gt;&lt;a class=&quot;header-anchor&quot; href=&quot;#0-1-文献笔记&quot;&gt;¶&lt;/a&gt;0.1</summary>
         
       
     
@@ -1245,8 +1300,13 @@
       
         
         
-    <summary type="html">&lt;h1 id=&quot;1-BRAKER3的优势&quot;&gt;&lt;a href=&quot;#1-BRAKER3的优势&quot; class=&quot;headerlink&quot; title=&quot;1 BRAKER3的优势&quot;&gt;&lt;/a&gt;1 BRAKER3的优势&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;可以使用转录组和蛋白数据&lt;h1</summary>
+    <summary type="html">&lt;h1&gt;1 BRAKER3的优势&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;可以使用转录组和蛋白数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;2 基因预测成功的关键&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;高质量的基因组：&lt;code&gt;short</summary>
         
       
     

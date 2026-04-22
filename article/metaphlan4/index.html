@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="参考文献 Blanco-Míguez, A., Beghini, F., Cumbo, F. et al. Extending and improving metagenomic taxonomic profiling with uncharacterized species using MetaPhlAn 4. Nat Biotechnol (2023).  官方网站MetaPhlAn 4.0">
+    <meta name="description" content="¶参考文献  Blanco-Míguez, A., Beghini, F., Cumbo, F. et al. Extending and improving metagenomic taxonomic profiling with uncharacterized species using MetaPhlAn 4. Nat Biotechnol (2023).  ¶官方网站 MetaPhlAn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MetaPhlAn4宏基因组数据分析流程学习笔记">
 <meta property="og:url" content="https://lixiang117423.github.io/article/metaphlan4/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="参考文献 Blanco-Míguez, A., Beghini, F., Cumbo, F. et al. Extending and improving metagenomic taxonomic profiling with uncharacterized species using MetaPhlAn 4. Nat Biotechnol (2023).  官方网站MetaPhlAn 4.0">
+<meta property="og:description" content="¶参考文献  Blanco-Míguez, A., Beghini, F., Cumbo, F. et al. Extending and improving metagenomic taxonomic profiling with uncharacterized species using MetaPhlAn 4. Nat Biotechnol (2023).  ¶官方网站 MetaPhlAn">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306120841938.png">
 <meta property="article:published_time" content="2023-06-12T00:34:08.000Z">
@@ -88,9 +88,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -241,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          498 字
+          504 字
         
       </span>
     
@@ -294,20 +294,27 @@
             
               <div class="markdown-body">
                 
-                <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+                <h2 id="参考文献"><a class="header-anchor" href="#参考文献">¶</a>参考文献</h2>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41587-023-01688-w#citeas">Blanco-Míguez, A., Beghini, F., Cumbo, F. <em>et al.</em> Extending and improving metagenomic taxonomic profiling with uncharacterized species using MetaPhlAn 4. <em>Nat Biotechnol</em> (2023).</a></p>
 </blockquote>
-<h2 id="官方网站"><a href="#官方网站" class="headerlink" title="官方网站"></a>官方网站</h2><p><a target="_blank" rel="noopener" href="https://huttenhower.sph.harvard.edu/metaphlan/"><strong>MetaPhlAn 4.0</strong></a></p>
-<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><p>推荐使用<code>mamba</code>安装：</p>
+<h2 id="官方网站"><a class="header-anchor" href="#官方网站">¶</a>官方网站</h2>
+<p><a target="_blank" rel="noopener" href="https://huttenhower.sph.harvard.edu/metaphlan/"><strong>MetaPhlAn 4.0</strong></a></p>
+<h2 id="软件安装"><a class="header-anchor" href="#软件安装">¶</a>软件安装</h2>
+<p>推荐使用<code>mamba</code>安装：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create --name metaphlan4<br>mamba activate metaphlan4<br>mamba install -c bioconda metaphlan<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="数据库下载"><a href="#数据库下载" class="headerlink" title="数据库下载"></a>数据库下载</h2><p>默认第一次运行软件会自动下载数据库，也可以手动下载：</p>
+<h2 id="数据库下载"><a class="header-anchor" href="#数据库下载">¶</a>数据库下载</h2>
+<p>默认第一次运行软件会自动下载数据库，也可以手动下载：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">nohup</span> axel -n 60 http://cmprod1.cibio.unitn.it/biobakery4/metaphlan_databases/bowtie2_indexes/mpa_vOct22_CHOCOPhlAnSGB_202212_bt2.tar &amp;<br><br>wget http://cmprod1.cibio.unitn.it/biobakery4/metaphlan_databases/mpa_vOct22_CHOCOPhlAnSGB_202212.tar<br></code></pre></td></tr></tbody></table></figure>
 <p>下载完成解压后放到默认的目录下即可，默认目录是：<code>~/mambaforge/envs/metaphlan4/lib/python3.10/site-packages/metaphlan/metaphlan_databases</code>.</p>
 <p>下载完成后运行下面的代码会自动解压并创建数据库：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">metaphlan --install<br></code></pre></td></tr></tbody></table></figure>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202306120841938.png" srcset="/img/loading.gif" lazyload alt="overview"></p>
-<h2 id="开始分析"><a href="#开始分析" class="headerlink" title="开始分析"></a>开始分析</h2><h3 id="输入文件"><a href="#输入文件" class="headerlink" title="输入文件"></a>输入文件</h3><p>支持<code>fasta</code>、<code>fastq</code>、<code>sam</code>和<code>bowtie2out</code>这四种格式文件作为输入文件。</p>
-<h3 id="示例数据"><a href="#示例数据" class="headerlink" title="示例数据"></a>示例数据</h3><ul>
+<h2 id="开始分析"><a class="header-anchor" href="#开始分析">¶</a>开始分析</h2>
+<h3 id="输入文件"><a class="header-anchor" href="#输入文件">¶</a>输入文件</h3>
+<p>支持<code>fasta</code>、<code>fastq</code>、<code>sam</code>和<code>bowtie2out</code>这四种格式文件作为输入文件。</p>
+<h3 id="示例数据"><a class="header-anchor" href="#示例数据">¶</a>示例数据</h3>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014476-Supragingival_plaque.fasta.gz">SRS014476-Supragingival_plaque.fasta.gz</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014494-Posterior_fornix.fasta.gz">SRS014494-Posterior_fornix.fasta.gz</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014459-Stool.fasta.gz">SRS014459-Stool.fasta.gz</a></li>
@@ -315,8 +322,10 @@
 <li><a target="_blank" rel="noopener" href="https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014470-Tongue_dorsum.fasta.gz">SRS014470-Tongue_dorsum.fasta.gz</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/biobakery/MetaPhlAn/releases/download/4.0.2/SRS014472-Buccal_mucosa.fasta.gz">SRS014472-Buccal_mucosa.fasta.gz</a></li>
 </ul>
-<h3 id="运行单个fastq文件"><a href="#运行单个fastq文件" class="headerlink" title="运行单个fastq文件"></a>运行单个fastq文件</h3><figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">metaphlan --offline --nproc 60 data/SRS014476-Supragingival_plaque.fasta.gz --input_type fasta &gt; output/SRS014476-Supragingival_plaque_profile.txt  <br></code></pre></td></tr></tbody></table></figure>
-<h3 id="输出文件"><a href="#输出文件" class="headerlink" title="输出文件"></a>输出文件</h3><ul>
+<h3 id="运行单个fastq文件"><a class="header-anchor" href="#运行单个fastq文件">¶</a>运行单个fastq文件</h3>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">metaphlan --offline --nproc 60 data/SRS014476-Supragingival_plaque.fasta.gz --input_type fasta &gt; output/SRS014476-Supragingival_plaque_profile.txt  <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="输出文件"><a class="header-anchor" href="#输出文件">¶</a>输出文件</h3>
+<ul>
 <li><code>Bowtie2</code>的中间文件：比对结果。</li>
 </ul>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">❯ <span class="hljs-built_in">head</span> data/SRS014476-Supragingival_plaque.fasta.gz.bowtie2out.txt                                                                                       ─╯<br>HWUSI-EAS1568_102539179:1:100:10007:7282/1__1.50        UniRef90_P44049|1__7|SGB9649<br>HWUSI-EAS1568_102539179:1:100:10008:17064/1__1.53       UniRef90_E0DI50|1__4|SGB17007<br>HWUSI-EAS1568_102539179:1:100:10012:9508/1__1.85        UniRef90_A0A3S4XT37|1__5|SGB17007<br>HWUSI-EAS1568_102539179:1:100:10013:7741/1__1.92        UniRef90_UNK19880-CIDAPOPB_00170|1__8|SGB19880<br>HWUSI-EAS1568_102539179:1:100:10015:15592/1__1.105      SGB6007__DMIBLHOP_01812<br>HWUSI-EAS1568_102539179:1:100:10025:5272/1__1.159       UniRef90_A0A3S5F533|1__7|SGB17007<br>HWUSI-EAS1568_102539179:1:100:10035:9129/1__1.208       UniRef90_UNK69135-EJPKGDGA_01179|7__12|SGB69135<br>HWUSI-EAS1568_102539179:1:100:10036:1783/1__1.212       UniRef90_A0A2A8D7T0|1__5|SGB49305<br>HWUSI-EAS1568_102539179:1:100:10039:18013/1__1.234      UniRef90_UNK98242-PKBBBOLB_00132|3__13|SGB98242<br>HWUSI-EAS1568_102539179:1:100:10047:18261/1__1.293      UniRef90_I0UTJ6|1__5|SGB16987<br></code></pre></td></tr></tbody></table></figure>
@@ -324,10 +333,14 @@
 <li><code>MetaPhlAn</code>的分类文件:起始也就是每个物种在每个样品中的丰度。</li>
 </ul>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">head</span> output/SRS014476-Supragingival_plaque_profile.txt  <br><span class="hljs-comment">#mpa_vOct22_CHOCOPhlAnSGB_202212</span><br><span class="hljs-comment">#/home/lixiang/mambaforge/envs/metaphlan4/bin/metaphlan --offline --nproc 60 data/SRS014476-Supragingival_plaque.fasta.gz --input_type fasta</span><br><span class="hljs-comment">#19048 reads processed</span><br><span class="hljs-comment">#SampleID       Metaphlan_Analysis</span><br><span class="hljs-comment">#clade_name     NCBI_tax_id     relative_abundance      additional_species</span><br>k__Bacteria     2       100.0<br>k__Bacteria|p__Actinobacteria   2|201174        55.36506<br>k__Bacteria|p__Firmicutes       2|1239  44.63494<br>k__Bacteria|p__Actinobacteria|c__Actinomycetia  2|201174|1760   55.36506<br>k__Bacteria|p__Firmicutes|c__Bacilli    2|1239|91061    44.63494<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="重新分析样本"><a href="#重新分析样本" class="headerlink" title="重新分析样本"></a>重新分析样本</h3><p>如果要重新分析样本的话，直接使用上一步输出的<code>bowtie2</code>结果就好。省去比对步骤，速度更快。</p>
+<h3 id="重新分析样本"><a class="header-anchor" href="#重新分析样本">¶</a>重新分析样本</h3>
+<p>如果要重新分析样本的话，直接使用上一步输出的<code>bowtie2</code>结果就好。省去比对步骤，速度更快。</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">metaphlan --offline --nproc 60 data/SRS014476-Supragingival_plaque.fasta.gz.bowtie2out.txt --input_type bowtie2out &gt; output/SRS014476-Supragingival_plaque_profile.txt<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="多个样本运行"><a href="#多个样本运行" class="headerlink" title="多个样本运行"></a>多个样本运行</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> SRS*.fasta.gz; <span class="hljs-keyword">do</span> metaphlan <span class="hljs-variable">$i</span> --input_type fasta --<span class="hljs-built_in">nproc</span> 60 --offline &gt; <span class="hljs-variable">${i%.fasta.gz}</span>_profile.txt; <span class="hljs-keyword">done</span><br><br>merge_metaphlan_tables.py output/* &gt; merged.abundance.table.txt<br></code></pre></td></tr></tbody></table></figure>
-<h2 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h2><h3 id="分类单元热图"><a href="#分类单元热图" class="headerlink" title="分类单元热图"></a>分类单元热图</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><br>grep -E <span class="hljs-string">"s__|SRS"</span> merged_abundance_table.txt \<br>| grep -v <span class="hljs-string">"t__"</span> \<br>| sed <span class="hljs-string">"s/^.*|//g"</span> \<br>| sed <span class="hljs-string">"s/SRS[0-9]*-//g"</span> \<br>&gt; merged_abundance_table_species.txt<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="多个样本运行"><a class="header-anchor" href="#多个样本运行">¶</a>多个样本运行</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> SRS*.fasta.gz; <span class="hljs-keyword">do</span> metaphlan <span class="hljs-variable">$i</span> --input_type fasta --<span class="hljs-built_in">nproc</span> 60 --offline &gt; <span class="hljs-variable">${i%.fasta.gz}</span>_profile.txt; <span class="hljs-keyword">done</span><br><br>merge_metaphlan_tables.py output/* &gt; merged.abundance.table.txt<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="数据可视化"><a class="header-anchor" href="#数据可视化">¶</a>数据可视化</h2>
+<h3 id="分类单元热图"><a class="header-anchor" href="#分类单元热图">¶</a>分类单元热图</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs sh"><br>grep -E <span class="hljs-string">"s__|SRS"</span> merged_abundance_table.txt \<br>| grep -v <span class="hljs-string">"t__"</span> \<br>| sed <span class="hljs-string">"s/^.*|//g"</span> \<br>| sed <span class="hljs-string">"s/SRS[0-9]*-//g"</span> \<br>&gt; merged_abundance_table_species.txt<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
@@ -531,22 +544,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

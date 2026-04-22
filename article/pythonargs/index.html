@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -294,7 +294,8 @@
                 
                 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">import</span> argparse<br><br>parser = argparse.ArgumentParser(description=<span class="hljs-string">"You should add those parameters"</span>)<br>parser.add_argument(<span class="hljs-string">"-i"</span>,<span class="hljs-string">"--input"</span>, <span class="hljs-built_in">type</span> = <span class="hljs-built_in">str</span>, <span class="hljs-built_in">help</span> = <span class="hljs-string">"The input fasta file"</span>)<br>parser.add_argument(<span class="hljs-string">"-min"</span>,<span class="hljs-string">"--min_length"</span>, <span class="hljs-built_in">type</span> = <span class="hljs-built_in">int</span>, <span class="hljs-built_in">help</span> = <span class="hljs-string">"The minimal length of sequences"</span>)<br>parser.add_argument(<span class="hljs-string">"-max"</span>,<span class="hljs-string">"--max_length"</span>, <span class="hljs-built_in">type</span> = <span class="hljs-built_in">int</span>, default = <span class="hljs-number">0</span>, <span class="hljs-built_in">help</span> = <span class="hljs-string">"The maximal length of sequences"</span>)<br>parser.add_argument(<span class="hljs-string">"-o"</span>,<span class="hljs-string">"--output"</span>, <span class="hljs-built_in">type</span> = <span class="hljs-built_in">str</span>, <span class="hljs-built_in">help</span> = <span class="hljs-string">"The output fasta file"</span>)<br><span class="hljs-comment">#args = parser.parse_args()</span><br>args =parser.parse_known_args()[<span class="hljs-number">0</span>]<br><br><span class="hljs-comment"># 输入的fasta文件转换成字典</span><br>file_open = <span class="hljs-built_in">open</span>(args.<span class="hljs-built_in">input</span>,<span class="hljs-string">"r"</span>)<br>file_read = file_open.readlines()<br>res_dict = {}<br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> file_read:<br>    <span class="hljs-keyword">if</span> re.<span class="hljs-keyword">match</span>(<span class="hljs-string">"&gt;"</span>,line):<br>        <span class="hljs-comment">#print(line)</span><br>        res_dict[line] = <span class="hljs-string">""</span><br>        flag = line<br>    <span class="hljs-keyword">else</span>:<br>        res_dict[flag] = res_dict[flag] + line<br><br><span class="hljs-comment"># 根据长度进行筛选</span><br><span class="hljs-comment"># 根据长度进行筛选</span><br>final_results = []<br><span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> res_dict.items():<br>    <span class="hljs-keyword">if</span> args.max_length == <span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(value) &gt;= args.min_length:<br>            final_results.append(key)<br>            final_results.append(value)<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">if</span> args.min_length &lt;= <span class="hljs-built_in">len</span>(value) &lt;= args.max_length:<br>            final_results.append(key)<br>            final_results.append(value)<br><br><span class="hljs-comment"># 保存文件</span><br>file_new = <span class="hljs-built_in">open</span>(args.output,<span class="hljs-string">"w"</span>)<br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> final_results:<br>    file_new.write(i + <span class="hljs-string">"\n"</span>)<br><br>file_new.close()<br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -498,22 +499,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

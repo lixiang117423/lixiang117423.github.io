@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -294,21 +294,27 @@
                 
                 <p>后续要扫描大量的水稻叶片然后计算病斑数量，之前没有使用过ImageJ这个软件，今天下午学了一下，成功get扫描一个图片中多个叶片面积的方法。</p>
 <span id="more"></span>
-<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><p>可以从官网下载安装（<a target="_blank" rel="noopener" href="https://imagej.nih.gov/ij/download.html">点击下载</a>），但是网速感人，我把软件放在坚果云上面了，高速下载（<a target="_blank" rel="noopener" href="https://www.jianguoyun.com/p/DXXP9zgQkOqUCRjesN8D">点击下载</a>）。下载后解压，然后双击就能打开软件：</p>
+<h1>软件安装</h1>
+<p>可以从官网下载安装（<a target="_blank" rel="noopener" href="https://imagej.nih.gov/ij/download.html">点击下载</a>），但是网速感人，我把软件放在坚果云上面了，高速下载（<a target="_blank" rel="noopener" href="https://www.jianguoyun.com/p/DXXP9zgQkOqUCRjesN8D">点击下载</a>）。下载后解压，然后双击就能打开软件：</p>
 
-<h1 id="准备图片"><a href="#准备图片" class="headerlink" title="准备图片"></a>准备图片</h1><p>准备扫描的图片需要注意的是叶片不能和接触到边界，不然不能计算面积。</p>
+<h1>准备图片</h1>
+<p>准备扫描的图片需要注意的是叶片不能和接触到边界，不然不能计算面积。</p>
 
-<h1 id="导入图片"><a href="#导入图片" class="headerlink" title="导入图片"></a>导入图片</h1><p>File→Open…即可打开图片：</p>
+<h1>导入图片</h1>
+<p>File→Open…即可打开图片：</p>
 
 
-<h1 id="处理图片"><a href="#处理图片" class="headerlink" title="处理图片"></a>处理图片</h1><p>导入的图片需要转换成<code>8-bit</code>格式：</p>
+<h1>处理图片</h1>
+<p>导入的图片需要转换成<code>8-bit</code>格式：</p>
 
 <p>转换后面的图片是这样的：</p>
 
-<h1 id="改变阈值"><a href="#改变阈值" class="headerlink" title="改变阈值"></a>改变阈值</h1><p>改变图片的颜色阈值，让叶片与背景分开：</p>
+<h1>改变阈值</h1>
+<p>改变图片的颜色阈值，让叶片与背景分开：</p>
 
 
-<h1 id="计算面积"><a href="#计算面积" class="headerlink" title="计算面积"></a>计算面积</h1><p>设置完上述这些参数后，依次点击Analyze→Analyze Particles，然后在弹窗中设置参数：</p>
+<h1>计算面积</h1>
+<p>设置完上述这些参数后，依次点击Analyze→Analyze Particles，然后在弹窗中设置参数：</p>
 
 <p>设置完成后点击<code>OK</code>即可：</p>
 
@@ -522,22 +528,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

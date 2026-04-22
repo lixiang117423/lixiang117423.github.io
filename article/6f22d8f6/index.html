@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -294,72 +294,60 @@
                 
                 <p>R最强大的莫过于统计分析和可视化，关键是完全的开源免费啊。有时候使用多了以后，会积累一些函数或者是数据库，而这些函数和数据库通常能够帮助到别人，这时候就可以把这些函数或者是数据库打包成R包，上传到CRAN、Bioconductor或者是GitHub，让 其他的使用者使用自己的包。</p>
 <span id="more"></span>
-<p>我开发的第一个包是<a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/riceidconverter/index.html">riceidconverter</a>，主要的用途是水稻的ID转换。整个包的开发断断续续经历了两个月，包括数据的爬取(Python脚本见<a href="[https://github.com/GitHub-LiXiang/R/tree/master/R%E5%8C%85%E5%BC%80%E5%8F%91/riceidconverter/NCBI%E7%88%AC%E8%99%ABPython%E8%84%9A%E6%9C%AC](https://github.com/GitHub-LiXiang/R/tree/master/R包开发/riceidconverter/NCBI爬虫Python脚本">GitHub</a>))、整理、函数的构思，以及最艰难的调试。</p>
+<p>我开发的第一个包是<a target="_blank" rel="noopener" href="https://cran.r-project.org/web/packages/riceidconverter/index.html">riceidconverter</a>，主要的用途是水稻的ID转换。整个包的开发断断续续经历了两个月，包括数据的爬取(Python脚本见<a href="%5Bhttps://github.com/GitHub-LiXiang/R/tree/master/R%E5%8C%85%E5%BC%80%E5%8F%91/riceidconverter/NCBI%E7%88%AC%E8%99%ABPython%E8%84%9A%E6%9C%AC%5D(https://github.com/GitHub-LiXiang/R/tree/master/R%E5%8C%85%E5%BC%80%E5%8F%91/riceidconverter/NCBI%E7%88%AC%E8%99%ABPython%E8%84%9A%E6%9C%AC)">GitHub</a>)、整理、函数的构思，以及最艰难的调试。</p>
 
-<h1 id="主要流程"><a href="#主要流程" class="headerlink" title="主要流程"></a>主要流程</h1><p>我的开发流程是软件安装、构思R包、准备数据、编写R包、调试代码、R包提交。下面就从这几方面一一道来我这个小白的经验。</p>
-<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><h2 id="MikTex"><a href="#MikTex" class="headerlink" title="MikTex"></a>MikTex</h2><p><code>MikTex</code>主要是用于编译后面的pdf文档，如果包只是自己用，就不用安装这个软件。软件的下载地址是<a target="_blank" rel="noopener" href="https://miktex.org/download">MikTex</a>。安装的话一路默认就OK。</p>
-<h2 id="roxygen2"><a href="#roxygen2" class="headerlink" title="roxygen2"></a>roxygen2</h2><p><code>roxygen2</code>是个R包，通过注释的方式，生成文档。直接<code>install。package('roxygen2')</code>即可。</p>
-<h2 id="devtools"><a href="#devtools" class="headerlink" title="devtools"></a>devtools</h2><p>这个包主要是用来<code>build</code>和<code>check</code>R包的。直接<code>install。package('devtools')</code>即可。</p>
-<h1 id="构思R包"><a href="#构思R包" class="headerlink" title="构思R包"></a>构思R包</h1><p>这个比较难说清楚，每个R包都有一定的功能的，构思的过程就是R包功能完善的过程。</p>
-<h1 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h1><p>这个环节，也是很难说清除。如果数据要内嵌到R包，而且包里面的函数会用到数据，那表头名称和函数中的变量名称要保持一致。</p>
-<h1 id="编写R包"><a href="#编写R包" class="headerlink" title="编写R包"></a>编写R包</h1><h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>直接用RStudio创建<code>R Package即可</code>：<code>File→New Project→New Directory→R Package</code>。<font color="red">需要注意的是选择的路径不可以有中文字符！</font>会生成下面的文件：</p>
+<h1>主要流程</h1>
+<p>我的开发流程是软件安装、构思R包、准备数据、编写R包、调试代码、R包提交。下面就从这几方面一一道来我这个小白的经验。</p>
+<h1>软件安装</h1>
+<h2 id="MikTex"><a class="header-anchor" href="#MikTex">¶</a>MikTex</h2>
+<p><code>MikTex</code>主要是用于编译后面的pdf文档，如果包只是自己用，就不用安装这个软件。软件的下载地址是<a target="_blank" rel="noopener" href="https://miktex.org/download">MikTex</a>。安装的话一路默认就OK。</p>
+<h2 id="roxygen2"><a class="header-anchor" href="#roxygen2">¶</a>roxygen2</h2>
+<p><code>roxygen2</code>是个R包，通过注释的方式，生成文档。直接<code>install。package('roxygen2')</code>即可。</p>
+<h2 id="devtools"><a class="header-anchor" href="#devtools">¶</a>devtools</h2>
+<p>这个包主要是用来<code>build</code>和<code>check</code>R包的。直接<code>install。package('devtools')</code>即可。</p>
+<h1>构思R包</h1>
+<p>这个比较难说清楚，每个R包都有一定的功能的，构思的过程就是R包功能完善的过程。</p>
+<h1>准备数据</h1>
+<p>这个环节，也是很难说清除。如果数据要内嵌到R包，而且包里面的函数会用到数据，那表头名称和函数中的变量名称要保持一致。</p>
+<h1>编写R包</h1>
+<h2 id="创建项目"><a class="header-anchor" href="#创建项目">¶</a>创建项目</h2>
+<p>直接用RStudio创建<code>R Package即可</code>：<code>File→New Project→New Directory→R Package</code>。<font color="red">需要注意的是选择的路径不可以有中文字符！</font>会生成下面的文件：</p>
 
 <p>比较重要的是<code>man</code>、<code>R</code>和<code>DESCRIPTION</code>这三个文件(夹)。其他的几个可以删除。</p>
-<h2 id="编写DESCRIPTION"><a href="#编写DESCRIPTION" class="headerlink" title="编写DESCRIPTION"></a>编写DESCRIPTION</h2><p>这个文件是用来描述一些基本信息的，这些信息也是必填的一些信息。</p>
+<h2 id="编写DESCRIPTION"><a class="header-anchor" href="#编写DESCRIPTION">¶</a>编写DESCRIPTION</h2>
+<p>这个文件是用来描述一些基本信息的，这些信息也是必填的一些信息。</p>
 
 <p>下面这是我的包的一些描述：</p>
 
-<font color="red">需要注意的是在`Title`部分，大小写要求很严格。</font>
-
+<p><font color="red">需要注意的是在<code>Title</code>部分，大小写要求很严格。</font></p>
 <p>另外需要注意的是在<code>Description</code>部分，每个缩写都需要有详细的解释，如果有链接，还需要将链接放在<code>&lt;&gt;</code>里面，而不是<code>()</code>。</p>
-<h2 id="编写函数"><a href="#编写函数" class="headerlink" title="编写函数"></a>编写函数</h2><p>在<code>R</code>这个文件夹下面创建对应的<code>.R</code>文件。比如想实现的功能是<code>t</code>检验，那就创建一个<code>t.test.R</code>。打开以后还是有几行<code>#'</code>开头的描述，这些是必须的：</p>
+<h2 id="编写函数"><a class="header-anchor" href="#编写函数">¶</a>编写函数</h2>
+<p>在<code>R</code>这个文件夹下面创建对应的<code>.R</code>文件。比如想实现的功能是<code>t</code>检验，那就创建一个<code>t.test.R</code>。打开以后还是有几行<code>#'</code>开头的描述，这些是必须的：</p>
 
 <p><code>@name</code>是指这个函数的名称，其他的就是和<code>DESCRIPTION</code>类似的；<code>@param</code>表示的是参数；<code>@example</code>表示的是函数使用的例子；<code>@return</code>表示的是返回的结果；接着下一行编写函数就行：</p>
 
-<font color="red">需要注意的是在`R`文件夹下面还应该创建一个和R包名称相同的`.R`文件。</font>只需要填写这些东西就可以了：
+<p><font color="red">需要注意的是在<code>R</code>文件夹下面还应该创建一个和R包名称相同的<code>.R</code>文件。</font>只需要填写这些东西就可以了：</p>
 
-
-
-## 调试代码
-
-这个部分，就需要不断的调试，就是使用不同的数据去测试这个函数是否可靠。
-
-## 添加数据
-
-如果需要将数据内嵌在R包怎么办呢？一行代码搞定：`use_data(test.data, internal = TRUE)`。`test.data`就是先前准备好的数据，需要先加载到R环境中。会在`R`文件夹下生成一个`sysdata.rda`文件。
-
-# R包提交
-
-在完成编写和调试后，就只剩下`build`、`check`和`upload`了。
-
-先要生成注释文件：
-
+<h2 id="调试代码"><a class="header-anchor" href="#调试代码">¶</a>调试代码</h2>
+<p>这个部分，就需要不断的调试，就是使用不同的数据去测试这个函数是否可靠。</p>
+<h2 id="添加数据"><a class="header-anchor" href="#添加数据">¶</a>添加数据</h2>
+<p>如果需要将数据内嵌在R包怎么办呢？一行代码搞定：<code>use_data(test.data, internal = TRUE)</code>。<code>test.data</code>就是先前准备好的数据，需要先加载到R环境中。会在<code>R</code>文件夹下生成一个<code>sysdata.rda</code>文件。</p>
+<h1>R包提交</h1>
+<p>在完成编写和调试后，就只剩下<code>build</code>、<code>check</code>和<code>upload</code>了。</p>
+<p>先要生成注释文件：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs R">library<span class="hljs-punctuation">(</span>roxygen2<span class="hljs-punctuation">)</span><br>roxygenize<span class="hljs-punctuation">(</span><span class="hljs-string">'packagename'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
-
-## build
-
-一行代码：
-
+<h2 id="build"><a class="header-anchor" href="#build">¶</a>build</h2>
+<p>一行代码：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">system<span class="hljs-punctuation">(</span><span class="hljs-string">'R CMD build packagename --binary'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
-
-会生成一个`tar.gz`文件。这个文件用于后面的提交。
-
-## check 
-
-一行代码：
-
+<p>会生成一个<code>tar.gz</code>文件。这个文件用于后面的提交。</p>
+<h2 id="check"><a class="header-anchor" href="#check">¶</a>check</h2>
+<p>一行代码：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">system<span class="hljs-punctuation">(</span><span class="hljs-string">'R CMD check packagename --as-cran'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
-
-完后会生成一个`riceidconverter.Rcheck`文件夹，里面有各种报告。在RStudio输出界面没有`ERROR`、`Warning`还有`NOTE`，那就基本没问题了。
-
-## 安装
-
-先尝试一下能不能安装上：
-
+<p>完后会生成一个<code>riceidconverter.Rcheck</code>文件夹，里面有各种报告。在RStudio输出界面没有<code>ERROR</code>、<code>Warning</code>还有<code>NOTE</code>，那就基本没问题了。</p>
+<h2 id="安装"><a class="header-anchor" href="#安装">¶</a>安装</h2>
+<p>先尝试一下能不能安装上：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs R">system<span class="hljs-punctuation">(</span><span class="hljs-string">'R CMD INSTALL packagename'</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
-
-## <font color="red">提交</font>
-
+<h2 id="font-color-red-提交-font"><a class="header-anchor" href="#font-color-red-提交-font">¶</a><font color="red">提交</font></h2>
 <p>这个就比较简单了，直接在<a target="_blank" rel="noopener" href="https://cran.r-project.org/submit.html">https://cran.r-project.org/submit.html</a>按照要求提交<code>tar.gz</code>文件就行。</p>
 <hr>
 <p>最后，等着邮件吧。</p>
@@ -571,22 +559,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

@@ -23,7 +23,7 @@
     <meta name="description" content="1234567891011121314rm(list &#x3D; ls())args &lt;- commandArgs()df &#x3D; data.table::fread(args[1], encoding &#x3D; &quot;UTF-8&quot;) %&gt;%   dplyr::mutate(n &#x3D; stringr::str_length(sequence))df &#x3D; df %&gt;%   tibble::add_row(">
 <meta property="og:type" content="article">
 <meta property="og:title" content="R语言传参示例">
-<meta property="og:url" content="https://lixiang117423.github.io/article/rparameters/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/Rparameters/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="1234567891011121314rm(list &#x3D; ls())args &lt;- commandArgs()df &#x3D; data.table::fread(args[1], encoding &#x3D; &quot;UTF-8&quot;) %&gt;%   dplyr::mutate(n &#x3D; stringr::str_length(sequence))df &#x3D; df %&gt;%   tibble::add_row(">
 <meta property="og:locale" content="zh_CN">
@@ -87,9 +87,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -295,7 +295,8 @@
                 
                 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs R">rm<span class="hljs-punctuation">(</span><span class="hljs-built_in">list</span> <span class="hljs-operator">=</span> ls<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>args <span class="hljs-operator">&lt;-</span> commandArgs<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br><br>df <span class="hljs-operator">=</span> data.table<span class="hljs-operator">::</span>fread<span class="hljs-punctuation">(</span>args<span class="hljs-punctuation">[</span><span class="hljs-number">1</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> encoding <span class="hljs-operator">=</span> <span class="hljs-string">"UTF-8"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>n <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_length<span class="hljs-punctuation">(</span>sequence<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>df <span class="hljs-operator">=</span> df <span class="hljs-operator">%&gt;%</span> <br>  tibble<span class="hljs-operator">::</span>add_row<span class="hljs-punctuation">(</span>id <span class="hljs-operator">=</span> <span class="hljs-built_in">as.character</span><span class="hljs-punctuation">(</span>nrow<span class="hljs-punctuation">(</span>.<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> sequence <span class="hljs-operator">=</span> <span class="hljs-built_in">as.character</span><span class="hljs-punctuation">(</span>unique<span class="hljs-punctuation">(</span>df<span class="hljs-operator">$</span>n<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">,</span> n <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> .before <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span><span class="hljs-number">3</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span> <br>  data.table<span class="hljs-operator">::</span>fwrite<span class="hljs-punctuation">(</span>file <span class="hljs-operator">=</span> args<span class="hljs-punctuation">[</span><span class="hljs-number">2</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> <br>                     sep <span class="hljs-operator">=</span> <span class="hljs-string">" "</span><span class="hljs-punctuation">,</span><br>                     col.names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">,</span> <br>                     row.names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -344,7 +345,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>R语言传参示例</div>
-      <div>https://lixiang117423.github.io/article/rparameters/</div>
+      <div>https://lixiang117423.github.io/article/Rparameters/</div>
     </div>
     <div class="license-meta">
       
@@ -388,7 +389,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/ncbi-genome/" title="NCBI基因组ftp下载连接">
+                      <a href="/article/NCBI-genome/" title="NCBI基因组ftp下载连接">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">NCBI基因组ftp下载连接</span>
                         <span class="visible-mobile">上一篇</span>
@@ -398,7 +399,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/gapit3/" title="GAPIT3笔记">
+                      <a href="/article/GAPIT3/" title="GAPIT3笔记">
                         <span class="hidden-mobile">GAPIT3笔记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -501,22 +502,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

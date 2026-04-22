@@ -23,7 +23,7 @@
     <meta name="description" content="123456789101112131415161718bash &#x2F;usr&#x2F;bin&#x2F;interproscan.sh -f TSV -app Pfam -i data&#x2F;proteins.fa -b results&#x2F;1-interproscangrep NB-ARC results&#x2F;1-interproscan.tsv | cut -f1,7,8 &gt; results&#x2F;2-interproscan.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HRP鉴定NB-LRR基因所有代码">
-<meta property="og:url" content="https://lixiang117423.github.io/article/hrptofindnb-lrr/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/HRPtoFindNB-LRR/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="123456789101112131415161718bash &#x2F;usr&#x2F;bin&#x2F;interproscan.sh -f TSV -app Pfam -i data&#x2F;proteins.fa -b results&#x2F;1-interproscangrep NB-ARC results&#x2F;1-interproscan.tsv | cut -f1,7,8 &gt; results&#x2F;2-interproscan.">
 <meta property="og:locale" content="zh_CN">
@@ -88,9 +88,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -299,7 +299,8 @@
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs R">rm<span class="hljs-punctuation">(</span><span class="hljs-built_in">list</span> <span class="hljs-operator">=</span> ls<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>library<span class="hljs-punctuation">(</span>tidyverse<span class="hljs-punctuation">)</span><br><br>data.table<span class="hljs-operator">::</span>fread<span class="hljs-punctuation">(</span><span class="hljs-string">"results/14-r_gene_id_list"</span><span class="hljs-punctuation">,</span> header <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  dplyr<span class="hljs-operator">::</span>mutate<span class="hljs-punctuation">(</span>id <span class="hljs-operator">=</span> stringr<span class="hljs-operator">::</span>str_sub<span class="hljs-punctuation">(</span>V1<span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-number">15</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  dplyr<span class="hljs-operator">::</span>select<span class="hljs-punctuation">(</span>id<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  dplyr<span class="hljs-operator">::</span>distinct_all<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  data.table<span class="hljs-operator">::</span>fwrite<span class="hljs-punctuation">(</span>file <span class="hljs-operator">=</span> <span class="hljs-string">"results/15-ubique.r.gene.id"</span><span class="hljs-punctuation">,</span> row.names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">,</span> col.names <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/tpj15756-fig-0004-m.jpg" srcset="/img/loading.gif" lazyload alt="tpj15756-fig-0004-m"></p>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -346,7 +347,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>HRP鉴定NB-LRR基因所有代码</div>
-      <div>https://lixiang117423.github.io/article/hrptofindnb-lrr/</div>
+      <div>https://lixiang117423.github.io/article/HRPtoFindNB-LRR/</div>
     </div>
     <div class="license-meta">
       
@@ -390,7 +391,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/rclasslist/" title="R语言周末班授课大纲">
+                      <a href="/article/Rclasslist/" title="R语言周末班授课大纲">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">R语言周末班授课大纲</span>
                         <span class="visible-mobile">上一篇</span>
@@ -503,22 +504,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

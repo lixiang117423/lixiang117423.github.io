@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="参考文献 Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(">
+    <meta name="description" content="¶参考文献  Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="结构变异检测软件SVDSS使用">
 <meta property="og:url" content="https://lixiang117423.github.io/article/svdss/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="参考文献 Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(">
+<meta property="og:description" content="¶参考文献  Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 2">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031600513.png">
@@ -93,9 +93,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          978 字
+          989 字
         
       </span>
     
@@ -299,19 +299,29 @@
             
               <div class="markdown-body">
                 
-                <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><blockquote>
+                <h2 id="参考文献"><a class="header-anchor" href="#参考文献">¶</a>参考文献</h2>
+<blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-022-01674-1">Denti L, Khorsand P, Bonizzoni P, et al. SVDSS: structural variation discovery in hard-to-call genomic regions using sample-specific strings from accurate long reads[J]. Nature Methods, 2023, 20(4): 550-558.</a></p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=oE8uvMklWVE">点击观看官方视屏</a>.</p>
-<h2 id="计算原理"><a href="#计算原理" class="headerlink" title="计算原理"></a>计算原理</h2><p>SVDSS融合了基于比对、无比对和基于组装这三种方法的优势。整个流程可以分为如下几步：</p>
+<h2 id="计算原理"><a class="header-anchor" href="#计算原理">¶</a>计算原理</h2>
+<p>SVDSS融合了基于比对、无比对和基于组装这三种方法的优势。整个流程可以分为如下几步：</p>
 <ol>
-<li><code>read-smoothing</code>：基于比对到参考基因组上的方法将测序错误碱基、SNP和小片段插入（&lt;20bp）的序列去除。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png" srcset="/img/loading.gif" lazyload alt="image-20231003155907569"></li>
-<li><code>构建SFS superstring</code>：在完成上一步的基础上对样品特异性片段（sample-specific string，SFS）进行提取，然后再将SFS组装成superstrings.<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031600513.png" srcset="/img/loading.gif" lazyload alt="image-20231003160041288"><br>什么是specific strings？官方视屏中的介绍是这样的：也就是在A中有在B中没有的片段。<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031608727.png" srcset="/img/loading.gif" lazyload alt="image-20231003160823249"></li>
-<li><code>SV预测</code>：基于这些SFS在参考基因组上的位置对其进行聚类，然后鉴定SV.<br><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031614558.png" srcset="/img/loading.gif" lazyload alt="image-20231003161405487"></li>
+<li><code>read-smoothing</code>：基于比对到参考基因组上的方法将测序错误碱基、SNP和小片段插入（&lt;20bp）的序列去除。<br>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031559511.png" srcset="/img/loading.gif" lazyload alt="image-20231003155907569"></li>
+<li><code>构建SFS superstring</code>：在完成上一步的基础上对样品特异性片段（sample-specific string，SFS）进行提取，然后再将SFS组装成superstrings.<br>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031600513.png" srcset="/img/loading.gif" lazyload alt="image-20231003160041288"><br>
+什么是specific strings？官方视屏中的介绍是这样的：也就是在A中有在B中没有的片段。<br>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031608727.png" srcset="/img/loading.gif" lazyload alt="image-20231003160823249"></li>
+<li><code>SV预测</code>：基于这些SFS在参考基因组上的位置对其进行聚类，然后鉴定SV.<br>
+<img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310031614558.png" srcset="/img/loading.gif" lazyload alt="image-20231003161405487"></li>
 </ol>
-<h2 id="实战案例"><a href="#实战案例" class="headerlink" title="实战案例"></a>实战案例</h2><h3 id="软件安装"><a href="#软件安装" class="headerlink" title="## 软件安装"></a>## 软件安装</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create --name svdss<br>mamba activate svdss<br>mamba install -c bioconda svdss<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h3><p>官方使用的是人类基因组数据，我选择水稻的数据。</p>
-<p>从<a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/web/download"></a><a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/">RiceSuperPIRdb</a>下载日本晴的T2T基因组和注释信息。从<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S009286742100581X">Qin P, Lu H, Du H, et al. Pan-genome analysis of 33 genetically diverse rice accessions reveals hidden genomic variations[J]. Cell, 2021, 184(13): 3542-3558. e16.</a>提供的数据中下载2个样品全基因组测序数据。下载地址：</p>
+<h2 id="实战案例"><a class="header-anchor" href="#实战案例">¶</a>实战案例</h2>
+<h3 id="软件安装"><a class="header-anchor" href="#软件安装">¶</a>## 软件安装</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">mamba create --name svdss<br>mamba activate svdss<br>mamba install -c bioconda svdss<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="数据下载"><a class="header-anchor" href="#数据下载">¶</a>数据下载</h3>
+<p>官方使用的是人类基因组数据，我选择水稻的数据。</p>
+<p>从[<a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/">RiceSuperPIRdb</a>](<a target="_blank" rel="noopener" href="http://www.ricesuperpir.com/web/download">http://www.ricesuperpir.com/web/download</a>)下载日本晴的T2T基因组和注释信息。从<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S009286742100581X">Qin P, Lu H, Du H, et al. Pan-genome analysis of 33 genetically diverse rice accessions reveals hidden genomic variations[J]. Cell, 2021, 184(13): 3542-3558. e16.</a>提供的数据中下载2个样品全基因组测序数据。下载地址：</p>
 <p><a target="_blank" rel="noopener" href="https://ngdc.cncb.ac.cn/search/?dbId=gsa&amp;q=PRJCA002103.&amp;page=1">https://ngdc.cncb.ac.cn/search/?dbId=gsa&amp;q=PRJCA002103.&amp;page=1</a></p>
 <hr>
 <p>剩下的步骤大概可以分为如下几步：</p>
@@ -329,28 +339,36 @@
 <blockquote>
 <p>All of SVDSS steps must be run in the same directory so we always pass <code>--workdir $PWD</code> for every command.</p>
 </blockquote>
-<h3 id="构建参考基因组索引"><a href="#构建参考基因组索引" class="headerlink" title="构建参考基因组索引"></a>构建参考基因组索引</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 1.refer.index<br>SVDSS index --fasta 00.data/genome/nip.t2t.fa --index 01.refer.index/refer.genome.fmds<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="构建参考基因组索引"><a class="header-anchor" href="#构建参考基因组索引">¶</a>构建参考基因组索引</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 1.refer.index<br>SVDSS index --fasta 00.data/genome/nip.t2t.fa --index 01.refer.index/refer.genome.fmds<br></code></pre></td></tr></tbody></table></figure>
 <p>373M的基因组运行结果如下：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS, Structural Variant Discovery from Sample-specific Strings.<br>Mode: index<br>[I] . <br>[M::mr_insert_multi] Turn off parallelization <span class="hljs-keyword">for</span> this batch as too few strings are left.<br>[I] Complete. Runtime: 876 seconds. <br></code></pre></td></tr></tbody></table></figure>
-<h3 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h3><p>使用<code>Minimap2</code>将序列比对到参考基因组上获得<code>BAM</code>文件。</p>
+<h3 id="Mapping"><a class="header-anchor" href="#Mapping">¶</a>Mapping</h3>
+<p>使用<code>Minimap2</code>将序列比对到参考基因组上获得<code>BAM</code>文件。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh">minimap2 -ax map-pb  ref.fa pacbio-reads.fq &gt; aln.sam   <span class="hljs-comment"># for PacBio CLR reads</span><br>minimap2 -ax map-ont ref.fa ont-reads.fq &gt; aln.sam      <span class="hljs-comment"># for Oxford Nanopore reads</span><br>minimap2 -ax map-iclr ref.fa iclr-reads.fq &gt; aln.sam    <span class="hljs-comment"># for Illumina Complete Long Reads</span><br></code></pre></td></tr></tbody></table></figure>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">minimap2 -t 70 -ax map-pb 00.data/genome/nip.t2t.fa 00.data/sample/zh11.fastq &gt; zh11.sam<br></code></pre></td></tr></tbody></table></figure>
 <p>57G数据运行了25分钟左右。</p>
 <p>将<code>SAM</code>转为<code>BAM</code>排序后构建索引：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">samtools view -@ 70 -b zh11.sam &gt; zh11.bam<br>samtools <span class="hljs-built_in">sort</span> --write-index -@ 70 zh11.bam -o zh11.sorted.bam <br></code></pre></td></tr></tbody></table></figure>
-<h3 id="Smooth样品"><a href="#Smooth样品" class="headerlink" title="Smooth样品"></a>Smooth样品</h3><p>剔除样品中的测序错误碱基、SNP和小片段插入（&lt;20bp）。</p>
+<h3 id="Smooth样品"><a class="header-anchor" href="#Smooth样品">¶</a>Smooth样品</h3>
+<p>剔除样品中的测序错误碱基、SNP和小片段插入（&lt;20bp）。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS smooth --threads 70 --reference nip.t2t.fa --bam zh11.sorted.bam<br></code></pre></td></tr></tbody></table></figure>
 <p>构建索引。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">samtools index -@ 70 -b smoothed.selective.bam<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="提取样品的SFS并组装"><a href="#提取样品的SFS并组装" class="headerlink" title="提取样品的SFS并组装"></a>提取样品的SFS并组装</h3><p>看了下一步的代码里面有一个参数是batches，猜测不同的样本的batches不同，批量处理就不好处理，那就直接一步完成了。</p>
+<h3 id="提取样品的SFS并组装"><a class="header-anchor" href="#提取样品的SFS并组装">¶</a>提取样品的SFS并组装</h3>
+<p>看了下一步的代码里面有一个参数是batches，猜测不同的样本的batches不同，批量处理就不好处理，那就直接一步完成了。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS search --threads 70 --index refer.genome.fmd --bam smoothed.selective.bam<br></code></pre></td></tr></tbody></table></figure>
-<h3 id="预测SVs"><a href="#预测SVs" class="headerlink" title="预测SVs"></a>预测SVs</h3><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS call --threads 70 --reference nip.t2t.fa --bam smoothed.selective.bam  &gt; zh11.sv.vcf <br></code></pre></td></tr></tbody></table></figure>
-<h3 id="汇总结果"><a href="#汇总结果" class="headerlink" title="汇总结果"></a>汇总结果</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> 02.each/zh11<br><span class="hljs-built_in">mv</span> zh11* 02.each/zh11 <br><span class="hljs-built_in">mv</span> s* 02.each/zh11 <br><span class="hljs-built_in">mv</span> ignored_reads.txt 02.each/zh11 <br><span class="hljs-built_in">mv</span> poa.sam 02.each/zh11 <br></code></pre></td></tr></tbody></table></figure>
-<h2 id="另一种方法"><a href="#另一种方法" class="headerlink" title="另一种方法"></a>另一种方法</h2><p>我尝试了上面的方法，不行，最终得不到结构变异。选择直接从fastq文件开始，不用比对了。</p>
+<h3 id="预测SVs"><a class="header-anchor" href="#预测SVs">¶</a>预测SVs</h3>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">SVDSS call --threads 70 --reference nip.t2t.fa --bam smoothed.selective.bam  &gt; zh11.sv.vcf <br></code></pre></td></tr></tbody></table></figure>
+<h3 id="汇总结果"><a class="header-anchor" href="#汇总结果">¶</a>汇总结果</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> 02.each/zh11<br><span class="hljs-built_in">mv</span> zh11* 02.each/zh11 <br><span class="hljs-built_in">mv</span> s* 02.each/zh11 <br><span class="hljs-built_in">mv</span> ignored_reads.txt 02.each/zh11 <br><span class="hljs-built_in">mv</span> poa.sam 02.each/zh11 <br></code></pre></td></tr></tbody></table></figure>
+<h2 id="另一种方法"><a class="header-anchor" href="#另一种方法">¶</a>另一种方法</h2>
+<p>我尝试了上面的方法，不行，最终得不到结构变异。选择直接从fastq文件开始，不用比对了。</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">mkdir</span> 1.refer.index<br>SVDSS index --fasta 00.data/genome/nip.t2t.fa --index 01.refer.index/refer.genome.fmds<br>minimap2 -t 70 -ax map-pb 00.data/genome/nip.t2t.fa 00.data/sample/zh11.fastq &gt; zh11.sam<br>samtools view -@ 70 -b zh11.sam &gt; zh11.bam<br>samtools <span class="hljs-built_in">sort</span> --write-index -@ 70 zh11.bam -o zh11.sorted.bam <br>SVDSS search --threads 70 --assemble --index refer.genome.fmd --fastq 00.data/sample/zh11.fastq<br>SVDSS call --min-sv-length 50 --threads 70 --reference nip.t2t.fa --bam zh11.sorted.bam  &gt; zh11.sv.vcf<br><br><span class="hljs-built_in">mkdir</span> 02.each/zh11<br><span class="hljs-built_in">mv</span> zh11* 02.each/zh11 <br><span class="hljs-built_in">mv</span> s* 02.each/zh11 <br><span class="hljs-built_in">mv</span> ignored_reads.txt 02.each/zh11 <br><span class="hljs-built_in">mv</span> poa.sam 02.each/zh11 <br></code></pre></td></tr></tbody></table></figure>
 <p>只得到200个SV，不知道对不对。得到这样一个图：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310042031756.png" srcset="/img/loading.gif" lazyload alt="image-20231004203123690"></p>
-<h2 id="结构变异可视化"><a href="#结构变异可视化" class="headerlink" title="结构变异可视化"></a>结构变异可视化</h2><p>在<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-023-01932-w">Ahsan M U, Liu Q, Perdomo J E, et al. A survey of algorithms for the detection of genomic structural variants from long-read sequencing data[J]. Nature Methods, 2023, 20(8): 1143-1158.</a>这个文章里面看到这个图：</p>
+<h2 id="结构变异可视化"><a class="header-anchor" href="#结构变异可视化">¶</a>结构变异可视化</h2>
+<p>在<a target="_blank" rel="noopener" href="https://www.nature.com/articles/s41592-023-01932-w">Ahsan M U, Liu Q, Perdomo J E, et al. A survey of algorithms for the detection of genomic structural variants from long-read sequencing data[J]. Nature Methods, 2023, 20(8): 1143-1158.</a>这个文章里面看到这个图：</p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202310041547002.png" srcset="/img/loading.gif" lazyload alt="image-20231004154750643"></p>
 <p>找到这个文章：</p>
 <blockquote>
@@ -562,22 +580,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

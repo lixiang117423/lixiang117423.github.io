@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="下载zsh安装包https:&#x2F;&#x2F;packages.msys2.org&#x2F;package&#x2F;zsh?repo&#x3D;msys&amp;variant&#x3D;x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zsh即">
+    <meta name="description" content="¶下载zsh安装包 https:&#x2F;&#x2F;packages.msys2.org&#x2F;package&#x2F;zsh?repo&#x3D;msys&amp;variant&#x3D;x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Windows下Git-bash配置zsh主题">
 <meta property="og:url" content="https://lixiang117423.github.io/article/gitbash.jpg/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="下载zsh安装包https:&#x2F;&#x2F;packages.msys2.org&#x2F;package&#x2F;zsh?repo&#x3D;msys&amp;variant&#x3D;x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zsh即">
+<meta property="og:description" content="¶下载zsh安装包 https:&#x2F;&#x2F;packages.msys2.org&#x2F;package&#x2F;zsh?repo&#x3D;msys&amp;variant&#x3D;x86_64  将下载的文件解压后放到Git-bash的安装目录下，如C:\Program Files\Git\git-bash.exe。 在.bashrc文件中加入代码： 123if [ -t 1 ]; then  exec zshfi 然后再终端输入zs">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305110931852.png">
 <meta property="og:image" content="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305110939615.png">
@@ -89,9 +89,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -242,7 +242,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          192 字
+          235 字
         
       </span>
     
@@ -295,26 +295,30 @@
             
               <div class="markdown-body">
                 
-                <h2 id="下载zsh安装包"><a href="#下载zsh安装包" class="headerlink" title="下载zsh安装包"></a>下载zsh安装包</h2><p><a target="_blank" rel="noopener" href="https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64">https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64</a></p>
+                <h2 id="下载zsh安装包"><a class="header-anchor" href="#下载zsh安装包">¶</a>下载zsh安装包</h2>
+<p><a target="_blank" rel="noopener" href="https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64">https://packages.msys2.org/package/zsh?repo=msys&amp;variant=x86_64</a></p>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305110931852.png" srcset="/img/loading.gif" lazyload alt="image-20230511093059626"></p>
 <p>将下载的文件解压后放到Git-bash的安装目录下，如<code>C:\Program Files\Git\git-bash.exe</code>。</p>
 <p>在<code>.bashrc</code>文件中加入代码：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-keyword">if</span> [ -t 1 ]; <span class="hljs-keyword">then</span><br>  <span class="hljs-built_in">exec</span> zsh<br><span class="hljs-keyword">fi</span><br></code></pre></td></tr></tbody></table></figure>
 <p>然后再终端输入<code>zsh</code>即可进入<code>zsh</code>。</p>
-<h2 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h2><p>国内下载慢的话就用这个链接下载：</p>
+<h2 id="安装oh-my-zsh"><a class="header-anchor" href="#安装oh-my-zsh">¶</a>安装oh-my-zsh</h2>
+<p>国内下载慢的话就用这个链接下载：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">wget https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh<br></code></pre></td></tr></tbody></table></figure>
 <p>然后直接将install.sh文件中的这两行代码进行修改：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">REPO=<span class="hljs-variable">${REPO:-ohmyzsh/ohmyzsh}</span><br>REMOTE=<span class="hljs-variable">${REMOTE:-https://github.com/<span class="hljs-variable">${REPO}</span>.git}</span><br></code></pre></td></tr></tbody></table></figure>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh">REPO=<span class="hljs-variable">${REPO:-mirrors/oh-my-zsh}</span><br>REMOTE=<span class="hljs-variable">${REMOTE:-https://gitee.com/<span class="hljs-variable">${REPO}</span>.git}</span><br></code></pre></td></tr></tbody></table></figure>
-<h2 id="安装powerlevel10k"><a href="#安装powerlevel10k" class="headerlink" title="安装powerlevel10k"></a>安装powerlevel10k</h2><figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> --depth=1 https://gitee.com/romkatv/powerlevel10k.git <span class="hljs-variable">${ZSH_CUSTOM:-<span class="hljs-variable">$HOME</span>/.oh-my-zsh/custom}</span>/themes/powerlevel10k<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="安装powerlevel10k"><a class="header-anchor" href="#安装powerlevel10k">¶</a>安装powerlevel10k</h2>
+<figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">git <span class="hljs-built_in">clone</span> --depth=1 https://gitee.com/romkatv/powerlevel10k.git <span class="hljs-variable">${ZSH_CUSTOM:-<span class="hljs-variable">$HOME</span>/.oh-my-zsh/custom}</span>/themes/powerlevel10k<br></code></pre></td></tr></tbody></table></figure>
 <p>将<code>.zshrc</code>中主题修改：</p>
 <figure class="highlight sh"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sh">ZSH_THEME=<span class="hljs-string">"powerlevel10k/powerlevel10k"</span><br></code></pre></td></tr></tbody></table></figure>
 <p>然后source这个文件就可以开始进行配置。</p>
-<h2 id="字体安装"><a href="#字体安装" class="headerlink" title="字体安装"></a>字体安装</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Regular.ttf">MesloLGS NF Regular.ttf</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold.ttf">MesloLGS NF Bold.ttf</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Italic.ttf">MesloLGS NF Italic.ttf</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS NF Bold Italic.ttf">MesloLGS NF Bold Italic.ttf</a></li>
+<h2 id="字体安装"><a class="header-anchor" href="#字体安装">¶</a>字体安装</h2>
+<ul>
+<li>[MesloLGS NF Regular.ttf](<a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS">https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS</a> NF Regular.ttf)</li>
+<li>[MesloLGS NF Bold.ttf](<a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS">https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS</a> NF Bold.ttf)</li>
+<li>[MesloLGS NF Italic.ttf](<a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS">https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS</a> NF Italic.ttf)</li>
+<li>[MesloLGS NF Bold Italic.ttf](<a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS">https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS</a> NF Bold Italic.ttf)</li>
 </ul>
 <p><img src="https://xiang-1257290193.cos.ap-guangzhou.myqcloud.com/Typora/202305110939615.png" srcset="/img/loading.gif" lazyload alt="image-20230511093935441"></p>
 
@@ -520,22 +524,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

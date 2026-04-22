@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -298,7 +298,8 @@
 <p>将比对到SwissProt数据库的结果进行爬虫：</p>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><span class="hljs-keyword">import</span> random<br><span class="hljs-keyword">import</span> openpyxl<br><span class="hljs-keyword">import</span> csv<br><span class="hljs-keyword">import</span> time<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup<br><span class="hljs-keyword">import</span> re<br><br>os.chdir(<span class="hljs-string">'C:/Users/Administrator/Desktop'</span>)<br><br>res = <span class="hljs-built_in">open</span>(<span class="hljs-string">'植物病原互作通路基因蛋白爬取swiss数据库结果.txt'</span>,<span class="hljs-string">'w+'</span>,encoding = <span class="hljs-string">"utf-8"</span>)<br><br>original_file = <span class="hljs-built_in">open</span>(<span class="hljs-string">'植物病原互作通路基因蛋白swiss数据库blast结果.txt'</span>,<span class="hljs-string">'r'</span>)<br><br><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> original_file.readlines()[<span class="hljs-number">0</span>:]:<br>    gene = line.split(<span class="hljs-string">'\t'</span>)[<span class="hljs-number">0</span>]<br>    pro = line.split(<span class="hljs-string">'\t'</span>)[<span class="hljs-number">1</span>]<br>    pro_id = pro.split(<span class="hljs-string">'.'</span>)[<span class="hljs-number">0</span>]<br>    similarity = line.split(<span class="hljs-string">'\t'</span>)[<span class="hljs-number">2</span>]<br>    <br>    <span class="hljs-keyword">if</span> <span class="hljs-built_in">float</span>(similarity) &gt;= <span class="hljs-number">70</span>:<br>        evalue = line.split(<span class="hljs-string">'\t'</span>)[<span class="hljs-number">10</span>]<br>        score = line.split(<span class="hljs-string">'\t'</span>)[<span class="hljs-number">11</span>].replace(<span class="hljs-string">'\n'</span>,<span class="hljs-string">''</span>)<br><br>        spider_link = <span class="hljs-string">'https://www.uniprot.org/uniprot/'</span> + pro_id<br><br>        res_spider = requests.get(spider_link)<br><br>        soup = BeautifulSoup(res_spider.text,<span class="hljs-string">'html.parser'</span>)<br><br>        organism = soup.find(<span class="hljs-string">'div'</span>,<span class="hljs-built_in">id</span> = <span class="hljs-string">'content-organism'</span>, class_ = <span class="hljs-string">'entry-overview-content'</span>).get_text()<br>        gene_1 = soup.find(<span class="hljs-string">'div'</span>,<span class="hljs-built_in">id</span> = <span class="hljs-string">'content-gene'</span>, class_ = <span class="hljs-string">'entry-overview-content'</span>).get_text()<br>        protein = soup.find(<span class="hljs-string">'div'</span>,<span class="hljs-built_in">id</span> = <span class="hljs-string">'content-protein'</span>, class_ = <span class="hljs-string">'entry-overview-content'</span>).get_text()<br>        <br>        status = soup.find(<span class="hljs-string">'div'</span>, <span class="hljs-built_in">id</span> = <span class="hljs-string">'content-status'</span>,class_ = <span class="hljs-string">'entry-overview-content'</span>).find(<span class="hljs-string">'span'</span>, class_ = <span class="hljs-string">'context-help tooltipped-click'</span>).get_text()<br>        res_str = re.findall(<span class="hljs-string">'&lt;p&gt;(.*?)&lt;/p&gt;'</span>,status)<br>        status = status.replace(res_str[<span class="hljs-number">0</span>],<span class="hljs-string">''</span>).replace(<span class="hljs-string">'\n'</span>,<span class="hljs-string">'.'</span>).replace(<span class="hljs-string">'                                    &lt;p&gt;&lt;/p&gt;'</span>,<span class="hljs-string">''</span>).replace(<span class="hljs-string">'-'</span>,<span class="hljs-string">''</span>).replace(<span class="hljs-string">'leveli'</span>,<span class="hljs-string">'level'</span>)<br><br>        <span class="hljs-keyword">if</span> <span class="hljs-literal">False</span>:<br>            <span class="hljs-keyword">try</span>:<br>                function = soup.find(<span class="hljs-string">'div'</span>, class_ = <span class="hljs-string">'annotation'</span>).find(<span class="hljs-string">'span'</span>).get_text().replace(<span class="hljs-string">'By similarity'</span>,<span class="hljs-string">''</span>)<br>            <span class="hljs-keyword">except</span> AttributeError:<br>                function = <span class="hljs-string">'None'</span><br><br>        res.writelines([gene,<span class="hljs-string">'\t'</span>,pro,<span class="hljs-string">'\t'</span>,similarity,<span class="hljs-string">'\t'</span>,evalue,<span class="hljs-string">'\t'</span>,score,<span class="hljs-string">'\t'</span>,organism,<span class="hljs-string">'\t'</span>,gene_1,<span class="hljs-string">'\t'</span>,protein,<span class="hljs-string">'\t'</span>,status,<span class="hljs-string">'\n'</span>])<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">next</span><br><br>res.close()<br></code></pre></td></tr></tbody></table></figure>
 <blockquote>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 </blockquote>
 
                 
@@ -503,22 +504,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

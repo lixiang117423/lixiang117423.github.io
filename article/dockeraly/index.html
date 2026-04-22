@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="登录阿里云获取专用镜像链接：https:&#x2F;&#x2F;cr.console.aliyun.com&#x2F;cn-hangzhou&#x2F;instances&#x2F;mirrors  修改配置文件 1sudo vi  &#x2F;etc&#x2F;docker&#x2F;daemon.json  加入下面的内容：   123{  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxxxx.mirror.aliyuncs.com&quot;]}  💌l">
+    <meta name="description" content="登录阿里云获取专用镜像链接：https:&#x2F;&#x2F;cr.console.aliyun.com&#x2F;cn-hangzhou&#x2F;instances&#x2F;mirrors   修改配置文件 1sudo vi  &#x2F;etc&#x2F;docker&#x2F;daemon.json   加入下面的内容：   123{  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxxxx.mirror.aliyuncs.com&quot;]}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker配置阿里云镜像">
 <meta property="og:url" content="https://lixiang117423.github.io/article/dockeraly/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="登录阿里云获取专用镜像链接：https:&#x2F;&#x2F;cr.console.aliyun.com&#x2F;cn-hangzhou&#x2F;instances&#x2F;mirrors  修改配置文件 1sudo vi  &#x2F;etc&#x2F;docker&#x2F;daemon.json  加入下面的内容：   123{  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxxxx.mirror.aliyuncs.com&quot;]}  💌l">
+<meta property="og:description" content="登录阿里云获取专用镜像链接：https:&#x2F;&#x2F;cr.console.aliyun.com&#x2F;cn-hangzhou&#x2F;instances&#x2F;mirrors   修改配置文件 1sudo vi  &#x2F;etc&#x2F;docker&#x2F;daemon.json   加入下面的内容：   123{  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxxxx.mirror.aliyuncs.com&quot;]}">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-19T08:55:43.000Z">
 <meta property="article:modified_time" content="2025-11-14T08:27:55.284Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -293,17 +293,21 @@
               <div class="markdown-body">
                 
                 <ul>
-<li><p>登录阿里云获取专用镜像链接：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
+<li>
+<p>登录阿里云获取专用镜像链接：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
 </li>
-<li><p>修改配置文件</p>
+<li>
+<p>修改配置文件</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo vi  /etc/docker/daemon.json<br></code></pre></td></tr></tbody></table></figure>
 </li>
-<li><p>加入下面的内容：</p>
+<li>
+<p>加入下面的内容：</p>
 </li>
 </ul>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">{<br>  <span class="hljs-string">"registry-mirrors"</span>: [<span class="hljs-string">"https://xxxxxxx.mirror.aliyuncs.com"</span>]<br>}<br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -507,22 +511,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -295,29 +295,36 @@
                 <p>最近一直寻思着构建基因共表达网络，之前了解到的方法是根据相关性构建互作网络。想着看看有没有新的方法，找到了这样一篇文献：</p>
 <span id="more"></span>
 
-<p>谷歌学术显示该文章已经被引用940余次，引用的期刊不乏<strong><em>Nature</em></strong>等。</p>
+<p>谷歌学术显示该文章已经被引用940余次，引用的期刊不乏<em><strong>Nature</strong></em>等。</p>
 <p>具体的算法实现过程看不懂，那就应用吧。</p>
 <p>检索发现官方教程：<a target="_blank" rel="noopener" href="https://bioconductor.org/packages/release/bioc/vignettes/GENIE3/inst/doc/GENIE3.html">https://bioconductor.org/packages/release/bioc/vignettes/GENIE3/inst/doc/GENIE3.html</a></p>
-<h1 id="输入数据"><a href="#输入数据" class="headerlink" title="输入数据"></a>输入数据</h1><p>需要输入的数据是个表达矩阵，矩阵的行是基因，列是样本：</p>
+<h1>输入数据</h1>
+<p>需要输入的数据是个表达矩阵，矩阵的行是基因，列是样本：</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-comment">##       Sample1 Sample2 Sample3 Sample4 Sample5</span><br><span class="hljs-comment">## Gene1       9       9       6       4       6</span><br><span class="hljs-comment">## Gene2       7       1       1       9       2</span><br><span class="hljs-comment">## Gene3      10       6       6       7       9</span><br><span class="hljs-comment">## Gene4       6       2      10       5       7</span><br><span class="hljs-comment">## Gene5       6       3      10       2      10</span><br><span class="hljs-comment">## Gene6       7       1       4      10       8</span><br></code></pre></td></tr></tbody></table></figure>
 <p>需要注意的是，作者在教程中提到输入的基因表达矩阵不能进行任何的处理，包括标准化、筛选及log转换等。</p>
-<h1 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs R">GENIE3<span class="hljs-punctuation">(</span><br>  exprMatrix<span class="hljs-punctuation">,</span> <span class="hljs-comment"># 表达矩阵</span><br>  regulators <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 指定潜在的调控因子，比如转录因子等</span><br>  targets <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 潜在的被调控的靶标基因</span><br>  treeMethod <span class="hljs-operator">=</span> <span class="hljs-string">"RF"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 选择方法，默认的是“RF"（随机森林），还可以选择“ET”（Extra-Trees）</span><br>  K <span class="hljs-operator">=</span> <span class="hljs-string">"sqrt"</span><span class="hljs-punctuation">,</span> <br>  nTrees <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 树的量，默认是1000</span><br>  nCores <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 用于并行计算的核数，表达矩阵较大时选择并行，运算速度更快。</span><br>  returnMatrix <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 结果返回形式是矩阵还是list，选择"TRUE"就返回矩阵，否则就返回list</span><br>  verbose <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span> <span class="hljs-comment"># 是否展示计算进度，默认是FALSE，即不展示计算进度</span><br><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
-<h1 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h1><figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> head<span class="hljs-punctuation">(</span>linkList<span class="hljs-punctuation">)</span><br>  regulatoryGene targetGene    weight<br><span class="hljs-number">1</span>          Gene8      Gene4 <span class="hljs-number">0.2056790</span><br><span class="hljs-number">2</span>         Gene13      Gene3 <span class="hljs-number">0.1918921</span><br><span class="hljs-number">3</span>         Gene12      Gene3 <span class="hljs-number">0.1822270</span><br><span class="hljs-number">4</span>          Gene7      Gene1 <span class="hljs-number">0.1801217</span><br><span class="hljs-number">5</span>         Gene17      Gene9 <span class="hljs-number">0.1781883</span><br><span class="hljs-number">6</span>          Gene5      Gene6 <span class="hljs-number">0.1750425</span><br></code></pre></td></tr></tbody></table></figure>
+<h1>函数参数</h1>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs R">GENIE3<span class="hljs-punctuation">(</span><br>  exprMatrix<span class="hljs-punctuation">,</span> <span class="hljs-comment"># 表达矩阵</span><br>  regulators <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 指定潜在的调控因子，比如转录因子等</span><br>  targets <span class="hljs-operator">=</span> <span class="hljs-literal">NULL</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 潜在的被调控的靶标基因</span><br>  treeMethod <span class="hljs-operator">=</span> <span class="hljs-string">"RF"</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 选择方法，默认的是“RF"（随机森林），还可以选择“ET”（Extra-Trees）</span><br>  K <span class="hljs-operator">=</span> <span class="hljs-string">"sqrt"</span><span class="hljs-punctuation">,</span> <br>  nTrees <span class="hljs-operator">=</span> <span class="hljs-number">1000</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 树的量，默认是1000</span><br>  nCores <span class="hljs-operator">=</span> <span class="hljs-number">1</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 用于并行计算的核数，表达矩阵较大时选择并行，运算速度更快。</span><br>  returnMatrix <span class="hljs-operator">=</span> <span class="hljs-literal">TRUE</span><span class="hljs-punctuation">,</span> <span class="hljs-comment"># 结果返回形式是矩阵还是list，选择"TRUE"就返回矩阵，否则就返回list</span><br>  verbose <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span> <span class="hljs-comment"># 是否展示计算进度，默认是FALSE，即不展示计算进度</span><br><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
+<h1>输出结果</h1>
+<figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs R"><span class="hljs-operator">&gt;</span> head<span class="hljs-punctuation">(</span>linkList<span class="hljs-punctuation">)</span><br>  regulatoryGene targetGene    weight<br><span class="hljs-number">1</span>          Gene8      Gene4 <span class="hljs-number">0.2056790</span><br><span class="hljs-number">2</span>         Gene13      Gene3 <span class="hljs-number">0.1918921</span><br><span class="hljs-number">3</span>         Gene12      Gene3 <span class="hljs-number">0.1822270</span><br><span class="hljs-number">4</span>          Gene7      Gene1 <span class="hljs-number">0.1801217</span><br><span class="hljs-number">5</span>         Gene17      Gene9 <span class="hljs-number">0.1781883</span><br><span class="hljs-number">6</span>          Gene5      Gene6 <span class="hljs-number">0.1750425</span><br></code></pre></td></tr></tbody></table></figure>
 <p>输出的结果有三列，分别是调控基因和被调控基因及权重weight。</p>
-<h1 id="结果提取"><a href="#结果提取" class="headerlink" title="结果提取"></a>结果提取</h1><p>如果选择参数<code>returnMatrix = TRUE</code>的话，返回的就是矩阵，否则返回的是list，需要进行提取。</p>
+<h1>结果提取</h1>
+<p>如果选择参数<code>returnMatrix = TRUE</code>的话，返回的就是矩阵，否则返回的是list，需要进行提取。</p>
 <p>提取方式有两种：</p>
 <ul>
 <li>提取前多少个</li>
 <li>按照阈值进行提取</li>
 </ul>
 <figure class="highlight reasonml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs reasonml"># 提取前几位top调控连接<br>linkList &lt;- get<span class="hljs-constructor">LinkList(<span class="hljs-params">weightMat</span>, <span class="hljs-params">reportMax</span>=5)</span><br><br># 按阈值提取<br>linkList &lt;- get<span class="hljs-constructor">LinkList(<span class="hljs-params">weightMat</span>, <span class="hljs-params">threshold</span>=0.1)</span><br></code></pre></td></tr></tbody></table></figure>
-<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>输出结果中的<code>weight</code>是没有统计学意义的，阈值的选择需要按照自己的经验进行选择。</p>
-<h1 id="结果可视化"><a href="#结果可视化" class="headerlink" title="结果可视化"></a>结果可视化</h1><p>最后的结果可以用Gephi或者是Cytoscape等软件进行可视化。</p>
+<h1>注意事项</h1>
+<p>输出结果中的<code>weight</code>是没有统计学意义的，阈值的选择需要按照自己的经验进行选择。</p>
+<h1>结果可视化</h1>
+<p>最后的结果可以用Gephi或者是Cytoscape等软件进行可视化。</p>
 <p>Gephi安装参考教程：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Eotixm5tCMHgw_cXj8b6GQ">https://mp.weixin.qq.com/s/Eotixm5tCMHgw_cXj8b6GQ</a></p>
 <p>Gephi使用简明教程：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8DTbSEJfrImXVhQWCAbfvw">https://mp.weixin.qq.com/s/8DTbSEJfrImXVhQWCAbfvw</a></p>
 
 <blockquote>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 </blockquote>
 
                 
@@ -522,22 +529,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

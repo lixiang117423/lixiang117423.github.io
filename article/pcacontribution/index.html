@@ -23,7 +23,7 @@
     <meta name="description" content="1234567891011121314151617181920212223rm(list &#x3D; ls())library(vegan)library(ggplot2)library(ggprism)library(FactoMineR)library(factoextra)data(&quot;iris&quot;)res.pca &lt;- PCA(iris[, 1:4], graph &#x3D; FALSE)contrib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PCA提取变量的贡献度">
-<meta property="og:url" content="https://lixiang117423.github.io/article/pcacontribution/index.html">
+<meta property="og:url" content="https://lixiang117423.github.io/article/PCAcontribution/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
 <meta property="og:description" content="1234567891011121314151617181920212223rm(list &#x3D; ls())library(vegan)library(ggplot2)library(ggprism)library(FactoMineR)library(factoextra)data(&quot;iris&quot;)res.pca &lt;- PCA(iris[, 1:4], graph &#x3D; FALSE)contrib">
 <meta property="og:locale" content="zh_CN">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -294,7 +294,8 @@
                 
                 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs R">rm<span class="hljs-punctuation">(</span><span class="hljs-built_in">list</span> <span class="hljs-operator">=</span> ls<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>library<span class="hljs-punctuation">(</span>vegan<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>ggplot2<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>ggprism<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>FactoMineR<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>factoextra<span class="hljs-punctuation">)</span><br><br>data<span class="hljs-punctuation">(</span><span class="hljs-string">"iris"</span><span class="hljs-punctuation">)</span><br><br>res.pca <span class="hljs-operator">&lt;-</span> PCA<span class="hljs-punctuation">(</span>iris<span class="hljs-punctuation">[</span><span class="hljs-punctuation">,</span> <span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">4</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span> graph <span class="hljs-operator">=</span> <span class="hljs-literal">FALSE</span><span class="hljs-punctuation">)</span><br><br>contribution <span class="hljs-operator">&lt;-</span> fviz_pca_var<span class="hljs-punctuation">(</span>res.pca<span class="hljs-punctuation">,</span> col.var <span class="hljs-operator">=</span> <span class="hljs-string">"contrib"</span><span class="hljs-punctuation">)</span><br><br>contribution<span class="hljs-operator">$</span>data <span class="hljs-operator">%&gt;%</span><br>  dplyr<span class="hljs-operator">::</span>arrange<span class="hljs-punctuation">(</span><span class="hljs-operator">-</span>contrib<span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  dplyr<span class="hljs-operator">::</span>slice<span class="hljs-punctuation">(</span><span class="hljs-number">1</span><span class="hljs-operator">:</span><span class="hljs-number">2</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">%&gt;%</span><br>  ggplot<span class="hljs-punctuation">(</span>aes<span class="hljs-punctuation">(</span>contrib<span class="hljs-punctuation">,</span> name<span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  geom_bar<span class="hljs-punctuation">(</span>stat <span class="hljs-operator">=</span> <span class="hljs-string">"identity"</span><span class="hljs-punctuation">,</span> width <span class="hljs-operator">=</span> <span class="hljs-number">0.6</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  scale_fill_prism<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  guides<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-string">"prism_offset_minor"</span><span class="hljs-punctuation">,</span> y <span class="hljs-operator">=</span> <span class="hljs-string">"prism_offset"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  labs<span class="hljs-punctuation">(</span>x <span class="hljs-operator">=</span> <span class="hljs-string">"Contribution"</span><span class="hljs-punctuation">,</span> y <span class="hljs-operator">=</span> <span class="hljs-string">"Variable"</span><span class="hljs-punctuation">)</span> <span class="hljs-operator">+</span><br>  theme_prism<span class="hljs-punctuation">(</span>base_size <span class="hljs-operator">=</span> <span class="hljs-number">12</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -341,7 +342,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>PCA提取变量的贡献度</div>
-      <div>https://lixiang117423.github.io/article/pcacontribution/</div>
+      <div>https://lixiang117423.github.io/article/PCAcontribution/</div>
     </div>
     <div class="license-meta">
       
@@ -498,22 +499,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

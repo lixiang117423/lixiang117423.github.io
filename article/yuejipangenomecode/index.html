@@ -20,12 +20,12 @@
   <meta name="keywords" content="">
   <meta name="google-site-verification" content="W0bd7QAXqv4_2p37UlvKzRbXgPQWZun5DbrUuQtdSI4">
   
-    <meta name="description" content="Rose Pangenome Analysis Scripts 详细说明 目录 Genome Assembly — 基因组组装 Genome Annotation — 基因组注释 RNA-seq — 转录组分析 Pangenome — 泛基因组构建 Phylogenetic — 系统发育与群体遗传   1. Genome Assembly — 基因组组装脚本: Genome_Assembly&#x2F;as">
+    <meta name="description" content="Rose Pangenome Analysis Scripts 详细说明  ¶目录  Genome Assembly — 基因组组装 Genome Annotation — 基因组注释 RNA-seq — 转录组分析 Pangenome — 泛基因组构建 Phylogenetic — 系统发育与群体遗传   ¶1. Genome Assembly — 基因组组装 脚本: Genome_Assemb">
 <meta property="og:type" content="article">
 <meta property="og:title" content="月季泛基因组文章的代码">
 <meta property="og:url" content="https://lixiang117423.github.io/article/yuejipangenomecode/index.html">
 <meta property="og:site_name" content="小蓝哥的知识荒原">
-<meta property="og:description" content="Rose Pangenome Analysis Scripts 详细说明 目录 Genome Assembly — 基因组组装 Genome Annotation — 基因组注释 RNA-seq — 转录组分析 Pangenome — 泛基因组构建 Phylogenetic — 系统发育与群体遗传   1. Genome Assembly — 基因组组装脚本: Genome_Assembly&#x2F;as">
+<meta property="og:description" content="Rose Pangenome Analysis Scripts 详细说明  ¶目录  Genome Assembly — 基因组组装 Genome Annotation — 基因组注释 RNA-seq — 转录组分析 Pangenome — 泛基因组构建 Phylogenetic — 系统发育与群体遗传   ¶1. Genome Assembly — 基因组组装 脚本: Genome_Assemb">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-04-22T02:55:54.000Z">
 <meta property="article:modified_time" content="2026-04-22T03:00:34.931Z">
@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -292,19 +292,22 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Rose-Pangenome-Analysis-Scripts-详细说明"><a href="#Rose-Pangenome-Analysis-Scripts-详细说明" class="headerlink" title="Rose Pangenome Analysis Scripts 详细说明"></a>Rose Pangenome Analysis Scripts 详细说明</h1><hr>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
-<li><a href="#1-genome-assembly--基因组组装">Genome Assembly — 基因组组装</a></li>
-<li><a href="#2-genome-annotation--基因组注释">Genome Annotation — 基因组注释</a></li>
-<li><a href="#3-rna-seq--转录组分析">RNA-seq — 转录组分析</a></li>
-<li><a href="#4-pangenome--泛基因组构建">Pangenome — 泛基因组构建</a></li>
-<li><a href="#5-phylogenetic--系统发育与群体遗传">Phylogenetic — 系统发育与群体遗传</a></li>
+                <h1>Rose Pangenome Analysis Scripts 详细说明</h1>
+<hr>
+<h2 id="目录"><a class="header-anchor" href="#目录">¶</a>目录</h2>
+<ol>
+<li><a href="#1-genome-assembly--%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85">Genome Assembly — 基因组组装</a></li>
+<li><a href="#2-genome-annotation--%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%B3%A8%E9%87%8A">Genome Annotation — 基因组注释</a></li>
+<li><a href="#3-rna-seq--%E8%BD%AC%E5%BD%95%E7%BB%84%E5%88%86%E6%9E%90">RNA-seq — 转录组分析</a></li>
+<li><a href="#4-pangenome--%E6%B3%9B%E5%9F%BA%E5%9B%A0%E7%BB%84%E6%9E%84%E5%BB%BA">Pangenome — 泛基因组构建</a></li>
+<li><a href="#5-phylogenetic--%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E4%B8%8E%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0">Phylogenetic — 系统发育与群体遗传</a></li>
 </ol>
 <hr>
-<h2 id="1-Genome-Assembly-—-基因组组装"><a href="#1-Genome-Assembly-—-基因组组装" class="headerlink" title="1. Genome Assembly — 基因组组装"></a>1. Genome Assembly — 基因组组装</h2><p><strong>脚本</strong>: <code>Genome_Assembly/assembly.sh</code></p>
+<h2 id="1-Genome-Assembly-—-基因组组装"><a class="header-anchor" href="#1-Genome-Assembly-—-基因组组装">¶</a>1. Genome Assembly — 基因组组装</h2>
+<p><strong>脚本</strong>: <code>Genome_Assembly/assembly.sh</code></p>
 <p><strong>功能概述</strong>: 使用 PacBio HiFi 读长进行初始组装，再结合 Hi-C 数据进行挂载（scaffolding），最后评估组装质量。</p>
-<h3 id="1-1-初始组装-—-Hifiasm"><a href="#1-1-初始组装-—-Hifiasm" class="headerlink" title="1.1 初始组装 — Hifiasm"></a>1.1 初始组装 — Hifiasm</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hifiasm -o hifiasm_out -s 0.3 --h1 HiC_R1.fq.gz --h2 HiC_R2.fq.gz HiFi.fq.gz<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="1-1-初始组装-—-Hifiasm"><a class="header-anchor" href="#1-1-初始组装-—-Hifiasm">¶</a>1.1 初始组装 — Hifiasm</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hifiasm -o hifiasm_out -s 0.3 --h1 HiC_R1.fq.gz --h2 HiC_R2.fq.gz HiFi.fq.gz<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -335,13 +338,14 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/chhylp123/hifiasm">Hifiasm</a> — 基于 HiFi 读长的基因组组装软件，可同时利用 Hi-C 数据进行组装。</p>
 <hr>
-<h3 id="1-2-Hi-C-挂载"><a href="#1-2-Hi-C-挂载" class="headerlink" title="1.2 Hi-C 挂载"></a>1.2 Hi-C 挂载</h3><h4 id="Step-1-构建-BWA-索引"><a href="#Step-1-构建-BWA-索引" class="headerlink" title="Step 1: 构建 BWA 索引"></a>Step 1: 构建 BWA 索引</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bwa index genome.fa<br></code></pre></td></tr></tbody></table></figure>
+<h3 id="1-2-Hi-C-挂载"><a class="header-anchor" href="#1-2-Hi-C-挂载">¶</a>1.2 Hi-C 挂载</h3>
+<h4 id="Step-1-构建-BWA-索引"><a class="header-anchor" href="#Step-1-构建-BWA-索引">¶</a>Step 1: 构建 BWA 索引</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bwa index genome.fa<br></code></pre></td></tr></tbody></table></figure>
 <p><strong>工具</strong>: BWA — 为 Hi-C reads 比对构建参考基因组索引。</p>
-<h4 id="Step-2-生成酶切位点文件"><a href="#Step-2-生成酶切位点文件" class="headerlink" title="Step 2: 生成酶切位点文件"></a>Step 2: 生成酶切位点文件</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">python ~/software/juicer-1.6/misc/generate_site_positions.py DpnII genome genome.fa<br>awk <span class="hljs-string">'BEGIN{OFS="\t"}{print $1, $NF}'</span> genome_DpnII.txt &gt; draft.genome.chrom.sizes<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-2-生成酶切位点文件"><a class="header-anchor" href="#Step-2-生成酶切位点文件">¶</a>Step 2: 生成酶切位点文件</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">python ~/software/juicer-1.6/misc/generate_site_positions.py DpnII genome genome.fa<br>awk <span class="hljs-string">'BEGIN{OFS="\t"}{print $1, $NF}'</span> genome_DpnII.txt &gt; draft.genome.chrom.sizes<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -364,10 +368,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>说明</strong>: 生成 DpnII 酶切位点位置文件，并提取染色体大小信息。</p>
-<h4 id="Step-3-运行-Juicer"><a href="#Step-3-运行-Juicer" class="headerlink" title="Step 3: 运行 Juicer"></a>Step 3: 运行 Juicer</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/software/juicer-1.6/CPU/juicer.sh -g hap1_hic -z genome.fa -s DpnII -y genome_DpnII.txt -p draft.genome.chrom.sizes -t 56 -S early<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-3-运行-Juicer"><a class="header-anchor" href="#Step-3-运行-Juicer">¶</a>Step 3: 运行 Juicer</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/software/juicer-1.6/CPU/juicer.sh -g hap1_hic -z genome.fa -s DpnII -y genome_DpnII.txt -p draft.genome.chrom.sizes -t 56 -S early<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -406,10 +409,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/aidenlab/Juicer">Juicer</a> — Hi-C 数据处理流程。</p>
-<h4 id="Step-4-3D-DNA-挂载与手动纠错"><a href="#Step-4-3D-DNA-挂载与手动纠错" class="headerlink" title="Step 4: 3D-DNA 挂载与手动纠错"></a>Step 4: 3D-DNA 挂载与手动纠错</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/software/3d-dna/run-asm-pipeline.sh -r 0 reference/genome.fa aligned/merged_nodups.txt<br>~/software/3d-dna/run-asm-pipeline-post-review.sh -r genome.review.assembly ./reference/genome.fa aligned/merged_nodups.txt<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-4-3D-DNA-挂载与手动纠错"><a class="header-anchor" href="#Step-4-3D-DNA-挂载与手动纠错">¶</a>Step 4: 3D-DNA 挂载与手动纠错</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/software/3d-dna/run-asm-pipeline.sh -r 0 reference/genome.fa aligned/merged_nodups.txt<br>~/software/3d-dna/run-asm-pipeline-post-review.sh -r genome.review.assembly ./reference/genome.fa aligned/merged_nodups.txt<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -436,11 +438,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/theaidenlab/3d-dna">3D-DNA</a> — 利用 Hi-C 数据对基因组进行染色体级别挂载和纠错。</p>
 <hr>
-<h3 id="1-3-组装质量评估"><a href="#1-3-组装质量评估" class="headerlink" title="1.3 组装质量评估"></a>1.3 组装质量评估</h3><h4 id="BUSCO-评估"><a href="#BUSCO-评估" class="headerlink" title="BUSCO 评估"></a>BUSCO 评估</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">busco -l ~/database/busco/eudicots_odb10 --offline -m genome -c 40 --out_path ./BUSCO_out -o genome.fa -i genome.fa<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="1-3-组装质量评估"><a class="header-anchor" href="#1-3-组装质量评估">¶</a>1.3 组装质量评估</h3>
+<h4 id="BUSCO-评估"><a class="header-anchor" href="#BUSCO-评估">¶</a>BUSCO 评估</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">busco -l ~/database/busco/eudicots_odb10 --offline -m genome -c 40 --out_path ./BUSCO_out -o genome.fa -i genome.fa<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -479,10 +481,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://busco.ezlab.org/">BUSCO</a> — 基于单拷贝直系同源基因评估基因组组装/注释完整度。</p>
-<h4 id="KAT-K-mer-分析"><a href="#KAT-K-mer-分析" class="headerlink" title="KAT K-mer 分析"></a>KAT K-mer 分析</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kat comp -t 40 -o example_kat ~/raw_data/HiFi.fastq genome.fa<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="KAT-K-mer-分析"><a class="header-anchor" href="#KAT-K-mer-分析">¶</a>KAT K-mer 分析</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">kat comp -t 40 -o example_kat ~/raw_data/HiFi.fastq genome.fa<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -509,13 +510,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/TGAC/KAT">KAT</a> — K-mer 分析工具，用于比较 reads 和基因组之间的 K-mer 一致性，评估组装完整度和污染。</p>
 <hr>
-<h2 id="2-Genome-Annotation-—-基因组注释"><a href="#2-Genome-Annotation-—-基因组注释" class="headerlink" title="2. Genome Annotation — 基因组注释"></a>2. Genome Annotation — 基因组注释</h2><p><strong>脚本</strong>: <code>Genome_Annotation/annotation.sh</code></p>
+<h2 id="2-Genome-Annotation-—-基因组注释"><a class="header-anchor" href="#2-Genome-Annotation-—-基因组注释">¶</a>2. Genome Annotation — 基因组注释</h2>
+<p><strong>脚本</strong>: <code>Genome_Annotation/annotation.sh</code></p>
 <p><strong>功能概述</strong>: 完整的基因组注释流程，包括重复序列注释、编码区域注释（HISAT2 + StringTie + TransDecoder + PASA）、同源蛋白预测（Exonerate）、<em>de novo</em> 基因预测（Augustus）、多证据整合（EVidenceModeler）以及 BUSCO 评估。</p>
-<h3 id="2-1-重复序列注释-—-EDTA"><a href="#2-1-重复序列注释-—-EDTA" class="headerlink" title="2.1 重复序列注释 — EDTA"></a>2.1 重复序列注释 — EDTA</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">EDTA.pl --genome genome.fa --anno 1 --force 1 --debug 1 -sensitive 1 -t 24<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-1-重复序列注释-—-EDTA"><a class="header-anchor" href="#2-1-重复序列注释-—-EDTA">¶</a>2.1 重复序列注释 — EDTA</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">EDTA.pl --genome genome.fa --anno 1 --force 1 --debug 1 -sensitive 1 -t 24<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -550,11 +551,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/ying-feng/EDTA">EDTA</a> — Extensive <em>de novo</em> Transposable Element Annotation，全基因组重复序列注释工具。</p>
 <hr>
-<h3 id="2-2-编码区域注释-—-HISAT2-StringTie-TransDecoder"><a href="#2-2-编码区域注释-—-HISAT2-StringTie-TransDecoder" class="headerlink" title="2.2 编码区域注释 — HISAT2 + StringTie + TransDecoder"></a>2.2 编码区域注释 — HISAT2 + StringTie + TransDecoder</h3><h4 id="Step-1-构建-HISAT2-索引"><a href="#Step-1-构建-HISAT2-索引" class="headerlink" title="Step 1: 构建 HISAT2 索引"></a>Step 1: 构建 HISAT2 索引</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2-build genome.fa genome.fa -p 4<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-2-编码区域注释-—-HISAT2-StringTie-TransDecoder"><a class="header-anchor" href="#2-2-编码区域注释-—-HISAT2-StringTie-TransDecoder">¶</a>2.2 编码区域注释 — HISAT2 + StringTie + TransDecoder</h3>
+<h4 id="Step-1-构建-HISAT2-索引"><a class="header-anchor" href="#Step-1-构建-HISAT2-索引">¶</a>Step 1: 构建 HISAT2 索引</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2-build genome.fa genome.fa -p 4<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -573,9 +574,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Step-2-比对转录组-reads"><a href="#Step-2-比对转录组-reads" class="headerlink" title="Step 2: 比对转录组 reads"></a>Step 2: 比对转录组 reads</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 -x genome.fa -1 trans_1.fq.gz -2 trans_2.fq.gz --dta -S trans.sam<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-2-比对转录组-reads"><a class="header-anchor" href="#Step-2-比对转录组-reads">¶</a>Step 2: 比对转录组 reads</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 -x genome.fa -1 trans_1.fq.gz -2 trans_2.fq.gz --dta -S trans.sam<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -606,9 +606,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Step-3-SAM-转-BAM-并排序"><a href="#Step-3-SAM-转-BAM-并排序" class="headerlink" title="Step 3: SAM 转 BAM 并排序"></a>Step 3: SAM 转 BAM 并排序</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">samtools view -b -S trans.sam &gt; trans.bam<br>samtools <span class="hljs-built_in">sort</span> -@ 16 trans.bam -o trans.sort.bam<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-3-SAM-转-BAM-并排序"><a class="header-anchor" href="#Step-3-SAM-转-BAM-并排序">¶</a>Step 3: SAM 转 BAM 并排序</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">samtools view -b -S trans.sam &gt; trans.bam<br>samtools <span class="hljs-built_in">sort</span> -@ 16 trans.bam -o trans.sort.bam<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -627,9 +626,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Step-4-StringTie-转录本组装"><a href="#Step-4-StringTie-转录本组装" class="headerlink" title="Step 4: StringTie 转录本组装"></a>Step 4: StringTie 转录本组装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">stringtie -o genome.fa.gtf -l genome.fa trans.sort.bam<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-4-StringTie-转录本组装"><a class="header-anchor" href="#Step-4-StringTie-转录本组装">¶</a>Step 4: StringTie 转录本组装</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">stringtie -o genome.fa.gtf -l genome.fa trans.sort.bam<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -648,10 +646,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://ccb.jhu.edu/software/stringtie/">StringTie</a> — 转录本组装与定量工具。</p>
-<h4 id="Step-5-TransDecoder-预测编码区"><a href="#Step-5-TransDecoder-预测编码区" class="headerlink" title="Step 5: TransDecoder 预测编码区"></a>Step 5: TransDecoder 预测编码区</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl gtf_genome_to_cdna_fasta.pl genome.fa.gtf genome.fa &gt; genome.fa.trans.fa<br>TransDecoder.LongOrfs -t genome.fa.trans.fa<br>TransDecoder.Predict -t genome.fa.trans.fa<br>gtf_to_alignment_gff3.pl genome.fa.gtf &gt; genome.fa.gff3<br>cdna_alignment_orf_to_genome_orf.pl genome.fa.trans.fa.transdecoder.gff3 genome.fa.gff3 genome.fa.trans.fa &gt; transdecoder.genome.gff3<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-5-TransDecoder-预测编码区"><a class="header-anchor" href="#Step-5-TransDecoder-预测编码区">¶</a>Step 5: TransDecoder 预测编码区</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl gtf_genome_to_cdna_fasta.pl genome.fa.gtf genome.fa &gt; genome.fa.trans.fa<br>TransDecoder.LongOrfs -t genome.fa.trans.fa<br>TransDecoder.Predict -t genome.fa.trans.fa<br>gtf_to_alignment_gff3.pl genome.fa.gtf &gt; genome.fa.gff3<br>cdna_alignment_orf_to_genome_orf.pl genome.fa.trans.fa.transdecoder.gff3 genome.fa.gff3 genome.fa.trans.fa &gt; transdecoder.genome.gff3<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -682,11 +679,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/TransDecoder/TransDecoder">TransDecoder</a> — 转录本编码区域预测工具。</p>
 <hr>
-<h3 id="2-3-Trinity-从头转录本组装-PASA-优化"><a href="#2-3-Trinity-从头转录本组装-PASA-优化" class="headerlink" title="2.3 Trinity 从头转录本组装 + PASA 优化"></a>2.3 Trinity 从头转录本组装 + PASA 优化</h3><h4 id="Step-1-Trinity-组装"><a href="#Step-1-Trinity-组装" class="headerlink" title="Step 1: Trinity 组装"></a>Step 1: Trinity 组装</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Trinity --seqType fq --max_memory 150G --left trans_1.fq --right trans_2.fq --SS_lib_type RF --CPU 20 --output trans_trinity --min_kmer_cov 2<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-3-Trinity-从头转录本组装-PASA-优化"><a class="header-anchor" href="#2-3-Trinity-从头转录本组装-PASA-优化">¶</a>2.3 Trinity 从头转录本组装 + PASA 优化</h3>
+<h4 id="Step-1-Trinity-组装"><a class="header-anchor" href="#Step-1-Trinity-组装">¶</a>Step 1: Trinity 组装</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Trinity --seqType fq --max_memory 150G --left trans_1.fq --right trans_2.fq --SS_lib_type RF --CPU 20 --output trans_trinity --min_kmer_cov 2<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -729,10 +726,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/trinityrnaseq/trinityrnaseq">Trinity</a> — 从头转录本组装软件。</p>
-<h4 id="Step-2-PASA-流程"><a href="#Step-2-PASA-流程" class="headerlink" title="Step 2: PASA 流程"></a>Step 2: PASA 流程</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl -pi -e <span class="hljs-string">"s#DATABASE.*#DATABASE=/program/rosa/genome.fa.database#g"</span> alignAssembly.config<br>seqkit <span class="hljs-built_in">seq</span> /program/rosa/5.anno/genome.fa -w 0 &gt; genome.fa<br>samtools faidx genome.fa<br>seqkit <span class="hljs-built_in">seq</span> trans_trinity/Trinity.fasta -w 0 &gt; trinity.fa<br>samtools faidx trinity.fa<br>seqclean-x86_64/seqclean trinity.fa -v seqclean-x86_64/data/UniVec<br>samtools faidx trinity.fa.clean<br>perl -e <span class="hljs-string">'while (&lt;&gt;) { print "$1\n"if /&gt;(\S+)/ }'</span> trinity.fa &gt; tdn.accs<br>Launch_PASA_pipeline.pl -c alignAssembly.config --ALIGNERS blat -R -C -g genome.fa -t trinity.fa.clean -T -u trinity.fa --TDN tdn.accs --trans_gtf genome.fa.gtf --CPU 10<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-2-PASA-流程"><a class="header-anchor" href="#Step-2-PASA-流程">¶</a>Step 2: PASA 流程</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl -pi -e <span class="hljs-string">"s#DATABASE.*#DATABASE=/program/rosa/genome.fa.database#g"</span> alignAssembly.config<br>seqkit <span class="hljs-built_in">seq</span> /program/rosa/5.anno/genome.fa -w 0 &gt; genome.fa<br>samtools faidx genome.fa<br>seqkit <span class="hljs-built_in">seq</span> trans_trinity/Trinity.fasta -w 0 &gt; trinity.fa<br>samtools faidx trinity.fa<br>seqclean-x86_64/seqclean trinity.fa -v seqclean-x86_64/data/UniVec<br>samtools faidx trinity.fa.clean<br>perl -e <span class="hljs-string">'while (&lt;&gt;) { print "$1\n"if /&gt;(\S+)/ }'</span> trinity.fa &gt; tdn.accs<br>Launch_PASA_pipeline.pl -c alignAssembly.config --ALIGNERS blat -R -C -g genome.fa -t trinity.fa.clean -T -u trinity.fa --TDN tdn.accs --trans_gtf genome.fa.gtf --CPU 10<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -803,10 +799,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/PASApipeline/PASApipeline">PASA</a> — Program to Assemble Spliced Alignments，利用转录本比对提升基因注释质量。</p>
-<h4 id="Step-3-提取-PASA-训练集"><a href="#Step-3-提取-PASA-训练集" class="headerlink" title="Step 3: 提取 PASA 训练集"></a>Step 3: 提取 PASA 训练集</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pasa_asmbls_to_training_set.dbi --pasa_transcripts_fasta genome.fa.database.assemblies.fasta --pasa_transcripts_gff3 genome.fa.database.pasa_assemblies.gff3<br>pasa_asmbls_to_training_set.extract_reference_orfs.pl genome.fa.database.assemblies.fasta.transdecoder.genome.gff3 &gt; best_candidates.gff3<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-3-提取-PASA-训练集"><a class="header-anchor" href="#Step-3-提取-PASA-训练集">¶</a>Step 3: 提取 PASA 训练集</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pasa_asmbls_to_training_set.dbi --pasa_transcripts_fasta genome.fa.database.assemblies.fasta --pasa_transcripts_gff3 genome.fa.database.pasa_assemblies.gff3<br>pasa_asmbls_to_training_set.extract_reference_orfs.pl genome.fa.database.assemblies.fasta.transdecoder.genome.gff3 &gt; best_candidates.gff3<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -817,13 +812,13 @@
 <tbody>
 <tr>
 <td>将 PASA 注释结果转换为 Augustus 训练集格式</td>
+<td></td>
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
-<h3 id="2-4-同源蛋白预测-—-Exonerate"><a href="#2-4-同源蛋白预测-—-Exonerate" class="headerlink" title="2.4 同源蛋白预测 — Exonerate"></a>2.4 同源蛋白预测 — Exonerate</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">exonerate --model protein2genome ref.pep.fa genome.fa --showalignment <span class="hljs-literal">false</span> --showtargetgff <span class="hljs-literal">true</span> --percent 50 --bestn 1 --minintron 10 --maxintron 100000 &gt; exonerate.ref.pep.fa.out<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-4-同源蛋白预测-—-Exonerate"><a class="header-anchor" href="#2-4-同源蛋白预测-—-Exonerate">¶</a>2.4 同源蛋白预测 — Exonerate</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">exonerate --model protein2genome ref.pep.fa genome.fa --showalignment <span class="hljs-literal">false</span> --showtargetgff <span class="hljs-literal">true</span> --percent 50 --bestn 1 --minintron 10 --maxintron 100000 &gt; exonerate.ref.pep.fa.out<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -870,11 +865,11 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://www.ebi.ac.uk/about/vertebrate-genomics/software/exonerate">Exonerate</a> — 蛋白质-基因组比对工具。</p>
 <hr>
-<h3 id="2-5-De-novo-基因预测-—-Augustus"><a href="#2-5-De-novo-基因预测-—-Augustus" class="headerlink" title="2.5 De novo 基因预测 — Augustus"></a>2.5 De novo 基因预测 — Augustus</h3><h4 id="训练-Augustus"><a href="#训练-Augustus" class="headerlink" title="训练 Augustus"></a>训练 Augustus</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl autoAugTrain.pl --genome=genome.fa --trainingset=best_candidates.gff3 --species=rosa_rna --useexisting 2&gt; auto_training.log<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-5-De-novo-基因预测-—-Augustus"><a class="header-anchor" href="#2-5-De-novo-基因预测-—-Augustus">¶</a>2.5 De novo 基因预测 — Augustus</h3>
+<h4 id="训练-Augustus"><a class="header-anchor" href="#训练-Augustus">¶</a>训练 Augustus</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl autoAugTrain.pl --genome=genome.fa --trainingset=best_candidates.gff3 --species=rosa_rna --useexisting 2&gt; auto_training.log<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -901,9 +896,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="运行-Augustus"><a href="#运行-Augustus" class="headerlink" title="运行 Augustus"></a>运行 Augustus</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">augustus --species=rosa_rna --AUGUSTUS_CONFIG_PATH=/usr/software/augustus-3.3.3/config --uniqueGeneId=<span class="hljs-literal">true</span> --noInFrameStop=<span class="hljs-literal">true</span> --gff3=on --strand=both genome.fa.mod.MAKER.masked &gt; genome.fa.mod.MAKER.masked.augustus<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="运行-Augustus"><a class="header-anchor" href="#运行-Augustus">¶</a>运行 Augustus</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">augustus --species=rosa_rna --AUGUSTUS_CONFIG_PATH=/usr/software/augustus-3.3.3/config --uniqueGeneId=<span class="hljs-literal">true</span> --noInFrameStop=<span class="hljs-literal">true</span> --gff3=on --strand=both genome.fa.mod.MAKER.masked &gt; genome.fa.mod.MAKER.masked.augustus<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -942,11 +936,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="http://bioinf.uni-greifswald.de/augustus/">Augustus</a> — <em>De novo</em> 基因预测工具。</p>
 <hr>
-<h3 id="2-6-多证据整合-—-EVidenceModeler"><a href="#2-6-多证据整合-—-EVidenceModeler" class="headerlink" title="2.6 多证据整合 — EVidenceModeler"></a>2.6 多证据整合 — EVidenceModeler</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl EVidenceModeler/EvmUtils/partition_EVM_inputs.pl \<br>    --genome genome.fa.mod.MAKER.masked \<br>    --gene_predictions denovo.gff3 \<br>    --protein_alignments gene.gff3 \<br>    --transcript_alignments trans.gff3 \<br>    --segmentSize 5000000 \<br>    --overlapSize 10000 \<br>    --partition_listing partitions_list.out<br><br>perl EVidenceModeler/EvmUtils/write_EVM_commands.pl \<br>    --genome genome.fa.mod.MAKER.masked \<br>    --gene_predictions denovo.gff3 \<br>    --protein_alignments gene.gff3 \<br>    --transcript_alignments trans.gff3 \<br>    --weights /program/rosa/5.anno/1.lcfh1/2.geneanno/evm/weights.txt \<br>    --output_file_name evm.out \<br>    --partitions partitions_list.out &gt; commands.list<br><br>EVidenceModeler/EvmUtils/recombine_EVM_partial_outputs.pl \<br>    --partitions partitions_list.out \<br>    --output_file_name evm.out<br><br>EVidenceModeler/EvmUtils/convert_EVM_outputs_to_GFF3.pl \<br>    --partitions partitions_list.out \<br>    --output_file_name evm.out \<br>    --genome genome.fa.mod.MAKER.masked<br><br><span class="hljs-built_in">cat</span> */evm.out.gff3 &gt; genome.fa.gene.gff3<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-6-多证据整合-—-EVidenceModeler"><a class="header-anchor" href="#2-6-多证据整合-—-EVidenceModeler">¶</a>2.6 多证据整合 — EVidenceModeler</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">perl EVidenceModeler/EvmUtils/partition_EVM_inputs.pl \<br>    --genome genome.fa.mod.MAKER.masked \<br>    --gene_predictions denovo.gff3 \<br>    --protein_alignments gene.gff3 \<br>    --transcript_alignments trans.gff3 \<br>    --segmentSize 5000000 \<br>    --overlapSize 10000 \<br>    --partition_listing partitions_list.out<br><br>perl EVidenceModeler/EvmUtils/write_EVM_commands.pl \<br>    --genome genome.fa.mod.MAKER.masked \<br>    --gene_predictions denovo.gff3 \<br>    --protein_alignments gene.gff3 \<br>    --transcript_alignments trans.gff3 \<br>    --weights /program/rosa/5.anno/1.lcfh1/2.geneanno/evm/weights.txt \<br>    --output_file_name evm.out \<br>    --partitions partitions_list.out &gt; commands.list<br><br>EVidenceModeler/EvmUtils/recombine_EVM_partial_outputs.pl \<br>    --partitions partitions_list.out \<br>    --output_file_name evm.out<br><br>EVidenceModeler/EvmUtils/convert_EVM_outputs_to_GFF3.pl \<br>    --partitions partitions_list.out \<br>    --output_file_name evm.out \<br>    --genome genome.fa.mod.MAKER.masked<br><br><span class="hljs-built_in">cat</span> */evm.out.gff3 &gt; genome.fa.gene.gff3<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -993,11 +986,10 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/EVidenceModeler/EVidenceModeler">EVidenceModeler (EVM)</a> — 整合多种证据（基因预测、蛋白比对、转录本比对）生成一致的基因模型。</p>
 <hr>
-<h3 id="2-7-注释结果评估-—-BUSCO"><a href="#2-7-注释结果评估-—-BUSCO" class="headerlink" title="2.7 注释结果评估 — BUSCO"></a>2.7 注释结果评估 — BUSCO</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">busco -l ~/database/busco/eudicots_odb10 --offline -o prot_out -m prot -c 56 --out_path ./BUSCO_out -i pro.fa<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h3 id="2-7-注释结果评估-—-BUSCO"><a class="header-anchor" href="#2-7-注释结果评估-—-BUSCO">¶</a>2.7 注释结果评估 — BUSCO</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">busco -l ~/database/busco/eudicots_odb10 --offline -o prot_out -m prot -c 56 --out_path ./BUSCO_out -i pro.fa<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -1036,12 +1028,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
-<h2 id="3-RNA-seq-—-转录组分析"><a href="#3-RNA-seq-—-转录组分析" class="headerlink" title="3. RNA-seq — 转录组分析"></a>3. RNA-seq — 转录组分析</h2><p><strong>脚本</strong>: <code>RNA_seq/RNA.sh</code></p>
+<h2 id="3-RNA-seq-—-转录组分析"><a class="header-anchor" href="#3-RNA-seq-—-转录组分析">¶</a>3. RNA-seq — 转录组分析</h2>
+<p><strong>脚本</strong>: <code>RNA_seq/RNA.sh</code></p>
 <p><strong>功能概述</strong>: RNA-seq 比对、转录本定量与表达量估计。</p>
-<h3 id="3-1-比对与定量"><a href="#3-1-比对与定量" class="headerlink" title="3.1 比对与定量"></a>3.1 比对与定量</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 -x genome -1 RNA_R1.fastq.gz -2 RNA_R2.fastq.gz --rna-strandness RF --summary-file genome_summary --new-summary -p 24 \<br>  | samtools view -@ 24 -Sb - \<br>  | samtools <span class="hljs-built_in">sort</span> -@ 24 -o genome.sorted.bam - &gt;&amp;2 2&gt;genome_log<br><br>samtools index genome.sorted.bam<br><br>~/software/stringtie genome.sorted.bam -e -G genome.gff3 -b genome.Ballgown -o genome.gtf<br></code></pre></td></tr></tbody></table></figure>
-<h4 id="HISAT2-参数"><a href="#HISAT2-参数" class="headerlink" title="HISAT2 参数"></a>HISAT2 参数</h4><div class="table-container">
+<h3 id="3-1-比对与定量"><a class="header-anchor" href="#3-1-比对与定量">¶</a>3.1 比对与定量</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs bash">hisat2 -x genome -1 RNA_R1.fastq.gz -2 RNA_R2.fastq.gz --rna-strandness RF --summary-file genome_summary --new-summary -p 24 \<br>  | samtools view -@ 24 -Sb - \<br>  | samtools <span class="hljs-built_in">sort</span> -@ 24 -o genome.sorted.bam - &gt;&amp;2 2&gt;genome_log<br><br>samtools index genome.sorted.bam<br><br>~/software/stringtie genome.sorted.bam -e -G genome.gff3 -b genome.Ballgown -o genome.gtf<br></code></pre></td></tr></tbody></table></figure>
+<h4 id="HISAT2-参数"><a class="header-anchor" href="#HISAT2-参数">¶</a>HISAT2 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1080,8 +1073,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Samtools-参数"><a href="#Samtools-参数" class="headerlink" title="Samtools 参数"></a>Samtools 参数</h4><div class="table-container">
+<h4 id="Samtools-参数"><a class="header-anchor" href="#Samtools-参数">¶</a>Samtools 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1100,8 +1092,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="StringTie-参数"><a href="#StringTie-参数" class="headerlink" title="StringTie 参数"></a>StringTie 参数</h4><div class="table-container">
+<h4 id="StringTie-参数"><a class="header-anchor" href="#StringTie-参数">¶</a>StringTie 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1128,12 +1119,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <hr>
-<h2 id="4-Pangenome-—-泛基因组构建"><a href="#4-Pangenome-—-泛基因组构建" class="headerlink" title="4. Pangenome — 泛基因组构建"></a>4. Pangenome — 泛基因组构建</h2><h3 id="4-1-基因组图构建-—-PGGB"><a href="#4-1-基因组图构建-—-PGGB" class="headerlink" title="4.1 基因组图构建 — PGGB"></a>4.1 基因组图构建 — PGGB</h3><p><strong>脚本</strong>: <code>Pangenome/pggb.sh</code></p>
+<h2 id="4-Pangenome-—-泛基因组构建"><a class="header-anchor" href="#4-Pangenome-—-泛基因组构建">¶</a>4. Pangenome — 泛基因组构建</h2>
+<h3 id="4-1-基因组图构建-—-PGGB"><a class="header-anchor" href="#4-1-基因组图构建-—-PGGB">¶</a>4.1 基因组图构建 — PGGB</h3>
+<p><strong>脚本</strong>: <code>Pangenome/pggb.sh</code></p>
 <p><strong>功能概述</strong>: 将多个基因组 fasta 合并后，使用 PGGB 构建泛基因组图（variation graph）。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">id</span>=$(<span class="hljs-built_in">pwd</span> | <span class="hljs-built_in">cut</span> -d <span class="hljs-string">"/"</span> -f 9)<br><span class="hljs-built_in">ls</span> *.fa | <span class="hljs-keyword">while</span> <span class="hljs-built_in">read</span> f; <span class="hljs-keyword">do</span><br>    sample_name=$(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$f</span> | <span class="hljs-built_in">cut</span> -f 1 -d <span class="hljs-string">'.'</span>)<br>    fastix -p <span class="hljs-string">"<span class="hljs-variable">${sample_name}</span>#"</span> <span class="hljs-variable">$f</span> &gt;&gt; <span class="hljs-variable">${id}</span>_all.fasta<br><span class="hljs-keyword">done</span><br>bgzip -@ 15 <span class="hljs-variable">${id}</span>_all.fasta<br>samtools faidx <span class="hljs-variable">${id}</span>_all.fasta.gz<br>mash triangle <span class="hljs-variable">${id}</span>_all.fasta.gz &gt; <span class="hljs-variable">${id}</span>_all.fasta.gz.mash_triangle.txt<br>sed 1,1d Chr1_all.fasta.gz.mash_triangle.txt | <span class="hljs-built_in">tr</span> <span class="hljs-string">'\t'</span> <span class="hljs-string">'\n'</span> | grep chr -v | LC_ALL=C <span class="hljs-built_in">sort</span> -g -k 1nr | <span class="hljs-built_in">uniq</span> | less -S<br><br>pggb -i <span class="hljs-variable">${id}</span>_all.fasta.gz -o <span class="hljs-variable">${id}</span>_pggb_out -n 55 -t 20 -p 90 -S -m -V A01_1:<span class="hljs-comment">#,A01_2:#,...(共55个样本)</span><br></code></pre></td></tr></tbody></table></figure>
-<h4 id="样本合并"><a href="#样本合并" class="headerlink" title="样本合并"></a>样本合并</h4><div class="table-container">
+<h4 id="样本合并"><a class="header-anchor" href="#样本合并">¶</a>样本合并</h4>
 <table>
 <thead>
 <tr>
@@ -1143,8 +1135,7 @@
 </thead>
 <tbody>
 <tr>
-<td>`pwd \</td>
-<td>cut -d “/“ -f 9`</td>
+<td><code>pwd | cut -d "/" -f 9</code></td>
 <td>从路径中提取染色体号（如 Chr1）</td>
 </tr>
 <tr>
@@ -1161,8 +1152,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="距离矩阵"><a href="#距离矩阵" class="headerlink" title="距离矩阵"></a>距离矩阵</h4><div class="table-container">
+<h4 id="距离矩阵"><a class="header-anchor" href="#距离矩阵">¶</a>距离矩阵</h4>
 <table>
 <thead>
 <tr>
@@ -1177,8 +1167,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="PGGB-运行"><a href="#PGGB-运行" class="headerlink" title="PGGB 运行"></a>PGGB 运行</h4><div class="table-container">
+<h4 id="PGGB-运行"><a class="header-anchor" href="#PGGB-运行">¶</a>PGGB 运行</h4>
 <table>
 <thead>
 <tr>
@@ -1221,14 +1210,14 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/pangenome/pggb">PGGB</a> — PanGenome Graph Builder，基于 VG 工具包构建泛基因组图。</p>
-<p><strong>包含的 55 个样本</strong>:<br>A01_1, A01_2, A02_1, A02_2, A03_1, A03_2, A04_1, A04_2, A05_1, A05_2, A06_1, A06_2, A10_1, A10_2, A11_1, A11_2, A12_1, A12_2, A13_1, A13_2, A14_1, A14_2, A15_1, A15_2, A16_1, A16_2, A17_1, A17_2, A18_1, A18_2, A19_1, A19_2, A20_1, A20_2, A21_1, A21_2, A23_1, A23_2, A25_1, A25_2, A27_1, A27_2, A28_1, A28_2, A29_1, A29_2, A31_1, A31_2, DR21, HR20</p>
+<p><strong>包含的 55 个样本</strong>:<br>
+A01_1, A01_2, A02_1, A02_2, A03_1, A03_2, A04_1, A04_2, A05_1, A05_2, A06_1, A06_2, A10_1, A10_2, A11_1, A11_2, A12_1, A12_2, A13_1, A13_2, A14_1, A14_2, A15_1, A15_2, A16_1, A16_2, A17_1, A17_2, A18_1, A18_2, A19_1, A19_2, A20_1, A20_2, A21_1, A21_2, A23_1, A23_2, A25_1, A25_2, A27_1, A27_2, A28_1, A28_2, A29_1, A29_2, A31_1, A31_2, DR21, HR20</p>
 <hr>
-<h3 id="4-2-直系同源基因分析-—-OrthoFinder"><a href="#4-2-直系同源基因分析-—-OrthoFinder" class="headerlink" title="4.2 直系同源基因分析 — OrthoFinder"></a>4.2 直系同源基因分析 — OrthoFinder</h3><p><strong>脚本</strong>: <code>Pangenome/orthofinder.sh</code></p>
+<h3 id="4-2-直系同源基因分析-—-OrthoFinder"><a class="header-anchor" href="#4-2-直系同源基因分析-—-OrthoFinder">¶</a>4.2 直系同源基因分析 — OrthoFinder</h3>
+<p><strong>脚本</strong>: <code>Pangenome/orthofinder.sh</code></p>
 <p><strong>功能概述</strong>: 识别多个基因组间的直系同源基因群（orthogroups），用于泛基因组核心基因和可变基因的划分。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">orthofinder -f orthofinder_workdir -t 20 -S diamond -M msa<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1255,13 +1244,13 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/davidemms/OrthoFinder">OrthoFinder</a> — 直系同源基因推断、基因树构建和物种树推断工具。</p>
 <hr>
-<h3 id="4-3-结构变异检测-—-SyRI"><a href="#4-3-结构变异检测-—-SyRI" class="headerlink" title="4.3 结构变异检测 — SyRI"></a>4.3 结构变异检测 — SyRI</h3><p><strong>脚本</strong>: <code>Pangenome/syri.sh</code></p>
+<h3 id="4-3-结构变异检测-—-SyRI"><a class="header-anchor" href="#4-3-结构变异检测-—-SyRI">¶</a>4.3 结构变异检测 — SyRI</h3>
+<p><strong>脚本</strong>: <code>Pangenome/syri.sh</code></p>
 <p><strong>功能概述</strong>: 比对两个基因组，检测结构变异（包括倒位、易位、重复等）。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">minimap2 -ax asm5 -t 4 --eqx ref.fa quesry.fa | samtools <span class="hljs-built_in">sort</span> -O BAM - &gt; ref.query.bam<br>syri -c ref.query.bam -r ref.fa -q query.fa -F B --prefix ref_query<br></code></pre></td></tr></tbody></table></figure>
-<h4 id="Minimap2-参数"><a href="#Minimap2-参数" class="headerlink" title="Minimap2 参数"></a>Minimap2 参数</h4><div class="table-container">
+<h4 id="Minimap2-参数"><a class="header-anchor" href="#Minimap2-参数">¶</a>Minimap2 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1292,8 +1281,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="SyRI-参数"><a href="#SyRI-参数" class="headerlink" title="SyRI 参数"></a>SyRI 参数</h4><div class="table-container">
+<h4 id="SyRI-参数"><a class="header-anchor" href="#SyRI-参数">¶</a>SyRI 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1324,13 +1312,14 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/schneebergerlab/syri">SyRI</a> — 基因组结构变异与重排检测工具。</p>
 <hr>
-<h2 id="5-Phylogenetic-—-系统发育与群体遗传"><a href="#5-Phylogenetic-—-系统发育与群体遗传" class="headerlink" title="5. Phylogenetic — 系统发育与群体遗传"></a>5. Phylogenetic — 系统发育与群体遗传</h2><h3 id="5-1-SNP-变异检测-—-DeepVariant-GLnexus"><a href="#5-1-SNP-变异检测-—-DeepVariant-GLnexus" class="headerlink" title="5.1 SNP 变异检测 — DeepVariant + GLnexus"></a>5.1 SNP 变异检测 — DeepVariant + GLnexus</h3><p><strong>脚本</strong>: <code>Phylogenetic/Mapping_calling_SNP.sh</code></p>
+<h2 id="5-Phylogenetic-—-系统发育与群体遗传"><a class="header-anchor" href="#5-Phylogenetic-—-系统发育与群体遗传">¶</a>5. Phylogenetic — 系统发育与群体遗传</h2>
+<h3 id="5-1-SNP-变异检测-—-DeepVariant-GLnexus"><a class="header-anchor" href="#5-1-SNP-变异检测-—-DeepVariant-GLnexus">¶</a>5.1 SNP 变异检测 — DeepVariant + GLnexus</h3>
+<p><strong>脚本</strong>: <code>Phylogenetic/Mapping_calling_SNP.sh</code></p>
 <p><strong>功能概述</strong>: 将 HiFi reads 比对到参考基因组，使用 DeepVariant 进行变异检测，再使用 GLnexus 合并多样本变异。</p>
-<h4 id="Step-1-Minimap2-比对"><a href="#Step-1-Minimap2-比对" class="headerlink" title="Step 1: Minimap2 比对"></a>Step 1: Minimap2 比对</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">minimap2 -t 10 -ax map-hifi --eqx --secondary=no ref.fa ~/data/genome_hifi.fastq.gz 2&gt; <span class="hljs-built_in">log</span> | samtools view -Sb - &gt; genome.bam<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-1-Minimap2-比对"><a class="header-anchor" href="#Step-1-Minimap2-比对">¶</a>Step 1: Minimap2 比对</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">minimap2 -t 10 -ax map-hifi --eqx --secondary=no ref.fa ~/data/genome_hifi.fastq.gz 2&gt; <span class="hljs-built_in">log</span> | samtools view -Sb - &gt; genome.bam<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -1365,9 +1354,8 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="Step-2-标记重复并排序"><a href="#Step-2-标记重复并排序" class="headerlink" title="Step 2: 标记重复并排序"></a>Step 2: 标记重复并排序</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">samtools view -h genome.bam | samblaster -e --maxReadLength 100000 --ignoreUnmated | samtools view -Sb - &gt; genome.mark_dup.bam<br>samtools <span class="hljs-built_in">sort</span> -@ 10 genome.mark_dup.bam -o genome.mark_dup.sorted.bam<br>samtools index -@ 5 genome.mark_dup.sorted.bam<br><span class="hljs-built_in">rm</span> -rf genome.bam genome.mark_dup.bam<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-2-标记重复并排序"><a class="header-anchor" href="#Step-2-标记重复并排序">¶</a>Step 2: 标记重复并排序</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">samtools view -h genome.bam | samblaster -e --maxReadLength 100000 --ignoreUnmated | samtools view -Sb - &gt; genome.mark_dup.bam<br>samtools <span class="hljs-built_in">sort</span> -@ 10 genome.mark_dup.bam -o genome.mark_dup.sorted.bam<br>samtools index -@ 5 genome.mark_dup.sorted.bam<br><span class="hljs-built_in">rm</span> -rf genome.bam genome.mark_dup.bam<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -1390,10 +1378,9 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/GregoryFaust/samblaster">samblaster</a> — 标记 PCR/optical 重复 reads。</p>
-<h4 id="Step-3-DeepVariant-变异检测"><a href="#Step-3-DeepVariant-变异检测" class="headerlink" title="Step 3: DeepVariant 变异检测"></a>Step 3: DeepVariant 变异检测</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">singularity <span class="hljs-built_in">exec</span> -B <span class="hljs-variable">$PWD</span>:/input -B <span class="hljs-variable">$PWD</span>:/output \<br>    ~/software/deepvariant_calling/deepvariant_1.4.0.sif \<br>    /opt/deepvariant/bin/run_deepvariant \<br>    --model_type PACBIO \<br>    --ref=/input/outgroup.fa \<br>    --reads=/input/genome.mark_dup.sorted.bam \<br>    --output_gvcf=/output/genome.g.vcf.gz \<br>    --output_vcf=/output/genome.vcf.gz \<br>    --num_shards 20 \<br>    --intermediate_results_dir=/output/deepvariant_tmp_output/genome<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<h4 id="Step-3-DeepVariant-变异检测"><a class="header-anchor" href="#Step-3-DeepVariant-变异检测">¶</a>Step 3: DeepVariant 变异检测</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">singularity <span class="hljs-built_in">exec</span> -B <span class="hljs-variable">$PWD</span>:/input -B <span class="hljs-variable">$PWD</span>:/output \<br>    ~/software/deepvariant_calling/deepvariant_1.4.0.sif \<br>    /opt/deepvariant/bin/run_deepvariant \<br>    --model_type PACBIO \<br>    --ref=/input/outgroup.fa \<br>    --reads=/input/genome.mark_dup.sorted.bam \<br>    --output_gvcf=/output/genome.g.vcf.gz \<br>    --output_vcf=/output/genome.vcf.gz \<br>    --num_shards 20 \<br>    --intermediate_results_dir=/output/deepvariant_tmp_output/genome<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -1432,10 +1419,10 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><strong>运行环境</strong>: Singularity 容器 (<code>deepvariant_1.4.0.sif</code>)<br><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/google/deepvariant">DeepVariant</a> — 基于深度学习的变异检测工具。</p>
-<h4 id="Step-4-GLnexus-合并多样本变异"><a href="#Step-4-GLnexus-合并多样本变异" class="headerlink" title="Step 4: GLnexus 合并多样本变异"></a>Step 4: GLnexus 合并多样本变异</h4><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">singularity <span class="hljs-built_in">exec</span> -B <span class="hljs-variable">$PWD</span>:/input -B <span class="hljs-variable">$PWD</span>:/output ~/software/GLnexus/glnexus_cli.sif \<br>    glnexus_cli --config DeepVariantWGS --<span class="hljs-built_in">dir</span> /input/GLnexus.DB --bed /input/input.bed -t 10 --list /input/input.list.use_change &gt; merge.bcf<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
+<p><strong>运行环境</strong>: Singularity 容器 (<code>deepvariant_1.4.0.sif</code>)<br>
+<strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/google/deepvariant">DeepVariant</a> — 基于深度学习的变异检测工具。</p>
+<h4 id="Step-4-GLnexus-合并多样本变异"><a class="header-anchor" href="#Step-4-GLnexus-合并多样本变异">¶</a>Step 4: GLnexus 合并多样本变异</h4>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">singularity <span class="hljs-built_in">exec</span> -B <span class="hljs-variable">$PWD</span>:/input -B <span class="hljs-variable">$PWD</span>:/output ~/software/GLnexus/glnexus_cli.sif \<br>    glnexus_cli --config DeepVariantWGS --<span class="hljs-built_in">dir</span> /input/GLnexus.DB --bed /input/input.bed -t 10 --list /input/input.list.use_change &gt; merge.bcf<br></code></pre></td></tr></tbody></table></figure>
 <table>
 <thead>
 <tr>
@@ -1466,13 +1453,13 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><strong>运行环境</strong>: Singularity 容器 (<code>glnexus_cli.sif</code>)<br><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/dnanexus-rnd/GLnexus">GLnexus</a> — 多样本变异联合基因型推断工具。</p>
+<p><strong>运行环境</strong>: Singularity 容器 (<code>glnexus_cli.sif</code>)<br>
+<strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/dnanexus-rnd/GLnexus">GLnexus</a> — 多样本变异联合基因型推断工具。</p>
 <hr>
-<h3 id="5-2-群体基因流分析-—-Dsuite"><a href="#5-2-群体基因流分析-—-Dsuite" class="headerlink" title="5.2 群体基因流分析 — Dsuite"></a>5.2 群体基因流分析 — Dsuite</h3><p><strong>脚本</strong>: <code>Phylogenetic/Dsuite.sh</code></p>
+<h3 id="5-2-群体基因流分析-—-Dsuite"><a class="header-anchor" href="#5-2-群体基因流分析-—-Dsuite">¶</a>5.2 群体基因流分析 — Dsuite</h3>
+<p><strong>脚本</strong>: <code>Phylogenetic/Dsuite.sh</code></p>
 <p><strong>功能概述</strong>: 使用 Dsuite 的 Dtrios 模块进行 ABBA-BABA 检验，检测群体间的基因流/渗入（introgression）。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">~/software/Dsuite/Build/Dsuite Dtrios merge.snp.filter.vcf_pass species_sets.txt -n gene_flow_with_tree -t tree_file<br></code></pre></td></tr></tbody></table></figure>
-<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1503,14 +1490,15 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/millanek/Dsuite">Dsuite</a> — 利用 D 统计量（ABBA-BABA test）检测群体间基因流和种系不一致。</p>
 <hr>
-<h3 id="5-3-群体历史大小推断-—-PSMC"><a href="#5-3-群体历史大小推断-—-PSMC" class="headerlink" title="5.3 群体历史大小推断 — PSMC"></a>5.3 群体历史大小推断 — PSMC</h3><p><strong>脚本</strong>: <code>Phylogenetic/PSMC.sh</code></p>
+<h3 id="5-3-群体历史大小推断-—-PSMC"><a class="header-anchor" href="#5-3-群体历史大小推断-—-PSMC">¶</a>5.3 群体历史大小推断 — PSMC</h3>
+<p><strong>脚本</strong>: <code>Phylogenetic/PSMC.sh</code></p>
 <p><strong>功能概述</strong>: 使用 PSMC (Pairwise Sequentially Markovian Coalescent) 方法推断群体有效大小历史变化。</p>
 <figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-keyword">for</span> <span class="hljs-built_in">id</span> <span class="hljs-keyword">in</span> {1..100} ; <span class="hljs-keyword">do</span><br>    <span class="hljs-built_in">echo</span> <span class="hljs-string">"~/software/psmc/psmc -N25 -t13 -r5 -b -p 4+25*2+4+6 -o genome.round-<span class="hljs-variable">${id}</span>.psmc genome.psmcfa"</span> &gt;&gt; psmc_bs.sh<br><span class="hljs-keyword">done</span><br>ParaFly -c psmc_bs.sh -CPU 5<br></code></pre></td></tr></tbody></table></figure>
-<h4 id="生成-100-次-bootstrap-脚本"><a href="#生成-100-次-bootstrap-脚本" class="headerlink" title="生成 100 次 bootstrap 脚本"></a>生成 100 次 bootstrap 脚本</h4><p>使用 for 循环生成 100 个 bootstrap 命令，每次使用不同的随机种子。</p>
-<h4 id="PSMC-参数"><a href="#PSMC-参数" class="headerlink" title="PSMC 参数"></a>PSMC 参数</h4><div class="table-container">
+<h4 id="生成-100-次-bootstrap-脚本"><a class="header-anchor" href="#生成-100-次-bootstrap-脚本">¶</a>生成 100 次 bootstrap 脚本</h4>
+<p>使用 for 循环生成 100 个 bootstrap 命令，每次使用不同的随机种子。</p>
+<h4 id="PSMC-参数"><a class="header-anchor" href="#PSMC-参数">¶</a>PSMC 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1549,8 +1537,7 @@
 </tr>
 </tbody>
 </table>
-</div>
-<h4 id="ParaFly-参数"><a href="#ParaFly-参数" class="headerlink" title="ParaFly 参数"></a>ParaFly 参数</h4><div class="table-container">
+<h4 id="ParaFly-参数"><a class="header-anchor" href="#ParaFly-参数">¶</a>ParaFly 参数</h4>
 <table>
 <thead>
 <tr>
@@ -1569,10 +1556,11 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/lh3/psmc">PSMC</a> — 基于单个基因组的杂合度推断群体历史大小变化。<br><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/ParasolGenomics/ParaFly">ParaFly</a> — 简单的并行执行工具。</p>
+<p><strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/lh3/psmc">PSMC</a> — 基于单个基因组的杂合度推断群体历史大小变化。<br>
+<strong>工具</strong>: <a target="_blank" rel="noopener" href="https://github.com/ParasolGenomics/ParaFly">ParaFly</a> — 简单的并行执行工具。</p>
 <hr>
-<h2 id="附录：流程总览"><a href="#附录：流程总览" class="headerlink" title="附录：流程总览"></a>附录：流程总览</h2><figure class="highlight scss"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs scss">原始数据 (HiFi reads, Hi-C reads, RNA-seq reads)<br>        │<br>        ▼<br>┌───────────────────────┐<br>│   Genome Assembly     │  Hifiasm + <span class="hljs-number">3</span>D-DNA + Hi-C<br>│   基因组组装           │<br>└──────────┬────────────┘<br>           │<br>           ▼<br>┌───────────────────────┐<br>│   Genome Annotation   │  EDTA + HISAT2 + StringTie + TransDecoder<br>│   基因组注释           │  + Trinity + PASA + Exonerate + Augustus + EVM<br>└──────────┬────────────┘<br>           │<br>     ┌─────┴──────┐<br>     ▼            ▼<br>┌─────────┐ ┌────────────────────────────────────┐<br>│ RNA-seq │ │        Pangenome                   │<br>│ 定量    │ │  PGGB (图构建) + OrthoFinder (直系   │<br>│         │ │  同源) + SyRI (结构变异)             │<br>└─────────┘ └──────────────┬─────────────────────┘<br>                           │<br>                           ▼<br>            ┌──────────────────────────┐<br>            │    Phylogenetic          │<br>            │  系统发育与群体遗传        │<br>            │  DeepVariant (SNP)       │<br>            │  Dsuite (基因流)         │<br>            │  PSMC (历史群体大小)     │<br>            └──────────────────────────┘<br></code></pre></td></tr></tbody></table></figure>
+<h2 id="附录：流程总览"><a class="header-anchor" href="#附录：流程总览">¶</a>附录：流程总览</h2>
+<figure class="highlight scss"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs scss">原始数据 (HiFi reads, Hi-C reads, RNA-seq reads)<br>        │<br>        ▼<br>┌───────────────────────┐<br>│   Genome Assembly     │  Hifiasm + <span class="hljs-number">3</span>D-DNA + Hi-C<br>│   基因组组装           │<br>└──────────┬────────────┘<br>           │<br>           ▼<br>┌───────────────────────┐<br>│   Genome Annotation   │  EDTA + HISAT2 + StringTie + TransDecoder<br>│   基因组注释           │  + Trinity + PASA + Exonerate + Augustus + EVM<br>└──────────┬────────────┘<br>           │<br>     ┌─────┴──────┐<br>     ▼            ▼<br>┌─────────┐ ┌────────────────────────────────────┐<br>│ RNA-seq │ │        Pangenome                   │<br>│ 定量    │ │  PGGB (图构建) + OrthoFinder (直系   │<br>│         │ │  同源) + SyRI (结构变异)             │<br>└─────────┘ └──────────────┬─────────────────────┘<br>                           │<br>                           ▼<br>            ┌──────────────────────────┐<br>            │    Phylogenetic          │<br>            │  系统发育与群体遗传        │<br>            │  DeepVariant (SNP)       │<br>            │  Dsuite (基因流)         │<br>            │  PSMC (历史群体大小)     │<br>            └──────────────────────────┘<br></code></pre></td></tr></tbody></table></figure>
 
                 
               </div>
@@ -1770,22 +1758,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

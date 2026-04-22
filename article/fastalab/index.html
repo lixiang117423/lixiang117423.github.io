@@ -88,9 +88,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -296,7 +296,8 @@
                 
                 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os<br><br>files = os.listdir(<span class="hljs-string">"G:\\33Pan_download\\下载数据\\unzip\\"</span>)<br><br>all_genome = <span class="hljs-built_in">open</span>(<span class="hljs-string">"G:\\33Pan_download\\下载数据\\all_genome.fa"</span>,<span class="hljs-string">"w"</span>)<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> files:<br>    <span class="hljs-built_in">print</span>(i)<br>    file_genome = <span class="hljs-string">"G:\\33Pan_download\\下载数据\\unzip\\"</span> + <span class="hljs-built_in">str</span>(i) + <span class="hljs-string">"\\"</span> + <span class="hljs-built_in">str</span>(i) +  <span class="hljs-string">".genome"</span><br>    new_genome = file_genome + <span class="hljs-string">".fa"</span><br>    f_rewrite = <span class="hljs-built_in">open</span>(new_genome, <span class="hljs-string">"w"</span>)<br>    f = <span class="hljs-built_in">open</span>(file_genome,<span class="hljs-string">"r"</span>)<br>    <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f.readlines():<br>        <span class="hljs-keyword">if</span> line[<span class="hljs-number">0</span>] == <span class="hljs-string">"&gt;"</span>:<br>            line_2 = line.replace(<span class="hljs-string">"\n"</span>,<span class="hljs-string">""</span>) + <span class="hljs-string">"_"</span> + i + <span class="hljs-string">"\n"</span><br>            <span class="hljs-comment">#print(line_2)</span><br>            f_rewrite.write(line_2)<br>            all_genome.write(line_2)<br>        <span class="hljs-keyword">else</span>:<br>            f_rewrite.write(line)<br>            all_genome.write(line)<br>        <br>        <span class="hljs-comment">#print(line.strip()) # 把末尾的'\n'删掉</span><br>    f_rewrite.close()<br>all_genome.close()<br></code></pre></td></tr></tbody></table></figure>
 <hr>
-<p>💌lixiang117423@foxmail.com<br>💌lixiang117423@gmail.com</p>
+<p>💌lixiang117423@foxmail.com<br>
+💌lixiang117423@gmail.com</p>
 
                 
               </div>
@@ -504,22 +505,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 

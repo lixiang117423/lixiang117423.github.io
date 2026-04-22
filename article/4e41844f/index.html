@@ -86,9 +86,9 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="小蓝哥的知识荒原" type="application/atom+xml">
 </head>
 
 
@@ -295,23 +295,28 @@
                 <p>NMDS（nonmetric multidimensional scaling，非度量多维尺度分析）是排序（ordination）分析一种。排序分析的目的在于寻找数据的连续性（也就是通过连续的排序轴来展示数据的主要趋势）。</p>
 <span id="more"></span>
 <p>为什么在微生物（微生态）研究中常用排序分析呢？因为自然生态群落往往是沿着环境梯度呈连续性分布的。</p>
-<h1 id="为什么要用排序分析"><a href="#为什么要用排序分析" class="headerlink" title="为什么要用排序分析"></a>为什么要用排序分析</h1><p>假设现在有这样一组数据：100个样本，100个变量（如基因），那得到的数据就是一个100行×100列的表，也就是100×100=10000维的数据，我（们）能理解（想象）的维度只能到3维，超过3维的数据就很难理解（想象）了。那怎么办呢？既然维度太高我们无法理解，那就把维度降低，降到一维、二维或者三维就能理解了。所以，我理解的排序分析的本质就是降维（个人理解）。</p>
-<h1 id="排序分析分类"><a href="#排序分析分类" class="headerlink" title="排序分析分类"></a>排序分析分类</h1><p>那都有哪些排序分析方法呢？</p>
+<h1>为什么要用排序分析</h1>
+<p>假设现在有这样一组数据：100个样本，100个变量（如基因），那得到的数据就是一个100行×100列的表，也就是100×100=10000维的数据，我（们）能理解（想象）的维度只能到3维，超过3维的数据就很难理解（想象）了。那怎么办呢？既然维度太高我们无法理解，那就把维度降低，降到一维、二维或者三维就能理解了。所以，我理解的排序分析的本质就是降维（个人理解）。</p>
+<h1>排序分析分类</h1>
+<p>那都有哪些排序分析方法呢？</p>
 <p>按照是否”约束“可以分成两类：</p>
 <ul>
 <li>约束（典范）排序：RDA（冗余分析）、CCA（典范对应分析）、LDA（线性判别分析）等；</li>
 <li>非约束排序：PCA（主成分分析）、CA对应分析、PCoA（主坐标分析）、NMDS（非度量多维尺度分析）等。</li>
 </ul>
 <p>需要注意的是：非约束排序只是一种描述性的方法，不存在统计检验评估排序结果显著性的问题；而约束排序则需要对排序的结果进行显著性检验。</p>
-<h1 id="NMDS的原理"><a href="#NMDS的原理" class="headerlink" title="NMDS的原理"></a>NMDS的原理</h1><p>数学原理和算法很复杂，我们作为应用中，只需要要知道怎么用就可以了（下面的例子都是我自己的理解，不妥指出还请批评指正）。</p>
+<h1>NMDS的原理</h1>
+<p>数学原理和算法很复杂，我们作为应用中，只需要要知道怎么用就可以了（下面的例子都是我自己的理解，不妥指出还请批评指正）。</p>
 <p>举个很简单的例子，假设现在路上有4个人在跑步，分别是①②③④。现在我们并不关心他们之间的具体的距离是多少，我们在乎的只是对某个人来说，其他三个人和他的相对距离。现在假设我是图中的①，那么②就是我的”第一远“，思就是我的”第二远“，③就是我的”第三远“。</p>
 
 <p>在NMDS中，排序轴就是一条条的跑道，根据排序轴来比较样本的差异。</p>
-<h1 id="NMDS在R中的实现"><a href="#NMDS在R中的实现" class="headerlink" title="NMDS在R中的实现"></a>NMDS在R中的实现</h1><p>好像是有好多软件能完成NMDS分析，但是我还是觉得R语言是最好的。PS：就在我些这个文章的时候，同学告诉我说经典的进化树可视化软件（软件）<code>iTOL</code>开始收费了，所以是，开源不收费还是好啊。</p>
+<h1>NMDS在R中的实现</h1>
+<p>好像是有好多软件能完成NMDS分析，但是我还是觉得R语言是最好的。PS：就在我些这个文章的时候，同学告诉我说经典的进化树可视化软件（软件）<code>iTOL</code>开始收费了，所以是，开源不收费还是好啊。</p>
 <figure class="highlight r"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs R">rm<span class="hljs-punctuation">(</span><span class="hljs-built_in">list</span> <span class="hljs-operator">=</span> ls<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><span class="hljs-punctuation">)</span><br><br>library<span class="hljs-punctuation">(</span>ade4<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>vegan<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>plyr<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>tidyverse<span class="hljs-punctuation">)</span><br>library<span class="hljs-punctuation">(</span>ggsci<span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># download data</span><br>load<span class="hljs-punctuation">(</span><span class="hljs-string">'Doubs.RData'</span><span class="hljs-punctuation">)</span><br>spe <span class="hljs-operator">=</span> spe<span class="hljs-punctuation">[</span><span class="hljs-operator">-</span><span class="hljs-number">8</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">]</span> <span class="hljs-comment"># 提出无物种数据的样本</span><br><br><span class="hljs-comment"># run NMDS</span><br>spe.nmds <span class="hljs-operator">=</span> vegan<span class="hljs-operator">::</span>metaMDS<span class="hljs-punctuation">(</span>spe<span class="hljs-punctuation">,</span> distance <span class="hljs-operator">=</span> <span class="hljs-string">'bray'</span><span class="hljs-punctuation">)</span><br>spe.nmds<br><br><span class="hljs-comment"># 经验法则：应力 &lt; 0.05 可很好地表示尺寸减小，</span><br><span class="hljs-comment"># &lt;0.1 非常好，&lt;0.2 还不错，而应力 &lt; 0.3 有待提高。</span><br>spe.nmds<span class="hljs-operator">$</span>stress<br><br>plot<span class="hljs-punctuation">(</span>spe.nmds<span class="hljs-punctuation">,</span>type <span class="hljs-operator">=</span> <span class="hljs-string">'t'</span><span class="hljs-punctuation">)</span><br><br><span class="hljs-comment"># 评估拟合度</span><br>png<span class="hljs-punctuation">(</span>filename <span class="hljs-operator">=</span> <span class="hljs-string">'20201109NMDS(非度量多维尺度分析)/figures/2.png'</span><span class="hljs-punctuation">,</span><br>    width <span class="hljs-operator">=</span> <span class="hljs-number">500</span><span class="hljs-punctuation">,</span> heigh <span class="hljs-operator">=</span> <span class="hljs-number">400</span><span class="hljs-punctuation">)</span><br>stressplot<span class="hljs-punctuation">(</span>spe.nmds<span class="hljs-punctuation">)</span><br>dev.off<span class="hljs-punctuation">(</span><span class="hljs-punctuation">)</span><br></code></pre></td></tr></tbody></table></figure>
 
-<p>这个图看$R^2$即可，$R^2$越大越好。</p>
-<h1 id="NMDS可视化"><a href="#NMDS可视化" class="headerlink" title="NMDS可视化"></a>NMDS可视化</h1><p>NMDS的可视化本质是散点图，通常有三种可视化方法：</p>
+<p>这个图看$R<sup>2$即可，$R</sup>2$越大越好。</p>
+<h1>NMDS可视化</h1>
+<p>NMDS的可视化本质是散点图，通常有三种可视化方法：</p>
 <ol>
 <li>置信椭圆</li>
 <li>多边形</li>
@@ -531,22 +536,7 @@
   <footer>
     <div class="footer-inner">
   
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
   
-  
-  
-    <!-- 备案信息 ICP for China -->
-    <div class="beian">
-  <span>
-    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
-      滇ICP备2021000708号-4
-    </a>
-  </span>
-  
-</div>
-
   
 </div>
 
